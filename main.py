@@ -1,79 +1,46 @@
 import os
-import random
 import asyncio
+import random
 import requests
 import subprocess
-import time
 from google import genai
-import edge_tts
-from google.genai.errors import ServerError
+from google.genai import types
 
-# Initialize Gemini client
-client = genai.Client()
-
-PIXABAY_API_KEY = os.environ.get("PIXABAY_API_KEY")
-FB_PAGE_ACCESS_TOKEN = os.environ.get("FB_PAGE_TOKEN") # Aapke secret wala naam yahan set hai
-FB_PAGE_ID = "100070951321353"
-
-BG_QUERIES = [
-    "dark aesthetic nature mosque",
-    "peaceful islamic nature background",
-    "quran recitation aesthetic video",
-    "makkah madinah aesthetic background",
-    "deep sky stars aesthetic dark",
-    "islamic architecture minaret drone",
-    "rain on mosque window aesthetic",
-    "desert night stars peaceful"
-]
+# Initialize Gemini Client
+client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
+model_name = 'gemini-3.6-flash'
 
 def generate_scripts_with_retry():
-    model_name = 'gemini-3.6-flash'
-    topic_prompt = "Think of a unique, deep, and touching Islamic motivational or spiritual topic. Give only the topic name in 3 to 6 words, nothing else."
+    topics = [
+        "When Allah Heals Your Silent Wounds",
+        "The Power of Patience in Hard Times",
+        "Finding Peace in the Midst of Chaos",
+        "Why Every Trial is a Hidden Blessing"
+    ]
+    topic = random.choice(topics)
+    print(f"Topic chosen: {topic}")
     
-    print("1. Generating topic from Gemini...")
-    topic_res = client.models.generate_content(model=model_name, contents=topic_prompt)
-    chosen_topic = topic_res.text.strip()
-    print(f"Topic chosen: {chosen_topic}")
+    prompt_long = f"Write a deep, engaging, and emotional script about '{topic}' for a long-form video (350-450 words). Provide only the text script to be spoken."
+    prompt_reel = f"Write a short, powerful, and punchy reel script about '{topic}' (under 100 words). Provide only the text script."
     
-    print("Waiting 10 seconds to avoid rate limit...")
-    time.sleep(10)
+    print("2. Generating long script...")
+    res_long = client.models.generate_content(
+        model=model_name,
+        contents=prompt_long,
+    )
     
-    print("2. Generating long script (350-450 words)...")
-    prompt_long = f"Write a deep and emotional Islamic motivational script in Roman Urdu based on this topic: {chosen_topic}. Length should be around 350 to 450 words."
-    res_long = client.models.generate_content(model=model_name, contents=prompt_long)
+    print("3. Generating reel script...")
+    res_reel = client.models.generate_content(
+        model=model_name,
+        contents=prompt_reel,
+    )
     
-    print("Waiting 10 seconds to avoid rate limit...")
-    time.sleep(10)
-    
-    print("3. Generating reel script (80-110 words)...")
-    prompt_reel = f"Write a short, high-retention Islamic motivational reel script in Roman Urdu based on this topic: {chosen_topic}. Length should be around 80 to 110 words."
-    res_reel = client.models.generate_content(model=model_name, contents=prompt_reel)
-    
-    return res_long.text, res_reel.text, chosen_topic
+    return res_long.text, res_reel.text, topic
 
-async def text_to_speech(text, output_filename, voice_type="male"):
-    voice = "ur-PK-AsadNeural" if voice_type == "male" else "ur-PK-UzmaNeural"
-    communicate = edge_tts.Communicate(text, voice)
+async def generate_audio(text, output_filename):
+    import edge_tts
+    communicate = edge_tts.Communicate(text, "en-US-ChristopherNeural")
     await communicate.save(output_filename)
-
-def download_pixabay_video(output_filename="bg.mp4"):
-    if not PIXABAY_API_KEY:
-        raise Exception("Critical Error: PIXABAY_API_KEY set nahi hai!")
-        
-    query = random.choice(BG_QUERIES)
-    url = f"https://pixabay.com/api/videos/?key={PIXABAY_API_KEY}&q={query}&per_page=10"
-    
-    response = requests.get(url, timeout=20).json()
-    if "hits" in response and len(response["hits"]) > 0:
-        selected_hit = random.choice(response["hits"])
-        video_url = selected_hit["videos"]["medium"]["url"]
-        
-        vid_data = requests.get(video_url, timeout=30).content
-        with open(output_filename, "wb") as f:
-            f.write(vid_data)
-        return True
-    else:
-        raise Exception("Pixabay se video nahi mil saki!")
 
 def create_video(audio_file, bg_video, output_video):
     cmd = [
@@ -94,51 +61,49 @@ def create_video(audio_file, bg_video, output_video):
         raise Exception(f"FFmpeg Error: {result.stderr.decode('utf-8', errors='ignore')}")
     return True
 
-def post_to_facebook(video_path, caption):
-    if not FB_PAGE_ACCESS_TOKEN:
-        raise Exception("FB_PAGE_TOKEN missing hai!")
-        
-    url = f"https://graph-video.facebook.com/v19.0/{FB_PAGE_ID}/videos"
+def post_to_facebook(video_path, title, description):
+    page_access_token = os.environ.get("FB_PAGE_ACCESS_TOKEN")
+    page_id = os.environ.get("FB_PAGE_ID")
+    url = f"https://graph-video.facebook.com/v18.0/{page_id}/videos"
     
     with open(video_path, 'rb') as f:
         files = {'source': f}
         data = {
-            'description': caption,
-            'access_token': FB_PAGE_ACCESS_TOKEN
+            'access_token': page_access_token,
+            'title': title,
+            'description': description
         }
-        response = requests.post(url, data=data, files=files, timeout=300)
-        print(f"FB Response Code: {response.status_code}")
-        print(f"FB Response Body: {response.text}")
-        
-        if response.status_code != 200:
-            raise Exception(f"Facebook Upload Failed: {response.text}")
+        response = requests.post(url, data=data, files=files)
         return response.json()
 
 async def main():
     print("Starting process...")
     long_script, reel_script, topic = generate_scripts_with_retry()
     
-    print("4. Downloading background video...")
-    download_pixabay_video(output_filename="bg.mp4")
-    bg_file = "bg.mp4"
-
-    print("5. Processing Long Video (Audio + Video)...")
-    await text_to_speech(long_script, "long_audio.mp3", voice_type="male")
-    create_video("long_audio.mp3", bg_file, "final_long_video.mp4")
+    # Audio generation
+    await generate_audio(long_script, "long_audio.mp3")
+    await generate_audio(reel_script, "reel_audio.mp3")
     
-    print("6. Posting Long Video to Facebook...")
-    long_caption = f"Janiye {topic} ke baray mein aik khoobsurat aur gehra paigham.\n\n#IslamicMotivation #Deeniyat #Allah #Quran #RanaAdnan"
-    post_to_facebook("final_long_video.mp4", long_caption)
-
-    print("7. Processing Short Reel...")
-    await text_to_speech(reel_script, "reel_audio.mp3", voice_type="female")
+    # Background video download or use local dummy background
+    bg_url = "https://assets.mixkit.co/videos/preview/mixkit-stars-in-the-space-background-1610-large.mp4"
+    bg_file = "bg.mp4"
+    if not os.path.exists(bg_file):
+        r = requests.get(bg_url, stream=True)
+        with open(bg_file, 'wb') as f:
+            for chunk in r.iter_content(chunk_size=1024):
+                if chunk:
+                    f.write(chunk)
+                    
+    # Render Videos
+    print("Rendering long video...")
+    create_video("long_audio.mp3", bg_file, "final_long.mp4")
+    
+    print("Rendering reel video...")
     create_video("reel_audio.mp3", bg_file, "final_reel.mp4")
     
-    print("8. Posting Short Reel to Facebook...")
-    reel_caption = f"Aik zaroori Islamic naseehat - {topic} 💔\n\n#Shorts #Islam #Allah #ViralReels #RanaAdnan"
-    post_to_facebook("final_reel.mp4", reel_caption)
-    
-    print("All tasks completed and posted successfully!")
+    print("Posting to Facebook...")
+    post_to_facebook("final_long.mp4", topic, long_script[:300])
+    print("Done successfully!")
 
 if __name__ == "__main__":
     asyncio.run(main())
