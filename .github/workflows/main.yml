@@ -22,7 +22,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
-          pip install google-generativeai edge-tts requests
+          pip install google-genai edge-tts requests
 
       - name: Run main.py
         env:
