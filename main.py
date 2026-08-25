@@ -27,20 +27,22 @@ BG_QUERIES = [
 ]
 
 def generate_scripts_with_retry(max_retries=3, delay=15):
+    # Model name updated to gemini-3.6-flash as requested by Google API
+    model_name = 'gemini-3.6-flash'
     topic_prompt = "Think of a unique, deep, and touching Islamic motivational or spiritual topic. Give only the topic name in 3 to 6 words, nothing else."
     
     for attempt in range(1, max_retries + 1):
         try:
             print(f"Gemini se topic aur scripts banwane ki koshish (Attempt {attempt}/{max_retries})...")
-            topic_res = client.models.generate_content(model='gemini-2.5-flash', contents=topic_prompt)
+            topic_res = client.models.generate_content(model=model_name, contents=topic_prompt)
             chosen_topic = topic_res.text.strip()
             print(f"Aaj ka auto-generated Unique Topic: {chosen_topic}")
             
             prompt_long = f"Write a detailed, deep, and emotional Islamic motivational script in Roman Urdu based on this unique topic: {chosen_topic}. Length should be around 400-500 words."
-            res_long = client.models.generate_content(model='gemini-2.5-flash', contents=prompt_long)
+            res_long = client.models.generate_content(model=model_name, contents=prompt_long)
             
             prompt_reel = f"Write a short, high-retention Islamic motivational reel script in Roman Urdu based on this unique topic: {chosen_topic}. Length should be around 100-130 words."
-            res_reel = client.models.generate_content(model='gemini-2.5-flash', contents=prompt_reel)
+            res_reel = client.models.generate_content(model=model_name, contents=prompt_reel)
             
             return res_long.text, res_reel.text, chosen_topic
         except ServerError as e:
