@@ -12,7 +12,7 @@ from google.genai.errors import ServerError
 client = genai.Client()
 
 PIXABAY_API_KEY = os.environ.get("PIXABAY_API_KEY")
-FB_PAGE_ACCESS_TOKEN = os.environ.get("FB_PAGE_ACCESS_TOKEN")
+FB_PAGE_ACCESS_TOKEN = os.environ.get("FB_PAGE_TOKEN")
 FB_PAGE_ID = "100070951321353"
 
 BG_QUERIES = [
