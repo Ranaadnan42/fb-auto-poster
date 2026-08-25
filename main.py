@@ -27,7 +27,7 @@ BG_QUERIES = [
 ]
 
 def generate_scripts_with_retry():
-    model_name = 'gemini-3.6-flash'
+    model_name = 'gemini-1.5-flash'
     topic_prompt = "Think of a unique, deep, and touching Islamic motivational or spiritual topic. Give only the topic name in 3 to 6 words, nothing else."
     
     print("1. Generating topic from Gemini...")
