@@ -12,7 +12,7 @@ from google.genai.errors import ServerError
 client = genai.Client()
 
 PIXABAY_API_KEY = os.environ.get("PIXABAY_API_KEY")
-FB_PAGE_ACCESS_TOKEN = os.environ.get("FB_PAGE_TOKEN")
+FB_PAGE_ACCESS_TOKEN = os.environ.get("FB_PAGE_TOKEN") # Aapke secret wala naam yahan set hai
 FB_PAGE_ID = "100070951321353"
 
 BG_QUERIES = [
@@ -30,12 +30,22 @@ def generate_scripts_with_retry():
     model_name = 'gemini-3.6-flash'
     topic_prompt = "Think of a unique, deep, and touching Islamic motivational or spiritual topic. Give only the topic name in 3 to 6 words, nothing else."
     
+    print("1. Generating topic from Gemini...")
     topic_res = client.models.generate_content(model=model_name, contents=topic_prompt)
     chosen_topic = topic_res.text.strip()
+    print(f"Topic chosen: {chosen_topic}")
     
+    print("Waiting 10 seconds to avoid rate limit...")
+    time.sleep(10)
+    
+    print("2. Generating long script (350-450 words)...")
     prompt_long = f"Write a deep and emotional Islamic motivational script in Roman Urdu based on this topic: {chosen_topic}. Length should be around 350 to 450 words."
     res_long = client.models.generate_content(model=model_name, contents=prompt_long)
     
+    print("Waiting 10 seconds to avoid rate limit...")
+    time.sleep(10)
+    
+    print("3. Generating reel script (80-110 words)...")
     prompt_reel = f"Write a short, high-retention Islamic motivational reel script in Roman Urdu based on this topic: {chosen_topic}. Length should be around 80 to 110 words."
     res_reel = client.models.generate_content(model=model_name, contents=prompt_reel)
     
@@ -86,7 +96,7 @@ def create_video(audio_file, bg_video, output_video):
 
 def post_to_facebook(video_path, caption):
     if not FB_PAGE_ACCESS_TOKEN:
-        raise Exception("FB_PAGE_ACCESS_TOKEN missing hai!")
+        raise Exception("FB_PAGE_TOKEN missing hai!")
         
     url = f"https://graph-video.facebook.com/v19.0/{FB_PAGE_ID}/videos"
     
@@ -105,26 +115,30 @@ def post_to_facebook(video_path, caption):
         return response.json()
 
 async def main():
-    print("1. Generating scripts...")
+    print("Starting process...")
     long_script, reel_script, topic = generate_scripts_with_retry()
     
-    print("2. Downloading background video...")
+    print("4. Downloading background video...")
     download_pixabay_video(output_filename="bg.mp4")
     bg_file = "bg.mp4"
 
-    print("3. Processing Long Video...")
+    print("5. Processing Long Video (Audio + Video)...")
     await text_to_speech(long_script, "long_audio.mp3", voice_type="male")
     create_video("long_audio.mp3", bg_file, "final_long_video.mp4")
+    
+    print("6. Posting Long Video to Facebook...")
     long_caption = f"Janiye {topic} ke baray mein aik khoobsurat aur gehra paigham.\n\n#IslamicMotivation #Deeniyat #Allah #Quran #RanaAdnan"
     post_to_facebook("final_long_video.mp4", long_caption)
 
-    print("4. Processing Short Reel...")
+    print("7. Processing Short Reel...")
     await text_to_speech(reel_script, "reel_audio.mp3", voice_type="female")
     create_video("reel_audio.mp3", bg_file, "final_reel.mp4")
+    
+    print("8. Posting Short Reel to Facebook...")
     reel_caption = f"Aik zaroori Islamic naseehat - {topic} 💔\n\n#Shorts #Islam #Allah #ViralReels #RanaAdnan"
     post_to_facebook("final_reel.mp4", reel_caption)
     
-    print("All tasks completed successfully!")
+    print("All tasks completed and posted successfully!")
 
 if __name__ == "__main__":
     asyncio.run(main())
