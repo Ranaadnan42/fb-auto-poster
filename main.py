@@ -25,10 +25,10 @@ def generate_dynamic_script():
     
     prompt_long = f"Write a deep, emotional, and high-retention Islamic motivational script in Roman Urdu/English based on this topic: {chosen_topic}. Make it engaging for social media with proper SEO keywords."
     
-    # Official supported model for google-genai package
+    # Google ke recommended model ke sath
     response = client.models.generate_content(
-        model="gemini-2.0-flash",
-        contents=prompt_long,
+        model='gemini-3.6-flash',
+        contents=prompt_long
     )
     
     return response.text
