@@ -27,33 +27,28 @@ BG_QUERIES = [
 ]
 
 def generate_scripts_with_retry(max_retries=3, delay=15):
-    model_name = 'gemini-2.5-flash'
+    # Updated to the active and supported model identifier
+    model_name = 'gemini-2.0-flash'
     topic_prompt = "Think of a unique, deep, and touching Islamic motivational or spiritual topic. Give only the topic name in 3 to 6 words, nothing else."
     
     for attempt in range(1, max_retries + 1):
         try:
-            print(f"Gemini se topic aur scripts banwane ki koshish (Attempt {attempt}/{max_retries})...")
             topic_res = client.models.generate_content(model=model_name, contents=topic_prompt)
             chosen_topic = topic_res.text.strip()
-            print(f"Aaj ka auto-generated Unique Topic: {chosen_topic}")
             
-            # Long Video Script (3-4 minutes length optimization)
             prompt_long = f"Write a deep and emotional Islamic motivational script in Roman Urdu based on this topic: {chosen_topic}. Length should be around 350 to 450 words."
             res_long = client.models.generate_content(model=model_name, contents=prompt_long)
             
-            # Short Reel Script (30-50 seconds length optimization)
             prompt_reel = f"Write a short, high-retention Islamic motivational reel script in Roman Urdu based on this topic: {chosen_topic}. Length should be around 80 to 110 words."
             res_reel = client.models.generate_content(model=model_name, contents=prompt_reel)
             
             return res_long.text, res_reel.text, chosen_topic
         except ServerError as e:
-            print(f"Google Server Error (503/Overloaded): {e}")
             if attempt < max_retries:
                 time.sleep(delay)
             else:
                 raise e
         except Exception as e:
-            print(f"Other Gemini Error: {e}")
             if attempt < max_retries:
                 time.sleep(delay)
             else:
@@ -61,7 +56,6 @@ def generate_scripts_with_retry(max_retries=3, delay=15):
 
 async def text_to_speech(text, output_filename, voice_type="male"):
     voice = "ur-PK-AsadNeural" if voice_type == "male" else "ur-PK-UzmaNeural"
-    print(f"Edge-TTS se audio generate ho rahi hai ({voice}): {output_filename}")
     communicate = edge_tts.Communicate(text, voice)
     await communicate.save(output_filename)
 
@@ -71,7 +65,6 @@ def download_pixabay_video_strictly(output_filename="bg.mp4", max_attempts=5):
         
     for attempt in range(1, max_attempts + 1):
         query = random.choice(BG_QUERIES)
-        print(f"Pixabay se background video uthane ki koshish {attempt}/{max_attempts} (Query: {query})...")
         url = f"https://pixabay.com/api/videos/?key={PIXABAY_API_KEY}&q={query}&per_page=10"
         
         try:
@@ -80,24 +73,20 @@ def download_pixabay_video_strictly(output_filename="bg.mp4", max_attempts=5):
                 selected_hit = random.choice(response["hits"])
                 video_url = selected_hit["videos"]["medium"]["url"]
                 
-                print(f"Video mil gayi, download ki ja rahi hai...")
                 vid_data = requests.get(video_url, timeout=30).content
                 with open(output_filename, "wb") as f:
                     f.write(vid_data)
                 
                 if os.path.exists(output_filename) and os.path.getsize(output_filename) > 1024:
-                    print("Pixabay video successfully download ho kar save ho gayi!")
                     return True
-        except Exception as e:
-            print(f"Download attempt {attempt} mein masla aya: {e}")
+        except Exception:
+            pass
         
         time.sleep(5)
         
-    raise Exception("Critical Error: Pixabay se kisi bhi query par video download nahi ho saki!")
+    raise Exception("Critical Error: Pixabay se video download nahi ho saki!")
 
 def create_video_fast(audio_file, bg_video, output_video):
-    print(f"FFmpeg ke zariye fast rendering aur merging shuru hai: {output_video}")
-    # Using ultrafast preset and 1200 seconds timeout to completely prevent TimeoutExpired error
     cmd = [
         "ffmpeg", "-y",
         "-stream_loop", "-1",
@@ -114,28 +103,21 @@ def create_video_fast(audio_file, bg_video, output_video):
     try:
         result = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=1200)
         if result.returncode == 0:
-            print(f"Video merging mukammal ho gayi: {output_video}")
             return True
         else:
-            print("FFmpeg Error Output:", result.stderr.decode('utf-8', errors='ignore'))
             return False
     except subprocess.TimeoutExpired:
-        print("Critical Error: FFmpeg timeout ho gaya!")
         return False
-    except Exception as e:
-        print(f"FFmpeg Execution Exception: {e}")
+    except Exception:
         return False
 
 def post_to_facebook(video_path, caption):
     if not FB_PAGE_ACCESS_TOKEN:
-        print("Warning: FB_PAGE_ACCESS_TOKEN missing hai.")
         return None
         
-    print(f"Facebook Page par video upload ki ja rahi hai: {video_path}")
     url = f"https://graph-video.facebook.com/v19.0/{FB_PAGE_ID}/videos"
     
     if not os.path.exists(video_path):
-        print("Error: Video file exist nahi karti upload ke liye!")
         return None
 
     try:
@@ -146,26 +128,18 @@ def post_to_facebook(video_path, caption):
                 'access_token': FB_PAGE_ACCESS_TOKEN
             }
             response = requests.post(url, data=data, files=files, timeout=300)
-            print(f"Facebook Status Code: {response.status_code}")
-            print(f"Facebook Response: {response.text}")
             if response.text and response.text.strip():
                 return response.json()
-    except Exception as e:
-        print(f"Facebook upload exception: {e}")
+    except Exception:
+        pass
     return None
 
 async def main():
-    print("Full Automation Pipeline Start Ho Gayi Hai...")
-    
-    # Step 1: Generate Scripts (Long & Reel)
     long_script, reel_script, topic = generate_scripts_with_retry()
-    
-    # Step 2: Download Background Video
     download_pixabay_video_strictly(output_filename="bg.mp4")
     bg_file = "bg.mp4"
 
-    # Step 3: Process Long Video (3-4 mins)
-    print("\n--- Processing Long Video ---")
+    # Long Video Processing
     await text_to_speech(long_script, "long_audio.mp3", voice_type="male")
     if os.path.exists("long_audio.mp3"):
         success_long = create_video_fast("long_audio.mp3", bg_file, "final_long_video.mp4")
@@ -173,16 +147,13 @@ async def main():
             long_caption = f"Janiye {topic} ke baray mein aik khoobsurat aur gehra paigham.\n\n#IslamicMotivation #Deeniyat #Allah #Quran #RanaAdnan"
             post_to_facebook("final_long_video.mp4", long_caption)
 
-    # Step 4: Process Short Reel (30-50 secs)
-    print("\n--- Processing Short Reel ---")
+    # Short Reel Processing
     await text_to_speech(reel_script, "reel_audio.mp3", voice_type="female")
     if os.path.exists("reel_audio.mp3"):
         success_reel = create_video_fast("reel_audio.mp3", bg_file, "final_reel.mp4")
         if success_reel:
             reel_caption = f"Aik zaroori Islamic naseehat - {topic} 💔\n\n#Shorts #Islam #Allah #ViralReels #RanaAdnan"
             post_to_facebook("final_reel.mp4", reel_caption)
-
-    print("Tamam pipeline mukammal taur par run ho gayi hai!")
 
 if __name__ == "__main__":
     asyncio.run(main())
