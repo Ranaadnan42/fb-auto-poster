@@ -1,0 +1,32 @@
+name: Daily Auto Poster
+
+on:
+  schedule:
+    # Rozana Pakistan ke waqt ke mutabiq subah 10 baje (UTC 5:00 AM) chalne ke liye
+    - cron: '0 5 * * *'
+  workflow_dispatch: # Isse aap jab chahein khud manual bhi run kar sakte hain
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          pip install google-generativeai edge-tts requests
+
+      - name: Run main.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+        run: python main.py
