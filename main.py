@@ -27,7 +27,8 @@ BG_QUERIES = [
 ]
 
 def generate_scripts_with_retry(max_retries=3, delay=15):
-    model_name = 'gemini-2.5-flash'
+    # Updated to the exact model version required by Google SDK error logs
+    model_name = 'gemini-3.6-flash'
     topic_prompt = "Think of a unique, deep, and touching Islamic motivational or spiritual topic. Give only the topic name in 3 to 6 words, nothing else."
     
     for attempt in range(1, max_retries + 1):
