@@ -20,7 +20,7 @@ genai.configure(api_key=GEMINI_API_KEY)
 
 def generate_dynamic_script():
     print("Gemini se SEO-optimized rozana ka naya Islamic topic aur script banwayi ja rahi hai...")
-    model = genai.GenerativeModel("gemini-1.5-flash")
+    model = genai.GenerativeModel("gemini-pro")
     
     topics = [
         "Sabar aur mushkil waqt mein Allah ka sath",
