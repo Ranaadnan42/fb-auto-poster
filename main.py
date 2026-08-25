@@ -5,7 +5,6 @@ import edge_tts
 import asyncio
 import requests
 
-# Naye tareeqay se Gemini Client initialize karna
 client = genai.Client()
 
 def generate_dynamic_script():
@@ -26,7 +25,7 @@ def generate_dynamic_script():
     
     prompt_long = f"Write a deep, emotional, and high-retention Islamic motivational script in Roman Urdu/English based on this topic: {chosen_topic}. Make it engaging for social media with proper SEO keywords."
     
-    # Naye client ke sath content generate karna
+    # Naye client ke sath saheeh model format
     response = client.models.generate_content(
         model="gemini-2.5-flash",
         contents=prompt_long,
