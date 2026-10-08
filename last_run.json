@@ -1,12 +1,14 @@
 {
  "lang": "ur",
- "stock_clips": 43,
+ "stock_clips": 53,
  "fallback_clips": 0,
- "errors": [],
- "long_minutes": 5.18,
- "reel_minutes": 0.83,
- "time_utc": "2026-10-08 20:10",
- "title": "تھک گئے ہو گناہوں سے؟ اللہ کی رحمت اب بھی منتظر ہے",
- "dry_run": true,
- "posted_ok": 2
+ "errors": [
+  "long: Facebook ka jawab samajh nahi aaya: "
+ ],
+ "long_minutes": 8.19,
+ "reel_minutes": 0.54,
+ "time_utc": "2026-10-08 20:24",
+ "title": "مایوس نہ ہوں! اللہ کی رحمت آپ کے گناہوں سے کہیں زیادہ بڑی ہے",
+ "dry_run": false,
+ "posted_ok": 1
 }
