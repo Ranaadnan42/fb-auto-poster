@@ -1,10 +1,10 @@
 {
- "mode": "reel",
+ "mode": "long",
  "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
  "format": "chat",
- "time_utc": "2026-10-08 22:52",
- "title": "پیر کی صبح اور استانی جی کا صدمہ",
- "dry_run": false
+ "time_utc": "2026-10-08 22:55",
+ "title": "دادی کا بجلی بل اور دوستوں کی سردی",
+ "dry_run": true
 }
