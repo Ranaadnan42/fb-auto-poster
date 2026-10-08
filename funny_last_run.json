@@ -1,11 +1,12 @@
 {
  "mode": "long",
- "stock_clips": 60,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
- "long_minutes": 5.15,
- "time_utc": "2026-10-08 23:13",
- "title": "رشتہ آنٹی اور جانوروں کی شادی کی تیاریاں",
+ "format": "cartoon",
+ "long_minutes": 6.45,
+ "series": "ماسٹر چمٹا اور آفت کے پرکار part 1 (cartoon)",
+ "time_utc": "2026-10-08 23:34",
+ "title": "ماسٹر چمٹا اور آفت کے پرکار | قسط 1",
  "dry_run": true
 }
