@@ -493,6 +493,7 @@ def _main():
             build_video(script, "long", 1920, 1080, "funny_long.mp4")
         else:
             script = chat_comedy.build_long(history, "funny_long.mp4")
+        REPORT["long_minutes"] = round(duration("funny_long.mp4") / 60, 2)
         if not DRY_RUN:
             entry["id"] = post_long("funny_long.mp4", script["title"], description(script))
     else:
@@ -501,6 +502,7 @@ def _main():
             build_video(script, "reel", 1080, 1920, "funny_reel.mp4")
         else:
             script = chat_comedy.build_reel(history, "funny_reel.mp4")
+            REPORT["reel_minutes"] = round(duration("funny_reel.mp4") / 60, 2)
         if duration("funny_reel.mp4") > 89:
             run(["ffmpeg", "-y", "-i", "funny_reel.mp4", "-t", "89", "-c", "copy", "cut.mp4"])
             shutil.move("cut.mp4", "funny_reel.mp4")
