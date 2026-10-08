@@ -1,10 +1,10 @@
 {
- "mode": "reel",
- "stock_clips": 5,
+ "mode": "long",
+ "stock_clips": 37,
  "fallback_clips": 0,
  "errors": [],
- "reel_minutes": 0.56,
- "time_utc": "2026-10-08 22:00",
- "title": "امتحانات اور الّو میاں کی تیاری",
- "dry_run": false
+ "long_minutes": 4.15,
+ "time_utc": "2026-10-08 22:02",
+ "title": "پیر کی صبح اور جانوروں کے دیسی مشورے",
+ "dry_run": true
 }
