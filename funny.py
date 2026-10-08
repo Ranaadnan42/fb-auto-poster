@@ -482,14 +482,25 @@ def _main():
         raise RuntimeError("FUNNY_PAGE_TOKEN ya FUNNY_PAGE_ID secret missing hai")
     history = load_history()
     entry = {"date": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), "mode": MODE}
+    import chat_comedy
+    n_reels = sum(1 for h in history if h.get("mode") == "reel")
+    fmt = os.environ.get("FORMAT") or ("animal" if MODE == "reel" and n_reels % 3 == 2 else "chat")
+    entry["format"] = fmt
+    REPORT["format"] = fmt
     if MODE == "long":
-        script = write_long(history)
-        build_video(script, "long", 1920, 1080, "funny_long.mp4")
+        if fmt == "animal":
+            script = write_long(history)
+            build_video(script, "long", 1920, 1080, "funny_long.mp4")
+        else:
+            script = chat_comedy.build_long(history, "funny_long.mp4")
         if not DRY_RUN:
             entry["id"] = post_long("funny_long.mp4", script["title"], description(script))
     else:
-        script = write_reel(history)
-        build_video(script, "reel", 1080, 1920, "funny_reel.mp4")
+        if fmt == "animal":
+            script = write_reel(history)
+            build_video(script, "reel", 1080, 1920, "funny_reel.mp4")
+        else:
+            script = chat_comedy.build_reel(history, "funny_reel.mp4")
         if duration("funny_reel.mp4") > 89:
             run(["ffmpeg", "-y", "-i", "funny_reel.mp4", "-t", "89", "-c", "copy", "cut.mp4"])
             shutil.move("cut.mp4", "funny_reel.mp4")
