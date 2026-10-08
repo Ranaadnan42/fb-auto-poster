@@ -185,7 +185,7 @@ Every animal reacts to this topic in its own funny way.
 Use these 10 animals, one segment each, in this order: {', '.join(animals)}.
 These titles were already used: {json.dumps(used, ensure_ascii=False)}
 
-Write the Urdu voice-over: each segment about 80 words (total about 800 words) - count carefully.
+Write the Urdu voice-over: each segment about 95 words (total about 950 words) - count carefully.
 Segment 1 starts with a hook that makes people keep watching. Each segment ends with a punchline.
 Last segment ends with: "ویڈیو اچھی لگی ہو تو پیج فالو کریں اور دوستوں کو شیئر کریں"
 {RULES}
@@ -200,11 +200,13 @@ Return JSON: {{"title": "funny Urdu title, max 70 characters",
         log(f"Long script: {n} words")
         if len(data.get("scenes", [])) >= 5 and (best is None or n > word_count(best)):
             best = data
-        if n >= 680:
+        if n >= 820:
             break
-        extra = f"IMPORTANT: your last draft had only {n} words. Each segment must be about 90 words."
+        extra = f"IMPORTANT: your last draft had only {n} words. Each segment must be about 100 words."
     if not best:
         raise RuntimeError("Lambi script nahi bani")
+    for sc, a in zip(best["scenes"], animals):
+        sc["animal"] = a
     best["animal"] = "compilation"
     best["topic"] = situation
     return best
@@ -230,7 +232,11 @@ def pixabay_clips(query, count, job, prefix, backup):
     got = []
     if not PIXABAY_KEY:
         return got
-    for q in (query, backup, f"funny {backup}"):
+    queries = []
+    for q in (f"funny {backup}", query if backup in query else f"{backup} {query}", backup):
+        if q not in queries:
+            queries.append(q)
+    for q in queries:
         if len(got) >= count:
             break
         try:
@@ -326,7 +332,7 @@ def build_scene(job, i, sc, w, h, title, backup):
     audio = f"a{i}.mp3"
     tts(text, os.path.join(job, audio))
     dur = duration(os.path.join(job, audio)) + 0.4
-    k = max(1, min(4, round(dur / 6)))                      # har ~6 sec naya clip
+    k = max(1, min(6, round(dur / 4)))                      # har ~4 sec naya clip
     clips = pixabay_clips(sc.get("visual") or backup, k, job, f"c{i}", backup)
     REPORT["stock_clips"] += len(clips)
     if not clips:
@@ -362,7 +368,7 @@ def build_video(script, tag, w, h, out_path):
     scenes = [s for s in script["scenes"] if (s.get("text") or "").strip()]
     parts = []
     for i, sc in enumerate(scenes):
-        backup = script["animal"] if script["animal"] != "compilation" else "funny animal"
+        backup = sc.get("animal") or script["animal"]
         parts.append(build_scene(job, i, sc, w, h, script["title"] if i == 0 else None, backup))
         log(f"{tag}: scene {i + 1}/{len(scenes)} ready")
     with open(os.path.join(job, "list.txt"), "w") as f:
