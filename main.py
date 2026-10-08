@@ -8,7 +8,21 @@ from google.genai import types
 
 # Initialize Gemini Client
 client = genai.Client(api_key=os.environ.get("GEMINI_API_KEY"))
-model_name = 'gemini-3.6-flash'
+# 'gemini-3.6-flash' naam ka model mojood nahi tha - pehla chalne wala model use hoga
+MODEL_CANDIDATES = ['gemini-3.5-flash', 'gemini-2.5-flash', 'gemini-3.5-flash-lite']
+
+def generate_text(prompt):
+    last_err = None
+    for m in MODEL_CANDIDATES:
+        try:
+            res = client.models.generate_content(model=m, contents=prompt)
+            if res.text and res.text.strip():
+                print(f"   model used: {m}")
+                return res.text.strip()
+        except Exception as e:
+            print(f"   {m} failed: {e}")
+            last_err = e
+    raise Exception(f"Gemini se script nahi bani: {last_err}")
 
 def generate_scripts_with_retry():
     topics = [
@@ -24,18 +38,12 @@ def generate_scripts_with_retry():
     prompt_reel = f"Write a short, powerful, and punchy reel script about '{topic}' (under 100 words). Provide only the text script."
     
     print("2. Generating long script...")
-    res_long = client.models.generate_content(
-        model=model_name,
-        contents=prompt_long,
-    )
+    long_text = generate_text(prompt_long)
     
     print("3. Generating reel script...")
-    res_reel = client.models.generate_content(
-        model=model_name,
-        contents=prompt_reel,
-    )
+    reel_text = generate_text(prompt_reel)
     
-    return res_long.text, res_reel.text, topic
+    return long_text, reel_text, topic
 
 async def generate_audio(text, output_filename):
     import edge_tts
@@ -64,7 +72,9 @@ def create_video(audio_file, bg_video, output_video):
 def post_to_facebook(video_path, title, description):
     page_access_token = os.environ.get("FB_PAGE_ACCESS_TOKEN")
     page_id = os.environ.get("FB_PAGE_ID")
-    url = f"https://graph-video.facebook.com/v18.0/{page_id}/videos"
+    if not page_access_token or not page_id:
+        raise Exception("FB_PAGE_ACCESS_TOKEN ya FB_PAGE_ID secret missing hai")
+    url = f"https://graph-video.facebook.com/v23.0/{page_id}/videos"
     
     with open(video_path, 'rb') as f:
         files = {'source': f}
@@ -73,8 +83,12 @@ def post_to_facebook(video_path, title, description):
             'title': title,
             'description': description
         }
-        response = requests.post(url, data=data, files=files)
-        return response.json()
+        response = requests.post(url, data=data, files=files, timeout=3600)
+    result = response.json()
+    if "error" in result:
+        raise Exception(f"Facebook error: {result['error'].get('message', result)}")
+    print(f"Facebook post id: {result.get('id')}")
+    return result
 
 async def main():
     print("Starting process...")
@@ -88,11 +102,25 @@ async def main():
     bg_url = "https://assets.mixkit.co/videos/preview/mixkit-stars-in-the-space-background-1610-large.mp4"
     bg_file = "bg.mp4"
     if not os.path.exists(bg_file):
-        r = requests.get(bg_url, stream=True)
-        with open(bg_file, 'wb') as f:
-            for chunk in r.iter_content(chunk_size=1024):
-                if chunk:
-                    f.write(chunk)
+        ok = False
+        try:
+            r = requests.get(bg_url, stream=True, timeout=120, headers={"User-Agent": "Mozilla/5.0"})
+            if r.status_code == 200 and "video" in r.headers.get("Content-Type", ""):
+                with open(bg_file, 'wb') as f:
+                    for chunk in r.iter_content(chunk_size=1 << 20):
+                        if chunk:
+                            f.write(chunk)
+                ok = True
+            else:
+                print(f"Background download fail: HTTP {r.status_code}")
+        except Exception as e:
+            print(f"Background download fail: {e}")
+        if not ok:
+            # Link band ho to khud ek simple background video bana lo
+            subprocess.run(["ffmpeg", "-y", "-f", "lavfi", "-i",
+                            "gradients=s=1080x1920:c0=0x0b1a33:c1=0x1f4d7a:speed=0.01:d=20",
+                            "-pix_fmt", "yuv420p", "-c:v", "libx264", "-preset", "ultrafast", bg_file],
+                           check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
                     
     # Render Videos
     print("Rendering long video...")
