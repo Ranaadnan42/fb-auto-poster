@@ -46,7 +46,7 @@ MODEL_CANDIDATES = ["gemini-3.5-flash", "gemini-2.5-flash", "gemini-3.5-flash-li
 LANGS = {
     "ur": {
         "voice": "ur-PK-AsadNeural", "rate": "-4%", "font": "Noto Naskh Arabic",
-        "long_words": 850, "long_min": 720, "reel_words": 140,
+        "long_words": 650, "long_min": 560, "long_max": 780, "reel_words": 130,
         "line_long": 6, "line_reel": 4,
         "write_in": ("simple, heart-touching spoken Pakistani URDU written in Urdu script "
                      "(not Roman Urdu). Use common words people speak daily; Islamic terms "
@@ -59,7 +59,7 @@ LANGS = {
     },
     "en": {
         "voice": "en-US-ChristopherNeural", "rate": "-5%", "font": "Noto Sans",
-        "long_words": 800, "long_min": 680, "reel_words": 120,
+        "long_words": 800, "long_min": 680, "long_max": 950, "reel_words": 120,
         "line_long": 7, "line_reel": 4,
         "write_in": ("clear, emotional spoken ENGLISH for a worldwide Muslim audience. "
                      "Say 'peace be upon him' after the Prophet's name"),
@@ -185,8 +185,8 @@ or explanation, practical lessons for daily life, and a heartfelt ending with a 
 {L['follow']}
 {RULES}
 
-Split into exactly {scenes} scenes, each about {per} words (total at least {L['long_words']} words -
-count carefully, a short script is a failure). {extra}
+Split into exactly {scenes} scenes, each about {per} words (total about {L['long_words']} words,
+between {L['long_min']} and {L['long_max']} - count carefully). {extra}
 For each scene give a 1-3 word ENGLISH stock-footage search term. {SAFE_VISUALS}
 
 Return JSON: {{"scenes": [{{"text": "...", "visual": "..."}}],
@@ -200,12 +200,18 @@ def write_long(topic, title):
         data = _write_long(topic, title, extra)
         n = word_count(data)
         log(f"Long script: {n} words")
-        if len(data.get("scenes", [])) >= 4 and (best is None or n > word_count(best)):
+        target = L["long_words"]
+        if len(data.get("scenes", [])) >= 4 and (
+                best is None or abs(n - target) < abs(word_count(best) - target)):
             best = data
-        if n >= L["long_min"]:
+        if L["long_min"] <= n <= L["long_max"]:
             break
-        extra = (f"IMPORTANT: your previous draft had only {n} words. Each scene must now be about "
-                 f"{L['long_words'] // 12 + 12} words, total at least {L['long_words']} words.")
+        if n < L["long_min"]:
+            extra = (f"IMPORTANT: your previous draft had only {n} words - too short. Each scene must "
+                     f"be about {target // 12 + 8} words, total about {target} words.")
+        else:
+            extra = (f"IMPORTANT: your previous draft had {n} words - too long. Each scene must be "
+                     f"about {target // 12} words, total about {target} words, NOT more.")
     if not best:
         raise RuntimeError("Lambi script nahi bani")
     return best
@@ -382,7 +388,7 @@ def build_scene(job, i, sc, w, h, title):
                   f"vignette=PI/5,subtitles=s{i}.ass{fontsdir},format=yuv420p[v]")
     cmd += ["-filter_complex", ";".join(chains), "-map", "[v]", "-map", f"{k}:a:0",
             "-af", "apad", "-t", f"{dur:.2f}",
-            "-c:v", "libx264", "-preset", "veryfast", "-crf", "21",
+            "-c:v", "libx264", "-preset", "veryfast", "-crf", "23", "-maxrate", "6M", "-bufsize", "12M",
             "-c:a", "aac", "-ar", "44100", "-ac", "2", "-b:a", "160k", f"p{i}.mp4"]
     run(cmd, cwd=job)
     return f"p{i}.mp4"
@@ -420,13 +426,36 @@ def fb_json(r):
 
 
 def post_long(path, title, desc):
+    """Bari file ke liye resumable (tukron mein) upload."""
+    url = f"https://graph-video.facebook.com/{GRAPH_VER}/{FB_PAGE}/videos"
+    size = os.path.getsize(path)
+    start = fb_json(requests.post(url, timeout=120, data={
+        "access_token": FB_TOKEN, "upload_phase": "start", "file_size": str(size)}))
+    session, vid = start["upload_session_id"], start.get("video_id")
+    s_off, e_off = int(start["start_offset"]), int(start["end_offset"])
     with open(path, "rb") as f:
-        j = fb_json(requests.post(
-            f"https://graph-video.facebook.com/{GRAPH_VER}/{FB_PAGE}/videos",
-            data={"access_token": FB_TOKEN, "title": title, "description": desc},
-            files={"source": f}, timeout=3600))
-    log(f"Long video posted: {j.get('id')}")
-    return j.get("id")
+        while s_off < e_off:
+            f.seek(s_off)
+            chunk = f.read(e_off - s_off)
+            for attempt in range(4):
+                try:
+                    j = fb_json(requests.post(url, timeout=600, data={
+                        "access_token": FB_TOKEN, "upload_phase": "transfer",
+                        "upload_session_id": session, "start_offset": str(s_off)},
+                        files={"video_file_chunk": ("chunk", chunk, "application/octet-stream")}))
+                    break
+                except Exception as e:
+                    log(f"Chunk retry {attempt + 1}: {str(e)[:150]}")
+                    if attempt == 3:
+                        raise
+                    time.sleep(5)
+            s_off, e_off = int(j["start_offset"]), int(j["end_offset"])
+            log(f"Uploaded {s_off * 100 // size}%")
+    fb_json(requests.post(url, timeout=300, data={
+        "access_token": FB_TOKEN, "upload_phase": "finish", "upload_session_id": session,
+        "title": title, "description": desc}))
+    log(f"Long video posted: {vid}")
+    return vid
 
 
 def post_reel(path, desc):
