@@ -1,16 +1,16 @@
 """
 Islamic Motivational Videos - Auto Poster (GitHub Actions)
 
-Har run par:
- 1. Gemini naya topic chunta hai (pichle topics history.json se repeat nahi hote)
- 2. Lambi video (~5 min, 16:9) aur reel (~50 sec, 9:16) ki script likhta hai
- 3. Edge TTS se har scene ki awaaz banti hai
- 4. Har scene ke liye Pixabay se alag stock clip aati hai (na mile to simple background)
- 5. Screen par subtitles jalaye jate hain
- 6. Dono Facebook page par post hoti hain
+Har run (LANGUAGE=ur ya en):
+ 1. Gemini naya topic chunta hai (pichle titles history.json se repeat nahi hote)
+ 2. Lambi video (~5 min, 1920x1080) aur reel (~50 sec, 1080x1920) ki script
+ 3. Edge TTS awaaz (Urdu: ur-PK-AsadNeural, English: en-US-ChristopherNeural)
+ 4. Har scene mein 2-3 alag Pixabay clips, fade ke saath
+ 5. Sunehra title, subtitles (box ke saath), page watermark, halka vignette
+ 6. Dono Facebook page par post
 
 Secrets: GEMINI_API_KEY, PIXABAY_API_KEY, FB_PAGE_ACCESS_TOKEN, FB_PAGE_ID
-DRY_RUN=1 ho to video banegi lekin post nahi hogi.
+DRY_RUN=1 -> video banegi, post nahi hogi.
 """
 import os
 import sys
@@ -32,39 +32,69 @@ PIXABAY_KEY = os.environ.get("PIXABAY_API_KEY")
 FB_TOKEN = os.environ.get("FB_PAGE_ACCESS_TOKEN")
 FB_PAGE = os.environ.get("FB_PAGE_ID")
 DRY_RUN = os.environ.get("DRY_RUN") == "1"
+LANG = (os.environ.get("LANGUAGE") or "ur").strip().lower()
+if LANG not in ("ur", "en"):
+    LANG = "ur"
 
+PAGE_NAME = "Islamic Motivational Videos"
 GRAPH_VER = "v23.0"
-VOICE = "en-US-ChristopherNeural"
-VOICE_RATE = "-5%"                 # thori dheemi, sukoon wali awaaz
-LONG_WORDS = 800                   # ~4.5-5 minute
-LONG_MIN_WORDS = 680               # is se kam ho to dobara likhwao
-LONG_SCENES = 12
-REEL_WORDS = 120                   # ~45-55 second
-REEL_SCENES = 5
 HISTORY_FILE = "history.json"
 WORK = "work"
-
+FONTS_DIR = os.path.abspath("fonts")
 MODEL_CANDIDATES = ["gemini-3.5-flash", "gemini-2.5-flash", "gemini-3.5-flash-lite"]
+
+LANGS = {
+    "ur": {
+        "voice": "ur-PK-AsadNeural", "rate": "-4%", "font": "Noto Naskh Arabic",
+        "long_words": 850, "long_min": 720, "reel_words": 140,
+        "line_long": 6, "line_reel": 4,
+        "write_in": ("simple, heart-touching spoken Pakistani URDU written in Urdu script "
+                     "(not Roman Urdu). Use common words people speak daily; Islamic terms "
+                     "like Allah, Sabr, Dua, Jannat are fine. After the Prophet's name write "
+                     "صلی اللہ علیہ وسلم"),
+        "follow": "آخر میں کہیں: پیج Islamic Motivational Videos کو فالو کریں اور یہ ویڈیو شیئر کریں",
+        "reel_end": "آخر میں کہیں: ایسی مزید ویڈیوز کے لیے فالو کریں",
+        "caption_lang": "Urdu (Urdu script)",
+    },
+    "en": {
+        "voice": "en-US-ChristopherNeural", "rate": "-5%", "font": "Noto Sans",
+        "long_words": 800, "long_min": 680, "reel_words": 120,
+        "line_long": 7, "line_reel": 4,
+        "write_in": ("clear, emotional spoken ENGLISH for a worldwide Muslim audience. "
+                     "Say 'peace be upon him' after the Prophet's name"),
+        "follow": "End by asking viewers to follow the page 'Islamic Motivational Videos' and share the video.",
+        "reel_end": "End with: Follow for more reminders.",
+        "caption_lang": "English",
+    },
+}
+L = LANGS[LANG]
 
 THEMES = [
     "patience (sabr) in hardship", "gratitude (shukr)", "trusting Allah (tawakkul)",
     "the mercy and forgiveness of Allah", "the power of dua", "the value of salah",
-    "lessons from the life of Prophet Muhammad (peace be upon him)",
-    "stories of the prophets mentioned in the Quran", "stories of the Sahaba",
-    "reflection on a Quran verse", "death, the grave and the hereafter",
-    "repentance (tawbah) and second chances", "kindness to parents",
-    "good character and manners", "the virtues of Ramadan and fasting",
+    "lessons from the life of Prophet Muhammad", "stories of the prophets mentioned in the Quran",
+    "stories of the Sahaba", "reflection on a Quran verse", "death, the grave and the hereafter",
+    "repentance (tawbah) and second chances", "kindness to parents", "good character and manners",
     "controlling anger", "the value of time", "finding peace in remembering Allah (dhikr)",
     "Islamic history and the golden age", "charity (sadaqah)", "humility and avoiding arrogance",
-    "hope after sadness and depression", "the importance of the night prayer (tahajjud)",
-    "Jannah and how to reach it", "honesty and trust (amanah)",
+    "hope after sadness", "the night prayer (tahajjud)", "Jannah and how to reach it",
+    "honesty and trust (amanah)", "rizq (provision) comes from Allah",
 ]
 
-SAFE_VISUALS = ("Use only calm cinematic scenery: nature, sky, clouds, sunrise, sunset, ocean, "
-                "rain, desert, mountains, mosques, lanterns, candles, prayer beads, an open book, "
-                "night stars, city lights. Never people's faces, never religious figures.")
+SAFE_VISUALS = ("Visual terms must be calm cinematic scenery only: nature, sky, clouds, sunrise, "
+                "sunset, ocean, rain, desert, mountains, mosque, lantern, candle, prayer beads, "
+                "open book, night stars, forest, river, flowers. Never people or faces.")
+
+RULES = """Accuracy rules (very important):
+- Only mention Quran verses and hadith that are well known and authentic; name the surah or the
+  collection (e.g. Sahih Bukhari) in plain words. If unsure, do not quote - just give the lesson.
+- Never invent stories, numbers or quotes. Respectful, hopeful, sincere tone.
+- No politics, no sectarian topics, no music talk.
+- Spoken plain sentences only: no emojis, no headings, no stage directions, no symbols."""
 
 os.makedirs(WORK, exist_ok=True)
+REPORT = {"lang": LANG, "stock_clips": 0, "fallback_clips": 0, "errors": []}
+USED_CLIPS = set()
 
 
 def log(msg):
@@ -94,19 +124,22 @@ def load_history():
 
 def save_history(h):
     with open(HISTORY_FILE, "w", encoding="utf-8") as f:
-        json.dump(h[-500:], f, ensure_ascii=False, indent=1)
+        json.dump(h[-600:], f, ensure_ascii=False, indent=1)
 
 
 # ---------------------------------------------------------------- Gemini
-client = genai.Client(api_key=GEMINI_KEY)
+_client = None
 
 
 def ask_json(prompt):
+    global _client
+    if _client is None:
+        _client = genai.Client(api_key=GEMINI_KEY)
     last = None
     for model in MODEL_CANDIDATES:
         for attempt in range(2):
             try:
-                res = client.models.generate_content(
+                res = _client.models.generate_content(
                     model=model, contents=prompt,
                     config=types.GenerateContentConfig(
                         response_mime_type="application/json", temperature=0.9))
@@ -121,80 +154,74 @@ def ask_json(prompt):
 
 
 def pick_topic(history):
-    used = [h["title"] for h in history[-80:]]
-    theme = THEMES[len(history) % len(THEMES)]        # har din alag theme, ghoom kar
-    data = ask_json(f"""You plan videos for the Facebook page "Islamic Motivational Videos"
-(audience: Muslims worldwide, English).
-Theme for today: {theme}
-These titles were ALREADY posted, do NOT repeat or closely resemble them:
+    used = [h["title"] for h in history[-120:]]
+    n_lang = sum(1 for h in history if h.get("lang", "en") == LANG)
+    theme = THEMES[(n_lang * 7 + (3 if LANG == "ur" else 0)) % len(THEMES)]
+    data = ask_json(f"""You plan videos for the Facebook page "{PAGE_NAME}".
+Language of this video: {L['caption_lang']}. Theme for today: {theme}
+These titles were ALREADY posted (any language). Do NOT repeat or closely resemble them:
 {json.dumps(used, ensure_ascii=False)}
 
 Give ONE fresh, specific, emotionally engaging video idea inside this theme.
-Return JSON: {{"topic": "one sentence describing the idea", "title": "catchy title, max 70 characters"}}""")
+Return JSON: {{"topic": "one English sentence describing the idea",
+ "title": "catchy title in {L['caption_lang']}, max 70 characters"}}""")
     return theme, data["topic"], data["title"]
-
-
-RULES = """Accuracy rules (very important):
-- Only mention Quran verses and hadith that are well known and authentic; give the surah name
-  or the collection (e.g. Sahih Bukhari) in plain words. If unsure, do not quote, just give the lesson.
-- Never invent stories, numbers or quotes. Say "peace be upon him" after prophets' names.
-- Respectful, hopeful, sincere tone. No politics, no sectarian topics.
-- Spoken plain sentences only: no emojis, no headings, no stage directions."""
 
 
 def word_count(script):
     return sum(len((s.get("text") or "").split()) for s in script.get("scenes", []))
 
 
+def _write_long(topic, title, extra):
+    scenes = 12
+    per = L["long_words"] // scenes
+    return ask_json(f"""Write the voice-over for an Islamic motivational Facebook video.
+Title: "{title}". Idea: {topic}
+Language: {L['write_in']}.
+
+Structure: a powerful hook in the first 2 sentences that makes people keep watching, then a story
+or explanation, practical lessons for daily life, and a heartfelt ending with a short dua.
+{L['follow']}
+{RULES}
+
+Split into exactly {scenes} scenes, each about {per} words (total at least {L['long_words']} words -
+count carefully, a short script is a failure). {extra}
+For each scene give a 1-3 word ENGLISH stock-footage search term. {SAFE_VISUALS}
+
+Return JSON: {{"scenes": [{{"text": "...", "visual": "..."}}],
+ "caption": "2-3 line Facebook description in {L['caption_lang']} that invites comments",
+ "hashtags": ["#Islam", "..."] (8 hashtags, mix of English and the video language)}}""")
+
+
 def write_long(topic, title):
-    best = None
-    extra = ""
-    for attempt in range(3):
+    best, extra = None, ""
+    for _ in range(3):
         data = _write_long(topic, title, extra)
         n = word_count(data)
         log(f"Long script: {n} words")
-        if best is None or n > word_count(best):
+        if len(data.get("scenes", [])) >= 4 and (best is None or n > word_count(best)):
             best = data
-        if n >= LONG_MIN_WORDS:
+        if n >= L["long_min"]:
             break
-        extra = (f"IMPORTANT: your previous draft had only {n} words. This time each scene must be "
-                 f"about {LONG_WORDS // LONG_SCENES + 10} words, total at least {LONG_WORDS} words.")
+        extra = (f"IMPORTANT: your previous draft had only {n} words. Each scene must now be about "
+                 f"{L['long_words'] // 12 + 12} words, total at least {L['long_words']} words.")
+    if not best:
+        raise RuntimeError("Lambi script nahi bani")
     return best
 
 
-def _write_long(topic, title, extra):
-    data = ask_json(f"""Write the voice-over for a {LONG_WORDS}-word YouTube-style Islamic motivational
-video for Facebook. Title: "{title}". Idea: {topic}
-
-Structure: a powerful hook in the first 2 sentences that makes people keep watching,
-then a story or explanation, practical lessons for daily life, and a heartfelt ending with a short dua.
-Last scene: ask viewers to follow the page "Islamic Motivational Videos" and share the video.
+def write_reel(topic, title):
+    data = ask_json(f"""Write a {L['reel_words']}-word Facebook Reel voice-over (about 50 seconds).
+Title: "{title}" - {topic}
+Language: {L['write_in']}.
+First sentence must be a strong hook. Deliver one powerful lesson. {L['reel_end']}
 {RULES}
 
-Split into exactly {LONG_SCENES} scenes, each scene about {LONG_WORDS // LONG_SCENES} words
-(total at least {LONG_WORDS} words - count carefully, a short script is a failure).
-{extra}
-For each scene give a 1-3 word English stock-footage search term. {SAFE_VISUALS}
+Split into exactly 5 scenes. For each scene give a 1-3 word ENGLISH stock-footage search term.
+{SAFE_VISUALS}
 
 Return JSON: {{"scenes": [{{"text": "...", "visual": "..."}}],
- "caption": "2-3 line Facebook description that invites comments",
- "hashtags": ["#Islam", "..."] (8 hashtags)}}""")
-    if len(data.get("scenes", [])) < 4:
-        raise RuntimeError("Lambi script mein scenes kam hain")
-    return data
-
-
-def write_reel(topic, title):
-    data = ask_json(f"""Write a {REEL_WORDS}-word Facebook Reel voice-over (about 50 seconds) on:
-"{title}" - {topic}
-First sentence must be a strong hook. Deliver one powerful lesson. End with:
-"Follow for more reminders."
-{RULES}
-
-Split into exactly {REEL_SCENES} scenes. For each scene give a 1-3 word English stock-footage
-search term. {SAFE_VISUALS}
-
-Return JSON: {{"scenes": [{{"text": "...", "visual": "..."}}], "caption": "1-2 lines", "hashtags": ["#..."] (6 hashtags)}}""")
+ "caption": "1-2 lines in {L['caption_lang']}", "hashtags": ["#..."] (6 hashtags)}}""")
     if len(data.get("scenes", [])) < 2:
         raise RuntimeError("Reel script mein scenes kam hain")
     return data
@@ -203,7 +230,7 @@ Return JSON: {{"scenes": [{{"text": "...", "visual": "..."}}], "caption": "1-2 l
 # ---------------------------------------------------------------- audio
 def tts(text, path):
     async def go():
-        await edge_tts.Communicate(text, VOICE, rate=VOICE_RATE).save(path)
+        await edge_tts.Communicate(text, L["voice"], rate=L["rate"]).save(path)
     for attempt in range(3):
         try:
             asyncio.run(go())
@@ -216,17 +243,17 @@ def tts(text, path):
 
 
 # ---------------------------------------------------------------- stock clips
-USED_CLIPS = set()
-REPORT = {"stock_clips": 0, "fallback_clips": 0, "errors": []}
-
-
-def pixabay_clip(query, path):
+def pixabay_clips(query, count, job, prefix):
+    """Ek search se `count` alag clips laata hai. Wapas: file paths ki list."""
+    got = []
     if not PIXABAY_KEY:
-        return False
-    for q in (query, "islamic mosque", "nature sky", "clouds"):
+        return got
+    for q in (query, "mosque", "sky clouds", "nature"):
+        if len(got) >= count:
+            break
         try:
             r = requests.get("https://pixabay.com/api/videos/", timeout=40, params={
-                "key": PIXABAY_KEY, "q": q, "safesearch": "true", "per_page": 30,
+                "key": PIXABAY_KEY, "q": q, "safesearch": "true", "per_page": 40,
                 "video_type": "film"})
             r.raise_for_status()
             hits = [h for h in r.json().get("hits", []) if h["id"] not in USED_CLIPS]
@@ -234,88 +261,141 @@ def pixabay_clip(query, path):
             log(f"Pixabay error ({q}): {str(e)[:150]}")
             continue
         random.shuffle(hits)
-        for h in hits[:4]:
+        for h in hits:
+            if len(got) >= count:
+                break
             v = h.get("videos", {})
-            pick = next((v[s] for s in ("medium", "large", "small")
-                         if v.get(s, {}).get("url") and v[s].get("width", 0) >= 960), None)
+            pick = next((v[s] for s in ("large", "medium")
+                         if v.get(s, {}).get("url") and v[s].get("width", 0) >= 1280), None)
             if not pick:
                 continue
+            path = os.path.join(job, f"{prefix}_{len(got)}.mp4")
             try:
-                with requests.get(pick["url"], stream=True, timeout=120) as resp:
+                with requests.get(pick["url"], stream=True, timeout=180) as resp:
                     resp.raise_for_status()
                     with open(path, "wb") as f:
                         for chunk in resp.iter_content(1 << 20):
                             f.write(chunk)
                 if os.path.getsize(path) > 50000:
                     USED_CLIPS.add(h["id"])
-                    return True
+                    got.append(path)
             except Exception as e:
                 log(f"Clip download fail: {str(e)[:150]}")
-    return False
+    return got
 
 
 def fallback_clip(path, w, h):
-    colors = random.choice([("0x0b1a33", "0x1f4d7a"), ("0x1b2a1f", "0x3d6b4f"),
-                            ("0x2b1a33", "0x6b3d7a"), ("0x332411", "0x7a5a1f")])
+    c = random.choice([("0x0b1a33", "0x1f4d7a"), ("0x10261a", "0x2f6b4a"),
+                       ("0x2b1a33", "0x5b3d7a"), ("0x2a1c0c", "0x7a5a1f")])
     run(["ffmpeg", "-y", "-f", "lavfi", "-i",
-         f"gradients=s={w}x{h}:c0={colors[0]}:c1={colors[1]}:speed=0.01:d=15",
+         f"gradients=s={w}x{h}:c0={c[0]}:c1={c[1]}:speed=0.01:d=15",
          "-pix_fmt", "yuv420p", "-c:v", "libx264", "-preset", "ultrafast", path])
 
 
-# ---------------------------------------------------------------- subtitles
-def srt_time(t):
-    ms = int(round(t * 1000))
-    h, ms = divmod(ms, 3600000)
-    m, ms = divmod(ms, 60000)
-    s, ms = divmod(ms, 1000)
-    return f"{h:02}:{m:02}:{s:02},{ms:03}"
+# ---------------------------------------------------------------- subtitles (ASS)
+def ass_time(t):
+    t = max(0.0, t)
+    h = int(t // 3600)
+    m = int(t % 3600 // 60)
+    s = t % 60
+    return f"{h}:{m:02}:{s:05.2f}"
 
 
-def make_srt(text, total, path, words_per_line):
+def ass_text(s):
+    return s.replace("\\", " ").replace("{", "(").replace("}", ")").replace("\n", " ").strip()
+
+
+def make_ass(path, text, total, w, h, title=None):
+    vertical = h > w
+    font = L["font"]
+    sub_size = 76 if vertical else 64
+    title_size = 84 if vertical else 76
+    sub_margin = 420 if vertical else 80
+    title_margin = 330 if vertical else 90
+    head = f"""[Script Info]
+ScriptType: v4.00+
+PlayResX: {w}
+PlayResY: {h}
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,{font},{sub_size},&H00FFFFFF,&H00FFFFFF,&H70000000,&H70000000,1,0,0,0,100,100,0,0,3,14,0,2,80,80,{sub_margin},1
+Style: Title,{font},{title_size},&H0050D7FF,&H0050D7FF,&H00000000,&H64000000,1,0,0,0,100,100,0,0,1,4,3,8,70,70,{title_margin},1
+Style: Mark,Noto Sans,{30 if vertical else 28},&H50FFFFFF,&H50FFFFFF,&H90000000,&H00000000,1,0,0,0,100,100,0,0,1,2,0,9,40,40,40,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+"""
+    ev = [f"Dialogue: 0,{ass_time(0)},{ass_time(total + 1)},Mark,,0,0,0,,{PAGE_NAME}"]
+    if title:
+        ev.append(f"Dialogue: 1,{ass_time(0.3)},{ass_time(min(5.5, total))},Title,,0,0,0,,"
+                  f"{{\\fad(500,600)}}{ass_text(title)}")
     words = text.split()
-    chunks = [" ".join(words[i:i + words_per_line]) for i in range(0, len(words), words_per_line)]
+    n = L["line_reel"] if vertical else L["line_long"]
+    chunks = [" ".join(words[i:i + n]) for i in range(0, len(words), n)]
     weights = [len(c) + 3 for c in chunks]
     scale = total / max(sum(weights), 1)
-    t, out = 0.0, []
-    for i, (c, w) in enumerate(zip(chunks, weights), 1):
-        end = t + w * scale
-        out.append(f"{i}\n{srt_time(t)} --> {srt_time(end)}\n{c}\n")
+    t = 0.0
+    for c, wgt in zip(chunks, weights):
+        end = t + wgt * scale
+        ev.append(f"Dialogue: 2,{ass_time(t)},{ass_time(end)},Sub,,0,0,0,,{ass_text(c)}")
         t = end
     with open(path, "w", encoding="utf-8") as f:
-        f.write("\n".join(out))
+        f.write(head + "\n".join(ev) + "\n")
 
 
 # ---------------------------------------------------------------- video
-def build_video(script, tag, w, h, out_path):
-    vertical = h > w
+def build_scene(job, i, sc, w, h, title):
+    text = (sc.get("text") or "").strip()
+    audio = f"a{i}.mp3"
+    tts(text, os.path.join(job, audio))
+    dur = duration(os.path.join(job, audio)) + 0.5
+    k = max(1, min(4, round(dur / 8)))                     # har ~8 second baad naya clip
+    clips = pixabay_clips(sc.get("visual") or "nature", k, job, f"c{i}")
+    REPORT["stock_clips"] += len(clips)
+    if not clips:
+        REPORT["fallback_clips"] += 1
+        fb = os.path.join(job, f"c{i}_fb.mp4")
+        fallback_clip(fb, w, h)
+        clips = [fb]
+    k = len(clips)
+    seg = dur / k
+    make_ass(os.path.join(job, f"s{i}.ass"), text, dur - 0.5, w, h, title)
+
+    cmd = ["ffmpeg", "-y"]
+    for c in clips:
+        cmd += ["-stream_loop", "-1", "-t", f"{seg + 0.2:.2f}", "-i", os.path.basename(c)]
+    cmd += ["-i", audio]
+    fd = min(0.5, seg / 4)
+    chains = []
+    for j in range(k):
+        chains.append(
+            f"[{j}:v]scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},fps=30,"
+            f"setsar=1,trim=duration={seg:.2f},setpts=PTS-STARTPTS,"
+            f"fade=t=in:st=0:d={fd:.2f},fade=t=out:st={seg - fd:.2f}:d={fd:.2f}[v{j}]")
+    fontsdir = f":fontsdir={FONTS_DIR}" if os.path.isdir(FONTS_DIR) else ""
+    chains.append("".join(f"[v{j}]" for j in range(k)) +
+                  f"concat=n={k}:v=1:a=0,eq=brightness=-0.04:saturation=1.12:contrast=1.04,"
+                  f"vignette=PI/5,subtitles=s{i}.ass{fontsdir},format=yuv420p[v]")
+    cmd += ["-filter_complex", ";".join(chains), "-map", "[v]", "-map", f"{k}:a:0",
+            "-af", "apad", "-t", f"{dur:.2f}",
+            "-c:v", "libx264", "-preset", "veryfast", "-crf", "21",
+            "-c:a", "aac", "-ar", "44100", "-ac", "2", "-b:a", "160k", f"p{i}.mp4"]
+    run(cmd, cwd=job)
+    return f"p{i}.mp4"
+
+
+def build_video(script, tag, w, h, out_path, title):
     job = os.path.join(WORK, tag)
     shutil.rmtree(job, ignore_errors=True)
     os.makedirs(job)
-    style = ("FontName=DejaVu Sans,Bold=1,PrimaryColour=&H00FFFFFF,OutlineColour=&H00000000,"
-             "BorderStyle=1,Outline=2,Shadow=1,Alignment=2,"
-             + ("Fontsize=13,MarginV=70" if vertical else "Fontsize=17,MarginV=22"))
     parts = []
-    for i, sc in enumerate(script["scenes"]):
-        text = (sc.get("text") or "").strip()
-        if not text:
-            continue
-        audio, clip, srt, part = f"a{i}.mp3", f"c{i}.mp4", f"s{i}.srt", f"p{i}.mp4"
-        tts(text, os.path.join(job, audio))
-        dur = duration(os.path.join(job, audio)) + 0.4
-        if pixabay_clip(sc.get("visual") or "nature", os.path.join(job, clip)):
-            REPORT["stock_clips"] += 1
-        else:
-            REPORT["fallback_clips"] += 1
-            fallback_clip(os.path.join(job, clip), w, h)
-        make_srt(text, dur - 0.4, os.path.join(job, srt), 4 if vertical else 6)
-        vf = (f"scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},fps=30,"
-              f"eq=brightness=-0.06,subtitles={srt}:force_style='{style}',format=yuv420p")
-        run(["ffmpeg", "-y", "-stream_loop", "-1", "-i", clip, "-i", audio, "-t", f"{dur:.2f}",
-             "-vf", vf, "-af", "apad", "-map", "0:v:0", "-map", "1:a:0",
-             "-c:v", "libx264", "-preset", "veryfast", "-crf", "23",
-             "-c:a", "aac", "-ar", "44100", "-ac", "2", "-b:a", "128k", part], cwd=job)
-        parts.append(part)
-        log(f"{tag}: scene {i + 1}/{len(script['scenes'])} ready")
+    scenes = [s for s in script["scenes"] if (s.get("text") or "").strip()]
+    for i, sc in enumerate(scenes):
+        parts.append(build_scene(job, i, sc, w, h, title if i == 0 else None))
+        log(f"{tag}: scene {i + 1}/{len(scenes)} ready")
     if not parts:
         raise RuntimeError(f"{tag}: koi scene nahi bana")
     with open(os.path.join(job, "list.txt"), "w") as f:
@@ -338,17 +418,17 @@ def fb_json(r):
     return j
 
 
-def post_long(path, title, description):
+def post_long(path, title, desc):
     with open(path, "rb") as f:
         j = fb_json(requests.post(
             f"https://graph-video.facebook.com/{GRAPH_VER}/{FB_PAGE}/videos",
-            data={"access_token": FB_TOKEN, "title": title, "description": description},
+            data={"access_token": FB_TOKEN, "title": title, "description": desc},
             files={"source": f}, timeout=3600))
     log(f"Long video posted: {j.get('id')}")
     return j.get("id")
 
 
-def post_reel(path, description):
+def post_reel(path, desc):
     base = f"https://graph.facebook.com/{GRAPH_VER}/{FB_PAGE}/video_reels"
     vid = fb_json(requests.post(base, data={"upload_phase": "start", "access_token": FB_TOKEN},
                                 timeout=60))["video_id"]
@@ -359,7 +439,7 @@ def post_reel(path, description):
                               data=f, timeout=1800))
     fb_json(requests.post(base, timeout=60, data={
         "upload_phase": "finish", "video_id": vid, "video_state": "PUBLISHED",
-        "description": description, "access_token": FB_TOKEN}))
+        "description": desc, "access_token": FB_TOKEN}))
     log(f"Reel posted: {vid}")
     return vid
 
@@ -370,14 +450,9 @@ def description(title, script):
 
 
 # ---------------------------------------------------------------- main
-def main():
-    try:
-        _main()
-    except Exception as e:
-        REPORT["errors"].append(f"fatal: {str(e)[:300]}")
-        with open("last_run.json", "w", encoding="utf-8") as f:
-            json.dump(REPORT, f, ensure_ascii=False, indent=1)
-        raise
+def write_report():
+    with open("last_run.json", "w", encoding="utf-8") as f:
+        json.dump(REPORT, f, ensure_ascii=False, indent=1)
 
 
 def _main():
@@ -385,17 +460,16 @@ def _main():
         raise RuntimeError("FB_PAGE_ACCESS_TOKEN ya FB_PAGE_ID secret missing hai")
     history = load_history()
     theme, topic, title = pick_topic(history)
-    log(f"Theme: {theme}\nTitle: {title}\nIdea: {topic}")
+    log(f"Lang: {LANG} | Theme: {theme} | Title: {title}")
 
     long_script = write_long(topic, title)
     reel_script = write_reel(topic, title)
 
     entry = {"date": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"),
-             "theme": theme, "title": title}
+             "lang": LANG, "theme": theme, "title": title}
     ok = 0
-
     try:
-        build_video(long_script, "long", 1280, 720, "final_long.mp4")
+        build_video(long_script, "long", 1920, 1080, "final_long.mp4", title)
         if not DRY_RUN:
             entry["long_id"] = post_long("final_long.mp4", title, description(title, long_script))
         ok += 1
@@ -404,7 +478,7 @@ def _main():
         REPORT["errors"].append(f"long: {str(e)[:300]}")
 
     try:
-        build_video(reel_script, "reel", 1080, 1920, "final_reel.mp4")
+        build_video(reel_script, "reel", 1080, 1920, "final_reel.mp4", title)
         if duration("final_reel.mp4") > 89:
             run(["ffmpeg", "-y", "-i", "final_reel.mp4", "-t", "89", "-c", "copy", "reel_cut.mp4"])
             shutil.move("reel_cut.mp4", "final_reel.mp4")
@@ -416,14 +490,24 @@ def _main():
         REPORT["errors"].append(f"reel: {str(e)[:300]}")
 
     REPORT.update({"time_utc": entry["date"], "title": title, "dry_run": DRY_RUN, "posted_ok": ok})
-    with open("last_run.json", "w", encoding="utf-8") as f:
-        json.dump(REPORT, f, ensure_ascii=False, indent=1)
+    write_report()
     if ok and not DRY_RUN:
         history.append(entry)
         save_history(history)
     if ok < 2:
         sys.exit(1)
     log("Done successfully!")
+
+
+def main():
+    try:
+        _main()
+    except SystemExit:
+        raise
+    except Exception as e:
+        REPORT["errors"].append(f"fatal: {str(e)[:300]}")
+        write_report()
+        raise
 
 
 if __name__ == "__main__":

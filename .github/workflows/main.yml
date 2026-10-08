@@ -2,11 +2,17 @@ name: Daily Auto Poster
 
 on:
   schedule:
-    # Pakistan time (UTC+5): subah ~10:15 aur shaam ~8:15
-    - cron: '17 5 * * *'
-    - cron: '17 15 * * *'
+    # Pakistan time (UTC+5):
+    - cron: '17 5 * * *'    # ~10:15 subah  -> Urdu
+    - cron: '17 15 * * *'   # ~8:15 raat    -> Urdu
+    - cron: '17 18 * * *'   # ~11:15 raat   -> English (UK shaam / America dopehar)
   workflow_dispatch:
     inputs:
+      language:
+        description: 'Video ki zabaan'
+        type: choice
+        options: [ur, en]
+        default: ur
       dry_run:
         description: 'Sirf video banaye, post na kare'
         type: boolean
@@ -22,7 +28,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
+    timeout-minutes: 75
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -44,6 +50,7 @@ jobs:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          LANGUAGE: ${{ github.event.schedule == '17 18 * * *' && 'en' || inputs.language || 'ur' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
         run: python main.py
 
