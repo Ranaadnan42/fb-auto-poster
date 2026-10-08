@@ -40,7 +40,7 @@ WORK = "work_funny"
 FONTS_DIR = os.path.abspath("fonts")
 FONT = "Noto Naskh Arabic"
 VOICE = "ur-PK-AsadNeural"
-VOICE_RATE = "+6%"
+VOICE_RATE = "+0%"
 VOICE_PITCH = "+8Hz"            # thori mazahiya awaaz
 MODEL_CANDIDATES = ["gemini-3.5-flash", "gemini-2.5-flash", "gemini-3.5-flash-lite"]
 
