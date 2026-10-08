@@ -50,7 +50,8 @@ LANGS = {
         "line_long": 6, "line_reel": 4,
         "write_in": ("simple, heart-touching spoken Pakistani URDU written in Urdu script "
                      "(not Roman Urdu). Use common words people speak daily; Islamic terms "
-                     "like Allah, Sabr, Dua, Jannat are fine. After the Prophet's name write "
+                     "like Allah, Sabr, Dua, Jannat are fine. Always address the viewer respectfully "
+                     "as آپ (never تم or تو). After the Prophet's name write "
                      "صلی اللہ علیہ وسلم"),
         "follow": "آخر میں کہیں: پیج Islamic Motivational Videos کو فالو کریں اور یہ ویڈیو شیئر کریں",
         "reel_end": "آخر میں کہیں: ایسی مزید ویڈیوز کے لیے فالو کریں",
