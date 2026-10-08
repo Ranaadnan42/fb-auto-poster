@@ -194,6 +194,7 @@ def tts(text, path):
 
 # ---------------------------------------------------------------- stock clips
 USED_CLIPS = set()
+REPORT = {"stock_clips": 0, "fallback_clips": 0, "errors": []}
 
 
 def pixabay_clip(query, path):
@@ -278,7 +279,10 @@ def build_video(script, tag, w, h, out_path):
         audio, clip, srt, part = f"a{i}.mp3", f"c{i}.mp4", f"s{i}.srt", f"p{i}.mp4"
         tts(text, os.path.join(job, audio))
         dur = duration(os.path.join(job, audio)) + 0.4
-        if not pixabay_clip(sc.get("visual") or "nature", os.path.join(job, clip)):
+        if pixabay_clip(sc.get("visual") or "nature", os.path.join(job, clip)):
+            REPORT["stock_clips"] += 1
+        else:
+            REPORT["fallback_clips"] += 1
             fallback_clip(os.path.join(job, clip), w, h)
         make_srt(text, dur - 0.4, os.path.join(job, srt), 4 if vertical else 6)
         vf = (f"scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},fps=30,"
@@ -295,7 +299,8 @@ def build_video(script, tag, w, h, out_path):
         f.writelines(f"file '{p}'\n" for p in parts)
     run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", "list.txt", "-c", "copy",
          "-movflags", "+faststart", os.path.abspath(out_path)], cwd=job)
-    log(f"{tag}: video {duration(out_path) / 60:.2f} min")
+    REPORT[f"{tag}_minutes"] = round(duration(out_path) / 60, 2)
+    log(f"{tag}: video {REPORT[f'{tag}_minutes']} min")
     return out_path
 
 
@@ -343,6 +348,16 @@ def description(title, script):
 
 # ---------------------------------------------------------------- main
 def main():
+    try:
+        _main()
+    except Exception as e:
+        REPORT["errors"].append(f"fatal: {str(e)[:300]}")
+        with open("last_run.json", "w", encoding="utf-8") as f:
+            json.dump(REPORT, f, ensure_ascii=False, indent=1)
+        raise
+
+
+def _main():
     if not DRY_RUN and (not FB_TOKEN or not FB_PAGE):
         raise RuntimeError("FB_PAGE_ACCESS_TOKEN ya FB_PAGE_ID secret missing hai")
     history = load_history()
@@ -363,6 +378,7 @@ def main():
         ok += 1
     except Exception as e:
         log(f"LONG VIDEO ERROR: {e}")
+        REPORT["errors"].append(f"long: {str(e)[:300]}")
 
     try:
         build_video(reel_script, "reel", 1080, 1920, "final_reel.mp4")
@@ -374,7 +390,11 @@ def main():
         ok += 1
     except Exception as e:
         log(f"REEL ERROR: {e}")
+        REPORT["errors"].append(f"reel: {str(e)[:300]}")
 
+    REPORT.update({"time_utc": entry["date"], "title": title, "dry_run": DRY_RUN, "posted_ok": ok})
+    with open("last_run.json", "w", encoding="utf-8") as f:
+        json.dump(REPORT, f, ensure_ascii=False, indent=1)
     if ok and not DRY_RUN:
         history.append(entry)
         save_history(history)
