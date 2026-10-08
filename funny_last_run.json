@@ -1,10 +1,10 @@
 {
- "mode": "long",
- "stock_clips": 60,
+ "mode": "reel",
+ "stock_clips": 6,
  "fallback_clips": 0,
  "errors": [],
- "long_minutes": 4.28,
- "time_utc": "2026-10-08 22:11",
- "title": "پیر کی صبح اور جانوروں کی بریکنگ نیوز",
- "dry_run": true
+ "reel_minutes": 0.46,
+ "time_utc": "2026-10-08 22:43",
+ "title": "بلی کا رزلٹ اور امی کا غصہ",
+ "dry_run": false
 }
