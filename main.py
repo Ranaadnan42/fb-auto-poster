@@ -50,12 +50,17 @@ async def generate_audio(text, output_filename):
     communicate = edge_tts.Communicate(text, "en-US-ChristopherNeural")
     await communicate.save(output_filename)
 
-def create_video(audio_file, bg_video, output_video):
+def create_video(audio_file, bg_video, output_video, vertical=False):
     cmd = [
         "ffmpeg", "-y",
         "-stream_loop", "-1",
         "-i", bg_video,
         "-i", audio_file,
+    ]
+    if vertical:
+        # Reel ke liye 9:16 (1080x1920), 30fps zaroori hai
+        cmd += ["-vf", "scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,fps=30"]
+    cmd += [
         "-c:v", "libx264",
         "-preset", "ultrafast",
         "-crf", "28",
@@ -89,6 +94,36 @@ def post_to_facebook(video_path, title, description):
         raise Exception(f"Facebook error: {result['error'].get('message', result)}")
     print(f"Facebook post id: {result.get('id')}")
     return result
+
+def post_reel_to_facebook(video_path, description):
+    page_access_token = os.environ.get("FB_PAGE_ACCESS_TOKEN")
+    page_id = os.environ.get("FB_PAGE_ID")
+    if not page_access_token or not page_id:
+        raise Exception("FB_PAGE_ACCESS_TOKEN ya FB_PAGE_ID secret missing hai")
+    base = f"https://graph.facebook.com/v23.0/{page_id}/video_reels"
+
+    def check(r):
+        j = r.json()
+        if "error" in j:
+            raise Exception(f"Facebook reel error: {j['error'].get('message', j)}")
+        return j
+
+    # 1) start
+    vid = check(requests.post(base, data={"upload_phase": "start",
+                                          "access_token": page_access_token}, timeout=60))["video_id"]
+    # 2) upload
+    size = os.path.getsize(video_path)
+    with open(video_path, "rb") as f:
+        check(requests.post(f"https://rupload.facebook.com/video-upload/v23.0/{vid}",
+                            headers={"Authorization": f"OAuth {page_access_token}",
+                                     "offset": "0", "file_size": str(size)},
+                            data=f, timeout=1800))
+    # 3) publish
+    check(requests.post(base, data={"upload_phase": "finish", "video_id": vid,
+                                     "video_state": "PUBLISHED", "description": description,
+                                     "access_token": page_access_token}, timeout=60))
+    print(f"Facebook reel id: {vid}")
+    return vid
 
 async def main():
     print("Starting process...")
@@ -127,10 +162,13 @@ async def main():
     create_video("long_audio.mp3", bg_file, "final_long.mp4")
     
     print("Rendering reel video...")
-    create_video("reel_audio.mp3", bg_file, "final_reel.mp4")
+    create_video("reel_audio.mp3", bg_file, "final_reel.mp4", vertical=True)
     
     print("Posting to Facebook...")
     post_to_facebook("final_long.mp4", topic, long_script[:300])
+
+    print("Posting reel to Facebook...")
+    post_reel_to_facebook("final_reel.mp4", f"{topic}\n\n{reel_script[:300]}")
     print("Done successfully!")
 
 if __name__ == "__main__":
