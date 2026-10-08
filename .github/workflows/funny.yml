@@ -1,0 +1,70 @@
+name: Funny Videos Poster
+
+on:
+  schedule:
+    # Pakistan time (UTC+5)
+    - cron: '33 8 * * *'    # ~1:30 dopehar -> reel
+    - cron: '33 12 * * *'   # ~5:30 shaam   -> reel
+    - cron: '33 15 * * *'   # ~8:30 raat    -> lambi video (5 min)
+    - cron: '33 17 * * *'   # ~10:30 raat   -> reel
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'reel ya long'
+        type: choice
+        options: [reel, long]
+        default: reel
+      dry_run:
+        description: 'Sirf video banaye, post na kare'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: funny-poster
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install google-genai edge-tts requests
+
+      - name: Run funny.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          FUNNY_PAGE_TOKEN: ${{ secrets.FUNNY_PAGE_TOKEN }}
+          FUNNY_PAGE_ID: ${{ secrets.FUNNY_PAGE_ID }}
+          MODE: ${{ github.event.schedule == '33 15 * * *' && 'long' || inputs.mode || 'reel' }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+        run: python funny.py
+
+      - name: Save history
+        if: always()
+        run: |
+          if [ -n "$(git status --porcelain funny_history.json funny_last_run.json 2>/dev/null)" ]; then
+            git config user.name "auto-poster"
+            git config user.email "auto-poster@users.noreply.github.com"
+            git add funny_history.json funny_last_run.json 2>/dev/null || git add funny_last_run.json
+            git commit -m "Update funny history and run report"
+            for i in 1 2 3; do
+              git pull --rebase origin main && git push origin HEAD:main && break
+              sleep 5
+            done
+          fi
