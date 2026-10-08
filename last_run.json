@@ -1,12 +1,12 @@
 {
- "lang": "ur",
- "stock_clips": 29,
+ "lang": "en",
+ "stock_clips": 41,
  "fallback_clips": 0,
  "errors": [],
- "long_minutes": 3.76,
- "reel_minutes": 0.75,
- "time_utc": "2026-10-08 20:42",
- "title": "جب سب چھوڑ جائیں گے، تو قبر میں آپ کا ساتھی کون ہوگا؟",
- "dry_run": false,
+ "long_minutes": 4.9,
+ "reel_minutes": 0.65,
+ "time_utc": "2026-10-08 20:58",
+ "title": "When Pain Lasts Years: What Prophet Ayub's Tears Taught Us",
+ "dry_run": true,
  "posted_ok": 2
 }
