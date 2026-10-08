@@ -24,19 +24,19 @@ PARTS = 3
 PART_NAMES = {1: "قسط 1", 2: "قسط 2", 3: "آخری قسط"}
 
 
-def series_state(history):
-    """Pichli series adhoori ho to agli qist, warna nayi series (style baari baari)."""
+def series_state(history, force_style=None):
+    """Roz style badalta hai (cartoon / ai). Har style ki apni series qiston mein aage barhti hai."""
     longs = [h for h in history if h.get("series")]
-    if longs and longs[-1].get("part", PARTS) < PARTS:
-        last = longs[-1]
-        prev = [h for h in longs if h["series"] == last["series"]]
+    style = force_style or ("cartoon" if len(longs) % 2 == 0 else "ai")
+    mine = [h for h in longs if h.get("style") == style]
+    if mine and mine[-1].get("part", PARTS) < PARTS:
+        last = mine[-1]
+        prev = [h for h in mine if h["series"] == last["series"]]
         return {"series": last["series"], "series_title": last.get("series_title", ""),
-                "part": last["part"] + 1, "style": last.get("style", "cartoon"),
-                "topic": last.get("topic"),
+                "part": last["part"] + 1, "style": style, "topic": last.get("topic"),
                 "summaries": [h.get("summary", "") for h in prev]}
-    n_series = len({h["series"] for h in longs})
-    return {"series": F.datetime.datetime.utcnow().strftime("%Y%m%d%H%M"), "series_title": "",
-            "part": 1, "style": "cartoon" if n_series % 2 == 0 else "ai",
+    return {"series": F.datetime.datetime.utcnow().strftime("%Y%m%d%H%M") + style[0],
+            "series_title": "", "part": 1, "style": style,
             "topic": F.SITUATIONS[(len(history) * 3 + 11) % len(F.SITUATIONS)], "summaries": []}
 
 
@@ -183,9 +183,7 @@ def build_scene(job, i, sc, w, h, style, title):
 
 
 def build_long(history, out_path, force_style=None):
-    st = series_state(history)
-    if force_style in STYLE_QUERY and st["part"] == 1:
-        st["style"] = force_style
+    st = series_state(history, force_style if force_style in STYLE_QUERY else None)
     style = st["style"]
     script = write_story(history, st)
     job = os.path.join(F.WORK, f"story_{style}")

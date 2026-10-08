@@ -64,13 +64,17 @@ jobs:
       - name: Save history
         if: always()
         run: |
-          if [ -n "$(git status --porcelain funny_history.json funny_last_run.json 2>/dev/null)" ]; then
-            git config user.name "auto-poster"
-            git config user.email "auto-poster@users.noreply.github.com"
-            git add funny_history.json funny_last_run.json 2>/dev/null || git add funny_last_run.json
-            git commit -m "Update funny history and run report"
-            for i in 1 2 3; do
-              git pull --rebase origin main && git push origin HEAD:main && break
-              sleep 5
-            done
-          fi
+          FILES="funny_history.json funny_last_run.json"
+          mkdir -p /tmp/keep
+          for f in $FILES; do [ -f "$f" ] && cp "$f" /tmp/keep/; done
+          git config user.name "auto-poster"
+          git config user.email "auto-poster@users.noreply.github.com"
+          for i in 1 2 3 4 5; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            for f in $FILES; do [ -f "/tmp/keep/$f" ] && cp "/tmp/keep/$f" "$f"; done
+            git add $FILES 2>/dev/null || true
+            git diff --cached --quiet && break
+            git commit -q -m "Update funny history and run report"
+            git push -q origin HEAD:main && break
+            sleep $((i * 5))
+          done
