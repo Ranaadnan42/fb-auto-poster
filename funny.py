@@ -485,7 +485,7 @@ def _main():
     import chat_comedy
     n_reels = sum(1 for h in history if h.get("mode") == "reel")
     if MODE == "long":
-        fmt = os.environ.get("FORMAT") or "animal"      # lambi video: janwar compilation
+        fmt = os.environ.get("FORMAT") or "story"       # lambi video: qiston wali kahani
     else:
         fmt = os.environ.get("FORMAT") or ("animal" if n_reels % 3 == 2 else "chat")
     entry["format"] = fmt
@@ -494,6 +494,12 @@ def _main():
         if fmt == "animal":
             script = write_long(history)
             build_video(script, "long", 1920, 1080, "funny_long.mp4")
+        elif fmt in ("story", "ai", "cartoon"):
+            import story
+            script = story.build_long(history, "funny_long.mp4",
+                                      force_style=fmt if fmt in ("ai", "cartoon") else None)
+            REPORT["long_minutes"] = round(duration("funny_long.mp4") / 60, 2)
+            REPORT["series"] = f"{script['series_title']} part {script['part']} ({script['style']})"
         else:
             script = chat_comedy.build_long(history, "funny_long.mp4")
         REPORT["long_minutes"] = round(duration("funny_long.mp4") / 60, 2)
@@ -512,6 +518,9 @@ def _main():
         if not DRY_RUN:
             entry["id"] = post_reel("funny_reel.mp4", description(script))
     entry.update({"title": script["title"], "animal": script["animal"], "topic": script.get("topic")})
+    for key in ("series", "series_title", "part", "summary", "style"):
+        if script.get(key) is not None:
+            entry[key] = script[key]
     REPORT.update({"time_utc": entry["date"], "title": script["title"], "dry_run": DRY_RUN})
     write_report()
     if not DRY_RUN:

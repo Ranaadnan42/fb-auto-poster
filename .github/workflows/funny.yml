@@ -17,7 +17,7 @@ on:
       format:
         description: 'auto, chat ya animal'
         type: choice
-        options: [auto, chat, animal]
+        options: [auto, chat, animal, story, ai, cartoon]
         default: auto
       dry_run:
         description: 'Sirf video banaye, post na kare'
