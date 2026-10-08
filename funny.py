@@ -153,13 +153,20 @@ Invent a FRESH joke idea about this topic - never reuse an idea from these past 
 {json.dumps(used, ensure_ascii=False)}
 
 Write a 100-word Urdu voice-over (about 40 seconds) for stock clips of a {animal}.
-First line must be a funny hook. End with a punchline, then: "ایسی مزید ویڈیوز کے لیے فالو کریں"
+The {animal} is the main character talking in first person like a typical desi person.
+Make it GENUINELY funny: one relatable situation, exaggeration, desi references
+(ammi, abbu, chai, biryani, load shedding, WhatsApp, rishta, cricket), short punchy lines,
+and a surprising twist punchline at the end. Line 1 is a hook that makes people stop scrolling.
+Only refer to simple things any clip of a {animal} shows (looking, staring, sitting, eating,
+sleeping, walking, running) so the video always matches the words.
+After the punchline end with: "ایسی مزید ویڈیوز کے لیے فالو کریں"
 {RULES}
 
 Split into exactly 5 scenes. For each scene give a 1-3 word ENGLISH stock-video search term
 that will show a {animal} (e.g. "{animal}", "{animal} playing", "funny {animal}").
 
 Return JSON: {{"title": "funny Urdu title, max 60 characters",
+ "meme": "very short meme header in Urdu shown on top of the whole reel, max 7 words, like a POV line",
  "scenes": [{{"text": "...", "visual": "..."}}],
  "caption": "1 funny line in Urdu that asks people to tag a friend",
  "hashtags": ["#funny", "..."] (6 hashtags, English and Urdu)}}""")
@@ -186,7 +193,10 @@ Use these 10 animals, one segment each, in this order: {', '.join(animals)}.
 These titles were already used: {json.dumps(used, ensure_ascii=False)}
 
 Write the Urdu voice-over: each segment about 95 words (total about 950 words) - count carefully.
-Segment 1 starts with a hook that makes people keep watching. Each segment ends with a punchline.
+Segment 1 starts with a hook that makes people keep watching. Each animal talks in first person
+like a typical desi person, with exaggeration, desi references (ammi, chai, biryani, WhatsApp, cricket)
+and a surprising punchline. Only refer to simple actions any clip of that animal shows
+(looking, sitting, eating, sleeping, walking, running).
 Last segment ends with: "ویڈیو اچھی لگی ہو تو پیج فالو کریں اور دوستوں کو شیئر کریں"
 {RULES}
 {extra}
@@ -228,7 +238,7 @@ def tts(text, path):
 
 
 # ---------------------------------------------------------------- clips
-def pixabay_clips(query, count, job, prefix, backup):
+def pixabay_clips(query, count, job, prefix, backup, want_vertical=False, strict=True):
     got = []
     if not PIXABAY_KEY:
         return got
@@ -243,11 +253,17 @@ def pixabay_clips(query, count, job, prefix, backup):
             r = requests.get("https://pixabay.com/api/videos/", timeout=40, params={
                 "key": PIXABAY_KEY, "q": q, "safesearch": "true", "per_page": 40})
             r.raise_for_status()
-            hits = [h for h in r.json().get("hits", []) if h["id"] not in USED_CLIPS]
+            bad = ("animation", "3d", "cartoon", "render", "illustration", "christmas", "abstract")
+            hits = [h for h in r.json().get("hits", []) if h["id"] not in USED_CLIPS
+                    and (not strict or backup.split()[-1] in h.get("tags", "").lower())
+                    and not any(b in h.get("tags", "").lower() for b in bad)]
         except Exception as e:
             log(f"Pixabay error ({q}): {str(e)[:150]}")
             continue
         random.shuffle(hits)
+        if want_vertical:
+            hits.sort(key=lambda h: 0 if (h.get("videos", {}).get("medium", {}).get("height", 0)
+                                         > h.get("videos", {}).get("medium", {}).get("width", 1)) else 1)
         for h in hits:
             if len(got) >= count:
                 break
@@ -288,7 +304,7 @@ def ass_text(s):
     return s.replace("\\", " ").replace("{", "(").replace("}", ")").replace("\n", " ").strip()
 
 
-def make_ass(path, text, total, w, h, title=None):
+def make_ass(path, text, total, w, h, title=None, meme=None):
     vertical = h > w
     head = f"""[Script Info]
 ScriptType: v4.00+
@@ -299,7 +315,8 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Sub,{FONT},{84 if vertical else 70},&H0000F0FF,&H0000F0FF,&H00000000,&H96000000,1,0,0,0,100,100,0,0,1,6,3,2,70,70,{430 if vertical else 80},1
+Style: Sub,{FONT},{96 if vertical else 74},&H0000F0FF,&H0000F0FF,&H00000000,&H96000000,1,0,0,0,100,100,0,0,1,7,3,2,60,60,{560 if vertical else 80},1
+Style: Meme,{FONT},{70 if vertical else 60},&H00000000,&H00000000,&H00FFFFFF,&H00FFFFFF,1,0,0,0,100,100,0,0,3,22,0,8,50,50,{170 if vertical else 50},1
 Style: Title,{FONT},{80 if vertical else 72},&H00FFFFFF,&H00FFFFFF,&H002A2AE0,&H002A2AE0,1,0,0,0,100,100,0,0,3,18,0,8,60,60,{300 if vertical else 80},1
 Style: Mark,Noto Sans,{32 if vertical else 28},&H40FFFFFF,&H40FFFFFF,&H80000000,&H00000000,1,0,0,0,100,100,0,0,1,2,0,9,40,40,40,1
 
@@ -307,7 +324,9 @@ Style: Mark,Noto Sans,{32 if vertical else 28},&H40FFFFFF,&H40FFFFFF,&H80000000,
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
     ev = [f"Dialogue: 0,{ass_time(0)},{ass_time(total + 1)},Mark,,0,0,0,,{PAGE_NAME}"]
-    if title:
+    if meme:
+        ev.append(f"Dialogue: 1,{ass_time(0)},{ass_time(total + 1)},Meme,,0,0,0,,{ass_text(meme)}")
+    elif title:
         ev.append(f"Dialogue: 1,{ass_time(0.2)},{ass_time(min(4.5, total))},Title,,0,0,0,,"
                   f"{{\\fad(300,400)}}{ass_text(title)}")
     words = text.split()
@@ -327,13 +346,16 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 
 
 # ---------------------------------------------------------------- video
-def build_scene(job, i, sc, w, h, title, backup):
+def build_scene(job, i, sc, w, h, title, backup, meme=None):
     text = (sc.get("text") or "").strip()
     audio = f"a{i}.mp3"
     tts(text, os.path.join(job, audio))
     dur = duration(os.path.join(job, audio)) + 0.4
     k = max(1, min(6, round(dur / 4)))                      # har ~4 sec naya clip
-    clips = pixabay_clips(sc.get("visual") or backup, k, job, f"c{i}", backup)
+    clips = pixabay_clips(sc.get("visual") or backup, k, job, f"c{i}", backup, want_vertical=h > w)
+    if not clips:   # sakht filter se kuch na mile to naram filter
+        clips = pixabay_clips(sc.get("visual") or backup, k, job, f"c{i}", backup,
+                              want_vertical=h > w, strict=False)
     REPORT["stock_clips"] += len(clips)
     if not clips:
         REPORT["fallback_clips"] += 1
@@ -342,13 +364,19 @@ def build_scene(job, i, sc, w, h, title, backup):
         clips = [fb]
     k = len(clips)
     seg = dur / k
-    make_ass(os.path.join(job, f"s{i}.ass"), text, dur - 0.4, w, h, title)
+    make_ass(os.path.join(job, f"s{i}.ass"), text, dur - 0.4, w, h, title, meme)
     cmd = ["ffmpeg", "-y"]
     for c in clips:
         cmd += ["-stream_loop", "-1", "-t", f"{seg + 0.2:.2f}", "-i", os.path.basename(c)]
     cmd += ["-i", audio]
-    chains = [f"[{j}:v]scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},fps=30,"
-              f"setsar=1,trim=duration={seg:.2f},setpts=PTS-STARTPTS[v{j}]" for j in range(k)]
+    chains = []
+    for j in range(k):
+        chains.append(
+            f"[{j}:v]fps=30,trim=duration={seg:.2f},setpts=PTS-STARTPTS,split[a{j}][b{j}];"
+            f"[a{j}]scale={w}:{h}:force_original_aspect_ratio=increase,crop={w}:{h},"
+            f"boxblur=25:2,eq=brightness=-0.15[bg{j}];"
+            f"[b{j}]scale={w}:{h}:force_original_aspect_ratio=decrease[fg{j}];"
+            f"[bg{j}][fg{j}]overlay=(W-w)/2:(H-h)/2,setsar=1[v{j}]")
     fontsdir = f":fontsdir={FONTS_DIR}" if os.path.isdir(FONTS_DIR) else ""
     chains.append("".join(f"[v{j}]" for j in range(k)) +
                   f"concat=n={k}:v=1:a=0,eq=saturation=1.25:contrast=1.05,"
@@ -369,7 +397,8 @@ def build_video(script, tag, w, h, out_path):
     parts = []
     for i, sc in enumerate(scenes):
         backup = sc.get("animal") or script["animal"]
-        parts.append(build_scene(job, i, sc, w, h, script["title"] if i == 0 else None, backup))
+        meme = script.get("meme") if h > w else None
+        parts.append(build_scene(job, i, sc, w, h, script["title"] if i == 0 else None, backup, meme))
         log(f"{tag}: scene {i + 1}/{len(scenes)} ready")
     with open(os.path.join(job, "list.txt"), "w") as f:
         f.writelines(f"file '{p}'\n" for p in parts)
