@@ -1,14 +1,12 @@
 {
  "lang": "ur",
- "stock_clips": 53,
+ "stock_clips": 29,
  "fallback_clips": 0,
- "errors": [
-  "long: Facebook ka jawab samajh nahi aaya: "
- ],
- "long_minutes": 8.19,
- "reel_minutes": 0.54,
- "time_utc": "2026-10-08 20:24",
- "title": "مایوس نہ ہوں! اللہ کی رحمت آپ کے گناہوں سے کہیں زیادہ بڑی ہے",
+ "errors": [],
+ "long_minutes": 3.76,
+ "reel_minutes": 0.75,
+ "time_utc": "2026-10-08 20:42",
+ "title": "جب سب چھوڑ جائیں گے، تو قبر میں آپ کا ساتھی کون ہوگا؟",
  "dry_run": false,
- "posted_ok": 1
+ "posted_ok": 2
 }
