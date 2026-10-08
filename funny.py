@@ -500,6 +500,9 @@ def _main():
                                       force_style=fmt if fmt in ("ai", "cartoon") else None)
             REPORT["long_minutes"] = round(duration("funny_long.mp4") / 60, 2)
             REPORT["series"] = f"{script['series_title']} part {script['part']} ({script['style']})"
+            import funny as _f   # story module apni REPORT copy mein ginti rakhta hai
+            REPORT["stock_clips"] = _f.REPORT.get("stock_clips", 0)
+            REPORT["fallback_clips"] = _f.REPORT.get("fallback_clips", 0)
         else:
             script = chat_comedy.build_long(history, "funny_long.mp4")
         REPORT["long_minutes"] = round(duration("funny_long.mp4") / 60, 2)
