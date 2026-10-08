@@ -46,7 +46,7 @@ MODEL_CANDIDATES = ["gemini-3.5-flash", "gemini-2.5-flash", "gemini-3.5-flash-li
 LANGS = {
     "ur": {
         "voice": "ur-PK-AsadNeural", "rate": "-4%", "font": "Noto Naskh Arabic",
-        "long_words": 650, "long_min": 560, "long_max": 780, "reel_words": 130,
+        "long_words": 850, "long_min": 700, "long_max": 1000, "reel_words": 130,
         "line_long": 6, "line_reel": 4,
         "write_in": ("simple, heart-touching spoken Pakistani URDU written in Urdu script "
                      "(not Roman Urdu). Use common words people speak daily; Islamic terms "
@@ -194,9 +194,9 @@ Return JSON: {{"scenes": [{{"text": "...", "visual": "..."}}],
  "hashtags": ["#Islam", "..."] (8 hashtags, mix of English and the video language)}}""")
 
 
-def write_long(topic, title):
-    best, extra = None, ""
-    for _ in range(3):
+def write_long(topic, title, extra=""):
+    best = None
+    for _ in range(2):
         data = _write_long(topic, title, extra)
         n = word_count(data)
         log(f"Long script: {n} words")
@@ -204,7 +204,7 @@ def write_long(topic, title):
         if len(data.get("scenes", [])) >= 4 and (
                 best is None or abs(n - target) < abs(word_count(best) - target)):
             best = data
-        if L["long_min"] <= n <= L["long_max"]:
+        if L["long_min"] // 2 <= n <= L["long_max"] * 2:
             break
         if n < L["long_min"]:
             extra = (f"IMPORTANT: your previous draft had only {n} words - too short. Each scene must "
@@ -214,6 +214,46 @@ def write_long(topic, title):
                      f"about {target // 12} words, total about {target} words, NOT more.")
     if not best:
         raise RuntimeError("Lambi script nahi bani")
+    return best
+
+
+def voice_minutes(script, job):
+    """Har scene ki awaaz bana kar kul minute batata hai (audio job folder mein rehti hai)."""
+    shutil.rmtree(job, ignore_errors=True)
+    os.makedirs(job)
+    total = 0.0
+    scenes = [s for s in script["scenes"] if (s.get("text") or "").strip()]
+    for i, sc in enumerate(scenes):
+        a = os.path.join(job, f"a{i}.mp3")
+        tts(sc["text"].strip(), a)
+        total += duration(a) + 0.5
+    script["scenes"] = scenes
+    return total / 60
+
+
+def long_script_with_audio(topic, title):
+    """Script likhwa kar awaaz banata hai; 4.3-6 minute na ho to dobara likhwata hai."""
+    job = os.path.join(WORK, "long")
+    best, best_gap, extra = None, None, ""
+    for attempt in range(3):
+        data = write_long(topic, title, extra)
+        n = word_count(data)
+        mins = voice_minutes(data, job)
+        log(f"Long script try {attempt + 1}: {n} words, {mins:.2f} min")
+        gap = abs(mins - 5.0)
+        if best is None or gap < best_gap:
+            best, best_gap = data, gap
+            keep = os.path.join(WORK, "long_best")
+            shutil.rmtree(keep, ignore_errors=True)
+            shutil.copytree(job, keep)
+        if 4.3 <= mins <= 6.0:
+            return data
+        want = int(n * 5.0 / max(mins, 0.5))
+        extra = (f"IMPORTANT: your previous draft had {n} words and took {mins:.1f} minutes to read "
+                 f"aloud. The video must be about 5 minutes, so write about {want} words in total "
+                 f"(about {want // 12} words per scene).")
+    shutil.rmtree(job, ignore_errors=True)
+    shutil.copytree(os.path.join(WORK, "long_best"), job)
     return best
 
 
@@ -357,7 +397,8 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 def build_scene(job, i, sc, w, h, title):
     text = (sc.get("text") or "").strip()
     audio = f"a{i}.mp3"
-    tts(text, os.path.join(job, audio))
+    if not os.path.exists(os.path.join(job, audio)):
+        tts(text, os.path.join(job, audio))
     dur = duration(os.path.join(job, audio)) + 0.5
     k = max(1, min(4, round(dur / 8)))                     # har ~8 second baad naya clip
     clips = pixabay_clips(sc.get("visual") or "nature", k, job, f"c{i}")
@@ -396,8 +437,7 @@ def build_scene(job, i, sc, w, h, title):
 
 def build_video(script, tag, w, h, out_path, title):
     job = os.path.join(WORK, tag)
-    shutil.rmtree(job, ignore_errors=True)
-    os.makedirs(job)
+    os.makedirs(job, exist_ok=True)
     parts = []
     scenes = [s for s in script["scenes"] if (s.get("text") or "").strip()]
     for i, sc in enumerate(scenes):
@@ -492,7 +532,7 @@ def _main():
     theme, topic, title = pick_topic(history)
     log(f"Lang: {LANG} | Theme: {theme} | Title: {title}")
 
-    long_script = write_long(topic, title)
+    long_script = long_script_with_audio(topic, title)
     reel_script = write_reel(topic, title)
 
     entry = {"date": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"),
