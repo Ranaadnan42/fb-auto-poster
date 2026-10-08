@@ -14,6 +14,11 @@ on:
         type: choice
         options: [reel, long]
         default: reel
+      format:
+        description: 'auto, chat ya animal'
+        type: choice
+        options: [auto, chat, animal]
+        default: auto
       dry_run:
         description: 'Sirf video banaye, post na kare'
         type: boolean
@@ -52,6 +57,7 @@ jobs:
           FUNNY_PAGE_TOKEN: ${{ secrets.FUNNY_PAGE_TOKEN }}
           FUNNY_PAGE_ID: ${{ secrets.FUNNY_PAGE_ID }}
           MODE: ${{ github.event.schedule == '33 15 * * *' && 'long' || inputs.mode || 'reel' }}
+          FORMAT: ${{ inputs.format != 'auto' && inputs.format || '' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
         run: python funny.py
 
