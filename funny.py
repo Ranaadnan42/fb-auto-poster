@@ -203,7 +203,7 @@ Last segment ends with: "ویڈیو اچھی لگی ہو تو پیج فالو ک
 
 For each segment give a 1-3 word ENGLISH stock-video search term showing that animal.
 Return JSON: {{"title": "funny Urdu title, max 70 characters",
- "scenes": [{{"text": "...", "visual": "..."}}] (exactly 10),
+ "scenes": [{{"text": "...", "visual": "...", "meme": "very short funny Urdu header for this segment, max 7 words"}}] (exactly 10),
  "caption": "2 funny lines in Urdu asking people to comment their favourite animal",
  "hashtags": ["#funny", "..."] (8 hashtags)}}""")
         n = word_count(data)
@@ -397,7 +397,7 @@ def build_video(script, tag, w, h, out_path):
     parts = []
     for i, sc in enumerate(scenes):
         backup = sc.get("animal") or script["animal"]
-        meme = script.get("meme") if h > w else None
+        meme = script.get("meme") if h > w else sc.get("meme")
         parts.append(build_scene(job, i, sc, w, h, script["title"] if i == 0 else None, backup, meme))
         log(f"{tag}: scene {i + 1}/{len(scenes)} ready")
     with open(os.path.join(job, "list.txt"), "w") as f:
@@ -484,7 +484,10 @@ def _main():
     entry = {"date": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), "mode": MODE}
     import chat_comedy
     n_reels = sum(1 for h in history if h.get("mode") == "reel")
-    fmt = os.environ.get("FORMAT") or ("animal" if MODE == "reel" and n_reels % 3 == 2 else "chat")
+    if MODE == "long":
+        fmt = os.environ.get("FORMAT") or "animal"      # lambi video: janwar compilation
+    else:
+        fmt = os.environ.get("FORMAT") or ("animal" if n_reels % 3 == 2 else "chat")
     entry["format"] = fmt
     REPORT["format"] = fmt
     if MODE == "long":
