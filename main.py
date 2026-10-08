@@ -36,7 +36,8 @@ DRY_RUN = os.environ.get("DRY_RUN") == "1"
 GRAPH_VER = "v23.0"
 VOICE = "en-US-ChristopherNeural"
 VOICE_RATE = "-5%"                 # thori dheemi, sukoon wali awaaz
-LONG_WORDS = 700                   # ~4.5-5 minute
+LONG_WORDS = 800                   # ~4.5-5 minute
+LONG_MIN_WORDS = 680               # is se kam ho to dobara likhwao
 LONG_SCENES = 12
 REEL_WORDS = 120                   # ~45-55 second
 REEL_SCENES = 5
@@ -141,7 +142,27 @@ RULES = """Accuracy rules (very important):
 - Spoken plain sentences only: no emojis, no headings, no stage directions."""
 
 
+def word_count(script):
+    return sum(len((s.get("text") or "").split()) for s in script.get("scenes", []))
+
+
 def write_long(topic, title):
+    best = None
+    extra = ""
+    for attempt in range(3):
+        data = _write_long(topic, title, extra)
+        n = word_count(data)
+        log(f"Long script: {n} words")
+        if best is None or n > word_count(best):
+            best = data
+        if n >= LONG_MIN_WORDS:
+            break
+        extra = (f"IMPORTANT: your previous draft had only {n} words. This time each scene must be "
+                 f"about {LONG_WORDS // LONG_SCENES + 10} words, total at least {LONG_WORDS} words.")
+    return best
+
+
+def _write_long(topic, title, extra):
     data = ask_json(f"""Write the voice-over for a {LONG_WORDS}-word YouTube-style Islamic motivational
 video for Facebook. Title: "{title}". Idea: {topic}
 
@@ -150,7 +171,9 @@ then a story or explanation, practical lessons for daily life, and a heartfelt e
 Last scene: ask viewers to follow the page "Islamic Motivational Videos" and share the video.
 {RULES}
 
-Split into exactly {LONG_SCENES} scenes of similar length (total about {LONG_WORDS} words).
+Split into exactly {LONG_SCENES} scenes, each scene about {LONG_WORDS // LONG_SCENES} words
+(total at least {LONG_WORDS} words - count carefully, a short script is a failure).
+{extra}
 For each scene give a 1-3 word English stock-footage search term. {SAFE_VISUALS}
 
 Return JSON: {{"scenes": [{{"text": "...", "visual": "..."}}],
