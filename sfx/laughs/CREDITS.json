@@ -1,4 +1,72 @@
 {
- "laugh_01.mp3": "File:Short clip of girl laughing.wav",
- "laugh_02.mp3": "File:LL-Q1860 (eng)-Flame, not lame-laughing group.wav"
+ "laugh_01.mp3": {
+  "title": "File:Short clip of girl laughing.wav",
+  "license": "",
+  "artist": ""
+ },
+ "laugh_02.mp3": {
+  "title": "File:72842 lonemonk approx-800-laugh-1.wav",
+  "license": "CC BY 3.0",
+  "artist": "lonemonk on freesound.org"
+ },
+ "laugh_850.mp3": {
+  "title": "File:72843 lonemonk approx-800-laughter-only-1.wav",
+  "license": "CC BY 3.0",
+  "artist": "lonemonk on freesound.org"
+ },
+ "laugh_685.mp3": {
+  "title": "File:72844 lonemonk approx-800-laughter-and-clapter-1.wav",
+  "license": "CC BY 3.0",
+  "artist": "lonemonk on freesound.org"
+ },
+ "laugh_497.mp3": {
+  "title": "File:DJ Dougernaut - 02 - Life is Too Dark to Laugh So Hard.ogg",
+  "license": "CC BY 4.0",
+  "artist": "DJ Dougernaut"
+ },
+ "laugh_848.mp3": {
+  "title": "File:Small group laughter.ogg",
+  "license": "CC BY 3.0",
+  "artist": "Ch0cchi"
+ },
+ "laugh_361.mp3": {
+  "title": "File:Different-Types-of-Laughter-Modulate-Connectivity-within-Distinct-Parts-of-the-Laughter-Perception-pone.0063441.s010.oga",
+  "license": "CC BY 2.5",
+  "artist": "Wildgruber D, Szameitat D, Ethofer T, Bruck C, Alter K, Grodd W, Kreifelts B"
+ },
+ "laugh_746.mp3": {
+  "title": "File:Different-Types-of-Laughter-Modulate-Connectivity-within-Distinct-Parts-of-the-Laughter-Perception-pone.0063441.s011.oga",
+  "license": "CC BY 2.5",
+  "artist": "Wildgruber D, Szameitat D, Ethofer T, Bruck C, Alter K, Grodd W, Kreifelts B"
+ },
+ "laugh_083.mp3": {
+  "title": "File:Different-Types-of-Laughter-Modulate-Connectivity-within-Distinct-Parts-of-the-Laughter-Perception-pone.0063441.s012.oga",
+  "license": "CC BY 2.5",
+  "artist": "Wildgruber D, Szameitat D, Ethofer T, Bruck C, Alter K, Grodd W, Kreifelts B"
+ },
+ "laugh_568.mp3": {
+  "title": "File:En-au-giggle berries.ogg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Commander Keane"
+ },
+ "laugh_968.mp3": {
+  "title": "File:En-au-giggle juice.ogg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Commander Keane"
+ },
+ "laugh_870.mp3": {
+  "title": "File:Laughter-Ochi.oga",
+  "license": "CC BY-SA 4.0",
+  "artist": "SBMuhd1"
+ },
+ "laugh_488.mp3": {
+  "title": "File:Laugh.wav",
+  "license": "CC BY-SA 4.0",
+  "artist": "Abduhlamidala"
+ },
+ "laugh_255.mp3": {
+  "title": "File:Laughing Song.ogg",
+  "license": "CC BY-SA 4.0",
+  "artist": "Neil Carmichael"
+ }
 }

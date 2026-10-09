@@ -1,12 +1,12 @@
 {
- "mode": "auto",
- "stock_clips": 11,
+ "mode": "reel",
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
+ "format": "chat",
+ "reel_minutes": 1.4,
  "laughs": 3,
- "reel_minutes": 0.77,
- "time_utc": "2026-10-09 20:18",
- "title": "پیر کی صبح، مینیجر بیٹا اور امی کی چپل",
- "dry_run": false
+ "time_utc": "2026-10-09 20:21",
+ "title": "بجلی کا بل اور ستر ہزار کا جھٹکا",
+ "dry_run": true
 }
