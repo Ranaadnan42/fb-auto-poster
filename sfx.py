@@ -58,6 +58,9 @@ def ensure_laughs(min_count=8):
     os.makedirs(DIR, exist_ok=True)
     credits = _load()
     _clean_old(credits)
+    for f in os.listdir(DIR):                     # bina credit wali files hatao
+        if f.endswith(".mp3") and f not in credits:
+            os.remove(os.path.join(DIR, f))
     have = [f for f in os.listdir(DIR) if f.endswith(".mp3") and f in credits]
     if len(have) >= min_count:
         return have
@@ -88,6 +91,7 @@ def ensure_laughs(min_count=8):
                     or "nc" in licl or "nd" in licl
                     or not any(k in low for k in ("laugh", "giggl", "chuckl"))
                     or "ll-q" in low
+                    or re.search(r"song|music|dj |^file:[a-z]{2,3}(-[a-z]{2,4})?-", low)
                     or any(b in low for b in ("evil", "witch", "horror", "scary", "maniac", "crying"))
                     or not (1.0 <= dur <= 60) or title in seen):
                 continue

@@ -19,11 +19,6 @@
   "license": "CC BY 3.0",
   "artist": "lonemonk on freesound.org"
  },
- "laugh_497.mp3": {
-  "title": "File:DJ Dougernaut - 02 - Life is Too Dark to Laugh So Hard.ogg",
-  "license": "CC BY 4.0",
-  "artist": "DJ Dougernaut"
- },
  "laugh_848.mp3": {
   "title": "File:Small group laughter.ogg",
   "license": "CC BY 3.0",
@@ -44,16 +39,6 @@
   "license": "CC BY 2.5",
   "artist": "Wildgruber D, Szameitat D, Ethofer T, Bruck C, Alter K, Grodd W, Kreifelts B"
  },
- "laugh_568.mp3": {
-  "title": "File:En-au-giggle berries.ogg",
-  "license": "CC BY-SA 4.0",
-  "artist": "Commander Keane"
- },
- "laugh_968.mp3": {
-  "title": "File:En-au-giggle juice.ogg",
-  "license": "CC BY-SA 4.0",
-  "artist": "Commander Keane"
- },
  "laugh_870.mp3": {
   "title": "File:Laughter-Ochi.oga",
   "license": "CC BY-SA 4.0",
@@ -63,10 +48,5 @@
   "title": "File:Laugh.wav",
   "license": "CC BY-SA 4.0",
   "artist": "Abduhlamidala"
- },
- "laugh_255.mp3": {
-  "title": "File:Laughing Song.ogg",
-  "license": "CC BY-SA 4.0",
-  "artist": "Neil Carmichael"
  }
 }
