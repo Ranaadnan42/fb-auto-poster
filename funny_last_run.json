@@ -1,12 +1,11 @@
 {
- "mode": "long",
- "stock_clips": 41,
+ "mode": "reel",
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "ai",
- "long_minutes": 4.73,
- "series": "پپو اور ماسٹر جی کی جنگ part 1 (ai)",
- "time_utc": "2026-10-08 23:42",
- "title": "پپو اور ماسٹر جی کی جنگ | قسط 1",
- "dry_run": true
+ "format": "chat",
+ "reel_minutes": 1.16,
+ "time_utc": "2026-10-09 15:32",
+ "title": "بجلی کا بل اور امی کا بلڈ پریشر",
+ "dry_run": false
 }
