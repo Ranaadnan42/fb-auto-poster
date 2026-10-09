@@ -498,9 +498,12 @@ def _main():
     if MODE == "long":
         fmt = os.environ.get("FORMAT") or "story"       # lambi video: qiston wali kahani
     else:
-        # reels baari baari: chat, janwar, chat, janwar...
-        last = next((h.get("format", "animal") for h in reversed(history) if h.get("mode") == "reel"), "animal")
-        fmt = os.environ.get("FORMAT") or ("animal" if last == "chat" else "chat")
+        # roz sirf 1 chat reel, baaqi janwar wali
+        pk_today = (now + datetime.timedelta(hours=5)).strftime("%Y-%m-%d")
+        chat_today = sum(1 for h in history if h.get("mode") == "reel" and h.get("format") == "chat"
+                         and (datetime.datetime.strptime(h["date"], "%Y-%m-%d %H:%M")
+                              + datetime.timedelta(hours=5)).strftime("%Y-%m-%d") == pk_today)
+        fmt = os.environ.get("FORMAT") or ("animal" if chat_today >= 1 else "chat")
     entry["format"] = fmt
     REPORT["format"] = fmt
     if MODE == "long":
