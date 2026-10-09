@@ -1,12 +1,11 @@
 {
- "mode": "long",
- "stock_clips": 48,
+ "mode": "reel",
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "cartoon",
- "long_minutes": 5.9,
- "series": "ساجد سموسہ کی عید شاپنگ part 1 (cartoon)",
- "time_utc": "2026-10-09 19:18",
- "title": "ساجد سموسہ کی عید شاپنگ | قسط 1",
- "dry_run": false
+ "format": "chat",
+ "reel_minutes": 1.39,
+ "time_utc": "2026-10-09 20:02",
+ "title": "پیر کی صبح اور بہن کا ڈرامہ",
+ "dry_run": true
 }
