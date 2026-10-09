@@ -67,12 +67,14 @@ jobs:
           FILES="funny_history.json funny_last_run.json"
           mkdir -p /tmp/keep
           for f in $FILES; do [ -f "$f" ] && cp "$f" /tmp/keep/; done
+          [ -d sfx ] && cp -r sfx /tmp/keep/
           git config user.name "auto-poster"
           git config user.email "auto-poster@users.noreply.github.com"
           for i in 1 2 3 4 5; do
             git fetch -q origin main && git reset -q --hard origin/main
             for f in $FILES; do [ -f "/tmp/keep/$f" ] && cp "/tmp/keep/$f" "$f"; done
-            git add $FILES 2>/dev/null || true
+            [ -d /tmp/keep/sfx ] && mkdir -p sfx && cp -rn /tmp/keep/sfx/. sfx/
+            git add $FILES sfx 2>/dev/null || true
             git diff --cached --quiet && break
             git commit -q -m "Update funny history and run report"
             git push -q origin HEAD:main && break

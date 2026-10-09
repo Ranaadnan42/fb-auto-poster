@@ -15,6 +15,7 @@ import shutil
 import edge_tts
 
 import funny as F
+import sfx
 
 VOICE_ME = "ur-PK-AsadNeural"
 VOICE_THEM = {"male": "ur-IN-SalmanNeural", "female": "ur-PK-UzmaNeural"}
@@ -32,6 +33,8 @@ CHAT_RULES = F.RULES + """
 - It must feel like a REAL WhatsApp chat: short messages (2-12 words each), natural desi replies,
   misunderstandings, sarcasm, exaggeration, and a big surprising punchline in the LAST message
   that makes people laugh and share.
+- Use the humor style of viral Pakistani memes: savage replies, taunts (taane), desi parents' logic,
+  overacting, fake excuses getting caught, and roast-style comebacks.
 - No emojis (they are not rendered)."""
 
 
@@ -64,7 +67,8 @@ Return JSON: {{"title": "funny Urdu title for the whole video, max 60 characters
  "hashtags": ["#funny", "..."] (6 hashtags, English and Urdu),
  "chats": [{{"contact": "contact name as saved in phone, in Urdu, e.g. امی جان",
    "them_gender": "male or female",
-   "messages": [{{"from": "me or them", "text": "..."}}]}}]}}""")
+   "messages": [{{"from": "me or them", "text": "...", "laugh": true/false}}]}}]}}
+"laugh" = true only for the 2-4 funniest punchline messages (always true for the last message).""")
 
 
 # ---------------------------------------------------------------- audio
@@ -125,6 +129,11 @@ def render_chat(chat, job, w, h, title=None):
     silence(post, 0.35)
 
     msgs = [m for m in chat["messages"] if (m.get("text") or "").strip()]
+    if msgs:
+        msgs[-1]["laugh"] = True
+    laugh_at = []
+    gap_wav = os.path.join(job, "laughgap.wav")
+    silence(gap_wav, 2.2)
     timeline, audio_parts, t = [], [], 0.6
     lead = os.path.join(job, "lead.wav")
     silence(lead, 0.6)
@@ -143,6 +152,10 @@ def render_chat(chat, job, w, h, title=None):
         timeline.append({"t": t, "mine": mine, "text": F.ass_text(m["text"]), "typing": typing_start})
         audio_parts += [ting, vw, post]
         t += 0.21 + F.duration(vw) + 0.35
+        if m.get("laugh") or sfx.is_funny_text(m.get("text")):
+            laugh_at.append(t - 0.25)
+            audio_parts.append(gap_wav)                     # hansi ke liye ruk kar
+            t += 2.2
     total = t + 1.2
     tail = os.path.join(job, "tail.wav")
     silence(tail, 1.2)
@@ -237,6 +250,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
            "-map", "0:v", "-map", "1:a", "-shortest",
            "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-tune", "stillimage",
            "-c:a", "aac", "-b:a", "160k", "-ar", "44100", "chat.mp4"], cwd=job)
+    F.REPORT["laughs"] = F.REPORT.get("laughs", 0) + sfx.add_laughs(os.path.abspath(out), laugh_at)
     return out
 
 

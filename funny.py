@@ -22,6 +22,8 @@ import subprocess
 
 import requests
 import edge_tts
+
+import sfx
 from google import genai
 from google.genai import types
 
@@ -167,7 +169,7 @@ that will show a {animal} (e.g. "{animal}", "{animal} playing", "funny {animal}"
 
 Return JSON: {{"title": "funny Urdu title, max 60 characters",
  "meme": "very short meme header in Urdu shown on top of the whole reel, max 7 words, like a POV line",
- "scenes": [{{"text": "...", "visual": "..."}}],
+ "scenes": [{{"text": "...", "visual": "...", "laugh": true/false}}] ("laugh": true if this scene ends with a punchline or someone laughs (about half the scenes), else false),
  "caption": "1 funny line in Urdu that asks people to tag a friend",
  "hashtags": ["#funny", "..."] (6 hashtags, English and Urdu)}}""")
     if len(data.get("scenes", [])) < 2:
@@ -203,7 +205,7 @@ Last segment ends with: "ویڈیو اچھی لگی ہو تو پیج فالو ک
 
 For each segment give a 1-3 word ENGLISH stock-video search term showing that animal.
 Return JSON: {{"title": "funny Urdu title, max 70 characters",
- "scenes": [{{"text": "...", "visual": "...", "meme": "very short funny Urdu header for this segment, max 7 words"}}] (exactly 10),
+ "scenes": [{{"text": "...", "visual": "...", "meme": "very short funny Urdu header for this segment, max 7 words", "laugh": true/false}}] (exactly 10; "laugh": true if this scene ends with a punchline or someone laughs (about half the scenes), else false),
  "caption": "2 funny lines in Urdu asking people to comment their favourite animal",
  "hashtags": ["#funny", "..."] (8 hashtags)}}""")
         n = word_count(data)
@@ -351,6 +353,8 @@ def build_scene(job, i, sc, w, h, title, backup, meme=None):
     audio = f"a{i}.mp3"
     tts(text, os.path.join(job, audio))
     dur = duration(os.path.join(job, audio)) + 0.4
+    if sc.get("laugh"):
+        dur += 1.8                                          # hansi ke liye jagah
     k = max(1, min(6, round(dur / 4)))                      # har ~4 sec naya clip
     clips = pixabay_clips(sc.get("visual") or backup, k, job, f"c{i}", backup, want_vertical=h > w)
     if not clips:   # sakht filter se kuch na mile to naram filter
@@ -395,7 +399,11 @@ def build_video(script, tag, w, h, out_path):
     os.makedirs(job)
     scenes = [s for s in script["scenes"] if (s.get("text") or "").strip()]
     parts = []
+    if scenes:
+        scenes[-1]["laugh"] = True
     for i, sc in enumerate(scenes):
+        if sfx.is_funny_text(sc.get("text")):
+            sc["laugh"] = True
         backup = sc.get("animal") or script["animal"]
         meme = script.get("meme") if h > w else sc.get("meme")
         parts.append(build_scene(job, i, sc, w, h, script["title"] if i == 0 else None, backup, meme))
@@ -404,6 +412,12 @@ def build_video(script, tag, w, h, out_path):
         f.writelines(f"file '{p}'\n" for p in parts)
     run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", "list.txt", "-c", "copy",
          "-movflags", "+faststart", os.path.abspath(out_path)], cwd=job)
+    laugh_at, t = [], 0.0
+    for p, sc in zip(parts, scenes):
+        t += duration(os.path.join(job, p))
+        if sc.get("laugh"):
+            laugh_at.append(t - 2.1)
+    REPORT["laughs"] = REPORT.get("laughs", 0) + sfx.add_laughs(os.path.abspath(out_path), laugh_at)
     REPORT[f"{tag}_minutes"] = round(duration(out_path) / 60, 2)
     log(f"{tag}: video {REPORT[f'{tag}_minutes']} min")
 

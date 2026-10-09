@@ -12,6 +12,7 @@ import shutil
 import requests
 
 import funny as F
+import sfx
 
 STYLE_QUERY = {
     "ai": {"suffix": "ai generated", "tag": "ai generated"},
@@ -79,7 +80,7 @@ For each scene give "visual": a 1-3 word ENGLISH image search term for what is s
 
 Return JSON: {{"series_title": "short funny Urdu name of the series (keep the same name in every part)",
  "summary": "3-4 English sentences summarising what happened in THIS part (for the next part)",
- "scenes": [{{"text": "...", "visual": "...", "meme": "..."}}],
+ "scenes": [{{"text": "...", "visual": "...", "meme": "...", "laugh": true/false}}] ("laugh": true if this scene ends with a punchline or someone laughs (about half the scenes), else false),
  "caption": "2 funny Urdu lines asking people to comment",
  "hashtags": ["#funny", "..."] (8 hashtags, English and Urdu)}}""")
         n = F.word_count(data)
@@ -141,6 +142,8 @@ def build_scene(job, i, sc, w, h, style, title):
     audio = f"a{i}.mp3"
     F.tts(text, os.path.join(job, audio))
     dur = F.duration(os.path.join(job, audio)) + 0.4
+    if sc.get("laugh"):
+        dur += 1.8                                          # hansi ke liye jagah
     k = max(1, min(4, round(dur / 7)))                     # har ~7 sec nayi tasveer
     imgs = pixabay_images(sc.get("visual") or "funny", k, job, f"i{i}", style)
     F.REPORT["stock_clips"] = F.REPORT.get("stock_clips", 0) + len(imgs)
@@ -191,6 +194,11 @@ def build_long(history, out_path, force_style=None):
     os.makedirs(job)
     scenes = [s for s in script["scenes"] if (s.get("text") or "").strip()]
     parts = []
+    for sc in scenes:
+        if sfx.is_funny_text(sc.get("text")):
+            sc["laugh"] = True
+    if scenes:
+        scenes[-1]["laugh"] = True
     for i, sc in enumerate(scenes):
         parts.append(build_scene(job, i, sc, 1920, 1080, style, script["title"]))
         F.log(f"story: scene {i + 1}/{len(scenes)} ready")
@@ -198,4 +206,10 @@ def build_long(history, out_path, force_style=None):
         f.writelines(f"file '{p}'\n" for p in parts)
     F.run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", "list.txt", "-c", "copy",
            "-movflags", "+faststart", os.path.abspath(out_path)], cwd=job)
+    laugh_at, t = [], 0.0
+    for p, sc in zip(parts, scenes):
+        t += F.duration(os.path.join(job, p))
+        if sc.get("laugh"):
+            laugh_at.append(t - 2.1)
+    F.REPORT["laughs"] = F.REPORT.get("laughs", 0) + sfx.add_laughs(os.path.abspath(out_path), laugh_at)
     return script
