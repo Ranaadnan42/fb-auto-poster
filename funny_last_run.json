@@ -1,12 +1,12 @@
 {
  "mode": "reel",
- "stock_clips": 12,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
+ "format": "chat",
+ "reel_minutes": 1.31,
  "laughs": 3,
- "reel_minutes": 0.82,
- "time_utc": "2026-10-09 20:05",
- "title": "خرگوش میاں کا جِم اور ڈائٹ کا امتحان",
- "dry_run": false
+ "time_utc": "2026-10-09 20:15",
+ "title": "بجلی کا بل اور دادی کا شاندار فارمولا",
+ "dry_run": true
 }
