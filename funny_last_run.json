@@ -1,11 +1,12 @@
 {
  "mode": "reel",
- "stock_clips": 0,
+ "stock_clips": 12,
  "fallback_clips": 0,
  "errors": [],
- "format": "chat",
- "reel_minutes": 1.39,
- "time_utc": "2026-10-09 20:02",
- "title": "پیر کی صبح اور بہن کا ڈرامہ",
- "dry_run": true
+ "format": "animal",
+ "laughs": 3,
+ "reel_minutes": 0.82,
+ "time_utc": "2026-10-09 20:05",
+ "title": "خرگوش میاں کا جِم اور ڈائٹ کا امتحان",
+ "dry_run": false
 }
