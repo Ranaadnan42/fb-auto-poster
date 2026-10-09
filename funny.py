@@ -482,7 +482,9 @@ def post_reel(path, desc):
 
 def description(script):
     tags = " ".join(t if t.startswith("#") else "#" + t for t in script.get("hashtags", []))
-    return f"{script['title']}\n\n{script.get('caption', '')}\n\n{tags}".strip()
+    credit = sfx.credit_line()
+    return (f"{script['title']}\n\n{script.get('caption', '')}\n\n{tags}"
+            + (f"\n\n{credit}" if credit else "")).strip()
 
 
 # ---------------------------------------------------------------- main

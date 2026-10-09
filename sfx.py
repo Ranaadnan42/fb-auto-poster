@@ -1,10 +1,11 @@
 """
 Laughter (hansi) sound effects.
-Wikimedia Commons se sirf Public Domain / CC0 hansi ki awaazein download hoti hain
-(sfx/laughs/ mein save, credits sfx/laughs/CREDITS.json mein), phir videos mein punchline
-ke baad mila di jati hain.
+Wikimedia Commons se free-license hansi ki awaazein (Public Domain, CC0, CC BY, CC BY-SA)
+download hoti hain, sfx/laughs/ mein save hoti hain, aur punchline ke baad video mein mila di
+jati hain. CC BY / BY-SA awaaz use ho to post ki description mein credit line lag jati hai.
 """
 import os
+import re
 import json
 import random
 import subprocess
@@ -17,9 +18,11 @@ UA = {"User-Agent": "HansiKaAddaBot/1.0 (ranaadnan320@gmail.com)"}
 SEARCHES = ["audience laughter", "crowd laughing", "laugh track", "people laughing",
             "laughter", "laughing", "group laughing", "studio audience laugh", "giggle",
             "chuckle", "laughing man", "laughing woman", "children laughing", "laugh sound",
-            "funny laugh", "sitcom laughter"]
-FREE = ("public domain", "cc0", "pd")
+            "funny laugh", "sitcom laughter", "baby laughing"]
+NO_CREDIT = ("public domain", "cc0", "pd")
+WITH_CREDIT = ("cc by",)                 # cc by, cc by-sa (attribution ke saath)
 HANSI_WORDS = ("ہنس", "ہاہا", "قہقہ", "ہی ہی", "کھلکھلا")
+USED = set()                              # is run mein use hui files
 
 
 def log(m):
@@ -30,18 +33,37 @@ def _run(cmd):
     return subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE).returncode == 0
 
 
-def ensure_laughs(min_count=6):
+def _load():
+    try:
+        data = json.load(open(CREDITS, encoding="utf-8"))
+    except Exception:
+        return {}
+    return {k: (v if isinstance(v, dict) else {"title": v, "license": "", "artist": ""})
+            for k, v in data.items()}
+
+
+def _clean_old(credits):
+    """Purani galat files hatao (Lingua Libre = bolay hue alfaaz, hansi nahi)."""
+    for name, c in list(credits.items()):
+        if "LL-Q" in c.get("title", ""):
+            try:
+                os.remove(os.path.join(DIR, name))
+            except FileNotFoundError:
+                pass
+            credits.pop(name)
+            log(f"removed {name} ({c['title']})")
+
+
+def ensure_laughs(min_count=8):
     os.makedirs(DIR, exist_ok=True)
-    have = [f for f in os.listdir(DIR) if f.endswith(".mp3")]
+    credits = _load()
+    _clean_old(credits)
+    have = [f for f in os.listdir(DIR) if f.endswith(".mp3") and f in credits]
     if len(have) >= min_count:
         return have
-    try:
-        credits = json.load(open(CREDITS, encoding="utf-8"))
-    except Exception:
-        credits = {}
-    seen = set(credits.values()) if credits else set()
+    seen = {c["title"] for c in credits.values()}
     for q in SEARCHES:
-        if len(have) >= 12:
+        if len(have) >= 14:
             break
         try:
             r = requests.get("https://commons.wikimedia.org/w/api.php", headers=UA, timeout=40, params={
@@ -53,32 +75,38 @@ def ensure_laughs(min_count=6):
             log(f"search fail {q}: {e}")
             continue
         for p in pages:
-            if len(have) >= 12:
+            if len(have) >= 14:
                 break
             ii = (p.get("imageinfo") or [{}])[0]
+            meta = ii.get("extmetadata") or {}
             title = p.get("title", "")
-            lic = ((ii.get("extmetadata") or {}).get("LicenseShortName") or {}).get("value", "").lower()
+            lic = (meta.get("LicenseShortName") or {}).get("value", "")
+            licl = lic.lower()
             dur = float(ii.get("duration") or 0)
             low = title.lower()
-            if (not any(k in lic for k in FREE)
+            if (not (any(k in licl for k in NO_CREDIT) or any(k in licl for k in WITH_CREDIT))
+                    or "nc" in licl or "nd" in licl
                     or not any(k in low for k in ("laugh", "giggl", "chuckl"))
-                    or any(b in low for b in ("evil", "witch", "horror", "scary", "maniac"))
-                    or not (1.0 <= dur <= 40) or title in seen):
+                    or "ll-q" in low
+                    or any(b in low for b in ("evil", "witch", "horror", "scary", "maniac", "crying"))
+                    or not (1.0 <= dur <= 60) or title in seen):
                 continue
+            artist = re.sub(r"<[^>]+>", "", (meta.get("Artist") or {}).get("value", "")).strip()
             src = os.path.join(DIR, "tmp_src")
-            name = f"laugh_{len(have) + 1:02d}.mp3"
+            name = f"laugh_{len(credits) + 1:02d}.mp3"
+            while os.path.exists(os.path.join(DIR, name)):
+                name = f"laugh_{random.randint(10, 999):03d}.mp3"
             try:
                 with requests.get(ii["url"], headers=UA, timeout=120) as resp:
                     resp.raise_for_status()
                     open(src, "wb").write(resp.content)
-                # 4 second tak, shuru ki khamoshi hata kar, normalize
                 ok = _run(["ffmpeg", "-y", "-i", src, "-af",
                            "silenceremove=start_periods=1:start_threshold=-40dB,"
                            "atrim=0:4,afade=t=out:st=3:d=1,loudnorm=I=-18:TP=-2",
                            "-ar", "44100", "-ac", "2", "-b:a", "128k", os.path.join(DIR, name)])
                 if ok:
                     have.append(name)
-                    credits[name] = title
+                    credits[name] = {"title": title, "license": lic, "artist": artist[:80]}
                     seen.add(title)
                     log(f"added {name} <- {title} ({lic})")
             except Exception as e:
@@ -94,6 +122,18 @@ def is_funny_text(text):
     return any(w in (text or "") for w in HANSI_WORDS)
 
 
+def credit_line():
+    """CC BY / BY-SA awaazon ke liye attribution (description ke aakhir mein)."""
+    credits = _load()
+    parts = []
+    for f in sorted(USED):
+        c = credits.get(f) or {}
+        if c and not any(k in c.get("license", "").lower() for k in NO_CREDIT):
+            t = c["title"].replace("File:", "")
+            parts.append(f"{t} by {c.get('artist') or 'Wikimedia Commons'} ({c['license']})")
+    return ("Laugh sounds: " + "; ".join(parts) + " - via Wikimedia Commons") if parts else ""
+
+
 def add_laughs(video, times, volume=0.55):
     """`times` (seconds) par hansi mila deta hai. Video file ko in-place badalta hai."""
     times = sorted(t for t in times if t is not None and t >= 0)
@@ -104,10 +144,11 @@ def add_laughs(video, times, volume=0.55):
         log("koi laugh file nahi mili, skip")
         return 0
     random.shuffle(files)
-    inputs, chains = [], []
+    inputs, chains, used = [], [], []
     for i, t in enumerate(times):
-        f = os.path.join(DIR, files[i % len(files)])
-        inputs += ["-i", f]
+        f = files[i % len(files)]
+        used.append(f)
+        inputs += ["-i", os.path.join(DIR, f)]
         ms = int(t * 1000)
         chains.append(f"[{i + 1}:a]volume={volume},adelay={ms}|{ms}[l{i}]")
     mix = "[0:a]" + "".join(f"[l{i}]" for i in range(len(times)))
@@ -118,6 +159,7 @@ def add_laughs(video, times, volume=0.55):
         "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", out])
     if ok:
         os.replace(out, video)
+        USED.update(used)
         log(f"{len(times)} laughs added")
         return len(times)
     log("laugh mix fail, video bina hansi ke")
