@@ -133,7 +133,7 @@ def credit_line():
     for f in sorted(USED):
         c = credits.get(f) or {}
         if c and not any(k in c.get("license", "").lower() for k in NO_CREDIT):
-            t = c["title"].replace("File:", "")
+            t = c["title"].replace("File:", "")[:45]
             parts.append(f"{t} by {c.get('artist') or 'Wikimedia Commons'} ({c['license']})")
     return ("Laugh sounds: " + "; ".join(parts) + " - via Wikimedia Commons") if parts else ""
 
