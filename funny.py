@@ -480,14 +480,27 @@ def write_report():
 def _main():
     if not DRY_RUN and (not FB_TOKEN or not FB_PAGE):
         raise RuntimeError("FUNNY_PAGE_TOKEN ya FUNNY_PAGE_ID secret missing hai")
+    global MODE
     history = load_history()
-    entry = {"date": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), "mode": MODE}
+    now = datetime.datetime.utcnow()
+    if MODE == "auto":
+        # GitHub ke scheduled runs kabhi late/skip ho jate hain, is liye history se faisla:
+        # aaj (Pakistan waqt) lambi video nahi gayi aur shaam ho chuki hai -> lambi video
+        pk_today = (now + datetime.timedelta(hours=5)).strftime("%Y-%m-%d")
+        long_today = any(h.get("mode") == "long" and
+                         (datetime.datetime.strptime(h["date"], "%Y-%m-%d %H:%M")
+                          + datetime.timedelta(hours=5)).strftime("%Y-%m-%d") == pk_today
+                         for h in history)
+        pk_hour = (now.hour + 5) % 24
+        MODE = "long" if (not long_today and pk_hour >= 19) else "reel"
+    entry = {"date": now.strftime("%Y-%m-%d %H:%M"), "mode": MODE}
     import chat_comedy
-    n_reels = sum(1 for h in history if h.get("mode") == "reel")
     if MODE == "long":
         fmt = os.environ.get("FORMAT") or "story"       # lambi video: qiston wali kahani
     else:
-        fmt = os.environ.get("FORMAT") or ("animal" if n_reels % 3 == 2 else "chat")
+        # reels baari baari: chat, janwar, chat, janwar...
+        last = next((h.get("format", "animal") for h in reversed(history) if h.get("mode") == "reel"), "animal")
+        fmt = os.environ.get("FORMAT") or ("animal" if last == "chat" else "chat")
     entry["format"] = fmt
     REPORT["format"] = fmt
     if MODE == "long":

@@ -56,7 +56,7 @@ jobs:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           FUNNY_PAGE_TOKEN: ${{ secrets.FUNNY_PAGE_TOKEN }}
           FUNNY_PAGE_ID: ${{ secrets.FUNNY_PAGE_ID }}
-          MODE: ${{ github.event.schedule == '33 15 * * *' && 'long' || inputs.mode || 'reel' }}
+          MODE: ${{ inputs.mode || 'auto' }}
           FORMAT: ${{ inputs.format != 'auto' && inputs.format || '' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
         run: python funny.py
