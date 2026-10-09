@@ -15,7 +15,9 @@ DIR = os.path.join("sfx", "laughs")
 CREDITS = os.path.join(DIR, "CREDITS.json")
 UA = {"User-Agent": "HansiKaAddaBot/1.0 (ranaadnan320@gmail.com)"}
 SEARCHES = ["audience laughter", "crowd laughing", "laugh track", "people laughing",
-            "laughter", "laughing", "group laughing", "studio audience laugh"]
+            "laughter", "laughing", "group laughing", "studio audience laugh", "giggle",
+            "chuckle", "laughing man", "laughing woman", "children laughing", "laugh sound",
+            "funny laugh", "sitcom laughter"]
 FREE = ("public domain", "cc0", "pd")
 HANSI_WORDS = ("ہنس", "ہاہا", "قہقہ", "ہی ہی", "کھلکھلا")
 
@@ -58,7 +60,8 @@ def ensure_laughs(min_count=6):
             lic = ((ii.get("extmetadata") or {}).get("LicenseShortName") or {}).get("value", "").lower()
             dur = float(ii.get("duration") or 0)
             low = title.lower()
-            if (not any(k in lic for k in FREE) or not ("laugh" in low or "giggl" in low)
+            if (not any(k in lic for k in FREE)
+                    or not any(k in low for k in ("laugh", "giggl", "chuckl"))
                     or any(b in low for b in ("evil", "witch", "horror", "scary", "maniac"))
                     or not (1.0 <= dur <= 40) or title in seen):
                 continue

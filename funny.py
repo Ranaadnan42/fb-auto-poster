@@ -554,6 +554,8 @@ def _main():
     for key in ("series", "series_title", "part", "summary", "style"):
         if script.get(key) is not None:
             entry[key] = script[key]
+    import funny as _f          # doosre modules ki ginti isi report mein
+    REPORT["laughs"] = REPORT.get("laughs", 0) + (_f.REPORT.get("laughs", 0) if _f.REPORT is not REPORT else 0)
     REPORT.update({"time_utc": entry["date"], "title": script["title"], "dry_run": DRY_RUN})
     write_report()
     if not DRY_RUN:
