@@ -514,9 +514,10 @@ def post_reel(path, desc):
     return vid
 
 
-def description(title, script):
-    tags = " ".join(t if t.startswith("#") else "#" + t for t in script.get("hashtags", []))
-    return f"{title}\n\n{script.get('caption', '')}\n\n{tags}".strip()
+def description(title, script, is_reel=True):
+    import seo
+    text = " ".join((sc.get("text") or "") for sc in script.get("scenes", []))
+    return seo.build(ask_json, "islamic", title, text or script.get("caption", ""), LANG, is_reel)
 
 
 # ---------------------------------------------------------------- main
@@ -541,7 +542,7 @@ def _main():
     try:
         build_video(long_script, "long", 1920, 1080, "final_long.mp4", title)
         if not DRY_RUN:
-            entry["long_id"] = post_long("final_long.mp4", title, description(title, long_script))
+            entry["long_id"] = post_long("final_long.mp4", title, description(title, long_script, is_reel=False))
         ok += 1
     except Exception as e:
         log(f"LONG VIDEO ERROR: {e}")

@@ -480,11 +480,12 @@ def post_reel(path, desc):
     return vid
 
 
-def description(script):
-    tags = " ".join(t if t.startswith("#") else "#" + t for t in script.get("hashtags", []))
-    credit = sfx.credit_line()
-    return (f"{script['title']}\n\n{script.get('caption', '')}\n\n{tags}"
-            + (f"\n\n{credit}" if credit else "")).strip()
+def description(script, is_reel=True):
+    import seo
+    text = " ".join((sc.get("text") or "") for sc in script.get("scenes", []))
+    if not text and script.get("chats"):
+        text = " ".join(m.get("text", "") for c in script["chats"] for m in c.get("messages", []))
+    return seo.build(ask_json, "funny", script["title"], text or script.get("caption", ""), "ur", is_reel)
 
 
 # ---------------------------------------------------------------- main
@@ -539,7 +540,7 @@ def _main():
             script = chat_comedy.build_long(history, "funny_long.mp4")
         REPORT["long_minutes"] = round(duration("funny_long.mp4") / 60, 2)
         if not DRY_RUN:
-            entry["id"] = post_long("funny_long.mp4", script["title"], description(script))
+            entry["id"] = post_long("funny_long.mp4", script["title"], description(script, is_reel=False))
     else:
         if fmt == "animal":
             script = write_reel(history)

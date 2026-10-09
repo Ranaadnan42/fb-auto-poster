@@ -20,7 +20,7 @@ SEARCHES = ["audience laughter", "crowd laughing", "laugh track", "people laughi
             "chuckle", "laughing man", "laughing woman", "children laughing", "laugh sound",
             "funny laugh", "sitcom laughter", "baby laughing"]
 NO_CREDIT = ("public domain", "cc0", "pd")
-WITH_CREDIT = ("cc by",)                 # cc by, cc by-sa (attribution ke saath)
+WITH_CREDIT = ()                         # sirf bina-credit (PD/CC0) awaazein, caption saaf rahe
 HANSI_WORDS = ("ہنس", "ہاہا", "قہقہ", "ہی ہی", "کھلکھلا")
 USED = set()                              # is run mein use hui files
 
@@ -59,9 +59,11 @@ def ensure_laughs(min_count=8):
     credits = _load()
     _clean_old(credits)
     for f in os.listdir(DIR):                     # bina credit wali files hatao
-        if f.endswith(".mp3") and f not in credits:
+        if f.endswith(".mp3") and f not in credits and not f.startswith("crowd_"):
             os.remove(os.path.join(DIR, f))
     have = [f for f in os.listdir(DIR) if f.endswith(".mp3") and f in credits]
+    if len(have) >= 1 and os.environ.get("SFX_NO_SEARCH"):
+        return have
     if len(have) >= min_count:
         return have
     seen = {c["title"] for c in credits.values()}
@@ -87,7 +89,7 @@ def ensure_laughs(min_count=8):
             licl = lic.lower()
             dur = float(ii.get("duration") or 0)
             low = title.lower()
-            if (not (any(k in licl for k in NO_CREDIT) or any(k in licl for k in WITH_CREDIT))
+            if (not any(k in licl for k in NO_CREDIT)
                     or "nc" in licl or "nd" in licl
                     or not any(k in low for k in ("laugh", "giggl", "chuckl"))
                     or "ll-q" in low
@@ -122,6 +124,41 @@ def ensure_laughs(min_count=8):
     return have
 
 
+def all_laughs():
+    base = ensure_laughs()
+    crowd = make_variants(base) if base else []
+    return base + crowd
+
+
+def make_variants(sources):
+    """PD hansi se mukhtalif 'crowd laughter' variants banata hai (pitch/delay layering)."""
+    made = []
+    for n in range(1, 7):
+        name = f"crowd_{n:02d}.mp3"
+        path = os.path.join(DIR, name)
+        if os.path.exists(path):
+            made.append(name)
+            continue
+        rnd = random.Random(n)
+        layers = 4 + n % 3
+        ins, chains = [], []
+        for j in range(layers):
+            src = os.path.join(DIR, rnd.choice(sources))
+            ins += ["-i", src]
+            rate = rnd.uniform(0.82, 1.22)
+            ms = int(rnd.uniform(0, 900))
+            vol = rnd.uniform(0.35, 0.8)
+            chains.append(f"[{j}:a]aloop=loop=2:size=200000,asetrate={int(44100 * rate)},aresample=44100,"
+                          f"adelay={ms}|{ms},volume={vol:.2f}[x{j}]")
+        chains.append("".join(f"[x{j}]" for j in range(layers)) +
+                      f"amix=inputs={layers}:normalize=0,atrim=0:3.5,afade=t=in:d=0.1,"
+                      f"afade=t=out:st=2.5:d=1,loudnorm=I=-18:TP=-2[a]")
+        if _run(["ffmpeg", "-y"] + ins + ["-filter_complex", ";".join(chains), "-map", "[a]",
+                                          "-ar", "44100", "-ac", "2", "-b:a", "128k", path]):
+            made.append(name)
+    return made
+
+
 def is_funny_text(text):
     return any(w in (text or "") for w in HANSI_WORDS)
 
@@ -143,7 +180,9 @@ def add_laughs(video, times, volume=0.55):
     times = sorted(t for t in times if t is not None and t >= 0)
     if not times:
         return 0
-    files = ensure_laughs()
+    files = all_laughs()
+    # crowd wali zyada, akeli hansi kam
+    files = [f for f in files if f.startswith("crowd_")] * 2 + [f for f in files if not f.startswith("crowd_")]
     if not files:
         log("koi laugh file nahi mili, skip")
         return 0
