@@ -1,12 +1,12 @@
 {
- "mode": "reel",
- "stock_clips": 0,
+ "mode": "auto",
+ "stock_clips": 11,
  "fallback_clips": 0,
  "errors": [],
- "format": "chat",
- "reel_minutes": 1.27,
+ "format": "animal",
  "laughs": 3,
- "time_utc": "2026-10-09 20:24",
- "title": "بجلی کا بل اور امی کا نیا قانون",
+ "reel_minutes": 0.75,
+ "time_utc": "2026-10-09 21:49",
+ "title": "بلی میاں کی شادی اور بن بلائے مہمان",
  "dry_run": false
 }
