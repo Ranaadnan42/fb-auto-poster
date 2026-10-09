@@ -1,11 +1,12 @@
 {
- "mode": "reel",
- "stock_clips": 0,
+ "mode": "long",
+ "stock_clips": 48,
  "fallback_clips": 0,
  "errors": [],
- "format": "chat",
- "reel_minutes": 1.14,
- "time_utc": "2026-10-09 19:04",
- "title": "ٹیوشن ماسٹر اور بیٹے کی حیران کن ذہانت",
+ "format": "cartoon",
+ "long_minutes": 5.9,
+ "series": "ساجد سموسہ کی عید شاپنگ part 1 (cartoon)",
+ "time_utc": "2026-10-09 19:18",
+ "title": "ساجد سموسہ کی عید شاپنگ | قسط 1",
  "dry_run": false
 }
