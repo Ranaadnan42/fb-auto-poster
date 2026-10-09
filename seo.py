@@ -16,7 +16,7 @@ PAGES = {
         "base_tags": ["#funny", "#comedy", "#reels", "#pakistanicomedy", "#urducomedy",
                       "#funnyvideo", "#viral"],
         "audience": "Pakistani / Urdu-speaking people who love desi comedy, memes and funny reels",
-        "cta": "👉 Roz nayi funny videos ke liye Hansi Ka Adda ko follow karein",
+        "cta": "روز نئی مزاحیہ ویڈیوز کے لیے پیج فالو کریں 👈",
     },
     "islamic": {
         "name": "Islamic Motivational Videos",
@@ -24,8 +24,8 @@ PAGES = {
         "base_tags": ["#islam", "#islamicreminder", "#islamicvideo", "#reels", "#muslim",
                       "#deen", "#viral"],
         "audience": "Muslims (Pakistan, India, Gulf, worldwide) looking for Islamic reminders and motivation",
-        "cta": "👉 Roz Islamic reminders ke liye page follow karein aur share karein",
-        "cta_en": "👉 Follow the page for daily Islamic reminders and share with your loved ones",
+        "cta": "روزانہ اسلامی یاد دہانی کے لیے پیج فالو کریں اور شیئر کریں 👈",
+        "cta_en": "Follow the page for daily Islamic reminders 👈",
     },
 }
 
@@ -52,7 +52,7 @@ Return JSON:
  "body": "1-2 short lines in {lang_name} that naturally include the words people SEARCH for this topic",
  "keywords": "one line of 4-6 search keywords in Roman Urdu and English separated by ' | ' (e.g. funny video | pakistani comedy | ammi beta comedy)",
  "question": "one short question in {lang_name} that makes people comment or tag a friend",
- "hashtags": ["5 specific, popular, topic-relevant hashtags in English or Roman Urdu, no spaces"]}}
+ "hashtags": ["6 specific, popular, searchable topic hashtags in English or Roman Urdu, no spaces"]}}
 Rules: no fake claims, no clickbait lies, no politics, no religious mockery, max 2 emojis per line.""")
         hook = (d.get("hook") or title).strip()
         body = (d.get("body") or "").strip()
@@ -72,8 +72,6 @@ Rules: no fake claims, no clickbait lies, no politics, no religious mockery, max
     parts = [hook]
     if body:
         parts.append(body)
-    if kw:
-        parts.append(kw)
     if q:
         parts.append(q)
     parts.append(P.get("cta_en") if (lang == "en" and P.get("cta_en")) else P["cta"])

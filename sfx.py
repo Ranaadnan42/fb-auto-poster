@@ -94,7 +94,8 @@ def ensure_laughs(min_count=8):
                     or not any(k in low for k in ("laugh", "giggl", "chuckl"))
                     or "ll-q" in low
                     or re.search(r"song|music|dj |^file:[a-z]{2,3}(-[a-z]{2,4})?-", low)
-                    or any(b in low for b in ("evil", "witch", "horror", "scary", "maniac", "crying"))
+                    or any(b in low for b in ("evil", "witch", "horror", "scary", "maniac", "crying",
+                                            "beast", "krusty", "impression", "kookaburra", "bird"))
                     or not (1.0 <= dur <= 60) or title in seen):
                 continue
             artist = re.sub(r"<[^>]+>", "", (meta.get("Artist") or {}).get("value", "")).strip()
