@@ -32,7 +32,7 @@ FB_PAGE = os.environ.get("FUNNY_PAGE_ID")
 DRY_RUN = os.environ.get("DRY_RUN") == "1"
 MODE = (os.environ.get("MODE") or "reel").strip().lower()
 
-PAGE_NAME = "Funny Videos"
+PAGE_NAME = "Hansi Ka Adda"
 GRAPH_VER = "v23.0"
 HISTORY_FILE = "funny_history.json"
 REPORT_FILE = "funny_last_run.json"
