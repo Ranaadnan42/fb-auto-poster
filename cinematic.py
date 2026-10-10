@@ -52,6 +52,7 @@ W, H = (1920, 1080) if LONG else (1080, 1920)
 IMG = 1080                      # short: beech wali square tasveer
 IMG_Y = 430                     # short: tasveer upar se kitni neeche
 SCENES = 34 if LONG else 12
+SHOTS = 2 if LONG else 3                     # Shorts mein tez cuts
 if LANG == "en":
     VOICE, RATE, FONT = "en-US-ChristopherNeural", "-4%", "Noto Sans"
     WORDS = "30-36 English words"
@@ -191,16 +192,18 @@ Write the narration in {LANGUAGE_TXT}. The first sentence is a powerful hook tha
 No gore, no blood details, no religion or politics. Family friendly but thrilling.
 
 Exactly {SCENES} scenes, each {WORDS}.
-For each scene give TWO English image prompts ("shots") for an AI image generator, each a single
+For each scene give {SHOTS} English image prompts ("shots") for an AI image generator, each a single
 detailed sentence describing exactly what the camera sees (who, action, place, weather, camera angle:
 close-up / wide shot / low angle...). Whenever a character appears, describe their look using the
-character sheet so they look the SAME in every image.
+character sheet so they look the SAME in every image. Mix wide establishing shots, close-ups of faces
+and eyes, and dynamic action moments - like a movie trailer.
+For each scene also pick "fx" (moving weather layer): one of snow, rain, embers, dust, fog, none.
 
 Return JSON:
 {{"series_title": "short catchy series title in {TITLE_LANG}, max 40 characters",
  "title": "on-screen title for this video in {TITLE_LANG}, max 45 characters{" with the part label" if PARTS > 1 else ""}",
  "characters": "ENGLISH character sheet: for each character name + age + face, hair, clothes, body, or creature look",
- "scenes": [{{"text": "narration", "shots": ["english prompt 1", "english prompt 2"]}}],
+ "scenes": [{{"text": "narration", "fx": "snow", "shots": ["english prompt 1", "..."]}}],
  "summary": "2 English sentences summarising what happened in this part",
  "yt_title": "viral YouTube title in {TITLE_LANG}, max 70 characters, strong curiosity hook",
  "description": "3-4 line YouTube description in {TITLE_LANG} ending with a question to invite comments",
@@ -353,40 +356,66 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 
 
 # ---------------------------------------------------------------- video
-def shot_clip(job, img, secs, idx, out):
-    """Ek tasveer -> blur background + beech mein zoom/pan wali square tasveer."""
-    frames = int(secs * 30) + 2
-    style = idx % 4
-    if style == 0:
-        z, x, y = "1.0+0.0011*on", "iw/2-(iw/zoom/2)", "ih/2-(ih/zoom/2)"            # zoom in
-    elif style == 1:
-        z, x, y = f"1.25-0.0011*on", "iw/2-(iw/zoom/2)", "ih/2-(ih/zoom/2)"          # zoom out
-    elif style == 2:
-        z, x, y = "1.18", f"(iw-iw/zoom)*on/{frames}", "ih/2-(ih/zoom/2)"            # pan right
-    else:
-        z, x, y = "1.18", f"(iw-iw/zoom)*(1-on/{frames})", "ih/2-(ih/zoom/2)"        # pan left
-    shake = "+4*sin(on/7)" if idx % 3 == 0 else ""
-    if img:
-        inp = ["-loop", "1", "-framerate", "30", "-t", f"{secs + 0.2:.2f}", "-i", img]
-    else:
-        inp = ["-f", "lavfi", "-i", f"gradients=s=1344x768:c0=0x0b1a33:c1=0x3a5a7a:d={secs + 0.2:.2f}"]
-    if LONG:                                                   # poori screen par tasveer
-        fc = (f"[0:v]scale=2400:1350:force_original_aspect_ratio=increase,crop=2400:1350,setsar=1,"
-              f"zoompan=z='{z}':x='{x}{shake}':y='{y}':d={frames}:s={W}x{H}:fps=30,"
-              f"eq=contrast=1.06:saturation=1.1,vignette=PI/6,"
-              f"trim=duration={secs:.3f},setpts=PTS-STARTPTS,fade=t=in:st=0:d=0.25,format=yuv420p[v]")
-    else:
-        fc = (f"[0:v]scale=2048:2048:force_original_aspect_ratio=increase,crop=2048:2048,setsar=1,split[a][b];"
-          f"[a]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},boxblur=28:2,"
-          f"eq=brightness=-0.12:saturation=0.9[bg];"
-          f"[b]zoompan=z='{z}':x='{x}{shake}':y='{y}':d={frames}:s={IMG}x{IMG}:fps=30,"
-          f"eq=contrast=1.06:saturation=1.1[fg];"
-          f"[bg]fps=30[bg2];[bg2][fg]overlay=0:{IMG_Y}:shortest=1,"
-          f"trim=duration={secs:.3f},setpts=PTS-STARTPTS,"
-          f"fade=t=in:st=0:d=0.25,format=yuv420p[v]")
-    run(["ffmpeg", "-y"] + inp + ["-filter_complex", fc, "-map", "[v]", "-an",
-                                  "-c:v", "libx264", "-preset", "veryfast", "-crf", "21",
-                                  "-r", "30", out], cwd=job)
+def shot_clip(job, img, secs, idx, out, fx="none"):
+    """Ek tasveer -> 3D jaisi chalti hui shot (motion.py) + Shorts mein blur background."""
+    import numpy as np
+    import cv2
+    import motion
+    path = os.path.join(job, img) if img else None
+    pic = cv2.imread(path) if path else None
+    if pic is None:
+        pic = np.zeros((1024, 1024, 3), np.uint8)
+        pic[:] = (60, 40, 20)
+    fw, fh = (W, H) if LONG else (IMG, IMG)
+    if not LONG:
+        bg = cv2.resize(pic, (H, H))[:, (H - W) // 2:(H - W) // 2 + W]
+        bg = cv2.GaussianBlur(bg, (0, 0), 30)
+        bg = cv2.convertScaleAbs(bg, alpha=0.75)
+    p = subprocess.Popen(["ffmpeg", "-y", "-loglevel", "error", "-f", "rawvideo", "-pix_fmt", "bgr24",
+                          "-s", f"{W}x{H}", "-r", "30", "-i", "-", "-vf", "fade=t=in:st=0:d=0.2",
+                          "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p",
+                          os.path.join(job, out)], stdin=subprocess.PIPE)
+    try:
+        for fr in motion.shot_frames(pic, secs, fw, fh, idx, fx, seed=idx * 7 + 1):
+            if LONG:
+                p.stdin.write(fr.tobytes())
+            else:
+                canvas = bg.copy()
+                canvas[IMG_Y:IMG_Y + IMG] = fr
+                p.stdin.write(canvas.tobytes())
+    finally:
+        p.stdin.close()
+        p.wait()
+    if p.returncode != 0:
+        raise RuntimeError("Shot video nahi bani")
+
+
+def make_sfx(path, total, cuts):
+    """Har cut par 'whoosh' aur shuru mein 'boom' - khud banti hai."""
+    import numpy as np
+    import wave
+    sr = 44100
+    out = np.zeros(int((total + 1) * sr), np.float32)
+    rng = np.random.default_rng(3)
+    n = int(0.45 * sr)
+    tt = np.linspace(0, 1, n, dtype=np.float32)
+    noise = rng.standard_normal(n).astype(np.float32)
+    k = np.ones(40, np.float32) / 40
+    whoosh = np.convolve(noise, k, mode="same") * np.sin(np.pi * tt) ** 2 * 0.5
+    nb = int(1.6 * sr)
+    tb = np.arange(nb, dtype=np.float32) / sr
+    boom = (np.sin(2 * np.pi * (55 - 20 * tb) * tb) * np.exp(-3 * tb) * 0.9).astype(np.float32)
+    out[:nb] += boom
+    for c in cuts:
+        i = int(max(c - 0.22, 0) * sr)
+        seg = out[i:i + n]
+        seg += whoosh[:len(seg)] * 0.6
+    pcm = (np.clip(out, -1, 1) * 32767).astype(np.int16)
+    with wave.open(path, "wb") as w:
+        w.setnchannels(1)
+        w.setsampwidth(2)
+        w.setframerate(sr)
+        w.writeframes(pcm.tobytes())
 
 
 def build_video(script, out_path):
@@ -395,7 +424,7 @@ def build_video(script, out_path):
     os.makedirs(job)
     base_seed = random.randint(1000, 900000)
     chars = script.get("characters", "")
-    timed, clips, voice_parts, t = [], [], [], 0.0
+    timed, clips, voice_parts, cuts, t = [], [], [], [], 0.0
     for i, sc in enumerate(script["scenes"]):
         text = sc["text"].strip()
         a = os.path.join(job, f"a{i}.mp3")
@@ -403,14 +432,16 @@ def build_video(script, out_path):
         d = duration(a) + 0.35
         voice_parts.append((f"a{i}.mp3", d))
         timed.append((t, t + d - 0.3, text))
-        shots = (sc.get("shots") or [])[:2] or [text]
+        shots = (sc.get("shots") or [])[:SHOTS] or [text]
         seg = d / len(shots)
+        fx = (sc.get("fx") or "none").lower().strip()
         for j, prompt in enumerate(shots):
             full = f"{prompt}. Characters: {chars}" if chars else prompt
             img = get_image(full[:900], base_seed + i * 10 + j, os.path.join(job, f"i{i}_{j}.jpg"))
             out = f"c{i}_{j}.mp4"
-            shot_clip(job, os.path.basename(img) if img else None, seg, i * 2 + j, out)
+            shot_clip(job, os.path.basename(img) if img else None, seg, len(clips), out, fx)
             clips.append(out)
+            cuts.append(t + seg * (j + 1))
         t += d
         log(f"scene {i + 1}/{len(script['scenes'])} ready")
     total = t
@@ -426,13 +457,14 @@ def build_video(script, out_path):
     run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", "voice.txt",
          "-af", "apad", "-t", f"{total:.3f}", "-ar", "44100", "-ac", "2", "voice.wav"], cwd=job)
     make_music(os.path.join(job, "music.m4a"), total)
+    make_sfx(os.path.join(job, "sfx.wav"), total, cuts[:-1])
 
     make_ass(os.path.join(job, "subs.ass"), timed, total, script.get("title", ""))
     fontsdir = f":fontsdir={FONTS_DIR}" if os.path.isdir(FONTS_DIR) else ""
-    run(["ffmpeg", "-y", "-i", "video.mp4", "-i", "voice.wav", "-i", "music.m4a",
+    run(["ffmpeg", "-y", "-i", "video.mp4", "-i", "voice.wav", "-i", "music.m4a", "-i", "sfx.wav",
          "-filter_complex",
          f"[0:v]subtitles=subs.ass{fontsdir},format=yuv420p[v];"
-         f"[1:a]volume=1.0[vo];[2:a]volume=0.22[mu];[vo][mu]amix=inputs=2:duration=first:normalize=0,"
+         f"[1:a]volume=1.0[vo];[2:a]volume=0.22[mu];[3:a]volume=0.35,aformat=channel_layouts=stereo[fx];[vo][mu][fx]amix=inputs=3:duration=first:normalize=0,"
          f"alimiter=limit=0.95[a]",
          "-map", "[v]", "-map", "[a]", "-t", f"{total:.3f}",
          "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", "-maxrate", "8M", "-bufsize", "16M",
