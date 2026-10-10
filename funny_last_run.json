@@ -1,12 +1,12 @@
 {
- "mode": "reel",
- "stock_clips": 12,
+ "mode": "auto",
+ "stock_clips": 7,
  "fallback_clips": 0,
  "errors": [],
  "format": "animal",
- "laughs": 2,
- "reel_minutes": 0.75,
- "time_utc": "2026-10-09 23:42",
- "title": "پیر کی صبح اور گھوڑا میاں کی بریکنگ نیوز",
+ "laughs": 3,
+ "reel_minutes": 0.44,
+ "time_utc": "2026-10-10 14:40",
+ "title": "کچھوا میاں کی آن لائن شاپنگ",
  "dry_run": false
 }
