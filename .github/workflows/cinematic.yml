@@ -1,0 +1,92 @@
+name: Cinematic AI Stories (YouTube)
+
+on:
+  schedule:
+    # USA/UK audience ke waqt (UTC)
+    - cron: '17 16 * * *'   # 12:17 dopehar New York -> Short (~2.5 min)
+    - cron: '7 22 * * *'    # 6:07 shaam New York    -> Lambi video (~9 min)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'short ya long'
+        type: choice
+        options: [short, long]
+        default: short
+      language:
+        description: 'en (dollar audience) ya ur'
+        type: choice
+        options: [en, ur]
+        default: en
+      dry_run:
+        description: 'Sirf video banaye, upload na kare'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: cinematic-poster
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install google-genai edge-tts requests
+
+      - name: Run cinematic.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          POLLINATIONS_TOKEN: ${{ secrets.POLLINATIONS_TOKEN }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          CINE_FB_PAGE_ID: ${{ secrets.CINE_FB_PAGE_ID }}
+          CINE_FB_TOKEN: ${{ secrets.CINE_FB_TOKEN }}
+          CHANNEL_NAME: ${{ vars.CHANNEL_NAME }}
+          MODE: ${{ inputs.mode || (github.event.schedule == '7 22 * * *' && 'long' || 'short') }}
+          LANGUAGE: ${{ inputs.language || 'en' }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+        run: python cinematic.py
+
+      - name: Keep video (dry run)
+        if: ${{ inputs.dry_run }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: cinematic-video
+          path: final_cinematic.mp4
+          retention-days: 3
+
+      - name: Save history
+        if: always()
+        run: |
+          FILES=$(ls cinematic_*_history.json cinematic_*_last_run.json 2>/dev/null || true)
+          [ -z "$FILES" ] && exit 0
+          mkdir -p /tmp/keep
+          for f in $FILES; do cp "$f" /tmp/keep/; done
+          git config user.name "auto-poster"
+          git config user.email "auto-poster@users.noreply.github.com"
+          for i in 1 2 3 4 5; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            for f in $FILES; do cp "/tmp/keep/$f" "$f"; done
+            git add -A $FILES
+            git diff --cached --quiet && break
+            git commit -q -m "Update cinematic history and run report"
+            git push -q origin HEAD:main && break
+            sleep $((i * 5))
+          done
