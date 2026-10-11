@@ -1,13 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 48,
+ "stock_clips": 11,
  "fallback_clips": 0,
  "errors": [],
- "format": "story",
- "long_minutes": 6.08,
- "series": "گلو میاں اور اسمارٹ فون کا عذاب part 1 (ai)",
- "laughs": 7,
- "time_utc": "2026-10-11 15:02",
- "title": "گلو میاں اور اسمارٹ فون کا عذاب | قسط 1",
+ "format": "animal",
+ "laughs": 3,
+ "reel_minutes": 0.71,
+ "time_utc": "2026-10-11 17:46",
+ "title": "طوطا انکل کا انوکھا رشتہ فارمولا",
  "dry_run": false
 }
