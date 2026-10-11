@@ -1,12 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 11,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
+ "format": "chat",
+ "reel_minutes": 1.21,
  "laughs": 3,
- "reel_minutes": 0.71,
- "time_utc": "2026-10-11 17:46",
- "title": "طوطا انکل کا انوکھا رشتہ فارمولا",
+ "time_utc": "2026-10-11 19:40",
+ "title": "ابو کا نیا فارمولا اور پیر کی صبح",
  "dry_run": false
 }
