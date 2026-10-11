@@ -3,7 +3,8 @@ Cinematic AI Story Shorts - YouTube channel (aur chahein to Facebook page) par r
 
 Har run:
  1. Gemini nayi epic kahani ki qist likhta hai (Urdu narration, 3 qiston ki series, cliffhanger)
- 2. Har scene ki 2 AI tasveerein Pollinations se (free, key zaroori nahi) - same kirdar har scene mein
+ 2. Har scene ki AI tasveerein FREE - GitHub ke CPU par open-source sd-turbo model (free_images.py);
+    Pollinations sirf tab jab POLLINATIONS_TOKEN ho, Pixabay aakhri backup
  3. Layout aap ki sample video jaisa: upar title, beech mein tasveer (zoom/pan), peeche blur, neeche subtitles
  4. Urdu awaaz (Edge TTS) + halki dramatic background music (khud banti hai, copyright free)
  5. 1080x1920, ~2.5 minute -> YouTube Short + (optional) Facebook page video
@@ -72,7 +73,7 @@ HISTORY_FILE = f"cinematic_{LANG}_{MODE}_history.json"
 REPORT_FILE = f"cinematic_{LANG}_{MODE}_last_run.json"
 WORK = "work_cine"
 PARTS = 1 if LONG else 3
-MODELS = ["gemini-3.5-flash", "gemini-2.5-flash", "gemini-3.5-flash-lite"]
+MODELS = ["gemini-3.5-flash", "gemini-3.8-flash", "gemini-3.5-flash-lite"]
 GRAPH_VER = "v23.0"
 
 WORLDS = [
@@ -187,7 +188,13 @@ def write_story(history, st):
 World / setting: {st['world']}
 {series_txt}
 
-Write the narration in {LANGUAGE_TXT}. The first sentence is a powerful hook that stops scrolling.
+Write the narration in {LANGUAGE_TXT}.
+VIRAL RULES:
+- The first sentence (first 2 seconds) is a shocking or mysterious hook that stops scrolling: a bold claim,
+  a sudden danger or a forbidden secret. Never start with "Once upon a time" or slow description.
+- Open a big mystery early and only answer it at the very end; raise the stakes in every scene.
+- Put a surprising twist in the middle; every scene ends with a small question that pulls into the next one.
+- Make viewers care: give the hero a personal reason, a fear and a sacrifice. Use vivid, visual words.
 {end}
 No gore, no blood details, no religion or politics. Family friendly but thrilling.
 
@@ -205,7 +212,7 @@ Return JSON:
  "characters": "ENGLISH character sheet: for each character name + age + face, hair, clothes, body, or creature look",
  "scenes": [{{"text": "narration", "fx": "snow", "shots": ["english prompt 1", "..."]}}],
  "summary": "2 English sentences summarising what happened in this part",
- "yt_title": "viral YouTube title in {TITLE_LANG}, max 70 characters, strong curiosity hook",
+ "yt_title": "viral YouTube title in {TITLE_LANG}, max 70 characters, strong curiosity gap that is honest to the story, include one searchable word like dragon, kingdom, legend, curse or warrior",
  "description": "3-4 line YouTube description in {TITLE_LANG} ending with a question to invite comments",
  "tags": ["15 short English YouTube search tags: fantasy story, ai movie, ..."]}}""")
     scenes = [s for s in data.get("scenes", []) if (s.get("text") or "").strip()]
@@ -297,7 +304,12 @@ def pixabay_backup(query, path):
 
 
 def get_image(prompt, seed, path):
-    if pollinations(prompt, seed, path):
+    if POLL_TOKEN and pollinations(prompt, seed, path):
+        REPORT["images_ai"] += 1
+        return path
+    import free_images                                         # free: GitHub CPU par sd-turbo
+    if free_images.generate(f"epic fantasy movie still, cinematic lighting, highly detailed, {prompt}",
+                            seed, path, 1344 if LONG else 1024, 768 if LONG else 1024):
         REPORT["images_ai"] += 1
         return path
     if pixabay_backup(prompt, path):
