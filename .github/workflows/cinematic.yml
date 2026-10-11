@@ -48,7 +48,13 @@ jobs:
           sudo apt-get install -y ffmpeg fonts-dejavu-core
           pip install google-genai edge-tts requests numpy opencv-python-headless pillow
           pip install torch --index-url https://download.pytorch.org/whl/cpu
-          pip install transformers
+          pip install transformers diffusers accelerate
+
+      - name: Cache free AI image model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-models-sd-turbo-v1
 
       - name: Run cinematic.py
         env:
