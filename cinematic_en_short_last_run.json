@@ -1,8 +1,12 @@
 {
- "images_ai": 0,
- "images_backup": 0,
+ "images_ai": 28,
+ "images_backup": 8,
  "images_failed": 0,
- "errors": [
-  "fatal: YouTube (YT_CLIENT_ID/YT_CLIENT_SECRET/YT_REFRESH_TOKEN) ya Facebook (CINE_FB_PAGE_ID/CINE_FB_TOKEN) secrets missing hain"
- ]
+ "errors": [],
+ "seconds": 168.3,
+ "time_utc": "2026-10-11 21:45",
+ "title": "Frozen Kingdom: Part 1",
+ "part": 1,
+ "dry_run": true,
+ "posted": 0
 }
