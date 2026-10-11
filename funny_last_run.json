@@ -1,12 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 7,
+ "stock_clips": 48,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
- "laughs": 2,
- "reel_minutes": 0.53,
- "time_utc": "2026-10-10 20:39",
- "title": "مرغی کا روڈ ٹرپ اور پیر کی صبح",
+ "format": "story",
+ "long_minutes": 6.08,
+ "series": "گلو میاں اور اسمارٹ فون کا عذاب part 1 (ai)",
+ "laughs": 7,
+ "time_utc": "2026-10-11 15:02",
+ "title": "گلو میاں اور اسمارٹ فون کا عذاب | قسط 1",
  "dry_run": false
 }
