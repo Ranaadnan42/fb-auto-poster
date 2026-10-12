@@ -1,12 +1,8 @@
 {
- "images_ai": 36,
+ "images_ai": 0,
  "images_backup": 0,
  "images_failed": 0,
- "errors": [],
- "seconds": 178.6,
- "time_utc": "2026-10-11 23:55",
- "title": "Part 1: The Crimson Awakening",
- "part": 1,
- "dry_run": true,
- "posted": 0
+ "errors": [
+  "fatal: Awaaz nahi bani"
+ ]
 }
