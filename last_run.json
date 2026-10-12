@@ -1,12 +1,8 @@
 {
- "lang": "en",
- "stock_clips": 41,
+ "lang": "ur",
+ "stock_clips": 0,
  "fallback_clips": 0,
- "errors": [],
- "long_minutes": 4.6,
- "reel_minutes": 0.77,
- "time_utc": "2026-10-11 22:01",
- "title": "When the World Sleeps: The Magic of Tahajjud and Unanswered Tears",
- "dry_run": false,
- "posted_ok": 2
+ "errors": [
+  "fatal: Awaaz nahi bani"
+ ]
 }
