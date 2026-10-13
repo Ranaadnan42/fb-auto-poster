@@ -1,13 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 37,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "story",
- "long_minutes": 4.22,
- "series": "ساجد سموسہ کی عید شاپنگ part 2 (cartoon)",
- "laughs": 7,
- "time_utc": "2026-10-13 16:21",
- "title": "ساجد سموسہ کی عید شاپنگ | قسط 2",
+ "format": "chat",
+ "reel_minutes": 1.17,
+ "laughs": 3,
+ "time_utc": "2026-10-13 19:30",
+ "title": "ریاضی کی ٹیوشن اور غائب دماغ دوست",
  "dry_run": false
 }
