@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>TikTok Auto Poster Auth</title>
+</head>
+<body>
+    <h2>TikTok Authorization Status</h2>
+    <p id="status">Authenticating with TikTok...</p>
+
+    <script>
+        const CLIENT_KEY = 'sbawt0ms5safrl1rhf';
+        const REDIRECT_URI = 'https://ranaadnan42.github.io/fb-auto-poster/tiktok.html';
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const code = urlParams.get('code');
+
+        if (!code) {
+            const authUrl = `https://www.tiktok.com/v2/auth/authorize/?client_key=${CLIENT_KEY}&scope=video.upload,video.publish&response_type=code&redirect_uri=${encodeURIComponent(REDIRECT_URI)}&state=12345`;
+            document.getElementById('status').innerHTML = 'Redirecting to TikTok login...';
+            window.location.href = authUrl;
+        } else {
+            document.getElementById('status').innerHTML = 'Authorization Code received! Code: ' + code;
+            console.log('TikTok Auth Code:', code);
+        }
+    </script>
+</body>
+</html>
