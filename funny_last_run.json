@@ -1,9 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 0,
+ "stock_clips": 37,
  "fallback_clips": 0,
- "errors": [
-  "Awaaz nahi bani"
- ],
- "format": "chat"
+ "errors": [],
+ "format": "story",
+ "long_minutes": 4.22,
+ "series": "ساجد سموسہ کی عید شاپنگ part 2 (cartoon)",
+ "laughs": 7,
+ "time_utc": "2026-10-13 16:21",
+ "title": "ساجد سموسہ کی عید شاپنگ | قسط 2",
+ "dry_run": false
 }
