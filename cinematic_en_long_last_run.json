@@ -1,12 +1,8 @@
 {
- "images_ai": 68,
+ "images_ai": 0,
  "images_backup": 0,
  "images_failed": 0,
- "errors": [],
- "seconds": 484.5,
- "time_utc": "2026-10-12 01:50",
- "title": "The Beast of the Glacial Throne",
- "part": 1,
- "dry_run": false,
- "posted": 1
+ "errors": [
+  "fatal: Awaaz nahi bani"
+ ]
 }
