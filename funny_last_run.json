@@ -1,12 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 0,
+ "stock_clips": 7,
  "fallback_clips": 0,
  "errors": [],
- "format": "chat",
- "reel_minutes": 1.17,
+ "format": "animal",
  "laughs": 3,
- "time_utc": "2026-10-13 19:30",
- "title": "ریاضی کی ٹیوشن اور غائب دماغ دوست",
+ "reel_minutes": 0.45,
+ "time_utc": "2026-10-13 20:48",
+ "title": "بلی میاں اور گرمی کا امتحان",
  "dry_run": false
 }
