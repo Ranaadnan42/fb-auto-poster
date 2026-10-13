@@ -2,11 +2,13 @@
  "images_ai": 36,
  "images_backup": 0,
  "images_failed": 0,
- "errors": [],
- "seconds": 150.3,
- "time_utc": "2026-10-13 18:14",
- "title": "The Frozen Frost Kingdom Part 1",
+ "errors": [
+  "thumbnail: thumbnail 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"The authenticated user doesn't have permissions to upload and set custom video thumbnails.\",\n    \"errors\": [\n      {\n        \"message\": \""
+ ],
+ "seconds": 203.1,
+ "time_utc": "2026-10-13 21:44",
+ "title": "Part 1: The Sky Shatters",
  "part": 1,
- "dry_run": true,
- "posted": 0
+ "dry_run": false,
+ "posted": 1
 }
