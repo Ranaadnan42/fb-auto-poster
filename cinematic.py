@@ -83,6 +83,8 @@ HISTORY_FILE = f"cinematic_{_G}{LANG}_{MODE}_history.json"
 REPORT_FILE = f"cinematic_{_G}{LANG}_{MODE}_last_run.json"
 WORK = "work_cine"
 PARTS = 1 if (LONG or MOVIE) else 3
+if MOVIE and not LONG:
+    SCENES = 10                 # Short 3 minute se kam rahe (YouTube Shorts ki had)
 MODELS = ["gemini-3.5-flash", "gemini-3.8-flash", "gemini-3.5-flash-lite"]
 GRAPH_VER = "v23.0"
 
