@@ -526,6 +526,18 @@ def write_report():
         json.dump(REPORT, f, ensure_ascii=False, indent=1)
 
 
+def youtube(path, title, desc, short, entry, key):
+    """Facebook ke baad wahi video "Islamic Motivational Videos" YouTube channel par. Fail ho to sirf report mein."""
+    import yt
+    if not yt.enabled("islamic"):
+        return
+    try:
+        entry[key] = yt.upload("islamic", path, title, desc, short=short, lang=LANG, category="22")
+    except Exception as e:
+        log(f"YOUTUBE ERROR: {e}")
+        REPORT["errors"].append(f"youtube: {str(e)[:300]}")
+
+
 def _main():
     if not DRY_RUN and (not FB_TOKEN or not FB_PAGE):
         raise RuntimeError("FB_PAGE_ACCESS_TOKEN ya FB_PAGE_ID secret missing hai")
@@ -542,7 +554,9 @@ def _main():
     try:
         build_video(long_script, "long", 1920, 1080, "final_long.mp4", title)
         if not DRY_RUN:
-            entry["long_id"] = post_long("final_long.mp4", title, description(title, long_script, is_reel=False))
+            desc = description(title, long_script, is_reel=False)
+            entry["long_id"] = post_long("final_long.mp4", title, desc)
+            youtube("final_long.mp4", title, desc, False, entry, "long_yt")
         ok += 1
     except Exception as e:
         log(f"LONG VIDEO ERROR: {e}")
@@ -554,7 +568,9 @@ def _main():
             run(["ffmpeg", "-y", "-i", "final_reel.mp4", "-t", "89", "-c", "copy", "reel_cut.mp4"])
             shutil.move("reel_cut.mp4", "final_reel.mp4")
         if not DRY_RUN:
-            entry["reel_id"] = post_reel("final_reel.mp4", description(title, reel_script))
+            desc = description(title, reel_script)
+            entry["reel_id"] = post_reel("final_reel.mp4", desc)
+            youtube("final_reel.mp4", title, desc, True, entry, "reel_yt")
         ok += 1
     except Exception as e:
         log(f"REEL ERROR: {e}")

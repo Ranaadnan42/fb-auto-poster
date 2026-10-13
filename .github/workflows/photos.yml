@@ -1,0 +1,81 @@
+name: Daily Photo Posts
+
+on:
+  schedule:
+    # Pakistan time (UTC+5) - har run mein dono pages par 1-1 pic
+    - cron: '47 6 * * *'    # ~11:45 subah  -> Islamic (Urdu) + funny meme
+    - cron: '47 13 * * *'   # ~6:45 shaam   -> Islamic (English) + funny meme
+  workflow_dispatch:
+    inputs:
+      slot:
+        description: '1 = Urdu quote, 2 = English quote'
+        type: choice
+        options: ['1', '2']
+        default: '1'
+      pages:
+        description: 'Kis page par'
+        type: choice
+        options: ['islamic,funny', 'islamic', 'funny']
+        default: 'islamic,funny'
+      dry_run:
+        description: 'Sirf pic banaye, post na kare'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: photo-poster
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          pip install google-genai requests
+      - name: Run photos.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FUNNY_PAGE_TOKEN: ${{ secrets.FUNNY_PAGE_TOKEN }}
+          FUNNY_PAGE_ID: ${{ secrets.FUNNY_PAGE_ID }}
+          SLOT: ${{ github.event.schedule == '47 13 * * *' && '2' || inputs.slot || '1' }}
+          PAGES: ${{ inputs.pages || 'islamic,funny' }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+        run: python photos.py
+      - name: Upload preview
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: photos
+          path: work_photos/*.jpg
+          if-no-files-found: ignore
+      - name: Save history
+        if: always()
+        run: |
+          FILES="photos_history.json photos_last_run.json"
+          mkdir -p /tmp/keep
+          for f in $FILES; do [ -f "$f" ] && cp "$f" /tmp/keep/; done
+          git config user.name "auto-poster"
+          git config user.email "auto-poster@users.noreply.github.com"
+          for i in 1 2 3 4 5; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            for f in $FILES; do [ -f "/tmp/keep/$f" ] && cp "/tmp/keep/$f" "$f"; done
+            git add $FILES 2>/dev/null || true
+            git diff --cached --quiet && break
+            git commit -q -m "Update photo history"
+            git push -q origin HEAD:main && break
+            sleep $((i * 5))
+          done

@@ -494,6 +494,18 @@ def write_report():
         json.dump(REPORT, f, ensure_ascii=False, indent=1)
 
 
+def youtube(path, title, desc, short, entry):
+    """Facebook ke baad wahi video "Hansi Ka Adda" YouTube channel par. Fail ho to sirf report mein."""
+    import yt
+    if not yt.enabled("funny"):
+        return
+    try:
+        entry["yt_id"] = yt.upload("funny", path, title, desc, short=short, lang="ur", category="23")
+    except Exception as e:
+        log(f"YOUTUBE ERROR: {e}")
+        REPORT["errors"].append(f"youtube: {str(e)[:300]}")
+
+
 def _main():
     if not DRY_RUN and (not FB_TOKEN or not FB_PAGE):
         raise RuntimeError("FUNNY_PAGE_TOKEN ya FUNNY_PAGE_ID secret missing hai")
@@ -540,7 +552,9 @@ def _main():
             script = chat_comedy.build_long(history, "funny_long.mp4")
         REPORT["long_minutes"] = round(duration("funny_long.mp4") / 60, 2)
         if not DRY_RUN:
-            entry["id"] = post_long("funny_long.mp4", script["title"], description(script, is_reel=False))
+            desc = description(script, is_reel=False)
+            entry["id"] = post_long("funny_long.mp4", script["title"], desc)
+            youtube("funny_long.mp4", script["title"], desc, False, entry)
     else:
         if fmt == "animal":
             script = write_reel(history)
@@ -552,7 +566,9 @@ def _main():
             run(["ffmpeg", "-y", "-i", "funny_reel.mp4", "-t", "89", "-c", "copy", "cut.mp4"])
             shutil.move("cut.mp4", "funny_reel.mp4")
         if not DRY_RUN:
-            entry["id"] = post_reel("funny_reel.mp4", description(script))
+            desc = description(script)
+            entry["id"] = post_reel("funny_reel.mp4", desc)
+            youtube("funny_reel.mp4", script["title"], desc, True, entry)
     entry.update({"title": script["title"], "animal": script["animal"], "topic": script.get("topic")})
     for key in ("series", "series_title", "part", "summary", "style"):
         if script.get(key) is not None:

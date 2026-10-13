@@ -50,6 +50,11 @@ jobs:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           FB_PAGE_ACCESS_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_ISLAMIC_CLIENT_ID: ${{ secrets.YT_ISLAMIC_CLIENT_ID }}
+          YT_ISLAMIC_CLIENT_SECRET: ${{ secrets.YT_ISLAMIC_CLIENT_SECRET }}
+          YT_ISLAMIC_REFRESH_TOKEN: ${{ secrets.YT_ISLAMIC_REFRESH_TOKEN }}
           LANGUAGE: ${{ github.event.schedule == '17 18 * * *' && 'en' || inputs.language || 'ur' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
         # agar kuch post hone se pehle hi fail ho (jaise awaaz service band), 3 minute baad dobara koshish

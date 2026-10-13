@@ -56,6 +56,11 @@ jobs:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           FUNNY_PAGE_TOKEN: ${{ secrets.FUNNY_PAGE_TOKEN }}
           FUNNY_PAGE_ID: ${{ secrets.FUNNY_PAGE_ID }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_FUNNY_CLIENT_ID: ${{ secrets.YT_FUNNY_CLIENT_ID }}
+          YT_FUNNY_CLIENT_SECRET: ${{ secrets.YT_FUNNY_CLIENT_SECRET }}
+          YT_FUNNY_REFRESH_TOKEN: ${{ secrets.YT_FUNNY_REFRESH_TOKEN }}
           MODE: ${{ inputs.mode || 'auto' }}
           FORMAT: ${{ inputs.format != 'auto' && inputs.format || '' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
