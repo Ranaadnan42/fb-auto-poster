@@ -91,7 +91,7 @@ jobs:
       - name: Save history
         if: always()
         run: |
-          FILES=$(ls cinematic_*_history.json cinematic_*_last_run.json 2>/dev/null || true)
+          FILES=$(ls cinematic_*_history.json cinematic_*_last_run.json 2>/dev/null | grep -v "_movie_" || true)
           [ -z "$FILES" ] && exit 0
           mkdir -p /tmp/keep
           for f in $FILES; do cp "$f" /tmp/keep/; done

@@ -1,0 +1,97 @@
+name: Movie Recaps (YouTube)
+
+on:
+  schedule:
+    # USA/UK audience ke waqt (UTC)
+    - cron: '41 14 * * *'   # 10:41 subah New York -> Short (~2.5 min)
+    - cron: '41 19 * * *'   # 3:41 dopehar New York -> Lambi recap (~9 min)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'short ya long'
+        type: choice
+        options: [short, long]
+        default: short
+      dry_run:
+        description: 'Sirf video banaye, upload na kare'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: movie-poster
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install google-genai "edge-tts>=7.3.0" requests numpy opencv-python-headless pillow
+          pip install torch --index-url https://download.pytorch.org/whl/cpu
+          pip install transformers diffusers accelerate
+      - name: Cache free AI image model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: hf-models-sd-turbo-v1
+      - name: Run cinematic.py (movie recap)
+        env:
+          GENRE: movie
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          POLLINATIONS_TOKEN: ${{ secrets.POLLINATIONS_TOKEN }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_MOVIE_CLIENT_ID: ${{ secrets.YT_MOVIE_CLIENT_ID }}
+          YT_MOVIE_CLIENT_SECRET: ${{ secrets.YT_MOVIE_CLIENT_SECRET }}
+          YT_MOVIE_REFRESH_TOKEN: ${{ secrets.YT_MOVIE_REFRESH_TOKEN }}
+          CHANNEL_NAME: Plot Twist Recaps
+          MODE: ${{ inputs.mode || (github.event.schedule == '41 19 * * *' && 'long' || 'short') }}
+          LANGUAGE: en
+          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+        run: |
+          python cinematic.py || {
+            if grep -q '"fatal:' "cinematic_movie_en_${MODE}_last_run.json" 2>/dev/null; then
+              echo "Pehli koshish fail - 3 minute baad dobara"; sleep 180; python cinematic.py
+            else
+              exit 1
+            fi
+          }
+      - name: Keep video (dry run)
+        if: ${{ inputs.dry_run }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: movie-video
+          path: |
+            final_cinematic.mp4
+            thumbnail.jpg
+          retention-days: 3
+      - name: Save history
+        if: always()
+        run: |
+          FILES=$(ls cinematic_movie_*_history.json cinematic_movie_*_last_run.json 2>/dev/null || true)
+          [ -z "$FILES" ] && exit 0
+          mkdir -p /tmp/keep
+          for f in $FILES; do cp "$f" /tmp/keep/; done
+          git config user.name "auto-poster"
+          git config user.email "auto-poster@users.noreply.github.com"
+          for i in 1 2 3 4 5; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            for f in $FILES; do cp "/tmp/keep/$f" "$f"; done
+            git add -A $FILES
+            git diff --cached --quiet && break
+            git commit -q -m "Update movie recap history"
+            git push -q origin HEAD:main && break
+            sleep $((i * 5))
+          done

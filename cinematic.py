@@ -34,11 +34,20 @@ import requests
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY")
 POLL_TOKEN = os.environ.get("POLLINATIONS_TOKEN")
 PIXABAY_KEY = os.environ.get("PIXABAY_API_KEY")
-YT_ID = os.environ.get("YT_CLIENT_ID")
-YT_SECRET = os.environ.get("YT_CLIENT_SECRET")
-YT_REFRESH = os.environ.get("YT_REFRESH_TOKEN")
-FB_PAGE = os.environ.get("CINE_FB_PAGE_ID")
-FB_TOKEN = os.environ.get("CINE_FB_TOKEN")
+GENRE = (os.environ.get("GENRE") or "fantasy").strip().lower()  # fantasy = Legends Untold, movie = movie recap channel
+if GENRE not in ("fantasy", "movie"):
+    GENRE = "fantasy"
+MOVIE = GENRE == "movie"
+if MOVIE:   # movie channel ki apni YouTube chaabi (aur chahein to apna Google project)
+    YT_ID = os.environ.get("YT_MOVIE_CLIENT_ID") or os.environ.get("YT_CLIENT_ID")
+    YT_SECRET = os.environ.get("YT_MOVIE_CLIENT_SECRET") or os.environ.get("YT_CLIENT_SECRET")
+    YT_REFRESH = os.environ.get("YT_MOVIE_REFRESH_TOKEN")
+else:
+    YT_ID = os.environ.get("YT_CLIENT_ID")
+    YT_SECRET = os.environ.get("YT_CLIENT_SECRET")
+    YT_REFRESH = os.environ.get("YT_REFRESH_TOKEN")
+FB_PAGE = None if MOVIE else os.environ.get("CINE_FB_PAGE_ID")
+FB_TOKEN = None if MOVIE else os.environ.get("CINE_FB_TOKEN")
 CHANNEL = (os.environ.get("CHANNEL_NAME") or "").strip()
 DRY_RUN = os.environ.get("DRY_RUN") == "1"
 LANG = (os.environ.get("LANGUAGE") or "en").strip().lower()      # en = dollar wali audience
@@ -69,10 +78,11 @@ else:
     TITLE_LANG, CLIFF = "Urdu script", "آگے کیا ہوا؟ اگلا حصہ ضرور دیکھیں"
     PART_WORD, SUB_TXT = "حصہ", "مزید کہانیوں کے لیے چینل کو سبسکرائب کریں 🔔"
 FONTS_DIR = os.path.abspath("fonts")
-HISTORY_FILE = f"cinematic_{LANG}_{MODE}_history.json"
-REPORT_FILE = f"cinematic_{LANG}_{MODE}_last_run.json"
+_G = "movie_" if MOVIE else ""
+HISTORY_FILE = f"cinematic_{_G}{LANG}_{MODE}_history.json"
+REPORT_FILE = f"cinematic_{_G}{LANG}_{MODE}_last_run.json"
 WORK = "work_cine"
-PARTS = 1 if LONG else 3
+PARTS = 1 if (LONG or MOVIE) else 3
 MODELS = ["gemini-3.5-flash", "gemini-3.8-flash", "gemini-3.5-flash-lite"]
 GRAPH_VER = "v23.0"
 
@@ -91,6 +101,11 @@ WORLDS = [
 
 LOOK = ("cinematic still, photorealistic, dramatic lighting, shallow depth of field, ultra detailed, "
         "epic fantasy movie scene, 35mm film, no text, no watermark")
+
+if MOVIE:
+    SUB_TXT = "Subscribe for a new movie recap every day 🔔" if LANG == "en" else "روز نئی فلم کی کہانی کے لیے سبسکرائب کریں 🔔"
+    LOOK = ("cinematic movie still, photorealistic, dramatic lighting, ultra detailed, 35mm film, "
+            "original characters that do not resemble any real actor, no logos, no text, no watermark")
 
 os.makedirs(WORK, exist_ok=True)
 REPORT = {"images_ai": 0, "images_backup": 0, "images_failed": 0, "errors": []}
@@ -166,7 +181,51 @@ def series_state(history):
             "summaries": []}
 
 
+def write_movie(history):
+    """Movie Recap: mashhoor film ki kahani apne alfaaz mein (asal footage/poster nahi - copyright safe)."""
+    used = [h.get("series_title", "") for h in history[-300:]]
+    length = ("ONE complete recap of about 9 minutes: setup, every major plot point, the twists and the "
+              "ending explained clearly" if LONG else
+              "a fast ~2.5 minute recap: the hook, the main story beats, the biggest twist and the ending")
+    data = ask_json(f"""You run a viral "Movie Recap / Movie Explained" YouTube channel for a US/UK audience.
+Pick ONE very famous, well-known movie (Hollywood, or a world-famous Korean/Japanese/Indian/Spanish hit;
+thrillers, sci-fi, survival, mystery, horror-lite and twist movies perform best). It must be famous enough
+that you know its plot accurately. Do NOT pick any of these already-covered movies: {json.dumps(used, ensure_ascii=False)}
+
+Write {length}, retold in your OWN words (never quote dialogue) in {LANGUAGE_TXT}.
+Accuracy: stay true to the real plot - never invent events. Refer to characters by their role or first name.
+VIRAL RULES:
+- First sentence is a gripping hook about the movie's core situation (no "In this video", no "Hello guys").
+- Narrate like a storyteller in present tense; keep suspense, reveal the twist at the right moment.
+- Last line asks viewers to subscribe for more movie recaps.
+No gore details, no sexual content, no politics.
+
+Exactly {SCENES} scenes, each {WORDS}.
+For each scene give {SHOTS} English image prompts ("shots") for an AI image generator: one detailed sentence
+of what the camera sees (who, action, place, light, camera angle). Characters must be ORIGINAL looking people,
+never a real actor's likeness, no logos or brand names. Use the character sheet so people look the SAME in
+every image. For each scene also pick "fx": one of snow, rain, embers, dust, fog, none.
+
+Return JSON:
+{{"series_title": "the exact movie name and year, e.g. Inception (2010)",
+ "title": "on-screen title, max 45 characters, e.g. INCEPTION EXPLAINED",
+ "characters": "ENGLISH character sheet: each main character's role + age + face, hair, clothes (original look)",
+ "scenes": [{{"text": "narration", "fx": "none", "shots": ["english prompt 1", "..."]}}],
+ "summary": "2 English sentences about the movie",
+ "yt_title": "viral YouTube title, max 70 characters, must include the movie name + 'Recap' or 'Explained', e.g. A Man Steals Dreams For A Living | Inception Recap",
+ "description": "3-4 line YouTube description: what the movie is about without spoiling the ending, then a question to invite comments, then 'Movie recap and review for commentary and education.'",
+ "thumb_text": "2-4 word ALL CAPS curiosity text, e.g. HE NEVER WOKE UP",
+ "tags": ["15 English search tags: movie recap, movie explained, the movie name, genre..."]}}""")
+    scenes = [s for s in data.get("scenes", []) if (s.get("text") or "").strip()]
+    if len(scenes) < (20 if LONG else 6):
+        raise RuntimeError("Recap mein scenes kam hain")
+    data["scenes"] = scenes
+    return data
+
+
 def write_story(history, st):
+    if MOVIE:
+        return write_movie(history)
     used = list(dict.fromkeys(h.get("series_title", "") for h in history[-90:]))
     p = st["part"]
     if p == 1:
