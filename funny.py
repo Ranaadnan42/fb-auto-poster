@@ -228,14 +228,14 @@ Return JSON: {{"title": "funny Urdu title, max 70 characters",
 def tts(text, path):
     async def go():
         await edge_tts.Communicate(text, VOICE, rate=VOICE_RATE, pitch=VOICE_PITCH).save(path)
-    for attempt in range(3):
+    for attempt in range(6):                                   # Microsoft kabhi kabhi rok deta hai
         try:
             asyncio.run(go())
             if os.path.getsize(path) > 1000:
                 return
         except Exception as e:
-            log(f"TTS retry {attempt + 1}: {e}")
-            time.sleep(3)
+            log(f"TTS retry {attempt + 1}: {str(e)[:200]}")
+        time.sleep(5 * (attempt + 1))
     raise RuntimeError("Awaaz nahi bani")
 
 
@@ -571,7 +571,7 @@ def main():
     try:
         _main()
     except Exception as e:
-        REPORT["errors"].append(str(e)[:400])
+        REPORT["errors"].append(f"fatal: {str(e)[:400]}")
         write_report()
         raise
 

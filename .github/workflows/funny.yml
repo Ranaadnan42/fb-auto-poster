@@ -48,7 +48,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg fonts-dejavu-core
-          pip install google-genai edge-tts requests
+          pip install google-genai "edge-tts>=7.3.0" requests
 
       - name: Run funny.py
         env:
@@ -59,7 +59,15 @@ jobs:
           MODE: ${{ inputs.mode || 'auto' }}
           FORMAT: ${{ inputs.format != 'auto' && inputs.format || '' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
-        run: python funny.py
+        # agar kuch post hone se pehle hi fail ho (jaise awaaz service band), 3 minute baad dobara koshish
+        run: |
+          python funny.py || {
+            if grep -q '"fatal:' "funny_last_run.json" 2>/dev/null; then
+              echo "Pehli koshish fail - 3 minute baad dobara"; sleep 180; python funny.py
+            else
+              exit 1
+            fi
+          }
 
       - name: Save history
         if: always()

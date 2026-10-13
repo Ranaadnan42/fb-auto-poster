@@ -46,7 +46,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg fonts-dejavu-core
-          pip install google-genai edge-tts requests numpy opencv-python-headless pillow
+          pip install google-genai "edge-tts>=7.3.0" requests numpy opencv-python-headless pillow
           pip install torch --index-url https://download.pytorch.org/whl/cpu
           pip install transformers diffusers accelerate
 
@@ -70,7 +70,15 @@ jobs:
           MODE: ${{ inputs.mode || (github.event.schedule == '7 22 * * *' && 'long' || 'short') }}
           LANGUAGE: ${{ inputs.language || 'en' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
-        run: python cinematic.py
+        # agar kuch post hone se pehle hi fail ho (jaise awaaz service band), 3 minute baad dobara koshish
+        run: |
+          python cinematic.py || {
+            if grep -q '"fatal:' "cinematic_${LANGUAGE}_${MODE}_last_run.json" 2>/dev/null; then
+              echo "Pehli koshish fail - 3 minute baad dobara"; sleep 180; python cinematic.py
+            else
+              exit 1
+            fi
+          }
 
       - name: Keep video (dry run)
         if: ${{ inputs.dry_run }}
