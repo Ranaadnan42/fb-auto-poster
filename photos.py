@@ -271,6 +271,7 @@ Return JSON:
 # ---------------------------------------------------------------- Facebook
 def post_photo(page, path, caption):
     P = PAGES[page]
+    caption = caption.replace(" #reels", "").replace("#reels ", "")   # pic post hai, reel nahi
     if not P["token"] or not P["id"]:
         raise RuntimeError(f"{page}: page token/id secret missing")
     with open(path, "rb") as f:
