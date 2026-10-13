@@ -214,6 +214,7 @@ Return JSON:
  "summary": "2 English sentences summarising what happened in this part",
  "yt_title": "viral YouTube title in {TITLE_LANG}, max 70 characters, strong curiosity gap that is honest to the story, include one searchable word like dragon, kingdom, legend, curse or warrior",
  "description": "3-4 line YouTube description in {TITLE_LANG} ending with a question to invite comments",
+ "thumb_text": "2-4 word ALL CAPS thumbnail text in English that creates curiosity, e.g. THE DRAGON LIED",
  "tags": ["15 short English YouTube search tags: fantasy story, ai movie, ..."]}}""")
     scenes = [s for s in data.get("scenes", []) if (s.get("text") or "").strip()]
     if len(scenes) < (20 if LONG else 6):
@@ -231,14 +232,14 @@ def tts(text, path):
 
     async def go():
         await edge_tts.Communicate(text, VOICE, rate=RATE).save(path)
-    for attempt in range(3):
+    for attempt in range(6):                                   # Microsoft kabhi kabhi rok deta hai
         try:
             asyncio.run(go())
             if os.path.getsize(path) > 1000:
                 return
         except Exception as e:
-            log(f"TTS retry {attempt + 1}: {e}")
-            time.sleep(3)
+            log(f"TTS retry {attempt + 1}: {str(e)[:200]}")
+        time.sleep(5 * (attempt + 1))
     raise RuntimeError("Awaaz nahi bani")
 
 
@@ -537,6 +538,65 @@ def upload_youtube(path, script):
     raise RuntimeError("YouTube upload fail")
 
 
+def make_thumbnail(script, out_path):
+    """1280x720 thumbnail: sab se acha scene + bari peeli/safed likhai + channel naam."""
+    from PIL import Image, ImageDraw, ImageFilter, ImageEnhance, ImageFont
+    job = os.path.join(WORK, "job")
+    cands = sorted(f for f in os.listdir(job) if f.startswith("i") and f.endswith(".jpg")) if os.path.isdir(job) else []
+    if not cands:
+        return None
+    pick = cands[min(1, len(cands) - 1)]                       # 1st scene ka close-up aksar behtar
+    img = Image.open(os.path.join(job, pick)).convert("RGB")
+    tw, th = 1280, 720
+    sc = max(tw / img.width, th / img.height)
+    img = img.resize((int(img.width * sc + 1), int(img.height * sc + 1)), Image.LANCZOS)
+    x0, y0 = (img.width - tw) // 2, (img.height - th) // 3
+    img = img.crop((x0, y0, x0 + tw, y0 + th))
+    img = ImageEnhance.Contrast(ImageEnhance.Color(img).enhance(1.35)).enhance(1.15)
+    shade = Image.new("L", (tw, th), 0)
+    d = ImageDraw.Draw(shade)
+    for i in range(th // 2):                                   # neeche andhera taa ke likhai saaf parhi jaye
+        d.line([(0, th - i), (tw, th - i)], fill=int(200 * (1 - i / (th / 2))))
+    img = Image.composite(Image.new("RGB", (tw, th), (0, 0, 0)), img, shade)
+    text = (script.get("thumb_text") or script.get("title") or "").upper().strip()[:28]
+    font_path = os.path.join(FONTS_DIR, "NotoSans-Bold.ttf")
+    draw = ImageDraw.Draw(img)
+    words, lines = text.split(), []
+    for w in words:
+        if lines and len(lines[-1] + " " + w) <= 14:
+            lines[-1] += " " + w
+        else:
+            lines.append(w)
+    lines = lines[:2]
+    size = 120 if max((len(l) for l in lines), default=0) <= 10 else 96
+    try:
+        font = ImageFont.truetype(font_path, size)
+        small = ImageFont.truetype(font_path, 34)
+    except Exception:
+        font = small = ImageFont.load_default()
+    y = th - 60 - len(lines) * (size + 10)
+    for k, line in enumerate(lines):
+        color = (255, 214, 64) if k == 0 else (255, 255, 255)
+        w = draw.textlength(line, font=font)
+        draw.text(((tw - w) / 2, y), line, font=font, fill=color, stroke_width=8, stroke_fill=(0, 0, 0))
+        y += size + 10
+    if CHANNEL:
+        draw.text((30, 24), CHANNEL.upper(), font=small, fill=(255, 255, 255), stroke_width=3, stroke_fill=(0, 0, 0))
+    img.save(out_path, "JPEG", quality=90)
+    return out_path
+
+
+def set_thumbnail(video_id, path):
+    token = yt_access_token()
+    with open(path, "rb") as f:
+        r = requests.post(f"https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={video_id}",
+                          headers={"Authorization": f"Bearer {token}", "Content-Type": "image/jpeg"},
+                          data=f.read(), timeout=120)
+    if r.status_code != 200:
+        raise RuntimeError(f"thumbnail {r.status_code}: {r.text[:300]}")
+    log("YouTube thumbnail set")
+
+
 # ---------------------------------------------------------------- Facebook (optional)
 def fb_json(r):
     try:
@@ -592,6 +652,11 @@ def _main():
     log(f"Series: {script.get('series_title')} | Part {st['part']} | {script.get('title')}")
 
     build_video(script, "final_cinematic.mp4")
+    thumb = None
+    try:
+        thumb = make_thumbnail(script, "thumbnail.jpg")
+    except Exception as e:
+        log(f"Thumbnail nahi bani: {str(e)[:200]}")
     entry = {"date": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"),
              "series": st["series"], "series_title": script.get("series_title", ""),
              "part": st["part"], "world": st["world"], "characters": script.get("characters", ""),
@@ -601,6 +666,12 @@ def _main():
         try:
             entry["yt_id"] = upload_youtube("final_cinematic.mp4", script)
             posted += 1
+            if thumb:
+                try:
+                    set_thumbnail(entry["yt_id"], thumb)
+                except Exception as e:
+                    log(f"THUMBNAIL ERROR: {e}")
+                    REPORT["errors"].append(f"thumbnail: {str(e)[:200]}")
         except Exception as e:
             log(f"YOUTUBE ERROR: {e}")
             REPORT["errors"].append(f"youtube: {str(e)[:300]}")
