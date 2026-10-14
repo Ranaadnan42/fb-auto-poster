@@ -1,12 +1,14 @@
 {
- "lang": "en",
- "stock_clips": 40,
+ "lang": "ur",
+ "stock_clips": 45,
  "fallback_clips": 0,
- "errors": [],
- "long_minutes": 4.34,
- "reel_minutes": 0.75,
- "time_utc": "2026-10-13 22:49",
- "title": "No Matter How Many Times You Fall: Allah's Door is Open",
+ "errors": [
+  "tiktok: TikTok login fail: {'error': 'invalid_grant', 'error_description': 'Refresh token is invalid or expired.', 'log_id': '202610140855581B440A6FD59A61409C68'}"
+ ],
+ "long_minutes": 5.27,
+ "reel_minutes": 0.7,
+ "time_utc": "2026-10-14 00:48",
+ "title": "امانت میں خیانت سے بچیں: دنیا اور آخرت کی سب سے بڑی کامیابی",
  "dry_run": false,
  "posted_ok": 2
 }
