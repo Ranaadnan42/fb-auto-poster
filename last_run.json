@@ -1,12 +1,15 @@
 {
- "lang": "ur",
- "stock_clips": 48,
+ "lang": "en",
+ "stock_clips": 40,
  "fallback_clips": 0,
- "errors": [],
- "long_minutes": 5.73,
- "reel_minutes": 0.56,
- "time_utc": "2026-10-14 19:26",
- "title": "غرور اور تکبر: وہ بیماری جو انسان کو سب سے نیچے گرا دیتی ہے",
+ "errors": [
+  "tiktok_long: TikTok: spam_risk_too_many_pending_share - spam_risk_too_many_pending_share",
+  "tiktok: TikTok: spam_risk_too_many_pending_share - spam_risk_too_many_pending_share"
+ ],
+ "long_minutes": 4.46,
+ "reel_minutes": 0.69,
+ "time_utc": "2026-10-14 21:46",
+ "title": "When the Coffin Closes: What Awaits You in the Dark Grave",
  "dry_run": false,
  "posted_ok": 2
 }
