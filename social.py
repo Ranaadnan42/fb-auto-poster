@@ -92,8 +92,8 @@ TT = "https://open.tiktokapis.com/v2"
 
 
 def _tt_creds(name):
-    return (os.environ.get("TIKTOK_CLIENT_KEY"), os.environ.get("TIKTOK_CLIENT_SECRET"),
-            os.environ.get(f"TIKTOK_{name.upper()}_REFRESH_TOKEN"))
+    return tuple((os.environ.get(k) or "").strip() for k in
+                 ("TIKTOK_CLIENT_KEY", "TIKTOK_CLIENT_SECRET", f"TIKTOK_{name.upper()}_REFRESH_TOKEN"))
 
 
 def tiktok_enabled(name):
@@ -121,14 +121,37 @@ def _tt_json(r):
     return j.get("data") or {}
 
 
+def _tt_chunks(size):
+    """TikTok: 64MB tak ek hi chunk, us se bari file 10MB chunks mein (aakhri chunk baqi sab le leta hai)."""
+    if size <= 64 * 1024 * 1024:
+        return size, 1
+    chunk = 10 * 1024 * 1024
+    return chunk, size // chunk
+
+
 def _tt_upload(url, path):
     size = os.path.getsize(path)
+    chunk, count = _tt_chunks(size)
     with open(path, "rb") as f:
-        r = requests.put(url, data=f, timeout=1800, headers={
-            "Content-Type": "video/mp4", "Content-Length": str(size),
-            "Content-Range": f"bytes 0-{size - 1}/{size}"})
-    if r.status_code >= 300:
-        raise RuntimeError(f"TikTok upload HTTP {r.status_code}: {r.text[:300]}")
+        for i in range(count):
+            start = i * chunk
+            end = size - 1 if i == count - 1 else start + chunk - 1
+            f.seek(start)
+            data = f.read(end - start + 1)
+            r = requests.put(url, data=data, timeout=1800, headers={
+                "Content-Type": "video/mp4", "Content-Length": str(len(data)),
+                "Content-Range": f"bytes {start}-{end}/{size}"})
+            if r.status_code >= 300:
+                raise RuntimeError(f"TikTok upload HTTP {r.status_code}: {r.text[:300]}")
+
+
+def _duration(path):
+    import subprocess
+    try:
+        return float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration",
+                                     "-of", "csv=p=0", path], capture_output=True, text=True).stdout)
+    except Exception:
+        return 0
 
 
 def _tiktok_caption(caption):
@@ -150,13 +173,17 @@ def tiktok_upload(name, path, caption, log=print):
     tok = _tt_token(name)
     h = {"Authorization": f"Bearer {tok}", "Content-Type": "application/json; charset=UTF-8"}
     size = os.path.getsize(path)
-    src = {"source": "FILE_UPLOAD", "video_size": size, "chunk_size": size, "total_chunk_count": 1}
+    chunk, count = _tt_chunks(size)
+    src = {"source": "FILE_UPLOAD", "video_size": size, "chunk_size": chunk, "total_chunk_count": count}
     mode = os.environ.get("TIKTOK_MODE", "direct")
     if mode == "direct":
         try:
             info = _tt_json(requests.post(f"{TT}/post/publish/creator_info/query/", headers=h,
                                           timeout=60))
             opts = info.get("privacy_level_options") or ["SELF_ONLY"]
+            limit = info.get("max_video_post_duration_sec") or 600
+            if _duration(path) > limit:
+                raise RuntimeError(f"video {int(_duration(path))}s hai, TikTok limit {limit}s - skip")
             privacy = "PUBLIC_TO_EVERYONE" if "PUBLIC_TO_EVERYONE" in opts else opts[0]
             d = _tt_json(requests.post(f"{TT}/post/publish/video/init/", headers=h, timeout=60, json={
                 "post_info": {"title": _clean_caption(caption, 20, 2150),
@@ -175,6 +202,18 @@ def tiktok_upload(name, path, caption, log=print):
     _tt_upload(d["upload_url"], path)
     log(f"TikTok inbox mein bhej di (app mein ek tap se post): {d.get('publish_id')}")
     return "inbox:" + str(d.get("publish_id"))
+
+
+# ---------------------------------------------------------- lambi video
+def share_long(name, path, caption, entry, report, log=print):
+    """Lambi (5 min) video sirf TikTok par - 1 min se lambi videos TikTok Creator Rewards mein ginti hoti hain."""
+    if not tiktok_enabled(name):
+        return
+    try:
+        entry["tt_long_id"] = tiktok_upload(name, path, caption, log)
+    except Exception as e:
+        log(f"TIKTOK LONG ERROR: {e}")
+        report["errors"].append(f"tiktok_long: {str(e)[:300]}")
 
 
 # ---------------------------------------------------------- dono ek saath
