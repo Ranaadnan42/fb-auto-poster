@@ -1,12 +1,8 @@
 {
- "images_ai": 36,
+ "images_ai": 0,
  "images_backup": 0,
  "images_failed": 0,
- "errors": [],
- "seconds": 187.2,
- "time_utc": "2026-10-13 21:30",
- "title": "SHUTTER ISLAND EXPLAINED",
- "part": 1,
- "dry_run": true,
- "posted": 0
+ "errors": [
+  "fatal: YouTube (YT_CLIENT_ID/YT_CLIENT_SECRET/YT_REFRESH_TOKEN) ya Facebook (CINE_FB_PAGE_ID/CINE_FB_TOKEN) secrets missing hain"
+ ]
 }
