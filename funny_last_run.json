@@ -1,12 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 7,
+ "stock_clips": 48,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
- "laughs": 3,
- "reel_minutes": 0.46,
- "time_utc": "2026-10-14 13:59",
- "title": "کچھوا میاں اور اسٹریٹ فوڈ",
+ "format": "story",
+ "long_minutes": 6.9,
+ "series": "گلو میاں اور اسمارٹ فون کا عذاب part 2 (ai)",
+ "laughs": 8,
+ "time_utc": "2026-10-14 17:33",
+ "title": "گلو میاں اور اسمارٹ فون کا عذاب | قسط 2",
  "dry_run": false
 }
