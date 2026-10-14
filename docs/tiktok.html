@@ -1,10 +1,35 @@
-<!doctype html><html><head><meta charset="utf-8"><title>TikTok Connected</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:system-ui,Arial,sans-serif;max-width:760px;margin:40px auto;padding:0 16px;line-height:1.6;color:#222}h1{color:#0a6b4f}a{color:#0a6b4f}footer{margin-top:40px;font-size:14px;color:#666}</style></head><body>
-<h1>TikTok authorization</h1>
-<p id="msg">Reading...</p>
-<p><input id="code" style="width:100%;padding:8px;font-size:14px" readonly></p>
+<!doctype html><html><head><meta charset="utf-8"><title>TikTok Connect</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:system-ui,Arial,sans-serif;max-width:760px;margin:40px auto;padding:0 16px;line-height:1.6;color:#222}h1{color:#0a6b4f}input,textarea{width:100%;padding:8px;font-size:14px;box-sizing:border-box}button{background:#fe2c55;color:#fff;border:0;padding:10px 18px;font-size:16px;border-radius:6px;cursor:pointer;margin:8px 0}.box{background:#f4f6f5;padding:14px;border-radius:8px;margin:14px 0}footer{margin-top:40px;font-size:14px;color:#666}</style></head><body>
+<h1>TikTok Connect</h1>
+<div id="step1" class="box">
+<b>Step 1:</b> TikTok Sandbox wali <b>Client key</b> yahan paste karein, phir button dabayein.
+<input id="ck" placeholder="Client key">
+<button onclick="login()">TikTok se Login</button>
+</div>
+<div id="step2" class="box" style="display:none">
+<b>Step 2:</b> Login ho gaya. Ab <b>Client secret</b> paste karein aur button dabayein.
+<input id="cs" placeholder="Client secret" type="password">
+<button onclick="exchange()">Refresh token nikalein</button>
+<p id="out"></p>
+<textarea id="rt" rows="3" readonly style="display:none"></textarea>
+<div id="ps" style="display:none"><p>Browser ne seedha TikTok se baat nahi karne di. Windows mein <b>PowerShell</b> kholein aur ye poori line paste kar ke Enter dabayein:</p><textarea id="cmd" rows="6" readonly></textarea></div>
+</div>
+<p id="err" style="color:#c00"></p>
 <script>
-var p=new URLSearchParams(location.search);var c=p.get('code');
-document.getElementById('msg').textContent=c?'Authorized. Copy this code:':('No code: '+(p.get('error_description')||p.get('error')||'open the login link first'));
-document.getElementById('code').value=c||'';
+var R='https://ranaadnan42.github.io/fb-auto-poster/docs/tiktok.html';
+var p=new URLSearchParams(location.search), code=p.get('code');
+try{document.getElementById('ck').value=localStorage.getItem('tt_ck')||''}catch(e){}
+if(p.get('error'))document.getElementById('err').textContent='TikTok error: '+(p.get('error_description')||p.get('error'));
+if(code){document.getElementById('step2').style.display='block';document.getElementById('step1').querySelector('b').textContent='Step 1 (ho gaya):';}
+function login(){var ck=document.getElementById('ck').value.trim();if(!ck){alert('Client key paste karein');return}
+try{localStorage.setItem('tt_ck',ck)}catch(e){}
+location.href='https://www.tiktok.com/v2/auth/authorize/?client_key='+encodeURIComponent(ck)+'&scope=user.info.basic,video.upload,video.publish&response_type=code&redirect_uri='+encodeURIComponent(R)+'&state=imv';}
+function show(rt){var o=document.getElementById('out');o.innerHTML='<b>Ho gaya!</b> Ye refresh token copy kar ke GitHub secret mein daalein:';var t=document.getElementById('rt');t.style.display='block';t.value=rt;t.select();}
+function exchange(){var ck=document.getElementById('ck').value.trim()||(localStorage.getItem('tt_ck')||''),cs=document.getElementById('cs').value.trim();
+if(!cs){alert('Client secret paste karein');return}
+var body='client_key='+encodeURIComponent(ck)+'&client_secret='+encodeURIComponent(cs)+'&code='+encodeURIComponent(code)+'&grant_type=authorization_code&redirect_uri='+encodeURIComponent(R);
+fetch('https://open.tiktokapis.com/v2/oauth/token/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body})
+.then(function(r){return r.json()}).then(function(j){if(j.refresh_token)show(j.refresh_token);else document.getElementById('err').textContent='TikTok: '+(j.error_description||j.error||JSON.stringify(j));})
+.catch(function(){document.getElementById('ps').style.display='block';
+document.getElementById('cmd').value="(Invoke-RestMethod -Method Post -Uri 'https://open.tiktokapis.com/v2/oauth/token/' -ContentType 'application/x-www-form-urlencoded' -Body '"+body+"').refresh_token";});}
 </script>
 <footer>Web Builder · Muhammad Adnan · Pakistan · Contact: ranaadnan320@gmail.com</footer></body></html>
