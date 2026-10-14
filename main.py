@@ -557,6 +557,8 @@ def _main():
             desc = description(title, long_script, is_reel=False)
             entry["long_id"] = post_long("final_long.mp4", title, desc)
             youtube("final_long.mp4", title, desc, False, entry, "long_yt")
+            import social
+            social.share_long("islamic", "final_long.mp4", desc, entry, REPORT, log)
         ok += 1
     except Exception as e:
         log(f"LONG VIDEO ERROR: {e}")
