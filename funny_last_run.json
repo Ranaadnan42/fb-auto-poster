@@ -1,13 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 48,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "story",
- "long_minutes": 6.9,
- "series": "گلو میاں اور اسمارٹ فون کا عذاب part 2 (ai)",
- "laughs": 8,
- "time_utc": "2026-10-14 17:33",
- "title": "گلو میاں اور اسمارٹ فون کا عذاب | قسط 2",
+ "format": "chat",
+ "reel_minutes": 1.29,
+ "laughs": 4,
+ "time_utc": "2026-10-14 19:39",
+ "title": "رشتہ آنٹی اور دسویں جماعت کا رزلٹ",
  "dry_run": false
 }
