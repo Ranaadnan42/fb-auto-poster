@@ -555,6 +555,8 @@ def _main():
             desc = description(script, is_reel=False)
             entry["id"] = post_long("funny_long.mp4", script["title"], desc)
             youtube("funny_long.mp4", script["title"], desc, False, entry)
+            import social
+            social.share_long("funny", "funny_long.mp4", desc, entry, REPORT, log)
     else:
         if fmt == "animal":
             script = write_reel(history)
