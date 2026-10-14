@@ -1,0 +1,8 @@
+{
+ "images_ai": 0,
+ "images_backup": 0,
+ "images_failed": 0,
+ "errors": [
+  "fatal: YouTube (YT_CLIENT_ID/YT_CLIENT_SECRET/YT_REFRESH_TOKEN) ya Facebook (CINE_FB_PAGE_ID/CINE_FB_TOKEN) secrets missing hain"
+ ]
+}
