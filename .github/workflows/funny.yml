@@ -61,6 +61,9 @@ jobs:
           YT_FUNNY_CLIENT_ID: ${{ secrets.YT_FUNNY_CLIENT_ID }}
           YT_FUNNY_CLIENT_SECRET: ${{ secrets.YT_FUNNY_CLIENT_SECRET }}
           YT_FUNNY_REFRESH_TOKEN: ${{ secrets.YT_FUNNY_REFRESH_TOKEN }}
+          TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
+          TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
+          TIKTOK_FUNNY_REFRESH_TOKEN: ${{ secrets.TIKTOK_FUNNY_REFRESH_TOKEN }}
           MODE: ${{ inputs.mode || 'auto' }}
           FORMAT: ${{ inputs.format != 'auto' && inputs.format || '' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
