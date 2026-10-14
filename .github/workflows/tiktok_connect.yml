@@ -1,0 +1,49 @@
+name: TikTok Connect
+
+on:
+  workflow_dispatch:
+    inputs:
+      account:
+        description: 'Kaun sa TikTok account'
+        type: choice
+        options: [islamic, funny]
+        default: islamic
+      code:
+        description: 'tiktok.html page wala code'
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  connect:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests
+      - name: Exchange code
+        env:
+          TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
+          TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
+          CODE: ${{ inputs.code }}
+          ACCOUNT: ${{ inputs.account }}
+        run: python social.py connect "$ACCOUNT" "$CODE"
+      - name: Save token file
+        env:
+          ACCOUNT: ${{ inputs.account }}
+        run: |
+          git config user.name "auto-poster"
+          git config user.email "auto-poster@users.noreply.github.com"
+          cp tiktok_tokens.json /tmp/tt.json
+          for i in 1 2 3 4 5; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            cp /tmp/tt.json tiktok_tokens.json
+            git add tiktok_tokens.json
+            git diff --cached --quiet && break
+            git commit -q -m "TikTok $ACCOUNT connected"
+            git push -q origin HEAD:main && break
+            sleep $((i * 5))
+          done
