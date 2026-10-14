@@ -569,6 +569,8 @@ def _main():
             desc = description(script)
             entry["id"] = post_reel("funny_reel.mp4", desc)
             youtube("funny_reel.mp4", script["title"], desc, True, entry)
+            import social
+            social.share_reel("funny", FB_PAGE, FB_TOKEN, "funny_reel.mp4", desc, entry, REPORT, log)
     entry.update({"title": script["title"], "animal": script["animal"], "topic": script.get("topic")})
     for key in ("series", "series_title", "part", "summary", "style"):
         if script.get(key) is not None:
