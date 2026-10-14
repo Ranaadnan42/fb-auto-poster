@@ -131,7 +131,22 @@ def _tt_upload(url, path):
         raise RuntimeError(f"TikTok upload HTTP {r.status_code}: {r.text[:300]}")
 
 
+def _tiktok_caption(caption):
+    """FB caption ko TikTok SEO ke mutabiq: keywords wali lines, TikTok CTA, sirf 5 hashtags."""
+    paras = [x.strip() for x in (caption or "").split("\n\n") if x.strip()]
+    tags = re.findall(r"#\w+", " ".join(p for p in paras if p.startswith("#")))
+    text = [p for p in paras if not p.startswith("#") and "پیج" not in p and "page" not in p.lower()]
+    keep, seen = [], set()
+    for t in tags[:1] + [t for t in tags[1:] if t.lower() not in ("#reels", "#viral")][:3] + ["#fyp"]:
+        if t.lower() not in seen:
+            seen.add(t.lower())
+            keep.append(t)
+    text.append("Follow karein, roz nayi video 👈")
+    return ("\n\n".join(text) + "\n\n" + " ".join(keep)).strip()[:2150]
+
+
 def tiktok_upload(name, path, caption, log=print):
+    caption = _tiktok_caption(caption)
     tok = _tt_token(name)
     h = {"Authorization": f"Bearer {tok}", "Content-Type": "application/json; charset=UTF-8"}
     size = os.path.getsize(path)
