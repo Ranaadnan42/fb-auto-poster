@@ -571,6 +571,8 @@ def _main():
             desc = description(title, reel_script)
             entry["reel_id"] = post_reel("final_reel.mp4", desc)
             youtube("final_reel.mp4", title, desc, True, entry, "reel_yt")
+            import social
+            social.share_reel("islamic", FB_PAGE, FB_TOKEN, "final_reel.mp4", desc, entry, REPORT, log)
         ok += 1
     except Exception as e:
         log(f"REEL ERROR: {e}")
