@@ -1,8 +1,12 @@
 {
  "lang": "ur",
- "stock_clips": 0,
+ "stock_clips": 39,
  "fallback_clips": 0,
- "errors": [
-  "fatal: Gemini fail: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
- ]
+ "errors": [],
+ "long_minutes": 4.13,
+ "reel_minutes": 0.76,
+ "time_utc": "2026-10-14 01:43",
+ "title": "نماز میں تاخیر کیوں؟ سکون اور کامیابی کا واحد راستہ",
+ "dry_run": false,
+ "posted_ok": 2
 }
