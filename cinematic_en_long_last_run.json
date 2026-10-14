@@ -1,8 +1,14 @@
 {
- "images_ai": 0,
+ "images_ai": 68,
  "images_backup": 0,
  "images_failed": 0,
  "errors": [
-  "fatal: Awaaz nahi bani"
- ]
+  "thumbnail: thumbnail 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"The authenticated user doesn't have permissions to upload and set custom video thumbnails.\",\n    \"errors\": [\n      {\n        \"message\": \""
+ ],
+ "seconds": 518.2,
+ "time_utc": "2026-10-14 01:50",
+ "title": "The Last Guardian of Stone",
+ "part": 1,
+ "dry_run": false,
+ "posted": 1
 }
