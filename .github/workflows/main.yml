@@ -60,6 +60,8 @@ jobs:
           TIKTOK_ISLAMIC_REFRESH_TOKEN: ${{ secrets.TIKTOK_ISLAMIC_REFRESH_TOKEN }}
           LANGUAGE: ${{ github.event.schedule == '17 18 * * *' && 'en' || inputs.language || 'ur' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+          # din mein sirf 1 lambi video (raat 8:15), subah aur raat 11:15 sirf reel
+          POST_TYPE: ${{ github.event.schedule == '17 15 * * *' && 'long' || (github.event.schedule && 'reel' || 'both') }}
         # agar kuch post hone se pehle hi fail ho (jaise awaaz service band), 3 minute baad dobara koshish
         run: |
           python main.py || {
