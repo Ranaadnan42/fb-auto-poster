@@ -61,7 +61,7 @@ LONG = MODE == "long"
 W, H = (1920, 1080) if LONG else (1080, 1920)
 IMG = 1080                      # short: beech wali square tasveer
 IMG_Y = 430                     # short: tasveer upar se kitni neeche
-SCENES = 34 if LONG else 12
+SCENES = 34 if LONG else 10                  # Short 3 minute se kam rahe (warna Short nahi ginta)
 SHOTS = 2 if LONG else 3                     # Shorts mein tez cuts
 if LANG == "en":
     VOICE, RATE, FONT = "en-US-ChristopherNeural", "-4%", "Noto Sans"
