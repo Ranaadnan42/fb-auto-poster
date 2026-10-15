@@ -1,49 +1,41 @@
-name: TikTok Connect
+name: TikTok Check
 
 on:
   workflow_dispatch:
     inputs:
-      account:
-        description: 'Kaun sa TikTok account'
-        type: choice
-        options: [islamic, funny]
-        default: islamic
-      code:
-        description: 'tiktok.html page wala code'
+      publish_ids:
+        description: 'publish_id (comma se alag) - history.json se'
         required: true
 
-permissions:
-  contents: write
-
 jobs:
-  connect:
+  check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - run: pip install requests
-      - name: Exchange code
+      - name: TikTok upload status
         env:
           TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
           TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
-          CODE: ${{ inputs.code }}
-          ACCOUNT: ${{ inputs.account }}
-        run: python social.py connect "$ACCOUNT" "$CODE"
-      - name: Save token file
-        env:
-          ACCOUNT: ${{ inputs.account }}
+          TIKTOK_ISLAMIC_REFRESH_TOKEN: ${{ secrets.TIKTOK_ISLAMIC_REFRESH_TOKEN }}
+          IDS: ${{ inputs.publish_ids }}
         run: |
-          git config user.name "auto-poster"
-          git config user.email "auto-poster@users.noreply.github.com"
-          cp tiktok_tokens.json /tmp/tt.json
-          for i in 1 2 3 4 5; do
-            git fetch -q origin main && git reset -q --hard origin/main
-            cp /tmp/tt.json tiktok_tokens.json
-            git add tiktok_tokens.json
-            git diff --cached --quiet && break
-            git commit -q -m "TikTok $ACCOUNT connected"
-            git push -q origin HEAD:main && break
-            sleep $((i * 5))
-          done
+          pip install -q requests
+          python - <<'PY'
+          import os, json, requests
+          T = "https://open.tiktokapis.com/v2"
+          j = requests.post(f"{T}/oauth/token/", data={
+              "client_key": os.environ["TIKTOK_CLIENT_KEY"].strip(),
+              "client_secret": os.environ["TIKTOK_CLIENT_SECRET"].strip(),
+              "grant_type": "refresh_token",
+              "refresh_token": os.environ["TIKTOK_ISLAMIC_REFRESH_TOKEN"].strip()}).json()
+          if "access_token" not in j:
+              raise SystemExit(f"login fail: {j.get('error')} {j.get('error_description')}")
+          h = {"Authorization": "Bearer " + j["access_token"], "Content-Type": "application/json; charset=UTF-8"}
+          info = requests.post(f"{T}/post/publish/creator_info/query/", headers=h).json()
+          d = info.get("data") or {}
+          print("ACCOUNT:", d.get("creator_nickname"), "| privacy options:", d.get("privacy_level_options"),
+                "| max sec:", d.get("max_video_post_duration_sec"), "| err:", info.get("error"))
+          for pid in os.environ["IDS"].split(","):
+              pid = pid.strip().replace("inbox:", "")
+              s = requests.post(f"{T}/post/publish/status/fetch/", headers=h, json={"publish_id": pid}).json()
+              print("STATUS", pid, json.dumps(s, ensure_ascii=False))
+          PY
