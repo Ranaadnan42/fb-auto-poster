@@ -1,14 +1,12 @@
 {
- "images_ai": 36,
+ "images_ai": 30,
  "images_backup": 0,
  "images_failed": 0,
- "errors": [
-  "thumbnail: thumbnail 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"The authenticated user doesn't have permissions to upload and set custom video thumbnails.\",\n    \"errors\": [\n      {\n        \"message\": \""
- ],
- "seconds": 176.3,
- "time_utc": "2026-10-14 20:31",
- "title": "Frost Realm: Part 2 - The Subterranean Kingdom",
- "part": 2,
+ "errors": [],
+ "seconds": 139.6,
+ "time_utc": "2026-10-15 20:09",
+ "title": "Frost Realm: The Shattered Sun Part 3",
+ "part": 3,
  "dry_run": false,
  "posted": 1
 }
