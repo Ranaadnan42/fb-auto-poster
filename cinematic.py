@@ -431,10 +431,9 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 
 # ---------------------------------------------------------------- video
 def shot_clip(job, img, secs, idx, out, fx="none"):
-    """Ek tasveer -> 3D jaisi chalti hui shot (motion.py) + Shorts mein blur background."""
+    """Ek tasveer -> seedhi (bina motion/effects) shot + Shorts mein blur background."""
     import numpy as np
     import cv2
-    import motion
     path = os.path.join(job, img) if img else None
     pic = cv2.imread(path) if path else None
     if pic is None:
@@ -449,14 +448,20 @@ def shot_clip(job, img, secs, idx, out, fx="none"):
                           "-s", f"{W}x{H}", "-r", "30", "-i", "-", "-vf", "fade=t=in:st=0:d=0.2",
                           "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p",
                           os.path.join(job, out)], stdin=subprocess.PIPE)
+    ih, iw = pic.shape[:2]
+    sc = max(fw / iw, fh / ih)
+    fr = cv2.resize(pic, (int(iw * sc + 1), int(ih * sc + 1)), interpolation=cv2.INTER_AREA)
+    y0, x0 = (fr.shape[0] - fh) // 2, (fr.shape[1] - fw) // 2
+    fr = fr[y0:y0 + fh, x0:x0 + fw]
+    if LONG:
+        frame = fr
+    else:
+        frame = bg.copy()
+        frame[IMG_Y:IMG_Y + IMG] = fr
+    data = frame.tobytes()
     try:
-        for fr in motion.shot_frames(pic, secs, fw, fh, idx, fx, seed=idx * 7 + 1):
-            if LONG:
-                p.stdin.write(fr.tobytes())
-            else:
-                canvas = bg.copy()
-                canvas[IMG_Y:IMG_Y + IMG] = fr
-                p.stdin.write(canvas.tobytes())
+        for _ in range(max(2, int(secs * 30))):          # koi zoom/hilna/barf nahi - sirf saaf tasveer
+            p.stdin.write(data)
     finally:
         p.stdin.close()
         p.wait()
