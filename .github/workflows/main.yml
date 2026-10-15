@@ -3,10 +3,12 @@ name: Daily Auto Poster
 on:
   schedule:
     # Viral waqt (Pakistan time UTC+5). Roz: 1 Urdu reel, 1 Urdu lambi, 1 English reel, 1 English lambi
-    - cron: '7 8 * * *'     # ~1:07 dopehar  -> Urdu reel (Pakistan lunch break)
-    - cron: '17 16 * * *'   # ~9:17 raat     -> Urdu lambi video (Pakistan prime time)
-    - cron: '7 18 * * *'    # ~11:07 raat    -> English reel (UK shaam 7 baje)
-    - cron: '17 21 * * *'   # ~2:17 raat     -> English lambi video (UK raat 10 / America shaam 5)
+    # GitHub runs ghanton late hote hain, is liye run 5 ghante pehle chalta hai, video bana kar
+    # POST_AT waqt tak intezar karta hai (slot_wait.py) - post theek waqt par jati hai
+    - cron: '7 3 * * *'     # post 08:07 UTC = ~1:07 dopehar  -> Urdu reel (Pakistan lunch break)
+    - cron: '17 11 * * *'   # post 16:17 UTC = ~9:17 raat     -> Urdu lambi video (Pakistan prime time)
+    - cron: '7 13 * * *'    # post 18:07 UTC = ~11:07 raat    -> English reel (UK shaam 7 baje)
+    - cron: '17 16 * * *'   # post 21:17 UTC = ~2:17 raat     -> English lambi video (UK raat 10 / America shaam 5)
   workflow_dispatch:
     inputs:
       language:
@@ -23,13 +25,13 @@ permissions:
   contents: write
 
 concurrency:
-  group: auto-poster
+  group: auto-poster-${{ github.event.schedule || github.run_id }}
   cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 75
+    timeout-minutes: 360
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -59,10 +61,11 @@ jobs:
           TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
           TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
           TIKTOK_ISLAMIC_REFRESH_TOKEN: ${{ secrets.TIKTOK_ISLAMIC_REFRESH_TOKEN }}
-          LANGUAGE: ${{ (github.event.schedule == '7 18 * * *' || github.event.schedule == '17 21 * * *') && 'en' || inputs.language || 'ur' }}
+          LANGUAGE: ${{ (github.event.schedule == '7 13 * * *' || github.event.schedule == '17 16 * * *') && 'en' || inputs.language || 'ur' }}
+          POST_AT: ${{ github.event.schedule == '7 3 * * *' && '08:07' || github.event.schedule == '17 11 * * *' && '16:17' || github.event.schedule == '7 13 * * *' && '18:07' || github.event.schedule == '17 16 * * *' && '21:17' || '' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
           # har run mein ya reel ya lambi video (hath se chalayen to dono)
-          POST_TYPE: ${{ (github.event.schedule == '17 16 * * *' || github.event.schedule == '17 21 * * *') && 'long' || (github.event.schedule && 'reel' || 'both') }}
+          POST_TYPE: ${{ (github.event.schedule == '17 11 * * *' || github.event.schedule == '17 16 * * *') && 'long' || (github.event.schedule && 'reel' || 'both') }}
         # agar kuch post hone se pehle hi fail ho (jaise awaaz service band), 3 minute baad dobara koshish
         run: |
           python main.py || {

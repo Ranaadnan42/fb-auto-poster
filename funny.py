@@ -520,7 +520,8 @@ def _main():
                          (datetime.datetime.strptime(h["date"], "%Y-%m-%d %H:%M")
                           + datetime.timedelta(hours=5)).strftime("%Y-%m-%d") == pk_today
                          for h in history)
-        pk_hour = (now.hour + 5) % 24
+        import slot_wait
+        pk_hour = ((slot_wait.target_time() or now).hour + 5) % 24
         MODE = "long" if (not long_today and pk_hour >= 19) else "reel"
     entry = {"date": now.strftime("%Y-%m-%d %H:%M"), "mode": MODE}
     import chat_comedy
@@ -553,6 +554,7 @@ def _main():
         REPORT["long_minutes"] = round(duration("funny_long.mp4") / 60, 2)
         if not DRY_RUN:
             desc = description(script, is_reel=False)
+            import slot_wait; slot_wait.wait(log)
             entry["id"] = post_long("funny_long.mp4", script["title"], desc)
             youtube("funny_long.mp4", script["title"], desc, False, entry)
             import social
@@ -569,6 +571,7 @@ def _main():
             shutil.move("cut.mp4", "funny_reel.mp4")
         if not DRY_RUN:
             desc = description(script)
+            import slot_wait; slot_wait.wait(log)
             entry["id"] = post_reel("funny_reel.mp4", desc)
             youtube("funny_reel.mp4", script["title"], desc, True, entry)
             import social

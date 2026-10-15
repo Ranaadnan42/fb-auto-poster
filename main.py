@@ -564,6 +564,7 @@ def _main():
         build_video(long_script, "long", 1920, 1080, "final_long.mp4", title)
         if not DRY_RUN:
             desc = description(title, long_script, is_reel=False)
+            import slot_wait; slot_wait.wait(log)
             entry["long_id"] = post_long("final_long.mp4", title, desc)
             youtube("final_long.mp4", title, desc, False, entry, "long_yt")
             import social
@@ -584,6 +585,7 @@ def _main():
             shutil.move("reel_cut.mp4", "final_reel.mp4")
         if not DRY_RUN:
             desc = description(title, reel_script)
+            import slot_wait; slot_wait.wait(log)
             entry["reel_id"] = post_reel("final_reel.mp4", desc)
             youtube("final_reel.mp4", title, desc, True, entry, "reel_yt")
             import social

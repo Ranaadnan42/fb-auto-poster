@@ -3,8 +3,9 @@ name: Daily Photo Posts
 on:
   schedule:
     # Pakistan time (UTC+5) - har run mein dono pages par 1-1 pic
-    - cron: '47 6 * * *'    # ~11:45 subah  -> Islamic (Urdu) + funny meme
-    - cron: '47 13 * * *'   # ~6:45 shaam   -> Islamic (English) + funny meme
+    # Run 5 ghante pehle chalta hai, pic bana kar POST_AT waqt tak intezar karta hai
+    - cron: '47 1 * * *'    # post 06:47 UTC = ~11:45 subah  -> Islamic (Urdu) + funny meme
+    - cron: '47 8 * * *'    # post 13:47 UTC = ~6:45 shaam   -> Islamic (English) + funny meme
   workflow_dispatch:
     inputs:
       slot:
@@ -26,13 +27,13 @@ permissions:
   contents: write
 
 concurrency:
-  group: photo-poster
+  group: photo-poster-${{ github.event.schedule || github.run_id }}
   cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 340
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
@@ -51,9 +52,10 @@ jobs:
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FUNNY_PAGE_TOKEN: ${{ secrets.FUNNY_PAGE_TOKEN }}
           FUNNY_PAGE_ID: ${{ secrets.FUNNY_PAGE_ID }}
-          SLOT: ${{ github.event.schedule == '47 13 * * *' && '2' || inputs.slot || '1' }}
+          SLOT: ${{ github.event.schedule == '47 8 * * *' && '2' || inputs.slot || '1' }}
           # Islamic page par din mein 1 pic (subah), shaam wali sirf funny page
-          PAGES: ${{ inputs.pages || (github.event.schedule == '47 13 * * *' && 'funny' || 'islamic,funny') }}
+          PAGES: ${{ inputs.pages || (github.event.schedule == '47 8 * * *' && 'funny' || 'islamic,funny') }}
+          POST_AT: ${{ github.event.schedule == '47 1 * * *' && '06:47' || github.event.schedule == '47 8 * * *' && '13:47' || '' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
         run: python photos.py
       - name: Upload preview

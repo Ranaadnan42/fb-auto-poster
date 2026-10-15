@@ -296,6 +296,7 @@ def main():
                 log(f"--- {page} caption ---\n{caption}\n")
                 meta["date"] = REPORT["time_utc"]
                 if not DRY_RUN:
+                    import slot_wait; slot_wait.wait(log)
                     meta["post_id"] = post_photo(page, path, caption)
                 hist[page].append(meta)
                 REPORT["posted"][page] = meta.get("post_id", "dry_run")
