@@ -126,7 +126,7 @@ def shot_frames(img_bgr, secs, out_w, out_h, style, fx="none", seed=0):
     img = cv2.resize(img_bgr, (int(iw * sc + 1), int(ih * sc + 1)), interpolation=cv2.INTER_AREA)
     y0, x0 = (img.shape[0] - sh) // 2, (img.shape[1] - sw) // 2
     img = img[y0:y0 + sh, x0:x0 + sw]
-    depth = depth_map(img)
+    # 3D jaisa hilna (parallax) band - depth model ki zaroorat nahi
 
     yy, xx = np.mgrid[0:out_h, 0:out_w].astype(np.float32)
     cx, cy = out_w / 2, out_h / 2
@@ -137,9 +137,6 @@ def shot_frames(img_bgr, secs, out_w, out_h, style, fx="none", seed=0):
     z0, dz, px, py = moves[style % len(moves)]
     amp = out_w * 0.035                                    # parallax kitna
     parts = Particles(fx, out_w, out_h, rnd) if fx in ("snow", "rain", "embers", "dust", "fog") else None
-    dsm = cv2.resize(depth, (out_w, out_h))
-    dc = dsm - 0.5
-    shake = style % 3 == 0
     for f in range(n):
         t = f / max(n - 1, 1)
         e = t * t * (3 - 2 * t)                            # narm shuru/khatam
@@ -148,12 +145,9 @@ def shot_frames(img_bgr, secs, out_w, out_h, style, fx="none", seed=0):
         oy = py * amp * (e - 0.5) * 2
         if px == 0 and py == 0:                            # zoom wale shot mein halka sa daayein-baayein
             ox = amp * 0.5 * math.sin(e * math.pi - math.pi / 2)
-        if shake:
-            ox += math.sin(f * 0.9) * 2.2 + math.sin(f * 0.37) * 1.5
-            oy += math.cos(f * 0.71) * 1.8
-        k = 1 + 0.06 * dc * dz * 10 / max(abs(dz) * 10, 1)  # qareeb wali cheez zyada zoom
-        mx = (sw / 2) + (xx - cx) / (zoom * k) - ox * dc * 2.2 - ox * 0.3
-        my = (sh / 2) + (yy - cy) / (zoom * k) - oy * dc * 2.2 - oy * 0.3
+        # camera shake aur parallax hata diye: poori tasveer ek saath narmi se zoom/pan hoti hai
+        mx = (sw / 2) + (xx - cx) / zoom - ox
+        my = (sh / 2) + (yy - cy) / zoom - oy
         frame = cv2.remap(img, mx, my, cv2.INTER_LINEAR, borderMode=cv2.BORDER_REFLECT)
         if parts:
             parts.draw(frame, f / FPS)
