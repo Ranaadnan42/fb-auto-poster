@@ -1,15 +1,11 @@
 {
- "lang": "en",
- "stock_clips": 40,
+ "lang": "ur",
+ "stock_clips": 7,
  "fallback_clips": 0,
- "errors": [
-  "tiktok_long: TikTok: spam_risk_too_many_pending_share - spam_risk_too_many_pending_share",
-  "tiktok: TikTok: spam_risk_too_many_pending_share - spam_risk_too_many_pending_share"
- ],
- "long_minutes": 4.46,
- "reel_minutes": 0.69,
- "time_utc": "2026-10-14 21:46",
- "title": "When the Coffin Closes: What Awaits You in the Dark Grave",
+ "errors": [],
+ "reel_minutes": 0.9,
+ "time_utc": "2026-10-15 13:22",
+ "title": "شکرگزاری کا معجزہ: تنگی میں بھی دل کو مطمئن کیسے رکھیں؟",
  "dry_run": false,
- "posted_ok": 2
+ "posted_ok": 1
 }
