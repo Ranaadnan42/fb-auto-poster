@@ -1,13 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 48,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "story",
- "long_minutes": 6.72,
- "series": "ساجد سموسہ کی عید شاپنگ part 3 (cartoon)",
- "laughs": 8,
- "time_utc": "2026-10-15 17:18",
- "title": "ساجد سموسہ کی عید شاپنگ | آخری قسط",
+ "format": "chat",
+ "reel_minutes": 1.33,
+ "laughs": 4,
+ "time_utc": "2026-10-15 19:21",
+ "title": "چھوٹی بہن اور بھائی کی کلاس روم جنگ",
  "dry_run": false
 }
