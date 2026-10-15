@@ -1,11 +1,10 @@
 name: Movie Recaps (YouTube)
 
 on:
-  # BAND: doosra YouTube channel ab "Islamic Motivational Videos" hai (main.py wahan upload karta hai).
-  # Movie recaps dobara chalane hon to neeche wali lines wapas khol dein.
-  # schedule:
-  #   - cron: '41 14 * * *'   # 10:41 subah New York -> Short (~2.5 min)
-  #   - cron: '41 19 * * *'   # 3:41 dopehar New York -> Lambi recap (~9 min)
+  schedule:
+    # USA/UK audience ke waqt (UTC)
+    - cron: '41 14 * * *'   # 10:41 subah New York -> Short (~2.5 min)
+    - cron: '41 19 * * *'   # 3:41 dopehar New York -> Lambi recap (~9 min)
   workflow_dispatch:
     inputs:
       mode:
