@@ -35,6 +35,12 @@ DRY_RUN = os.environ.get("DRY_RUN") == "1"
 LANG = (os.environ.get("LANGUAGE") or "ur").strip().lower()
 if LANG not in ("ur", "en"):
     LANG = "ur"
+# is run mein kya post ho: both / long / reel (schedule se workflow batata hai)
+POST_TYPE = (os.environ.get("POST_TYPE") or "both").strip().lower()
+if POST_TYPE not in ("both", "long", "reel"):
+    POST_TYPE = "both"
+DO_LONG = POST_TYPE in ("both", "long")
+DO_REEL = POST_TYPE in ("both", "reel")
 
 PAGE_NAME = "Islamic Motivational Videos"
 GRAPH_VER = "v23.0"
@@ -545,13 +551,16 @@ def _main():
     theme, topic, title = pick_topic(history)
     log(f"Lang: {LANG} | Theme: {theme} | Title: {title}")
 
-    long_script = long_script_with_audio(topic, title)
-    reel_script = write_reel(topic, title)
+    long_script = long_script_with_audio(topic, title) if DO_LONG else None
+    reel_script = write_reel(topic, title) if DO_REEL else None
 
     entry = {"date": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"),
              "lang": LANG, "theme": theme, "title": title}
     ok = 0
+    need = int(DO_LONG) + int(DO_REEL)
     try:
+        if not DO_LONG:
+            raise StopIteration
         build_video(long_script, "long", 1920, 1080, "final_long.mp4", title)
         if not DRY_RUN:
             desc = description(title, long_script, is_reel=False)
@@ -560,11 +569,15 @@ def _main():
             import social
             social.share_long("islamic", "final_long.mp4", desc, entry, REPORT, log)
         ok += 1
+    except StopIteration:
+        pass
     except Exception as e:
         log(f"LONG VIDEO ERROR: {e}")
         REPORT["errors"].append(f"long: {str(e)[:300]}")
 
     try:
+        if not DO_REEL:
+            raise StopIteration
         build_video(reel_script, "reel", 1080, 1920, "final_reel.mp4", title)
         if duration("final_reel.mp4") > 89:
             run(["ffmpeg", "-y", "-i", "final_reel.mp4", "-t", "89", "-c", "copy", "reel_cut.mp4"])
@@ -576,6 +589,8 @@ def _main():
             import social
             social.share_reel("islamic", FB_PAGE, FB_TOKEN, "final_reel.mp4", desc, entry, REPORT, log)
         ok += 1
+    except StopIteration:
+        pass
     except Exception as e:
         log(f"REEL ERROR: {e}")
         REPORT["errors"].append(f"reel: {str(e)[:300]}")
@@ -585,7 +600,7 @@ def _main():
     if ok and not DRY_RUN:
         history.append(entry)
         save_history(history)
-    if ok < 2:
+    if ok < need:
         sys.exit(1)
     log("Done successfully!")
 
