@@ -1,12 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 7,
+ "stock_clips": 48,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
- "laughs": 2,
- "reel_minutes": 0.5,
- "time_utc": "2026-10-15 13:39",
- "title": "خرگوش میاں اور شادی سیزن کا صدمہ",
+ "format": "story",
+ "long_minutes": 6.72,
+ "series": "ساجد سموسہ کی عید شاپنگ part 3 (cartoon)",
+ "laughs": 8,
+ "time_utc": "2026-10-15 17:18",
+ "title": "ساجد سموسہ کی عید شاپنگ | آخری قسط",
  "dry_run": false
 }
