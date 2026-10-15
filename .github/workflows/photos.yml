@@ -52,7 +52,8 @@ jobs:
           FUNNY_PAGE_TOKEN: ${{ secrets.FUNNY_PAGE_TOKEN }}
           FUNNY_PAGE_ID: ${{ secrets.FUNNY_PAGE_ID }}
           SLOT: ${{ github.event.schedule == '47 13 * * *' && '2' || inputs.slot || '1' }}
-          PAGES: ${{ inputs.pages || 'islamic,funny' }}
+          # Islamic page par din mein 1 pic (subah), shaam wali sirf funny page
+          PAGES: ${{ inputs.pages || (github.event.schedule == '47 13 * * *' && 'funny' || 'islamic,funny') }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
         run: python photos.py
       - name: Upload preview
