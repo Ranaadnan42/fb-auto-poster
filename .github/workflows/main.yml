@@ -2,10 +2,11 @@ name: Daily Auto Poster
 
 on:
   schedule:
-    # Pakistan time (UTC+5):
-    - cron: '17 5 * * *'    # ~10:15 subah  -> Urdu
-    - cron: '17 15 * * *'   # ~8:15 raat    -> Urdu
-    - cron: '17 18 * * *'   # ~11:15 raat   -> English (UK shaam / America dopehar)
+    # Viral waqt (Pakistan time UTC+5). Roz: 1 Urdu reel, 1 Urdu lambi, 1 English reel, 1 English lambi
+    - cron: '7 8 * * *'     # ~1:07 dopehar  -> Urdu reel (Pakistan lunch break)
+    - cron: '17 16 * * *'   # ~9:17 raat     -> Urdu lambi video (Pakistan prime time)
+    - cron: '7 18 * * *'    # ~11:07 raat    -> English reel (UK shaam 7 baje)
+    - cron: '17 21 * * *'   # ~2:17 raat     -> English lambi video (UK raat 10 / America shaam 5)
   workflow_dispatch:
     inputs:
       language:
@@ -58,10 +59,10 @@ jobs:
           TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
           TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
           TIKTOK_ISLAMIC_REFRESH_TOKEN: ${{ secrets.TIKTOK_ISLAMIC_REFRESH_TOKEN }}
-          LANGUAGE: ${{ github.event.schedule == '17 18 * * *' && 'en' || inputs.language || 'ur' }}
+          LANGUAGE: ${{ (github.event.schedule == '7 18 * * *' || github.event.schedule == '17 21 * * *') && 'en' || inputs.language || 'ur' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
-          # din mein sirf 1 lambi video (raat 8:15), subah aur raat 11:15 sirf reel
-          POST_TYPE: ${{ github.event.schedule == '17 15 * * *' && 'long' || (github.event.schedule && 'reel' || 'both') }}
+          # har run mein ya reel ya lambi video (hath se chalayen to dono)
+          POST_TYPE: ${{ (github.event.schedule == '17 16 * * *' || github.event.schedule == '17 21 * * *') && 'long' || (github.event.schedule && 'reel' || 'both') }}
         # agar kuch post hone se pehle hi fail ho (jaise awaaz service band), 3 minute baad dobara koshish
         run: |
           python main.py || {
