@@ -1,9 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 0,
+ "stock_clips": 47,
  "fallback_clips": 0,
- "errors": [
-  "fatal: Gemini fail: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
- ],
- "format": "story"
+ "errors": [],
+ "format": "story",
+ "long_minutes": 11.1,
+ "series": "گلو میاں اور اسمارٹ فون کا عذاب part 3 (ai)",
+ "laughs": 11,
+ "time_utc": "2026-10-16 16:54",
+ "title": "گلو میاں اور اسمارٹ فون کا عذاب | آخری قسط",
+ "dry_run": false
 }
