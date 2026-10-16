@@ -1,12 +1,9 @@
 {
  "mode": "auto",
- "stock_clips": 5,
+ "stock_clips": 0,
  "fallback_clips": 0,
- "errors": [],
- "format": "animal",
- "laughs": 3,
- "reel_minutes": 0.41,
- "time_utc": "2026-10-16 12:39",
- "title": "گھوڑا میاں کی ڈائٹ اور جم کا صدمہ",
- "dry_run": false
+ "errors": [
+  "fatal: Gemini fail: 503 UNAVAILABLE. {'error': {'code': 503, 'message': 'This model is currently experiencing high demand. Spikes in demand are usually temporary. Please try again later.', 'status': 'UNAVAILABLE'}}"
+ ],
+ "format": "story"
 }
