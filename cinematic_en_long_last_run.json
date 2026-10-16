@@ -2,12 +2,10 @@
  "images_ai": 68,
  "images_backup": 0,
  "images_failed": 0,
- "errors": [
-  "thumbnail: thumbnail 403: {\n  \"error\": {\n    \"code\": 403,\n    \"message\": \"The authenticated user doesn't have permissions to upload and set custom video thumbnails.\",\n    \"errors\": [\n      {\n        \"message\": \""
- ],
- "seconds": 512.9,
- "time_utc": "2026-10-15 00:49",
- "title": "The Stalker of the Whispering Woods",
+ "errors": [],
+ "seconds": 443.9,
+ "time_utc": "2026-10-16 00:49",
+ "title": "The Princess Who Wore Steel",
  "part": 1,
  "dry_run": false,
  "posted": 1
