@@ -1,12 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 0,
+ "stock_clips": 11,
  "fallback_clips": 0,
  "errors": [],
- "format": "chat",
- "reel_minutes": 1.4,
+ "format": "animal",
  "laughs": 3,
- "time_utc": "2026-10-17 08:00",
- "title": "سر بشیر اور اسکول غیر حاضری کا ماسٹر پلان",
+ "reel_minutes": 0.74,
+ "time_utc": "2026-10-17 11:43",
+ "title": "ریچھ میاں اور پیر کی صبح کا عذاب",
  "dry_run": false
 }
