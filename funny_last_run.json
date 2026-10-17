@@ -1,13 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 48,
+ "stock_clips": 13,
  "fallback_clips": 0,
  "errors": [],
- "format": "story",
- "long_minutes": 7.54,
- "series": "چمپا کلی اور واٹس ایپ گروپ کا طوفان | قسط 1 part 1 (cartoon)",
- "laughs": 9,
- "time_utc": "2026-10-17 13:52",
- "title": "چمپا کلی اور واٹس ایپ گروپ کا طوفان | قسط 1 | قسط 1",
+ "format": "animal",
+ "laughs": 4,
+ "reel_minutes": 0.8,
+ "time_utc": "2026-10-17 15:53",
+ "title": "بلی کا ہوم ورک اور آخری اوور کا سسپنس",
  "dry_run": false
 }
