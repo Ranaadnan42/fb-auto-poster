@@ -1,12 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 11,
+ "stock_clips": 48,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
- "laughs": 3,
- "reel_minutes": 0.74,
- "time_utc": "2026-10-17 11:43",
- "title": "ریچھ میاں اور پیر کی صبح کا عذاب",
+ "format": "story",
+ "long_minutes": 7.54,
+ "series": "چمپا کلی اور واٹس ایپ گروپ کا طوفان | قسط 1 part 1 (cartoon)",
+ "laughs": 9,
+ "time_utc": "2026-10-17 13:52",
+ "title": "چمپا کلی اور واٹس ایپ گروپ کا طوفان | قسط 1 | قسط 1",
  "dry_run": false
 }
