@@ -1,13 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 47,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "story",
- "long_minutes": 11.1,
- "series": "گلو میاں اور اسمارٹ فون کا عذاب part 3 (ai)",
- "laughs": 11,
- "time_utc": "2026-10-16 16:54",
- "title": "گلو میاں اور اسمارٹ فون کا عذاب | آخری قسط",
+ "format": "chat",
+ "reel_minutes": 1.4,
+ "laughs": 3,
+ "time_utc": "2026-10-17 08:00",
+ "title": "سر بشیر اور اسکول غیر حاضری کا ماسٹر پلان",
  "dry_run": false
 }
