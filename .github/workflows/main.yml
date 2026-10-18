@@ -16,6 +16,11 @@ on:
         type: choice
         options: [ur, en]
         default: ur
+      post_type:
+        description: 'Kya banaye'
+        type: choice
+        options: [both, reel, long]
+        default: both
       dry_run:
         description: 'Sirf video banaye, post na kare'
         type: boolean
@@ -65,7 +70,7 @@ jobs:
           POST_AT: ${{ github.event.schedule == '7 3 * * *' && '08:07' || github.event.schedule == '17 11 * * *' && '16:17' || github.event.schedule == '7 13 * * *' && '18:07' || github.event.schedule == '17 16 * * *' && '21:17' || '' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
           # har run mein ya reel ya lambi video (hath se chalayen to dono)
-          POST_TYPE: ${{ (github.event.schedule == '17 11 * * *' || github.event.schedule == '17 16 * * *') && 'long' || (github.event.schedule && 'reel' || 'both') }}
+          POST_TYPE: ${{ (github.event.schedule == '17 11 * * *' || github.event.schedule == '17 16 * * *') && 'long' || (github.event.schedule && 'reel' || inputs.post_type || 'both') }}
         # agar kuch post hone se pehle hi fail ho (jaise awaaz service band), 3 minute baad dobara koshish
         run: |
           python main.py || {
