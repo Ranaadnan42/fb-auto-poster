@@ -1,12 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 13,
+ "stock_clips": 48,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
- "laughs": 3,
- "reel_minutes": 0.87,
- "time_utc": "2026-10-18 12:09",
- "title": "ہیمسٹر میاں کا شادی والا روڈ ٹرپ",
+ "format": "story",
+ "long_minutes": 6.15,
+ "series": "ماما بلال اور اسمارٹ فون کا بخار | قسط 1 part 1 (ai)",
+ "laughs": 7,
+ "time_utc": "2026-10-18 14:06",
+ "title": "ماما بلال اور اسمارٹ فون کا بخار | قسط 1 | قسط 1",
  "dry_run": false
 }
