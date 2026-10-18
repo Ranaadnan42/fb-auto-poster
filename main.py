@@ -441,6 +441,22 @@ def build_scene(job, i, sc, w, h, title):
     return f"p{i}.mp4"
 
 
+OUTRO = {
+    "ur": {"fb": "اگر یہ ویڈیو آپ کو اچھی لگی تو اسے لائک کریں اور آگے شیئر کریں۔ نیکی کی بات آگے پہنچانا بھی نیکی اور ثواب کا کام ہے، "
+                 "آپ بھی اس نیکی میں اپنا حصہ ڈالیں۔ اور ہمارے پیج کو فالو کریں تاکہ ہم آپ کے لیے مزید اچھی ویڈیوز بنا سکیں۔",
+           "yt": "اگر یہ ویڈیو آپ کو اچھی لگی تو اسے لائک کریں اور آگے شیئر کریں۔ نیکی کی بات آگے پہنچانا بھی نیکی اور ثواب کا کام ہے، "
+                 "آپ بھی اس نیکی میں اپنا حصہ ڈالیں۔ اور ہمارے چینل کو سبسکرائب کریں تاکہ ہم آپ کے لیے مزید اچھی ویڈیوز بنا سکیں۔"},
+    "en": {"fb": "If this video touched your heart, please like it and share it. Spreading a good word is a good deed and brings reward, "
+                 "so be a part of this good deed. And follow our page so we can make more beneficial videos for you.",
+           "yt": "If this video touched your heart, please like it and share it. Spreading a good word is a good deed and brings reward, "
+                 "so be a part of this good deed. And subscribe to our channel so we can make more beneficial videos for you."},
+}
+
+
+def yt_path(out_path):
+    return out_path.replace(".mp4", "_yt.mp4")
+
+
 def build_video(script, tag, w, h, out_path, title):
     job = os.path.join(WORK, tag)
     os.makedirs(job, exist_ok=True)
@@ -451,10 +467,19 @@ def build_video(script, tag, w, h, out_path, title):
         log(f"{tag}: scene {i + 1}/{len(scenes)} ready")
     if not parts:
         raise RuntimeError(f"{tag}: koi scene nahi bana")
-    with open(os.path.join(job, "list.txt"), "w") as f:
-        f.writelines(f"file '{p}'\n" for p in parts)
-    run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", "list.txt", "-c", "copy",
-         "-movflags", "+faststart", os.path.abspath(out_path)], cwd=job)
+    # aakhir mein dua/share/follow wali baat: FB ke liye "follow", YouTube ke liye "subscribe"
+    outro = {}
+    for n, (kind, txt) in enumerate(OUTRO.get(LANG, OUTRO["ur"]).items()):
+        try:
+            outro[kind] = build_scene(job, 900 + n, {"text": txt, "visual": "mosque sunset sky"}, w, h, None)
+        except Exception as e:
+            log(f"outro skip ({kind}): {e}")
+    for kind, dest in (("fb", out_path), ("yt", yt_path(out_path))):
+        lst = parts + ([outro[kind]] if kind in outro else [])
+        with open(os.path.join(job, f"list_{kind}.txt"), "w") as f:
+            f.writelines(f"file '{p}'\n" for p in lst)
+        run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", f"list_{kind}.txt", "-c", "copy",
+             "-movflags", "+faststart", os.path.abspath(dest)], cwd=job)
     REPORT[f"{tag}_minutes"] = round(duration(out_path) / 60, 2)
     log(f"{tag}: video {REPORT[f'{tag}_minutes']} min")
     return out_path
@@ -566,7 +591,7 @@ def _main():
             desc = description(title, long_script, is_reel=False)
             import slot_wait; slot_wait.wait(log)
             entry["long_id"] = post_long("final_long.mp4", title, desc)
-            youtube("final_long.mp4", title, desc, False, entry, "long_yt")
+            youtube(yt_path("final_long.mp4"), title, desc, False, entry, "long_yt")
             import social
             social.share_long("islamic", "final_long.mp4", desc, entry, REPORT, log)
         ok += 1
@@ -580,14 +605,15 @@ def _main():
         if not DO_REEL:
             raise StopIteration
         build_video(reel_script, "reel", 1080, 1920, "final_reel.mp4", title)
-        if duration("final_reel.mp4") > 89:
-            run(["ffmpeg", "-y", "-i", "final_reel.mp4", "-t", "89", "-c", "copy", "reel_cut.mp4"])
-            shutil.move("reel_cut.mp4", "final_reel.mp4")
+        for fpath in ("final_reel.mp4", yt_path("final_reel.mp4")):
+            if os.path.exists(fpath) and duration(fpath) > 89:
+                run(["ffmpeg", "-y", "-i", fpath, "-t", "89", "-c", "copy", "reel_cut.mp4"])
+                shutil.move("reel_cut.mp4", fpath)
         if not DRY_RUN:
             desc = description(title, reel_script)
             import slot_wait; slot_wait.wait(log)
             entry["reel_id"] = post_reel("final_reel.mp4", desc)
-            youtube("final_reel.mp4", title, desc, True, entry, "reel_yt")
+            youtube(yt_path("final_reel.mp4"), title, desc, True, entry, "reel_yt")
             import social
             social.share_reel("islamic", FB_PAGE, FB_TOKEN, "final_reel.mp4", desc, entry, REPORT, log)
         ok += 1
