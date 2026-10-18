@@ -1,13 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 48,
+ "stock_clips": 11,
  "fallback_clips": 0,
  "errors": [],
- "format": "story",
- "long_minutes": 6.15,
- "series": "ماما بلال اور اسمارٹ فون کا بخار | قسط 1 part 1 (ai)",
- "laughs": 7,
- "time_utc": "2026-10-18 14:06",
- "title": "ماما بلال اور اسمارٹ فون کا بخار | قسط 1 | قسط 1",
+ "format": "animal",
+ "laughs": 3,
+ "reel_minutes": 0.77,
+ "time_utc": "2026-10-18 16:06",
+ "title": "الّو میاں اور رات دو بجے کی رشتہ آنٹی",
  "dry_run": false
 }
