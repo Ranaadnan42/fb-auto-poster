@@ -1,12 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 11,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
+ "format": "chat",
+ "reel_minutes": 1.33,
  "laughs": 3,
- "reel_minutes": 0.77,
- "time_utc": "2026-10-18 16:06",
- "title": "الّو میاں اور رات دو بجے کی رشتہ آنٹی",
+ "time_utc": "2026-10-19 09:16",
+ "title": "پیر کی صبح اور کپتان کا کرکٹ ڈرامہ",
  "dry_run": false
 }
