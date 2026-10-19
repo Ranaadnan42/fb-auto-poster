@@ -4,19 +4,15 @@
  "images_failed": 0,
  "errors": [],
  "kaggle_log": [
-  "Kaggle quota: resource  used   remaining  total   refreshAt             | --------  -----  ---------  ------  -------------------   | GPU       4.26h  25.74h     30.00h  2026-10-24T00:00:00   | TPU       0.00h  20.00h     20.00h  2026-10-24T00:00:00   | ",
-  "Kaggle push: Kernel version 5 successfully pushed.  Please check progress at https://www.kaggle.com/code/ranaadnanking/legends-motion-clips",
-  "Kaggle status: ranaadnanking/legends-motion-clips has status \"kernelworkerstatus.complete\" (74 min)",
-  "clips/clip_6.mp4\nOutput file downloaded to work_cine/kclips/clip_7.mp4\nOutput file downloaded to work_cine/kclips/clip_8.mp4\nOutput file downloaded to work_cine/kclips/clip_9.mp4\nOutput file downloaded to work_cine/kclips/done.json\nKernel log downloaded to work_cine/kclips/legends-motion-clips.log \n",
-  "Kaggle result: {\"gpus\": 2, \"clips\": 10, \"minutes\": 73.5}",
-  "Kaggle clips mile: 10/10"
+  "Kaggle quota: resource  used   remaining  total   refreshAt             | --------  -----  ---------  ------  -------------------   | GPU       5.49h  24.51h     30.00h  2026-10-24T00:00:00   | TPU       0.00h  20.00h     20.00h  2026-10-24T00:00:00   | ",
+  "Kaggle push: Kernel version 6 successfully pushed.  Please check progress at https://www.kaggle.com/code/ranaadnanking/legends-motion-clips",
+  "Kaggle status: authentication required to call the kaggle api.\n\nfirst, you will need a kaggle account. you can sign up at\n  https://www.kaggle.com/account/login\n\nrecommended: log in with oauth via a web-based author (110 min)"
  ],
- "ai_motion_clips": 10,
- "ai_clips_rejected": 5,
- "seconds": 159.0,
- "time_utc": "2026-10-19 04:50",
- "title": "The Whispering Wild | Part 1",
+ "ai_motion_clips": 0,
+ "seconds": 168.3,
+ "time_utc": "2026-10-19 21:54",
+ "title": "The Beast's Secret | Part 1",
  "part": 1,
- "dry_run": true,
- "posted": 0
+ "dry_run": false,
+ "posted": 1
 }
