@@ -71,7 +71,6 @@ jobs:
           CINE_FB_PAGE_ID: ${{ secrets.CINE_FB_PAGE_ID }}
           CINE_FB_TOKEN: ${{ secrets.CINE_FB_TOKEN }}
           CHANNEL_NAME: ${{ vars.CHANNEL_NAME }}
-          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
           MODE: ${{ inputs.mode || ((github.event.schedule == '37 14 * * *' || github.event.schedule == '7 16 * * *') && 'long' || 'short') }}
           POST_AT: ${{ (github.event.schedule == '17 11 * * *' || github.event.schedule == '47 12 * * *') && '16:17' || (github.event.schedule == '37 14 * * *' || github.event.schedule == '7 16 * * *') && '22:07' || '' }}
           LANGUAGE: ${{ inputs.language || 'en' }}

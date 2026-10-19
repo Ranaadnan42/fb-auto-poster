@@ -102,7 +102,9 @@ print("DONE", ng, "GPU", len(done), "clips", round((time.time() - t0) / 60, 1), 
 
 
 def enabled():
-    return bool(os.environ.get("KAGGLE_API_TOKEN"))
+    # BAND: Kaggle ne 2026-10-19 ko account "resource abuse" par ban kar diya (video banana Kaggle ke
+    # qawaid ke khilaf). Kaggle dobara istemal NA karein.
+    return False
 
 
 def _kg(*args, timeout=600):
