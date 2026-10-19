@@ -1,13 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 44,
+ "stock_clips": 11,
  "fallback_clips": 0,
  "errors": [],
- "format": "story",
- "long_minutes": 5.05,
- "series": "چمپا کلی اور واٹس ایپ گروپ کا طوفان | قسط 1 part 2 (cartoon)",
- "laughs": 7,
- "time_utc": "2026-10-19 17:05",
- "title": "چمپا کلی اور واٹس ایپ گروپ کا طوفان | قسط 1 | قسط 2",
+ "format": "animal",
+ "laughs": 3,
+ "reel_minutes": 0.73,
+ "time_utc": "2026-10-19 18:49",
+ "title": "میرکات نیوز اور سرپرائز ٹیسٹ کا ڈرامہ",
  "dry_run": false
 }
