@@ -3,8 +3,9 @@ name: Cinematic AI Stories (YouTube)
 on:
   schedule:
     # USA/UK audience ke waqt (UTC)
-    - cron: '17 16 * * *'   # 12:17 dopehar New York -> Short (~2.5 min)
-    - cron: '7 22 * * *'    # 6:07 shaam New York    -> Lambi video (~9 min)
+    # run jaldi chalta hai: Kaggle free GPU par asli chalte AI clips bante hain, post POST_AT par hoti hai
+    - cron: '17 14 * * *'   # post 16:17 UTC = 12:17 dopehar New York -> Short (~2.5 min)
+    - cron: '37 15 * * *'   # post 22:07 UTC = 6:07 shaam New York    -> Lambi video (~9 min)
   workflow_dispatch:
     inputs:
       mode:
@@ -32,7 +33,7 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 355
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
@@ -48,7 +49,7 @@ jobs:
           sudo apt-get install -y ffmpeg fonts-dejavu-core
           pip install google-genai "edge-tts>=7.3.0" requests numpy opencv-python-headless pillow
           pip install torch --index-url https://download.pytorch.org/whl/cpu
-          pip install transformers diffusers accelerate
+          pip install transformers diffusers accelerate "kaggle>=2.0"
 
       - name: Cache free AI image model
         uses: actions/cache@v4
@@ -67,7 +68,9 @@ jobs:
           CINE_FB_PAGE_ID: ${{ secrets.CINE_FB_PAGE_ID }}
           CINE_FB_TOKEN: ${{ secrets.CINE_FB_TOKEN }}
           CHANNEL_NAME: ${{ vars.CHANNEL_NAME }}
-          MODE: ${{ inputs.mode || (github.event.schedule == '7 22 * * *' && 'long' || 'short') }}
+          KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+          MODE: ${{ inputs.mode || (github.event.schedule == '37 15 * * *' && 'long' || 'short') }}
+          POST_AT: ${{ github.event.schedule == '17 14 * * *' && '16:17' || github.event.schedule == '37 15 * * *' && '22:07' || '' }}
           LANGUAGE: ${{ inputs.language || 'en' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
         # agar kuch post hone se pehle hi fail ho (jaise awaaz service band), 3 minute baad dobara koshish

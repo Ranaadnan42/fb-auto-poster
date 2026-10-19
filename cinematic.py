@@ -464,6 +464,48 @@ def shot_clip(job, img, secs, idx, out, fx="none"):
         raise RuntimeError("Shot video nahi bani")
 
 
+def ai_clip(job, src, secs, out):
+    """Kaggle wala asli chalta AI clip -> shot jaisa format (dheema + aage-peeche loop agar scene lamba ho)."""
+    d = max(duration(src), 0.5)
+    f = min(max(secs / d, 1.0), 1.8)                     # 1.8x tak dheema - zyada dheema bura lagta hai
+    pp = os.path.join(job, f"pp_{out}")
+    run(["ffmpeg", "-y", "-loglevel", "error", "-i", src, "-filter_complex",
+         f"[0:v]setpts={f:.3f}*PTS,fps=30,split[a][b];[b]reverse[r];[a][r]concat=n=2:v=1[p]",
+         "-map", "[p]", "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", pp])
+    if LONG:
+        vf = f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},setsar=1"
+    else:
+        vf = (f"split[f][g];[g]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},"
+              f"gblur=sigma=30,eq=brightness=-0.1[bg];"
+              f"[f]scale={IMG}:{IMG}:force_original_aspect_ratio=increase,crop={IMG}:{IMG}[fg];"
+              f"[bg][fg]overlay=0:{IMG_Y},setsar=1")
+    run(["ffmpeg", "-y", "-loglevel", "error", "-stream_loop", "-1", "-i", pp, "-t", f"{secs:.3f}",
+         "-filter_complex", f"[0:v]{vf},fps=30,eq=contrast=1.05:saturation=1.1,fade=t=in:st=0:d=0.2,format=yuv420p[v]",
+         "-map", "[v]", "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p",
+         os.path.join(job, out)])
+
+
+def kaggle_clips(script, job, base_seed):
+    """Har scene ki pehli shot ka asli chalta clip Kaggle ke free GPU par (sirf Legends Untold)."""
+    import kaggle_video
+    if MOVIE or not kaggle_video.enabled():
+        return {}
+    if LONG and datetime.datetime.utcnow().weekday() not in (0, 2, 4, 6):
+        log("Aaj lambi video purane tareeqe se (Kaggle quota hafte ke liye bachaya)")
+        return {}
+    chars = script.get("characters", "")
+    jobs = []
+    for i, sc in enumerate(script["scenes"]):
+        shot = ((sc.get("shots") or [])[:1] or [sc["text"]])[0]
+        prompt = (f"Cinematic epic fantasy movie scene, dramatic motion, realistic, highly detailed: {shot}"
+                  + (f". Characters: {chars}" if chars else ""))[:700]
+        jobs.append({"id": i, "prompt": prompt, "seed": base_seed + i})
+    w, h = (832, 480) if LONG else (640, 640)
+    got = kaggle_video.generate(jobs, w, h, WORK, log, max_minutes=250 if LONG else 110)
+    REPORT["ai_motion_clips"] = len(got)
+    return got
+
+
 def make_sfx(path, total, cuts):
     """Har cut par 'whoosh' aur shuru mein 'boom' - khud banti hai."""
     import numpy as np
@@ -498,6 +540,12 @@ def build_video(script, out_path):
     os.makedirs(job)
     base_seed = random.randint(1000, 900000)
     chars = script.get("characters", "")
+    # Kaggle par asli chalte clips saath saath bante rahen, yahan tasveeron wali video banti rahe
+    import threading
+    kres = {}
+    kth = threading.Thread(target=lambda: kres.update(kaggle_clips(script, job, base_seed)), daemon=True)
+    kth.start()
+    first_shot = {}
     timed, clips, voice_parts, cuts, t = [], [], [], [], 0.0
     for i, sc in enumerate(script["scenes"]):
         text = sc["text"].strip()
@@ -511,14 +559,25 @@ def build_video(script, out_path):
         fx = (sc.get("fx") or "none").lower().strip()
         for j, prompt in enumerate(shots):
             full = f"{prompt}. Characters: {chars}" if chars else prompt
-            img = get_image(full[:900], base_seed + i * 10 + j, os.path.join(job, f"i{i}_{j}.jpg"))
             out = f"c{i}_{j}.mp4"
+            if j == 0:
+                first_shot[i] = (out, seg)
+            img = get_image(full[:900], base_seed + i * 10 + j, os.path.join(job, f"i{i}_{j}.jpg"))
             shot_clip(job, os.path.basename(img) if img else None, seg, len(clips), out, fx)
             clips.append(out)
             cuts.append(t + seg * (j + 1))
         t += d
         log(f"scene {i + 1}/{len(script['scenes'])} ready")
     total = t
+    kth.join()
+    for i, path in kres.items():                       # har scene ki pehli shot -> asli chalta clip
+        if i in first_shot:
+            out, seg = first_shot[i]
+            try:
+                ai_clip(job, path, seg, "ai_tmp.mp4")
+                os.replace(os.path.join(job, "ai_tmp.mp4"), os.path.join(job, out))
+            except Exception as e:
+                log(f"AI clip {i} skip: {str(e)[:150]}")
 
     with open(os.path.join(job, "clips.txt"), "w") as f:
         f.writelines(f"file '{c}'\n" for c in clips)
@@ -712,7 +771,22 @@ def _main():
     script["part"] = st["part"]
     log(f"Series: {script.get('series_title')} | Part {st['part']} | {script.get('title')}")
 
+    # schedule run jaldi chalta hai (Kaggle ke liye waqt) - Kaggle na ho to pehle thora intezar
+    import slot_wait
+    tgt = slot_wait.target_time()
+    if tgt is not None:
+        import kaggle_video
+        uses_k = kaggle_video.enabled() and not MOVIE and (
+            not LONG or datetime.datetime.utcnow().weekday() in (0, 2, 4, 6))
+        need = (330 if LONG else 120) if uses_k else (110 if LONG else 45)
+        secs = (tgt - datetime.timedelta(minutes=need) - datetime.datetime.utcnow()).total_seconds()
+        if secs > 0:
+            log(f"Pehle {int(secs // 60)} minute intezar, phir video banegi")
+            time.sleep(secs)
+
     build_video(script, "final_cinematic.mp4")
+    if not DRY_RUN:
+        slot_wait.wait(log)
     thumb = None
     try:
         thumb = make_thumbnail(script, "thumbnail.jpg")
