@@ -534,7 +534,7 @@ FPS = 30
 
 def render_scene(job, i, sc, clips, dur, ass_path, bg_override=None):
     fd = f":fontsdir={FONTS_DIR}" if os.path.isdir(FONTS_DIR) else ""
-    srcs = [bg_override] if bg_override else clips
+    srcs = [os.path.basename(c) for c in ([bg_override] if bg_override else clips)]   # cwd=job
     k = len(srcs)
     seg = dur / k
     cmd = ["ffmpeg", "-y", "-loglevel", "error"]
