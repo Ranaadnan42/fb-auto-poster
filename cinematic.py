@@ -245,6 +245,10 @@ def write_story(history, st):
         end = f"End on a strong cliffhanger; last line: \"{CLIFF}\""
     else:
         end = "This is the FINAL part: an epic climax and a satisfying, surprising ending."
+    if not MOVIE:
+        end += (" Just before the very last line, the narrator asks viewers ONE short choice question to answer "
+                "in the comments about the hero's dilemma (e.g. 'Should Kael trust the dragon? Tell me in the "
+                "comments.').")
     data = ask_json(f"""You write viral cinematic story shorts (like AI movie-style YouTube Shorts).
 World / setting: {st['world']}
 {series_txt}

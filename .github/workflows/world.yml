@@ -48,6 +48,7 @@ jobs:
           YT_WORLD_CLIENT_ID: ${{ secrets.YT_WORLD_CLIENT_ID }}
           YT_WORLD_CLIENT_SECRET: ${{ secrets.YT_WORLD_CLIENT_SECRET }}
           YT_WORLD_REFRESH_TOKEN: ${{ secrets.YT_WORLD_REFRESH_TOKEN }}
+          AFFILIATE_TEXT: ${{ vars.AFFILIATE_TEXT }}
           MODE: ${{ inputs.mode || (github.event.schedule == '37 16 * * *' && 'long' || 'short') }}
           POST_AT: ${{ github.event.schedule == '47 11 * * *' && '14:47' || github.event.schedule == '37 16 * * *' && '20:37' || '' }}
           DRY_RUN: ${{ (github.event_name == 'workflow_dispatch' && inputs.dry_run) && '1' || '0' }}

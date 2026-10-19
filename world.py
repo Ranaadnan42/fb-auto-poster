@@ -40,8 +40,9 @@ GEO_URL = ("https://raw.githubusercontent.com/nvkelso/natural-earth-vector/maste
            "ne_50m_admin_0_countries.geojson")
 
 # roz silsila badalta hai - viewer bor na ho, mauzu kabhi khatam na hon
-LONG_SERIES = ["country", "city", "living", "history", "country", "food_culture", "versus"]
-SHORT_SERIES = ["facts", "city_facts", "food", "facts", "hidden", "versus_short", "living_short"]
+# paisa: "rehna / shift hona / retire" wale mauzu par ads sab se mehenge - is liye zyada yahi
+LONG_SERIES = ["living", "country", "retire", "versus", "moving", "city", "best_list"]
+SHORT_SERIES = ["cost_short", "facts", "living_short", "versus_short", "city_facts", "food", "hidden"]
 SERIES_HINT = {
     "country": "a complete documentary about ONE country (geography, population, peoples and "
                "communities, religion, languages, history, culture and daily life, food, music and arts, "
@@ -54,6 +55,13 @@ SERIES_HINT = {
                "turning points), filmed at real historic places of that country",
     "food_culture": "the food, festivals, traditions, music and daily culture of ONE country",
     "versus": "a comparison of TWO countries or two cities (living, cost, culture, safety, jobs, weather)",
+    "retire": "'Retiring in <country>': is it a good place to retire abroad for Americans/Europeans - "
+              "affordability, healthcare, safety, climate, visas in general terms, expat communities, best towns",
+    "moving": "'Moving to <country>: what nobody tells you' - honest pros and cons of moving there, culture shock, "
+              "daily life, jobs, cost, best cities for newcomers",
+    "best_list": "a ranked list documentary such as 'The 7 most affordable countries to live well' or "
+                 "'Safest countries in <continent>' - each entry a short chapter with real footage",
+    "cost_short": "'What life really costs in <city or country>' quick honest overview",
     "facts": "'Amazing facts about <country>' - 6 short surprising true facts",
     "city_facts": "'<city> in 60 seconds' - the most striking things about one city",
     "food": "'Must-try foods of <country>' - 5 famous dishes",
@@ -65,6 +73,7 @@ SERIES_HINT = {
 os.makedirs(WORK, exist_ok=True)
 REPORT = {"mode": MODE, "clips": 0, "clips_rejected": 0, "vision_checks": 0, "errors": []}
 USED = set()
+SCORES = []
 _client = None
 
 
@@ -173,6 +182,24 @@ def wiki_summary(title):
         return ""
 
 
+def atlas_score(le, hom, plr, gdp):
+    """Apna pakka score (sirf World Bank data se): Safety, Health, Affordability, Economy -> /10."""
+    parts = {}
+    if hom is not None:
+        parts["Safety"] = max(0.0, min(10.0, 10 - hom * 0.5))
+    if le:
+        parts["Health"] = max(0.0, min(10.0, (le - 55) / 3))
+    if plr:
+        parts["Affordability"] = max(0.0, min(10.0, 10 - (plr - 0.25) * 10))
+    if gdp:
+        parts["Economy"] = max(0.0, min(10.0, math.log10(max(gdp, 300)) * 4 - 9))
+    if len(parts) < 3:
+        return None
+    parts = {k: round(v, 1) for k, v in parts.items()}
+    parts["Atlas Score"] = round(sum(parts.values()) / len(parts), 1)
+    return parts
+
+
 def gather_facts(plan):
     facts = {}
     for c in plan.get("countries", [])[:2]:
@@ -183,7 +210,14 @@ def gather_facts(plan):
         urb, _ = world_bank(iso, "SP.URB.TOTL.IN.ZS")
         area, _ = world_bank(iso, "AG.LND.TOTL.K2")
         gdp, gyr = world_bank(iso, "NY.GDP.PCAP.CD")
+        le, _ = world_bank(iso, "SP.DYN.LE00.IN")
+        hom, _ = world_bank(iso, "VC.IHR.PSRC.P5")
+        plr, _ = world_bank(iso, "PA.NUS.PPPC.RF")
         facts[c["name"]] = {
+            "life_expectancy_years": f"{le:.1f}" if le else None,
+            "homicides_per_100k": f"{hom:.1f}" if hom is not None else None,
+            "price_level_vs_usa": f"{plr * 100:.0f}% of US prices" if plr else None,
+            "atlas_score": atlas_score(le, hom, plr, gdp),
             "population": f"{pop / 1e6:.1f} million ({yr}, World Bank)" if pop else None,
             "urban_population_percent": f"{urb:.0f}%" if urb else None,
             "land_area_km2": f"{area:,.0f}" if area else None,
@@ -192,6 +226,9 @@ def gather_facts(plan):
         }
     for city in plan.get("cities", [])[:2]:
         facts[city] = {"wikipedia": wiki_summary(city)[:1200]}
+    for name, f in facts.items():
+        if isinstance(f, dict) and f.get("atlas_score"):
+            SCORES.append((name, f["atlas_score"]))
     return facts
 
 
@@ -239,6 +276,10 @@ Rules:
   (e.g. "Kyoto temple", "Fushimi Inari Kyoto", "Japan street food"). Only things that are filmable.
 - "place": the city/region + country of that scene (e.g. "Kyoto, Japan").
 - "label": short on-screen place label (max 4 words) or "" if none.
+- If VERIFIED FACTS has "atlas_score", one scene near the end presents the Atlas Score (our own rating from
+  World Bank data: Safety, Health, Affordability, Economy, each out of 10) and explains what it means.
+  Put that scene's "score": true.
+- Be honest and useful like a friend who lived there; give practical tips. That makes this channel different.
 
 Return JSON:
 {{"title": "documentary title",
@@ -250,7 +291,7 @@ Return JSON:
  "fact_card": ["4 short lines for an on-screen fact card, e.g. 'Capital: Tokyo', using VERIFIED FACTS"],
  {shape}
  }}
-scene = {{"text": "narration 1-3 sentences", "place": "...", "search": ["..."], "label": "..."}}""", temp=0.7)
+scene = {{"text": "narration 1-3 sentences", "place": "...", "search": ["..."], "label": "...", "score": false}}""", temp=0.7)
 
 
 # ---------------------------------------------------------------- asli footage
@@ -547,6 +588,9 @@ def build(script, plan, out_path):
         if first_of_chap:
             chapters_ts.append((t, cname))
         card = script.get("fact_card") if (n == (2 if LONG else 1)) else None
+        if sc.get("score") and SCORES:
+            name, sco = SCORES[0]
+            card = [f"ATLAS SCORE - {name}"] + [f"{k}: {v}/10" for k, v in sco.items()]
         title = script.get("title") if n == 0 else None
         make_ass(os.path.join(job, f"s{n}.ass"), text, dur - 0.45, label=sc.get("label") or None,
                  chapter=cname if first_of_chap else None, card=card, title=title)
@@ -576,6 +620,12 @@ def description(script, chapters_ts):
         lines = ["0:00 Intro"] + [f"{int(s // 60)}:{int(s % 60):02d} {name}" for s, name in chapters_ts]
         d += "\n\nChapters:\n" + "\n".join(lines)
     d += f"\n\n{script.get('keywords', '')}"
+    if SCORES:
+        d += ("\n\nAtlas Score: our own rating out of 10 built only from World Bank data "
+              "(safety, health, affordability, economy). It is a guide, not advice.")
+    aff = (os.environ.get("AFFILIATE_TEXT") or "").strip()
+    if aff:
+        d += "\n\n" + aff.replace("\\n", "\n")
     d += ("\n\nFootage: real stock video from Pixabay / Pexels contributors. "
           "Facts: World Bank, Wikipedia. Narration voice is synthetic.")
     d += "\n\n" + " ".join(script.get("hashtags", [])[:10])
