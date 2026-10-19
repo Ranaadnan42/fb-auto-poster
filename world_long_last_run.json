@@ -1,0 +1,13 @@
+{
+ "mode": "long",
+ "clips": 12,
+ "clips_rejected": 3,
+ "vision_checks": 15,
+ "errors": [
+  "cmd fail: ffmpeg -y -loglevel error -stream_loop -1 ... [in#0 @ 0x558da34ab8c0] Error opening input: No such file or directory\nError opening input file work_world/job/c0_0.mp4.\nError opening input files: No such file or directory\n",
+  "cmd fail: ffmpeg -y -loglevel error -stream_loop -1 ... [in#0 @ 0x55c9703a78c0] Error opening input: No such file or directory\nError opening input file work_world/job/c0_0.mp4.\nError opening input files: No such file or directory\n",
+  "cmd fail: ffmpeg -y -loglevel error -stream_loop -1 ... [in#0 @ 0x558824fd08c0] Error opening input: No such file or directory\nError opening input file work_world/job/c0_0.mp4.\nError opening input files: No such file or directory\n",
+  "fatal: video nahi bani",
+  "fatal: cmd fail: ffmpeg -y -loglevel error -stream_loop -1 ... [in#0 @ 0x558824fd08c0] Error opening input: No such file or directory\nError opening input file work_world/job/c0_0.mp4.\nError opening input files: No such file or directory\n"
+ ]
+}
