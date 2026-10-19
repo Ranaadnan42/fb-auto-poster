@@ -375,6 +375,14 @@ def get_clips(scene, country_words, job, prefix, need):
                 jpg = path + ".jpg"
                 run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{min(c['dur'] / 2, 3):.1f}", "-i", path,
                      "-frames:v", "1", "-vf", "scale=640:-2", jpg])
+                try:
+                    from PIL import Image, ImageStat
+                    if ImageStat.Stat(Image.open(jpg).convert("L")).mean[0] < 28:   # kaali/andheri clip
+                        REPORT["clips_rejected"] += 1
+                        USED.add(c["id"])
+                        continue
+                except Exception:
+                    pass
                 ok = vision_ok(jpg, place or country, q)
                 if ok is False:
                     REPORT["clips_rejected"] += 1

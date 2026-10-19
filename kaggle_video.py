@@ -32,14 +32,18 @@ from diffusers.utils import export_to_video
 mid = "Wan-AI/Wan2.1-T2V-1.3B-Diffusers"
 mine = [j for k, j in enumerate(JOBS) if k %% NG == gpu]
 vae = AutoencoderKLWan.from_pretrained(mid, subfolder="vae", torch_dtype=torch.float32)
-pipe = WanPipeline.from_pretrained(mid, vae=vae, torch_dtype=torch.float16)
+from transformers import UMT5EncoderModel
+# UMT5 text encoder fp16 mein overflow -> kaali video. bf16 mein chalao
+te = UMT5EncoderModel.from_pretrained(mid, subfolder="text_encoder", torch_dtype=torch.bfloat16)
+pipe = WanPipeline.from_pretrained(mid, vae=vae, text_encoder=te, torch_dtype=torch.float16)
 # pehle saare prompts ka text encode, phir bara text encoder nikal do
 pipe.text_encoder.to("cuda")
 embs = []
 with torch.no_grad():
     for j in mine:
         pe, ne = pipe.encode_prompt(j["prompt"], NEG, do_classifier_free_guidance=True, device="cuda")
-        embs.append((pe.cpu(), ne.cpu()))
+        embs.append((pe.to(torch.float16).cpu(), ne.to(torch.float16).cpu()))
+        print(f"GPU{gpu} emb {j['id']} nan={bool(torch.isnan(pe).any())} std={float(pe.float().std()):.3f}", flush=True)
 pipe.text_encoder = None
 gc.collect(); torch.cuda.empty_cache()
 pipe.transformer.to("cuda"); pipe.vae.to("cuda")
@@ -49,6 +53,9 @@ for j, (pe, ne) in zip(mine, embs):
         fr = pipe(prompt_embeds=pe.to("cuda"), negative_prompt_embeds=ne.to("cuda"),
                   width=W, height=H, num_frames=FRAMES, num_inference_steps=STEPS,
                   guidance_scale=5.0, generator=torch.Generator("cuda").manual_seed(j["seed"])).frames[0]
+        import numpy as np
+        arr = np.asarray(fr[len(fr) // 2], dtype=np.float32)
+        print(f"GPU{gpu} clip {j['id']} mean={float(np.nanmean(arr)):.3f} nan={bool(np.isnan(arr).any())}", flush=True)
         export_to_video(fr, f"{OUT}/clip_{j['id']}.mp4", fps=16)
         print(f"GPU{gpu} clip {j['id']} {time.time() - t0:.0f}s", flush=True)
     except Exception as e:

@@ -19,6 +19,7 @@ Secrets:
 DRY_RUN=1 -> video banegi, upload nahi hogi.
 """
 import os
+import re
 import sys
 import json
 import time
@@ -498,6 +499,13 @@ def clip_looks_good(path):
     global _client
     try:
         d = duration(path)
+        # kaali / bilkul andheri clip (model ki kharabi) - foran reject
+        st = subprocess.run(["ffmpeg", "-i", path, "-vf", "signalstats,metadata=print:key=lavfi.signalstats.YAVG",
+                             "-f", "null", "-"], capture_output=True, text=True).stderr
+        ys = [float(x) for x in re.findall(r"YAVG=([0-9.]+)", st)]
+        if not ys or sum(ys) / len(ys) < 22:
+            log(f"clip {os.path.basename(path)} bahut andheri (Y={sum(ys) / max(len(ys), 1):.0f}) - reject")
+            return False
         parts = []
         for k, f in enumerate((0.2, 0.5, 0.85)):
             jpg = f"{path}_{k}.jpg"

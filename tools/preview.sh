@@ -15,5 +15,10 @@ cd /tmp && rm -rf pvrepo && git clone -q --depth 1 --branch previews "https://x-
   mkdir pvrepo && cd pvrepo && git init -q && git checkout -q -b previews && git remote add origin "https://x-access-token:${GH_TOKEN}@github.com/${GITHUB_REPOSITORY}.git"; cd /tmp; }
 cd /tmp/pvrepo
 cp "/tmp/pv/${NAME}_sheet.jpg" "/tmp/pv/${NAME}_preview.mp4" .
+# Kaggle ke AI clips + log (jaanch ke liye)
+if [ -d "$GITHUB_WORKSPACE/work_cine/kclips" ]; then
+  mkdir -p kclips && rm -f kclips/*
+  cp "$GITHUB_WORKSPACE"/work_cine/kclips/*.mp4 "$GITHUB_WORKSPACE"/work_cine/kclips/*.log kclips/ 2>/dev/null || true
+fi
 git config user.name "auto-poster"; git config user.email "auto-poster@users.noreply.github.com"
 git add -A && git commit -q -m "preview $NAME" && git push -q -f origin previews
