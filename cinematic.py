@@ -487,7 +487,7 @@ def ai_clip(job, src, secs, out):
               f"[f]scale={IMG}:{IMG}:force_original_aspect_ratio=increase,crop={IMG}:{IMG}[fg];"
               f"[bg][fg]overlay=0:{IMG_Y},setsar=1")
     run(["ffmpeg", "-y", "-loglevel", "error", "-stream_loop", "-1", "-i", pp, "-t", f"{secs:.3f}",
-         "-filter_complex", f"[0:v]{vf},fps=30,eq=contrast=1.05:saturation=1.1,fade=t=in:st=0:d=0.2,format=yuv420p[v]",
+         "-filter_complex", f"[0:v]{vf},fps=30,eq=contrast=1.06:saturation=1.12:gamma=1.15,fade=t=in:st=0:d=0.2,format=yuv420p[v]",
          "-map", "[v]", "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p",
          os.path.join(job, out)])
 
