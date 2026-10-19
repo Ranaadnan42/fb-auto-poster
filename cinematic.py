@@ -485,6 +485,38 @@ def ai_clip(job, src, secs, out):
          os.path.join(job, out)])
 
 
+def clip_looks_good(path):
+    """Gemini 3 frames dekh kar batata hai: chehra/haath bigre, ajeeb jism ya kharab quality? Shak ho to reject."""
+    from google import genai
+    from google.genai import types
+    global _client
+    try:
+        d = duration(path)
+        parts = []
+        for k, f in enumerate((0.2, 0.5, 0.85)):
+            jpg = f"{path}_{k}.jpg"
+            run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{d * f:.2f}", "-i", path, "-frames:v", "1", jpg])
+            parts.append(types.Part.from_bytes(data=open(jpg, "rb").read(), mime_type="image/jpeg"))
+        if _client is None:
+            _client = genai.Client(api_key=GEMINI_KEY)
+        parts.append("These are 3 frames of one AI-generated video clip for a fantasy YouTube channel. Be strict. "
+                     "Is there any visibly deformed or melting face, wrong eyes, broken hands or limbs, "
+                     "body horror, garbled shapes, or ugly low-quality artifacts that would make viewers think "
+                     'the channel is bad? Answer JSON {"good": true/false}')
+        for model in MODELS[::-1]:
+            try:
+                res = _client.models.generate_content(
+                    model=model, contents=parts,
+                    config=types.GenerateContentConfig(response_mime_type="application/json", temperature=0))
+                return bool(json.loads(res.text).get("good"))
+            except Exception as e:
+                log(f"clip check {model}: {str(e)[:120]}")
+                time.sleep(3)
+    except Exception as e:
+        log(f"clip check fail: {str(e)[:150]}")
+    return False                                            # check na ho sake to purani shot - risk nahi
+
+
 def kaggle_clips(script, job, base_seed):
     """Har scene ki pehli shot ka asli chalta clip Kaggle ke free GPU par (sirf Legends Untold)."""
     import kaggle_video
@@ -497,8 +529,11 @@ def kaggle_clips(script, job, base_seed):
     jobs = []
     for i, sc in enumerate(script["scenes"]):
         shot = ((sc.get("shots") or [])[:1] or [sc["text"]])[0]
-        prompt = (f"Cinematic epic fantasy movie scene, dramatic motion, realistic, highly detailed: {shot}"
-                  + (f". Characters: {chars}" if chars else ""))[:700]
+        # chehre kareeb se nahi (free model mein bigarte hain) - bare, door ke, epic scenes
+        prompt = (f"Epic wide cinematic shot, movie quality, dramatic camera motion, realistic lighting, "
+                  f"highly detailed environment, people only small in the distance or seen from behind "
+                  f"or as silhouettes, no close-up faces: {shot}"
+                  + (f". Characters (seen from afar): {chars}" if chars else ""))[:700]
         jobs.append({"id": i, "prompt": prompt, "seed": base_seed + i})
     w, h = (832, 480) if LONG else (640, 640)
     REPORT["kaggle_log"] = []
@@ -576,6 +611,10 @@ def build_video(script, out_path):
     total = t
     kth.join()
     for i, path in kres.items():                       # har scene ki pehli shot -> asli chalta clip
+        if i in first_shot and not clip_looks_good(path):
+            log(f"AI clip {i} reject (chehra/jism bigra ya kharab quality) - tasveer wali shot rahegi")
+            REPORT["ai_clips_rejected"] = REPORT.get("ai_clips_rejected", 0) + 1
+            continue
         if i in first_shot:
             out, seg = first_shot[i]
             try:

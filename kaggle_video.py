@@ -20,8 +20,9 @@ WORKER = r'''
 import json, os, sys, time, gc
 JOBS = json.loads(%(jobs)r)
 W, H, FRAMES, STEPS = %(w)d, %(h)d, %(frames)d, %(steps)d
-NEG = ("blurry, low quality, distorted, deformed, watermark, text, logo, static, cartoon, "
-       "worst quality, jpeg artifacts, extra limbs")
+NEG = ("close-up face, deformed face, distorted face, melting face, bad eyes, bad hands, extra fingers, "
+       "extra limbs, bad anatomy, body horror, blurry, low quality, worst quality, jpeg artifacts, "
+       "watermark, text, logo, static, cartoon, flicker")
 OUT = "/kaggle/working"
 gpu, NG, delay = int(sys.argv[1]), int(sys.argv[2]), int(sys.argv[3])
 time.sleep(delay)                                       # RAM bachane ke liye doosra GPU thora baad
