@@ -19,7 +19,8 @@ KERNEL = f"{USER}/{SLUG}"
 WORKER = r'''
 import json, os, sys, time, gc
 JOBS = json.loads(%(jobs)r)
-W, H, FRAMES, STEPS = %(w)d, %(h)d, %(frames)d, %(steps)d
+W, H, FRAMES, STEPS, FAST = %(w)d, %(h)d, %(frames)d, %(steps)d, %(fast)d
+GUIDE = 5.0
 NEG = ("close-up face, deformed face, distorted face, melting face, bad eyes, bad hands, extra fingers, "
        "extra limbs, bad anatomy, body horror, blurry, low quality, worst quality, jpeg artifacts, "
        "watermark, text, logo, static, cartoon, flicker")
@@ -36,6 +37,21 @@ from transformers import UMT5EncoderModel
 # UMT5 text encoder fp16 mein overflow -> kaali video. bf16 mein chalao
 te = UMT5EncoderModel.from_pretrained(mid, subfolder="text_encoder", torch_dtype=torch.bfloat16)
 pipe = WanPipeline.from_pretrained(mid, vae=vae, text_encoder=te, torch_dtype=torch.float16)
+if FAST:
+    # CausVid speed-LoRA: 8 steps, CFG band -> ~5x tez (wahi free GPU, zyada clips)
+    try:
+        from diffusers import UniPCMultistepScheduler
+        pipe.load_lora_weights("Kijai/WanVideo_comfy",
+                               weight_name="Wan21_CausVid_bidirect2_T2V_1_3B_lora_rank32.safetensors",
+                               adapter_name="causvid")
+        pipe.set_adapters(["causvid"], adapter_weights=[0.9])
+        pipe.fuse_lora(adapter_names=["causvid"], lora_scale=0.9)
+        pipe.unload_lora_weights()
+        pipe.scheduler = UniPCMultistepScheduler.from_config(pipe.scheduler.config, flow_shift=8.0)
+        STEPS, GUIDE = 8, 1.0
+        print(f"GPU{gpu} FAST mode ON (CausVid, 8 steps)", flush=True)
+    except Exception as e:
+        print(f"GPU{gpu} FAST mode fail, normal chalega: {str(e)[:300]}", flush=True)
 # pehle saare prompts ka text encode, phir bara text encoder nikal do
 pipe.text_encoder.to("cuda")
 embs = []
@@ -54,7 +70,7 @@ for j, (pe, ne) in zip(mine, embs):
     try:
         fr = pipe(prompt_embeds=pe.to("cuda"), negative_prompt_embeds=ne.to("cuda"),
                   width=W, height=H, num_frames=FRAMES, num_inference_steps=STEPS,
-                  guidance_scale=5.0, generator=torch.Generator("cuda").manual_seed(j["seed"])).frames[0]
+                  guidance_scale=GUIDE, generator=torch.Generator("cuda").manual_seed(j["seed"])).frames[0]
         import numpy as np
         arr = np.asarray(fr[len(fr) // 2], dtype=np.float32)
         print(f"GPU{gpu} clip {j['id']} mean={float(np.nanmean(arr)):.3f} nan={bool(np.isnan(arr).any())}", flush=True)
@@ -68,7 +84,7 @@ MAIN = r'''
 import json, os, subprocess, sys, time
 t0 = time.time()
 open("/tmp/w.py", "w").write(%(worker)r)
-subprocess.run("pip install -q -U diffusers transformers accelerate ftfy imageio imageio-ffmpeg && "
+subprocess.run("pip install -q -U diffusers transformers accelerate peft ftfy imageio imageio-ffmpeg && "
                "pip uninstall -y -q torchao", shell=True)
 ng = max(1, int(subprocess.run("nvidia-smi -L | wc -l", shell=True, capture_output=True,
                                text=True).stdout.strip() or 1))
@@ -94,7 +110,7 @@ def _kg(*args, timeout=600):
     return (r.stdout or "") + (r.stderr or "")
 
 
-def generate(jobs, w, h, work, log=print, max_minutes=240, frames=49, steps=30):
+def generate(jobs, w, h, work, log=print, max_minutes=240, frames=49, steps=30, fast=False):
     """jobs: [{"id": 3, "prompt": "...", "seed": 11}, ...] -> {id: local_mp4_path}"""
     if not enabled() or not jobs:
         return {}
@@ -106,7 +122,7 @@ def generate(jobs, w, h, work, log=print, max_minutes=240, frames=49, steps=30):
         os.makedirs(kdir)
         os.makedirs(out)
         with open(os.path.join(kdir, "run.py"), "w") as f:
-            wsrc = WORKER % {"jobs": json.dumps(jobs), "w": w, "h": h, "frames": frames, "steps": steps}
+            wsrc = WORKER % {"jobs": json.dumps(jobs), "w": w, "h": h, "frames": frames, "steps": steps, "fast": int(bool(fast))}
             f.write(MAIN % {"worker": wsrc, "njobs": len(jobs)})
         with open(os.path.join(kdir, "kernel-metadata.json"), "w") as f:
             json.dump({"id": KERNEL, "title": SLUG, "code_file": "run.py", "language": "python",
