@@ -133,6 +133,10 @@ def generate(jobs, w, h, work, log=print, max_minutes=240, frames=49, steps=30, 
             log("Kaggle quota: " + _kg("quota")[:300].replace("\n", " | "))
         except Exception:
             pass
+        chk = _kg("kernels", "list", "--mine", "--page-size", "1", timeout=120).lower()
+        if "authentication" in chk or "401" in chk or "unauthorized" in chk:
+            log("Kaggle token kaam nahi kar raha (authentication) - purana tareeqa")
+            return {}
         res = _kg("kernels", "push", "-p", kdir, "--accelerator", "NvidiaTeslaT4")
         log(f"Kaggle push: {res.strip()[:300]}")
         if "error" in res.lower() and "successfully" not in res.lower():
@@ -147,6 +151,9 @@ def generate(jobs, w, h, work, log=print, max_minutes=240, frames=49, steps=30, 
             status = _kg("kernels", "status", KERNEL, timeout=120).lower()
             if "complete" in status or "error" in status or "cancel" in status:
                 break
+            if "authentication" in status or "unauthorized" in status or "401" in status:
+                log("Kaggle token kaam nahi kar raha (authentication) - purana tareeqa")
+                return {}
             time.sleep(60)
         log(f"Kaggle status: {status.strip()[:200]} ({(time.time() - t0) / 60:.0f} min)")
         if "complete" not in status and "error" not in status:
