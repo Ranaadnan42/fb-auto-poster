@@ -1,12 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 0,
+ "stock_clips": 11,
  "fallback_clips": 0,
  "errors": [],
- "format": "chat",
- "reel_minutes": 1.33,
+ "format": "animal",
  "laughs": 3,
- "time_utc": "2026-10-19 09:16",
- "title": "پیر کی صبح اور کپتان کا کرکٹ ڈرامہ",
+ "reel_minutes": 0.67,
+ "time_utc": "2026-10-19 14:54",
+ "title": "گائے میاں اور تنخواہ کا امتحان",
  "dry_run": false
 }
