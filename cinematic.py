@@ -503,7 +503,7 @@ def clip_looks_good(path):
         st = subprocess.run(["ffmpeg", "-i", path, "-vf", "signalstats,metadata=print:key=lavfi.signalstats.YAVG",
                              "-f", "null", "-"], capture_output=True, text=True).stderr
         ys = [float(x) for x in re.findall(r"YAVG=([0-9.]+)", st)]
-        if not ys or sum(ys) / len(ys) < 22:
+        if not ys or sum(ys) / len(ys) < 14:
             log(f"clip {os.path.basename(path)} bahut andheri (Y={sum(ys) / max(len(ys), 1):.0f}) - reject")
             return False
         parts = []
@@ -513,10 +513,11 @@ def clip_looks_good(path):
             parts.append(types.Part.from_bytes(data=open(jpg, "rb").read(), mime_type="image/jpeg"))
         if _client is None:
             _client = genai.Client(api_key=GEMINI_KEY)
-        parts.append("These are 3 frames of one AI-generated video clip for a fantasy YouTube channel. Be strict. "
-                     "Is there any visibly deformed or melting face, wrong eyes, broken hands or limbs, "
-                     "body horror, garbled shapes, or ugly low-quality artifacts that would make viewers think "
-                     'the channel is bad? Answer JSON {"good": true/false}')
+        parts.append("These are 3 frames of one AI-generated video clip for a fantasy YouTube channel. "
+                     "Answer good=false ONLY if there is a clearly visible problem a normal viewer would notice: "
+                     "a deformed or melting face, broken hands or limbs, body horror, garbled mess, or a mostly "
+                     "black/blank image. Dark night scenes and stylised fantasy creatures are fine. "
+                     'Answer JSON {"good": true/false}')
         for model in MODELS[::-1]:
             try:
                 res = _client.models.generate_content(
@@ -542,20 +543,22 @@ def kaggle_clips(script, job, base_seed):
     chars = script.get("characters", "")
     jobs = []
     for i, sc in enumerate(script["scenes"]):
-        shot = ((sc.get("shots") or [])[:1] or [sc["text"]])[0]
+      # Short: har shot chalti hui (poori video motion). Lambi: har scene ki pehli shot (quota)
+      shots = (sc.get("shots") or [])[:SHOTS] or [sc["text"]]
+      for j, shot in enumerate(shots[:1] if LONG else shots):
         # chehre kareeb se nahi (free model mein bigarte hain) - bare, door ke, epic scenes
         prompt = (f"Epic wide cinematic shot, movie quality, dramatic camera motion, realistic lighting, "
                   f"highly detailed environment, people only small in the distance or seen from behind "
                   f"or as silhouettes, no close-up faces: {shot}"
                   + (f". Characters (seen from afar): {chars}" if chars else ""))[:700]
-        jobs.append({"id": i, "prompt": prompt, "seed": base_seed + i})
+        jobs.append({"id": i * 10 + j, "prompt": prompt, "seed": base_seed + i * 10 + j})
     w, h = (832, 480) if LONG else (640, 640)
     REPORT["kaggle_log"] = []
 
     def klog(m):
         log(m)
         REPORT["kaggle_log"].append(str(m)[:400])
-    got = kaggle_video.generate(jobs, w, h, WORK, klog, max_minutes=250 if LONG else 110)
+    got = kaggle_video.generate(jobs, w, h, WORK, klog, max_minutes=240 if LONG else 210, steps=22)
     REPORT["ai_motion_clips"] = len(got)
     return got
 
@@ -614,8 +617,7 @@ def build_video(script, out_path):
         for j, prompt in enumerate(shots):
             full = f"{prompt}. Characters: {chars}" if chars else prompt
             out = f"c{i}_{j}.mp4"
-            if j == 0:
-                first_shot[i] = (out, seg)
+            first_shot[i * 10 + j] = (out, seg)
             img = get_image(full[:900], base_seed + i * 10 + j, os.path.join(job, f"i{i}_{j}.jpg"))
             shot_clip(job, os.path.basename(img) if img else None, seg, len(clips), out, fx)
             clips.append(out)
@@ -824,6 +826,11 @@ def _main():
         raise RuntimeError("YouTube (YT_CLIENT_ID/YT_CLIENT_SECRET/YT_REFRESH_TOKEN) ya Facebook "
                            "(CINE_FB_PAGE_ID/CINE_FB_TOKEN) secrets missing hain")
     history = load_history()
+    import slot_wait as _sw
+    _t = _sw.target_time()
+    if _t is not None and any(str(h.get("date", "")).startswith(f"{_t:%Y-%m-%d}") for h in history):
+        log("Aaj ki is waqt wali video pehle hi lag chuki (backup run) - skip")
+        return
     st = series_state(history)
     script = write_story(history, st)
     script["part"] = st["part"]
@@ -836,7 +843,7 @@ def _main():
         import kaggle_video
         uses_k = kaggle_video.enabled() and not MOVIE and (
             not LONG or datetime.datetime.utcnow().weekday() in KAGGLE_LONG_DAYS)
-        need = (330 if LONG else 120) if uses_k else (110 if LONG else 45)
+        need = (300 if LONG else 240) if uses_k else (110 if LONG else 45)
         secs = (tgt - datetime.timedelta(minutes=need) - datetime.datetime.utcnow()).total_seconds()
         if secs > 0:
             log(f"Pehle {int(secs // 60)} minute intezar, phir video banegi")
