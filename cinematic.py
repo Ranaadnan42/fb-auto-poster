@@ -501,7 +501,12 @@ def kaggle_clips(script, job, base_seed):
                   + (f". Characters: {chars}" if chars else ""))[:700]
         jobs.append({"id": i, "prompt": prompt, "seed": base_seed + i})
     w, h = (832, 480) if LONG else (640, 640)
-    got = kaggle_video.generate(jobs, w, h, WORK, log, max_minutes=250 if LONG else 110)
+    REPORT["kaggle_log"] = []
+
+    def klog(m):
+        log(m)
+        REPORT["kaggle_log"].append(str(m)[:400])
+    got = kaggle_video.generate(jobs, w, h, WORK, klog, max_minutes=250 if LONG else 110)
     REPORT["ai_motion_clips"] = len(got)
     return got
 
