@@ -399,7 +399,7 @@ def ass_text(s):
 
 
 def make_ass(path, timed, total, title):
-    sub_top = IMG_Y + IMG + 50
+    sub_top = 1000                                     # beech mein - neeche YouTube ka text dhak deta tha
     head = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {W}
@@ -710,6 +710,16 @@ def upload_youtube(path, script):
             if r.status_code in (200, 201):
                 vid = r.json()["id"]
                 log(f"YouTube uploaded: https://youtu.be/{vid}")
+                try:                                       # auto thumbnail (channel phone-verified hona chahiye)
+                    import yt
+                    img = yt.make_thumbnail(path, script.get("title") or title, f"yt_thumb_{vid}.jpg", "en")
+                    with open(img, "rb") as f:
+                        t = requests.post(f"https://www.googleapis.com/upload/youtube/v3/thumbnails/set?videoId={vid}",
+                                          headers={"Authorization": f"Bearer {token}", "Content-Type": "image/jpeg"},
+                                          data=f.read(), timeout=120)
+                    log(f"thumbnail: {t.status_code} {t.text[:150] if t.status_code != 200 else 'set'}")
+                except Exception as e:
+                    log(f"thumbnail skip: {str(e)[:200]}")
                 return vid
             log(f"YouTube upload {r.status_code}: {r.text[:300]}")
         except Exception as e:

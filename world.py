@@ -448,8 +448,8 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Sub,{FONT},{sub},&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,3,1,2,120,120,{70 if LONG else 380},1
-Style: Label,{FONT},{40 if LONG else 50},&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,1,0,0,0,100,100,1,0,3,10,0,1,70,70,{150 if LONG else 520},1
+Style: Sub,{FONT},{sub},&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,3,1,{2 if LONG else 8},120,120,{70 if LONG else 1000},1
+Style: Label,{FONT},{40 if LONG else 50},&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,1,0,0,0,100,100,1,0,3,10,0,1,70,70,{150 if LONG else 1000},1
 Style: Chap,{FONT},{92 if LONG else 96},&H0050D7FF,&H0050D7FF,&H00000000,&H96000000,1,0,0,0,100,100,4,0,1,4,3,5,80,80,0,1
 Style: Card,{FONT},{44 if LONG else 52},&H00FFFFFF,&H00FFFFFF,&H00000000,&HA0000000,1,0,0,0,100,100,0,0,3,18,0,7,90,90,{120 if LONG else 300},1
 Style: Title,{FONT},{100 if LONG else 92},&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,1,0,0,0,100,100,3,0,1,5,3,5,80,80,0,1

@@ -363,7 +363,7 @@ def make_ass(path, text, total, w, h, title=None):
     font = L["font"]
     sub_size = 76 if vertical else 64
     title_size = 84 if vertical else 76
-    sub_margin = 420 if vertical else 80
+    sub_margin = 1000 if vertical else 80          # reel: beech mein (neeche YouTube/FB ka text dhak deta tha)
     title_margin = 330 if vertical else 90
     head = f"""[Script Info]
 ScriptType: v4.00+
@@ -374,7 +374,7 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Sub,{font},{sub_size},&H00FFFFFF,&H00FFFFFF,&H70000000,&H70000000,1,0,0,0,100,100,0,0,3,14,0,2,80,80,{sub_margin},1
+Style: Sub,{font},{sub_size},&H00FFFFFF,&H00FFFFFF,&H70000000,&H70000000,1,0,0,0,100,100,0,0,3,14,0,{8 if vertical else 2},80,80,{sub_margin},1
 Style: Title,{font},{title_size},&H0050D7FF,&H0050D7FF,&H00000000,&H64000000,1,0,0,0,100,100,0,0,1,4,3,8,70,70,{title_margin},1
 Style: Mark,Noto Sans,{30 if vertical else 28},&H50FFFFFF,&H50FFFFFF,&H90000000,&H00000000,1,0,0,0,100,100,0,0,1,2,0,9,40,40,40,1
 

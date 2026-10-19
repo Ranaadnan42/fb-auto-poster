@@ -317,7 +317,7 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Sub,{FONT},{96 if vertical else 74},&H0000F0FF,&H0000F0FF,&H00000000,&H96000000,1,0,0,0,100,100,0,0,1,7,3,2,60,60,{560 if vertical else 80},1
+Style: Sub,{FONT},{96 if vertical else 74},&H0000F0FF,&H0000F0FF,&H00000000,&H96000000,1,0,0,0,100,100,0,0,1,7,3,{8 if vertical else 2},60,60,{1000 if vertical else 80},1
 Style: Meme,{FONT},{70 if vertical else 60},&H00000000,&H00000000,&H00FFFFFF,&H00FFFFFF,1,0,0,0,100,100,0,0,3,22,0,8,50,50,{170 if vertical else 50},1
 Style: Title,{FONT},{80 if vertical else 72},&H00FFFFFF,&H00FFFFFF,&H002A2AE0,&H002A2AE0,1,0,0,0,100,100,0,0,3,18,0,8,60,60,{300 if vertical else 80},1
 Style: Mark,Noto Sans,{32 if vertical else 28},&H40FFFFFF,&H40FFFFFF,&H80000000,&H00000000,1,0,0,0,100,100,0,0,1,2,0,9,40,40,40,1
