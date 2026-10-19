@@ -1,12 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 11,
+ "stock_clips": 44,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
- "laughs": 3,
- "reel_minutes": 0.67,
- "time_utc": "2026-10-19 14:54",
- "title": "گائے میاں اور تنخواہ کا امتحان",
+ "format": "story",
+ "long_minutes": 5.05,
+ "series": "چمپا کلی اور واٹس ایپ گروپ کا طوفان | قسط 1 part 2 (cartoon)",
+ "laughs": 7,
+ "time_utc": "2026-10-19 17:05",
+ "title": "چمپا کلی اور واٹس ایپ گروپ کا طوفان | قسط 1 | قسط 2",
  "dry_run": false
 }
