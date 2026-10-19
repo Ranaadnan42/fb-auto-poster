@@ -3,10 +3,19 @@
  "images_backup": 0,
  "images_failed": 0,
  "errors": [],
- "seconds": 147.2,
- "time_utc": "2026-10-18 18:58",
- "title": "Titan of the Iron Peak (Part 3/3)",
- "part": 3,
- "dry_run": false,
- "posted": 1
+ "kaggle_log": [
+  "Kaggle quota: usage: kaggle [-h] [-v] [-W] |               {competitions,c,datasets,d,kernels,k,models,m,files,forums,f,benchmarks,b,config,auth,quota} |               ... | kaggle: error: unrecognized arguments: view | ",
+  "Kaggle push: Kernel version 2 successfully pushed.  Please check progress at https://www.kaggle.com/code/ranaadnanking/legends-motion-clips",
+  "Kaggle status: ranaadnanking/legends-motion-clips has status \"kernelworkerstatus.complete\" (71 min)",
+  "clips/clip_6.mp4\nOutput file downloaded to work_cine/kclips/clip_7.mp4\nOutput file downloaded to work_cine/kclips/clip_8.mp4\nOutput file downloaded to work_cine/kclips/clip_9.mp4\nOutput file downloaded to work_cine/kclips/done.json\nKernel log downloaded to work_cine/kclips/legends-motion-clips.log \n",
+  "Kaggle result: {\"gpus\": 2, \"clips\": 10, \"minutes\": 69.5}",
+  "Kaggle clips mile: 10/10"
+ ],
+ "ai_motion_clips": 10,
+ "seconds": 156.8,
+ "time_utc": "2026-10-19 01:28",
+ "title": "Curse of the Whispering Wild | Part 1",
+ "part": 1,
+ "dry_run": true,
+ "posted": 0
 }
