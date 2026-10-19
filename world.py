@@ -550,7 +550,7 @@ def ass_text(s):
 
 
 def make_ass(path, text, dur, label=None, chapter=None, card=None, title=None):
-    sub = 46 if LONG else 62
+    sub = (54 if LONG else 78) if URDU else (46 if LONG else 62)   # Urdu harf chhote lagte hain
     head = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {W}
@@ -560,7 +560,7 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Sub,{FONT},{sub},&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,3,1,{2 if LONG else 8},120,120,{70 if LONG else 1000},1
+Style: Sub,{FONT},{sub},&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,{1 if URDU else 0},0,0,0,100,100,0,0,1,3,1,{2 if LONG else 8},120,120,{70 if LONG else 1000},1
 Style: Label,{FONT},{40 if LONG else 50},&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,1,0,0,0,100,100,{0 if URDU else 1},0,3,10,0,1,70,70,{150 if LONG else 1000},1
 Style: Chap,{FONT},{92 if LONG else 96},&H0050D7FF,&H0050D7FF,&H00000000,&H96000000,1,0,0,0,100,100,{0 if URDU else 4},0,1,4,3,5,80,80,0,1
 Style: Card,{FONT},{44 if LONG else 52},&H00FFFFFF,&H00FFFFFF,&H00000000,&HA0000000,1,0,0,0,100,100,0,0,3,18,0,7,90,90,{120 if LONG else 300},1
