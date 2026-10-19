@@ -85,6 +85,8 @@ WORK = "work_cine"
 PARTS = 1 if (LONG or MOVIE) else 3
 if MOVIE and not LONG:
     SCENES = 10                 # Short 3 minute se kam rahe (YouTube Shorts ki had)
+# test: 2 GPU par 10 clips 69.5 min -> hafte mein 7 Shorts + 5 lambi videos motion ke saath
+KAGGLE_LONG_DAYS = (0, 1, 2, 4, 6)    # Mon Tue Wed Fri Sun
 MODELS = ["gemini-3.5-flash", "gemini-3.8-flash", "gemini-3.5-flash-lite"]
 GRAPH_VER = "v23.0"
 
@@ -526,7 +528,7 @@ def kaggle_clips(script, job, base_seed):
     import kaggle_video
     if MOVIE or not kaggle_video.enabled():
         return {}
-    if LONG and datetime.datetime.utcnow().weekday() not in (0, 2, 4, 6):
+    if LONG and datetime.datetime.utcnow().weekday() not in KAGGLE_LONG_DAYS:
         log("Aaj lambi video purane tareeqe se (Kaggle quota hafte ke liye bachaya)")
         return {}
     chars = script.get("characters", "")
@@ -825,7 +827,7 @@ def _main():
     if tgt is not None:
         import kaggle_video
         uses_k = kaggle_video.enabled() and not MOVIE and (
-            not LONG or datetime.datetime.utcnow().weekday() in (0, 2, 4, 6))
+            not LONG or datetime.datetime.utcnow().weekday() in KAGGLE_LONG_DAYS)
         need = (330 if LONG else 120) if uses_k else (110 if LONG else 45)
         secs = (tgt - datetime.timedelta(minutes=need) - datetime.datetime.utcnow()).total_seconds()
         if secs > 0:

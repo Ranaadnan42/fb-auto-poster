@@ -83,6 +83,11 @@ jobs:
             fi
           }
 
+      - name: Preview (dry run)
+        if: ${{ inputs.dry_run }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash tools/preview.sh final_cinematic.mp4 legends_${{ inputs.mode }} || true
       - name: Keep video (dry run)
         if: ${{ inputs.dry_run }}
         uses: actions/upload-artifact@v4

@@ -105,7 +105,7 @@ def generate(jobs, w, h, work, log=print, max_minutes=240, frames=49, steps=30):
                        "enable_internet": True, "dataset_sources": [], "competition_sources": [],
                        "kernel_sources": []}, f)
         try:
-            log("Kaggle quota: " + _kg("quota", "view")[:300].replace("\n", " | "))
+            log("Kaggle quota: " + _kg("quota")[:300].replace("\n", " | "))
         except Exception:
             pass
         res = _kg("kernels", "push", "-p", kdir, "--accelerator", "NvidiaTeslaT4")
