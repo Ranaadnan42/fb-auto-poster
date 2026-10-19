@@ -1,0 +1,92 @@
+name: Frames of Life (Urdu World Documentaries)
+
+on:
+  schedule:
+    # Pakistan/Gulf audience. Run pehle chalta hai, video bana kar POST_AT par upload (slot_wait)
+    - cron: '17 12 * * *'   # post 13:17 UTC = 6:17 shaam Pakistan -> Short
+    - cron: '7 15 * * *'    # post 17:07 UTC = 10:07 raat Pakistan -> Lambi documentary (~11 min)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'short ya long'
+        type: choice
+        options: [long, short]
+        default: long
+      dry_run:
+        description: 'Sirf video banaye, upload na kare'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: frames-poster
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install google-genai "edge-tts>=7.3.0" requests pillow
+      - name: Run world.py (Urdu)
+        env:
+          WORLD_LANG: ur
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_FRAMES_CLIENT_ID: ${{ secrets.YT_FRAMES_CLIENT_ID }}
+          YT_FRAMES_CLIENT_SECRET: ${{ secrets.YT_FRAMES_CLIENT_SECRET }}
+          YT_FRAMES_REFRESH_TOKEN: ${{ secrets.YT_FRAMES_REFRESH_TOKEN }}
+          MODE: ${{ inputs.mode || (github.event.schedule == '7 15 * * *' && 'long' || 'short') }}
+          POST_AT: ${{ github.event.schedule == '17 12 * * *' && '13:17' || github.event.schedule == '7 15 * * *' && '17:07' || '' }}
+          DRY_RUN: ${{ (github.event_name == 'workflow_dispatch' && inputs.dry_run) && '1' || '0' }}
+        run: |
+          python world.py || {
+            if grep -q '"fatal:' "frames_${MODE}_last_run.json" 2>/dev/null; then
+              echo "Pehli koshish fail - 3 minute baad dobara"; sleep 180; python world.py
+            else
+              exit 1
+            fi
+          }
+      - name: Preview (dry run)
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: bash tools/preview.sh final_frames.mp4 frames_${{ inputs.mode }} || true
+      - name: Keep video (dry run)
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: frames-video
+          path: final_frames.mp4
+          retention-days: 5
+      - name: Save history
+        if: always()
+        run: |
+          FILES=$(ls frames_*_history.json frames_*_last_run.json 2>/dev/null || true)
+          [ -z "$FILES" ] && exit 0
+          mkdir -p /tmp/keep
+          for f in $FILES; do cp "$f" /tmp/keep/; done
+          git config user.name "auto-poster"
+          git config user.email "auto-poster@users.noreply.github.com"
+          for i in 1 2 3 4 5; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            for f in $FILES; do cp "/tmp/keep/$f" "$f"; done
+            git add -A $FILES
+            git diff --cached --quiet && break
+            git commit -q -m "Update frames history and run report"
+            git push -q origin HEAD:main && break
+            sleep $((i * 5))
+          done

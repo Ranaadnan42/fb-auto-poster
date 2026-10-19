@@ -6,6 +6,8 @@ Atlas Untold - duniya ke mulkon/sheharon ki asli documentary (YouTube, English).
 - Pakke numbers: World Bank (abadi) + Wikipedia (taaruf). AI andaza nahi lagata.
 - Lambi (~11 min, chapters) ya Short (~55 sec, vertical). MODE=long / short
 Secrets: GEMINI_API_KEY, PIXABAY_API_KEY, (PEXELS_API_KEY), YT_WORLD_CLIENT_ID/SECRET/REFRESH_TOKEN
+WORLD_LANG=ur -> "Frames of Life": wahi bot Urdu mein, Pakistanion ke liye bahar ki zindagi,
+kharcha us mulk ki currency + Pakistani rupay dono mein. Secrets: YT_FRAMES_*
 """
 import os
 import re
@@ -26,14 +28,19 @@ PEXELS_KEY = os.environ.get("PEXELS_API_KEY")
 DRY_RUN = os.environ.get("DRY_RUN") == "1"
 MODE = (os.environ.get("MODE") or "long").strip().lower()
 LONG = MODE != "short"
-CHANNEL = (os.environ.get("WORLD_CHANNEL") or "Atlas Untold").strip()
+URDU = (os.environ.get("WORLD_LANG") or "en").strip().lower() == "ur"
+CHANNEL = (os.environ.get("WORLD_CHANNEL") or ("Frames of Life" if URDU else "Atlas Untold")).strip()
+YT_NAME = "frames" if URDU else "world"
+SCORE_NAME = "Frames Score" if URDU else "Atlas Score"
 W, H = (1920, 1080) if LONG else (1080, 1920)
-VOICE, RATE = "en-GB-RyanNeural", "-6%"
-FONT = "Noto Sans"
+VOICE, RATE = ("ur-PK-AsadNeural", "-4%") if URDU else ("en-GB-RyanNeural", "-6%")
+FONT = "Noto Naskh Arabic" if URDU else "Noto Sans"
 FONTS_DIR = os.path.abspath("fonts")
-WORK = "work_world"
-HISTORY_FILE = f"world_{MODE}_history.json"
-REPORT_FILE = f"world_{MODE}_last_run.json"
+PFX = "frames" if URDU else "world"
+WORK = f"work_{PFX}"
+HISTORY_FILE = f"{PFX}_{MODE}_history.json"
+REPORT_FILE = f"{PFX}_{MODE}_last_run.json"
+OUT_FILE = f"final_{PFX}.mp4"
 MODELS = ["gemini-3.5-flash", "gemini-3.8-flash", "gemini-3.5-flash-lite"]
 UA = {"User-Agent": "AtlasUntoldBot/1.0 (youtube documentary; contact ranaadnan320@gmail.com)"}
 GEO_URL = ("https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/"
@@ -68,7 +75,54 @@ SERIES_HINT = {
     "hidden": "'Hidden places in <country>' - 5 beautiful lesser known real places",
     "versus_short": "'<A> vs <B>' quick comparison of two countries",
     "living_short": "'Would you live in <city>?' - quick pros/cons and cost",
+    # ---- Frames of Life (Urdu) - Pakistani nazar se
+    "pk_living": "'<country> mein Pakistani ki zindagi': rent, khana, transport, typical salaries in general "
+                 "terms, jobs Pakistanis do there, Pakistani community, mosques and halal food, weather, "
+                 "safety, best cities for Pakistanis, honest pros and cons",
+    "pk_moving": "'<country> jane se pehle yeh zaroor jaan lein' - what Pakistanis should know before moving "
+                 "there for work or study: visa types in general terms (no fake fees), cost, culture, rules, "
+                 "common mistakes, how to stay safe from fake agents",
+    "pk_versus": "comparison of TWO countries or cities popular with Pakistanis (e.g. Dubai vs Riyadh, "
+                 "Canada vs Australia): cost, salaries, saving, life, family life",
+    "pk_country": "a complete documentary about ONE country (geography, population, peoples, religion, "
+                  "languages, history, culture, food, best cities, living and cost) for Pakistani viewers",
+    "pk_city": "a complete documentary about ONE famous city (history, areas, people, culture, food, "
+               "landmarks, cost of living, Pakistani community there)",
+    "pk_jobs": "'<country> mein kaun se kaam milte hain': common jobs for Pakistanis there, skills needed, "
+               "general salary ranges, saving potential, how to find real jobs safely",
+    "pk_best_list": "a ranked list like '7 sab se sasti mulk jahan Pakistani ache se reh sakte hain' or "
+                    "'Muslim mumalik jahan zindagi aasaan hai' - each entry a short chapter",
+    "pk_cost_short": "'<city> mein ek mahine ka kharcha' quick honest overview for a Pakistani",
+    "pk_salary_short": "'<country> mein kitna kama kar kitna bacha sakte hain' quick overview",
+    "pk_facts": "'<country> ke hairan kun haqaiq' - 6 short surprising true facts",
+    "pk_versus_short": "'<A> ya <B>: Pakistani ke liye kaun behtar?' quick comparison",
+    "pk_food": "'<country> ke mashhoor khane' - 5 famous dishes, halal tips",
+    "pk_city_facts": "'<city> 60 second mein' - the most striking things about one city",
+    "pk_hidden": "'<country> ki khoobsurat chhupi jagahein' - 5 beautiful lesser known real places",
 }
+if URDU:
+    LONG_SERIES = ["pk_living", "pk_moving", "pk_versus", "pk_country", "pk_jobs", "pk_city", "pk_best_list"]
+    SHORT_SERIES = ["pk_cost_short", "pk_salary_short", "pk_facts", "pk_versus_short", "pk_food",
+                    "pk_city_facts", "pk_hidden"]
+
+
+def fx_rates(codes):
+    """Aaj ka rate (free, bina key): 1 <currency> = kitne PKR. Fail ho to {}."""
+    try:
+        j = requests.get("https://open.er-api.com/v6/latest/USD", timeout=30, headers=UA).json()
+        rt = j.get("rates", {})
+        pkr = rt.get("PKR")
+        out = {}
+        for c in codes:
+            c = (c or "").upper()
+            if pkr and rt.get(c):
+                out[c] = f"1 {c} = {pkr / rt[c]:,.2f} PKR (rate {j.get('time_last_update_utc', '')[:16]})"
+        if pkr:
+            out["USD"] = f"1 USD = {pkr:,.2f} PKR"
+        return out
+    except Exception as e:
+        log(f"fx skip: {str(e)[:120]}")
+        return {}
 
 os.makedirs(WORK, exist_ok=True)
 REPORT = {"mode": MODE, "clips": 0, "clips_rejected": 0, "vision_checks": 0, "errors": []}
@@ -196,7 +250,7 @@ def atlas_score(le, hom, plr, gdp):
     if len(parts) < 3:
         return None
     parts = {k: round(v, 1) for k, v in parts.items()}
-    parts["Atlas Score"] = round(sum(parts.values()) / len(parts), 1)
+    parts[SCORE_NAME] = round(sum(parts.values()) / len(parts), 1)
     return parts
 
 
@@ -226,6 +280,10 @@ def gather_facts(plan):
         }
     for city in plan.get("cities", [])[:2]:
         facts[city] = {"wikipedia": wiki_summary(city)[:1200]}
+    if URDU:
+        fx = fx_rates([c.get("currency") for c in plan.get("countries", [])])
+        if fx:
+            facts["exchange_rates_today"] = fx
     for name, f in facts.items():
         if isinstance(f, dict) and f.get("atlas_score"):
             SCORES.append((name, f["atlas_score"]))
@@ -237,19 +295,25 @@ def plan_topic(history):
     n = len(history)
     series = (LONG_SERIES if LONG else SHORT_SERIES)[n % 7]
     used = [h.get("subject", "") for h in history[-300:]]
+    aud = ("The audience is Pakistanis (in Pakistan and the Gulf) who dream of living, working or studying "
+           "abroad. Prefer countries/cities popular with Pakistanis (Gulf, Europe, UK, Canada, Australia, "
+           "Turkey, Malaysia, Japan, China, Central Asia) but rotate widely.\n" if URDU else "")
     plan = ask_json(f"""You plan the next video for the YouTube travel & world documentary channel "{CHANNEL}".
+{aud}
 Video type: {SERIES_HINT[series]}.
 Already covered (do NOT repeat the same subject for this type): {json.dumps(used)}
 Pick a subject with strong worldwide search interest and plenty of REAL stock footage online
 (well-known places are better). Rotate continents fairly over time.
 Return JSON: {{"subject": "short subject e.g. Japan / Kyoto, Japan / Dubai vs Doha",
- "countries": [{{"name": "English country name", "iso3": "ISO 3166 alpha-3"}}],
+ "countries": [{{"name": "English country name", "iso3": "ISO 3166 alpha-3", "currency": "ISO 4217 code"}}],
  "cities": ["main city names involved (0-3)"]}}""")
     plan["series"] = series
     return plan
 
 
 def write_script(plan, facts):
+    if URDU:
+        return write_script_ur(plan, facts)
     if LONG:
         shape = """"chapters": [{"name": "chapter title (e.g. History)", "scenes": [scene, ...]}, ...]
 7-10 chapters, 34-42 scenes in total, about 1500-1700 words in total (about 11 minutes spoken).
@@ -292,6 +356,54 @@ Return JSON:
  {shape}
  }}
 scene = {{"text": "narration 1-3 sentences", "place": "...", "search": ["..."], "label": "...", "score": false}}""", temp=0.7)
+
+
+def write_script_ur(plan, facts):
+    if LONG:
+        shape = """"chapters": [{"name": "chapter ka naam Urdu mein", "scenes": [scene, ...]}, ...]
+7-10 chapters, 34-42 scenes in total, about 1500-1700 Urdu words in total (about 11 minutes spoken).
+FIRST chapter = short hook (2 scenes). LAST chapter = short conclusion: ask viewers in which country they
+would like to live, and to subscribe to Frames of Life."""
+    else:
+        shape = """"chapters": [{"name": "main", "scenes": [scene, ...]}]
+8-10 scenes, 120-140 Urdu words in total (about 55 seconds). Scene 1 is a strong hook. Last scene: a question
+for the comments and 'Frames of Life ko subscribe karein'."""
+    return ask_json(f"""You write a premium Urdu documentary (style of BBC Urdu / National Geographic) for the
+YouTube channel "{CHANNEL}" for Pakistani viewers. Type: {SERIES_HINT[plan['series']]}. Subject: {plan['subject']}.
+
+VERIFIED FACTS (use these numbers exactly, never invent statistics; if a number is not here, describe
+in words or say 'taqreeban' with a clearly rough everyday price):
+{json.dumps(facts, ensure_ascii=False)[:6500]}
+
+Rules:
+- Narration ("text") in natural spoken Urdu, in URDU SCRIPT (اردو), simple words like a Pakistani friend
+  who lives there. No English sentences, no emojis/symbols. Common English words (job, visa, rent) are ok
+  written in Urdu script.
+- MONEY: whenever you mention a price/salary/rent, say it in the LOCAL currency AND in Pakistani rupees
+  using exchange_rates_today, e.g. "تقریباً 3000 درہم، یعنی تقریباً 2 لاکھ 30 ہزار پاکستانی روپے".
+  Write numbers as digits. Prices must be realistic, clearly approximate; never fake visa fees.
+- Religion, ethnicity, politics: respectful, neutral, factual. Mention mosques/halal food where useful.
+- Warn kindly about fake agents and illegal routes where relevant; never encourage illegal migration.
+- Every scene is about ONE concrete visible thing (a landmark, street, market, dish, office, nature).
+- "search": 2-3 SHORT ENGLISH stock-video search phrases that MUST include the place name
+  (e.g. "Dubai Marina", "Dubai metro", "Riyadh skyline"). Only filmable things.
+- "place": the city/region + country of that scene IN ENGLISH (e.g. "Dubai, United Arab Emirates").
+- "label": short on-screen place label in Urdu script (max 4 words) or "".
+- If VERIFIED FACTS has "atlas_score", one scene near the end presents the "{SCORE_NAME}" (our own rating
+  from World Bank data: safety, health, affordability, economy, each out of 10). Put that scene's "score": true.
+
+Return JSON:
+{{"title": "documentary title in Urdu script",
+ "yt_title": "high-CTR YouTube title in Urdu script with the place name, max 70 chars, honest; may end with
+   a short English part after | e.g. '... | Life in Dubai'",
+ "thumb_text": "2-4 big Urdu words for the thumbnail",
+ "description": "3 short SEO paragraphs in Urdu script, then one short English paragraph (no timestamps, no hashtags)",
+ "hashtags": ["#8 hashtags, mix Urdu-Roman and English e.g. #DubaiLife #PakistaniAbroad"],
+ "keywords": "8-12 search keywords separated by ' | ' (Roman Urdu + English, e.g. dubai mein naukri | life in dubai)",
+ "fact_card": ["4 short lines in Urdu script for an on-screen fact card, using VERIFIED FACTS"],
+ {shape}
+ }}
+scene = {{"text": "Urdu narration 1-3 sentences", "place": "...", "search": ["..."], "label": "...", "score": false}}""", temp=0.7)
 
 
 # ---------------------------------------------------------------- asli footage
@@ -449,10 +561,10 @@ ScaledBorderAndShadow: yes
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: Sub,{FONT},{sub},&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,3,1,{2 if LONG else 8},120,120,{70 if LONG else 1000},1
-Style: Label,{FONT},{40 if LONG else 50},&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,1,0,0,0,100,100,1,0,3,10,0,1,70,70,{150 if LONG else 1000},1
-Style: Chap,{FONT},{92 if LONG else 96},&H0050D7FF,&H0050D7FF,&H00000000,&H96000000,1,0,0,0,100,100,4,0,1,4,3,5,80,80,0,1
+Style: Label,{FONT},{40 if LONG else 50},&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,1,0,0,0,100,100,{0 if URDU else 1},0,3,10,0,1,70,70,{150 if LONG else 1000},1
+Style: Chap,{FONT},{92 if LONG else 96},&H0050D7FF,&H0050D7FF,&H00000000,&H96000000,1,0,0,0,100,100,{0 if URDU else 4},0,1,4,3,5,80,80,0,1
 Style: Card,{FONT},{44 if LONG else 52},&H00FFFFFF,&H00FFFFFF,&H00000000,&HA0000000,1,0,0,0,100,100,0,0,3,18,0,7,90,90,{120 if LONG else 300},1
-Style: Title,{FONT},{100 if LONG else 92},&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,1,0,0,0,100,100,3,0,1,5,3,5,80,80,0,1
+Style: Title,{FONT},{100 if LONG else 92},&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,1,0,0,0,100,100,{0 if URDU else 3},0,1,5,3,5,80,80,0,1
 Style: Mark,{FONT},28,&H60FFFFFF,&H60FFFFFF,&H90000000,&H00000000,1,0,0,0,100,100,0,0,1,2,0,9,40,40,40,1
 
 [Events]
@@ -598,7 +710,7 @@ def build(script, plan, out_path):
         card = script.get("fact_card") if (n == (2 if LONG else 1)) else None
         if sc.get("score") and SCORES:
             name, sco = SCORES[0]
-            card = [f"ATLAS SCORE - {name}"] + [f"{k}: {v}/10" for k, v in sco.items()]
+            card = [f"{SCORE_NAME.upper()} - {name}"] + [f"{k}: {v}/10" for k, v in sco.items()]
         title = script.get("title") if n == 0 else None
         make_ass(os.path.join(job, f"s{n}.ass"), text, dur - 0.45, label=sc.get("label") or None,
                  chapter=cname if first_of_chap else None, card=card, title=title)
@@ -625,17 +737,21 @@ def build(script, plan, out_path):
 def description(script, chapters_ts):
     d = script.get("description", "").strip()
     if chapters_ts:
-        lines = ["0:00 Intro"] + [f"{int(s // 60)}:{int(s % 60):02d} {name}" for s, name in chapters_ts]
+        lines = ["0:00 " + ("تعارف" if URDU else "Intro")] + [f"{int(s // 60)}:{int(s % 60):02d} {name}" for s, name in chapters_ts]
         d += "\n\nChapters:\n" + "\n".join(lines)
     d += f"\n\n{script.get('keywords', '')}"
     if SCORES:
-        d += ("\n\nAtlas Score: our own rating out of 10 built only from World Bank data "
+        d += (f"\n\n{SCORE_NAME}: our own rating out of 10 built only from World Bank data "
               "(safety, health, affordability, economy). It is a guide, not advice.")
+    if URDU:
+        d += ("\n\nنوٹ: قیمتیں اور تنخواہیں تقریباً ہیں اور وقت کے ساتھ بدلتی ہیں۔ ویزا اور نوکری کے لیے صرف سرکاری "
+              "ذرائع اور رجسٹرڈ ایجنٹ پر بھروسہ کریں۔")
     aff = (os.environ.get("AFFILIATE_TEXT") or "").strip()
     if aff:
         d += "\n\n" + aff.replace("\\n", "\n")
     d += ("\n\nFootage: real stock video from Pixabay / Pexels contributors. "
-          "Facts: World Bank, Wikipedia. Narration voice is synthetic.")
+          "Facts: World Bank, Wikipedia" + (", exchange rates: open.er-api.com" if URDU else "") +
+          ". Narration voice is synthetic.")
     d += "\n\n" + " ".join(script.get("hashtags", [])[:10])
     return d
 
@@ -643,8 +759,8 @@ def description(script, chapters_ts):
 def _main():
     if not DRY_RUN:
         import yt
-        if not yt.enabled("world"):
-            log("YT_WORLD_* secrets abhi nahi - channel connect hone tak skip")
+        if not yt.enabled(YT_NAME):
+            log(f"YT_{YT_NAME.upper()}_* secrets abhi nahi - channel connect hone tak skip")
             return
     history = load_history()
     plan = None
@@ -654,7 +770,7 @@ def _main():
             log(f"Topic: {plan['series']} | {plan['subject']}")
             facts = gather_facts(plan)
             script = write_script(plan, facts)
-            chapters_ts = build(script, plan, "final_world.mp4")
+            chapters_ts = build(script, plan, OUT_FILE)
             break
         except Exception as e:
             log(f"try {attempt + 1} fail: {str(e)[:300]}")
@@ -671,12 +787,12 @@ def _main():
         import yt
         import slot_wait
         slot_wait.wait(log)
-        if yt.enabled("world"):
-            entry["yt_id"] = yt.upload("world", "final_world.mp4", entry["title"], desc,
-                                       short=not LONG, lang="en", category="19",
+        if yt.enabled(YT_NAME):
+            entry["yt_id"] = yt.upload(YT_NAME, OUT_FILE, entry["title"], desc,
+                                       short=not LONG, lang="ur" if URDU else "en", category="19",
                                        thumb_title=script.get("thumb_text"))
         else:
-            REPORT["errors"].append("YT_WORLD_* secrets nahi - upload skip")
+            REPORT["errors"].append(f"YT_{YT_NAME.upper()}_* secrets nahi - upload skip")
     history = [h for h in history if not h.get("skipped")] + [entry]
     if not DRY_RUN:
         save_history(history)
