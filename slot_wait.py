@@ -44,6 +44,9 @@ def wait(log=print):
     if secs <= 0:
         log(f"Post waqt {t:%H:%M} UTC guzar chuka - foran post")
         return
+    if secs > 120 * 60:                                   # GitHub par ghanton khali na baithein
+        log(f"Post waqt bahut door ({int(secs // 60)} min) - foran post")
+        return
     log(f"Video tayyar - {int(secs // 60)} minute intezar, post {t:%H:%M} UTC par hogi")
     while True:
         secs = (t - datetime.datetime.utcnow()).total_seconds()
