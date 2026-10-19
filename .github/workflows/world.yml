@@ -1,0 +1,86 @@
+name: Atlas Untold (World Documentaries)
+
+on:
+  schedule:
+    # USA/UK audience. Run pehle chalta hai, video bana kar POST_AT par upload (slot_wait)
+    - cron: '47 11 * * *'   # post 14:47 UTC = 10:47 subah New York -> Short
+    - cron: '37 16 * * *'   # post 20:37 UTC = 4:37 shaam New York  -> Lambi documentary (~11 min)
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'short ya long'
+        type: choice
+        options: [long, short]
+        default: long
+      dry_run:
+        description: 'Sirf video banaye, upload na kare'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+
+concurrency:
+  group: world-poster
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg fonts-dejavu-core
+          pip install google-genai "edge-tts>=7.3.0" requests pillow
+      - name: Run world.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_WORLD_CLIENT_ID: ${{ secrets.YT_WORLD_CLIENT_ID }}
+          YT_WORLD_CLIENT_SECRET: ${{ secrets.YT_WORLD_CLIENT_SECRET }}
+          YT_WORLD_REFRESH_TOKEN: ${{ secrets.YT_WORLD_REFRESH_TOKEN }}
+          MODE: ${{ inputs.mode || (github.event.schedule == '37 16 * * *' && 'long' || 'short') }}
+          POST_AT: ${{ github.event.schedule == '47 11 * * *' && '14:47' || github.event.schedule == '37 16 * * *' && '20:37' || '' }}
+          DRY_RUN: ${{ (github.event_name == 'workflow_dispatch' && inputs.dry_run) && '1' || '0' }}
+        run: |
+          python world.py || {
+            if grep -q '"fatal:' "world_${MODE}_last_run.json" 2>/dev/null; then
+              echo "Pehli koshish fail - 3 minute baad dobara"; sleep 180; python world.py
+            else
+              exit 1
+            fi
+          }
+      - name: Keep video (dry run)
+        if: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: world-video
+          path: final_world.mp4
+          retention-days: 5
+      - name: Save history
+        if: always()
+        run: |
+          FILES=$(ls world_*_history.json world_*_last_run.json 2>/dev/null || true)
+          [ -z "$FILES" ] && exit 0
+          mkdir -p /tmp/keep
+          for f in $FILES; do cp "$f" /tmp/keep/; done
+          git config user.name "auto-poster"
+          git config user.email "auto-poster@users.noreply.github.com"
+          for i in 1 2 3 4 5; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            for f in $FILES; do cp "/tmp/keep/$f" "$f"; done
+            git add -A $FILES
+            git diff --cached --quiet && break
+            git commit -q -m "Update world history and run report"
+            git push -q origin HEAD:main && break
+            sleep $((i * 5))
+          done

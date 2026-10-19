@@ -111,7 +111,7 @@ def set_thumbnail(name, video_id, img):
     print(f"YouTube ({name}) thumbnail set", flush=True)
 
 
-def upload(name, path, title, description, short=False, lang="ur", category="22"):
+def upload(name, path, title, description, short=False, lang="ur", category="22", thumb_title=None):
     """Video upload karta hai (SEO tags + subscribe line + lambi video par auto thumbnail). Wapas: video id."""
     token = _token(name)
     tags = _seo_tags(description)
@@ -143,7 +143,7 @@ def upload(name, path, title, description, short=False, lang="ur", category="22"
                 vid = r.json()["id"]
                 print(f"YouTube ({name}) uploaded: https://youtu.be/{vid}", flush=True)
                 try:
-                    thumb = make_thumbnail(path, title, f"yt_thumb_{vid}.jpg", lang)
+                    thumb = make_thumbnail(path, thumb_title or title, f"yt_thumb_{vid}.jpg", lang)
                     set_thumbnail(name, vid, thumb)
                 except Exception as e:
                     print(f"thumbnail skip: {str(e)[:200]}", flush=True)

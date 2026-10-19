@@ -1,0 +1,639 @@
+"""
+Atlas Untold - duniya ke mulkon/sheharon ki asli documentary (YouTube, English).
+
+- Sirf ASLI camera footage (Pixabay "film" + Pexels agar PEXELS_API_KEY ho). AI/animation nahi.
+- Har clip us mulk/shehar ki: tags mein jagah ka naam + Gemini vision se check. Ghalat mulk = reject.
+- Pakke numbers: World Bank (abadi) + Wikipedia (taaruf). AI andaza nahi lagata.
+- Lambi (~11 min, chapters) ya Short (~55 sec, vertical). MODE=long / short
+Secrets: GEMINI_API_KEY, PIXABAY_API_KEY, (PEXELS_API_KEY), YT_WORLD_CLIENT_ID/SECRET/REFRESH_TOKEN
+"""
+import os
+import re
+import sys
+import json
+import math
+import time
+import random
+import asyncio
+import datetime
+import subprocess
+
+import requests
+
+GEMINI_KEY = os.environ.get("GEMINI_API_KEY")
+PIXABAY_KEY = os.environ.get("PIXABAY_API_KEY")
+PEXELS_KEY = os.environ.get("PEXELS_API_KEY")
+DRY_RUN = os.environ.get("DRY_RUN") == "1"
+MODE = (os.environ.get("MODE") or "long").strip().lower()
+LONG = MODE != "short"
+CHANNEL = (os.environ.get("WORLD_CHANNEL") or "Atlas Untold").strip()
+W, H = (1920, 1080) if LONG else (1080, 1920)
+VOICE, RATE = "en-GB-RyanNeural", "-6%"
+FONT = "Noto Sans"
+FONTS_DIR = os.path.abspath("fonts")
+WORK = "work_world"
+HISTORY_FILE = f"world_{MODE}_history.json"
+REPORT_FILE = f"world_{MODE}_last_run.json"
+MODELS = ["gemini-3.5-flash", "gemini-3.8-flash", "gemini-3.5-flash-lite"]
+UA = {"User-Agent": "AtlasUntoldBot/1.0 (youtube documentary; contact ranaadnan320@gmail.com)"}
+GEO_URL = ("https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/"
+           "ne_50m_admin_0_countries.geojson")
+
+# roz silsila badalta hai - viewer bor na ho, mauzu kabhi khatam na hon
+LONG_SERIES = ["country", "city", "living", "history", "country", "food_culture", "versus"]
+SHORT_SERIES = ["facts", "city_facts", "food", "facts", "hidden", "versus_short", "living_short"]
+SERIES_HINT = {
+    "country": "a complete documentary about ONE country (geography, population, peoples and "
+               "communities, religion, languages, history, culture and daily life, food, music and arts, "
+               "best cities, living and cost, travel tips)",
+    "city": "a complete documentary about ONE famous city (history, neighbourhoods, people, culture, food, "
+            "landmarks, living and cost, best time to visit)",
+    "living": "'Living in <country>': cost of living, rent, jobs, salaries in general terms, healthcare, "
+              "safety, best cities for families / students / workers, pros and cons",
+    "history": "the history of ONE country or civilisation from ancient times to today (big eras, empires, "
+               "turning points), filmed at real historic places of that country",
+    "food_culture": "the food, festivals, traditions, music and daily culture of ONE country",
+    "versus": "a comparison of TWO countries or two cities (living, cost, culture, safety, jobs, weather)",
+    "facts": "'Amazing facts about <country>' - 6 short surprising true facts",
+    "city_facts": "'<city> in 60 seconds' - the most striking things about one city",
+    "food": "'Must-try foods of <country>' - 5 famous dishes",
+    "hidden": "'Hidden places in <country>' - 5 beautiful lesser known real places",
+    "versus_short": "'<A> vs <B>' quick comparison of two countries",
+    "living_short": "'Would you live in <city>?' - quick pros/cons and cost",
+}
+
+os.makedirs(WORK, exist_ok=True)
+REPORT = {"mode": MODE, "clips": 0, "clips_rejected": 0, "vision_checks": 0, "errors": []}
+USED = set()
+_client = None
+
+
+def log(msg):
+    print(f"[{datetime.datetime.utcnow():%H:%M:%S}] {msg}", flush=True)
+
+
+def run(cmd, cwd=None):
+    r = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
+    if r.returncode != 0:
+        raise RuntimeError(f"cmd fail: {' '.join(cmd[:6])} ... {r.stderr[-600:]}")
+    return r.stdout
+
+
+def duration(path):
+    return float(run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0",
+                      path]).strip() or 0)
+
+
+def load_history():
+    try:
+        return json.load(open(HISTORY_FILE, encoding="utf-8"))
+    except Exception:
+        return []
+
+
+def save_history(h):
+    json.dump(h[-500:], open(HISTORY_FILE, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
+
+def write_report():
+    json.dump(REPORT, open(REPORT_FILE, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+
+
+# ---------------------------------------------------------------- Gemini
+def _gem():
+    global _client
+    from google import genai
+    if _client is None:
+        _client = genai.Client(api_key=GEMINI_KEY)
+    return _client
+
+
+def ask_json(prompt, temp=0.8):
+    from google.genai import types
+    last = None
+    for model in MODELS:
+        for attempt in range(2):
+            try:
+                res = _gem().models.generate_content(
+                    model=model, contents=prompt,
+                    config=types.GenerateContentConfig(response_mime_type="application/json",
+                                                       temperature=temp))
+                return json.loads(res.text)
+            except Exception as e:
+                last = e
+                log(f"{model} try {attempt + 1}: {str(e)[:160]}")
+                time.sleep(5)
+    raise RuntimeError(f"Gemini fail: {last}")
+
+
+def vision_ok(jpg, place, what):
+    """Gemini se poochho: kya yeh frame waqai is jagah ka hai? Error ho to None (tag par bharosa)."""
+    from google.genai import types
+    try:
+        data = open(jpg, "rb").read()
+        for model in MODELS[::-1]:                              # lite pehle - free quota zyada
+            try:
+                res = _gem().models.generate_content(
+                    model=model,
+                    contents=[types.Part.from_bytes(data=data, mime_type="image/jpeg"),
+                              f"This is a frame from a stock video found for '{what}' in {place}. "
+                              f"Could this realistically be real camera footage filmed in {place} "
+                              f"(not another country, not animation/CGI/AI art)? "
+                              'Answer JSON {"match": true/false}'],
+                    config=types.GenerateContentConfig(response_mime_type="application/json",
+                                                       temperature=0))
+                REPORT["vision_checks"] += 1
+                return bool(json.loads(res.text).get("match"))
+            except Exception as e:
+                last = str(e)
+                time.sleep(3)
+        log(f"vision skip: {last[:120]}")
+    except Exception:
+        pass
+    return None
+
+
+# ---------------------------------------------------------------- pakke facts
+def world_bank(iso3, code):
+    try:
+        j = requests.get(f"https://api.worldbank.org/v2/country/{iso3}/indicator/{code}",
+                         params={"format": "json", "mrnev": 1}, timeout=30, headers=UA).json()
+        row = j[1][0]
+        return row["value"], row["date"]
+    except Exception:
+        return None, None
+
+
+def wiki_summary(title):
+    try:
+        j = requests.get("https://en.wikipedia.org/api/rest_v1/page/summary/" +
+                         requests.utils.quote(title.replace(" ", "_")), timeout=30, headers=UA).json()
+        return j.get("extract", "")
+    except Exception:
+        return ""
+
+
+def gather_facts(plan):
+    facts = {}
+    for c in plan.get("countries", [])[:2]:
+        iso = (c.get("iso3") or "").upper()
+        if not re.fullmatch(r"[A-Z]{3}", iso):
+            continue
+        pop, yr = world_bank(iso, "SP.POP.TOTL")
+        urb, _ = world_bank(iso, "SP.URB.TOTL.IN.ZS")
+        area, _ = world_bank(iso, "AG.LND.TOTL.K2")
+        gdp, gyr = world_bank(iso, "NY.GDP.PCAP.CD")
+        facts[c["name"]] = {
+            "population": f"{pop / 1e6:.1f} million ({yr}, World Bank)" if pop else None,
+            "urban_population_percent": f"{urb:.0f}%" if urb else None,
+            "land_area_km2": f"{area:,.0f}" if area else None,
+            "gdp_per_person_usd": f"${gdp:,.0f} ({gyr})" if gdp else None,
+            "wikipedia": wiki_summary(c["name"])[:1500],
+        }
+    for city in plan.get("cities", [])[:2]:
+        facts[city] = {"wikipedia": wiki_summary(city)[:1200]}
+    return facts
+
+
+# ---------------------------------------------------------------- plan + script
+def plan_topic(history):
+    n = len(history)
+    series = (LONG_SERIES if LONG else SHORT_SERIES)[n % 7]
+    used = [h.get("subject", "") for h in history[-300:]]
+    plan = ask_json(f"""You plan the next video for the YouTube travel & world documentary channel "{CHANNEL}".
+Video type: {SERIES_HINT[series]}.
+Already covered (do NOT repeat the same subject for this type): {json.dumps(used)}
+Pick a subject with strong worldwide search interest and plenty of REAL stock footage online
+(well-known places are better). Rotate continents fairly over time.
+Return JSON: {{"subject": "short subject e.g. Japan / Kyoto, Japan / Dubai vs Doha",
+ "countries": [{{"name": "English country name", "iso3": "ISO 3166 alpha-3"}}],
+ "cities": ["main city names involved (0-3)"]}}""")
+    plan["series"] = series
+    return plan
+
+
+def write_script(plan, facts):
+    if LONG:
+        shape = """"chapters": [{"name": "chapter title (e.g. History)", "scenes": [scene, ...]}, ...]
+7-10 chapters, 34-42 scenes in total, about 1500-1700 words in total (about 11 minutes spoken).
+The FIRST chapter is a short cold-open hook (2 scenes) and the LAST chapter is a short conclusion that asks
+viewers which place they would choose and to subscribe to Atlas Untold."""
+    else:
+        shape = """"chapters": [{"name": "main", "scenes": [scene, ...]}]
+8-10 scenes, 120-140 words in total (about 55 seconds). Scene 1 is a strong hook. Last scene: a question
+for the comments and 'Subscribe to Atlas Untold'."""
+    return ask_json(f"""You write a premium documentary in the style of National Geographic / BBC travel films for
+the YouTube channel "{CHANNEL}". Type: {SERIES_HINT[plan['series']]}. Subject: {plan['subject']}.
+
+VERIFIED FACTS (use these numbers exactly, never invent other statistics; if a number is not here,
+describe in words without a number):
+{json.dumps(facts, ensure_ascii=False)[:6000]}
+
+Rules:
+- Calm, rich, cinematic narrator voice. Spoken plain English sentences only, no emojis/symbols/headings.
+- Cover (as fits the type): where it is, population, peoples and communities, religions, languages,
+  history, culture and daily life, traditions, food, music and arts, best cities, living and cost, travel tips.
+- Religion, ethnicity and politics: respectful, neutral, factual, no opinions, nothing offensive.
+- Every scene is about ONE concrete visible thing (a landmark, a street, a dish, a festival, nature).
+- "search": 2-3 short stock-video search phrases that MUST include the place name
+  (e.g. "Kyoto temple", "Fushimi Inari Kyoto", "Japan street food"). Only things that are filmable.
+- "place": the city/region + country of that scene (e.g. "Kyoto, Japan").
+- "label": short on-screen place label (max 4 words) or "" if none.
+
+Return JSON:
+{{"title": "documentary title",
+ "yt_title": "high-CTR YouTube title, max 70 chars, honest, includes the main place name",
+ "thumb_text": "2-4 big words for the thumbnail",
+ "description": "3 short SEO paragraphs for YouTube (no timestamps, no hashtags)",
+ "hashtags": ["#8 hashtags"],
+ "keywords": "6-10 search keywords separated by ' | '",
+ "fact_card": ["4 short lines for an on-screen fact card, e.g. 'Capital: Tokyo', using VERIFIED FACTS"],
+ {shape}
+ }}
+scene = {{"text": "narration 1-3 sentences", "place": "...", "search": ["..."], "label": "..."}}""", temp=0.7)
+
+
+# ---------------------------------------------------------------- asli footage
+def _words(place):
+    bad = {"the", "of", "and", "city", "republic", "kingdom", "state", "states", "united", "islands"}
+    return [w for w in re.findall(r"[a-z]+", place.lower()) if len(w) > 2 and w not in bad]
+
+
+def pixabay_search(q):
+    if not PIXABAY_KEY:
+        return []
+    try:
+        r = requests.get("https://pixabay.com/api/videos/", timeout=40, params={
+            "key": PIXABAY_KEY, "q": q[:90], "safesearch": "true", "per_page": 30, "video_type": "film"})
+        out = []
+        for h in r.json().get("hits", []):
+            v = h.get("videos", {})
+            pick = next((v[s] for s in ("large", "medium")
+                         if v.get(s, {}).get("url") and v[s].get("width", 0) >= 1280), None)
+            if pick and h.get("duration", 0) >= 4:
+                out.append({"id": f"px{h['id']}", "url": pick["url"], "text": h.get("tags", "").lower(),
+                            "dur": h.get("duration", 10)})
+        return out
+    except Exception as e:
+        log(f"Pixabay error: {str(e)[:120]}")
+        return []
+
+
+def pexels_search(q):
+    if not PEXELS_KEY:
+        return []
+    try:
+        r = requests.get("https://api.pexels.com/videos/search", timeout=40, headers={"Authorization": PEXELS_KEY},
+                         params={"query": q[:90], "per_page": 30,
+                                 "orientation": "landscape" if LONG else "portrait"})
+        out = []
+        for v in r.json().get("videos", []):
+            files = sorted([f for f in v.get("video_files", []) if f.get("width") and f.get("link")
+                            and (f["width"] >= 1280 or (not LONG and f["height"] >= 1280))],
+                           key=lambda f: f["width"])
+            if files and v.get("duration", 0) >= 4:
+                slug = (v.get("url") or "").lower().replace("-", " ")
+                out.append({"id": f"pe{v['id']}", "url": files[0]["link"], "text": slug, "dur": v["duration"]})
+        return out
+    except Exception as e:
+        log(f"Pexels error: {str(e)[:120]}")
+        return []
+
+
+def get_clips(scene, country_words, job, prefix, need):
+    """Is scene ke liye `need` asli clips: jagah ka naam tags mein + vision check. Kabhi doosra mulk nahi."""
+    place = scene.get("place") or ""
+    pw = _words(place)
+    queries = list(scene.get("search") or [])
+    city = place.split(",")[0].strip()
+    country = place.split(",")[-1].strip()
+    queries += [f"{city} aerial", city, f"{country} landscape", f"{country} city", country]
+    got = []
+    for q in queries:
+        if len(got) >= need:
+            break
+        cands = pexels_search(q) + pixabay_search(q)
+        random.shuffle(cands)
+        for c in cands:
+            if len(got) >= need:
+                break
+            if c["id"] in USED:
+                continue
+            # jagah (shehar ya mulk) ka naam tags/naam mein hona zaroori
+            if not any(w in c["text"] for w in pw + country_words):
+                continue
+            path = os.path.join(job, f"{prefix}_{len(got)}.mp4")
+            try:
+                with requests.get(c["url"], stream=True, timeout=180) as resp:
+                    resp.raise_for_status()
+                    with open(path, "wb") as f:
+                        for chunk in resp.iter_content(1 << 20):
+                            f.write(chunk)
+                if os.path.getsize(path) < 50000:
+                    continue
+                jpg = path + ".jpg"
+                run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{min(c['dur'] / 2, 3):.1f}", "-i", path,
+                     "-frames:v", "1", "-vf", "scale=640:-2", jpg])
+                ok = vision_ok(jpg, place or country, q)
+                if ok is False:
+                    REPORT["clips_rejected"] += 1
+                    USED.add(c["id"])
+                    continue
+                USED.add(c["id"])
+                got.append(path)
+                REPORT["clips"] += 1
+            except Exception as e:
+                log(f"clip fail: {str(e)[:120]}")
+    return got
+
+
+# ---------------------------------------------------------------- awaaz, music, likhai
+def tts(text, path):
+    import edge_tts
+
+    async def go():
+        await edge_tts.Communicate(text, VOICE, rate=RATE).save(path)
+    for attempt in range(6):
+        try:
+            asyncio.run(go())
+            if os.path.getsize(path) > 1000:
+                return
+        except Exception as e:
+            log(f"TTS retry {attempt + 1}: {str(e)[:150]}")
+        time.sleep(5 * (attempt + 1))
+    raise RuntimeError("fatal: Awaaz nahi bani")
+
+
+def make_music(path, secs):
+    """Halki documentary music (khud banti hai - copyright free)."""
+    root = random.choice([110.0, 123.5, 130.8, 146.8])
+    chords = [[1, 1.25, 1.5], [0.89, 1.125, 1.335], [0.75, 0.94, 1.125], [0.84, 1.0, 1.26]]
+    parts = []
+    for k, ch in enumerate(chords):
+        env = f"(0.5+0.5*sin(2*PI*t/32-{k}*PI/2))"
+        for m in ch:
+            parts.append(f"0.06*sin(2*PI*{root * m:.2f}*t)*{env}")
+    run(["ffmpeg", "-y", "-f", "lavfi", "-i", f"aevalsrc='{'+'.join(parts)}':s=44100:d={secs + 2:.1f}",
+         "-af", "lowpass=f=1800,aecho=0.8:0.8:900|1500:0.4|0.3,afade=t=in:d=4,"
+                f"afade=t=out:st={max(secs - 4, 1):.1f}:d=4,volume=0.9",
+         "-ac", "2", "-c:a", "aac", "-b:a", "128k", path])
+
+
+def ass_time(t):
+    t = max(t, 0)
+    return f"{int(t // 3600)}:{int(t % 3600 // 60):02d}:{t % 60:05.2f}"
+
+
+def ass_text(s):
+    return (s or "").replace("\\", "").replace("{", "(").replace("}", ")").replace("\n", " ")
+
+
+def make_ass(path, text, dur, label=None, chapter=None, card=None, title=None):
+    sub = 46 if LONG else 62
+    head = f"""[Script Info]
+ScriptType: v4.00+
+PlayResX: {W}
+PlayResY: {H}
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Sub,{FONT},{sub},&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,0,0,0,0,100,100,0,0,1,3,1,2,120,120,{70 if LONG else 380},1
+Style: Label,{FONT},{40 if LONG else 50},&H00FFFFFF,&H00FFFFFF,&H00000000,&H64000000,1,0,0,0,100,100,1,0,3,10,0,1,70,70,{150 if LONG else 520},1
+Style: Chap,{FONT},{92 if LONG else 96},&H0050D7FF,&H0050D7FF,&H00000000,&H96000000,1,0,0,0,100,100,4,0,1,4,3,5,80,80,0,1
+Style: Card,{FONT},{44 if LONG else 52},&H00FFFFFF,&H00FFFFFF,&H00000000,&HA0000000,1,0,0,0,100,100,0,0,3,18,0,7,90,90,{120 if LONG else 300},1
+Style: Title,{FONT},{100 if LONG else 92},&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,1,0,0,0,100,100,3,0,1,5,3,5,80,80,0,1
+Style: Mark,{FONT},28,&H60FFFFFF,&H60FFFFFF,&H90000000,&H00000000,1,0,0,0,100,100,0,0,1,2,0,9,40,40,40,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+"""
+    ev = [f"Dialogue: 0,{ass_time(0)},{ass_time(dur + 1)},Mark,,0,0,0,,{CHANNEL}"]
+    if title:
+        ev.append(f"Dialogue: 3,{ass_time(0.4)},{ass_time(min(dur, 5.5))},Title,,0,0,0,,"
+                  f"{{\\fad(700,700)}}{ass_text(title)}")
+    if chapter:
+        ev.append(f"Dialogue: 3,{ass_time(0.2)},{ass_time(min(dur, 3.2))},Chap,,0,0,0,,"
+                  f"{{\\fad(400,500)}}{ass_text(chapter.upper())}")
+    if label:
+        ev.append(f"Dialogue: 2,{ass_time(0.8)},{ass_time(min(dur, 5.5))},Label,,0,0,0,,"
+                  f"{{\\fad(300,300)}}{ass_text(label)}")
+    if card:
+        body = "\\N".join(ass_text(c) for c in card[:5])
+        ev.append(f"Dialogue: 2,{ass_time(0.5)},{ass_time(min(dur, 9))},Card,,0,0,0,,{{\\fad(400,400)}}{body}")
+    words = text.split()
+    n = 9 if LONG else 4
+    chunks = [" ".join(words[i:i + n]) for i in range(0, len(words), n)]
+    wts = [len(c) + 3 for c in chunks]
+    sc = dur / max(sum(wts), 1)
+    t = 0.0
+    for c, w in zip(chunks, wts):
+        ev.append(f"Dialogue: 1,{ass_time(t)},{ass_time(t + w * sc)},Sub,,0,0,0,,{ass_text(c)}")
+        t += w * sc
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(head + "\n".join(ev) + "\n")
+
+
+# ---------------------------------------------------------------- naqsha (intro)
+def make_map(job, plan, secs):
+    """Duniya ka naqsha -> mulk roshan -> zoom. Fail ho to None."""
+    try:
+        from PIL import Image, ImageDraw
+        gj = requests.get(GEO_URL, timeout=60).json()
+        isos = {(c.get("iso3") or "").upper() for c in plan.get("countries", [])}
+        MW, MH = 3840, 1920
+        img = Image.new("RGB", (MW, MH), (8, 22, 38))
+        d = ImageDraw.Draw(img)
+        boxes = []
+
+        def xy(lon, lat):
+            return ((lon + 180) / 360 * MW, (90 - lat) / 180 * MH)
+        for ft in gj["features"]:
+            p = ft["properties"]
+            iso = p.get("ADM0_A3") or p.get("ISO_A3")
+            hit = iso in isos or p.get("ISO_A3") in isos
+            g = ft["geometry"]
+            polys = g["coordinates"] if g["type"] == "MultiPolygon" else [g["coordinates"]]
+            for poly in polys:
+                pts = [xy(*pt) for pt in poly[0]]
+                d.polygon(pts, fill=(235, 180, 60) if hit else (46, 74, 98), outline=(20, 40, 60))
+                if hit:
+                    xs, ys = [a for a, _ in pts], [b for _, b in pts]
+                    boxes.append((min(xs), min(ys), max(xs), max(ys)))
+        if not boxes:
+            return None
+        x0 = min(b[0] for b in boxes); y0 = min(b[1] for b in boxes)
+        x1 = max(b[2] for b in boxes); y1 = max(b[3] for b in boxes)
+        cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
+        span = max((x1 - x0) * 1.8, (y1 - y0) * 1.8 * MW / MH, 300)
+        zmax = min(MW / span, 14)
+        path_png = os.path.join(job, "map.png")
+        img.save(path_png)
+        fr = int(secs * 30)
+        out = os.path.join(job, "map.mp4")
+        # zoompan: poore naqshe se mulk tak
+        z = f"1+({zmax:.3f}-1)*min(on/{fr * 0.7:.0f}\\,1)"
+        xexp = f"max(0\\,min(iw-iw/zoom\\,{cx:.0f}-iw/zoom/2))"
+        yexp = f"max(0\\,min(ih-ih/zoom\\,{cy:.0f}-ih/zoom/2))"
+        vf = (f"zoompan=z='{z}':x='{xexp}':y='{yexp}':d={fr}:s={W}x{H if LONG else 1080}:fps=30")
+        if not LONG:
+            vf += ",pad=1080:1920:0:420:color=0x081626"
+        run(["ffmpeg", "-y", "-loglevel", "error", "-i", path_png, "-vf", vf + ",format=yuv420p",
+             "-frames:v", str(fr), "-c:v", "libx264", "-preset", "veryfast", out])
+        return out
+    except Exception as e:
+        log(f"map skip: {str(e)[:200]}")
+        return None
+
+
+# ---------------------------------------------------------------- video
+FPS = 30
+
+
+def render_scene(job, i, sc, clips, dur, ass_path, bg_override=None):
+    fd = f":fontsdir={FONTS_DIR}" if os.path.isdir(FONTS_DIR) else ""
+    srcs = [bg_override] if bg_override else clips
+    k = len(srcs)
+    seg = dur / k
+    cmd = ["ffmpeg", "-y", "-loglevel", "error"]
+    for c in srcs:
+        cmd += ["-stream_loop", "-1", "-t", f"{seg + 0.3:.2f}", "-i", c]
+    cmd += ["-i", f"a{i}.mp3"]
+    ch = []
+    for j in range(k):
+        start = 0.0
+        ch.append(f"[{j}:v]trim=start={start}:duration={seg:.2f},setpts=PTS-STARTPTS,"
+                  f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},setsar=1,"
+                  f"fade=t=in:st=0:d=0.35,fade=t=out:st={max(seg - 0.35, 0):.2f}:d=0.35[v{j}]")
+    ch.append("".join(f"[v{j}]" for j in range(k)) +
+              f"concat=n={k}:v=1:a=0,eq=contrast=1.06:saturation=1.12:gamma=0.98,"
+              f"subtitles={os.path.basename(ass_path)}{fd},format=yuv420p[v]")
+    cmd += ["-filter_complex", ";".join(ch), "-map", "[v]", "-map", f"{k}:a:0", "-af", "apad",
+            "-t", f"{dur:.2f}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "21",
+            "-c:a", "aac", "-ar", "44100", "-ac", "2", "-b:a", "160k", f"s{i}.mp4"]
+    run(cmd, cwd=job)
+    return f"s{i}.mp4"
+
+
+def build(script, plan, out_path):
+    job = os.path.join(WORK, "job")
+    import shutil
+    shutil.rmtree(job, ignore_errors=True)
+    os.makedirs(job)
+    cwords = []
+    for c in plan.get("countries", []):
+        cwords += _words(c.get("name", ""))
+    scenes = []
+    for ci, chap in enumerate(script["chapters"]):
+        for si, sc in enumerate(chap.get("scenes", [])):
+            if (sc.get("text") or "").strip():
+                scenes.append((ci, si, chap.get("name", ""), sc))
+    parts, chapters_ts, t = [], [], 0.0
+    map_clip = None
+    for n, (ci, si, cname, sc) in enumerate(scenes):
+        text = sc["text"].strip()
+        tts(text, os.path.join(job, f"a{n}.mp3"))
+        dur = duration(os.path.join(job, f"a{n}.mp3")) + 0.45
+        need = max(1, min(4, math.ceil(dur / 5.5)))
+        clips = get_clips(sc, cwords, job, f"c{n}", need)
+        if not clips:
+            prev = [os.path.join(job, p) for p in os.listdir(job) if p.startswith("c") and p.endswith(".mp4")]
+            if prev:
+                clips = random.sample(prev, min(len(prev), need))     # usi mulk ki pehle wali clip
+            else:
+                raise RuntimeError(f"is jagah ki asli videos nahi milin: {sc.get('place')}")
+        first_of_chap = si == 0 and LONG and ci > 0
+        if first_of_chap:
+            chapters_ts.append((t, cname))
+        card = script.get("fact_card") if (n == (2 if LONG else 1)) else None
+        title = script.get("title") if n == 0 else None
+        make_ass(os.path.join(job, f"s{n}.ass"), text, dur - 0.45, label=sc.get("label") or None,
+                 chapter=cname if first_of_chap else None, card=card, title=title)
+        bg = None
+        if n == 1 and LONG:
+            map_clip = map_clip or make_map(job, plan, dur)
+            bg = map_clip
+        parts.append(render_scene(job, n, sc, clips, dur, os.path.join(job, f"s{n}.ass"), bg))
+        t += dur
+        log(f"scene {n + 1}/{len(scenes)} ready ({len(clips)} clips)")
+    with open(os.path.join(job, "list.txt"), "w") as f:
+        f.writelines(f"file '{p}'\n" for p in parts)
+    run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", "list.txt",
+         "-c", "copy", "joined.mp4"], cwd=job)
+    make_music(os.path.join(job, "music.m4a"), t)
+    run(["ffmpeg", "-y", "-loglevel", "error", "-i", "joined.mp4", "-i", "music.m4a", "-filter_complex",
+         "[1:a]volume=0.16[m];[0:a][m]amix=inputs=2:duration=first:normalize=0,alimiter=limit=0.95[a]",
+         "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "160k",
+         "-movflags", "+faststart", os.path.abspath(out_path)], cwd=job)
+    REPORT["seconds"] = round(duration(out_path), 1)
+    return chapters_ts
+
+
+def description(script, chapters_ts):
+    d = script.get("description", "").strip()
+    if chapters_ts:
+        lines = ["0:00 Intro"] + [f"{int(s // 60)}:{int(s % 60):02d} {name}" for s, name in chapters_ts]
+        d += "\n\nChapters:\n" + "\n".join(lines)
+    d += f"\n\n{script.get('keywords', '')}"
+    d += ("\n\nFootage: real stock video from Pixabay / Pexels contributors. "
+          "Facts: World Bank, Wikipedia. Narration voice is synthetic.")
+    d += "\n\n" + " ".join(script.get("hashtags", [])[:10])
+    return d
+
+
+def _main():
+    if not DRY_RUN:
+        import yt
+        if not yt.enabled("world"):
+            log("YT_WORLD_* secrets abhi nahi - channel connect hone tak skip")
+            return
+    history = load_history()
+    plan = None
+    for attempt in range(3):
+        try:
+            plan = plan_topic(history)
+            log(f"Topic: {plan['series']} | {plan['subject']}")
+            facts = gather_facts(plan)
+            script = write_script(plan, facts)
+            chapters_ts = build(script, plan, "final_world.mp4")
+            break
+        except Exception as e:
+            log(f"try {attempt + 1} fail: {str(e)[:300]}")
+            REPORT["errors"].append(str(e)[:300])
+            history.append({"subject": (plan or {}).get("subject", ""), "skipped": True})
+            if attempt == 2:
+                REPORT["errors"].append("fatal: video nahi bani")
+                raise
+    desc = description(script, chapters_ts)
+    entry = {"date": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), "series": plan["series"],
+             "subject": plan["subject"], "title": script.get("yt_title") or script.get("title")}
+    REPORT.update({"subject": plan["subject"], "series": plan["series"], "title": entry["title"]})
+    if not DRY_RUN:
+        import yt
+        import slot_wait
+        slot_wait.wait(log)
+        if yt.enabled("world"):
+            entry["yt_id"] = yt.upload("world", "final_world.mp4", entry["title"], desc,
+                                       short=not LONG, lang="en", category="19",
+                                       thumb_title=script.get("thumb_text"))
+        else:
+            REPORT["errors"].append("YT_WORLD_* secrets nahi - upload skip")
+    history = [h for h in history if not h.get("skipped")] + [entry]
+    if not DRY_RUN:
+        save_history(history)
+    write_report()
+    log("Done")
+
+
+def main():
+    try:
+        _main()
+    except Exception as e:
+        REPORT["errors"].append(f"fatal: {str(e)[:300]}")
+        write_report()
+        raise
+
+
+if __name__ == "__main__":
+    main()
