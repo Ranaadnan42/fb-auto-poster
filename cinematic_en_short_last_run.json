@@ -4,17 +4,18 @@
  "images_failed": 0,
  "errors": [],
  "kaggle_log": [
-  "Kaggle quota: resource  used   remaining  total   refreshAt             | --------  -----  ---------  ------  -------------------   | GPU       4.14h  25.86h     30.00h  2026-10-24T00:00:00   | TPU       0.00h  20.00h     20.00h  2026-10-24T00:00:00   | ",
-  "Kaggle push: Kernel version 4 successfully pushed.  Please check progress at https://www.kaggle.com/code/ranaadnanking/legends-motion-clips",
-  "Kaggle status: ranaadnanking/legends-motion-clips has status \"kernelworkerstatus.complete\" (8 min)",
-  "Output file downloaded to work_cine/kclips/done.json\nKernel log downloaded to work_cine/kclips/legends-motion-clips.log \n",
-  "Kaggle result: {\"gpus\": 2, \"clips\": 0, \"minutes\": 6.9}",
-  "Kaggle clips mile: 0/10"
+  "Kaggle quota: resource  used   remaining  total   refreshAt             | --------  -----  ---------  ------  -------------------   | GPU       4.26h  25.74h     30.00h  2026-10-24T00:00:00   | TPU       0.00h  20.00h     20.00h  2026-10-24T00:00:00   | ",
+  "Kaggle push: Kernel version 5 successfully pushed.  Please check progress at https://www.kaggle.com/code/ranaadnanking/legends-motion-clips",
+  "Kaggle status: ranaadnanking/legends-motion-clips has status \"kernelworkerstatus.complete\" (74 min)",
+  "clips/clip_6.mp4\nOutput file downloaded to work_cine/kclips/clip_7.mp4\nOutput file downloaded to work_cine/kclips/clip_8.mp4\nOutput file downloaded to work_cine/kclips/clip_9.mp4\nOutput file downloaded to work_cine/kclips/done.json\nKernel log downloaded to work_cine/kclips/legends-motion-clips.log \n",
+  "Kaggle result: {\"gpus\": 2, \"clips\": 10, \"minutes\": 73.5}",
+  "Kaggle clips mile: 10/10"
  ],
- "ai_motion_clips": 0,
- "seconds": 139.1,
- "time_utc": "2026-10-19 03:23",
- "title": "Whispers of the Wildwood: Part 1",
+ "ai_motion_clips": 10,
+ "ai_clips_rejected": 5,
+ "seconds": 159.0,
+ "time_utc": "2026-10-19 04:50",
+ "title": "The Whispering Wild | Part 1",
  "part": 1,
  "dry_run": true,
  "posted": 0
