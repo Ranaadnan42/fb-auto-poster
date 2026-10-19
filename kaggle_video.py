@@ -45,7 +45,9 @@ with torch.no_grad():
         embs.append((pe.to(torch.float16).cpu(), ne.to(torch.float16).cpu()))
         print(f"GPU{gpu} emb {j['id']} nan={bool(torch.isnan(pe).any())} std={float(pe.float().std()):.3f}", flush=True)
 pipe.text_encoder = None
+del te                                                  # warna GPU mein reh kar out-of-memory
 gc.collect(); torch.cuda.empty_cache()
+print(f"GPU{gpu} free after encode: {torch.cuda.mem_get_info()[0] / 1e9:.1f} GB", flush=True)
 pipe.transformer.to("cuda"); pipe.vae.to("cuda")
 for j, (pe, ne) in zip(mine, embs):
     t0 = time.time()
