@@ -3,16 +3,10 @@
  "images_backup": 0,
  "images_failed": 0,
  "errors": [],
- "kaggle_log": [
-  "Kaggle quota: resource  used   remaining  total   refreshAt             | --------  -----  ---------  ------  -------------------   | GPU       5.49h  24.51h     30.00h  2026-10-24T00:00:00   | TPU       0.00h  20.00h     20.00h  2026-10-24T00:00:00   | ",
-  "Kaggle push: Kernel version 6 successfully pushed.  Please check progress at https://www.kaggle.com/code/ranaadnanking/legends-motion-clips",
-  "Kaggle status: authentication required to call the kaggle api.\n\nfirst, you will need a kaggle account. you can sign up at\n  https://www.kaggle.com/account/login\n\nrecommended: log in with oauth via a web-based author (110 min)"
- ],
- "ai_motion_clips": 0,
- "seconds": 168.3,
- "time_utc": "2026-10-19 21:54",
- "title": "The Beast's Secret | Part 1",
- "part": 1,
+ "seconds": 151.2,
+ "time_utc": "2026-10-20 19:45",
+ "title": "Part 2: The Antlered Secret",
+ "part": 2,
  "dry_run": false,
  "posted": 1
 }
