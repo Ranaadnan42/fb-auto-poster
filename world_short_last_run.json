@@ -1,11 +1,11 @@
 {
  "mode": "short",
  "clips": 16,
- "clips_rejected": 14,
- "vision_checks": 28,
+ "clips_rejected": 22,
+ "vision_checks": 34,
  "errors": [],
- "seconds": 67.8,
- "subject": "Tokyo, Japan",
- "series": "cost_short",
- "title": "What Life Really Costs in Tokyo, Japan (Honest Living Guide)"
+ "seconds": 61.8,
+ "subject": "Iceland",
+ "series": "facts",
+ "title": "6 Surprising Facts About Iceland You Didn't Know"
 }
