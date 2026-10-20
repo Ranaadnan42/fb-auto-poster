@@ -1,12 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 11,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
- "laughs": 3,
- "reel_minutes": 0.73,
- "time_utc": "2026-10-19 18:49",
- "title": "میرکات نیوز اور سرپرائز ٹیسٹ کا ڈرامہ",
+ "format": "chat",
+ "reel_minutes": 1.29,
+ "laughs": 4,
+ "time_utc": "2026-10-20 12:55",
+ "title": "باس کا انٹرویو اور عقل مند دوست کا مشورہ",
  "dry_run": false
 }
