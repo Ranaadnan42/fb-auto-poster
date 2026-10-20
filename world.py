@@ -99,11 +99,27 @@ SERIES_HINT = {
     "pk_food": "'<country> ke mashhoor khane' - 5 famous dishes, halal tips",
     "pk_city_facts": "'<city> 60 second mein' - the most striking things about one city",
     "pk_hidden": "'<country> ki khoobsurat chhupi jagahein' - 5 beautiful lesser known real places",
+    "pk_visa": "'<country> ka visa kaise lagta hai' - step by step for a Pakistani: visa types (visit, work, "
+               "study, family) in general terms, the usual documents, where to apply (official embassy / "
+               "official online portal / authorised visa centre), how long it usually takes, common reasons "
+               "for refusal and how to avoid them, how to spot fake agents. NO exact fees unless in VERIFIED "
+               "FACTS; always tell viewers to confirm on the official website",
+    "pk_jobhow": "'<country> mein job kaise milti hai' - step by step: which jobs are in demand, official/"
+                 "trusted job portals and LinkedIn, licensed Overseas Employment Promoters and Bureau of "
+                 "Emigration & Overseas Employment protector process in Pakistan, CV tips for that country, "
+                 "skills/language tests, degree attestation, interview tips, avoiding scams",
+    "pk_tour": "'<city> ki sair' - a relaxed virtual tour of ONE famous city: walk through its best landmarks, "
+               "streets, markets, food spots, nature, mosques, transport - like the viewer is visiting it",
+    "pk_visa_short": "'<country> visa: 5 baatein jo pata honi chahiye' quick tips (official sources, no fake fees)",
+    "pk_jobtip": "'<country> mein job dhoondne ke 5 asaan tareeqe' quick practical tips",
+    "pk_tour_short": "'60 second mein <city> ki sair' - quick virtual tour of the best sights",
 }
 if URDU:
-    LONG_SERIES = ["pk_living", "pk_moving", "pk_versus", "pk_country", "pk_jobs", "pk_city", "pk_best_list"]
-    SHORT_SERIES = ["pk_cost_short", "pk_salary_short", "pk_facts", "pk_versus_short", "pk_food",
-                    "pk_city_facts", "pk_hidden"]
+    # ilm + kaam ki baat (visa, job) + sair/maza - poori duniya
+    LONG_SERIES = ["pk_country", "pk_visa", "pk_tour", "pk_living", "pk_jobhow", "pk_city", "pk_versus",
+                   "pk_moving", "pk_best_list", "pk_jobs"]
+    SHORT_SERIES = ["pk_visa_short", "pk_tour_short", "pk_facts", "pk_cost_short", "pk_jobtip", "pk_food",
+                    "pk_hidden", "pk_salary_short", "pk_city_facts", "pk_versus_short"]
 
 
 def fx_rates(codes):
@@ -280,6 +296,11 @@ def gather_facts(plan):
         }
     for city in plan.get("cities", [])[:2]:
         facts[city] = {"wikipedia": wiki_summary(city)[:1200]}
+    if URDU and plan.get("series") in ("pk_visa", "pk_visa_short", "pk_moving"):
+        for c in plan.get("countries", [])[:1]:
+            v = wiki_summary(f"Visa policy of {c.get('name', '')}")
+            if v:
+                facts["visa_policy_wikipedia"] = v[:1500]
     if URDU:
         fx = fx_rates([c.get("currency") for c in plan.get("countries", [])])
         if fx:
@@ -293,11 +314,14 @@ def gather_facts(plan):
 # ---------------------------------------------------------------- plan + script
 def plan_topic(history):
     n = len(history)
-    series = (LONG_SERIES if LONG else SHORT_SERIES)[n % 7]
+    ser = LONG_SERIES if LONG else SHORT_SERIES
+    series = ser[n % len(ser)]
     used = [h.get("subject", "") for h in history[-300:]]
-    aud = ("The audience is Pakistanis (in Pakistan and the Gulf) who dream of living, working or studying "
-           "abroad. Prefer countries/cities popular with Pakistanis (Gulf, Europe, UK, Canada, Australia, "
-           "Turkey, Malaysia, Japan, China, Central Asia) but rotate widely.\n" if URDU else "")
+    aud = ("The audience is Pakistanis (in Pakistan and the Gulf) who love to learn about the world and many "
+           "dream of visiting, working or studying abroad. Cover the WHOLE WORLD over time (every continent, "
+           "big and small countries, famous cities). For visa/job/living types prefer countries where "
+           "Pakistanis really go (Gulf, Europe, UK, Canada, Australia, Turkey, Malaysia, Japan, Korea, China, "
+           "Central Asia).\n" if URDU else "")
     plan = ask_json(f"""You plan the next video for the YouTube travel & world documentary channel "{CHANNEL}".
 {aud}
 Video type: {SERIES_HINT[series]}.
@@ -384,6 +408,11 @@ Rules:
   Write numbers as digits. Prices must be realistic, clearly approximate; never fake visa fees.
 - Religion, ethnicity, politics: respectful, neutral, factual. Mention mosques/halal food where useful.
 - Warn kindly about fake agents and illegal routes where relevant; never encourage illegal migration.
+- Be really USEFUL: give clear step-by-step practical guidance (numbered steps spoken naturally: pehla qadam,
+  doosra qadam ...). For visa/job processes stay general and correct, name only official/trusted sources
+  (embassy website, official visa portal, Bureau of Emigration, licensed promoters, LinkedIn), and say rules
+  change so confirm on the official website. Never invent fees, quotas or guarantees.
+- Make it enjoyable too: a little wonder and storytelling, a surprising fact, like taking the viewer on a trip.
 - Every scene is about ONE concrete visible thing (a landmark, street, market, dish, office, nature).
 - "search": 2-3 SHORT ENGLISH stock-video search phrases that MUST include the place name
   (e.g. "Dubai Marina", "Dubai metro", "Riyadh skyline"). Only filmable things.
