@@ -1,0 +1,41 @@
+<!doctype html><html><head><meta charset="utf-8"><title>Pinterest Connect</title><meta name="viewport" content="width=device-width,initial-scale=1"><style>body{font-family:system-ui,Arial,sans-serif;max-width:760px;margin:40px auto;padding:0 16px;line-height:1.6;color:#222}h1{color:#0a6b4f}input,textarea,select{width:100%;padding:8px;font-size:14px;box-sizing:border-box}button{background:#e60023;color:#fff;border:0;padding:10px 18px;font-size:16px;border-radius:6px;cursor:pointer;margin:8px 0}.box{background:#f4f6f5;padding:14px;border-radius:8px;margin:14px 0}code{background:#eee;padding:2px 5px;border-radius:4px}footer{margin-top:40px;font-size:14px;color:#666}</style></head><body>
+<h1>Pinterest Connect</h1>
+<p>Web Builder Auto Publisher pins the owner's own YouTube videos to the owner's own Pinterest accounts. <a href="index.html">Home</a> · <a href="privacy.html">Privacy</a> · <a href="terms.html">Terms</a></p>
+<div id="step1" class="box">
+<b>Step 1:</b> Browser mein <u>usi</u> Pinterest account se login hon jise connect karna hai. Phir account chunein, <b>App ID</b> paste karein aur button dabayein.
+<select id="acct"><option value="ISLAMIC">Islamic Motivational Videos</option><option value="LEGENDS">Legends Untold</option><option value="ATLAS">Atlas Untold</option></select>
+<input id="aid" placeholder="App ID">
+<button onclick="login()">Pinterest se Login</button>
+</div>
+<div id="step2" class="box" style="display:none">
+<b>Step 2:</b> Login ho gaya (<span id="who"></span>). Ab <b>App secret key</b> paste karein aur button dabayein.
+<input id="sec" placeholder="App secret key" type="password">
+<button onclick="exchange()">Refresh token nikalein</button>
+<p id="out"></p>
+<textarea id="rt" rows="3" readonly style="display:none"></textarea>
+<div id="ps" style="display:none"><p>Browser ne seedha Pinterest se baat nahi karne di. Windows mein <b>PowerShell</b> kholein aur ye poori line paste kar ke Enter dabayein. Jo lambi line aaye wohi refresh token hai:</p><textarea id="cmd" rows="7" readonly></textarea></div>
+</div>
+<p id="err" style="color:#c00"></p>
+<script>
+var R='https://ranaadnan42.github.io/fb-auto-poster/docs/pinterest.html';
+var NAMES={ISLAMIC:'Islamic Motivational Videos',LEGENDS:'Legends Untold',ATLAS:'Atlas Untold'};
+var p=new URLSearchParams(location.search), code=p.get('code'), st=p.get('state')||'ISLAMIC';
+function g(k){try{return localStorage.getItem(k)||''}catch(e){return ''}}
+function s(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+document.getElementById('aid').value=g('pin_aid');
+if(p.get('error'))document.getElementById('err').textContent='Pinterest error: '+(p.get('error_description')||p.get('error'));
+if(code){document.getElementById('step2').style.display='block';document.getElementById('step1').querySelector('b').textContent='Step 1 (ho gaya):';document.getElementById('who').textContent=NAMES[st]||st;document.getElementById('acct').value=st;}
+function login(){var aid=document.getElementById('aid').value.trim(),a=document.getElementById('acct').value;if(!aid){alert('App ID paste karein');return}
+s('pin_aid',aid);
+location.href='https://www.pinterest.com/oauth/?client_id='+encodeURIComponent(aid)+'&redirect_uri='+encodeURIComponent(R)+'&response_type=code&scope='+encodeURIComponent('boards:read,boards:write,pins:read,pins:write,user_accounts:read')+'&state='+a;}
+function show(rt){var o=document.getElementById('out');o.innerHTML='<b>Ho gaya!</b> Ye token copy kar ke GitHub secret <code>PINTEREST_'+st+'_REFRESH_TOKEN</code> mein daalein:';var t=document.getElementById('rt');t.style.display='block';t.value=rt;t.select();}
+function exchange(){var aid=document.getElementById('aid').value.trim()||g('pin_aid'),sec=document.getElementById('sec').value.trim();
+if(!sec){alert('App secret paste karein');return}
+var basic=btoa(aid+':'+sec);
+var body='grant_type=authorization_code&code='+encodeURIComponent(code)+'&redirect_uri='+encodeURIComponent(R)+'&continuous_refresh=true';
+fetch('https://api.pinterest.com/v5/oauth/token',{method:'POST',headers:{'Authorization':'Basic '+basic,'Content-Type':'application/x-www-form-urlencoded'},body:body})
+.then(function(r){return r.json()}).then(function(j){if(j.refresh_token)show(j.refresh_token);else document.getElementById('err').textContent='Pinterest: '+(j.message||JSON.stringify(j));})
+.catch(function(){document.getElementById('ps').style.display='block';
+document.getElementById('cmd').value="(Invoke-RestMethod -Method Post -Uri 'https://api.pinterest.com/v5/oauth/token' -Headers @{Authorization='Basic "+basic+"'} -ContentType 'application/x-www-form-urlencoded' -Body '"+body+"').refresh_token";});}
+</script>
+<footer>Web Builder · Muhammad Adnan · Pakistan · Contact: ranaadnan320@gmail.com</footer></body></html>
