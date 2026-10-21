@@ -838,7 +838,13 @@ def _main():
     history = load_history()
     import slot_wait as _sw
     _t = _sw.target_time()
-    if _t is not None and any(str(h.get("date", "")).startswith(f"{_t:%Y-%m-%d}") for h in history):
+    def _near(h):                              # isi slot ki video (±3 ghante) - din mein 2 Shorts ho sakte hain
+        try:
+            d = datetime.datetime.strptime(str(h.get("date", ""))[:16], "%Y-%m-%d %H:%M")
+        except ValueError:
+            return False
+        return abs((d - _t).total_seconds()) < 3 * 3600
+    if _t is not None and any(_near(h) for h in history):
         log("Aaj ki is waqt wali video pehle hi lag chuki (backup run) - skip")
         return
     st = series_state(history)

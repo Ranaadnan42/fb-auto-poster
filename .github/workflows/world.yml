@@ -3,6 +3,7 @@ name: Atlas Untold (World Documentaries)
 on:
   schedule:
     # USA/UK audience. Run pehle chalta hai, video bana kar POST_AT par upload (slot_wait)
+    - cron: '47 18 * * *'  # post 00:17 UTC = 8:17 raat New York -> doosra Short
     - cron: '17 9 * * *'   # post 14:47 UTC = 10:47 subah New York -> Short
     - cron: '7 15 * * *'   # post 20:37 UTC = 4:37 shaam New York  -> Lambi documentary (~11 min)
   workflow_dispatch:
@@ -52,7 +53,7 @@ jobs:
           YT_WORLD_REFRESH_TOKEN: ${{ secrets.YT_WORLD_REFRESH_TOKEN }}
           AFFILIATE_TEXT: ${{ vars.AFFILIATE_TEXT }}
           MODE: ${{ inputs.mode || (github.event.schedule == '7 15 * * *' && 'long' || 'short') }}
-          POST_AT: ${{ github.event.schedule == '17 9 * * *' && '14:47' || github.event.schedule == '7 15 * * *' && '20:37' || '' }}
+          POST_AT: ${{ github.event.schedule == '47 18 * * *' && '00:17' || github.event.schedule == '17 9 * * *' && '14:47' || github.event.schedule == '7 15 * * *' && '20:37' || '' }}
           DRY_RUN: ${{ (github.event_name == 'workflow_dispatch' && inputs.dry_run) && '1' || '0' }}
         run: |
           python world.py || {

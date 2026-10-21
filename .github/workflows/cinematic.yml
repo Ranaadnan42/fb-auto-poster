@@ -9,6 +9,8 @@ on:
     - cron: '17 11 * * *'   # backup Short
     - cron: '37 16 * * *'   # post 22:07 UTC = 6:07 shaam New York    -> Lambi video (~9 min)
     - cron: '7 17 * * *'    # backup Lambi
+    - cron: '47 19 * * *'   # post 01:17 UTC = 9:17 raat New York -> doosra Short
+    - cron: '17 20 * * *'   # backup doosra Short
   workflow_dispatch:
     inputs:
       mode:
@@ -30,7 +32,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: cinematic-poster-${{ (github.event.schedule == '47 10 * * *' || github.event.schedule == '17 11 * * *') && 'short' || (github.event.schedule == '37 16 * * *' || github.event.schedule == '7 17 * * *') && 'long' || github.run_id }}
+  group: cinematic-poster-${{ (github.event.schedule == '47 10 * * *' || github.event.schedule == '17 11 * * *') && 'short' || (github.event.schedule == '37 16 * * *' || github.event.schedule == '7 17 * * *') && 'long' || (github.event.schedule == '47 19 * * *' || github.event.schedule == '17 20 * * *') && 'short2' || github.run_id }}
   cancel-in-progress: false
 
 jobs:
@@ -74,7 +76,7 @@ jobs:
           CINE_FB_TOKEN: ${{ secrets.CINE_FB_TOKEN }}
           CHANNEL_NAME: ${{ vars.CHANNEL_NAME }}
           MODE: ${{ inputs.mode || ((github.event.schedule == '37 16 * * *' || github.event.schedule == '7 17 * * *') && 'long' || 'short') }}
-          POST_AT: ${{ (github.event.schedule == '47 10 * * *' || github.event.schedule == '17 11 * * *') && '16:17' || (github.event.schedule == '37 16 * * *' || github.event.schedule == '7 17 * * *') && '22:07' || '' }}
+          POST_AT: ${{ (github.event.schedule == '47 10 * * *' || github.event.schedule == '17 11 * * *') && '16:17' || (github.event.schedule == '37 16 * * *' || github.event.schedule == '7 17 * * *') && '22:07' || (github.event.schedule == '47 19 * * *' || github.event.schedule == '17 20 * * *') && '01:17' || '' }}
           LANGUAGE: ${{ inputs.language || 'en' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
         # agar kuch post hone se pehle hi fail ho (jaise awaaz service band), 3 minute baad dobara koshish
