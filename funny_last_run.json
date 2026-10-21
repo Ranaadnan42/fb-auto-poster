@@ -1,12 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 8,
+ "stock_clips": 24,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
- "laughs": 3,
- "reel_minutes": 0.57,
- "time_utc": "2026-10-21 18:33",
- "title": "طوطا میاں اور شادی سیزن کی بریکنگ نیوز",
+ "format": "story",
+ "long_minutes": 2.84,
+ "series": "ماما بلال اور اسمارٹ فون کا بخار | قسط 1 part 3 (ai)",
+ "laughs": 7,
+ "time_utc": "2026-10-21 20:20",
+ "title": "ماما بلال اور اسمارٹ فون کا بخار | قسط 1 | آخری قسط",
  "dry_run": false
 }
