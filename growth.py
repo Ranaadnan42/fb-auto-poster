@@ -25,7 +25,8 @@ YT = "https://www.googleapis.com/youtube/v3"
 DRY_RUN = os.environ.get("DRY_RUN") == "1"
 MAX_REPLIES = int(os.environ.get("MAX_REPLIES") or 15)   # har account par har run (YouTube quota bachane ke liye)
 MAX_AGE_DAYS = 7          # is se purane comments ka jawab nahi
-NEW_VIDEO_DAYS = 3        # itne din ki nayi videos par apna pehla comment
+NEW_VIDEO_DAYS = 2        # itne din ki nayi videos par apna pehla comment
+MAX_SEED = 3              # har run mein zyada se zyada itni nayi videos par pehla comment
 
 PERSONA = {
     "islamic": ("Islamic Motivational Videos",
@@ -73,6 +74,8 @@ def load_state():
 
 
 def save_state(st):
+    if DRY_RUN:          # test run mein kuch yaad na rakhe
+        return
     for k, v in st.items():
         if isinstance(v, list):
             st[k] = v[-3000:]
@@ -204,7 +207,7 @@ def run_youtube(acct, st):
     for v in vids:
         sn = v["snippet"]
         vid = sn["resourceId"]["videoId"]
-        if vid in seeded or not recent(sn["publishedAt"], NEW_VIDEO_DAYS):
+        if seeded_now >= MAX_SEED or vid in seeded or not recent(sn["publishedAt"], NEW_VIDEO_DAYS):
             continue
         text = first_comment(acct, "youtube", sn["title"])
         if text and yt_post(tok, "commentThreads", {"snippet": {"videoId": vid, "topLevelComment": {
@@ -272,7 +275,7 @@ def run_facebook(acct, st):
     seeded_now, todo = 0, []
     for p in posts:
         title = (p.get("message") or "").split("\n")[0][:120]
-        if p["id"] not in seeded and recent(p["created_time"], NEW_VIDEO_DAYS) and title:
+        if seeded_now < MAX_SEED and p["id"] not in seeded and recent(p["created_time"], NEW_VIDEO_DAYS) and title:
             text = first_comment(acct, "facebook", title)
             if text and fb_comment(token, p["id"], text):
                 st["fb_seeded"].append(p["id"]); seeded_now += 1
