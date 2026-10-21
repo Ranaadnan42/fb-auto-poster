@@ -1,13 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 44,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "story",
- "long_minutes": 5.0,
- "series": "چمپا کلی اور واٹس ایپ گروپ کا طوفان | قسط 1 part 3 (cartoon)",
- "laughs": 9,
- "time_utc": "2026-10-20 20:06",
- "title": "چمپا کلی اور واٹس ایپ گروپ کا طوفان | قسط 1 | آخری قسط",
+ "format": "chat",
+ "reel_minutes": 1.34,
+ "laughs": 3,
+ "time_utc": "2026-10-21 13:09",
+ "title": "ٹیوشن کی فیس اور امی کا جاسوسی نیٹ ورک",
  "dry_run": false
 }
