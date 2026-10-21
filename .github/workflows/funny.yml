@@ -3,10 +3,10 @@ name: Funny Videos Poster
 on:
   schedule:
     # Run post se ~1-2 ghante pehle (GitHub par lamba intezar nahi - kam load)
-    - cron: '38 7 * * *'    # post 08:33 UTC = ~1:30 dopehar -> reel
-    - cron: '38 11 * * *'    # post 12:33 UTC = ~5:30 shaam   -> reel
-    - cron: '8 14 * * *'   # post 15:33 UTC = ~8:30 raat    -> lambi video (5 min)
-    - cron: '38 16 * * *'   # post 17:33 UTC = ~10:30 raat   -> reel
+    - cron: '8 3 * * *'    # post 08:33 UTC = ~1:30 dopehar -> reel
+    - cron: '8 7 * * *'    # post 12:33 UTC = ~5:30 shaam   -> reel
+    - cron: '8 10 * * *'   # post 15:33 UTC = ~8:30 raat    -> lambi video (5 min)
+    - cron: '8 12 * * *'   # post 17:33 UTC = ~10:30 raat   -> reel
   workflow_dispatch:
     inputs:
       mode:
@@ -34,8 +34,10 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 360
+    timeout-minutes: 358
     steps:
+      - name: Job start time
+        run: echo "JOB_START=$(date +%s)" >> "$GITHUB_ENV"
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -65,7 +67,7 @@ jobs:
           TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
           TIKTOK_FUNNY_REFRESH_TOKEN: ${{ secrets.TIKTOK_FUNNY_REFRESH_TOKEN }}
           MODE: ${{ inputs.mode || 'auto' }}
-          POST_AT: ${{ github.event.schedule == '38 7 * * *' && '08:33' || github.event.schedule == '38 11 * * *' && '12:33' || github.event.schedule == '8 14 * * *' && '15:33' || github.event.schedule == '38 16 * * *' && '17:33' || '' }}
+          POST_AT: ${{ github.event.schedule == '8 3 * * *' && '08:33' || github.event.schedule == '8 7 * * *' && '12:33' || github.event.schedule == '8 10 * * *' && '15:33' || github.event.schedule == '8 12 * * *' && '17:33' || '' }}
           FORMAT: ${{ inputs.format != 'auto' && inputs.format || '' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
         # agar kuch post hone se pehle hi fail ho (jaise awaaz service band), 3 minute baad dobara koshish

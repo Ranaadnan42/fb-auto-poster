@@ -4,8 +4,8 @@ on:
   schedule:
     # Pakistan time (UTC+5) - har run mein dono pages par 1-1 pic
     # Run post se ~1-2 ghante pehle (GitHub par lamba intezar nahi - kam load)
-    - cron: '17 6 * * *'    # post 06:47 UTC = ~11:45 subah  -> Islamic (Urdu) + funny meme
-    - cron: '17 13 * * *'    # post 13:47 UTC = ~6:45 shaam   -> Islamic (English) + funny meme
+    - cron: '17 1 * * *'    # post 06:47 UTC = ~11:45 subah  -> Islamic (Urdu) + funny meme
+    - cron: '17 8 * * *'    # post 13:47 UTC = ~6:45 shaam   -> Islamic (English) + funny meme
   workflow_dispatch:
     inputs:
       slot:
@@ -33,8 +33,10 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 340
+    timeout-minutes: 358
     steps:
+      - name: Job start time
+        run: echo "JOB_START=$(date +%s)" >> "$GITHUB_ENV"
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
@@ -52,10 +54,10 @@ jobs:
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FUNNY_PAGE_TOKEN: ${{ secrets.FUNNY_PAGE_TOKEN }}
           FUNNY_PAGE_ID: ${{ secrets.FUNNY_PAGE_ID }}
-          SLOT: ${{ github.event.schedule == '17 13 * * *' && '2' || inputs.slot || '1' }}
+          SLOT: ${{ github.event.schedule == '17 8 * * *' && '2' || inputs.slot || '1' }}
           # Islamic page par din mein 1 pic (subah), shaam wali sirf funny page
-          PAGES: ${{ inputs.pages || (github.event.schedule == '17 13 * * *' && 'funny' || 'islamic,funny') }}
-          POST_AT: ${{ github.event.schedule == '17 6 * * *' && '06:47' || github.event.schedule == '17 13 * * *' && '13:47' || '' }}
+          PAGES: ${{ inputs.pages || (github.event.schedule == '17 8 * * *' && 'funny' || 'islamic,funny') }}
+          POST_AT: ${{ github.event.schedule == '17 1 * * *' && '06:47' || github.event.schedule == '17 8 * * *' && '13:47' || '' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
         run: python photos.py
       - name: Upload preview

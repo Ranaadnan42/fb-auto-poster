@@ -3,8 +3,8 @@ name: Atlas Untold (World Documentaries)
 on:
   schedule:
     # USA/UK audience. Run pehle chalta hai, video bana kar POST_AT par upload (slot_wait)
-    - cron: '47 13 * * *'   # post 14:47 UTC = 10:47 subah New York -> Short
-    - cron: '37 18 * * *'   # post 20:37 UTC = 4:37 shaam New York  -> Lambi documentary (~11 min)
+    - cron: '17 9 * * *'   # post 14:47 UTC = 10:47 subah New York -> Short
+    - cron: '7 15 * * *'   # post 20:37 UTC = 4:37 shaam New York  -> Lambi documentary (~11 min)
   workflow_dispatch:
     inputs:
       mode:
@@ -21,14 +21,16 @@ permissions:
   contents: write
 
 concurrency:
-  group: world-poster
+  group: world-poster-${{ github.event.schedule || github.run_id }}
   cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 350
+    timeout-minutes: 358
     steps:
+      - name: Job start time
+        run: echo "JOB_START=$(date +%s)" >> "$GITHUB_ENV"
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
@@ -49,8 +51,8 @@ jobs:
           YT_WORLD_CLIENT_SECRET: ${{ secrets.YT_WORLD_CLIENT_SECRET }}
           YT_WORLD_REFRESH_TOKEN: ${{ secrets.YT_WORLD_REFRESH_TOKEN }}
           AFFILIATE_TEXT: ${{ vars.AFFILIATE_TEXT }}
-          MODE: ${{ inputs.mode || (github.event.schedule == '37 18 * * *' && 'long' || 'short') }}
-          POST_AT: ${{ github.event.schedule == '47 13 * * *' && '14:47' || github.event.schedule == '37 18 * * *' && '20:37' || '' }}
+          MODE: ${{ inputs.mode || (github.event.schedule == '7 15 * * *' && 'long' || 'short') }}
+          POST_AT: ${{ github.event.schedule == '17 9 * * *' && '14:47' || github.event.schedule == '7 15 * * *' && '20:37' || '' }}
           DRY_RUN: ${{ (github.event_name == 'workflow_dispatch' && inputs.dry_run) && '1' || '0' }}
         run: |
           python world.py || {

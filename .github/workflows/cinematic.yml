@@ -5,10 +5,10 @@ on:
     # USA/UK audience ke waqt (UTC)
     # run jaldi chalta hai: Kaggle free GPU par asli chalte AI clips bante hain, post POST_AT par hoti hai
     # GitHub schedule kabhi ghanton late / skip karta hai -> har video ke 2 run (doosra backup, dobara post nahi karta)
-    - cron: '17 15 * * *'   # post 16:17 UTC = 12:17 dopehar New York -> Short (poori motion)
-    - cron: '47 15 * * *'   # backup Short
-    - cron: '7 20 * * *'   # post 22:07 UTC = 6:07 shaam New York    -> Lambi video (~9 min)
-    - cron: '37 20 * * *'    # backup Lambi
+    - cron: '47 10 * * *'   # post 16:17 UTC = 12:17 dopehar New York -> Short (poori motion)
+    - cron: '17 11 * * *'   # backup Short
+    - cron: '37 16 * * *'   # post 22:07 UTC = 6:07 shaam New York    -> Lambi video (~9 min)
+    - cron: '7 17 * * *'    # backup Lambi
   workflow_dispatch:
     inputs:
       mode:
@@ -30,14 +30,16 @@ permissions:
   contents: write
 
 concurrency:
-  group: cinematic-poster
+  group: cinematic-poster-${{ (github.event.schedule == '47 10 * * *' || github.event.schedule == '17 11 * * *') && 'short' || (github.event.schedule == '37 16 * * *' || github.event.schedule == '7 17 * * *') && 'long' || github.run_id }}
   cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 355
+    timeout-minutes: 358
     steps:
+      - name: Job start time
+        run: echo "JOB_START=$(date +%s)" >> "$GITHUB_ENV"
       - name: Checkout repository
         uses: actions/checkout@v4
 
@@ -71,8 +73,8 @@ jobs:
           CINE_FB_PAGE_ID: ${{ secrets.CINE_FB_PAGE_ID }}
           CINE_FB_TOKEN: ${{ secrets.CINE_FB_TOKEN }}
           CHANNEL_NAME: ${{ vars.CHANNEL_NAME }}
-          MODE: ${{ inputs.mode || ((github.event.schedule == '7 20 * * *' || github.event.schedule == '37 20 * * *') && 'long' || 'short') }}
-          POST_AT: ${{ (github.event.schedule == '17 15 * * *' || github.event.schedule == '47 15 * * *') && '16:17' || (github.event.schedule == '7 20 * * *' || github.event.schedule == '37 20 * * *') && '22:07' || '' }}
+          MODE: ${{ inputs.mode || ((github.event.schedule == '37 16 * * *' || github.event.schedule == '7 17 * * *') && 'long' || 'short') }}
+          POST_AT: ${{ (github.event.schedule == '47 10 * * *' || github.event.schedule == '17 11 * * *') && '16:17' || (github.event.schedule == '37 16 * * *' || github.event.schedule == '7 17 * * *') && '22:07' || '' }}
           LANGUAGE: ${{ inputs.language || 'en' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
         # agar kuch post hone se pehle hi fail ho (jaise awaaz service band), 3 minute baad dobara koshish

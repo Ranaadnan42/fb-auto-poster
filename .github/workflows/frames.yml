@@ -3,8 +3,8 @@ name: Frames of Life (Urdu World Documentaries)
 on:
   schedule:
     # Pakistan/Gulf audience. Run pehle chalta hai, video bana kar POST_AT par upload (slot_wait)
-    - cron: '17 12 * * *'   # post 13:17 UTC = 6:17 shaam Pakistan -> Short
-    - cron: '7 15 * * *'    # post 17:07 UTC = 10:07 raat Pakistan -> Lambi documentary (~11 min)
+    - cron: '47 7 * * *'   # post 13:17 UTC = 6:17 shaam Pakistan -> Short
+    - cron: '37 11 * * *'    # post 17:07 UTC = 10:07 raat Pakistan -> Lambi documentary (~11 min)
   workflow_dispatch:
     inputs:
       mode:
@@ -21,14 +21,16 @@ permissions:
   contents: write
 
 concurrency:
-  group: frames-poster
+  group: frames-poster-${{ github.event.schedule || github.run_id }}
   cancel-in-progress: false
 
 jobs:
   build:
     runs-on: ubuntu-latest
-    timeout-minutes: 350
+    timeout-minutes: 358
     steps:
+      - name: Job start time
+        run: echo "JOB_START=$(date +%s)" >> "$GITHUB_ENV"
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
@@ -49,8 +51,8 @@ jobs:
           YT_FRAMES_CLIENT_ID: ${{ secrets.YT_FRAMES_CLIENT_ID }}
           YT_FRAMES_CLIENT_SECRET: ${{ secrets.YT_FRAMES_CLIENT_SECRET }}
           YT_FRAMES_REFRESH_TOKEN: ${{ secrets.YT_FRAMES_REFRESH_TOKEN }}
-          MODE: ${{ inputs.mode || (github.event.schedule == '7 15 * * *' && 'long' || 'short') }}
-          POST_AT: ${{ github.event.schedule == '17 12 * * *' && '13:17' || github.event.schedule == '7 15 * * *' && '17:07' || '' }}
+          MODE: ${{ inputs.mode || (github.event.schedule == '37 11 * * *' && 'long' || 'short') }}
+          POST_AT: ${{ github.event.schedule == '47 7 * * *' && '13:17' || github.event.schedule == '37 11 * * *' && '17:07' || '' }}
           DRY_RUN: ${{ (github.event_name == 'workflow_dispatch' && inputs.dry_run) && '1' || '0' }}
         run: |
           python world.py || {

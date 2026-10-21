@@ -1,10 +1,11 @@
 """
 Post ko theek selected waqt par bhejne ke liye.
 
-GitHub ke scheduled runs aksar 1-5 ghante late chalte hain. Is liye workflow
-ab ~5 ghante pehle chalta hai, video pehle se ban jati hai, aur post karne se
-pehle yahan intezar hota hai jab tak POST_AT (UTC "HH:MM") ka waqt na aa jaye.
-Agar run waise hi late ho (waqt guzar chuka) to foran post hoti hai.
+GitHub ke scheduled runs aksar 0-6 ghante late chalte hain. Is liye workflow
+post se ~5.5 ghante pehle schedule hai, video pehle se ban jati hai, aur post
+karne se pehle yahan intezar hota hai jab tak POST_AT (UTC "HH:MM") na aa jaye.
+Job ki 6 ghante ki hadd (JOB_START se SLOT_BUDGET_MIN minute) tak hi intezar
+hota hai - us se aage ho to hadd par post. Waqt guzar chuka ho to foran post.
 POST_AT khali ho (hath se chalaya) to koi intezar nahi.
 """
 import os
@@ -12,6 +13,8 @@ import time
 import datetime
 
 _done = False
+_START = float(os.environ.get("JOB_START") or time.time())
+BUDGET_MIN = float(os.environ.get("SLOT_BUDGET_MIN") or 335)   # job start se itne minute tak intezar
 
 
 def target_time():
@@ -44,9 +47,13 @@ def wait(log=print):
     if secs <= 0:
         log(f"Post waqt {t:%H:%M} UTC guzar chuka - foran post")
         return
-    if secs > 120 * 60:                                   # GitHub par ghanton khali na baithein
-        log(f"Post waqt bahut door ({int(secs // 60)} min) - foran post")
-        return
+    limit = datetime.datetime.utcfromtimestamp(_START + BUDGET_MIN * 60)
+    if t > limit:                                         # job 6 ghante se zyada nahi chal sakti
+        log(f"Post waqt {t:%H:%M} job ki hadd se aage - {limit:%H:%M} UTC par post hogi")
+        t = limit
+        secs = (t - datetime.datetime.utcnow()).total_seconds()
+        if secs <= 0:
+            return
     log(f"Video tayyar - {int(secs // 60)} minute intezar, post {t:%H:%M} UTC par hogi")
     while True:
         secs = (t - datetime.datetime.utcnow()).total_seconds()
