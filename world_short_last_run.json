@@ -1,11 +1,11 @@
 {
  "mode": "short",
  "clips": 16,
- "clips_rejected": 22,
- "vision_checks": 34,
+ "clips_rejected": 3,
+ "vision_checks": 17,
  "errors": [],
- "seconds": 61.8,
- "subject": "Iceland",
- "series": "facts",
- "title": "6 Surprising Facts About Iceland You Didn't Know"
+ "seconds": 75.2,
+ "subject": "Sydney, Australia",
+ "series": "living_short",
+ "title": "Would You Live in Sydney? Cost, Pros & Cons"
 }
