@@ -241,7 +241,9 @@ REAL phrases people are typing into YouTube search about this theme right now:
 Choose the idea so the video truly answers ONE of these real searches (pick one that fits the
 theme, is not already covered above, and suits the rules). Put that search's key words
 naturally in the title so it shows up in search - but the title must honestly describe
-what the video says (no clickbait, no promises the video does not keep)."""
+what the video says (no clickbait, no promises the video does not keep).
+IGNORE phrases that name a scholar, speaker, channel or person, or ask for a cartoon, movie,
+song, status, or another language (Pashto, Hindi...) - never put such names in the title."""
     data = ask_json(f"""You plan videos for the Facebook page "{PAGE_NAME}".
 Language of this video: {L['caption_lang']}. Theme for today: {theme}
 These titles were ALREADY posted (any language). Do NOT repeat or closely resemble them:
