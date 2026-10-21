@@ -499,6 +499,14 @@ def youtube(path, title, desc, short, entry):
     import yt
     if not yt.enabled("funny"):
         return
+    if short:                              # YouTube par roz sirf 1 reel (Pakistan din ke hisaab se)
+        pk_today = (datetime.datetime.utcnow() + datetime.timedelta(hours=5)).strftime("%Y-%m-%d")
+        for h in load_history():
+            d = (datetime.datetime.strptime(h["date"], "%Y-%m-%d %H:%M")
+                 + datetime.timedelta(hours=5)).strftime("%Y-%m-%d")
+            if h.get("mode") == "reel" and h.get("yt_id") and d == pk_today:
+                log("YouTube: aaj ki reel pehle hi lag chuki - sirf Facebook")
+                return
     try:
         entry["yt_id"] = yt.upload("funny", path, title, desc, short=short, lang="ur", category="23")
     except Exception as e:

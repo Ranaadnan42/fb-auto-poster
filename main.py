@@ -562,6 +562,9 @@ def youtube(path, title, desc, short, entry, key):
     import yt
     if not yt.enabled("islamic"):
         return
+    if LANG != "ur":                       # YouTube par roz sirf 1 reel + 1 lambi (Urdu); English sirf FB par
+        log("YouTube: English video sirf Facebook par - skip")
+        return
     try:
         entry[key] = yt.upload("islamic", path, title, desc, short=short, lang=LANG, category="22")
     except Exception as e:
