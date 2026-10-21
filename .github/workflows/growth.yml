@@ -1,0 +1,80 @@
+name: Growth Bot (comment replies)
+
+on:
+  schedule:
+    # Pakistan time (UTC+5): ~11:20 subah, ~6:20 shaam, ~11:20 raat
+    # Sirf apne pages/channels par: logon ke comments ka jawab + nayi video par pehla comment
+    - cron: '23 6 * * *'
+    - cron: '23 13 * * *'
+    - cron: '23 18 * * *'
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Sirf dikhaye, comment na kare'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: growth-bot
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: pip install google-genai requests
+      - name: Run growth.py
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+          FUNNY_PAGE_ID: ${{ secrets.FUNNY_PAGE_ID }}
+          FUNNY_PAGE_TOKEN: ${{ secrets.FUNNY_PAGE_TOKEN }}
+          CINE_FB_PAGE_ID: ${{ secrets.CINE_FB_PAGE_ID }}
+          CINE_FB_TOKEN: ${{ secrets.CINE_FB_TOKEN }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          YT_ISLAMIC_CLIENT_ID: ${{ secrets.YT_ISLAMIC_CLIENT_ID }}
+          YT_ISLAMIC_CLIENT_SECRET: ${{ secrets.YT_ISLAMIC_CLIENT_SECRET }}
+          YT_ISLAMIC_REFRESH_TOKEN: ${{ secrets.YT_ISLAMIC_REFRESH_TOKEN }}
+          YT_FUNNY_CLIENT_ID: ${{ secrets.YT_FUNNY_CLIENT_ID }}
+          YT_FUNNY_CLIENT_SECRET: ${{ secrets.YT_FUNNY_CLIENT_SECRET }}
+          YT_FUNNY_REFRESH_TOKEN: ${{ secrets.YT_FUNNY_REFRESH_TOKEN }}
+          YT_MOVIE_CLIENT_ID: ${{ secrets.YT_MOVIE_CLIENT_ID }}
+          YT_MOVIE_CLIENT_SECRET: ${{ secrets.YT_MOVIE_CLIENT_SECRET }}
+          YT_MOVIE_REFRESH_TOKEN: ${{ secrets.YT_MOVIE_REFRESH_TOKEN }}
+          YT_WORLD_CLIENT_ID: ${{ secrets.YT_WORLD_CLIENT_ID }}
+          YT_WORLD_CLIENT_SECRET: ${{ secrets.YT_WORLD_CLIENT_SECRET }}
+          YT_WORLD_REFRESH_TOKEN: ${{ secrets.YT_WORLD_REFRESH_TOKEN }}
+          YT_FRAMES_CLIENT_ID: ${{ secrets.YT_FRAMES_CLIENT_ID }}
+          YT_FRAMES_CLIENT_SECRET: ${{ secrets.YT_FRAMES_CLIENT_SECRET }}
+          YT_FRAMES_REFRESH_TOKEN: ${{ secrets.YT_FRAMES_REFRESH_TOKEN }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+        run: python growth.py
+      - name: Save state
+        if: always()
+        run: |
+          FILES="growth_state.json growth_last_run.json"
+          mkdir -p /tmp/keep
+          for f in $FILES; do [ -f "$f" ] && cp "$f" /tmp/keep/; done
+          git config user.name "auto-poster"
+          git config user.email "auto-poster@users.noreply.github.com"
+          for i in 1 2 3 4 5; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            for f in $FILES; do [ -f "/tmp/keep/$f" ] && cp "/tmp/keep/$f" "$f"; done
+            git add $FILES 2>/dev/null || true
+            git diff --cached --quiet && break
+            git commit -q -m "Update growth state"
+            git push -q origin HEAD:main && break
+            sleep $((i * 5))
+          done
