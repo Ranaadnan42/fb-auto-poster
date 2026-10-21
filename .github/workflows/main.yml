@@ -52,7 +52,7 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg fonts-dejavu-core
-          pip install google-genai "edge-tts>=7.3.0" requests
+          pip install google-genai "edge-tts>=7.3.0" requests hijridate
 
       - name: Run main.py
         env:

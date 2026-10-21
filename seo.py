@@ -37,15 +37,20 @@ def _clean_tag(t):
     return t if t.startswith("#") else "#" + t
 
 
-def build(ask_json, page, title, script_text, lang="ur", is_reel=True):
-    """Gemini se SEO caption banwata hai. Fail ho to simple caption."""
+def build(ask_json, page, title, script_text, lang="ur", is_reel=True, search_terms=None):
+    """Gemini se SEO caption banwata hai. Fail ho to simple caption.
+    search_terms: YouTube par asal search hone wale phrases (ho to keywords inhi se)."""
     P = PAGES[page]
     lang_name = "Urdu (Urdu script)" if lang == "ur" else "English"
+    real = ""
+    if search_terms:
+        real = ("\nReal phrases people search on YouTube for this topic (use the ones that match "
+                f"this video in the body words and hashtags): {json.dumps(search_terms, ensure_ascii=False)}")
     try:
         d = ask_json(f"""You are a Facebook growth/SEO expert. Write the post caption for a
 {'Reel' if is_reel else 'video'} on the page "{P['name']}". Audience: {P['audience']}.
 Video title: {title}
-What the video says: {script_text[:1500]}
+What the video says: {script_text[:1500]}{real}
 
 Return JSON:
 {{"hook": "one short scroll-stopping first line in {lang_name} with 1-2 fitting emojis",

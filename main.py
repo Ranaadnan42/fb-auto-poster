@@ -160,18 +160,106 @@ def ask_json(prompt):
     raise RuntimeError(f"Gemini fail: {last}")
 
 
+# har theme ke search seeds: (English, Urdu script, Roman Urdu) - YouTube suggestions ke liye
+THEME_SEEDS = {
+    "patience (sabr) in hardship": ("patience in islam", "صبر", "sabr"),
+    "gratitude (shukr)": ("gratitude in islam", "شکر", "shukar"),
+    "trusting Allah (tawakkul)": ("trust in allah", "اللہ پر بھروسہ", "tawakkul"),
+    "the mercy and forgiveness of Allah": ("allah forgives", "اللہ کی رحمت", "allah ki rehmat"),
+    "the power of dua": ("power of dua", "دعا", "dua qabool"),
+    "the value of salah": ("importance of salah", "نماز", "namaz ki ahmiyat"),
+    "lessons from the life of Prophet Muhammad": ("prophet muhammad story", "نبی کریم کا واقعہ", "nabi ka waqia"),
+    "stories of the prophets mentioned in the Quran": ("prophet stories", "انبیاء کے واقعات", "hazrat ka waqia"),
+    "stories of the Sahaba": ("sahaba stories", "صحابہ کے واقعات", "sahaba ka waqia"),
+    "reflection on a Quran verse": ("quran verse", "قرآن کی آیت", "quran ki ayat"),
+    "death, the grave and the hereafter": ("life after death islam", "قبر", "qabar ka azab"),
+    "repentance (tawbah) and second chances": ("tawbah", "توبہ", "tauba"),
+    "kindness to parents": ("parents in islam", "والدین", "maa baap"),
+    "good character and manners": ("good character islam", "اخلاق", "achay akhlaq"),
+    "controlling anger": ("anger in islam", "غصہ", "gussa"),
+    "the value of time": ("value of time islam", "وقت کی قدر", "waqt ki qadar"),
+    "finding peace in remembering Allah (dhikr)": ("dhikr for peace", "ذکر", "dil ka sukoon"),
+    "Islamic history and the golden age": ("islamic history", "اسلامی تاریخ", "islami tareekh"),
+    "charity (sadaqah)": ("sadaqah", "صدقہ", "sadqa"),
+    "humility and avoiding arrogance": ("arrogance in islam", "تکبر", "aajzi"),
+    "hope after sadness": ("islamic reminder sadness", "اداسی", "mayoosi"),
+    "the night prayer (tahajjud)": ("tahajjud", "تہجد", "tahajjud ki fazilat"),
+    "Jannah and how to reach it": ("jannah", "جنت", "jannat"),
+    "honesty and trust (amanah)": ("honesty in islam", "ایمانداری", "amanat"),
+    "rizq (provision) comes from Allah": ("rizq", "رزق", "rizq mein barkat"),
+}
+PICK_EXTRA = {}   # search phrase / mauqa - history aur description ke liye
+
+
+def _occasion_today(history):
+    """Mauqe ki video har zabaan mein din mein sirf ek - baqi videos evergreen rahein."""
+    try:
+        import search_demand
+        occ = search_demand.islamic_occasion()
+    except Exception as e:
+        log(f"occasion check fail: {e}")
+        return None
+    if not occ:
+        return None
+    today = (datetime.datetime.utcnow() + datetime.timedelta(hours=5)).strftime("%Y-%m-%d")
+    for h in history:
+        if h.get("lang") == LANG and h.get("occasion") == occ[0] and h.get("pk_day") == today:
+            return None
+    return occ
+
+
+def _search_phrases(theme, occ):
+    try:
+        import search_demand
+        if occ:
+            en_seeds, ur_seeds = occ[2], occ[3]
+        else:
+            s = THEME_SEEDS.get(theme, (theme, "", ""))
+            en_seeds, ur_seeds = [s[0]], [s[1], s[2]]
+        if LANG == "en":
+            return search_demand.suggestions(en_seeds, "en", "US")
+        return search_demand.suggestions(ur_seeds, "ur", "PK")
+    except Exception as e:
+        log(f"search suggestions fail: {e}")
+        return []
+
+
 def pick_topic(history):
     used = [h["title"] for h in history[-120:]]
     n_lang = sum(1 for h in history if h.get("lang", "en") == LANG)
     theme = THEMES[(n_lang * 7 + (3 if LANG == "ur" else 0)) % len(THEMES)]
+    occ = _occasion_today(history)
+    if occ:
+        theme = occ[1]
+    searches = _search_phrases(theme, occ)
+    log(f"Occasion: {occ[0] if occ else '-'} | Search phrases: {searches[:12]}")
+    search_part = ""
+    if searches:
+        search_part = f"""
+REAL phrases people are typing into YouTube search about this theme right now:
+{json.dumps(searches, ensure_ascii=False)}
+Choose the idea so the video truly answers ONE of these real searches (pick one that fits the
+theme, is not already covered above, and suits the rules). Put that search's key words
+naturally in the title so it shows up in search - but the title must honestly describe
+what the video says (no clickbait, no promises the video does not keep)."""
     data = ask_json(f"""You plan videos for the Facebook page "{PAGE_NAME}".
 Language of this video: {L['caption_lang']}. Theme for today: {theme}
 These titles were ALREADY posted (any language). Do NOT repeat or closely resemble them:
 {json.dumps(used, ensure_ascii=False)}
-
+{search_part}
 Give ONE fresh, specific, emotionally engaging video idea inside this theme.
 Return JSON: {{"topic": "one English sentence describing the idea",
- "title": "catchy title in {L['caption_lang']}, max 70 characters"}}""")
+ "title": "catchy title in {L['caption_lang']}, max 70 characters",
+ "search_phrase": "the exact real search phrase from the list you answered, or empty"}}""")
+    PICK_EXTRA.clear()
+    phrase = (data.get("search_phrase") or "").strip()
+    if phrase:
+        PICK_EXTRA["search"] = phrase
+    if occ:
+        PICK_EXTRA["occasion"] = occ[0]
+    PICK_EXTRA["pk_day"] = (datetime.datetime.utcnow() + datetime.timedelta(hours=5)).strftime("%Y-%m-%d")
+    REPORT["search_phrases"] = searches[:20]
+    REPORT.update({k: v for k, v in PICK_EXTRA.items() if k != "pk_day"})
     return theme, data["topic"], data["title"]
 
 
@@ -548,7 +636,8 @@ def post_reel(path, desc):
 def description(title, script, is_reel=True):
     import seo
     text = " ".join((sc.get("text") or "") for sc in script.get("scenes", []))
-    return seo.build(ask_json, "islamic", title, text or script.get("caption", ""), LANG, is_reel)
+    return seo.build(ask_json, "islamic", title, text or script.get("caption", ""), LANG, is_reel,
+                     search_terms=REPORT.get("search_phrases", [])[:6])
 
 
 # ---------------------------------------------------------------- main
@@ -581,6 +670,7 @@ def _main():
 
     entry = {"date": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"),
              "lang": LANG, "theme": theme, "title": title}
+    entry.update(PICK_EXTRA)
     ok = 0
     need = int(DO_LONG) + int(DO_REEL)
     try:
