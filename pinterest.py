@@ -87,7 +87,7 @@ def _save(path, data):
 
 # ---------------------------------------------------------------- tokens
 def _app():
-    return ((os.environ.get("PINTEREST_APP_ID") or "").strip(),
+    return ((os.environ.get("PINTEREST_APP_ID") or "1627933").strip(),
             (os.environ.get("PINTEREST_APP_SECRET") or "").strip())
 
 
