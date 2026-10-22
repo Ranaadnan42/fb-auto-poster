@@ -1,13 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 24,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "story",
- "long_minutes": 2.84,
- "series": "ماما بلال اور اسمارٹ فون کا بخار | قسط 1 part 3 (ai)",
- "laughs": 7,
- "time_utc": "2026-10-21 20:20",
- "title": "ماما بلال اور اسمارٹ فون کا بخار | قسط 1 | آخری قسط",
+ "format": "chat",
+ "reel_minutes": 1.32,
+ "laughs": 3,
+ "time_utc": "2026-10-22 08:31",
+ "title": "ڈلیوری رائڈر اور استاد جی کا اسکول ڈرامہ",
  "dry_run": false
 }
