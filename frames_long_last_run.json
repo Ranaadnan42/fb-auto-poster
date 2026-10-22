@@ -1,11 +1,13 @@
 {
  "mode": "long",
- "clips": 86,
- "clips_rejected": 40,
- "vision_checks": 125,
- "errors": [],
- "seconds": 607.6,
- "subject": "Turkey",
- "series": "pk_country",
- "title": "ترکی میں زندگی، نوکری اور ویزا کی حقیقت | Life in Turkey"
+ "clips": 48,
+ "clips_rejected": 19,
+ "vision_checks": 62,
+ "errors": [
+  "Gemini fail: Expecting property name enclosed in double quotes: line 34 column 11 (char 1794)"
+ ],
+ "seconds": 217.4,
+ "subject": "Japan",
+ "series": "pk_visa",
+ "title": "جاپان کا ویزا کیسے لگتا ہے؟ | Japan Visa Guide for Pakistanis"
 }
