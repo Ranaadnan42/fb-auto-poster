@@ -1,6 +1,6 @@
 {
- "time_utc": "2026-10-21 22:16",
- "dry_run": true,
+ "time_utc": "2026-10-22 01:48",
+ "dry_run": false,
  "accounts": {
   "islamic": "skip: token nahi (docs/pinterest.html se connect karein)",
   "legends": "skip: token nahi (docs/pinterest.html se connect karein)",
