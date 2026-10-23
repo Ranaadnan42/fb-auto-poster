@@ -1,23 +1,19 @@
 {
- "lang": "ur",
- "stock_clips": 38,
+ "lang": "en",
+ "stock_clips": 9,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "tawakkul in allah",
-  "tawakkul youth club",
-  "tawakkul kya hai",
-  "tawakkul dr israr",
-  "tawakkul in allah youth club",
-  "tawakkul nasheed",
-  "tawakkul stories",
-  "tawakkul bayan",
-  "tawakkul muhammad ali"
+  "value of time islamic speech in malayalam",
+  "importance of time islam",
+  "importance of time islamic lectures",
+  "time value of money in islam",
+  "time value of money in islamic finance"
  ],
- "search": "tawakkul kya hai",
- "long_minutes": 4.72,
- "time_utc": "2026-10-23 15:05",
- "title": "توکل کیا ہے؟ اللہ پر کامل بھروسہ کرنے کا اصل طریقہ",
+ "search": "importance of time islam",
+ "reel_minutes": 1.1,
+ "time_utc": "2026-10-23 15:55",
+ "title": "The True Importance of Time in Islam",
  "dry_run": false,
  "posted_ok": 1
 }
