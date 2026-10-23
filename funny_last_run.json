@@ -1,12 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 12,
+ "stock_clips": 16,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
- "laughs": 4,
- "reel_minutes": 0.81,
- "time_utc": "2026-10-23 11:32",
- "title": "سرپرائز مہمان اور امی کا ساس بہو ڈرامہ",
+ "format": "story",
+ "long_minutes": 1.89,
+ "series": "ببلو اور رشتہ آنٹی کا طوفان | قسط 1 part 1 (cartoon)",
+ "laughs": 6,
+ "time_utc": "2026-10-23 13:46",
+ "title": "ببلو اور رشتہ آنٹی کا طوفان | قسط 1 | قسط 1",
  "dry_run": false
 }
