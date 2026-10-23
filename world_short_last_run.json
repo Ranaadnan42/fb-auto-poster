@@ -1,11 +1,11 @@
 {
  "mode": "short",
  "clips": 18,
- "clips_rejected": 18,
- "vision_checks": 36,
+ "clips_rejected": 12,
+ "vision_checks": 30,
  "errors": [],
- "seconds": 83.6,
- "subject": "Paris vs Rome",
- "series": "versus_short",
- "title": "Paris vs Rome: Which Iconic European Capital Should You Visit?"
+ "seconds": 72.2,
+ "subject": "Rio de Janeiro, Brazil",
+ "series": "city_facts",
+ "title": "Rio de Janeiro in 60 Seconds: The Marvelous City"
 }
