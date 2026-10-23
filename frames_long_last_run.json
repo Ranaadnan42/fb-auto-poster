@@ -1,13 +1,11 @@
 {
  "mode": "long",
- "clips": 48,
- "clips_rejected": 19,
- "vision_checks": 62,
- "errors": [
-  "Gemini fail: Expecting property name enclosed in double quotes: line 34 column 11 (char 1794)"
- ],
- "seconds": 217.4,
- "subject": "Japan",
+ "clips": 43,
+ "clips_rejected": 16,
+ "vision_checks": 55,
+ "errors": [],
+ "seconds": 242.7,
+ "subject": "United Kingdom",
  "series": "pk_visa",
- "title": "جاپان کا ویزا کیسے لگتا ہے؟ | Japan Visa Guide for Pakistanis"
+ "title": "برطانیہ کا ویزا کیسے لگتا ہے؟ | UK Visa Guide for Pakistanis"
 }
