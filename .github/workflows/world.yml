@@ -86,7 +86,7 @@ jobs:
           git config user.email "auto-poster@users.noreply.github.com"
           for i in 1 2 3 4 5; do
             git fetch -q origin main && git reset -q --hard origin/main
-            for f in $FILES; do cp "/tmp/keep/$f" "$f"; done
+            python3 tools/keep_files.py /tmp/keep $FILES
             git add -A $FILES
             git diff --cached --quiet && break
             git commit -q -m "Update world history and run report"
