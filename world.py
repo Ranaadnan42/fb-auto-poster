@@ -152,7 +152,7 @@ def log(msg):
 
 
 def run(cmd, cwd=None):
-    r = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True)
+    r = subprocess.run(cmd, cwd=cwd, capture_output=True, text=True, timeout=2400)
     if r.returncode != 0:
         raise RuntimeError(f"cmd fail: {' '.join(cmd[:6])} ... {r.stderr[-600:]}")
     return r.stdout
@@ -183,7 +183,7 @@ def _gem():
     global _client
     from google import genai
     if _client is None:
-        _client = genai.Client(api_key=GEMINI_KEY)
+        _client = genai.Client(api_key=GEMINI_KEY, http_options={"timeout": 180_000})   # atak na jaye
     return _client
 
 
@@ -542,7 +542,7 @@ def tts(text, path):
     import edge_tts
 
     async def go():
-        await edge_tts.Communicate(text, VOICE, rate=RATE).save(path)
+        await asyncio.wait_for(edge_tts.Communicate(text, VOICE, rate=RATE).save(path), 240)
     for attempt in range(6):
         try:
             asyncio.run(go())

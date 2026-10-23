@@ -132,6 +132,18 @@ def duration(path):
                       "-of", "default=nw=1:nk=1", path]).strip())
 
 
+def remote_history():
+    """GitHub par abhi wali history (doosra run shayad post kar chuka ho). Na mile to None."""
+    try:
+        subprocess.run(["git", "fetch", "-q", "origin", "main"], timeout=120, check=True)
+        out = subprocess.run(["git", "show", f"origin/main:{HISTORY_FILE}"], capture_output=True,
+                             text=True, timeout=60)
+        return json.loads(out.stdout) if out.returncode == 0 else []
+    except Exception as e:
+        log(f"remote history skip: {str(e)[:150]}")
+        return None
+
+
 def load_history():
     try:
         with open(HISTORY_FILE, encoding="utf-8") as f:
@@ -844,9 +856,16 @@ def _main():
         except ValueError:
             return False
         return abs((d - _t).total_seconds()) < 3 * 3600
-    if _t is not None and any(_near(h) for h in history):
-        log("Aaj ki is waqt wali video pehle hi lag chuki (backup run) - skip")
-        return
+    BACKUP = os.environ.get("IS_BACKUP") == "1"
+    if _t is not None:
+        rh = remote_history()
+        if rh is not None and any(_near(h) for h in rh):
+            save_history(rh)                   # purani copy GitHub wali nayi history ko na mitaye
+            log("Is waqt wali video pehle hi lag chuki (backup run) - skip")
+            return
+        if any(_near(h) for h in history):
+            log("Is waqt wali video pehle hi lag chuki (backup run) - skip")
+            return
     st = series_state(history)
     script = write_story(history, st)
     script["part"] = st["part"]
@@ -868,6 +887,13 @@ def _main():
     build_video(script, "final_cinematic.mp4")
     if not DRY_RUN:
         slot_wait.wait(log)
+        if BACKUP and tgt is not None:         # backup: pehle main run ko post karne ka mauqa do
+            time.sleep(20 * 60)
+            rh = remote_history()
+            if rh is not None and any(_near(h) for h in rh):
+                save_history(rh)
+                log("Main run ne video laga di - backup skip (duplicate nahi)")
+                return
     thumb = None
     try:
         thumb = make_thumbnail(script, "thumbnail.jpg")

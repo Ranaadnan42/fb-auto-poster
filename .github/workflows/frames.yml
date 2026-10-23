@@ -3,9 +3,9 @@ name: Frames of Life (Urdu World Documentaries)
 on:
   schedule:
     # Pakistan/Gulf audience. Run pehle chalta hai, video bana kar POST_AT par upload (slot_wait)
-    - cron: '47 2 * * *'   # post 08:17 UTC = 1:17 dopehar Pakistan -> doosra Short
-    - cron: '47 7 * * *'   # post 13:17 UTC = 6:17 shaam Pakistan -> Short
-    - cron: '37 11 * * *'    # post 17:07 UTC = 10:07 raat Pakistan -> Lambi documentary (~11 min)
+    - cron: '47 1 * * *'   # post 08:17 UTC = 1:17 dopehar Pakistan -> doosra Short
+    - cron: '47 6 * * *'   # post 13:17 UTC = 6:17 shaam Pakistan -> Short
+    - cron: '7 10 * * *'    # post 17:07 UTC = 10:07 raat Pakistan -> Lambi documentary (~11 min)
   workflow_dispatch:
     inputs:
       mode:
@@ -52,8 +52,8 @@ jobs:
           YT_FRAMES_CLIENT_ID: ${{ secrets.YT_FRAMES_CLIENT_ID }}
           YT_FRAMES_CLIENT_SECRET: ${{ secrets.YT_FRAMES_CLIENT_SECRET }}
           YT_FRAMES_REFRESH_TOKEN: ${{ secrets.YT_FRAMES_REFRESH_TOKEN }}
-          MODE: ${{ inputs.mode || (github.event.schedule == '37 11 * * *' && 'long' || 'short') }}
-          POST_AT: ${{ github.event.schedule == '47 2 * * *' && '08:17' || github.event.schedule == '47 7 * * *' && '13:17' || github.event.schedule == '37 11 * * *' && '17:07' || '' }}
+          MODE: ${{ inputs.mode || (github.event.schedule == '7 10 * * *' && 'long' || 'short') }}
+          POST_AT: ${{ github.event.schedule == '47 1 * * *' && '08:17' || github.event.schedule == '47 6 * * *' && '13:17' || github.event.schedule == '7 10 * * *' && '17:07' || '' }}
           DRY_RUN: ${{ (github.event_name == 'workflow_dispatch' && inputs.dry_run) && '1' || '0' }}
         run: |
           python world.py || {

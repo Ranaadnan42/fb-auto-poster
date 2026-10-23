@@ -2,7 +2,7 @@
 Post ko theek selected waqt par bhejne ke liye.
 
 GitHub ke scheduled runs aksar 0-6 ghante late chalte hain. Is liye workflow
-post se ~5.5 ghante pehle schedule hai, video pehle se ban jati hai, aur post
+post se ~6.5-7 ghante pehle schedule hai (22 Oct: GitHub 3-5.8 ghante late tha), video pehle se ban jati hai, aur post
 karne se pehle yahan intezar hota hai jab tak POST_AT (UTC "HH:MM") na aa jaye.
 Job ki 6 ghante ki hadd (JOB_START se SLOT_BUDGET_MIN minute) tak hi intezar
 hota hai - us se aage ho to hadd par post. Waqt guzar chuka ho to foran post.
