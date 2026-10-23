@@ -1,13 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 16,
+ "stock_clips": 10,
  "fallback_clips": 0,
  "errors": [],
- "format": "story",
- "long_minutes": 1.89,
- "series": "ببلو اور رشتہ آنٹی کا طوفان | قسط 1 part 1 (cartoon)",
- "laughs": 6,
- "time_utc": "2026-10-23 13:46",
- "title": "ببلو اور رشتہ آنٹی کا طوفان | قسط 1 | قسط 1",
+ "format": "animal",
+ "laughs": 4,
+ "reel_minutes": 0.72,
+ "time_utc": "2026-10-23 15:44",
+ "title": "ہیمسٹر نیوز اور آن لائن شاپنگ کا صدمہ",
  "dry_run": false
 }
