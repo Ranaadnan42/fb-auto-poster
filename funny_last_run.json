@@ -1,12 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 8,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
+ "format": "chat",
+ "reel_minutes": 1.17,
  "laughs": 3,
- "reel_minutes": 0.59,
- "time_utc": "2026-10-22 17:03",
- "title": "بھیڑ میاں کی ڈائٹ اور عید کا صدمہ",
+ "time_utc": "2026-10-23 07:23",
+ "title": "پاور پلے اور بجلی کا بل",
  "dry_run": false
 }
