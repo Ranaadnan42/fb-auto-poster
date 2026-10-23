@@ -1,4 +1,5 @@
 name: Funny Videos Poster
+run-name: ${{ github.workflow }} [${{ inputs.sched || github.event.schedule || 'manual' }}]
 
 on:
   schedule:
@@ -9,6 +10,10 @@ on:
     - cron: '8 11 * * *'   # post 17:33 UTC = ~10:30 raat   -> reel
   workflow_dispatch:
     inputs:
+      sched:
+        description: 'Scheduler ke liye - khali chhor dein'
+        type: string
+        default: ''
       mode:
         description: 'reel ya long'
         type: choice
@@ -26,14 +31,36 @@ on:
 
 permissions:
   contents: write
+  actions: read
 
 concurrency:
-  group: funny-poster-${{ github.event.schedule || github.run_id }}
+  group: funny-poster-${{ (inputs.sched || github.event.schedule) || github.run_id }}
   cancel-in-progress: false
 
 jobs:
-  build:
+  gate:
     runs-on: ubuntu-latest
+    timeout-minutes: 358
+    outputs:
+      go: ${{ steps.g.outputs.go }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: tools
+      - id: g
+        name: Double post / jaldi run check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WF_FILE: funny.yml
+          SCHED: ${{ inputs.sched || github.event.schedule }}
+        run: python3 tools/slot_gate.py
+
+  build:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ubuntu-latest
+    env:
+      S: ${{ inputs.sched || github.event.schedule }}
     timeout-minutes: 358
     steps:
       - name: Job start time
@@ -66,10 +93,10 @@ jobs:
           TIKTOK_CLIENT_KEY: ${{ secrets.TIKTOK_CLIENT_KEY }}
           TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
           TIKTOK_FUNNY_REFRESH_TOKEN: ${{ secrets.TIKTOK_FUNNY_REFRESH_TOKEN }}
-          MODE: ${{ inputs.mode || 'auto' }}
-          POST_AT: ${{ github.event.schedule == '8 2 * * *' && '08:33' || github.event.schedule == '8 6 * * *' && '12:33' || github.event.schedule == '38 8 * * *' && '15:33' || github.event.schedule == '8 11 * * *' && '17:33' || '' }}
-          FORMAT: ${{ inputs.format != 'auto' && inputs.format || '' }}
-          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+          MODE: ${{ env.S && 'auto' || inputs.mode || 'auto' }}
+          POST_AT: ${{ env.S == '8 2 * * *' && '08:33' || env.S == '8 6 * * *' && '12:33' || env.S == '38 8 * * *' && '15:33' || env.S == '8 11 * * *' && '17:33' || '' }}
+          FORMAT: ${{ !env.S && inputs.format != 'auto' && inputs.format || '' }}
+          DRY_RUN: ${{ !env.S && inputs.dry_run && '1' || '0' }}
         # agar kuch post hone se pehle hi fail ho (jaise awaaz service band), 3 minute baad dobara koshish
         run: |
           python funny.py || {

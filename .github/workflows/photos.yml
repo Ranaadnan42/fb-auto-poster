@@ -1,4 +1,5 @@
 name: Daily Photo Posts
+run-name: ${{ github.workflow }} [${{ inputs.sched || github.event.schedule || 'manual' }}]
 
 on:
   schedule:
@@ -8,6 +9,10 @@ on:
     - cron: '17 7 * * *'    # post 13:47 UTC = ~6:45 shaam   -> Islamic (English) + funny meme
   workflow_dispatch:
     inputs:
+      sched:
+        description: 'Scheduler ke liye - khali chhor dein'
+        type: string
+        default: ''
       slot:
         description: '1 = Urdu quote, 2 = English quote'
         type: choice
@@ -25,14 +30,36 @@ on:
 
 permissions:
   contents: write
+  actions: read
 
 concurrency:
-  group: photo-poster-${{ github.event.schedule || github.run_id }}
+  group: photo-poster-${{ (inputs.sched || github.event.schedule) || github.run_id }}
   cancel-in-progress: false
 
 jobs:
-  build:
+  gate:
     runs-on: ubuntu-latest
+    timeout-minutes: 358
+    outputs:
+      go: ${{ steps.g.outputs.go }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: tools
+      - id: g
+        name: Double post / jaldi run check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WF_FILE: photos.yml
+          SCHED: ${{ inputs.sched || github.event.schedule }}
+        run: python3 tools/slot_gate.py
+
+  build:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ubuntu-latest
+    env:
+      S: ${{ inputs.sched || github.event.schedule }}
     timeout-minutes: 358
     steps:
       - name: Job start time
@@ -54,11 +81,11 @@ jobs:
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FUNNY_PAGE_TOKEN: ${{ secrets.FUNNY_PAGE_TOKEN }}
           FUNNY_PAGE_ID: ${{ secrets.FUNNY_PAGE_ID }}
-          SLOT: ${{ github.event.schedule == '17 7 * * *' && '2' || inputs.slot || '1' }}
+          SLOT: ${{ env.S == '17 7 * * *' && '2' || env.S && '1' || inputs.slot || '1' }}
           # Islamic page par din mein 1 pic (subah), shaam wali sirf funny page
-          PAGES: ${{ inputs.pages || (github.event.schedule == '17 7 * * *' && 'funny' || 'islamic,funny') }}
-          POST_AT: ${{ github.event.schedule == '17 0 * * *' && '06:47' || github.event.schedule == '17 7 * * *' && '13:47' || '' }}
-          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+          PAGES: ${{ env.S && (env.S == '17 7 * * *' && 'funny' || 'islamic,funny') || inputs.pages || 'islamic,funny' }}
+          POST_AT: ${{ env.S == '17 0 * * *' && '06:47' || env.S == '17 7 * * *' && '13:47' || '' }}
+          DRY_RUN: ${{ !env.S && inputs.dry_run && '1' || '0' }}
         run: python photos.py
       - name: Upload preview
         if: always()

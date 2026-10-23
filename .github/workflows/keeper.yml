@@ -1,0 +1,31 @@
+name: Scheduler (posts on time)
+
+# GitHub ka cron ghanton late / gira deta hai. Yeh Scheduler hamesha chalta hai aur har post se
+# pehle us bot ko foran chalata hai. Har ghante ka cron sirf is ke band ho jane ka backup hai.
+on:
+  schedule:
+    - cron: '11 * * * *'
+  workflow_dispatch:
+    inputs:
+      handoff:
+        description: 'Andar ka istemal (pichle Scheduler ne chalaya)'
+        type: string
+        default: '0'
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  keep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: tools
+      - name: Scheduler
+        env:
+          GH_TOKEN: ${{ github.token }}
+          HANDOFF: ${{ inputs.handoff || '0' }}
+        run: python3 tools/keeper.py

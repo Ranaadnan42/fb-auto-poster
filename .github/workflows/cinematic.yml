@@ -1,4 +1,5 @@
 name: Cinematic AI Stories (YouTube)
+run-name: ${{ github.workflow }} [${{ inputs.sched || github.event.schedule || 'manual' }}]
 
 on:
   schedule:
@@ -13,6 +14,10 @@ on:
     - cron: '17 19 * * *'   # backup doosra Short
   workflow_dispatch:
     inputs:
+      sched:
+        description: 'Scheduler ke liye - khali chhor dein'
+        type: string
+        default: ''
       mode:
         description: 'short ya long'
         type: choice
@@ -30,14 +35,36 @@ on:
 
 permissions:
   contents: write
+  actions: read
 
 concurrency:
-  group: cinematic-poster-${{ (github.event.schedule == '47 9 * * *' || github.event.schedule == '17 10 * * *') && 'short' || (github.event.schedule == '7 15 * * *' || github.event.schedule == '37 15 * * *') && 'long' || (github.event.schedule == '47 18 * * *' || github.event.schedule == '17 19 * * *') && 'short2' || github.run_id }}
+  group: cinematic-poster-${{ ((inputs.sched || github.event.schedule) == '47 9 * * *' || (inputs.sched || github.event.schedule) == '17 10 * * *') && 'short' || ((inputs.sched || github.event.schedule) == '7 15 * * *' || (inputs.sched || github.event.schedule) == '37 15 * * *') && 'long' || ((inputs.sched || github.event.schedule) == '47 18 * * *' || (inputs.sched || github.event.schedule) == '17 19 * * *') && 'short2' || github.run_id }}
   cancel-in-progress: false
 
 jobs:
-  build:
+  gate:
     runs-on: ubuntu-latest
+    timeout-minutes: 358
+    outputs:
+      go: ${{ steps.g.outputs.go }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: tools
+      - id: g
+        name: Double post / jaldi run check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WF_FILE: cinematic.yml
+          SCHED: ${{ inputs.sched || github.event.schedule }}
+        run: python3 tools/slot_gate.py
+
+  build:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ubuntu-latest
+    env:
+      S: ${{ inputs.sched || github.event.schedule }}
     timeout-minutes: 358
     steps:
       - name: Job start time
@@ -75,11 +102,11 @@ jobs:
           CINE_FB_PAGE_ID: ${{ secrets.CINE_FB_PAGE_ID }}
           CINE_FB_TOKEN: ${{ secrets.CINE_FB_TOKEN }}
           CHANNEL_NAME: ${{ vars.CHANNEL_NAME }}
-          IS_BACKUP: ${{ (github.event.schedule == '17 10 * * *' || github.event.schedule == '37 15 * * *' || github.event.schedule == '17 19 * * *') && '1' || '0' }}
-          MODE: ${{ inputs.mode || ((github.event.schedule == '7 15 * * *' || github.event.schedule == '37 15 * * *') && 'long' || 'short') }}
-          POST_AT: ${{ (github.event.schedule == '47 9 * * *' || github.event.schedule == '17 10 * * *') && '16:17' || (github.event.schedule == '7 15 * * *' || github.event.schedule == '37 15 * * *') && '22:07' || (github.event.schedule == '47 18 * * *' || github.event.schedule == '17 19 * * *') && '01:17' || '' }}
-          LANGUAGE: ${{ inputs.language || 'en' }}
-          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+          IS_BACKUP: ${{ (env.S == '17 10 * * *' || env.S == '37 15 * * *' || env.S == '17 19 * * *') && '1' || '0' }}
+          MODE: ${{ env.S && ((env.S == '7 15 * * *' || env.S == '37 15 * * *') && 'long' || 'short') || inputs.mode || 'short' }}
+          POST_AT: ${{ (env.S == '47 9 * * *' || env.S == '17 10 * * *') && '16:17' || (env.S == '7 15 * * *' || env.S == '37 15 * * *') && '22:07' || (env.S == '47 18 * * *' || env.S == '17 19 * * *') && '01:17' || '' }}
+          LANGUAGE: ${{ env.S && 'en' || inputs.language || 'en' }}
+          DRY_RUN: ${{ !env.S && inputs.dry_run && '1' || '0' }}
         # agar kuch post hone se pehle hi fail ho (jaise awaaz service band), 3 minute baad dobara koshish
         run: |
           python cinematic.py || {
@@ -91,12 +118,12 @@ jobs:
           }
 
       - name: Preview (dry run)
-        if: ${{ inputs.dry_run }}
+        if: ${{ !inputs.sched && inputs.dry_run }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: bash tools/preview.sh final_cinematic.mp4 legends_${{ inputs.mode }} || true
       - name: Keep video (dry run)
-        if: ${{ inputs.dry_run }}
+        if: ${{ !inputs.sched && inputs.dry_run }}
         uses: actions/upload-artifact@v4
         with:
           name: cinematic-video

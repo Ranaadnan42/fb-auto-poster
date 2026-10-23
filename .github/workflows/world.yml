@@ -1,4 +1,5 @@
 name: Atlas Untold (World Documentaries)
+run-name: ${{ github.workflow }} [${{ inputs.sched || github.event.schedule || 'manual' }}]
 
 on:
   schedule:
@@ -8,6 +9,10 @@ on:
     - cron: '37 13 * * *'   # post 20:37 UTC = 4:37 shaam New York  -> Lambi documentary (~11 min)
   workflow_dispatch:
     inputs:
+      sched:
+        description: 'Scheduler ke liye - khali chhor dein'
+        type: string
+        default: ''
       mode:
         description: 'short ya long'
         type: choice
@@ -20,14 +25,36 @@ on:
 
 permissions:
   contents: write
+  actions: read
 
 concurrency:
-  group: world-poster-${{ github.event.schedule || github.run_id }}
+  group: world-poster-${{ (inputs.sched || github.event.schedule) || github.run_id }}
   cancel-in-progress: false
 
 jobs:
-  build:
+  gate:
     runs-on: ubuntu-latest
+    timeout-minutes: 358
+    outputs:
+      go: ${{ steps.g.outputs.go }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: tools
+      - id: g
+        name: Double post / jaldi run check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WF_FILE: world.yml
+          SCHED: ${{ inputs.sched || github.event.schedule }}
+        run: python3 tools/slot_gate.py
+
+  build:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ubuntu-latest
+    env:
+      S: ${{ inputs.sched || github.event.schedule }}
     timeout-minutes: 358
     steps:
       - name: Job start time
@@ -52,9 +79,9 @@ jobs:
           YT_WORLD_CLIENT_SECRET: ${{ secrets.YT_WORLD_CLIENT_SECRET }}
           YT_WORLD_REFRESH_TOKEN: ${{ secrets.YT_WORLD_REFRESH_TOKEN }}
           AFFILIATE_TEXT: ${{ vars.AFFILIATE_TEXT }}
-          MODE: ${{ inputs.mode || (github.event.schedule == '37 13 * * *' && 'long' || 'short') }}
-          POST_AT: ${{ github.event.schedule == '47 17 * * *' && '00:17' || github.event.schedule == '17 8 * * *' && '14:47' || github.event.schedule == '37 13 * * *' && '20:37' || '' }}
-          DRY_RUN: ${{ (github.event_name == 'workflow_dispatch' && inputs.dry_run) && '1' || '0' }}
+          MODE: ${{ env.S && (env.S == '37 13 * * *' && 'long' || 'short') || inputs.mode || 'long' }}
+          POST_AT: ${{ env.S == '47 17 * * *' && '00:17' || env.S == '17 8 * * *' && '14:47' || env.S == '37 13 * * *' && '20:37' || '' }}
+          DRY_RUN: ${{ (!env.S && github.event_name == 'workflow_dispatch' && inputs.dry_run) && '1' || '0' }}
         run: |
           python world.py || {
             if grep -q '"fatal:' "world_${MODE}_last_run.json" 2>/dev/null; then
@@ -64,12 +91,12 @@ jobs:
             fi
           }
       - name: Preview (dry run)
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+        if: ${{ !inputs.sched && github.event_name == 'workflow_dispatch' && inputs.dry_run }}
         env:
           GH_TOKEN: ${{ github.token }}
         run: bash tools/preview.sh final_world.mp4 atlas_${{ inputs.mode }} || true
       - name: Keep video (dry run)
-        if: ${{ github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+        if: ${{ !inputs.sched && github.event_name == 'workflow_dispatch' && inputs.dry_run }}
         uses: actions/upload-artifact@v4
         with:
           name: world-video
