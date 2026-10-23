@@ -88,9 +88,32 @@ THEMES = [
     "honesty and trust (amanah)", "rizq (provision) comes from Allah",
 ]
 
-SAFE_VISUALS = ("Visual terms must be calm cinematic scenery only: nature, sky, clouds, sunrise, "
-                "sunset, ocean, rain, desert, mountains, mosque, lantern, candle, prayer beads, "
-                "open book, night stars, forest, river, flowers. Never people or faces.")
+SAFE_VISUALS = ("Visual terms must be Islamic or calm scenery only. Prefer Islamic: mosque, "
+                "mosque interior, minaret, mosque dome, mecca, medina, quran, prayer mat, "
+                "ramadan lantern, crescent moon, islamic architecture, arabic calligraphy. "
+                "Or scenery: sky, clouds, sunrise, sunset, ocean, rain, desert, mountains, "
+                "night stars, forest, river. Never people or faces, never church, temple, "
+                "cross, candle or statue.")
+
+# Har scene mein aadhe clips inn mein se (masjid waghera zyada dikhein)
+ISLAMIC_VISUALS = ["mosque", "mosque interior", "minaret", "mosque dome", "mecca", "medina",
+                   "quran", "prayer mat", "ramadan lantern", "crescent moon",
+                   "islamic architecture", "arabic calligraphy", "mosque sunset"]
+
+# Inn tags wale clips kabhi nahi lagenge (ghair-Islami ibadat gahen / cheezein)
+BLOCK_TAGS = {"church", "cathedral", "chapel", "christian", "christianity", "cross", "crucifix",
+              "jesus", "christ", "mary", "bible", "priest", "nun", "pope", "vatican", "basilica",
+              "monastery", "abbey", "rosary", "christmas", "easter", "temple", "hindu", "buddha",
+              "buddhist", "buddhism", "monk", "pagoda", "shrine", "idol", "statue", "sculpture",
+              "synagogue", "jewish", "menorah", "shiva", "ganesh", "krishna", "diwali", "halloween",
+              "gothic", "angel", "saint", "candle", "candles", "altar", "wine", "beer", "alcohol",
+              "bikini", "party", "nightclub", "dance", "dancing", "pig", "pork"}
+
+
+def clip_blocked(hit):
+    tags = [t.strip().lower() for t in (hit.get("tags") or "").split(",")]
+    words = {w for t in tags for w in t.split()}
+    return bool(words & BLOCK_TAGS)
 
 RULES = """Accuracy rules (very important):
 - Only mention Quran verses and hadith that are well known and authentic; name the surah or the
@@ -399,7 +422,8 @@ def pixabay_clips(query, count, job, prefix):
                 "key": PIXABAY_KEY, "q": q, "safesearch": "true", "per_page": 40,
                 "video_type": "film"})
             r.raise_for_status()
-            hits = [h for h in r.json().get("hits", []) if h["id"] not in USED_CLIPS]
+            hits = [h for h in r.json().get("hits", [])
+                    if h["id"] not in USED_CLIPS and not clip_blocked(h)]
         except Exception as e:
             log(f"Pixabay error ({q}): {str(e)[:150]}")
             continue
@@ -497,7 +521,10 @@ def build_scene(job, i, sc, w, h, title):
         tts(text, os.path.join(job, audio))
     dur = duration(os.path.join(job, audio)) + 0.5
     k = max(1, min(4, round(dur / 8)))                     # har ~8 second baad naya clip
-    clips = pixabay_clips(sc.get("visual") or "nature", k, job, f"c{i}")
+    n_isl = (k + 1) // 2                                   # aadhe (ya zyada) Islamic clips
+    clips = pixabay_clips(random.choice(ISLAMIC_VISUALS), n_isl, job, f"c{i}i")
+    clips += pixabay_clips(sc.get("visual") or "nature", k - len(clips), job, f"c{i}")
+    random.shuffle(clips)
     REPORT["stock_clips"] += len(clips)
     if not clips:
         REPORT["fallback_clips"] += 1
