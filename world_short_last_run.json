@@ -1,11 +1,11 @@
 {
  "mode": "short",
- "clips": 16,
- "clips_rejected": 3,
- "vision_checks": 17,
+ "clips": 18,
+ "clips_rejected": 18,
+ "vision_checks": 36,
  "errors": [],
- "seconds": 75.2,
- "subject": "Sydney, Australia",
- "series": "living_short",
- "title": "Would You Live in Sydney? Cost, Pros & Cons"
+ "seconds": 83.6,
+ "subject": "Paris vs Rome",
+ "series": "versus_short",
+ "title": "Paris vs Rome: Which Iconic European Capital Should You Visit?"
 }
