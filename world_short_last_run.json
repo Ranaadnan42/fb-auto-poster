@@ -1,11 +1,11 @@
 {
  "mode": "short",
  "clips": 16,
- "clips_rejected": 20,
- "vision_checks": 36,
+ "clips_rejected": 30,
+ "vision_checks": 46,
  "errors": [],
- "seconds": 65.6,
- "subject": "Mexico",
- "series": "food",
- "title": "5 Foods You Must Try in Mexico | Street Food to Mole"
+ "seconds": 64.2,
+ "subject": "Morocco",
+ "series": "hidden",
+ "title": "Morocco's 5 Best Kept Secret Places"
 }
