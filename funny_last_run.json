@@ -1,12 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 11,
+ "stock_clips": 48,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
- "laughs": 3,
- "reel_minutes": 0.7,
- "time_utc": "2026-10-24 10:52",
- "title": "بکرا میاں اور پیر کی صبح کا جلا ہوا دودھ",
+ "format": "story",
+ "long_minutes": 5.82,
+ "series": "چাচا بشیر اور محلے کا سپر کپ part 1 (ai)",
+ "laughs": 7,
+ "time_utc": "2026-10-24 12:54",
+ "title": "چাচا بشیر اور محلے کا سپر کپ | قسط 1",
  "dry_run": false
 }
