@@ -1,13 +1,19 @@
 {
- "mode": "auto",
- "stock_clips": 46,
+ "mode": "reel",
+ "stock_clips": 10,
  "fallback_clips": 0,
  "errors": [],
- "format": "story",
- "long_minutes": 6.41,
- "series": "چچا بوٹا اور محلے کا سپر لیگ part 2 (ai)",
- "laughs": 7,
- "time_utc": "2026-10-25 13:20",
- "title": "چچا بوٹا اور محلے کا سپر لیگ | قسط 2",
- "dry_run": false
+ "format": "animal",
+ "search_phrases": [
+  "friends group chatting",
+  "friends group funny",
+  "friends group funny video",
+  "friends group funny names"
+ ],
+ "search": "friends group funny video",
+ "laughs": 3,
+ "reel_minutes": 0.64,
+ "time_utc": "2026-10-25 17:04",
+ "title": "گائے میاں، پیر کی صبح اور فرینڈز گروپ فننی ویڈیو",
+ "dry_run": true
 }
