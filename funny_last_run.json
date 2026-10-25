@@ -1,12 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 0,
+ "stock_clips": 12,
  "fallback_clips": 0,
  "errors": [],
- "format": "chat",
- "reel_minutes": 1.47,
+ "format": "animal",
  "laughs": 3,
- "time_utc": "2026-10-25 07:04",
- "title": "کپتان کا مشورہ اور نوکری کا انٹرویو",
+ "reel_minutes": 0.82,
+ "time_utc": "2026-10-25 11:03",
+ "title": "لامہ میاں کی دوپہر اور امی کا باؤنسر",
  "dry_run": false
 }
