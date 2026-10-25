@@ -312,11 +312,56 @@ def gather_facts(plan):
 
 
 # ---------------------------------------------------------------- plan + script
+# har series ke YouTube search seeds - log asal mein kya dhoondte hain (search_demand.suggestions)
+SERIES_SEEDS = {
+    "living": ["living in", "cost of living in"], "country": ["travel documentary", "country documentary"],
+    "retire": ["retire in", "retiring abroad"], "versus": ["cost of living comparison", "vs living"],
+    "moving": ["moving to", "moving abroad to"], "city": ["city tour", "city documentary"],
+    "best_list": ["best countries to", "most affordable countries"],
+    "cost_short": ["cost of living in"], "facts": ["facts about", "interesting facts about"],
+    "living_short": ["living in"], "versus_short": ["vs cost of living"], "city_facts": ["things to know about"],
+    "food": ["must try food in", "traditional food of"], "hidden": ["hidden gems in"],
+    "pk_living": ["mein pakistani ki zindagi", "life in"], "pk_moving": ["jane se pehle", "moving abroad from pakistan"],
+    "pk_versus": ["kaun behtar hai", "vs dubai"], "pk_country": ["ملک کی معلومات", "country documentary in urdu"],
+    "pk_city": ["شہر کی سیر", "city documentary in urdu"], "pk_jobs": ["mein job", "jobs for pakistani in"],
+    "pk_best_list": ["sasta mulk", "best countries for pakistani"], "pk_cost_short": ["mein kharcha", "cost of living in"],
+    "pk_salary_short": ["mein salary", "mein kitni salary"], "pk_facts": ["ke hairan kun haqaiq", "معلومات"],
+    "pk_versus_short": ["ya dubai", "kaun behtar"], "pk_food": ["ke mashhoor khane"],
+    "pk_city_facts": ["ke bare mein maloomat"], "pk_hidden": ["khoobsurat jagah"],
+    "pk_visa": ["visa for pakistani", "ka visa kaise"], "pk_jobhow": ["mein job kaise", "job kaise milegi"],
+    "pk_tour": ["ki sair", "tour in urdu"], "pk_visa_short": ["visa for pakistani"],
+    "pk_jobtip": ["mein job kaise"], "pk_tour_short": ["ki sair"],
+}
+
+
+def _search_phrases(series):
+    """Asli YouTube searches - kuch bhi fail ho to khali list (purana tareeqa)."""
+    try:
+        import search_demand
+        seeds = SERIES_SEEDS.get(series) or []
+        return search_demand.suggestions(seeds, "ur", "PK") if URDU else search_demand.suggestions(seeds, "en", "US")
+    except Exception as e:
+        log(f"search suggestions fail: {e}")
+        return []
+
+
 def plan_topic(history):
     n = len(history)
     ser = LONG_SERIES if LONG else SHORT_SERIES
     series = ser[n % len(ser)]
     used = [h.get("subject", "") for h in history[-300:]]
+    searches = _search_phrases(series)
+    log(f"Search phrases: {searches[:12]}")
+    REPORT["search_phrases"] = searches[:20]
+    search_part = ""
+    if searches:
+        search_part = f"""
+REAL phrases people are typing into YouTube search right now:
+{json.dumps(searches, ensure_ascii=False)}
+If one of them fits this video type and is not already covered, choose the subject so the video truly
+answers that search (otherwise ignore the list). IGNORE phrases that name a real person, YouTuber,
+channel or brand, or are about news, politics, war, disasters or tragedies.
+"""
     aud = ("The audience is Pakistanis (in Pakistan and the Gulf) who love to learn about the world and many "
            "dream of visiting, working or studying abroad. Cover the WHOLE WORLD over time (every continent, "
            "big and small countries, famous cities). For visa/job/living types prefer countries where "
@@ -328,11 +373,25 @@ Video type: {SERIES_HINT[series]}.
 Already covered (do NOT repeat the same subject for this type): {json.dumps(used)}
 Pick a subject with strong worldwide search interest and plenty of REAL stock footage online
 (well-known places are better). Rotate continents fairly over time.
+{search_part}
 Return JSON: {{"subject": "short subject e.g. Japan / Kyoto, Japan / Dubai vs Doha",
+ "search_phrase": "the exact real search phrase from the list that this video answers, or empty",
  "countries": [{{"name": "English country name", "iso3": "ISO 3166 alpha-3", "currency": "ISO 4217 code"}}],
  "cities": ["main city names involved (0-3)"]}}""")
     plan["series"] = series
+    phrase = (plan.get("search_phrase") or "").strip() if searches else ""
+    plan["search_phrase"] = phrase
+    if phrase:
+        REPORT["search"] = phrase
     return plan
+
+
+def _search_rule(plan):
+    if not plan.get("search_phrase"):
+        return ""
+    return (f"\n- This video answers the real YouTube search \"{plan['search_phrase']}\": put its key words "
+            "naturally in yt_title and keywords, but the title must honestly describe what the video says "
+            "(no clickbait, no names of real people, channels or brands).")
 
 
 def write_script(plan, facts):
@@ -367,7 +426,7 @@ Rules:
 - If VERIFIED FACTS has "atlas_score", one scene near the end presents the Atlas Score (our own rating from
   World Bank data: Safety, Health, Affordability, Economy, each out of 10) and explains what it means.
   Put that scene's "score": true.
-- Be honest and useful like a friend who lived there; give practical tips. That makes this channel different.
+- Be honest and useful like a friend who lived there; give practical tips. That makes this channel different.{_search_rule(plan)}
 
 Return JSON:
 {{"title": "documentary title",
@@ -419,7 +478,7 @@ Rules:
 - "place": the city/region + country of that scene IN ENGLISH (e.g. "Dubai, United Arab Emirates").
 - "label": short on-screen place label in Urdu script (max 4 words) or "".
 - If VERIFIED FACTS has "atlas_score", one scene near the end presents the "{SCORE_NAME}" (our own rating
-  from World Bank data: safety, health, affordability, economy, each out of 10). Put that scene's "score": true.
+  from World Bank data: safety, health, affordability, economy, each out of 10). Put that scene's "score": true.{_search_rule(plan)}
 
 Return JSON:
 {{"title": "documentary title in Urdu script",
@@ -811,6 +870,8 @@ def _main():
     desc = description(script, chapters_ts)
     entry = {"date": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), "series": plan["series"],
              "subject": plan["subject"], "title": script.get("yt_title") or script.get("title")}
+    if plan.get("search_phrase"):
+        entry["search"] = plan["search_phrase"]
     REPORT.update({"subject": plan["subject"], "series": plan["series"], "title": entry["title"]})
     if not DRY_RUN:
         import yt
