@@ -1,11 +1,11 @@
 {
  "mode": "short",
  "clips": 16,
- "clips_rejected": 30,
- "vision_checks": 46,
+ "clips_rejected": 2,
+ "vision_checks": 18,
  "errors": [],
- "seconds": 64.2,
- "subject": "Morocco",
- "series": "hidden",
- "title": "Morocco's 5 Best Kept Secret Places"
+ "seconds": 63.2,
+ "subject": "Dubai, UAE",
+ "series": "cost_short",
+ "title": "What Life Really Costs in Dubai, UAE"
 }
