@@ -240,15 +240,42 @@ Return JSON:
     return data
 
 
+SEARCH_SEEDS = ["fantasy story", "dragon story", "legend of the"]   # YouTube par log kya dhoondte hain
+
+
+def _search_phrases():
+    """Asli YouTube searches (sirf naye series / standalone story ke liye). Fail ho to khali list."""
+    if MOVIE or LANG != "en":
+        return []
+    try:
+        import search_demand
+        return search_demand.suggestions(SEARCH_SEEDS, "en", "US")
+    except Exception as e:
+        log(f"search suggestions fail: {e}")
+        return []
+
+
 def write_story(history, st):
     if MOVIE:
         return write_movie(history)
     used = list(dict.fromkeys(h.get("series_title", "") for h in history[-90:]))
     p = st["part"]
+    searches = []
     if p == 1:
         series_txt = (f"This is PART 1 of a {PARTS}-part series. Invent 2-3 ORIGINAL memorable characters "
                       "(never famous movie, cartoon or game characters) with simple names. "
                       f"Do not reuse these old series titles: {json.dumps(used, ensure_ascii=False)}")
+        searches = _search_phrases()
+        log(f"Search phrases: {searches[:12]}")
+        REPORT["search_phrases"] = searches[:20]
+        if searches:
+            series_txt += f"""
+REAL phrases people are typing into YouTube search right now:
+{json.dumps(searches, ensure_ascii=False)}
+If one fits an ORIGINAL family-friendly fantasy story in this world, build the story idea around it so the
+video truly answers that search, and put its key words naturally in yt_title - the title must honestly
+describe the story (no clickbait). IGNORE phrases that name a real movie, show, game, book, character,
+person, YouTuber, channel or brand, or are about news, politics or real tragedies."""
     else:
         prev = "\n".join(f"Part {i + 1}: {s}" for i, s in enumerate(st["summaries"]))
         series_txt = (f"This is PART {p} of {PARTS} of the series \"{st['series_title']}\".\n"
@@ -264,6 +291,8 @@ def write_story(history, st):
         end += (" Just before the very last line, the narrator asks viewers ONE short choice question to answer "
                 "in the comments about the hero's dilemma (e.g. 'Should Kael trust the dragon? Tell me in the "
                 "comments.').")
+    search_field = (',\n "search_phrase": "the exact real search phrase from the list you used, or empty"'
+                    if searches else "")
     data = ask_json(f"""You write viral cinematic story shorts (like AI movie-style YouTube Shorts).
 World / setting: {st['world']}
 {series_txt}
@@ -295,10 +324,14 @@ Return JSON:
  "yt_title": "viral YouTube title in {TITLE_LANG}, max 70 characters, strong curiosity gap that is honest to the story, include one searchable word like dragon, kingdom, legend, curse or warrior",
  "description": "3-4 line YouTube description in {TITLE_LANG} ending with a question to invite comments",
  "thumb_text": "2-4 word ALL CAPS thumbnail text in English that creates curiosity, e.g. THE DRAGON LIED",
- "tags": ["15 short English YouTube search tags: fantasy story, ai movie, ..."]}}""")
+ "tags": ["15 short English YouTube search tags: fantasy story, ai movie, ..."]{search_field}}}""")
     scenes = [s for s in data.get("scenes", []) if (s.get("text") or "").strip()]
     if len(scenes) < (20 if LONG else 6):
         raise RuntimeError("Kahani mein scenes kam hain")
+    phrase = (data.get("search_phrase") or "").strip() if searches else ""
+    data["search_phrase"] = phrase
+    if phrase:
+        REPORT["search"] = phrase
     data["scenes"] = scenes
     if p > 1:
         data["series_title"] = st["series_title"] or data.get("series_title", "")
@@ -903,6 +936,8 @@ def _main():
              "series": st["series"], "series_title": script.get("series_title", ""),
              "part": st["part"], "world": st["world"], "characters": script.get("characters", ""),
              "title": script.get("title", ""), "summary": script.get("summary", "")}
+    if script.get("search_phrase"):
+        entry["search"] = script["search_phrase"]
     posted = 0
     if not DRY_RUN and yt_ok:
         try:
