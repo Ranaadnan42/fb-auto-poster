@@ -1,12 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 12,
+ "stock_clips": 46,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
- "laughs": 3,
- "reel_minutes": 0.82,
- "time_utc": "2026-10-25 11:03",
- "title": "لامہ میاں کی دوپہر اور امی کا باؤنسر",
+ "format": "story",
+ "long_minutes": 6.41,
+ "series": "چچا بوٹا اور محلے کا سپر لیگ part 2 (ai)",
+ "laughs": 7,
+ "time_utc": "2026-10-25 13:20",
+ "title": "چچا بوٹا اور محلے کا سپر لیگ | قسط 2",
  "dry_run": false
 }
