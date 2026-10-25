@@ -142,15 +142,48 @@ def word_count(script):
     return sum(len((s.get("text") or "").split()) for s in script.get("scenes", []))
 
 
+def _search_part(situation):
+    """Is topic par asal YouTube searches (gl=PK). Fail ho to khali - purana tareeqa chale."""
+    key = situation.split("(")[0].split("/")[0].strip()
+    try:
+        import search_demand
+        searches = search_demand.suggestions([f"{key} funny", f"{key} comedy"], "ur", "PK")
+    except Exception as e:
+        log(f"search suggestions fail: {e}")
+        searches = []
+    log(f"Search phrases: {searches[:12]}")
+    REPORT["search_phrases"] = searches[:20]
+    if not searches:
+        return "", ""
+    return searches, f"""
+REAL phrases Pakistanis are typing into YouTube search about this topic right now:
+{json.dumps(searches, ensure_ascii=False)}
+If one fits this topic and the rules, build the joke around it so the video truly matches that search,
+and put its key words naturally in the title - the title must honestly describe the video (no clickbait).
+IGNORE phrases that name a real person, celebrity, YouTuber, channel, drama, brand, or are about news,
+politics or real tragedies."""
+
+
+def _take_phrase(data, searches):
+    phrase = (data.get("search_phrase") or "").strip() if searches else ""
+    data["search_phrase"] = phrase
+    if phrase:
+        REPORT["search"] = phrase
+
+
+SEARCH_FIELD = ',\n "search_phrase": "the exact real search phrase from the list you used, or empty"'
+
+
 def write_reel(history):
     used = [h["title"] for h in history[-120:]]
     recent_animals = [h.get("animal") for h in history[-6:]]
     animal = random.choice([a for a in ANIMALS if a not in recent_animals])
     style = random.choice(STYLES)
     situation = SITUATIONS[len(history) % len(SITUATIONS)]
+    searches, search_txt = _search_part(situation)
     data = ask_json(f"""You write viral funny Facebook Reels for the Pakistani page "{PAGE_NAME}".
 Animal: {animal}. Comedy style: {style}.
-Today's topic (relatable everyday Pakistani situation): {situation}.
+Today's topic (relatable everyday Pakistani situation): {situation}.{search_txt}
 Invent a FRESH joke idea about this topic - never reuse an idea from these past titles:
 {json.dumps(used, ensure_ascii=False)}
 
@@ -171,9 +204,10 @@ Return JSON: {{"title": "funny Urdu title, max 60 characters",
  "meme": "very short meme header in Urdu shown on top of the whole reel, max 7 words, like a POV line",
  "scenes": [{{"text": "...", "visual": "...", "laugh": true/false}}] ("laugh": true if this scene ends with a punchline or someone laughs (about half the scenes), else false),
  "caption": "1 funny line in Urdu that asks people to tag a friend",
- "hashtags": ["#funny", "..."] (6 hashtags, English and Urdu)}}""")
+ "hashtags": ["#funny", "..."] (6 hashtags, English and Urdu){SEARCH_FIELD if searches else ""}}}""")
     if len(data.get("scenes", [])) < 2:
         raise RuntimeError("Reel script mein scenes kam hain")
+    _take_phrase(data, searches)
     data["animal"] = animal
     data["topic"] = situation
     return data
@@ -184,12 +218,13 @@ def write_long(history):
     animals = random.sample(ANIMALS, 10)
     style = random.choice(STYLES)
     situation = SITUATIONS[(len(history) * 3 + 7) % len(SITUATIONS)]
+    searches, search_txt = _search_part(situation)
     extra = ""
     best = None
     for _ in range(3):
         data = ask_json(f"""You write funny Facebook videos for the Pakistani page "{PAGE_NAME}".
 Make a 5-minute funny animal compilation with a running joke. Main comedy style: {style}.
-Today's topic for the whole video (relatable everyday Pakistani situation): {situation}.
+Today's topic for the whole video (relatable everyday Pakistani situation): {situation}.{search_txt}
 Every animal reacts to this topic in its own funny way.
 Use these 10 animals, one segment each, in this order: {', '.join(animals)}.
 These titles were already used: {json.dumps(used, ensure_ascii=False)}
@@ -207,7 +242,7 @@ For each segment give a 1-3 word ENGLISH stock-video search term showing that an
 Return JSON: {{"title": "funny Urdu title, max 70 characters",
  "scenes": [{{"text": "...", "visual": "...", "meme": "very short funny Urdu header for this segment, max 7 words", "laugh": true/false}}] (exactly 10; "laugh": true if this scene ends with a punchline or someone laughs (about half the scenes), else false),
  "caption": "2 funny lines in Urdu asking people to comment their favourite animal",
- "hashtags": ["#funny", "..."] (8 hashtags)}}""")
+ "hashtags": ["#funny", "..."] (8 hashtags){SEARCH_FIELD if searches else ""}}}""")
         n = word_count(data)
         log(f"Long script: {n} words")
         if len(data.get("scenes", [])) >= 5 and (best is None or n > word_count(best)):
@@ -220,6 +255,7 @@ Return JSON: {{"title": "funny Urdu title, max 70 characters",
     for sc, a in zip(best["scenes"], animals):
         sc["animal"] = a
     best["animal"] = "compilation"
+    _take_phrase(best, searches)
     best["topic"] = situation
     return best
 
@@ -585,6 +621,8 @@ def _main():
             import social
             social.share_reel("funny", FB_PAGE, FB_TOKEN, "funny_reel.mp4", desc, entry, REPORT, log)
     entry.update({"title": script["title"], "animal": script["animal"], "topic": script.get("topic")})
+    if script.get("search_phrase"):
+        entry["search"] = script["search_phrase"]
     for key in ("series", "series_title", "part", "summary", "style"):
         if script.get(key) is not None:
             entry[key] = script[key]
