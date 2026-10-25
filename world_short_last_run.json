@@ -1,11 +1,24 @@
 {
  "mode": "short",
- "clips": 12,
- "clips_rejected": 70,
- "vision_checks": 82,
+ "clips": 18,
+ "clips_rejected": 5,
+ "vision_checks": 22,
  "errors": [],
- "seconds": 68.6,
- "subject": "Egypt",
- "series": "facts",
- "title": "6 Surprising Facts About Egypt You Probably Didn't Know"
+ "search_phrases": [
+  "living in alaska",
+  "living in a car",
+  "living in japan",
+  "living in thailand",
+  "living in a van",
+  "living in the sunlight",
+  "living in china",
+  "living in my car",
+  "living in america james brown",
+  "living in mexico"
+ ],
+ "search": "living in thailand",
+ "seconds": 86.7,
+ "subject": "Bangkok, Thailand",
+ "series": "living_short",
+ "title": "Would You Live in Bangkok? Costs, Pros, and Cons"
 }
