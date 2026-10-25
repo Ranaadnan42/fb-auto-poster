@@ -1,11 +1,11 @@
 {
  "mode": "short",
- "clips": 16,
- "clips_rejected": 2,
- "vision_checks": 18,
+ "clips": 12,
+ "clips_rejected": 70,
+ "vision_checks": 82,
  "errors": [],
- "seconds": 63.2,
- "subject": "Dubai, UAE",
- "series": "cost_short",
- "title": "What Life Really Costs in Dubai, UAE"
+ "seconds": 68.6,
+ "subject": "Egypt",
+ "series": "facts",
+ "title": "6 Surprising Facts About Egypt You Probably Didn't Know"
 }
