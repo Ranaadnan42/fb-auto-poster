@@ -1,13 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 48,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "story",
- "long_minutes": 5.99,
- "series": "چچا بوٹا اور محلے کا سپر لیگ part 1 (ai)",
- "laughs": 8,
- "time_utc": "2026-10-24 14:29",
- "title": "چچا بوٹا اور محلے کا سپر لیگ | قسط 1",
+ "format": "chat",
+ "reel_minutes": 1.47,
+ "laughs": 3,
+ "time_utc": "2026-10-25 07:04",
+ "title": "کپتان کا مشورہ اور نوکری کا انٹرویو",
  "dry_run": false
 }
