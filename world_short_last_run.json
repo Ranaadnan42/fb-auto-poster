@@ -1,24 +1,24 @@
 {
  "mode": "short",
- "clips": 18,
+ "clips": 16,
  "clips_rejected": 5,
- "vision_checks": 22,
+ "vision_checks": 20,
  "errors": [],
  "search_phrases": [
-  "living in alaska",
   "living in a car",
+  "living in alaska",
   "living in japan",
   "living in thailand",
-  "living in a van",
   "living in the sunlight",
   "living in china",
+  "living in a van",
   "living in my car",
-  "living in america james brown",
-  "living in mexico"
+  "living in mexico",
+  "living in hawaii"
  ],
  "search": "living in thailand",
- "seconds": 86.7,
+ "seconds": 65.4,
  "subject": "Bangkok, Thailand",
  "series": "living_short",
- "title": "Would You Live in Bangkok? Costs, Pros, and Cons"
+ "title": "Would You Live in Bangkok? Living in Thailand Guide"
 }
