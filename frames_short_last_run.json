@@ -1,11 +1,23 @@
 {
  "mode": "short",
  "clips": 17,
- "clips_rejected": 5,
- "vision_checks": 20,
+ "clips_rejected": 12,
+ "vision_checks": 29,
  "errors": [],
- "seconds": 72.5,
- "subject": "Australia / Sydney",
- "series": "pk_city_facts",
- "title": "سڈنی کی سچائی: زندگی، نوکری اور اخراجات | Life in Sydney Australia"
+ "search_phrases": [
+  "dubai vs saudi arabia jobs",
+  "dubai vs saudi arabia war",
+  "dubai vs saudi arabia vs qatar",
+  "dubai vs saudi arabia military",
+  "dubai vs saudi arabia football",
+  "dubai vs saudi arabia comparison",
+  "dubai vs saudi arabia tamil",
+  "dubai vs saudi arabia malayalam",
+  "dubai and saudi arabia difference in hindi"
+ ],
+ "search": "dubai vs saudi arabia jobs",
+ "seconds": 75.0,
+ "subject": "Dubai vs Saudi Arabia",
+ "series": "pk_versus_short",
+ "title": "دبئی یا سعودی عرب: پاکستانی کے لیے کون سا ملک بہتر؟ | Dubai vs Saudi"
 }
