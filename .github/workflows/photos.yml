@@ -21,7 +21,7 @@ on:
       pages:
         description: 'Kis page par'
         type: choice
-        options: ['islamic,funny', 'islamic', 'funny']
+        options: ['islamic,funny', 'islamic', 'funny', 'frames', 'funny,frames']
         default: 'islamic,funny'
       dry_run:
         description: 'Sirf pic banaye, post na kare'
@@ -81,9 +81,11 @@ jobs:
           FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
           FUNNY_PAGE_TOKEN: ${{ secrets.FUNNY_PAGE_TOKEN }}
           FUNNY_PAGE_ID: ${{ secrets.FUNNY_PAGE_ID }}
+          FRAMES_PAGE_TOKEN: ${{ secrets.FRAMES_PAGE_TOKEN }}
+          FRAMES_PAGE_ID: ${{ secrets.FRAMES_PAGE_ID }}
           SLOT: ${{ env.S == '17 7 * * *' && '2' || env.S && '1' || inputs.slot || '1' }}
-          # Islamic page par din mein 1 pic (subah), shaam wali sirf funny page
-          PAGES: ${{ env.S && (env.S == '17 7 * * *' && 'funny' || 'islamic,funny') || inputs.pages || 'islamic,funny' }}
+          # Islamic page par din mein 1 pic (subah), shaam wali funny + Frames Of Life page
+          PAGES: ${{ env.S && (env.S == '17 7 * * *' && 'funny,frames' || 'islamic,funny') || inputs.pages || 'islamic,funny' }}
           POST_AT: ${{ env.S == '17 0 * * *' && '06:47' || env.S == '17 7 * * *' && '13:47' || '' }}
           DRY_RUN: ${{ !env.S && inputs.dry_run && '1' || '0' }}
         run: python photos.py

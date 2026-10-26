@@ -42,7 +42,16 @@ PAGES = {
                 "token": os.environ.get("FB_PAGE_TOKEN"), "id": os.environ.get("FB_PAGE_ID")},
     "funny": {"name": "Hansi Ka Adda",
               "token": os.environ.get("FUNNY_PAGE_TOKEN"), "id": os.environ.get("FUNNY_PAGE_ID")},
+    "frames": {"name": "Frames Of Life",
+               "token": os.environ.get("FRAMES_PAGE_TOKEN"), "id": os.environ.get("FRAMES_PAGE_ID")},
 }
+
+FRAMES_KINDS = ["did-you-know fact about a country", "cost of living in a city (in local currency + PKR)",
+                "visa / work tip (general, official sources only)", "best city to live for Pakistanis",
+                "salary and jobs reality in a country", "culture or food fact", "country vs country comparison"]
+FRAMES_PLACES = ["Saudi Arabia", "Dubai", "Qatar", "Oman", "Kuwait", "Bahrain", "Turkey", "Malaysia",
+                 "United Kingdom", "Canada", "Australia", "Germany", "Italy", "Spain", "Japan",
+                 "South Korea", "China", "New Zealand", "Ireland", "Portugal", "France", "Azerbaijan"]
 
 ISLAMIC_KINDS = ["Quran verse", "authentic hadith", "short dua", "life lesson / naseehat",
                  "reminder about salah", "words of hope for a sad heart", "gratitude reminder",
@@ -100,7 +109,7 @@ def load_history():
 
 
 def save_history(h):
-    for k in ("islamic", "funny"):
+    for k in ("islamic", "funny", "frames"):
         h[k] = h.get(k, [])[-300:]
     h["used_images"] = h.get("used_images", [])[-1500:]
     with open(HISTORY_FILE, "w", encoding="utf-8") as f:
@@ -268,6 +277,45 @@ Return JSON:
     return out, caption, {"animal": animal, "top": top, "bottom": bottom}
 
 
+# ---------------------------------------------------------------- Frames Of Life info card
+def frames_post(hist):
+    h = hist.setdefault("frames", [])
+    kind = FRAMES_KINDS[len(h) % len(FRAMES_KINDS)]
+    place = FRAMES_PLACES[(len(h) * 7) % len(FRAMES_PLACES)]
+    used = [x["text"][:80] for x in h[-80:]]
+    d = ask_json(f"""Create one Facebook image post for the page "Frames Of Life" (life abroad for Pakistanis).
+Type: {kind}. Place: {place}. Language: simple Urdu in Urdu script (not Roman), address reader as آپ.
+Only true, well-known, general facts. Prices/salaries only as rough approximate ranges and say "تقریباً".
+Never promise visas or jobs, no agents, no politics. Do NOT repeat: {json.dumps(used, ensure_ascii=False)}
+Return JSON:
+{{"label": "2-4 word Urdu heading (e.g. کیا آپ جانتے ہیں؟ / دبئی میں خرچہ)",
+ "text": "the main info, max 30 words",
+ "scene": "2-3 word English photo search for a famous real view of {place} (e.g. dubai skyline)"}}""")
+    text, label = d["text"].strip(), (d.get("label") or "").strip()
+    size = fit_size(text, 84, 0.4, 56)
+    styles = "\n".join([
+        f"Style: Label,{UR_FONT},54,&H0000D7FF,&H0000D7FF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,3,2,8,80,80,170,1",
+        f"Style: Quote,{UR_FONT},{size},&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,1,0,0,0,100,100,0,0,1,3,3,5,90,90,0,1",
+        f"Style: Place,Noto Sans,48,&H0000D7FF,&H0000D7FF,&H00000000,&H00000000,1,0,0,0,100,100,0,0,1,2,2,2,80,80,240,1",
+        "Style: Mark,Noto Sans,34,&H30FFFFFF,&H30FFFFFF,&H90000000,&H00000000,1,0,0,0,100,100,0,0,1,2,0,2,40,40,70,1",
+    ])
+    ev = [f"Dialogue: 0,0:00:00.00,0:00:05.00,Mark,,0,0,0,,{PAGES['frames']['name']}",
+          f"Dialogue: 2,0:00:00.00,0:00:05.00,Quote,,0,0,0,,{esc(text)}",
+          f"Dialogue: 1,0:00:00.00,0:00:05.00,Place,,0,0,0,,{esc(place).upper()}"]
+    if label:
+        ev.append(f"Dialogue: 1,0:00:00.00,0:00:05.00,Label,,0,0,0,,{esc(label)}")
+    ass = os.path.join(WORK, "frames.ass")
+    with open(ass, "w", encoding="utf-8") as f:
+        f.write(ass_head(styles) + "\n".join(ev) + "\n")
+    bg = os.path.join(WORK, "frames_bg.jpg")
+    if not pixabay_image([d.get("scene") or place, f"{place} city", place], bg, hist["used_images"]):
+        gradient_bg(bg)
+    out = os.path.join(WORK, "frames_post.jpg")
+    render(bg, ass, out, 0.5)
+    caption = seo.build(ask_json, "frames", label or text[:60], f"{place}: {text}", "ur", is_reel=False)
+    return out, caption, {"kind": kind, "place": place, "text": text}
+
+
 # ---------------------------------------------------------------- Facebook
 def post_photo(page, path, caption):
     P = PAGES[page]
@@ -289,7 +337,7 @@ def main():
     hist = load_history()
     ok = 0
     for page in PAGES_TO_RUN:
-        maker = islamic_post if page == "islamic" else funny_post
+        maker = {"islamic": islamic_post, "funny": funny_post, "frames": frames_post}[page]
         for attempt in range(2):
             try:
                 path, caption, meta = maker(hist)
@@ -298,7 +346,7 @@ def main():
                 if not DRY_RUN:
                     import slot_wait; slot_wait.wait(log)
                     meta["post_id"] = post_photo(page, path, caption)
-                hist[page].append(meta)
+                hist.setdefault(page, []).append(meta)
                 REPORT["posted"][page] = meta.get("post_id", "dry_run")
                 ok += 1
                 break

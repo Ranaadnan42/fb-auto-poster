@@ -866,6 +866,74 @@ def build(script, plan, out_path):
     return chapters_ts
 
 
+# ------------------------------------------------------------- Facebook (Frames Of Life page)
+FB_ID = (os.environ.get("FRAMES_PAGE_ID") or "").strip()
+FB_TOKEN = (os.environ.get("FRAMES_PAGE_TOKEN") or "").strip()
+FB_VER = "v23.0"
+
+
+def _fb(r):
+    try:
+        j = r.json()
+    except Exception:
+        raise RuntimeError(f"Facebook ka jawab samajh nahi aaya: {r.text[:300]}")
+    if "error" in j:
+        raise RuntimeError(f"Facebook error: {j['error'].get('message', j)}")
+    return j
+
+
+def fb_post(path, title, script, plan):
+    """YouTube wali hi video FB page par: Short = Reel, lambi = page video. SEO caption ke saath."""
+    import seo
+    text = script.get("description", "") + " " + " ".join(
+        str(sc.get("text") or sc.get("narration") or "") for ch in script.get("chapters", [])
+        for sc in ch.get("scenes", []) if isinstance(sc, dict))
+    caption = seo.build(lambda pr: ask_json(pr, 0.8), "frames", title, text, "ur", is_reel=not LONG,
+                        search_terms=REPORT.get("search_phrases") or None)
+    log(f"--- FB caption ---\n{caption}\n")
+    if not LONG:
+        base = f"https://graph.facebook.com/{FB_VER}/{FB_ID}/video_reels"
+        vid = _fb(requests.post(base, timeout=60, data={"upload_phase": "start",
+                                                        "access_token": FB_TOKEN}))["video_id"]
+        with open(path, "rb") as f:
+            _fb(requests.post(f"https://rupload.facebook.com/video-upload/{FB_VER}/{vid}",
+                              headers={"Authorization": f"OAuth {FB_TOKEN}", "offset": "0",
+                                       "file_size": str(os.path.getsize(path))}, data=f, timeout=1800))
+        _fb(requests.post(base, timeout=60, data={"upload_phase": "finish", "video_id": vid,
+                                                  "video_state": "PUBLISHED", "description": caption,
+                                                  "access_token": FB_TOKEN}))
+        log(f"FB reel posted: {vid}")
+        return vid
+    url = f"https://graph-video.facebook.com/{FB_VER}/{FB_ID}/videos"
+    size = os.path.getsize(path)
+    st = _fb(requests.post(url, timeout=120, data={"access_token": FB_TOKEN, "upload_phase": "start",
+                                                   "file_size": str(size)}))
+    session, vid = st["upload_session_id"], st.get("video_id")
+    s_off, e_off = int(st["start_offset"]), int(st["end_offset"])
+    with open(path, "rb") as f:
+        while s_off < e_off:
+            f.seek(s_off)
+            chunk = f.read(e_off - s_off)
+            for attempt in range(4):
+                try:
+                    j = _fb(requests.post(url, timeout=600, data={
+                        "access_token": FB_TOKEN, "upload_phase": "transfer",
+                        "upload_session_id": session, "start_offset": str(s_off)},
+                        files={"video_file_chunk": ("chunk", chunk, "application/octet-stream")}))
+                    break
+                except Exception as e:
+                    log(f"FB chunk retry {attempt + 1}: {str(e)[:150]}")
+                    if attempt == 3:
+                        raise
+                    time.sleep(5)
+            s_off, e_off = int(j["start_offset"]), int(j["end_offset"])
+    _fb(requests.post(url, timeout=300, data={"access_token": FB_TOKEN, "upload_phase": "finish",
+                                              "upload_session_id": session, "title": title[:250],
+                                              "description": caption}))
+    log(f"FB video posted: {vid}")
+    return vid
+
+
 def description(script, chapters_ts):
     d = script.get("description", "").strip()
     if chapters_ts:
@@ -927,6 +995,12 @@ def _main():
                                        thumb_title=script.get("thumb_text"))
         else:
             REPORT["errors"].append(f"YT_{YT_NAME.upper()}_* secrets nahi - upload skip")
+        if URDU and FB_ID and FB_TOKEN:
+            try:
+                entry["fb_id"] = fb_post(OUT_FILE, entry["title"], script, plan)
+            except Exception as e:
+                log(f"Facebook upload fail: {e}")
+                REPORT["errors"].append(f"facebook: {str(e)[:300]}")
     history = [h for h in history if not h.get("skipped")] + [entry]
     if not DRY_RUN:
         save_history(history)

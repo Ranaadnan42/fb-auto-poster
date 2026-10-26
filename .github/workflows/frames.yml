@@ -79,6 +79,8 @@ jobs:
           YT_FRAMES_CLIENT_ID: ${{ secrets.YT_FRAMES_CLIENT_ID }}
           YT_FRAMES_CLIENT_SECRET: ${{ secrets.YT_FRAMES_CLIENT_SECRET }}
           YT_FRAMES_REFRESH_TOKEN: ${{ secrets.YT_FRAMES_REFRESH_TOKEN }}
+          FRAMES_PAGE_ID: ${{ secrets.FRAMES_PAGE_ID }}
+          FRAMES_PAGE_TOKEN: ${{ secrets.FRAMES_PAGE_TOKEN }}
           MODE: ${{ env.S && (env.S == '7 10 * * *' && 'long' || 'short') || inputs.mode || 'long' }}
           POST_AT: ${{ env.S == '47 1 * * *' && '08:17' || env.S == '47 6 * * *' && '13:17' || env.S == '7 10 * * *' && '17:07' || '' }}
           DRY_RUN: ${{ (!env.S && github.event_name == 'workflow_dispatch' && inputs.dry_run) && '1' || '0' }}

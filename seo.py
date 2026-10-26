@@ -27,6 +27,15 @@ PAGES = {
         "cta": "روزانہ اسلامی یاد دہانی کے لیے پیج فالو کریں اور شیئر کریں 👈",
         "cta_en": "Follow the page for daily Islamic reminders 👈",
     },
+    "frames": {
+        "name": "Frames Of Life",
+        "brand_tags": ["#FramesOfLife"],
+        "base_tags": ["#abroad", "#visa", "#jobsabroad", "#costofliving", "#pakistanabroad",
+                      "#documentary", "#viral"],
+        "audience": ("Pakistanis and Urdu speakers who want to live, work, study or travel abroad "
+                     "(Gulf, Europe, UK, Canada, etc.) and want to know cost of living, visas, jobs and life there"),
+        "cta": "باہر کی زندگی، ویزا اور نوکری کی روزانہ معلومات کے لیے پیج فالو کریں 👈",
+    },
 }
 
 
