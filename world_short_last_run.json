@@ -1,24 +1,19 @@
 {
  "mode": "short",
- "clips": 16,
- "clips_rejected": 5,
+ "clips": 14,
+ "clips_rejected": 6,
  "vision_checks": 20,
  "errors": [],
  "search_phrases": [
-  "living in a car",
-  "living in alaska",
-  "living in japan",
-  "living in thailand",
-  "living in the sunlight",
-  "living in china",
-  "living in a van",
-  "living in my car",
-  "living in mexico",
-  "living in hawaii"
+  "wages vs cost of living",
+  "prices and cost of living class 9",
+  "inflation and cost of living",
+  "cost of living worldwide",
+  "cost of living edmonton"
  ],
- "search": "living in thailand",
- "seconds": 65.4,
- "subject": "Bangkok, Thailand",
- "series": "living_short",
- "title": "Would You Live in Bangkok? Living in Thailand Guide"
+ "search": "cost of living worldwide",
+ "seconds": 72.2,
+ "subject": "London vs New York",
+ "series": "versus_short",
+ "title": "London vs New York: Cost of Living and City Life Compared"
 }
