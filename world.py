@@ -363,11 +363,22 @@ If one of them fits this video type and is not already covered, choose the subje
 answers that search (otherwise ignore the list). IGNORE phrases that name a real person, YouTuber,
 channel or brand, or are about news, politics, war, disasters or tragedies.
 """
-    aud = ("The audience is Pakistanis (in Pakistan and the Gulf) who love to learn about the world and many "
-           "dream of visiting, working or studying abroad. Cover the WHOLE WORLD over time (every continent, "
-           "big and small countries, famous cities). For visa/job/living types prefer countries where "
-           "Pakistanis really go (Gulf, Europe, UK, Canada, Australia, Turkey, Malaysia, Japan, Korea, China, "
-           "Central Asia).\n" if URDU else "")
+    if URDU:
+        aud = ("The audience is Pakistanis (in Pakistan and the Gulf) who love to learn about the world and many "
+               "dream of visiting, working or studying abroad. Cover the WHOLE WORLD over time (every continent, "
+               "big and small countries, famous cities). For visa/job/living types prefer countries where "
+               "Pakistanis really go (Gulf, Europe, UK, Canada, Australia, Turkey, Malaysia, Japan, Korea, China, "
+               "Central Asia).\n")
+    else:
+        # Dollar focus: YouTube ad revenue high-income English-speaking viewers se aati hai - topic unki taraf lean karo.
+        aud = ("GOAL: maximise YouTube ad revenue (USD). The viewers who pay the most are in HIGH-INCOME "
+               "ENGLISH-SPEAKING countries - United States, United Kingdom, Canada, Australia - and also Western "
+               "Europe and the Gulf (UAE). Strongly prefer subjects these viewers search and binge: famous "
+               "bucket-list travel destinations; cost of living, moving, working, retiring or studying abroad "
+               "(especially involving the US, UK, Canada, Australia, Dubai, and popular Europe/Asia spots); "
+               "'best / cheapest / safest countries to live, retire or visit' lists; and world-famous cities. "
+               "Keep variety across many countries over time, but lean towards places and angles with a big "
+               "audience in those high-paying countries rather than obscure, low-interest ones.\n")
     plan = ask_json(f"""You plan the next video for the YouTube travel & world documentary channel "{CHANNEL}".
 {aud}
 Video type: {SERIES_HINT[series]}.

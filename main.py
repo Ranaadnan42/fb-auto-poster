@@ -98,6 +98,15 @@ SAFE_VISUALS = ("Visual terms must be Islamic or calm scenery only. Prefer Islam
                 "night stars, forest, river. Never people or faces, never church, temple, "
                 "cross, candle or statue.")
 
+# Pronunciation: a text-to-speech voice reads the narration, so Arabic/foreign words get mispronounced.
+SAY_RULE = ("PRONUNCIATION: a text-to-speech voice reads 'text', so Arabic and other foreign words come out "
+            "wrong. For every scene also give a 'say' field: the SAME narration as 'text' but with ONLY the "
+            "hard Arabic/foreign words respelled phonetically so the voice says them correctly "
+            "(e.g. Bismillah -> 'Biss-mil-lah', Alhamdulillah -> 'Al-ham-du-lil-lah', InshaAllah -> "
+            "'In-sha-Allah', SubhanAllah -> 'Sub-haan-Allah', Surah -> 'Soo-rah', Taqwa -> 'Tuq-waa'). "
+            "Respell in the SAME language/script as 'text'. Keep every other word identical to 'text'. "
+            "If a scene has no hard word, omit 'say'.")
+
 # Har scene mein aadhe clips inn mein se (masjid waghera zyada dikhein)
 ISLAMIC_VISUALS = ["mosque", "mosque interior", "minaret", "mosque dome", "mecca", "medina",
                    "quran", "prayer mat", "ramadan lantern", "crescent moon",
@@ -310,8 +319,9 @@ or explanation, practical lessons for daily life, and a heartfelt ending with a 
 Split into exactly {scenes} scenes, each about {per} words (total about {L['long_words']} words,
 between {L['long_min']} and {L['long_max']} - count carefully). {extra}
 For each scene give a 1-3 word ENGLISH stock-footage search term. {SAFE_VISUALS}
+{SAY_RULE}
 
-Return JSON: {{"scenes": [{{"text": "...", "visual": "..."}}],
+Return JSON: {{"scenes": [{{"text": "...", "say": "text with hard words phonetic (omit if none)", "visual": "..."}}],
  "caption": "2-3 line Facebook description in {L['caption_lang']} that invites comments",
  "hashtags": ["#Islam", "..."] (8 hashtags, mix of English and the video language)}}""")
 
@@ -347,7 +357,7 @@ def voice_minutes(script, job):
     scenes = [s for s in script["scenes"] if (s.get("text") or "").strip()]
     for i, sc in enumerate(scenes):
         a = os.path.join(job, f"a{i}.mp3")
-        tts(sc["text"].strip(), a)
+        tts((sc.get("say") or sc["text"]).strip(), a)   # say = mushkil lafz phonetic (TTS); subtitle `text` hi
         total += duration(a) + 0.5
     script["scenes"] = scenes
     return total / 60
@@ -388,8 +398,9 @@ First sentence must be a strong hook. Deliver one powerful lesson. {L['reel_end'
 
 Split into exactly 5 scenes. For each scene give a 1-3 word ENGLISH stock-footage search term.
 {SAFE_VISUALS}
+{SAY_RULE}
 
-Return JSON: {{"scenes": [{{"text": "...", "visual": "..."}}],
+Return JSON: {{"scenes": [{{"text": "...", "say": "text with hard words phonetic (omit if none)", "visual": "..."}}],
  "caption": "1-2 lines in {L['caption_lang']}", "hashtags": ["#..."] (6 hashtags)}}""")
     if len(data.get("scenes", [])) < 2:
         raise RuntimeError("Reel script mein scenes kam hain")
@@ -521,7 +532,7 @@ def build_scene(job, i, sc, w, h, title):
     text = (sc.get("text") or "").strip()
     audio = f"a{i}.mp3"
     if not os.path.exists(os.path.join(job, audio)):
-        tts(text, os.path.join(job, audio))
+        tts((sc.get("say") or text).strip(), os.path.join(job, audio))   # say = phonetic (TTS); subtitle `text` hi
     dur = duration(os.path.join(job, audio)) + 0.5
     k = max(1, min(4, round(dur / 8)))                     # har ~8 second baad naya clip
     n_isl = (k + 1) // 2                                   # aadhe (ya zyada) Islamic clips
