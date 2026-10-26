@@ -89,6 +89,11 @@ THEMES = [
     "Islamic history and the golden age", "charity (sadaqah)", "humility and avoiding arrogance",
     "hope after sadness", "the night prayer (tahajjud)", "Jannah and how to reach it",
     "honesty and trust (amanah)", "rizq (provision) comes from Allah",
+    # Zyada waqiat/qissay (log zyada aate hain)
+    "a true miracle in the life of Prophet Muhammad", "a powerful story of a Sahabi's sacrifice",
+    "a story of a sinner who truly repented", "a dua that Allah answered (true incident)",
+    "a lesson-filled event from early Islamic history", "a story of a prophet's trial and patience",
+    "an authentic hadith of Prophet Muhammad and its meaning", "a sunnah of the Prophet for daily life",
 ]
 
 SAFE_VISUALS = ("Visual terms must be Islamic or calm scenery only. Prefer Islamic: mosque, "
@@ -96,7 +101,12 @@ SAFE_VISUALS = ("Visual terms must be Islamic or calm scenery only. Prefer Islam
                 "ramadan lantern, crescent moon, islamic architecture, arabic calligraphy. "
                 "Or scenery: sky, clouds, sunrise, sunset, ocean, rain, desert, mountains, "
                 "night stars, forest, river. Never people or faces, never church, temple, "
-                "cross, candle or statue.")
+                "cross, candle or statue. "
+                "Choose the visual that FITS what this scene is narrating, within the list above "
+                "(e.g. a cave for Hira, desert and camels for a journey, rain or night sky for "
+                "reflection, Kaaba for Hajj, open Quran for a verse). Any building must be a MOSQUE - "
+                "never a temple, church, mandir or plain 'architecture/building' that could be another "
+                "religion's place.")
 
 # Pronunciation: a text-to-speech voice reads the narration, so Arabic/foreign words get mispronounced.
 SAY_RULE = ("PRONUNCIATION: a text-to-speech voice reads 'text', so Arabic and other foreign words come out "
@@ -109,6 +119,9 @@ SAY_RULE = ("PRONUNCIATION: a text-to-speech voice reads 'text', so Arabic and o
 
 # Har scene mein aadhe clips inn mein se (masjid waghera zyada dikhein)
 ISLAMIC_VISUALS = ["mosque", "mosque interior", "minaret", "mosque dome", "mecca", "medina",
+                   "kaaba", "masjid nabawi", "mosque at night", "mosque courtyard", "mosque arches",
+                   "blue mosque", "grand mosque interior", "mosque chandelier", "mosque calligraphy",
+                   "mosque silhouette sunset", "ramadan mosque", "istanbul mosque", "madinah mosque",
                    "quran", "prayer mat", "ramadan lantern", "crescent moon",
                    "islamic architecture", "arabic calligraphy", "mosque sunset"]
 
@@ -222,6 +235,14 @@ THEME_SEEDS = {
     "Jannah and how to reach it": ("jannah", "جنت", "jannat"),
     "honesty and trust (amanah)": ("honesty in islam", "ایمانداری", "amanat"),
     "rizq (provision) comes from Allah": ("rizq", "رزق", "rizq mein barkat"),
+    "a true miracle in the life of Prophet Muhammad": ("prophet muhammad miracle", "نبی کریم کا معجزہ", "nabi ka mojza"),
+    "a powerful story of a Sahabi's sacrifice": ("sahaba sacrifice story", "صحابی کی قربانی", "sahabi ka waqia"),
+    "a story of a sinner who truly repented": ("true repentance story islam", "گناہگار کی توبہ", "tauba ka waqia"),
+    "a dua that Allah answered (true incident)": ("dua answered true story", "قبول دعا کا واقعہ", "dua qabool waqia"),
+    "a lesson-filled event from early Islamic history": ("islamic history story", "اسلامی تاریخ کا واقعہ", "islami tareekh waqia"),
+    "a story of a prophet's trial and patience": ("prophet story patience", "نبی کا صبر", "nabi ka sabr waqia"),
+    "an authentic hadith of Prophet Muhammad and its meaning": ("hadith explained", "حدیث", "hadees ki tashreeh"),
+    "a sunnah of the Prophet for daily life": ("sunnah of prophet", "نبی کی سنت", "nabi ki sunnat"),
 }
 PICK_EXTRA = {}   # search phrase / mauqa - history aur description ke liye
 
@@ -285,6 +306,11 @@ These titles were ALREADY posted (any language). Do NOT repeat or closely resemb
 {json.dumps(used, ensure_ascii=False)}
 {search_part}
 Give ONE fresh, specific, emotionally engaging video idea inside this theme.
+IMPORTANT: prefer a REAL ISLAMIC STORY / incident (واقعہ / قصہ) that teaches this theme - an authentic
+event from the life of Prophet Muhammad (peace be upon him), the Sahaba, the prophets in the Quran,
+Islamic history, or an authentic hadith / sunnah - with real people and a clear turning point. Story
+videos get many more viewers than plain lectures. Use only well-known authentic narrations (Quran and
+sahih hadith); never invent fake events or weak/fabricated tales.
 Return JSON: {{"topic": "one English sentence describing the idea",
  "title": "catchy title in {L['caption_lang']}, max 70 characters",
  "search_phrase": "the exact real search phrase from the list you answered, or empty"}}""")
@@ -311,8 +337,11 @@ def _write_long(topic, title, extra):
 Title: "{title}". Idea: {topic}
 Language: {L['write_in']}.
 
-Structure: a powerful hook in the first 2 sentences that makes people keep watching, then a story
-or explanation, practical lessons for daily life, and a heartfelt ending with a short dua.
+Structure: a powerful hook in the first 2 sentences that makes people keep watching, then TELL THE STORY
+(the واقعہ / incident) like a gripping narration - set the scene, the people, what happened, the turning
+point - and only after the story draw out the practical lessons for daily life, then a heartfelt ending
+with a short dua. Make it feel like a story being told, not a lecture. Stay faithful to authentic
+narrations; never invent events, names or details.
 {L['follow']}
 {RULES}
 
@@ -393,7 +422,9 @@ def write_reel(topic, title):
     data = ask_json(f"""Write a {L['reel_words']}-word Facebook Reel voice-over (about 50 seconds).
 Title: "{title}" - {topic}
 Language: {L['write_in']}.
-First sentence must be a strong hook. Deliver one powerful lesson. {L['reel_end']}
+First sentence must be a strong hook. Tell ONE short, gripping Islamic story/incident (واقعہ) with a
+clear turning point, then its one powerful lesson. Keep it a story, not a lecture; use only authentic
+narrations, never invented events. {L['reel_end']}
 {RULES}
 
 Split into exactly 5 scenes. For each scene give a 1-3 word ENGLISH stock-footage search term.
