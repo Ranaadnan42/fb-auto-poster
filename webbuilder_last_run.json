@@ -1,7 +1,7 @@
 {
- "time_utc": "2026-10-26 23:11",
+ "time_utc": "2026-10-26 23:45",
  "focus": "pos",
  "dry_run": false,
- "post_id": null,
- "error": "Facebook error: (#200) This app is not allowed to publish to other users' timelines."
+ "post_id": "1291543147384233_122117474583484999",
+ "error": null
 }
