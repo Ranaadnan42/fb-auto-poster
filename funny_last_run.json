@@ -1,13 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 11,
+ "stock_clips": 13,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
- "search_phrases": [],
- "laughs": 3,
- "reel_minutes": 0.74,
- "time_utc": "2026-10-26 11:04",
- "title": "ہاتھی میاں اور شدید گرمی کا پیر",
+ "format": "story",
+ "long_minutes": 1.79,
+ "series": "چچا بوٹا اور محلے کا سپر لیگ part 3 (ai)",
+ "laughs": 8,
+ "time_utc": "2026-10-26 13:34",
+ "title": "چچا بوٹا اور محلے کا سپر لیگ | آخری قسط",
  "dry_run": false
 }
