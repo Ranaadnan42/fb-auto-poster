@@ -1,12 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 0,
+ "stock_clips": 11,
  "fallback_clips": 0,
  "errors": [],
- "format": "chat",
- "reel_minutes": 1.35,
+ "format": "animal",
+ "search_phrases": [],
  "laughs": 3,
- "time_utc": "2026-10-26 07:04",
- "title": "دادی اماں اور ٹیوشن ماسٹر کا پلان",
+ "reel_minutes": 0.74,
+ "time_utc": "2026-10-26 11:04",
+ "title": "ہاتھی میاں اور شدید گرمی کا پیر",
  "dry_run": false
 }
