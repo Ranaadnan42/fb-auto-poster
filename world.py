@@ -205,8 +205,9 @@ def ask_json(prompt, temp=0.8):
     raise RuntimeError(f"Gemini fail: {last}")
 
 
-def vision_ok(jpg, place, what):
-    """Gemini se poochho: kya yeh frame waqai is jagah ka hai? Error ho to None (tag par bharosa)."""
+def vision_ok(jpg, want, what):
+    """Gemini se poochho: kya yeh frame waqai WAHI cheez dikha raha hai jiski baat ho rahi (khaana/jagah/cheez)?
+    Error ho to None (tag par bharosa)."""
     from google.genai import types
     try:
         data = open(jpg, "rb").read()
@@ -215,9 +216,9 @@ def vision_ok(jpg, place, what):
                 res = _gem().models.generate_content(
                     model=model,
                     contents=[types.Part.from_bytes(data=data, mime_type="image/jpeg"),
-                              f"This is a frame from a stock video found for '{what}' in {place}. "
-                              f"Could this realistically be real camera footage filmed in {place} "
-                              f"(not another country, not animation/CGI/AI art)? "
+                              f"This is a frame from a stock video found for '{what}'. "
+                              f"Does it realistically show {want} as real camera footage "
+                              f"(not animation, CGI or AI art)? "
                               'Answer JSON {"match": true/false}'],
                     config=types.GenerateContentConfig(response_mime_type="application/json",
                                                        temperature=0))
@@ -415,12 +416,22 @@ describe in words without a number):
 
 Rules:
 - Calm, rich, cinematic narrator voice. Spoken plain English sentences only, no emojis/symbols/headings.
+- PRONUNCIATION: an English text-to-speech voice reads this. For any foreign or hard proper noun (place names,
+  dishes, people - e.g. Oaxaca, chiles en nogada, Guadalajara), add a "say" field: the SAME narration as
+  "text" but with ONLY those hard words respelled phonetically in plain English letters so the voice says them
+  right (Oaxaca -> "Wa-HA-ka", chiles en nogada -> "CHEE-less en no-GAH-da", al pastor -> "al pass-TOR").
+  Keep every other word identical to "text". If nothing is hard to pronounce, omit "say".
 - Cover (as fits the type): where it is, population, peoples and communities, religions, languages,
   history, culture and daily life, traditions, food, music and arts, best cities, living and cost, travel tips.
 - Religion, ethnicity and politics: respectful, neutral, factual, no opinions, nothing offensive.
 - Every scene is about ONE concrete visible thing (a landmark, a street, a dish, a festival, nature).
-- "search": 2-3 short stock-video search phrases that MUST include the place name
-  (e.g. "Kyoto temple", "Fushimi Inari Kyoto", "Japan street food"). Only things that are filmable.
+- "show": that ONE thing the viewer must actually SEE on screen, 1-4 plain filmable words
+  (e.g. "tacos al pastor", "Fushimi Inari shrine", "camel in desert", "Tokyo street night"). This is
+  what the footage will show, so it MUST match what the narration is talking about in this scene.
+- "search": 2-3 short stock-video search phrases for that SAME thing ("show"). Put the place name in the
+  phrase ONLY when the place itself is what is on screen (a skyline, a street, an aerial). For a dish,
+  animal, product, person or activity, search the THING, NOT the city
+  (e.g. show "tacos al pastor" -> search ["tacos al pastor", "mexican street tacos"], not "Mexico City").
 - "place": the city/region + country of that scene (e.g. "Kyoto, Japan").
 - "label": short on-screen place label (max 4 words) or "" if none.
 - If VERIFIED FACTS has "atlas_score", one scene near the end presents the Atlas Score (our own rating from
@@ -433,12 +444,14 @@ Return JSON:
  "yt_title": "high-CTR YouTube title, max 70 chars, honest, includes the main place name",
  "thumb_text": "2-4 big words for the thumbnail",
  "description": "3 short SEO paragraphs for YouTube (no timestamps, no hashtags)",
- "hashtags": ["#8 hashtags"],
+ "hashtags": ["8-10 hashtags: some about the subject/place, PLUS the main English-speaking viewer countries so it reaches them - #USA #UK #Canada #Australia"],
  "keywords": "6-10 search keywords separated by ' | '",
  "fact_card": ["4 short lines for an on-screen fact card, e.g. 'Capital: Tokyo', using VERIFIED FACTS"],
  {shape}
  }}
-scene = {{"text": "narration 1-3 sentences", "place": "...", "search": ["..."], "label": "...", "score": false}}""", temp=0.7)
+scene = {{"text": "narration 1-3 sentences", "place": "...", "show": "the one thing to show on screen",
+  "say": "same as text but hard foreign words respelled phonetically (omit if none)",
+  "search": ["..."], "label": "...", "score": false}}""", temp=0.7)
 
 
 def write_script_ur(plan, facts):
@@ -462,6 +475,10 @@ Rules:
 - Narration ("text") in natural spoken Urdu, in URDU SCRIPT (اردو), simple words like a Pakistani friend
   who lives there. No English sentences, no emojis/symbols. Common English words (job, visa, rent) are ok
   written in Urdu script.
+- PRONUNCIATION: an Urdu text-to-speech voice reads this. For any foreign place/dish/name that would be
+  mispronounced, add a "say" field: the SAME narration as "text" but with those hard words respelled in
+  Urdu script the way they actually sound (e.g. Oaxaca -> واہاکا). Keep every other word identical to "text".
+  Omit "say" if nothing is hard.
 - MONEY: whenever you mention a price/salary/rent, say it in the LOCAL currency AND in Pakistani rupees
   using exchange_rates_today, e.g. "تقریباً 3000 درہم، یعنی تقریباً 2 لاکھ 30 ہزار پاکستانی روپے".
   Write numbers as digits. Prices must be realistic, clearly approximate; never fake visa fees.
@@ -473,8 +490,13 @@ Rules:
   change so confirm on the official website. Never invent fees, quotas or guarantees.
 - Make it enjoyable too: a little wonder and storytelling, a surprising fact, like taking the viewer on a trip.
 - Every scene is about ONE concrete visible thing (a landmark, street, market, dish, office, nature).
-- "search": 2-3 SHORT ENGLISH stock-video search phrases that MUST include the place name
-  (e.g. "Dubai Marina", "Dubai metro", "Riyadh skyline"). Only filmable things.
+- "show": that ONE thing the viewer must actually SEE, 1-4 plain filmable ENGLISH words
+  (e.g. "Dubai Marina", "arabic mandi rice dish", "construction worker site", "gold souk market"). The
+  footage will show this, so it MUST match what the narration is talking about in this scene.
+- "search": 2-3 SHORT ENGLISH stock-video search phrases for that SAME thing ("show"). Put the place name
+  in the phrase ONLY when the place itself is on screen (a skyline, a street, an aerial). For a dish, job,
+  product or activity, search the THING, NOT the city (e.g. show "arabic mandi rice" -> search ["mandi rice
+  dish", "arabic food platter"], not "Dubai").
 - "place": the city/region + country of that scene IN ENGLISH (e.g. "Dubai, United Arab Emirates").
 - "label": short on-screen place label in Urdu script (max 4 words) or "".
 - If VERIFIED FACTS has "atlas_score", one scene near the end presents the "{SCORE_NAME}" (our own rating
@@ -491,7 +513,9 @@ Return JSON:
  "fact_card": ["4 short lines in Urdu script for an on-screen fact card, using VERIFIED FACTS"],
  {shape}
  }}
-scene = {{"text": "Urdu narration 1-3 sentences", "place": "...", "search": ["..."], "label": "...", "score": false}}""", temp=0.7)
+scene = {{"text": "Urdu narration 1-3 sentences", "place": "...", "show": "the one thing to show on screen (English)",
+  "say": "same as text but hard foreign words respelled in Urdu script phonetically (omit if none)",
+  "search": ["..."], "label": "...", "score": false}}""", temp=0.7)
 
 
 # ---------------------------------------------------------------- asli footage
@@ -542,13 +566,21 @@ def pexels_search(q):
 
 
 def get_clips(scene, country_words, job, prefix, need):
-    """Is scene ke liye `need` asli clips: jagah ka naam tags mein + vision check. Kabhi doosra mulk nahi."""
+    """Is scene ke `show` (jo cheez dikhani hai, jaise khaana/landmark) ki asli clips.
+    Pehle SUBJECT (jiski baat ho rahi), phir jagah. Clip ke tags mein subject YA jagah ka naam ho + vision check."""
     place = scene.get("place") or ""
     pw = _words(place)
+    show = (scene.get("show") or "").strip()
+    sw = [w for w in _words(show) if w not in pw + country_words]   # subject ke words (jagah ke naam hata kar)
     queries = list(scene.get("search") or [])
+    if show:
+        queries.append(show)
     city = place.split(",")[0].strip()
     country = place.split(",")[-1].strip()
+    # jagah wali fallback AAKHIR mein - sirf tab jab subject ki clip na mile
     queries += [f"{city} aerial", city, f"{country} landscape", f"{country} city", country]
+    want = show or place or country                                # vision ko yehi dikhna chahiye
+    accept = sw + pw + country_words                               # tags mein in mein se koi hona chahiye
     got = []
     for q in queries:
         if len(got) >= need:
@@ -560,8 +592,8 @@ def get_clips(scene, country_words, job, prefix, need):
                 break
             if c["id"] in USED:
                 continue
-            # jagah (shehar ya mulk) ka naam tags/naam mein hona zaroori
-            if not any(w in c["text"] for w in pw + country_words):
+            # subject (khaana/cheez) YA jagah ka naam tags/naam mein ho - bilkul be-rabt clip na aaye
+            if accept and not any(w in c["text"] for w in accept):
                 continue
             path = os.path.join(job, f"{prefix}_{len(got)}.mp4")
             try:
@@ -583,7 +615,7 @@ def get_clips(scene, country_words, job, prefix, need):
                         continue
                 except Exception:
                     pass
-                ok = vision_ok(jpg, place or country, q)
+                ok = vision_ok(jpg, want, q)
                 if ok is False:
                     REPORT["clips_rejected"] += 1
                     USED.add(c["id"])
@@ -782,7 +814,8 @@ def build(script, plan, out_path):
     map_clip = None
     for n, (ci, si, cname, sc) in enumerate(scenes):
         text = sc["text"].strip()
-        tts(text, os.path.join(job, f"a{n}.mp3"))
+        spoken = (sc.get("say") or text).strip()        # TTS ke liye (mushkil foreign lafz phonetic); subtitle `text` hi rehta hai
+        tts(spoken, os.path.join(job, f"a{n}.mp3"))
         dur = duration(os.path.join(job, f"a{n}.mp3")) + 0.45
         need = max(1, min(4, math.ceil(dur / 5.5)))
         clips = get_clips(sc, cwords, job, f"c{n}", need)
