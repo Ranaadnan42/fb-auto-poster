@@ -1,13 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 47,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "story",
- "long_minutes": 5.76,
- "series": "چچا بوٹا اور محلے کا سپر لیگ part 2 (ai)",
- "laughs": 8,
- "time_utc": "2026-10-25 14:56",
- "title": "چچا بوٹا اور محلے کا سپر لیگ | قسط 2",
+ "format": "chat",
+ "reel_minutes": 1.35,
+ "laughs": 3,
+ "time_utc": "2026-10-26 07:04",
+ "title": "دادی اماں اور ٹیوشن ماسٹر کا پلان",
  "dry_run": false
 }
