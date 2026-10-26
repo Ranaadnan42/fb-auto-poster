@@ -35,6 +35,9 @@ DRY_RUN = os.environ.get("DRY_RUN") == "1"
 LANG = (os.environ.get("LANGUAGE") or "ur").strip().lower()
 if LANG not in ("ur", "en"):
     LANG = "ur"
+# English content sirf YouTube par jata hai - FB page, Instagram aur TikTok par nahi.
+# (Ye page/TikTok Urdu audience ke liye hain; English sirf YouTube ke liye.)
+YT_ONLY = (LANG == "en")
 # is run mein kya post ho: both / long / reel (schedule se workflow batata hai)
 POST_TYPE = (os.environ.get("POST_TYPE") or "both").strip().lower()
 if POST_TYPE not in ("both", "long", "reel"):
@@ -709,10 +712,12 @@ def _main():
         if not DRY_RUN:
             desc = description(title, long_script, is_reel=False)
             import slot_wait; slot_wait.wait(log)
-            entry["long_id"] = post_long("final_long.mp4", title, desc)
+            if not YT_ONLY:
+                entry["long_id"] = post_long("final_long.mp4", title, desc)
             youtube(yt_path("final_long.mp4"), title, desc, False, entry, "long_yt")
-            import social
-            social.share_long("islamic", "final_long.mp4", desc, entry, REPORT, log)
+            if not YT_ONLY:
+                import social
+                social.share_long("islamic", "final_long.mp4", desc, entry, REPORT, log)
         ok += 1
     except StopIteration:
         pass
@@ -731,10 +736,12 @@ def _main():
         if not DRY_RUN:
             desc = description(title, reel_script)
             import slot_wait; slot_wait.wait(log)
-            entry["reel_id"] = post_reel("final_reel.mp4", desc)
+            if not YT_ONLY:
+                entry["reel_id"] = post_reel("final_reel.mp4", desc)
             youtube(yt_path("final_reel.mp4"), title, desc, True, entry, "reel_yt")
-            import social
-            social.share_reel("islamic", FB_PAGE, FB_TOKEN, "final_reel.mp4", desc, entry, REPORT, log)
+            if not YT_ONLY:
+                import social
+                social.share_reel("islamic", FB_PAGE, FB_TOKEN, "final_reel.mp4", desc, entry, REPORT, log)
         ok += 1
     except StopIteration:
         pass
