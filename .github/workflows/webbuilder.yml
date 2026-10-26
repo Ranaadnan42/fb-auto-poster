@@ -1,0 +1,71 @@
+name: Web Builder Promo
+
+on:
+  schedule:
+    # Rozana 1 promo post. 10:23 UTC = ~3:23pm Pakistan, 1:23pm Gulf, 10:23am London.
+    - cron: '23 10 * * *'
+  workflow_dispatch:
+    inputs:
+      focus:
+        description: 'Kaunsa promo (khali = bari bari rotate)'
+        type: choice
+        options: ['', 'pos', 'website', 'app', 'store']
+        default: ''
+      dry_run:
+        description: 'Sirf pic banaye, post na kare'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: webbuilder-${{ github.event.schedule || github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  post:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          pip install requests
+      - name: Run webbuilder.py
+        env:
+          WB_PAGE_TOKEN: ${{ secrets.WB_PAGE_TOKEN }}
+          WB_PAGE_ID: ${{ secrets.WB_PAGE_ID }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          FOCUS: ${{ inputs.focus }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+        run: python webbuilder.py
+      - name: Upload preview
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: webbuilder
+          path: work_webbuilder/wb_post.jpg
+          if-no-files-found: ignore
+      - name: Save history
+        if: always()
+        run: |
+          FILES="webbuilder_history.json webbuilder_last_run.json"
+          mkdir -p /tmp/keep
+          for f in $FILES; do [ -f "$f" ] && cp "$f" /tmp/keep/; done
+          git config user.name "auto-poster"
+          git config user.email "auto-poster@users.noreply.github.com"
+          for i in 1 2 3 4 5; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            python3 tools/keep_files.py /tmp/keep $FILES
+            git add $FILES 2>/dev/null || true
+            git diff --cached --quiet && break
+            git commit -q -m "Update Web Builder promo history"
+            git push -q origin HEAD:main && break
+            sleep $((i * 5))
+          done
