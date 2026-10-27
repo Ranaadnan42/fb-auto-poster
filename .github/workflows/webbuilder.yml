@@ -2,17 +2,27 @@ name: Web Builder Promo
 
 on:
   schedule:
-    # Rozana 1 promo post. 10:23 UTC = ~3:23pm Pakistan, 1:23pm Gulf, 10:23am London.
-    - cron: '23 10 * * *'
+    # Rozana: 2 pics + 2 short reels (English, Urdu/Hindi) + 2 long videos (English, Urdu/Hindi)
+    - cron: '23 10 * * *'   # pic 1    - 3:23pm Pakistan, 1:23pm Gulf
+    - cron: '43 17 * * *'   # pic 2    - 8:43pm Gulf, 6:43pm London, 1:43pm New York
+    - cron: '37 13 * * *'   # reel EN  - 9:37am New York, 2:37pm London
+    - cron: '7 15 * * *'    # reel UR  - 8:07pm Pakistan, 6:07pm Gulf, 8:37pm India
+    - cron: '47 16 * * *'   # long UR  - 9:47pm Pakistan, 7:47pm Gulf
+    - cron: '13 19 * * *'   # long EN  - 3:13pm New York, 8:13pm London
   workflow_dispatch:
     inputs:
+      mode:
+        description: 'Kya banaye'
+        type: choice
+        options: ['pic', 'reel_en', 'reel_ur', 'long_en', 'long_ur']
+        default: 'pic'
       focus:
-        description: 'Kaunsa promo (khali = bari bari rotate)'
+        description: 'Pic ka promo (khali = bari bari rotate)'
         type: choice
         options: ['', 'pos', 'website', 'app', 'store']
         default: ''
       dry_run:
-        description: 'Sirf pic banaye, post na kare'
+        description: 'Sirf banaye, post na kare'
         type: boolean
         default: false
 
@@ -26,18 +36,35 @@ concurrency:
 jobs:
   post:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: Pick mode
+        id: m
+        run: |
+          case "${{ github.event.schedule }}" in
+            '37 13 * * *') M=reel_en ;;
+            '7 15 * * *')  M=reel_ur ;;
+            '47 16 * * *') M=long_ur ;;
+            '13 19 * * *') M=long_en ;;
+            '') M="${{ inputs.mode }}" ;;
+            *) M=pic ;;
+          esac
+          [ -z "$M" ] && M=pic
+          echo "mode=$M" >> $GITHUB_OUTPUT
+          echo "kind=${M%%_*}" >> $GITHUB_OUTPUT
+          echo "lang=${M##*_}" >> $GITHUB_OUTPUT
+          echo "Mode: $M"
       - name: Install dependencies
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
-          pip install requests
-      - name: Run webbuilder.py
+          pip install requests google-genai "edge-tts>=7.3.0"
+      - name: Pic post
+        if: steps.m.outputs.mode == 'pic'
         env:
           WB_PAGE_TOKEN: ${{ secrets.WB_PAGE_TOKEN }}
           WB_PAGE_ID: ${{ secrets.WB_PAGE_ID }}
@@ -45,17 +72,31 @@ jobs:
           FOCUS: ${{ inputs.focus }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
         run: python webbuilder.py
+      - name: Video post
+        if: steps.m.outputs.mode != 'pic'
+        env:
+          WB_PAGE_TOKEN: ${{ secrets.WB_PAGE_TOKEN }}
+          WB_PAGE_ID: ${{ secrets.WB_PAGE_ID }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          KIND: ${{ steps.m.outputs.kind }}
+          LANGUAGE: ${{ steps.m.outputs.lang }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+        run: python wb_video.py
       - name: Upload preview
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: webbuilder
-          path: work_webbuilder/wb_post.jpg
+          name: webbuilder-${{ steps.m.outputs.mode }}
+          path: |
+            work_webbuilder/wb_post.jpg
+            work_wbv_*/final.mp4
           if-no-files-found: ignore
       - name: Save history
         if: always()
         run: |
-          FILES="webbuilder_history.json webbuilder_last_run.json"
+          FILES="webbuilder_history.json webbuilder_last_run.json webbuilder_video_history.json webbuilder_video_en_reel_last_run.json webbuilder_video_ur_reel_last_run.json webbuilder_video_en_long_last_run.json webbuilder_video_ur_long_last_run.json"
           mkdir -p /tmp/keep
           for f in $FILES; do [ -f "$f" ] && cp "$f" /tmp/keep/; done
           git config user.name "auto-poster"
