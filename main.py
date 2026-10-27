@@ -96,17 +96,17 @@ THEMES = [
     "an authentic hadith of Prophet Muhammad and its meaning", "a sunnah of the Prophet for daily life",
 ]
 
-SAFE_VISUALS = ("Visual terms must be Islamic or calm scenery only. Prefer Islamic: mosque, "
-                "mosque interior, minaret, mosque dome, mecca, medina, quran, prayer mat, "
-                "ramadan lantern, crescent moon, islamic architecture, arabic calligraphy. "
-                "Or scenery: sky, clouds, sunrise, sunset, ocean, rain, desert, mountains, "
-                "night stars, forest, river. Never people or faces, never church, temple, "
-                "cross, candle or statue. "
-                "Choose the visual that FITS what this scene is narrating, within the list above "
-                "(e.g. a cave for Hira, desert and camels for a journey, rain or night sky for "
-                "reflection, Kaaba for Hajj, open Quran for a verse). Any building must be a MOSQUE - "
-                "never a temple, church, mandir or plain 'architecture/building' that could be another "
-                "religion's place.")
+SAFE_VISUALS = ("The visual term is what the viewer SEES while this scene is spoken, so it MUST match the "
+                "narration. If the scene mentions a concrete thing, the term is THAT thing: food or drink "
+                "(dates fruit, honey, milk, bread, water, olives, figs, pomegranate, grapes), an animal "
+                "(camel, horse, sheep, spider web, birds, ant, whale), nature (cave, desert, mountain, rain, "
+                "sea, river, fire, moon, stars, sun, garden, trees, water well), or an object (old book, "
+                "sword, lamp, coins, ship, tent, door). If nothing concrete is mentioned, use an Islamic "
+                "visual (mosque, mosque interior, minaret, kaaba, mecca, medina, open quran, prayer mat, "
+                "ramadan lantern, crescent moon, arabic calligraphy) or calm scenery (sky, clouds, sunrise, "
+                "sunset, night stars). Never people, faces, women or girls, never church, temple, cross, "
+                "candle or statue. Any building must be a MOSQUE - never a temple, church, mandir or plain "
+                "'architecture/building' that could be another religion's place.")
 
 # Pronunciation: a text-to-speech voice reads the narration, so Arabic/foreign words get mispronounced.
 SAY_RULE = ("PRONUNCIATION: a text-to-speech voice reads 'text', so Arabic and other foreign words come out "
@@ -132,7 +132,13 @@ BLOCK_TAGS = {"church", "cathedral", "chapel", "christian", "christianity", "cro
               "buddhist", "buddhism", "monk", "pagoda", "shrine", "idol", "statue", "sculpture",
               "synagogue", "jewish", "menorah", "shiva", "ganesh", "krishna", "diwali", "halloween",
               "gothic", "angel", "saint", "candle", "candles", "altar", "wine", "beer", "alcohol",
-              "bikini", "party", "nightclub", "dance", "dancing", "pig", "pork"}
+              "bikini", "party", "nightclub", "dance", "dancing", "pig", "pork",
+              # aurat/larki, yoga, fitness waghera - Islamic page par kabhi nahi
+              "woman", "women", "girl", "girls", "lady", "ladies", "female", "model", "models",
+              "yoga", "meditation", "meditate", "pilates", "fitness", "workout", "exercise", "gym",
+              "stretching", "aerobics", "sport", "sports", "beauty", "fashion", "makeup", "bride",
+              "couple", "romance", "romantic", "kiss", "kissing", "hug", "sexy", "swimsuit",
+              "swimming", "lingerie", "dress", "portrait", "face", "selfie", "teen", "teenager"}
 
 
 def clip_blocked(hit):
@@ -466,7 +472,7 @@ def pixabay_clips(query, count, job, prefix):
     got = []
     if not PIXABAY_KEY:
         return got
-    for q in (query, "mosque", "sky clouds", "nature"):
+    for q in (query, "mosque", "sky clouds", "sunset sky"):
         if len(got) >= count:
             break
         try:
@@ -474,8 +480,10 @@ def pixabay_clips(query, count, job, prefix):
                 "key": PIXABAY_KEY, "q": q, "safesearch": "true", "per_page": 40,
                 "video_type": "film"})
             r.raise_for_status()
+            qw = [w for w in q.lower().split() if len(w) > 2]
             hits = [h for h in r.json().get("hits", [])
-                    if h["id"] not in USED_CLIPS and not clip_blocked(h)]
+                    if h["id"] not in USED_CLIPS and not clip_blocked(h)
+                    and (not qw or any(w in (h.get("tags") or "").lower() for w in qw))]
         except Exception as e:
             log(f"Pixabay error ({q}): {str(e)[:150]}")
             continue
@@ -573,10 +581,12 @@ def build_scene(job, i, sc, w, h, title):
         tts((sc.get("say") or text).strip(), os.path.join(job, audio))   # say = phonetic (TTS); subtitle `text` hi
     dur = duration(os.path.join(job, audio)) + 0.5
     k = max(1, min(4, round(dur / 8)))                     # har ~8 second baad naya clip
-    n_isl = (k + 1) // 2                                   # aadhe (ya zyada) Islamic clips
-    clips = pixabay_clips(random.choice(ISLAMIC_VISUALS), n_isl, job, f"c{i}i")
-    clips += pixabay_clips(sc.get("visual") or "nature", k - len(clips), job, f"c{i}")
-    random.shuffle(clips)
+    # pehle WOHI cheez jiska is scene mein zikr ho raha hai (khaana, janwar, jagah...);
+    # Islamic clips sirf tab jab us cheez ki poori clips na milen
+    vis = (sc.get("visual") or "").strip()
+    clips = pixabay_clips(vis, k, job, f"c{i}") if vis else []
+    if len(clips) < k:
+        clips += pixabay_clips(random.choice(ISLAMIC_VISUALS), k - len(clips), job, f"c{i}i")
     REPORT["stock_clips"] += len(clips)
     if not clips:
         REPORT["fallback_clips"] += 1

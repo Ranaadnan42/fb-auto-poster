@@ -590,17 +590,27 @@ def get_clips(scene, country_words, job, prefix, need):
     pw = _words(place)
     show = (scene.get("show") or "").strip()
     sw = [w for w in _words(show) if w not in pw + country_words]   # subject ke words (jagah ke naam hata kar)
-    queries = list(scene.get("search") or [])
+    subj_q = list(scene.get("search") or [])
     if show:
-        queries.append(show)
+        subj_q.append(show)
+    if sw:   # jis cheez ki baat ho rahi (khaana/cheez) ke akele lafz bhi - shehar ke naam ke baghair
+        subj_q += [" ".join(sw)] + [w for w in sw if len(w) > 3]
     city = place.split(",")[0].strip()
     country = place.split(",")[-1].strip()
-    # jagah wali fallback AAKHIR mein - sirf tab jab subject ki clip na mile
-    queries += [f"{city} aerial", city, f"{country} landscape", f"{country} city", country]
+    place_q = [f"{city} aerial", city, f"{country} landscape", f"{country} city", country]
     want = show or place or country                                # vision ko yehi dikhna chahiye
-    accept = sw + pw + country_words                               # tags mein in mein se koi hona chahiye
+    # Pehle sirf SUBJECT ki clips (tags mein subject ka lafz hona zaroori - shehar ka naam kaafi nahi).
+    # Jagah wali clip AAKHIR mein, sirf tab jab subject ki ek bhi clip na mile.
+    rounds = [(subj_q, sw or (pw + country_words), want)]
+    if sw:
+        rounds.append((place_q, pw + country_words, place or country))
+    else:
+        rounds[0] = (subj_q + place_q, pw + country_words, want)
     got = []
-    for q in queries:
+    for queries, accept, want in rounds:
+      if got:          # subject ki clip mil gayi to jagah wali nahi lagani
+        break
+      for q in queries:
         if len(got) >= need:
             break
         cands = pexels_search(q) + pixabay_search(q)

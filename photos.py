@@ -124,7 +124,13 @@ def save_history(h):
 
 
 # ---------------------------------------------------------------- background image
-def pixabay_image(queries, path, used, category=None):
+ISLAMIC_BLOCK = {"woman", "women", "girl", "girls", "lady", "female", "model", "yoga", "meditation", "fitness",
+                 "workout", "exercise", "beauty", "fashion", "makeup", "bride", "couple", "romance", "kiss",
+                 "church", "cathedral", "cross", "jesus", "temple", "hindu", "buddha", "buddhist", "statue",
+                 "candle", "christmas", "wine", "bikini", "portrait", "face"}
+
+
+def pixabay_image(queries, path, used, category=None, block=None):
     if not PIXABAY_KEY:
         return False
     for q in queries:
@@ -135,7 +141,8 @@ def pixabay_image(queries, path, used, category=None):
                 params["category"] = category
             r = requests.get("https://pixabay.com/api/", params=params, timeout=40)
             r.raise_for_status()
-            hits = [x for x in r.json().get("hits", []) if x["id"] not in used]
+            hits = [x for x in r.json().get("hits", []) if x["id"] not in used
+                    and not (block and block & set((x.get("tags") or "").lower().replace(",", " ").split()))]
         except Exception as e:
             log(f"Pixabay error ({q}): {str(e)[:150]}")
             continue
@@ -242,7 +249,8 @@ Return JSON:
         f.write(ass_head(styles) + "\n".join(ev) + "\n")
     bg = os.path.join(WORK, "islamic_bg.jpg")
     scene = d.get("scene") or random.choice(ISLAMIC_SCENES)
-    if not pixabay_image([scene, random.choice(ISLAMIC_SCENES), "mosque"], bg, hist["used_images"]):
+    if not pixabay_image([scene, random.choice(ISLAMIC_SCENES), "mosque"], bg, hist["used_images"],
+                         block=ISLAMIC_BLOCK):
         gradient_bg(bg)
     out = os.path.join(WORK, "islamic_post.jpg")
     render(bg, ass, out, 0.52)
