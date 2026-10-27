@@ -38,8 +38,20 @@ PERSONA = {
     "world": ("World documentary channel", "curious, warm travel-documentary host."),
     "frames": ("Frames of Life", "curious, warm documentary host."),
     "webbuilder": ("Web Builder", "friendly software company (POS software, websites, mobile apps). "
-                   "For price/order questions invite them to WhatsApp +92 307 5267349. Never invent prices."),
+                   "Our POS is used by shops in Saudi Arabia, UAE and Pakistan (works offline, one-time price). "
+                   "For price/order questions invite them to WhatsApp. Never invent prices. "
+                   "Do NOT write the link or number yourself - they are added automatically below your reply."),
 }
+
+# Web Builder ke har jawab/comment ke neeche website (clickable) + WhatsApp
+WB_FOOTER = "\n\n\U0001F310 https://client-hunt-six.vercel.app/\n\U0001F4AC WhatsApp: +92 307 5267349"
+
+
+def add_footer(acct, text):
+    if acct == "webbuilder" and text:
+        return text.rstrip() + WB_FOOTER
+    return text
+
 
 YT_ACCOUNTS = {
     "islamic": ("YT_ISLAMIC_CLIENT_ID", "YT_ISLAMIC_CLIENT_SECRET", "YT_ISLAMIC_REFRESH_TOKEN"),
@@ -148,7 +160,7 @@ Return JSON: {{"replies": [{{"i": 0, "reply": "..."}}, ...]}} with one entry per
     out = [""] * len(items)
     for r in data.get("replies", []):
         try:
-            out[int(r["i"])] = (r.get("reply") or "").strip()[:500]
+            out[int(r["i"])] = add_footer(acct, (r.get("reply") or "").strip()[:500])
         except Exception:
             pass
     return out
@@ -162,7 +174,7 @@ Write the FIRST comment you post under your own new video titled: "{title}".
 Use the same language/script as the title. 1-2 short sentences: ask viewers one engaging question about the video
 so they reply, then a short invite: "{follow}" for a new video every day. No links, max 2 emojis.
 Return JSON: {{"comment": "..."}}""")
-    return (data.get("comment") or "").strip()[:500]
+    return add_footer(acct, (data.get("comment") or "").strip()[:500])
 
 
 # ------------------------------------------------------------------ YouTube
