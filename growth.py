@@ -262,6 +262,9 @@ def fb_call(method, path, token, **params):
     return j
 
 
+FB_ERRORS = []
+
+
 def fb_comment(token, obj_id, text):
     if DRY_RUN:
         log(f"   [dry] FB {obj_id}: {text[:120]}")
@@ -271,6 +274,7 @@ def fb_comment(token, obj_id, text):
         return True
     except Exception as e:
         log(f"   FB comment fail: {str(e)[:200]}")
+        FB_ERRORS.append(str(e)[:150])
         return False
 
 
@@ -304,7 +308,12 @@ def run_facebook(acct, st):
         if reply and fb_comment(token, it["id"], reply):
             done += 1
             log(f"   jawab: {it['comment'][:50]!r} -> {reply[:80]}")
-    report.append(f"Facebook {acct}: {done} jawab, {seeded_now} nayi post par comment")
+    n_com = sum(len((p.get("comments") or {}).get("data", [])) for p in posts)
+    n_new = sum(1 for p in posts if recent(p["created_time"], NEW_VIDEO_DAYS))
+    err = f" | error: {FB_ERRORS[-1]}" if FB_ERRORS else ""
+    FB_ERRORS.clear()
+    report.append(f"Facebook {acct}: {done} jawab, {seeded_now} nayi post par comment "
+                  f"(posts {len(posts)}, nayi {n_new}, comments mile {n_com}, jawab ke qabil {len(todo)}){err}")
 
 
 # ------------------------------------------------------------------ main
