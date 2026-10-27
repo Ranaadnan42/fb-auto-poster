@@ -3,8 +3,8 @@ name: Web Builder Promo
 on:
   schedule:
     # Rozana: 2 pics + 2 short reels (English, Urdu/Hindi) + 2 long videos (English, Urdu/Hindi)
-    - cron: '23 10 * * *'   # pic 1    - 3:23pm Pakistan, 1:23pm Gulf
-    - cron: '43 17 * * *'   # pic 2    - 8:43pm Gulf, 6:43pm London, 1:43pm New York
+    - cron: '23 10 * * *'   # pic Urdu    - 3:23pm Pakistan, 1:23pm Gulf
+    - cron: '43 17 * * *'   # pic English    - 8:43pm Gulf, 6:43pm London, 1:43pm New York
     - cron: '37 13 * * *'   # reel EN  - 9:37am New York, 2:37pm London
     - cron: '7 15 * * *'    # reel UR  - 8:07pm Pakistan, 6:07pm Gulf, 8:37pm India
     - cron: '47 16 * * *'   # long UR  - 9:47pm Pakistan, 7:47pm Gulf
@@ -14,8 +14,8 @@ on:
       mode:
         description: 'Kya banaye'
         type: choice
-        options: ['pic', 'reel_en', 'reel_ur', 'long_en', 'long_ur']
-        default: 'pic'
+        options: ['pic_en', 'pic_ur', 'reel_en', 'reel_ur', 'long_en', 'long_ur']
+        default: 'pic_en'
       focus:
         description: 'Pic ka promo (khali = bari bari rotate)'
         type: choice
@@ -50,10 +50,13 @@ jobs:
             '7 15 * * *')  M=reel_ur ;;
             '47 16 * * *') M=long_ur ;;
             '13 19 * * *') M=long_en ;;
+            '23 10 * * *') M=pic_ur ;;
+            '43 17 * * *') M=pic_en ;;
             '') M="${{ inputs.mode }}" ;;
-            *) M=pic ;;
+            *) M=pic_en ;;
           esac
-          [ -z "$M" ] && M=pic
+          [ -z "$M" ] && M=pic_en
+          [ "$M" = "pic" ] && M=pic_en
           echo "mode=$M" >> $GITHUB_OUTPUT
           echo "kind=${M%%_*}" >> $GITHUB_OUTPUT
           echo "lang=${M##*_}" >> $GITHUB_OUTPUT
@@ -62,18 +65,19 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
-          pip install requests google-genai "edge-tts>=7.3.0"
+          pip install requests pillow google-genai "edge-tts>=7.3.0"
       - name: Pic post
-        if: steps.m.outputs.mode == 'pic'
+        if: steps.m.outputs.kind == 'pic'
         env:
           WB_PAGE_TOKEN: ${{ secrets.WB_PAGE_TOKEN }}
           WB_PAGE_ID: ${{ secrets.WB_PAGE_ID }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           FOCUS: ${{ inputs.focus }}
+          LANGUAGE: ${{ steps.m.outputs.lang }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
         run: python webbuilder.py
       - name: Video post
-        if: steps.m.outputs.mode != 'pic'
+        if: steps.m.outputs.kind != 'pic'
         env:
           WB_PAGE_TOKEN: ${{ secrets.WB_PAGE_TOKEN }}
           WB_PAGE_ID: ${{ secrets.WB_PAGE_ID }}
@@ -96,7 +100,7 @@ jobs:
       - name: Save history
         if: always()
         run: |
-          FILES="webbuilder_history.json webbuilder_last_run.json webbuilder_video_history.json webbuilder_video_en_reel_last_run.json webbuilder_video_ur_reel_last_run.json webbuilder_video_en_long_last_run.json webbuilder_video_ur_long_last_run.json"
+          FILES="webbuilder_history.json webbuilder_en_last_run.json webbuilder_ur_last_run.json webbuilder_video_history.json webbuilder_video_en_reel_last_run.json webbuilder_video_ur_reel_last_run.json webbuilder_video_en_long_last_run.json webbuilder_video_ur_long_last_run.json"
           mkdir -p /tmp/keep
           for f in $FILES; do [ -f "$f" ] && cp "$f" /tmp/keep/; done
           git config user.name "auto-poster"
