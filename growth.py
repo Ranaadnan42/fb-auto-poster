@@ -6,7 +6,7 @@ Growth Bot - sirf APNE pages/channels par kaam karta hai (spam nahi, ban ka khat
 
 Accounts (jis ka secret na ho woh chup chaap skip):
   YouTube : islamic, funny, legends (YT_REFRESH_TOKEN), movie, world, frames
-  Facebook: islamic (FB_PAGE_*), funny (FUNNY_PAGE_*), legends (CINE_FB_*)
+  Facebook: islamic (FB_PAGE_*), funny (FUNNY_PAGE_*), legends (CINE_FB_*), frames (FRAMES_PAGE_*), webbuilder (WB_PAGE_*)
 Yaad rakha jata hai: growth_state.json (kis comment ka jawab diya, kis video par comment kiya)
 """
 import os
@@ -37,6 +37,8 @@ PERSONA = {
     "movie": ("Plot Twist Recaps", "movie recap channel, friendly film fan, no spoilers of other films."),
     "world": ("World documentary channel", "curious, warm travel-documentary host."),
     "frames": ("Frames of Life", "curious, warm documentary host."),
+    "webbuilder": ("Web Builder", "friendly software company (POS software, websites, mobile apps). "
+                   "For price/order questions invite them to WhatsApp +92 307 5267349. Never invent prices."),
 }
 
 YT_ACCOUNTS = {
@@ -51,6 +53,8 @@ FB_ACCOUNTS = {
     "islamic": ("FB_PAGE_ID", "FB_PAGE_TOKEN"),
     "funny": ("FUNNY_PAGE_ID", "FUNNY_PAGE_TOKEN"),
     "legends": ("CINE_FB_PAGE_ID", "CINE_FB_TOKEN"),
+    "frames": ("FRAMES_PAGE_ID", "FRAMES_PAGE_TOKEN"),
+    "webbuilder": ("WB_PAGE_ID", "WB_PAGE_TOKEN"),
 }
 
 report = []
