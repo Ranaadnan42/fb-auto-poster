@@ -1,8 +1,10 @@
 {
- "images_ai": 68,
+ "images_ai": 0,
  "images_backup": 0,
  "images_failed": 0,
- "errors": [],
+ "errors": [
+  "fatal: Gemini fail: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev"
+ ],
  "search_phrases": [
   "fantasy story ideas",
   "fantasy storytelling",
@@ -24,12 +26,5 @@
   "dragon story storm8",
   "legend of the seas",
   "legend of the female general"
- ],
- "search": "legend of the female general",
- "seconds": 503.5,
- "time_utc": "2026-10-26 22:07",
- "title": "Legend of the Female General",
- "part": 1,
- "dry_run": false,
- "posted": 1
+ ]
 }
