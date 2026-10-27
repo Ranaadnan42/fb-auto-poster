@@ -225,7 +225,8 @@ def vision_ok(jpg, want, what):
                     contents=[types.Part.from_bytes(data=data, mime_type="image/jpeg"),
                               f"This is a frame from a stock video found for '{what}'. "
                               f"Does it realistically show {want} as real camera footage "
-                              f"(not animation, CGI or AI art)? "
+                              f"(not animation, CGI or AI art)? Say false if it is a different thing, or clearly a "
+                              f"different country's dish, place or landmark. "
                               'Answer JSON {"match": true/false}'],
                     config=types.GenerateContentConfig(response_mime_type="application/json",
                                                        temperature=0))
@@ -451,6 +452,12 @@ Rules:
   animal, product, person or activity, search the THING, NOT the city
   (e.g. show "tacos al pastor" -> search ["tacos al pastor", "mexican street tacos"], not "Mexico City").
 - "place": the city/region + country of that scene (e.g. "Kyoto, Japan").
+- FOOD: when a scene talks about food, it must be a REAL dish of THAT scene's country, named by its own
+  name, and "show" must name that exact dish with the country's adjective (e.g. "Japanese ramen",
+  "Turkish kebab", "Moroccan tagine") - never generic "food", "meal" or "street food" alone, and never a
+  dish from another country. Its "search" phrases also include the dish name (e.g. ["ramen", "Japanese
+  ramen bowl"]).
+- Every scene's "show" must be something IN that scene's own country/place - never another country.
 - "label": short on-screen place label (max 4 words) or "" if none.
 - If VERIFIED FACTS has "atlas_score", one scene near the end presents the Atlas Score (our own rating from
   World Bank data: Safety, Health, Affordability, Economy, each out of 10) and explains what it means.
@@ -516,6 +523,12 @@ Rules:
   product or activity, search the THING, NOT the city (e.g. show "arabic mandi rice" -> search ["mandi rice
   dish", "arabic food platter"], not "Dubai").
 - "place": the city/region + country of that scene IN ENGLISH (e.g. "Dubai, United Arab Emirates").
+- FOOD: when a scene talks about food, it must be a REAL dish of THAT scene's country, named by its own
+  name, and "show" must name that exact dish with the country's adjective (e.g. "Japanese ramen",
+  "Turkish kebab", "Moroccan tagine") - never generic "food", "meal" or "street food" alone, and never a
+  dish from another country. Its "search" phrases also include the dish name (e.g. ["ramen", "Japanese
+  ramen bowl"]).
+- Every scene's "show" must be something IN that scene's own country/place - never another country.
 - "label": short on-screen place label in Urdu script (max 4 words) or "".
 - If VERIFIED FACTS has "atlas_score", one scene near the end presents the "{SCORE_NAME}" (our own rating
   from World Bank data: safety, health, affordability, economy, each out of 10). Put that scene's "score": true.{_search_rule(plan)}
@@ -583,29 +596,42 @@ def pexels_search(q):
         return []
 
 
+GENERIC = {"food", "foods", "dish", "dishes", "meal", "meals", "cuisine", "street", "streets", "market",
+           "markets", "traditional", "local", "people", "city", "night", "view", "aerial", "landscape",
+           "culture", "festival", "music", "dance", "life", "daily", "plate", "bowl", "cooking", "restaurant"}
+
+
 def get_clips(scene, country_words, job, prefix, need):
     """Is scene ke `show` (jo cheez dikhani hai, jaise khaana/landmark) ki asli clips.
     Pehle SUBJECT (jiski baat ho rahi), phir jagah. Clip ke tags mein subject YA jagah ka naam ho + vision check."""
     place = scene.get("place") or ""
     pw = _words(place)
     show = (scene.get("show") or "").strip()
-    sw = [w for w in _words(show) if w not in pw + country_words]   # subject ke words (jagah ke naam hata kar)
-    subj_q = list(scene.get("search") or [])
-    if show:
-        subj_q.append(show)
-    if sw:   # jis cheez ki baat ho rahi (khaana/cheez) ke akele lafz bhi - shehar ke naam ke baghair
-        subj_q += [" ".join(sw)] + [w for w in sw if len(w) > 3]
     city = place.split(",")[0].strip()
     country = place.split(",")[-1].strip()
+    cw = _words(country) or country_words                         # ISI scene ka mulk
+    # "japanese" mein "japan" - mulk/qaum wale lafz subject nahi, mulk ki pehchaan hain
+    sw = [w for w in _words(show) if not any(x in w for x in pw + cw + country_words)
+          and w not in GENERIC]                                    # khaas cheez (dish/landmark) ke lafz
+    if not sw and show:   # sirf aam lafz ("street food") - mulk ke naam ke saath dhoondo, tag mein mulk zaroori
+        show_c = show if any(x in show.lower() for x in cw) else f"{country} {show}"
+    else:
+        show_c = show
+    subj_q = list(scene.get("search") or [])
+    if show:
+        subj_q = [show_c] + subj_q if show_c != show else subj_q + [show]
+    if sw:   # jis cheez ki baat ho rahi (khaana/cheez) ke akele lafz bhi - shehar ke naam ke baghair
+        subj_q += [" ".join(sw)] + [w for w in sw if len(w) > 3]
     place_q = [f"{city} aerial", city, f"{country} landscape", f"{country} city", country]
-    want = show or place or country                                # vision ko yehi dikhna chahiye
+    # vision ko yehi dikhna chahiye - aur ISI mulk ka (doosre mulk ka khaana/jagah nahi)
+    want = f"{show_c} from {country}" if show and country else (show or place or country)
     # Pehle sirf SUBJECT ki clips (tags mein subject ka lafz hona zaroori - shehar ka naam kaafi nahi).
     # Jagah wali clip AAKHIR mein, sirf tab jab subject ki ek bhi clip na mile.
-    rounds = [(subj_q, sw or (pw + country_words), want)]
+    rounds = [(subj_q, sw or (pw + cw), want)]
     if sw:
-        rounds.append((place_q, pw + country_words, place or country))
+        rounds.append((place_q, pw + cw, place or country))
     else:
-        rounds[0] = (subj_q + place_q, pw + country_words, want)
+        rounds.append((place_q, pw + cw, place or country))
     got = []
     for queries, accept, want in rounds:
       if got:          # subject ki clip mil gayi to jagah wali nahi lagani
