@@ -1,22 +1,35 @@
 {
  "mode": "short",
- "clips": 15,
- "clips_rejected": 132,
- "vision_checks": 121,
- "errors": [],
- "search_phrases": [
-  "ki sair kar duniya ki gafil",
-  "ki sair kab hai",
-  "sairat ki video",
-  "sairam ki sketchbook",
-  "sairat ki serial",
-  "sairat ki tik tok",
-  "sairat ki comedy",
-  "sairat ka natak",
-  "sairat ki"
+ "clips": 19,
+ "clips_rejected": 46,
+ "vision_checks": 64,
+ "errors": [
+  "list indices must be integers or slices, not str"
  ],
- "seconds": 66.5,
- "subject": "Azerbaijan / Baku",
- "series": "pk_tour_short",
- "title": "60 سیکنڈ میں باکو کی سیر | Baku Azerbaijan Tour"
+ "search_phrases": [
+  "mein kharch karungi pure roki na mundeya",
+  "mein kharch",
+  "mein kharch karungi pure roki na mundiya",
+  "mein kharch jitiya kab hai",
+  "kharch mein",
+  "hindi mein kharcha",
+  "ivf mein kharcha kitna hai",
+  "jaisalmer mein kharcha kitna aaega",
+  "mein kitna paisa",
+  "cost of living in dubai",
+  "cost of living in saudi arabia",
+  "cost of living in australia",
+  "cost of living in malaysia",
+  "cost of living in uk",
+  "cost of living in qatar",
+  "cost of living in usa",
+  "cost of living in riyadh",
+  "cost of living in japan",
+  "cost of living in islamabad"
+ ],
+ "search": "cost of living in usa",
+ "seconds": 79.5,
+ "subject": "United States / New York",
+ "series": "pk_cost_short",
+ "title": "نیویارک میں ایک مہینے کا خرچہ | Cost of Living in USA"
 }
