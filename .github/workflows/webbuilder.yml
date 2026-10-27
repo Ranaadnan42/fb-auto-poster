@@ -114,7 +114,7 @@ jobs:
           for i in 1 2 3 4 5; do
             git fetch -q origin main && git reset -q --hard origin/main
             python3 tools/keep_files.py /tmp/keep $FILES
-            git add $FILES 2>/dev/null || true
+            for f in $FILES; do [ -f "$f" ] && git add "$f"; done
             git diff --cached --quiet && break
             git commit -q -m "Update Web Builder promo history"
             git push -q origin HEAD:main && break
