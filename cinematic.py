@@ -225,16 +225,21 @@ VIRAL RULES:
 No gore details, no sexual content, no politics.
 
 Exactly {SCENES} scenes, each {WORDS}.
-For each scene give {SHOTS} English image prompts ("shots") for an AI image generator: one detailed sentence
-of what the camera sees (who, action, place, light, camera angle). Characters must be ORIGINAL looking people,
-never a real actor's likeness, no logos or brand names. Use the character sheet so people look the SAME in
-every image. For each scene also pick "fx": one of snow, rain, embers, dust, fog, none.
+For each scene give {SHOTS} "shots" for an AI image generator. The shots go IN THE ORDER of the narration:
+shot 1 shows what the FIRST part of this scene's narration talks about, the last shot the last part. Each shot must
+show EXACTLY the thing being said at that moment - the same creature, person, object, place and action that the
+narration names (if it says a dragon burns a village, show the dragon burning the village; if it says a golden
+key, show the golden key). Never a random or unrelated picture.
+Each shot = {{"subject": "2-4 plain English words: the MAIN thing seen, e.g. 'red dragon', 'golden key', 'burning village'",
+ "prompt": "max 35 words: the main subject FIRST, then the action, place, light and camera angle; if a character
+ appears, include ONLY that character's look from the character sheet (never other characters)"}}.
+Characters must be ORIGINAL looking people, never a real actor's likeness, no logos or brand names. For each scene also pick "fx": one of snow, rain, embers, dust, fog, none.
 
 Return JSON:
 {{"series_title": "the exact movie name and year, e.g. Inception (2010)",
  "title": "on-screen title, max 45 characters, e.g. INCEPTION EXPLAINED",
  "characters": "ENGLISH character sheet: each main character's role + age + face, hair, clothes (original look)",
- "scenes": [{{"text": "narration", "fx": "none", "shots": ["english prompt 1", "..."]}}],
+ "scenes": [{{"text": "narration", "fx": "none", "shots": [{{"subject": "...", "prompt": "..."}}]}}],
  "summary": "2 English sentences about the movie",
  "yt_title": "viral YouTube title, max 70 characters, must include the movie name + 'Recap' or 'Explained', e.g. A Man Steals Dreams For A Living | Inception Recap",
  "description": "3-4 line YouTube description: what the movie is about without spoiling the ending, then a question to invite comments, then 'Movie recap and review for commentary and education.'",
@@ -315,18 +320,22 @@ VIRAL RULES:
 No gore, no blood details, no religion or politics. Family friendly but thrilling.
 
 Exactly {SCENES} scenes, each {WORDS}.
-For each scene give {SHOTS} English image prompts ("shots") for an AI image generator, each a single
-detailed sentence describing exactly what the camera sees (who, action, place, weather, camera angle:
-close-up / wide shot / low angle...). Whenever a character appears, describe their look using the
-character sheet so they look the SAME in every image. Mix wide establishing shots, close-ups of faces
-and eyes, and dynamic action moments - like a movie trailer.
+For each scene give {SHOTS} "shots" for an AI image generator. The shots go IN THE ORDER of the narration:
+shot 1 shows what the FIRST part of this scene's narration talks about, the last shot the last part. Each shot must
+show EXACTLY the thing being said at that moment - the same creature, person, object, place and action that the
+narration names (if it says a dragon burns a village, show the dragon burning the village; if it says a golden
+key, show the golden key). Never a random or unrelated picture.
+Each shot = {{"subject": "2-4 plain English words: the MAIN thing seen, e.g. 'red dragon', 'golden key', 'burning village'",
+ "prompt": "max 35 words: the main subject FIRST, then the action, place, light and camera angle; if a character
+ appears, include ONLY that character's look from the character sheet (never other characters)"}}.
+Mix wide establishing shots and dynamic action moments - like a movie trailer.
 For each scene also pick "fx" (moving weather layer): one of snow, rain, embers, dust, fog, none.
 
 Return JSON:
 {{"series_title": "short catchy series title in {TITLE_LANG}, max 40 characters",
  "title": "on-screen title for this video in {TITLE_LANG}, max 45 characters{" with the part label" if PARTS > 1 else ""}",
  "characters": "ENGLISH character sheet: for each character name + age + face, hair, clothes, body, or creature look",
- "scenes": [{{"text": "narration", "fx": "snow", "shots": ["english prompt 1", "..."]}}],
+ "scenes": [{{"text": "narration", "fx": "snow", "shots": [{{"subject": "...", "prompt": "..."}}]}}],
  "summary": "2 English sentences summarising what happened in this part",
  "yt_title": "viral YouTube title in {TITLE_LANG}, max 70 characters, strong curiosity gap that is honest to the story, include one searchable word like dragon, kingdom, legend, curse or warrior",
  "description": "3-4 line YouTube description in {TITLE_LANG} ending with a question to invite comments",
@@ -405,6 +414,19 @@ def pollinations(prompt, seed, path):
     return False
 
 
+def shot_parts(shot, fallback=""):
+    """Shot naye format {subject, prompt} ya purana sirf string - dono chalein. Wapas: (prompt, subject)."""
+    if isinstance(shot, dict):
+        prompt = (shot.get("prompt") or shot.get("subject") or fallback).strip()
+        subject = (shot.get("subject") or "").strip()
+    else:
+        prompt = str(shot or fallback).strip()
+        subject = ""
+    if subject and subject.lower() not in prompt.lower():
+        prompt = f"{subject}, {prompt}"                       # asal cheez hamesha sab se pehle
+    return prompt, subject or " ".join(prompt.split()[:4])
+
+
 def pixabay_backup(query, path):
     if not PIXABAY_KEY:
         return False
@@ -424,16 +446,18 @@ def pixabay_backup(query, path):
         return False
 
 
-def get_image(prompt, seed, path):
+def get_image(prompt, seed, path, subject=""):
     if POLL_TOKEN and pollinations(prompt, seed, path):
         REPORT["images_ai"] += 1
         return path
     import free_images                                         # free: GitHub CPU par sd-turbo
-    if free_images.generate(f"epic fantasy movie still, cinematic lighting, highly detailed, {prompt}",
+    # asal cheez (subject) PEHLE - model sirf ~75 lafz parhta hai, style aakhir mein kat jaye to farq nahi
+    style = "cinematic movie still" if MOVIE else "epic fantasy movie still"
+    if free_images.generate(f"{prompt}, {style}, cinematic lighting, highly detailed",
                             seed, path, 1344 if LONG else 1024, 768 if LONG else 1024):
         REPORT["images_ai"] += 1
         return path
-    if pixabay_backup(prompt, path):
+    if pixabay_backup(subject or prompt, path):
         REPORT["images_backup"] += 1
         return path
     REPORT["images_failed"] += 1
@@ -601,7 +625,7 @@ def kaggle_clips(script, job, base_seed):
         # chehre kareeb se nahi (free model mein bigarte hain) - bare, door ke, epic scenes
         prompt = (f"Epic wide cinematic shot, movie quality, dramatic camera motion, realistic lighting, "
                   f"highly detailed environment, people only small in the distance or seen from behind "
-                  f"or as silhouettes, no close-up faces: {shot}"
+                  f"or as silhouettes, no close-up faces: {shot_parts(shot, sc['text'])[0]}"
                   + (f". Characters (seen from afar): {chars}" if chars else ""))[:700]
         jobs.append({"id": i * 10 + j, "prompt": prompt, "seed": base_seed + i * 10 + j})
     w, h = (832, 480) if LONG else (640, 640)
@@ -666,11 +690,12 @@ def build_video(script, out_path):
         shots = (sc.get("shots") or [])[:SHOTS] or [text]
         seg = d / len(shots)
         fx = (sc.get("fx") or "none").lower().strip()
-        for j, prompt in enumerate(shots):
-            full = f"{prompt}. Characters: {chars}" if chars else prompt
+        for j, shot in enumerate(shots):
+            # sirf ISI shot ki cheez/kirdar - poori character sheet nahi (warna ghalat kirdar/cheez ban jati thi)
+            full, subject = shot_parts(shot, text)
             out = f"c{i}_{j}.mp4"
             first_shot[i * 10 + j] = (out, seg)
-            img = get_image(full[:900], base_seed + i * 10 + j, os.path.join(job, f"i{i}_{j}.jpg"))
+            img = get_image(full[:900], base_seed + i * 10 + j, os.path.join(job, f"i{i}_{j}.jpg"), subject)
             shot_clip(job, os.path.basename(img) if img else None, seg, len(clips), out, fx)
             clips.append(out)
             cuts.append(t + seg * (j + 1))
