@@ -202,6 +202,13 @@ def ask_json(prompt, temp=0.8):
                 last = e
                 log(f"{model} try {attempt + 1}: {str(e)[:160]}")
                 time.sleep(5)
+    import groq_backup
+    if groq_backup.enabled():
+        log(f"Gemini fail ({str(last)[:80]}) - Groq backup try")
+        try:
+            return groq_backup.ask_json(prompt, temp, log)
+        except Exception as e:
+            last = f"{last} | {e}"
     raise RuntimeError(f"Gemini fail: {last}")
 
 
