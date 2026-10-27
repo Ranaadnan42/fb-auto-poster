@@ -1,19 +1,23 @@
 {
  "mode": "short",
- "clips": 14,
- "clips_rejected": 6,
- "vision_checks": 20,
+ "clips": 16,
+ "clips_rejected": 46,
+ "vision_checks": 61,
  "errors": [],
  "search_phrases": [
-  "wages vs cost of living",
-  "prices and cost of living class 9",
-  "inflation and cost of living",
-  "cost of living worldwide",
-  "cost of living edmonton"
+  "things to know about arc raiders",
+  "things to know about cars",
+  "things to know about iphone 17 pro max",
+  "things to know about 2k26",
+  "things to know about cats",
+  "things to know about battlefield 6",
+  "things to know about real estate",
+  "things to know about ios 26",
+  "things to know about periods",
+  "things to know about day trading"
  ],
- "search": "cost of living worldwide",
- "seconds": 72.2,
- "subject": "London vs New York",
- "series": "versus_short",
- "title": "London vs New York: Cost of Living and City Life Compared"
+ "seconds": 67.3,
+ "subject": "Singapore",
+ "series": "city_facts",
+ "title": "Singapore in 60 Seconds: The Ultimate City Guide"
 }
