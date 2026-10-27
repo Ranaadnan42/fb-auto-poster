@@ -1,23 +1,8 @@
 {
  "lang": "en",
- "stock_clips": 9,
+ "stock_clips": 0,
  "fallback_clips": 0,
- "errors": [],
- "search_phrases": [
-  "islam explained",
-  "islam explained for christians",
-  "islam explained in hindi",
-  "islam explained in 10 minutes",
-  "islam explained in spanish",
-  "islam explained in 8 minutes",
-  "islam explained malayalam",
-  "islam explained in 1 minute",
-  "islam explained tagalog"
- ],
- "search": "islam explained",
- "reel_minutes": 1.09,
- "time_utc": "2026-10-27 17:18",
- "title": "When Angel Jibreel Came: Islam Explained by Prophet Muhammad",
- "dry_run": false,
- "posted_ok": 1
+ "errors": [
+  "fatal: Gemini fail: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev"
+ ]
 }
