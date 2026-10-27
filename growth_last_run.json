@@ -1,11 +1,13 @@
 {
- "at": "2026-10-27T18:47:25.294870Z",
+ "at": "2026-10-27T21:47:18.073288Z",
  "report": [
   "YouTube islamic: skip - is channel ke token mein comment ki ijazat (youtube.force-ssl) nahi - naya refresh token banana hoga (sirf upload ki ijazat hai)",
   "YouTube legends: skip - is channel ke token mein comment ki ijazat (youtube.force-ssl) nahi - naya refresh token banana hoga (sirf upload ki ijazat hai)",
   "YouTube world: skip - is channel ke token mein comment ki ijazat (youtube.force-ssl) nahi - naya refresh token banana hoga (sirf upload ki ijazat hai)",
   "YouTube frames: skip - is channel ke token mein comment ki ijazat (youtube.force-ssl) nahi - naya refresh token banana hoga (sirf upload ki ijazat hai)",
-  "Facebook islamic: skip - Gemini fail: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https",
-  "Facebook funny: skip - Gemini fail: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https"
+  "Facebook islamic: 0 jawab, 0 nayi post par comment",
+  "Facebook funny: 0 jawab, 0 nayi post par comment",
+  "Facebook frames: 0 jawab, 0 nayi post par comment",
+  "Facebook webbuilder: 0 jawab, 0 nayi post par comment"
  ]
 }
