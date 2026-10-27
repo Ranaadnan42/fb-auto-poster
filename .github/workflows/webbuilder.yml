@@ -2,19 +2,22 @@ name: Web Builder Promo
 
 on:
   schedule:
-    # Rozana: 2 pics + 2 short reels (English, Urdu/Hindi) + 2 long videos (English, Urdu/Hindi)
+    # Rozana: 3 pics + 3 reels + 3 long videos - English, Urdu/Hindi, Arabic (Saudi/UAE)
     - cron: '23 10 * * *'   # pic Urdu    - 3:23pm Pakistan, 1:23pm Gulf
     - cron: '43 17 * * *'   # pic English    - 8:43pm Gulf, 6:43pm London, 1:43pm New York
     - cron: '37 13 * * *'   # reel EN  - 9:37am New York, 2:37pm London
     - cron: '7 15 * * *'    # reel UR  - 8:07pm Pakistan, 6:07pm Gulf, 8:37pm India
     - cron: '47 16 * * *'   # long UR  - 9:47pm Pakistan, 7:47pm Gulf
     - cron: '13 19 * * *'   # long EN  - 3:13pm New York, 8:13pm London
+    - cron: '33 11 * * *'   # pic AR   - 2:33pm Riyadh, 3:33pm Dubai
+    - cron: '27 18 * * *'   # reel AR  - 9:27pm Riyadh, 10:27pm Dubai
+    - cron: '3 20 * * *'    # long AR  - 11:03pm Riyadh (Gulf raat ko active)
   workflow_dispatch:
     inputs:
       mode:
         description: 'Kya banaye'
         type: choice
-        options: ['pic_en', 'pic_ur', 'reel_en', 'reel_ur', 'long_en', 'long_ur']
+        options: ['pic_en', 'pic_ur', 'pic_ar', 'reel_en', 'reel_ur', 'reel_ar', 'long_en', 'long_ur', 'long_ar']
         default: 'pic_en'
       focus:
         description: 'Pic ka promo (khali = bari bari rotate)'
@@ -52,6 +55,9 @@ jobs:
             '13 19 * * *') M=long_en ;;
             '23 10 * * *') M=pic_ur ;;
             '43 17 * * *') M=pic_en ;;
+            '33 11 * * *') M=pic_ar ;;
+            '27 18 * * *') M=reel_ar ;;
+            '3 20 * * *')  M=long_ar ;;
             '') M="${{ inputs.mode }}" ;;
             *) M=pic_en ;;
           esac
@@ -100,7 +106,7 @@ jobs:
       - name: Save history
         if: always()
         run: |
-          FILES="webbuilder_history.json webbuilder_en_last_run.json webbuilder_ur_last_run.json webbuilder_video_history.json webbuilder_video_en_reel_last_run.json webbuilder_video_ur_reel_last_run.json webbuilder_video_en_long_last_run.json webbuilder_video_ur_long_last_run.json"
+          FILES="webbuilder_history.json webbuilder_en_last_run.json webbuilder_ur_last_run.json webbuilder_ar_last_run.json webbuilder_video_history.json webbuilder_video_en_reel_last_run.json webbuilder_video_ur_reel_last_run.json webbuilder_video_en_long_last_run.json webbuilder_video_ur_long_last_run.json webbuilder_video_ar_reel_last_run.json webbuilder_video_ar_long_last_run.json"
           mkdir -p /tmp/keep
           for f in $FILES; do [ -f "$f" ] && cp "$f" /tmp/keep/; done
           git config user.name "auto-poster"

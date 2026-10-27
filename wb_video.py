@@ -29,7 +29,9 @@ WB_ID = os.environ.get("WB_PAGE_ID")
 PIXABAY_KEY = os.environ.get("PIXABAY_API_KEY")
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY")
 DRY_RUN = os.environ.get("DRY_RUN") == "1"
-LANG = "ur" if (os.environ.get("LANGUAGE") or "en").strip().lower() == "ur" else "en"
+LANG = (os.environ.get("LANGUAGE") or "en").strip().lower()
+if LANG not in ("en", "ur", "ar"):
+    LANG = "en"
 LONG = (os.environ.get("KIND") or "reel").strip().lower() == "long"
 
 SITE = "https://client-hunt-six.vercel.app/"
@@ -43,7 +45,9 @@ FONTS_DIR = os.path.abspath("fonts")
 FONT = "Noto Sans"
 W, H = (1920, 1080) if LONG else (1080, 1920)
 MODELS = ["gemini-3.5-flash", "gemini-2.5-flash", "gemini-3.5-flash-lite"]
-VOICE = {"en": ("en-US-GuyNeural", "+0%"), "ur": ("ur-PK-AsadNeural", "-2%")}[LANG]
+VOICE = {"en": ("en-US-GuyNeural", "+0%"), "ur": ("ur-PK-AsadNeural", "-2%"),
+         "ar": ("ar-SA-HamedNeural", "+0%")}[LANG]
+SUB_FONT = "Noto Naskh Arabic" if LANG == "ar" else FONT
 
 # Har video mein ek business "spotlight" - bari bari, taake har business wale ko lage ye mere liye hai
 BUSINESSES = ["restaurant", "grocery store", "pharmacy", "clothing shop", "beauty salon", "school",
@@ -61,7 +65,11 @@ FACTS = """- Business website: clean, fast, professional, mobile friendly, bring
   mobile shop, supermarket, wholesale and more.
 - Contact: WhatsApp +92 307 5267349, website client-hunt-six.vercel.app"""
 
-POS_TAGS = "#POS #POSSoftware #BillingSoftware #SaudiArabia #UAE #Pakistan #Dubai #Riyadh #Jeddah #Karachi #Lahore"
+# POS (phase 2): sab se zyada Saudi Arabia + UAE
+POS_TAGS = ("#POS #POSSoftware #CashierSystem #BillingSoftware #SaudiArabia #KSA #Riyadh #Jeddah #Dammam "
+            "#UAE #Dubai #AbuDhabi #Sharjah")
+AR_TAGS = ("#برنامج_كاشير #نظام_نقاط_البيع #برنامج_محاسبة #تصميم_مواقع #تطبيقات_الجوال "
+           "#السعودية #الرياض #جدة #الدمام #الإمارات #دبي #الشارقة #أبوظبي")
 WORLD_TAGS = ("#WebDesign #Website #MobileApp #AppDevelopment #SmallBusiness #Ecommerce "
               "#USA #UK #Canada #Australia #Germany #India")
 
@@ -125,7 +133,18 @@ def ask_json(prompt):
 
 
 def write_script(spot, used_titles):
-    if LONG:
+    if LANG == "ar":   # Arabic = Saudi/UAE dukaandar - zyada POS
+        if LONG:
+            shape = ("about 2 minutes 30 seconds spoken (about 300 words), exactly 12 scenes: 1 hook for shop owners "
+                     "in Saudi Arabia and the UAE, 1 the problem (wrong bills, lost stock, no idea of daily profit), "
+                     "6 about the POS SOFTWARE (billing, barcode, stock, reports, offline, one-time price), "
+                     "1 WEBSITE / online store, 1 MOBILE APP, 1 'for every business' naming many shop types "
+                     f"(spotlight a {spot}), 1 call to action with WhatsApp number and website")
+        else:
+            shape = ("about 45 seconds spoken (about 95 words), exactly 6 scenes: 1 hook for shop owners in Saudi "
+                     "Arabia and the UAE, 3 about the POS SOFTWARE, 1 website + mobile app, "
+                     "1 call to action with WhatsApp number and website")
+    elif LONG:
         shape = ("about 2 minutes 30 seconds spoken (about 330 words), exactly 12 scenes: 1 hook, 1 the problem "
                  "businesses face without these tools, 2 about the WEBSITE / online store, 2 about the MOBILE APP, "
                  "3 about the POS SOFTWARE, 2 showing it works for every business (name many business types, "
@@ -138,6 +157,13 @@ def write_script(spot, used_titles):
         lang_rule = ("Narration in clear, friendly, confident ENGLISH for business owners worldwide. "
                      "Give 'text' only.")
         lang_fields = ('"caption": "3-4 line English Facebook caption that sells, ends with WhatsApp + website"')
+    elif LANG == "ar":
+        lang_rule = ("Narration in clear, simple Modern Standard ARABIC with a friendly Gulf (Saudi/UAE) business "
+                     "tone, like a professional Gulf TV ad. Use common Gulf terms such as 'برنامج كاشير', "
+                     "'محل', 'فواتير', 'مخزون'. 'text' = the narration in Arabic script (it is used for the voice "
+                     "and the on-screen subtitles). Say the WhatsApp number digit by digit in Arabic words.")
+        lang_fields = ('"caption": "3-4 line ARABIC Facebook caption for Saudi/UAE shop owners that sells, '
+                       'ends with WhatsApp + website"')
     else:
         lang_rule = ("Narration in very simple everyday HINDUSTANI (the shared spoken language of Urdu and Hindi) "
                      "so BOTH Pakistani and Indian viewers fully understand: use common words like dukaan, "
@@ -183,6 +209,13 @@ FALLBACK = {
             "EVERY BUSINESS", "shop owner"),
            (f"Message us on WhatsApp today, plus 92 307 5267349, or visit our website.", "CONTACT US",
             "phone message")],
+    "ar": [("هل ما زالت فواتير محلك تتعبك؟", "YOUR SHOP", "shop owner"),
+           ("برنامج الكاشير من ويب بلدر: فواتير سريعة ومسح الباركود في ثوان.", "POS SOFTWARE", "cash register"),
+           ("تابع مخزونك لحظة بلحظة واعرف أرباحك كل يوم.", "STOCK & PROFIT", "barcode scanner"),
+           ("يعمل بدون إنترنت، بدفعة واحدة وبدون اشتراك شهري.", "NO MONTHLY FEE", "supermarket checkout"),
+           ("ونصمم لك موقعا إلكترونيا وتطبيق جوال لنشاطك.", "WEBSITE & APP", "laptop website"),
+           ("تواصل معنا على واتساب الآن: زائد تسعة اثنان، ثلاثة صفر سبعة، خمسة اثنان ستة سبعة ثلاثة أربعة تسعة.",
+            "CONTACT US", "phone message")],
     "ur": [("کیا آپ کا بزنس ابھی بھی آن لائن کسٹمر کھو رہا ہے؟", "Kya aap ka business abhi bhi online customer kho raha hai?",
             "YOUR BUSINESS", "small business owner"),
            ("ہم آپ کے بزنس کی خوبصورت اور تیز ویب سائٹ بناتے ہیں، جو نئے کسٹمر لاتی ہے۔",
@@ -204,12 +237,14 @@ FALLBACK = {
 def fallback_script():
     sc = []
     for row in FALLBACK[LANG]:
-        if LANG == "en":
+        if LANG in ("en", "ar"):
             sc.append({"text": row[0], "label": row[1], "visual": row[2]})
         else:
             sc.append({"text": row[0], "roman": row[1], "label": row[2], "visual": row[3]})
-    return {"title": "Website, App & POS for Every Business", "scenes": sc,
-            "caption": "Website, mobile app and POS software for every business.",
+    return {"title": ("برنامج كاشير لمحلك في السعودية والإمارات" if LANG == "ar"
+                      else "Website, App & POS for Every Business"), "scenes": sc,
+            "caption": ("برنامج كاشير، موقع إلكتروني وتطبيق جوال لكل نشاط تجاري في السعودية والإمارات."
+                        if LANG == "ar" else "Website, mobile app and POS software for every business."),
             "caption_ur": "ہر بزنس کے لیے ویب سائٹ، موبائل ایپ اور پی او ایس سافٹ ویئر",
             "caption_hi": "हर बिज़नेस के लिए वेबसाइट, मोबाइल ऐप और POS सॉफ्टवेयर"}
 
@@ -323,7 +358,7 @@ ScaledBorderAndShadow: yes
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: Brand,{FONT},{58 if v else 50},{GREEN},{GREEN},&H00000000,&H00000000,1,0,0,0,100,100,3,0,1,4,2,8,60,60,{150 if v else 40},1
 Style: Label,{FONT},{92 if v else 78},{WHITE},{WHITE},&H00000000,&H64000000,1,0,0,0,100,100,2,0,1,5,3,8,60,60,{250 if v else 110},1
-Style: Sub,{FONT},{64 if v else 56},{WHITE},{WHITE},&H70000000,&H70000000,1,0,0,0,100,100,0,0,3,14,0,2,80,80,{560 if v else 170},1
+Style: Sub,{SUB_FONT},{(64 if v else 56) + (14 if LANG == "ar" else 0)},{WHITE},{WHITE},&H70000000,&H70000000,1,0,0,0,100,100,0,0,3,14,0,2,80,80,{560 if v else 170},1
 Style: Contact,{FONT},{44 if v else 38},{GREEN},{GREEN},&H00000000,&H90000000,1,0,0,0,100,100,0,0,1,3,2,2,40,40,{330 if v else 50},1
 
 [Events]
@@ -408,6 +443,10 @@ def caption(script):
     if LANG == "en":
         body = script.get("caption") or script.get("title", "")
         return f"{body}\n\n{contact}\n\n{tags}"
+    if LANG == "ar":
+        body = script.get("caption") or script.get("title", "")
+        contact = f"\U0001F4AC واتساب: {WA}\n\U0001F310 {SITE}"
+        return f"{body}\n\n{contact}\n\n{AR_TAGS} {POS_TAGS}"
     ur = script.get("caption_ur") or ""
     hi = script.get("caption_hi") or ""
     return f"{ur}\n\n{hi}\n\n{contact}\n\n{tags} #UrduHindi #Hindi #Urdu"

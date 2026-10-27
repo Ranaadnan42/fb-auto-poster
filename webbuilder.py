@@ -49,9 +49,14 @@ os.makedirs(WORK, exist_ok=True)
 # Har promo: ek product. head = badi line, sub = neeche choti line,
 # scene = background pic search words, tags = hashtags.
 COUNTRY_CORE = "#UAE #SaudiArabia #Pakistan #Dubai"
-POS_TAGS = (f"#RanaPOS #POS #PointOfSale #RetailSoftware #BillingSoftware "
-            f"#InventorySoftware #SmallBusiness {COUNTRY_CORE} #Riyadh #Jeddah "
-            f"#AbuDhabi #Karachi #Lahore")
+# POS (phase 2): sab se zyada Saudi Arabia + UAE audience
+POS_TAGS = ("#RanaPOS #POS #PointOfSale #CashierSystem #RetailSoftware #BillingSoftware "
+            "#InventorySoftware #SaudiArabia #KSA #Riyadh #Jeddah #Dammam #Makkah "
+            "#UAE #Dubai #AbuDhabi #Sharjah #Ajman")
+AR_TAGS = {"pos": "#برنامج_كاشير #نظام_نقاط_البيع #برنامج_محاسبة #نقاط_البيع #السعودية #الرياض #جدة "
+                  "#الدمام #مكة #الإمارات #دبي #الشارقة #أبوظبي #عجمان",
+           "web": "#تصميم_مواقع #متجر_إلكتروني #تطبيقات_الجوال #تسويق_إلكتروني #السعودية #الرياض "
+                  "#جدة #الإمارات #دبي #أبوظبي"}
 WEB_TAGS = (f"#WebDesign #WebDevelopment #Website #BusinessWebsite #Ecommerce "
             f"#OnlineStore #SmallBusiness #Startup {COUNTRY_CORE} #London #USA "
             f"#Canada #Australia")
@@ -59,8 +64,9 @@ APP_TAGS = (f"#MobileApp #AndroidApp #AppDevelopment #BusinessApp #Startup "
             f"#SmallBusiness {COUNTRY_CORE} #USA #UK #Canada #Australia")
 
 LANG = (os.environ.get("LANGUAGE") or "en").strip().lower()
-if LANG not in ("en", "ur"):
+if LANG not in ("en", "ur", "ar"):
     LANG = "en"
+RTL = LANG in ("ur", "ar")      # Urdu aur Arabic dono daayen se baayen
 UR_FONT = "Noto Naskh Arabic"
 
 # Har promo = ek offer. Pic "ad" ki shakal mein: upar brand + headline, beech mein
@@ -75,13 +81,19 @@ PROMOS = [
                        "Daily sales & profit reports"],
             "badge": "One-time price - No monthly fee",
             "for": "Shops - Supermarkets - Pharmacies - Restaurants",
-            "where": "Saudi Arabia  |  UAE  |  Pakistan"},
+            "where": "Saudi Arabia  |  UAE"},
      "ur": {"label": "POS سافٹ ویئر", "head": "اپنی دکان کو سمارٹ طریقے سے چلائیں",
             "points": ["تیز بلنگ اور بارکوڈ اسکیننگ", "لائیو اسٹاک اور انوینٹری کنٹرول",
                        "روزانہ سیل اور منافع کی رپورٹ"],
             "badge": "ایک بار قیمت - کوئی ماہانہ فیس نہیں",
             "for": "دکان، سپر مارکیٹ، فارمیسی، ریسٹورنٹ - ہر کاروبار کے لیے",
             "where": "سعودی عرب  |  یو اے ای  |  پاکستان"},
+     "ar": {"label": "برنامج كاشير POS", "head": "أدر متجرك بطريقة ذكية",
+            "points": ["فواتير سريعة ومسح الباركود", "متابعة المخزون لحظة بلحظة",
+                       "تقارير المبيعات والأرباح اليومية"],
+            "badge": "دفعة واحدة - بدون اشتراك شهري",
+            "for": "للمحلات والسوبرماركت والصيدليات والمطاعم",
+            "where": "السعودية  |  الإمارات"},
      "hi": "अपनी दुकान स्मार्ट तरीके से चलाएं - तेज़ बिलिंग, बारकोड, लाइव स्टॉक और रोज़ाना सेल रिपोर्ट। एक बार की कीमत, कोई मासिक फीस नहीं।"},
     {"focus": "website", "tags": WEB_TAGS,
      "img": ["website laptop", "web design", "responsive website", "laptop screen website", "website"],
@@ -95,6 +107,11 @@ PROMOS = [
                        "زیادہ گاہک، زیادہ سیل"],
             "badge": "صرف 150 ڈالر سے شروع",
             "for": "ہر کاروبار کے لیے - دنیا میں کہیں بھی", "where": ""},
+     "ar": {"label": "موقع إلكتروني", "head": "انقل نشاطك التجاري إلى الإنترنت",
+            "points": ["تصميم احترافي يناسب الجوال", "سريع وجاهز لمحركات البحث",
+                       "يجلب لك عملاء أكثر"],
+            "badge": "يبدأ من 150 دولار",
+            "for": "لكل الأنشطة التجارية - في أي مكان", "where": ""},
      "hi": "अपने बिज़नेस को ऑनलाइन लाएं - प्रोफेशनल, मोबाइल फ्रेंडली वेबसाइट जो ज़्यादा ग्राहक लाए। सिर्फ $150 से शुरू।"},
     {"focus": "app", "tags": APP_TAGS,
      "img": ["smartphone app", "mobile app", "phone screen app", "smartphone hand", "mobile phone"],
@@ -108,6 +125,11 @@ PROMOS = [
                        "مالک کے لیے موبائل ڈیش بورڈ"],
             "badge": "ہر کاروبار کے لیے کسٹم ایپ",
             "for": "ریسٹورنٹ، دکان، کلینک، اسکول اور بہت کچھ", "where": ""},
+     "ar": {"label": "تطبيق جوال", "head": "نشاطك يحتاج تطبيقا خاصا",
+            "points": ["طلبات أونلاين وتوصيل", "حجوزات وحسابات العملاء",
+                       "لوحة تحكم للمالك على جوالك"],
+            "badge": "تطبيقات أندرويد حسب الطلب",
+            "for": "مطاعم، محلات، عيادات، مدارس والمزيد", "where": ""},
      "hi": "आपके बिज़नेस का अपना मोबाइल ऐप - ऑनलाइन ऑर्डर, डिलीवरी, बुकिंग और मालिक के लिए डैशबोर्ड।"},
     {"focus": "store", "tags": WEB_TAGS,
      "img": ["online shopping", "ecommerce", "shopping cart laptop", "online store", "online payment"],
@@ -121,6 +143,11 @@ PROMOS = [
                        "پروڈکٹس آسانی سے شامل کریں"],
             "badge": "صرف 900 ڈالر سے شروع",
             "for": "گاہک کہیں سے بھی، کبھی بھی خریدیں", "where": ""},
+     "ar": {"label": "متجر إلكتروني", "head": "ابدأ البيع أونلاين",
+            "points": ["عملاؤك يطلبون على مدار الساعة", "سلة ودفع وتوصيل",
+                       "إدارة سهلة للمنتجات"],
+            "badge": "يبدأ من 900 دولار",
+            "for": "بع لعملائك في أي مكان وأي وقت", "where": ""},
      "hi": "ऑनलाइन सेल शुरू करें - ग्राहक 24 घंटे ऑर्डर करें, कार्ट, पेमेंट और डिलीवरी सब शामिल। सिर्फ $900 से शुरू।"},
 ]
 
@@ -275,7 +302,7 @@ def render(photo, ass_path, out):
 def make_card(promo, used_images):
     """Ad jaisi promo pic banata hai (LANG = en/ur) aur uska path deta hai."""
     t = promo[LANG]
-    ur = LANG == "ur"
+    ur = RTL
     F = UR_FONT if ur else EN_FONT
     GREEN = "&H007DC319"      # Web Builder green (BGR)
     YELLOW = "&H0000C8FF"
@@ -327,8 +354,12 @@ def make_card(promo, used_images):
     # CTA patti (green dabba neeche)
     bar_y = H - 140
     ev.append(f"Dialogue: 1,{T},Bar,,0,0,0,,{{\\pos(0,{bar_y})\\p1}}m 0 0 l {W} 0 l {W} 140 l 0 140{{\\p0}}")
-    cta = (f"ابھی واٹس ایپ کریں  {{\\fn{EN_FONT}\\fs42}}{esc(WA)}" if ur
-           else f"WhatsApp now: {esc(WA)}")
+    if LANG == "ar":
+        cta = f"تواصل معنا واتساب  {{\\fn{EN_FONT}\\fs42}}{esc(WA)}"
+    elif ur:
+        cta = f"ابھی واٹس ایپ کریں  {{\\fn{EN_FONT}\\fs42}}{esc(WA)}"
+    else:
+        cta = f"WhatsApp now: {esc(WA)}"
     ev.append(f"Dialogue: 3,{T},Cta,,0,0,0,,{cta}")
     ev.append(f"Dialogue: 3,{T},Site,,0,0,0,,{esc(SITE.replace('https://', '').rstrip('/'))}")
     ass = os.path.join(WORK, "wb.ass")
@@ -345,6 +376,15 @@ def make_card(promo, used_images):
 def build_caption(promo):
     t = promo[LANG]
     pts = "\n".join(f"✅ {p}" for p in t["points"])
+    if LANG == "ar":
+        ar_tags = AR_TAGS["pos" if promo["focus"] == "pos" else "web"]
+        return (
+            f"{t['head']} \U0001F680\n{pts}\n\U0001F4B0 {t['badge']}\n{t['for']}\n\n"
+            f"✅ عمل احترافي بسعر مناسب وتسليم سريع.\n"
+            f"\U0001F4AC شاهد أعمالنا واطلب السعر: {SITE}\n"
+            f"\U0001F4F1 واتساب: {WA}\n\n"
+            f"{ar_tags} {promo['tags']}"
+        )
     if LANG == "ur":
         return (
             f"{t['head']} \U0001F680\n{pts}\n\U0001F4B0 {t['badge']}\n{t['for']}\n\n"
@@ -385,6 +425,11 @@ def pick_promo(hist):
                 return p
     # har zubaan apni baari se chare products ghumaye (aaj Urdu POS, English website ... )
     n = sum(1 for p in hist.get("posts", []) if p.get("lang", "en") == LANG)
+    if LANG == "ar":
+        # Arabic (Saudi/UAE) - har doosra din POS
+        order = ["pos", "website", "pos", "app", "pos", "store"]
+        want = order[n % len(order)]
+        return next(p for p in PROMOS if p["focus"] == want)
     off = 0 if LANG == "en" else 2
     return PROMOS[(n + off) % len(PROMOS)]
 
