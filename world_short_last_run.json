@@ -1,7 +1,7 @@
 {
  "mode": "short",
- "clips": 21,
- "clips_rejected": 1,
+ "clips": 16,
+ "clips_rejected": 0,
  "vision_checks": 0,
  "errors": [],
  "search_phrases": [
@@ -16,9 +16,9 @@
   "hidden gems in san diego",
   "hidden gems in chicago"
  ],
- "search": "hidden gems in florida",
- "seconds": 91.0,
- "subject": "Florida, USA",
+ "search": "hidden gems in california",
+ "seconds": 59.9,
+ "subject": "California",
  "series": "hidden",
- "title": "Hidden Places in Florida – 5 Lesser‑Known Natural Wonders"
+ "title": "5 Hidden Places in California You Never Knew Existed"
 }
