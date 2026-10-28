@@ -72,6 +72,16 @@ AI_CHAT = "https://fobzocsluzwcqretshnm.supabase.co/functions/v1/ai-chat"
 SITE = "https://client-hunt-six.vercel.app/"
 
 
+def lang_of(text):
+    import re
+    if re.search(r"[\u0600-\u06FF]", text):
+        urdu = re.search(r"[\u0679\u0688\u0691\u06BA\u06BE\u06C1\u06D2\u067E\u0686\u0698\u06AF]", text)
+        return "URDU (Urdu script)" if urdu else "ARABIC"
+    roman_urdu = re.search(r"\b(kya|kia|hai|hain|ki|ka|ke|mein|ma|mera|meri|aap|ap|kitne|kitna|chahiye|"
+                           r"krna|karna|bhai|sakte|ho|nahi|ni|kaise|ksy|dikha)\b", text.lower())
+    return "ROMAN URDU (Urdu words in English/Latin letters, NOT Urdu script)" if roman_urdu else "the customer's language"
+
+
 def wb_brain(post_text, thread, first):
     """Web Builder: wahi sales brain jo website chat aur email bot use karte hain (ai-chat) -
     ek hi price list, aur garam customer par Rana ko email/WhatsApp alert."""
@@ -81,8 +91,9 @@ def wb_brain(post_text, thread, first):
     while msgs and msgs[0]["role"] == "assistant" and len(msgs) > 1 and msgs[1]["role"] == "assistant":
         msgs.pop(0)
     ctx = (f"[FACEBOOK COMMENT CHANNEL. The customer commented under our Facebook post: \"{post_text[:200]}\". "
-           "Reply as a Facebook comment: 1-3 short sentences, max 50 words, in the customer's own language and "
-           "script, no markdown, no bullet points.]\n\n")
+           "Reply as a Facebook comment: 1-3 short sentences, max 50 words, no markdown, no bullet points. "
+           f"LANGUAGE: reply in {lang_of(thread[-1]['text'])} - exactly the language and script the customer "
+           "wrote in, even if their city is in another country.]\n\n")
     msgs[-1] = {"role": "user", "content": ctx + msgs[-1]["content"]}
     r = requests.post(AI_CHAT, json={"messages": msgs, "channel": "facebook"}, timeout=45)
     reply = (r.json().get("reply") or "").strip()
