@@ -1,13 +1,19 @@
 {
  "mode": "auto",
- "stock_clips": 48,
+ "stock_clips": 8,
  "fallback_clips": 0,
  "errors": [],
- "format": "story",
- "long_minutes": 10.71,
- "series": "پپو کا رزلٹ اور انوکھا مشن | قسط 1 part 1 (ai)",
- "laughs": 7,
- "time_utc": "2026-10-28 15:24",
- "title": "پپو کا رزلٹ اور انوکھا مشن | قسط 1 | قسط 1",
+ "format": "animal",
+ "search_phrases": [
+  "mobile addiction funny video",
+  "mobile phone addiction video",
+  "mobile phone addiction skit",
+  "mobile addiction comedy video"
+ ],
+ "search": "mobile addiction funny video",
+ "laughs": 3,
+ "reel_minutes": 0.58,
+ "time_utc": "2026-10-28 17:09",
+ "title": "بطخ اینکر کی موبائل فون ایڈکشن ویڈیو",
  "dry_run": false
 }
