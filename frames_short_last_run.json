@@ -1,21 +1,19 @@
 {
  "mode": "short",
- "clips": 19,
- "clips_rejected": 46,
- "vision_checks": 64,
- "errors": [
-  "list indices must be integers or slices, not str"
- ],
+ "clips": 13,
+ "clips_rejected": 211,
+ "vision_checks": 220,
+ "errors": [],
  "search_phrases": [
   "mein kharch karungi pure roki na mundeya",
   "mein kharch",
   "mein kharch karungi pure roki na mundiya",
   "mein kharch jitiya kab hai",
   "kharch mein",
+  "kharche mein recipe",
   "hindi mein kharcha",
-  "ivf mein kharcha kitna hai",
-  "jaisalmer mein kharcha kitna aaega",
-  "mein kitna paisa",
+  "urdu mein kharcha",
+  "ivf mein kharcha kitna aaega",
   "cost of living in dubai",
   "cost of living in saudi arabia",
   "cost of living in australia",
@@ -27,9 +25,9 @@
   "cost of living in japan",
   "cost of living in islamabad"
  ],
- "search": "cost of living in usa",
- "seconds": 79.5,
- "subject": "United States / New York",
+ "search": "cost of living in qatar",
+ "seconds": 70.1,
+ "subject": "Qatar / Doha",
  "series": "pk_cost_short",
- "title": "نیویارک میں ایک مہینے کا خرچہ | Cost of Living in USA"
+ "title": "دوحہ قطر میں ایک مہینے کا خرچہ | Cost of Living in Doha Qatar"
 }
