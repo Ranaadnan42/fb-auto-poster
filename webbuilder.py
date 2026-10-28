@@ -12,7 +12,7 @@ photos.py jaisa hi FB posting tareeqa, par alag page token.
 Env (GitHub secrets):
   WB_PAGE_TOKEN, WB_PAGE_ID   -> Web Builder page ka apna token + id
   PIXABAY_API_KEY (optional)  -> background pics (na ho to plain gradient)
-  FOCUS (optional)            -> pos|website|app|store (hath se test ke liye)
+  FOCUS (optional)            -> pos|website|app|store|social (hath se test ke liye)
   DRY_RUN=1                   -> sirf pic banaye, post na kare
 """
 import os
@@ -150,6 +150,27 @@ PROMOS = [
             "for": "بع لعملائك في أي مكان وأي وقت", "where": ""},
      "hi": "ऑनलाइन सेल शुरू करें - ग्राहक 24 घंटे ऑर्डर करें, कार्ट, पेमेंट और डिलीवरी सब शामिल। सिर्फ $900 से शुरू।"},
 ]
+
+PROMOS.append(
+    {"focus": "social", "tags": ("#SocialMediaMarketing #SocialMediaManagement #DigitalMarketing #FacebookMarketing "
+                                 "#InstagramMarketing #SmallBusiness #SaudiArabia #UAE #Dubai #Riyadh #Pakistan #USA #UK"),
+     "img": ["social media", "smartphone social media", "digital marketing", "instagram", "social network"],
+     "en": {"label": "SOCIAL MEDIA MANAGEMENT", "head": "We Handle Your Social Media",
+            "points": ["Daily posts, reels & videos for you", "Facebook, Instagram & TikTok pages",
+                       "More followers, more customers"],
+            "badge": "You run the business - we grow it",
+            "for": "Shops - Restaurants - Clinics - Brands & more", "where": ""},
+     "ur": {"label": "سوشل میڈیا مینجمنٹ", "head": "آپ کا سوشل میڈیا ہم سنبھالیں",
+            "points": ["روزانہ پوسٹ، ریلز اور ویڈیوز", "فیس بک، انسٹاگرام اور ٹک ٹاک پیج",
+                       "زیادہ فالوورز، زیادہ گاہک"],
+            "badge": "آپ کاروبار چلائیں - ہم بڑھائیں",
+            "for": "دکان، ریسٹورنٹ، کلینک، برانڈ - ہر کاروبار کے لیے", "where": ""},
+     "ar": {"label": "إدارة حسابات التواصل", "head": "نحن ندير حساباتك على السوشيال ميديا",
+            "points": ["منشورات وريلز وفيديوهات يومية", "صفحات فيسبوك وإنستغرام وتيك توك",
+                       "متابعون أكثر وعملاء أكثر"],
+            "badge": "أنت تدير عملك - ونحن ننمّيه",
+            "for": "للمحلات والمطاعم والعيادات والعلامات التجارية", "where": ""},
+     "hi": "आपका सोशल मीडिया हम संभालें - रोज़ाना पोस्ट, रील्स और वीडियो, फेसबुक, इंस्टाग्राम और टिकटॉक। ज़्यादा फॉलोअर्स, ज़्यादा ग्राहक।"})
 
 IMG_BLOCK = {"woman", "women", "girl", "lady", "female", "model", "sexy", "bikini", "lingerie",
              "kiss", "couple", "romance", "fashion", "beauty", "makeup", "wine", "beer", "alcohol",

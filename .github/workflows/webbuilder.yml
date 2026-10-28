@@ -22,7 +22,7 @@ on:
       focus:
         description: 'Pic ka promo (khali = bari bari rotate)'
         type: choice
-        options: ['', 'pos', 'website', 'app', 'store']
+        options: ['', 'pos', 'website', 'app', 'store', 'social']
         default: ''
       dry_run:
         description: 'Sirf banaye, post na kare'
