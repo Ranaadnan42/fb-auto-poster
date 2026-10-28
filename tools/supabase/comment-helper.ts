@@ -4,6 +4,9 @@
 // Search: GitHub Actions (tools/fb_search.py -> comment_hits.json). Ye function us file ko parhta hai.
 // Trigger: pg_cron POST + header x-run-key (app_settings.fb_comment_run_key). ?test=1 -> email nahi, sirf JSON.
 // Secrets: GROQ_API_KEY, GEMINI_API_KEY (backup), BREVO_API_KEY
+// KHUD-ILAAJ: AI fallback (Groq 120b -> 20b -> Gemini, 429 par ruk kar dobara), email 3 dafa koshish (fail ho to posts
+// agle run ke liye bachi rehti hain), hits file purani ho to khud thori search, 45 min baad retry cron (?retry=1 -
+// agar pichhla run kamyab tha to kuch nahi karta), aur lagatar 2 dafa fail ho to Rana ko chhota alert.
 
 import "jsr:@supabase/functions-js/edge-runtime.d.ts";
 import { createClient } from "jsr:@supabase/supabase-js@2";
@@ -34,11 +37,13 @@ async function timed(url: string, init: RequestInit = {}, ms = 15000) {
 // Search GitHub Actions par hoti hai (tools/fb_search.py) — DuckDuckGo Supabase ke IP ko block karta hai.
 const HITS_URL = "https://raw.githubusercontent.com/Ranaadnan42/fb-auto-poster/main/comment_hits.json";
 
+let HITS_AGE_H = 999;
 async function loadHits(debug: string[]): Promise<Omit<Hit, "id">[]> {
   try {
     const r = await timed(HITS_URL + "?t=" + Date.now(), {}, 20000);
     const j = await r.json();
-    debug.push(`hits file: updated ${j.updated}, new ${j.new}, total ${(j.hits ?? []).length}`);
+    HITS_AGE_H = (Date.now() - Date.parse(String(j.updated).replace(/Z$/, ":00Z"))) / 3600e3;
+    debug.push(`hits file: updated ${j.updated} (${HITS_AGE_H.toFixed(1)}h old), new ${j.new}, total ${(j.hits ?? []).length}`);
     return (j.hits ?? []).map((h: any) => ({ url: String(h.url).replace(/\/members$/, ""), title: String(h.title ?? ""), snippet: String(h.snippet ?? "") }));
   } catch (e) { debug.push(`hits file err ${(e as Error).message}`); return []; }
 }
@@ -126,8 +131,8 @@ async function judge(hits: Hit[], debug: string[]): Promise<Good[]> {
 
 const esc = (s: string) => s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;");
 
-async function email(items: Good[], stats: string) {
-  if (!BREVO) return;
+async function email(items: Good[], stats: string): Promise<boolean> {
+  if (!BREVO) return false;
   const cards = items.map((x, i) => `
   <div style="border:1px solid #ddd;border-radius:10px;padding:14px;margin:0 0 16px">
     <div style="font-size:16px;font-weight:bold;margin:0 0 6px">${i + 1}. <a href="${x.url}">${esc(x.title || "Facebook post")}</a></div>
@@ -136,10 +141,7 @@ async function email(items: Good[], stats: string) {
     <pre dir="auto" style="white-space:pre-wrap;font-family:Arial,sans-serif;font-size:14px;background:#f6f8fa;padding:10px;border-radius:8px">${esc(x.comment)}</pre>
     <a href="${x.url}" style="display:inline-block;background:#1877f2;color:#fff;padding:8px 14px;border-radius:6px;text-decoration:none">Post kholein</a>
   </div>`).join("");
-  await timed("https://api.brevo.com/v3/smtp/email", {
-    method: "POST",
-    headers: { "api-key": BREVO, "Content-Type": "application/json", accept: "application/json" },
-    body: JSON.stringify({
+  const body = JSON.stringify({
       sender: { email: SENDER, name: "Comment Helper Bot" },
       to: [{ email: TO_EMAIL }],
       subject: `💬 ${items.length} Facebook posts jahan log software/website poochh rahe hain — comments tayyar`,
@@ -147,31 +149,85 @@ async function email(items: Good[], stats: string) {
         <p>Assalam o Alaikum Adnan bhai, ye log POS / website / app / social media ka poochh rahe hain.
         "Post kholein" dabayein, comment copy karke paste karein. Ek din mein 10-15 se zyada comment na karein.</p>
         ${cards}<p style="font-size:12px;color:#888">${esc(stats)}</p></div>`,
-    }),
-  });
+    });
+  return await sendMail(body);
+}
+
+async function sendMail(body: string): Promise<boolean> {
+  for (let i = 0; i < 3; i++) {
+    try {
+      const r = await timed("https://api.brevo.com/v3/smtp/email", {
+        method: "POST", headers: { "api-key": BREVO, "Content-Type": "application/json", accept: "application/json" }, body,
+      }, 20000);
+      if (r.ok) return true;
+    } catch (_) { /* dobara */ }
+    await new Promise((s) => setTimeout(s, 4000));
+  }
+  return false;
+}
+
+// ---- Khud-ilaaj: hits file purani ho to khud DuckDuckGo se thori search ----
+const FALLBACK_Q = ['site:facebook.com/groups "POS software" chahiye', 'site:facebook.com/groups "need a website" for my business',
+  'site:facebook.com/groups "برنامج كاشير"', 'site:facebook.com/groups "website banwani"'];
+async function selfSearch(debug: string[]): Promise<Omit<Hit, "id">[]> {
+  const out: Omit<Hit, "id">[] = [];
+  for (const q of FALLBACK_Q) {
+    try {
+      const html = await (await timed(`https://html.duckduckgo.com/html/?q=${encodeURIComponent(q)}`, {
+        headers: { "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 Chrome/124 Safari/537.36" } })).text();
+      for (const b of html.split('class="result results_links').slice(1)) {
+        const a = b.match(/class="result__a"[^>]*href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/);
+        if (!a) continue;
+        let url = a[1].replace(/&amp;/g, "&");
+        const u = url.match(/uddg=([^&]+)/);
+        if (u) url = decodeURIComponent(u[1]);
+        url = url.split("?")[0].replace(/\/$/, "");
+        const sn = b.match(/class="result__snippet"[^>]*>([\s\S]*?)<\/a>/);
+        const strip = (x: string) => x.replace(/<[^>]+>/g, " ").replace(/&amp;/g, "&").replace(/&#x27;/g, "'").replace(/\s+/g, " ").trim();
+        out.push({ url, title: strip(a[2]), snippet: strip(sn?.[1] ?? "") });
+      }
+    } catch (_) { /* skip */ }
+    await new Promise((s) => setTimeout(s, 2500));
+  }
+  debug.push(`self-search: ${out.length}`);
+  return out;
+}
+
+async function saveHealth(h: Record<string, unknown>) {
+  await db.from("app_settings").upsert({ key: "comment_helper_health", value: JSON.stringify(h), updated_at: new Date().toISOString() });
+}
+async function getHealth(): Promise<any> {
+  try { return JSON.parse(await setting("comment_helper_health") || "{}"); } catch (_) { return {}; }
 }
 
 async function run(test: boolean, reset: boolean) {
   const all = new Map<string, Omit<Hit, "id">>();
   const debug: string[] = [];
-  for (const h of await loadHits(debug)) if (POST_URL.test(h.url) && !all.has(h.url)) all.set(h.url, h);
+  const loaded = await loadHits(debug);
+  const extra = HITS_AGE_H > 30 ? await selfSearch(debug) : [];   // GitHub search ruk gayi ho to khud dhoondo
+  for (const h of [...loaded, ...extra]) if (POST_URL.test(h.url) && !all.has(h.url)) all.set(h.url, h);
   let pool = [...all.values()];
   if (!reset) {
     const { data: seen } = await db.from("comment_seen").select("url").in("url", pool.map((h) => h.url).slice(0, 900));
     const seenSet = new Set((seen ?? []).map((s) => s.url));
     pool = pool.filter((h) => !seenSet.has(h.url));
   }
-  const hits: Hit[] = pool.slice(0, 60).map((h, i) => ({ ...h, id: `p${i}` }));
+  const hits: Hit[] = pool.slice(0, 40).map((h, i) => ({ ...h, id: `p${i}` }));
   const good = hits.length ? (await judge(hits, debug)).slice(0, MAX_SEND) : [];
   const stats = `Post links mile: ${all.size} · naye: ${hits.length} · bheje: ${good.length}`;
+  const aiDown = hits.length > 0 && debug.filter((d) => d.startsWith("batch fail")).length >= Math.ceil(hits.length / 10);
+  let mailed = true;
   if (!test) {
-    if (hits.length) {
+    if (good.length) mailed = await email(good, stats);
+    // email na gayi ya AI band tha -> posts ko "dekha hua" mark NA karo, agla run dobara koshish kare
+    if (hits.length && mailed && !aiDown) {
       await db.from("comment_seen").upsert(hits.map((h) => ({ url: h.url, title: h.title.slice(0, 200),
         relevant: good.some((g) => g.url === h.url), sent: good.some((g) => g.url === h.url) })));
     }
-    if (good.length) await email(good, stats);
   }
-  return { stats, items: test ? good : good.length, debug };
+  const ok = mailed && !aiDown && HITS_AGE_H < 30;
+  return { ok, stats, items: test ? good : good.length, debug, problem: ok ? undefined :
+    [!mailed && "email nahi gayi", aiDown && "AI jawab nahi de raha", HITS_AGE_H >= 30 && "GitHub search purani"].filter(Boolean).join(", ") };
 }
 
 async function setting(key: string) {
@@ -185,7 +241,23 @@ Deno.serve(async (req) => {
     const runKey = req.headers.get("x-run-key");
     if (!runKey || runKey !== (await setting("fb_comment_run_key"))) return json({ error: "unauthorized" }, 401);
     const p = new URL(req.url).searchParams;
-    return json(await run(p.get("test") === "1", p.get("reset") === "1"));
+    const test = p.get("test") === "1";
+    const health = await getHealth();
+    // retry cron: pichhla run 3 ghante ke andar kamyab tha to kuch na karo
+    if (p.get("retry") === "1" && health.ok && Date.now() - Date.parse(health.at ?? 0) < 3 * 3600e3) return json({ skipped: "last run ok" });
+    let res: any;
+    try { res = await run(test, p.get("reset") === "1"); }
+    catch (e) { res = { ok: false, problem: (e as Error).message, debug: [] }; }
+    if (!test) {
+      const fails = res.ok ? 0 : (health.fails ?? 0) + 1;
+      await saveHealth({ at: new Date().toISOString(), ok: res.ok, fails, stats: res.stats, problem: res.problem ?? "" });
+      if (fails === 2 && BREVO) {   // lagatar 2 dafa masla -> ek dafa chhota alert (har baar nahi)
+        await sendMail(JSON.stringify({ sender: { email: SENDER, name: "Comment Helper Bot" }, to: [{ email: TO_EMAIL }],
+          subject: "⚠️ Comment Helper: masla aa raha hai (bot khud dobara koshish kar raha hai)",
+          textContent: `Masla: ${res.problem}\nBot har run par khud dobara koshish karta rahega. Agar 2 din tak email na aaye to Claude ko batayein:\n"Comment Helper bot theek karo (Supabase comment-helper + GitHub tools/fb_search.py)".` }));
+      }
+    }
+    return json(res);
   } catch (e) {
     return json({ error: (e as Error).message }, 500);
   }
