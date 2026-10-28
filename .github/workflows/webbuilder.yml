@@ -1,4 +1,5 @@
 name: Web Builder Promo
+run-name: ${{ github.workflow }} [${{ inputs.sched || github.event.schedule || 'manual' }}]
 
 on:
   schedule:
@@ -14,6 +15,10 @@ on:
     - cron: '3 20 * * *'    # long AR  - 11:03pm Riyadh (Gulf raat ko active)
   workflow_dispatch:
     inputs:
+      sched:
+        description: 'Scheduler ke liye - khali chhor dein'
+        type: string
+        default: ''
       mode:
         description: 'Kya banaye'
         type: choice
@@ -31,13 +36,33 @@ on:
 
 permissions:
   contents: write
+  actions: read
 
 concurrency:
-  group: webbuilder-${{ github.event.schedule || github.run_id }}
+  group: webbuilder-${{ (inputs.sched || github.event.schedule) || github.run_id }}
   cancel-in-progress: false
 
 jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      go: ${{ steps.g.outputs.go }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: tools
+      - id: g
+        name: Double post check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WF_FILE: webbuilder.yml
+          SCHED: ${{ inputs.sched || github.event.schedule }}
+        run: python3 tools/slot_gate.py
+
   post:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
     runs-on: ubuntu-latest
     timeout-minutes: 45
     steps:
@@ -48,7 +73,7 @@ jobs:
       - name: Pick mode
         id: m
         run: |
-          case "${{ github.event.schedule }}" in
+          case "${{ inputs.sched || github.event.schedule }}" in
             '37 13 * * *') M=reel_en ;;
             '7 15 * * *')  M=reel_ur ;;
             '47 16 * * *') M=long_ur ;;
@@ -58,8 +83,7 @@ jobs:
             '33 11 * * *') M=pic_ar ;;
             '27 18 * * *') M=reel_ar ;;
             '3 20 * * *')  M=long_ar ;;
-            '') M="${{ inputs.mode }}" ;;
-            *) M=pic_en ;;
+            *) M="${{ inputs.mode }}" ;;
           esac
           [ -z "$M" ] && M=pic_en
           [ "$M" = "pic" ] && M=pic_en
