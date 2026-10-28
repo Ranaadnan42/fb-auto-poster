@@ -144,6 +144,7 @@ os.makedirs(WORK, exist_ok=True)
 REPORT = {"mode": MODE, "clips": 0, "clips_rejected": 0, "vision_checks": 0, "errors": []}
 USED = set()
 FOOD_CLIPS = []
+LINKS = []
 SCORES = []
 _client = None
 
@@ -553,6 +554,9 @@ Rules:
   doosra qadam ...). For visa/job processes stay general and correct, name only official/trusted sources
   (embassy website, official visa portal, Bureau of Emigration, licensed promoters, LinkedIn), and say rules
   change so confirm on the official website. Never invent fees, quotas or guarantees.
+- LINKS: when you tell viewers where/how to apply, say in the narration that the official government website
+  links are given in the description below (e.g. "سرکاری ویب سائٹ کا لنک نیچے ڈسکرپشن میں دیا گیا ہے").
+  Never speak, spell or write any URL yourself, and never name unofficial/agent websites.
 - Make it enjoyable too: a little wonder and storytelling, a surprising fact, like taking the viewer on a trip.
 - Every scene is about ONE concrete visible thing (a landmark, street, market, dish, office, nature).
 - "show": that ONE thing the viewer must actually SEE, 1-4 plain filmable ENGLISH words
@@ -1034,6 +1038,80 @@ def build(script, plan, out_path):
     return chapters_ts
 
 
+
+# ---------------------------------------------------------------- sirf asli sarkari links (haath se jaanche hue)
+# AI kabhi link nahi likhta - sirf yeh table. Jo mulk is mein nahi us ka koi link nahi diya jata.
+OFFICIAL_LINKS = {
+    "pakistan_jobs": [("Bureau of Emigration & Overseas Employment (registered promoters list)", "https://beoe.gov.pk"),
+                      ("Overseas Employment Corporation (govt jobs abroad)", "https://oec.gov.pk")],
+    "saudi arabia": [("KSA Visa - official Saudi visa platform", "https://ksavisa.sa"),
+                     ("Saudi Ministry of Foreign Affairs e-visa", "https://visa.mofa.gov.sa")],
+    "united arab emirates": [("UAE ICP Smart Services (visa & Emirates ID)", "https://smartservices.icp.gov.ae"),
+                             ("GDRFA Dubai", "https://gdrfad.gov.ae"),
+                             ("UAE government portal - visas", "https://u.ae/en/information-and-services/visa-and-emirates-id")],
+    "qatar": [("Qatar Ministry of Interior portal", "https://portal.moi.gov.qa")],
+    "oman": [("Royal Oman Police e-visa", "https://evisa.rop.gov.om")],
+    "bahrain": [("Bahrain e-visa (official)", "https://www.evisa.gov.bh")],
+    "united kingdom": [("UK visas - GOV.UK", "https://www.gov.uk/browse/visas-immigration"),
+                       ("Check if you need a UK visa", "https://www.gov.uk/check-uk-visa")],
+    "united states": [("US visas - travel.state.gov", "https://travel.state.gov/content/travel/en/us-visas.html"),
+                      ("US Embassy Pakistan - visas", "https://pk.usembassy.gov/visas/")],
+    "canada": [("Immigration and Citizenship Canada", "https://www.canada.ca/en/immigration-refugees-citizenship.html")],
+    "australia": [("Australia Home Affairs - visas", "https://immi.homeaffairs.gov.au")],
+    "new zealand": [("Immigration New Zealand", "https://www.immigration.govt.nz")],
+    "germany": [("German Embassy Islamabad - visa", "https://pakistan.diplo.de"),
+                ("Make it in Germany (official jobs & visa info)", "https://www.make-it-in-germany.com")],
+    "italy": [("Italy visa portal (official)", "https://vistoperitalia.esteri.it")],
+    "france": [("France-Visas (official)", "https://france-visas.gouv.fr")],
+    "portugal": [("Portugal visa portal (official)", "https://vistos.mne.gov.pt")],
+    "turkey": [("Turkey e-Visa (official)", "https://www.evisa.gov.tr")],
+    "malaysia": [("Malaysia eVISA (Immigration Dept)", "https://malaysiavisa.imi.gov.my")],
+    "japan": [("Japan Embassy Pakistan - visa", "https://www.pk.emb-japan.go.jp")],
+    "south korea": [("Korea Visa Portal (official)", "https://www.visa.go.kr"),
+                    ("Korea EPS jobs - apply only via OEC Pakistan", "https://oec.gov.pk")],
+    "china": [("China Visa Application Service Center", "https://www.visaforchina.cn")],
+    "azerbaijan": [("Azerbaijan ASAN e-visa (official)", "https://evisa.gov.az")],
+    "thailand": [("Thailand e-Visa (official)", "https://www.thaievisa.go.th")],
+    "singapore": [("Singapore ICA - visas", "https://www.ica.gov.sg")],
+}
+_ALIAS = {"uae": "united arab emirates", "dubai": "united arab emirates", "abu dhabi": "united arab emirates",
+          "saudi": "saudi arabia", "ksa": "saudi arabia", "uk": "united kingdom", "england": "united kingdom",
+          "britain": "united kingdom", "usa": "united states", "america": "united states",
+          "korea": "south korea", "turkiye": "turkey", "türkiye": "turkey", "doha": "qatar", "riyadh": "saudi arabia",
+          "jeddah": "saudi arabia", "muscat": "oman", "london": "united kingdom", "seoul": "south korea"}
+VISA_WORDS = ("visa", "ویزا", "job", "jobs", "نوکری", "ملازمت", "work permit", "immigration", "apply", "اپلائی")
+
+
+def official_links(plan, script):
+    """Sirf visa/job/moving wali videos ke liye, sirf jaanche hue sarkari links."""
+    blob = json.dumps(script, ensure_ascii=False).lower()
+    if not (str(plan.get("series", "")).startswith(("pk_visa", "pk_job", "pk_moving", "moving"))
+            or any(w in blob for w in VISA_WORDS)):
+        return []
+    names = [c.get("name", "") for c in plan.get("countries", [])] + [plan.get("subject", "")]
+    found = []
+    for n in names:
+        for part in re.split(r"[/,|]", n.lower()):
+            k = part.strip()
+            k = _ALIAS.get(k, k)
+            if k in OFFICIAL_LINKS and k not in found:
+                found.append(k)
+    out = [l for k in found for l in OFFICIAL_LINKS[k]]
+    if URDU:
+        out += OFFICIAL_LINKS["pakistan_jobs"]
+    return out
+
+
+def links_block(links):
+    if not links:
+        return ""
+    head = ("🔗 Official links (sirf sarkari websites - apply yahin se karein, kisi agent ko extra paisa na dein):"
+            if URDU else "🔗 Official links (government websites only):")
+    return head + "\n" + "\n".join(f"• {t}: {u}" for t, u in links) + \
+        ("\nRules aur fees badalti rehti hain - apply karne se pehle official website par zaroor confirm karein."
+         if URDU else "\nRules and fees change - always confirm on the official website.")
+
+
 # ------------------------------------------------------------- Facebook (Frames Of Life page)
 FB_ID = (os.environ.get("FRAMES_PAGE_ID") or "").strip()
 FB_TOKEN = (os.environ.get("FRAMES_PAGE_TOKEN") or "").strip()
@@ -1058,6 +1136,8 @@ def fb_post(path, title, script, plan):
         for sc in ch.get("scenes", []) if isinstance(sc, dict))
     caption = seo.build(lambda pr: ask_json(pr, 0.8), "frames", title, text, "ur", is_reel=not LONG,
                         search_terms=REPORT.get("search_phrases") or None)
+    if LINKS:
+        caption += "\n\n" + links_block(LINKS)
     log(f"--- FB caption ---\n{caption}\n")
     if not LONG:
         base = f"https://graph.facebook.com/{FB_VER}/{FB_ID}/video_reels"
@@ -1114,6 +1194,8 @@ def description(script, chapters_ts):
     if URDU:
         d += ("\n\nنوٹ: قیمتیں اور تنخواہیں تقریباً ہیں اور وقت کے ساتھ بدلتی ہیں۔ ویزا اور نوکری کے لیے صرف سرکاری "
               "ذرائع اور رجسٹرڈ ایجنٹ پر بھروسہ کریں۔")
+    if LINKS:
+        d += "\n\n" + links_block(LINKS)
     aff = (os.environ.get("AFFILIATE_TEXT") or "").strip()
     if aff:
         d += "\n\n" + aff.replace("\\n", "\n")
@@ -1147,6 +1229,8 @@ def _main():
             if attempt == 2:
                 REPORT["errors"].append("fatal: video nahi bani")
                 raise
+    LINKS[:] = official_links(plan, script)
+    REPORT["links"] = [u for _, u in LINKS]
     desc = description(script, chapters_ts)
     entry = {"date": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), "series": plan["series"],
              "subject": plan["subject"], "title": script.get("yt_title") or script.get("title")}
