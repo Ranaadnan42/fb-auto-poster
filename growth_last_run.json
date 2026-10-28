@@ -1,13 +1,13 @@
 {
- "at": "2026-10-27T23:11:11.074033Z",
+ "at": "2026-10-28T00:01:01.986411Z",
  "report": [
   "YouTube islamic: skip - is channel ke token mein comment ki ijazat (youtube.force-ssl) nahi - naya refresh token banana hoga (sirf upload ki ijazat hai)",
   "YouTube legends: skip - is channel ke token mein comment ki ijazat (youtube.force-ssl) nahi - naya refresh token banana hoga (sirf upload ki ijazat hai)",
   "YouTube world: skip - is channel ke token mein comment ki ijazat (youtube.force-ssl) nahi - naya refresh token banana hoga (sirf upload ki ijazat hai)",
   "YouTube frames: skip - is channel ke token mein comment ki ijazat (youtube.force-ssl) nahi - naya refresh token banana hoga (sirf upload ki ijazat hai)",
-  "Facebook islamic: 0 jawab, 3 nayi post par comment (posts 15, nayi 7, comments mile 3, jawab ke qabil 0)",
-  "Facebook funny: 0 jawab, 3 nayi post par comment (posts 15, nayi 12, comments mile 3, jawab ke qabil 0)",
-  "Facebook frames: 0 jawab, 2 nayi post par comment (posts 8, nayi 5, comments mile 3, jawab ke qabil 0)",
-  "Facebook webbuilder: 0 jawab, 0 nayi post par comment (posts 15, nayi 2, comments mile 2, jawab ke qabil 0)"
+  "Facebook islamic: skip - Error validating access token: Session has expired on Tuesday, 27-Oct-26 17:00:00 PDT. The current time is Tuesday, 27-Oct-26 17:01:01 PDT.",
+  "Facebook funny: skip - Error validating access token: Session has expired on Tuesday, 27-Oct-26 17:00:00 PDT. The current time is Tuesday, 27-Oct-26 17:01:01 PDT.",
+  "Facebook frames: skip - Error validating access token: Session has expired on Tuesday, 27-Oct-26 17:00:00 PDT. The current time is Tuesday, 27-Oct-26 17:01:01 PDT.",
+  "Facebook webbuilder: skip - Error validating access token: Session has expired on Tuesday, 27-Oct-26 17:00:00 PDT. The current time is Tuesday, 27-Oct-26 17:01:01 PDT."
  ]
 }
