@@ -143,6 +143,7 @@ def fx_rates(codes):
 os.makedirs(WORK, exist_ok=True)
 REPORT = {"mode": MODE, "clips": 0, "clips_rejected": 0, "vision_checks": 0, "errors": []}
 USED = set()
+FOOD_CLIPS = []
 SCORES = []
 _client = None
 
@@ -212,32 +213,67 @@ def ask_json(prompt, temp=0.8):
     raise RuntimeError(f"Gemini fail: {last}")
 
 
+VISION_Q = ("This is a frame from a stock video/photo found for '{what}'. Does it realistically show {want} "
+            "as real camera footage or a real photo (not animation, CGI, illustration or AI art)? "
+            "It must show THAT thing (that dish/food, place, landmark, animal or activity) clearly - say false if it "
+            "shows something else (e.g. a city skyline when a dish is wanted, a different dish, people's faces "
+            "instead of the thing). For a dish, say false only if it is clearly a different dish or obviously "
+            "another country's cuisine. Answer JSON {{\"match\": true/false}}")
+GROQ_KEY = os.environ.get("GROQ_API_KEY")
+GROQ_VISION = ["meta-llama/llama-4-scout-17b-16e-instruct", "meta-llama/llama-4-maverick-17b-128e-instruct"]
+
+
+def _groq_vision(data, prompt):
+    import base64
+    if not GROQ_KEY:
+        return None
+    b64 = base64.b64encode(data).decode()
+    for model in GROQ_VISION:
+        try:
+            r = requests.post("https://api.groq.com/openai/v1/chat/completions", timeout=60,
+                              headers={"Authorization": f"Bearer {GROQ_KEY}"},
+                              json={"model": model, "temperature": 0, "response_format": {"type": "json_object"},
+                                    "messages": [{"role": "user", "content": [
+                                        {"type": "text", "text": prompt},
+                                        {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{b64}"}}]}]})
+            if r.status_code == 429:
+                time.sleep(4)
+                continue
+            r.raise_for_status()
+            return bool(json.loads(r.json()["choices"][0]["message"]["content"]).get("match"))
+        except Exception as e:
+            log(f"groq vision {model}: {str(e)[:100]}")
+    return None
+
+
 def vision_ok(jpg, want, what):
-    """Gemini se poochho: kya yeh frame waqai WAHI cheez dikha raha hai jiski baat ho rahi (khaana/jagah/cheez)?
-    Error ho to None (tag par bharosa)."""
+    """Kya yeh frame waqai WAHI cheez dikha raha hai jiski baat ho rahi (khaana/jagah/cheez)?
+    Pehle Gemini, phir Groq vision (backup). Dono fail -> None (tag par bharosa)."""
     from google.genai import types
+    prompt = VISION_Q.format(what=what, want=want)
     try:
         data = open(jpg, "rb").read()
-        for model in MODELS[::-1]:                              # lite pehle - free quota zyada
-            try:
-                res = _gem().models.generate_content(
-                    model=model,
-                    contents=[types.Part.from_bytes(data=data, mime_type="image/jpeg"),
-                              f"This is a frame from a stock video found for '{what}'. "
-                              f"Does it realistically show {want} as real camera footage "
-                              f"(not animation, CGI or AI art)? Say false if it is a different thing, or clearly a "
-                              f"different country's dish, place or landmark. "
-                              'Answer JSON {"match": true/false}'],
-                    config=types.GenerateContentConfig(response_mime_type="application/json",
-                                                       temperature=0))
-                REPORT["vision_checks"] += 1
-                return bool(json.loads(res.text).get("match"))
-            except Exception as e:
-                last = str(e)
-                time.sleep(3)
-        log(f"vision skip: {last[:120]}")
     except Exception:
-        pass
+        return None
+    last = ""
+    for model in MODELS[::-1]:                              # lite pehle - free quota zyada
+        try:
+            res = _gem().models.generate_content(
+                model=model,
+                contents=[types.Part.from_bytes(data=data, mime_type="image/jpeg"), prompt],
+                config=types.GenerateContentConfig(response_mime_type="application/json", temperature=0))
+            REPORT["vision_checks"] += 1
+            return bool(json.loads(res.text).get("match"))
+        except Exception as e:
+            last = str(e)
+            time.sleep(2)
+    g = _groq_vision(data, prompt)
+    if g is not None:
+        REPORT["vision_checks"] += 1
+        REPORT["vision_groq"] = REPORT.get("vision_groq", 0) + 1
+        return g
+    REPORT["vision_skipped"] = REPORT.get("vision_skipped", 0) + 1
+    log(f"vision skip: {last[:120]}")
     return None
 
 
@@ -458,6 +494,10 @@ Rules:
   dish from another country. Its "search" phrases also include the dish name (e.g. ["ramen", "Japanese
   ramen bowl"]).
 - Every scene's "show" must be something IN that scene's own country/place - never another country.
+- MATCH THE VOICE: the footage is chosen from "show", so "show" must be EXACTLY what this scene's narration
+  is talking about at that moment (talks about biryani -> show biryani; about a market -> that market; about
+  rent/apartments -> apartment building of that city). Never a generic skyline when the scene is about a
+  specific thing. One scene = one thing; if the narration moves to a new thing, start a new scene.
 - "label": short on-screen place label (max 4 words) or "" if none.
 - If VERIFIED FACTS has "atlas_score", one scene near the end presents the Atlas Score (our own rating from
   World Bank data: Safety, Health, Affordability, Economy, each out of 10) and explains what it means.
@@ -474,7 +514,7 @@ Return JSON:
  "fact_card": ["4 short lines for an on-screen fact card, e.g. 'Capital: Tokyo', using VERIFIED FACTS"],
  {shape}
  }}
-scene = {{"text": "narration 1-3 sentences", "place": "...", "show": "the one thing to show on screen",
+scene = {{"text": "narration 1-3 sentences", "place": "...", "food": true/false (true if this scene talks about food/drink), "show": "the one thing to show on screen",
   "say": "same as text but hard foreign words respelled phonetically (omit if none)",
   "search": ["..."], "label": "...", "score": false}}""", temp=0.7)
 
@@ -529,6 +569,10 @@ Rules:
   dish from another country. Its "search" phrases also include the dish name (e.g. ["ramen", "Japanese
   ramen bowl"]).
 - Every scene's "show" must be something IN that scene's own country/place - never another country.
+- MATCH THE VOICE: the footage is chosen from "show", so "show" must be EXACTLY what this scene's narration
+  is talking about at that moment (talks about biryani -> show biryani; about a market -> that market; about
+  rent/apartments -> apartment building of that city). Never a generic skyline when the scene is about a
+  specific thing. One scene = one thing; if the narration moves to a new thing, start a new scene.
 - "label": short on-screen place label in Urdu script (max 4 words) or "".
 - If VERIFIED FACTS has "atlas_score", one scene near the end presents the "{SCORE_NAME}" (our own rating
   from World Bank data: safety, health, affordability, economy, each out of 10). Put that scene's "score": true.{_search_rule(plan)}
@@ -544,7 +588,7 @@ Return JSON:
  "fact_card": ["4 short lines in Urdu script for an on-screen fact card, using VERIFIED FACTS"],
  {shape}
  }}
-scene = {{"text": "Urdu narration 1-3 sentences", "place": "...", "show": "the one thing to show on screen (English)",
+scene = {{"text": "Urdu narration 1-3 sentences", "place": "...", "food": true/false (true if this scene talks about food/drink), "show": "the one thing to show on screen (English)",
   "say": "same as text but hard foreign words respelled in Urdu script phonetically (omit if none)",
   "search": ["..."], "label": "...", "score": false}}""", temp=0.7)
 
@@ -601,66 +645,135 @@ GENERIC = {"food", "foods", "dish", "dishes", "meal", "meals", "cuisine", "stree
            "culture", "festival", "music", "dance", "life", "daily", "plate", "bowl", "cooking", "restaurant"}
 
 
+FOOD_WORDS = {"food", "dish", "rice", "kebab", "kabab", "biryani", "curry", "bread", "soup", "noodles", "ramen",
+              "sushi", "tacos", "taco", "pizza", "pasta", "meat", "lamb", "chicken", "fish", "seafood", "dessert",
+              "sweets", "tea", "coffee", "cuisine", "mandi", "kabsa", "shawarma", "falafel", "hummus", "tagine",
+              "dumplings", "stew", "grill", "grilled", "bbq", "barbecue", "breakfast", "lunch", "dinner", "meal",
+              "plate", "bowl", "cooking", "chef", "restaurant", "street food", "fruit", "dates", "baklava",
+              "kunafa", "pastry", "cake", "drink", "juice", "spices", "paella", "burger", "steak", "salad"}
+
+
+def is_food(scene):
+    if scene.get("food") is True:
+        return True
+    t = " ".join([scene.get("show") or ""] + list(scene.get("search") or [])).lower()
+    return any(re.search(rf"\b{re.escape(w)}\b", t) for w in FOOD_WORDS)
+
+
+def pixabay_photos(q):
+    if not PIXABAY_KEY:
+        return []
+    try:
+        r = requests.get("https://pixabay.com/api/", timeout=40, params={
+            "key": PIXABAY_KEY, "q": q[:90], "image_type": "photo", "safesearch": "true", "per_page": 30,
+            "min_width": 1600})
+        return [{"id": f"pxi{h['id']}", "url": h["largeImageURL"], "text": h.get("tags", "").lower(), "photo": True}
+                for h in r.json().get("hits", []) if h.get("largeImageURL")]
+    except Exception as e:
+        log(f"Pixabay photo error: {str(e)[:120]}")
+        return []
+
+
+def pexels_photos(q):
+    if not PEXELS_KEY:
+        return []
+    try:
+        r = requests.get("https://api.pexels.com/v1/search", timeout=40, headers={"Authorization": PEXELS_KEY},
+                         params={"query": q[:90], "per_page": 30})
+        return [{"id": f"pei{p['id']}", "url": p["src"]["large2x"],
+                 "text": ((p.get("alt") or "") + " " + (p.get("url") or "").replace("-", " ")).lower(), "photo": True}
+                for p in r.json().get("photos", []) if p.get("src", {}).get("large2x")]
+    except Exception as e:
+        log(f"Pexels photo error: {str(e)[:120]}")
+        return []
+
+
+def photo_to_clip(img, out, secs=8):
+    """Photo -> halka zoom (Ken Burns) wali video, taake khaas dish/jagah ki photo bhi chal sake."""
+    frames = int(secs * FPS)
+    run(["ffmpeg", "-y", "-loglevel", "error", "-loop", "1", "-i", img, "-vf",
+         f"scale={W * 2}:{H * 2}:force_original_aspect_ratio=increase,crop={W * 2}:{H * 2},"
+         f"zoompan=z='min(zoom+0.0009,1.15)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s={W}x{H}:fps={FPS},"
+         "format=yuv420p", "-t", f"{secs}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", out])
+
+
+def _score(text, words):
+    return sum(1 for w in words if w in text)
+
+
 def get_clips(scene, country_words, job, prefix, need):
-    """Is scene ke `show` (jo cheez dikhani hai, jaise khaana/landmark) ki asli clips.
-    Pehle SUBJECT (jiski baat ho rahi), phir jagah. Clip ke tags mein subject YA jagah ka naam ho + vision check."""
+    """Is scene ki asli clips - jis cheez ki BAAT ho rahi hai wahi dikhe (khaana -> wahi dish, usi mulk ki).
+    Tarteeb: 1) subject ki videos  2) subject ki asli photos (zoom ke saath)  3) khaane ke scene mein usi mulk ka
+    khaana  4) sirf ghair-khaane wale scene mein jagah (shehar/mulk) ki video. Har clip vision se check."""
     place = scene.get("place") or ""
     pw = _words(place)
     show = (scene.get("show") or "").strip()
     city = place.split(",")[0].strip()
     country = place.split(",")[-1].strip()
     cw = _words(country) or country_words                         # ISI scene ka mulk
-    # "japanese" mein "japan" - mulk/qaum wale lafz subject nahi, mulk ki pehchaan hain
+    food = is_food(scene)
     sw = [w for w in _words(show) if not any(x in w for x in pw + cw + country_words)
           and w not in GENERIC]                                    # khaas cheez (dish/landmark) ke lafz
-    if not sw and show:   # sirf aam lafz ("street food") - mulk ke naam ke saath dhoondo, tag mein mulk zaroori
+    if not sw and show:   # sirf aam lafz ("street food") - mulk ke naam ke saath dhoondo
         show_c = show if any(x in show.lower() for x in cw) else f"{country} {show}"
     else:
         show_c = show
     subj_q = list(scene.get("search") or [])
     if show:
         subj_q = [show_c] + subj_q if show_c != show else subj_q + [show]
-    if sw:   # jis cheez ki baat ho rahi (khaana/cheez) ke akele lafz bhi - shehar ke naam ke baghair
-        subj_q += [" ".join(sw)] + [w for w in sw if len(w) > 3]
-    place_q = [f"{city} aerial", city, f"{country} landscape", f"{country} city", country]
-    # vision ko yehi dikhna chahiye - aur ISI mulk ka (doosre mulk ka khaana/jagah nahi)
-    want = f"{show_c} from {country}" if show and country else (show or place or country)
-    # Pehle sirf SUBJECT ki clips (tags mein subject ka lafz hona zaroori - shehar ka naam kaafi nahi).
-    # Jagah wali clip AAKHIR mein, sirf tab jab subject ki ek bhi clip na mile.
-    rounds = [(subj_q, sw or (pw + cw), want)]
     if sw:
-        rounds.append((place_q, pw + cw, place or country))
+        subj_q += [" ".join(sw)] + [w for w in sw if len(w) > 3]
+    subj_q = list(dict.fromkeys(q for q in subj_q if q.strip()))
+    want = f"{show_c} from {country}" if show and country else (show or place or country)
+    subj_accept = sw or (pw + cw)
+    rounds = [("video", subj_q, subj_accept, want), ("photo", subj_q[:4], subj_accept, want)]
+    if food:
+        fq = [f"{country} food", f"{country} cuisine", f"traditional {country} dish"]
+        rounds += [("video", fq, ["food", "dish", "cuisine", "meal", "plate", "restaurant"] + FOOD_WORDS_LIST,
+                    f"a traditional dish or food of {country}"),
+                   ("photo", fq[:2], ["food", "dish", "cuisine", "meal", "plate"] + FOOD_WORDS_LIST,
+                    f"a traditional dish or food of {country}")]
     else:
-        rounds.append((place_q, pw + cw, place or country))
+        place_q = [f"{city} aerial", city, f"{country} landscape", f"{country} city", country]
+        rounds.append(("video", place_q, pw + cw, place or country))
     got = []
-    for queries, accept, want in rounds:
-      if got:          # subject ki clip mil gayi to jagah wali nahi lagani
+    for kind, queries, accept, want_r in rounds:
+      if got:          # pehle (zyada theek) round se clip mil gayi to aage nahi
         break
       for q in queries:
         if len(got) >= need:
             break
-        cands = pexels_search(q) + pixabay_search(q)
+        if kind == "video":
+            cands = pexels_search(q) + pixabay_search(q)
+        else:
+            cands = pexels_photos(q) + pixabay_photos(q)
         random.shuffle(cands)
+        cands.sort(key=lambda c: -_score(c["text"], accept))       # sab se mutabiq pehle
+        tries = 0
         for c in cands:
-            if len(got) >= need:
+            if len(got) >= need or tries >= 8:
                 break
             if c["id"] in USED:
                 continue
-            # subject (khaana/cheez) YA jagah ka naam tags/naam mein ho - bilkul be-rabt clip na aaye
             if accept and not any(w in c["text"] for w in accept):
                 continue
+            tries += 1
             path = os.path.join(job, f"{prefix}_{len(got)}.mp4")
+            src = path + (".jpg" if kind == "photo" else "")
             try:
                 with requests.get(c["url"], stream=True, timeout=180) as resp:
                     resp.raise_for_status()
-                    with open(path, "wb") as f:
+                    with open(src, "wb") as f:
                         for chunk in resp.iter_content(1 << 20):
                             f.write(chunk)
-                if os.path.getsize(path) < 50000:
+                if os.path.getsize(src) < 30000:
                     continue
-                jpg = path + ".jpg"
-                run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{min(c['dur'] / 2, 3):.1f}", "-i", path,
-                     "-frames:v", "1", "-vf", "scale=640:-2", jpg])
+                jpg = path + ".chk.jpg"
+                if kind == "photo":
+                    run(["ffmpeg", "-y", "-loglevel", "error", "-i", src, "-vf", "scale=640:-2", jpg])
+                else:
+                    run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{min(c['dur'] / 2, 3):.1f}", "-i", src,
+                         "-frames:v", "1", "-vf", "scale=640:-2", jpg])
                 try:
                     from PIL import Image, ImageStat
                     if ImageStat.Stat(Image.open(jpg).convert("L")).mean[0] < 28:   # kaali/andheri clip
@@ -669,17 +782,25 @@ def get_clips(scene, country_words, job, prefix, need):
                         continue
                 except Exception:
                     pass
-                ok = vision_ok(jpg, want, q)
-                if ok is False:
+                ok = vision_ok(jpg, want_r, q)
+                if ok is False or (ok is None and kind == "photo"):   # photo sirf vision pass par
                     REPORT["clips_rejected"] += 1
                     USED.add(c["id"])
                     continue
+                if kind == "photo":
+                    photo_to_clip(src, path)
+                    REPORT["photos"] = REPORT.get("photos", 0) + 1
                 USED.add(c["id"])
                 got.append(path)
                 REPORT["clips"] += 1
             except Exception as e:
                 log(f"clip fail: {str(e)[:120]}")
+    if not got:
+        REPORT.setdefault("no_match", []).append(show or place)
     return got
+
+
+FOOD_WORDS_LIST = sorted(w for w in FOOD_WORDS if " " not in w)
 
 
 # ---------------------------------------------------------------- awaaz, music, likhai
@@ -873,6 +994,10 @@ def build(script, plan, out_path):
         dur = duration(os.path.join(job, f"a{n}.mp3")) + 0.45
         need = max(1, min(4, math.ceil(dur / 5.5)))
         clips = get_clips(sc, cwords, job, f"c{n}", need)
+        if not clips and is_food(sc) and FOOD_CLIPS:
+            clips = random.sample(FOOD_CLIPS, min(len(FOOD_CLIPS), need))   # pehle wala usi mulk ka khaana
+        elif clips and is_food(sc):
+            FOOD_CLIPS.extend(clips)
         if not clips:
             prev = [os.path.join(job, p) for p in os.listdir(job) if p.startswith("c") and p.endswith(".mp4")]
             if prev:
