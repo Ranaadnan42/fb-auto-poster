@@ -275,6 +275,7 @@ def fb_call(method, path, token, **params):
 
 
 FB_ERRORS = []
+SEEN = []
 
 
 def fb_comment(token, obj_id, text):
@@ -308,9 +309,12 @@ def run_facebook(acct, st):
                 st["fb_seeded"].append(p["id"]); seeded_now += 1
                 log(f"   pehla comment: {title[:50]} -> {text[:80]}")
         for c in (p.get("comments") or {}).get("data", []):
-            if c["id"] in replied or c.get("comment_count", 0) > 0:
-                continue
-            if (c.get("from") or {}).get("id") == pid or not recent(c["created_time"], MAX_AGE_DAYS):
+            who = (c.get("from") or {}).get("name", "?")
+            why = ("pehle jawab diya" if c["id"] in replied else "thread mein reply hai" if c.get("comment_count", 0) > 0
+                   else "page ka apna" if (c.get("from") or {}).get("id") == pid
+                   else "purana" if not recent(c["created_time"], MAX_AGE_DAYS) else "")
+            SEEN.append(f"{who}: {(c.get('message') or '')[:30]!r} [{why or 'jawab'}]")
+            if why:
                 continue
             if len(todo) < MAX_REPLIES and c.get("message"):
                 todo.append({"id": c["id"], "video": title, "comment": c["message"]})
@@ -323,6 +327,8 @@ def run_facebook(acct, st):
     n_com = sum(len((p.get("comments") or {}).get("data", [])) for p in posts)
     n_new = sum(1 for p in posts if recent(p["created_time"], NEW_VIDEO_DAYS))
     err = f" | error: {FB_ERRORS[-1]}" if FB_ERRORS else ""
+    err += " | comments: " + "; ".join(SEEN[:8]) if SEEN else ""
+    SEEN.clear()
     FB_ERRORS.clear()
     report.append(f"Facebook {acct}: {done} jawab, {seeded_now} nayi post par comment "
                   f"(posts {len(posts)}, nayi {n_new}, comments mile {n_com}, jawab ke qabil {len(todo)}){err}")
