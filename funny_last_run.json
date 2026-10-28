@@ -1,12 +1,19 @@
 {
  "mode": "auto",
- "stock_clips": 0,
+ "stock_clips": 10,
  "fallback_clips": 0,
  "errors": [],
- "format": "chat",
- "reel_minutes": 1.36,
+ "format": "animal",
+ "search_phrases": [
+  "eid shopping funny video",
+  "eid ki shopping funny video",
+  "funny eid shopping vlog",
+  "eid goat shopping comedy"
+ ],
+ "search": "eid ki shopping funny video",
  "laughs": 3,
- "time_utc": "2026-10-28 08:20",
- "title": "دادی اماں اور بجلی کے بل کا صدمہ",
+ "reel_minutes": 0.72,
+ "time_utc": "2026-10-28 12:44",
+ "title": "پانڈا اینکر اور عید کی شاپنگ",
  "dry_run": false
 }
