@@ -33,13 +33,15 @@ REPORT_FILE = "live_last_run.json"
 
 WB_FACTS = """- Prices "starting from" in the customer's region:
   Website: Pakistan PKR 15,000 | Saudi/UAE SAR/AED 400 | world $150. Online store: PKR 60,000 | SAR/AED 2,500 | $900.
-  Mobile app: PKR 60,000 | SAR/AED 4,000 | $700. POS one-time: PKR 15,000 | SAR/AED 600.
+  Mobile app: PKR 60,000 | SAR/AED 4,000 | $700. POS one-time: PKR 20,000 | SAR/AED 600.
 - Business website: clean, fast, professional, mobile friendly.
 - Online store (e-commerce): customers order 24/7, cart, payments, delivery.
 - Mobile app: custom Android apps - online ordering, delivery, booking, owner dashboard.
 - POS software (Rana POS / cashier system): fast billing, barcode, live stock & inventory, daily sales & profit
   reports, works offline, one-time price with no monthly fee. Used by shops in Saudi Arabia, UAE and Pakistan.
 - Works for every business: restaurant, grocery, supermarket, pharmacy, clothing, salon, school, clinic, bakery...
+- Discount: never give or promise any discount yourself. If they ask for a discount or a lower price, politely say
+  discount ki baat Boss (Rana) se WhatsApp par karein - he decides.
 - Demo: Rana shows a live demo on WhatsApp. Contact: WhatsApp."""
 
 STATS = {"started": None, "loops": 0, "replies": 0, "errors": [], "log": []}
