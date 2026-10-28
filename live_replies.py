@@ -31,14 +31,16 @@ MAX_AGE_HOURS = 72          # is se purani customer baat ka jawab nahi
 POSTS = 25
 REPORT_FILE = "live_last_run.json"
 
-WB_FACTS = """- Business website: clean, fast, professional, mobile friendly. Starting from $150.
-- Online store (e-commerce): customers order 24/7, cart, payments, delivery. Starting from $900.
+WB_FACTS = """- Prices "starting from" in the customer's region:
+  Website: Pakistan PKR 15,000 | Saudi/UAE SAR/AED 400 | world $150. Online store: PKR 60,000 | SAR/AED 2,500 | $900.
+  Mobile app: PKR 60,000 | SAR/AED 4,000 | $700. POS one-time: PKR 15,000 | SAR/AED 600.
+- Business website: clean, fast, professional, mobile friendly.
+- Online store (e-commerce): customers order 24/7, cart, payments, delivery.
 - Mobile app: custom Android apps - online ordering, delivery, booking, owner dashboard.
 - POS software (Rana POS / cashier system): fast billing, barcode, live stock & inventory, daily sales & profit
   reports, works offline, one-time price with no monthly fee. Used by shops in Saudi Arabia, UAE and Pakistan.
-  POS price depends on the shop - for the exact price ask them to WhatsApp.
 - Works for every business: restaurant, grocery, supermarket, pharmacy, clothing, salon, school, clinic, bakery...
-- Free demo / samples: on the website. Contact: WhatsApp."""
+- Demo: Rana shows a live demo on WhatsApp. Contact: WhatsApp."""
 
 STATS = {"started": None, "loops": 0, "replies": 0, "errors": [], "log": []}
 SKIP = set()       # jin messages par AI ne jawab na dena chuna (spam/gaali) - dobara na poochhe
@@ -66,7 +68,40 @@ def ask(prompt):
     return growth.ask_json(prompt)
 
 
+AI_CHAT = "https://fobzocsluzwcqretshnm.supabase.co/functions/v1/ai-chat"
+SITE = "https://client-hunt-six.vercel.app/"
+
+
+def wb_brain(post_text, thread, first):
+    """Web Builder: wahi sales brain jo website chat aur email bot use karte hain (ai-chat) -
+    ek hi price list, aur garam customer par Rana ko email/WhatsApp alert."""
+    import re
+    import requests
+    msgs = [{"role": "assistant" if m["page"] else "user", "content": m["text"]} for m in thread]
+    while msgs and msgs[0]["role"] == "assistant" and len(msgs) > 1 and msgs[1]["role"] == "assistant":
+        msgs.pop(0)
+    ctx = (f"[FACEBOOK COMMENT CHANNEL. The customer commented under our Facebook post: \"{post_text[:200]}\". "
+           "Reply as a Facebook comment: 1-3 short sentences, max 50 words, in the customer's own language and "
+           "script, no markdown, no bullet points.]\n\n")
+    msgs[-1] = {"role": "user", "content": ctx + msgs[-1]["content"]}
+    r = requests.post(AI_CHAT, json={"messages": msgs, "channel": "facebook"}, timeout=45)
+    reply = (r.json().get("reply") or "").strip()
+    reply = re.sub(r"\*\*|__|^#+ ", "", reply, flags=re.M).strip()[:900]
+    if not reply:
+        raise RuntimeError(f"ai-chat empty: {r.text[:150]}")
+    if first and "5267349" not in reply:
+        reply = growth.add_footer("webbuilder", reply)
+    elif "client-hunt" not in reply and ("5267349" in reply or first):
+        reply += f"\n\U0001F310 {SITE}"
+    return reply
+
+
 def write_reply(acct, post_text, thread, page_name, first):
+    if acct == "webbuilder":
+        try:
+            return wb_brain(post_text, thread, first)
+        except Exception as e:
+            log(f"ai-chat fail, apna AI: {str(e)[:150]}")
     name, style = PERSONA[acct]
     sales = ""
     if acct == "webbuilder":
@@ -171,6 +206,15 @@ def save():
 
 def main():
     STATS["started"] = now().isoformat()
+    test = os.environ.get("TEST_TEXT")
+    if test:      # self-test: ek nakli comment par Web Builder ka jawab
+        for q in test.split("||"):
+            r = write_reply("webbuilder", "POS software for shops", [{"page": False, "text": q, "id": "t", "time": ""}],
+                            "webbuilder", True)
+            STATS["log"].append(f"TEST {q!r} -> {r}")
+            log(STATS["log"][-1])
+        save()
+        return
     end = time.time() + LIVE_MINUTES * 60
     last_others = 0
     others = [a for a in FB_ACCOUNTS if a != "webbuilder"]

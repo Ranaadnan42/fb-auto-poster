@@ -11,6 +11,9 @@ on:
       minutes:
         description: 'Kitne minute chale'
         default: '345'
+      test_text:
+        description: 'Test: nakli comment(s), || se alag'
+        default: ''
       dry_run:
         description: 'Sirf dikhaye, jawab post na kare'
         type: boolean
@@ -50,6 +53,7 @@ jobs:
           WB_PAGE_TOKEN: ${{ secrets.WB_PAGE_TOKEN }}
           LIVE_MINUTES: ${{ inputs.minutes || '345' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+          TEST_TEXT: ${{ inputs.test_text }}
         run: python live_replies.py
       - name: Save report
         if: always()
