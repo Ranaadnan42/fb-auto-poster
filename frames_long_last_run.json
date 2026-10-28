@@ -1,18 +1,33 @@
 {
  "mode": "long",
- "clips": 55,
- "clips_rejected": 177,
- "vision_checks": 184,
+ "clips": 67,
+ "clips_rejected": 35,
+ "vision_checks": 33,
  "errors": [],
  "search_phrases": [
-  "لاہور شہر کی سیر",
-  "کراچی شہر کی سیر",
-  "ملتان شہر کی سیر",
-  "دمشق شہر کی سیر",
-  "pompeii city documentary in urdu"
+  "dubai vs saudi arabia jobs",
+  "dubai vs saudi arabia war",
+  "dubai vs saudi arabia vs qatar",
+  "dubai vs saudi arabia military",
+  "dubai vs saudi arabia football",
+  "dubai vs saudi arabia comparison",
+  "dubai vs saudi arabia tamil",
+  "dubai vs saudi arabia malayalam",
+  "dubai and saudi arabia"
  ],
- "seconds": 229.7,
- "subject": "Dubai, United Arab Emirates",
- "series": "pk_city",
- "title": "دبئی کی حقیقت: ریت سے فلک بوس عمارتوں تک کا سفر | Life in Dubai"
+ "search": "dubai vs saudi arabia comparison",
+ "vision_skipped": 67,
+ "seconds": 271.9,
+ "links": [
+  "https://smartservices.icp.gov.ae",
+  "https://gdrfad.gov.ae",
+  "https://u.ae/en/information-and-services/visa-and-emirates-id",
+  "https://ksavisa.sa",
+  "https://visa.mofa.gov.sa",
+  "https://beoe.gov.pk",
+  "https://oec.gov.pk"
+ ],
+ "subject": "Dubai vs Saudi Arabia",
+ "series": "pk_versus",
+ "title": "دبئی بمقابلہ سعودی عرب: کون سا ملک بہتر ہے؟ | Dubai vs Saudi Arabia"
 }
