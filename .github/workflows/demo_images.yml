@@ -1,6 +1,10 @@
 name: Demo website images (one time)
 on:
   workflow_dispatch:
+    inputs:
+      only:
+        description: 'Sirf ye categories (comma)'
+        default: ''
 permissions:
   contents: write
 jobs:
@@ -12,6 +16,7 @@ jobs:
       - name: Download
         env:
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          ONLY: ${{ inputs.only }}
         run: python tools/demo_images.py
       - name: Resize (fast loading)
         run: |

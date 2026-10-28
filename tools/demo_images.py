@@ -33,8 +33,25 @@ CATS = {
 BLOCK = {"woman", "women", "girl", "lady", "female", "model", "sexy", "bikini", "lingerie", "kiss", "couple",
          "wine", "beer", "alcohol", "cocktail", "bar", "pork", "christmas", "halloween", "church", "cross"}
 
+FIX = {
+    "auto": ["car mechanic", "car repair", "car engine", "auto repair", "car wash", "luxury car"],
+    "clinic": ["doctor", "dentist", "medical clinic", "hospital", "stethoscope", "medical"],
+    "construction": ["construction site", "crane construction", "architecture", "building construction", "excavator", "engineer"],
+    "education": ["classroom", "library", "school books", "graduation", "university", "students"],
+    "electronics": ["smartphone", "laptop", "electronics", "headphones", "smartwatch", "tablet"],
+    "gym": ["gym", "dumbbells", "fitness", "weightlifting", "treadmill", "workout"],
+    "jewellery": ["gold jewelry", "diamond ring", "necklace", "jewelry", "gold rings", "bracelet"],
+    "pharmacy": ["pharmacy", "medicine", "pills", "pharmacist", "drugstore", "vitamins"],
+    "salon": ["hair salon", "barber", "hairdresser", "spa", "nail salon", "makeup brushes"],
+}
+ONLY = [c for c in (os.environ.get("ONLY") or "").split(",") if c]
+if ONLY:
+    CATS = {c: FIX.get(c, CATS[c]) for c in ONLY}
+try:
+    manifest = json.load(open("demo_img/manifest.json"))
+except Exception:
+    manifest = {}
 used = set()
-manifest = {}
 for cat, queries in CATS.items():
     os.makedirs(f"demo_img/{cat}", exist_ok=True)
     n = 0
@@ -48,7 +65,11 @@ for cat, queries in CATS.items():
             hits = r.json().get("hits", [])
         except Exception as e:
             print("err", q, e); continue
-        hits = [h for h in hits if h["id"] not in used and not (set(h.get("tags", "").replace(",", " ").lower().split()) & BLOCK)]
+        qw = [w for w in q.lower().split() if len(w) > 2]
+        def ok(h):
+            words = set(h.get("tags", "").replace(",", " ").lower().split())
+            return h["id"] not in used and not (words & BLOCK) and any(w in words or w.rstrip("s") in words for w in qw)
+        hits = [h for h in hits if ok(h)]
         for h in hits[:3]:
             url = h.get("largeImageURL")
             try:
