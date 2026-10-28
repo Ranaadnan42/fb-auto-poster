@@ -1,8 +1,23 @@
 {
- "lang": "en",
- "stock_clips": 0,
+ "lang": "ur",
+ "stock_clips": 10,
  "fallback_clips": 0,
- "errors": [
-  "fatal: Gemini fail: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev"
- ]
+ "errors": [],
+ "search_phrases": [
+  "sahabi ka waqia i by peer ajmal raza qadri i emotional bayan",
+  "sahabi ka waqia aminul qadri",
+  "sahabi ka waqia tariq jameel",
+  "sahabi ka waqia maulana tariq jameel",
+  "sahaba ka waqia",
+  "sahaba ka waqia ajmal raza qadri",
+  "sahaba ka waqia dr israr ahmed",
+  "sahaba ka waqia tariq masood",
+  "sahaba ka waqia mufti tariq masood"
+ ],
+ "search": "sahaba ka waqia",
+ "reel_minutes": 1.13,
+ "time_utc": "2026-10-28 07:21",
+ "title": "حضرت صہیب رومیؓ کی قربانی: اسلام کی خاطر تمام دولت چھوڑ دی",
+ "dry_run": false,
+ "posted_ok": 1
 }
