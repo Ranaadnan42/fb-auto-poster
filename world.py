@@ -1084,6 +1084,8 @@ VISA_WORDS = ("visa", "ویزا", "job", "jobs", "نوکری", "ملازمت", "
 
 def official_links(plan, script):
     """Sirf visa/job/moving wali videos ke liye, sirf jaanche hue sarkari links."""
+    if not URDU:          # Atlas Untold bilkul pehle jaisa - links sirf Frames of Life mein
+        return []
     blob = json.dumps(script, ensure_ascii=False).lower()
     if not (str(plan.get("series", "")).startswith(("pk_visa", "pk_job", "pk_moving", "moving"))
             or any(w in blob for w in VISA_WORDS)):
