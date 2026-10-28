@@ -24,6 +24,14 @@ QUERIES = [
     'site:facebook.com "برنامج محاسبي" محل',
     'site:facebook.com "نظام نقاط البيع" مطعم',
     'site:facebook.com "ابي موقع" لمحلي',
+    'site:facebook.com/groups "website chahiye"',
+    'site:facebook.com/groups "koi acha software" dukan',
+    'site:facebook.com/groups "POS" Riyadh recommend',
+    'site:facebook.com/groups "POS" Dubai recommend small shop',
+    'site:facebook.com/groups "برنامج كاشير" الرياض',
+    'site:facebook.com/groups "برنامج كاشير" دبي',
+    'site:facebook.com/groups "who can make a website"',
+    'site:facebook.com/groups "need an app" for my business',
 ]
 POST_URL = re.compile(r"facebook\.com/(groups/|.*/posts/|.*/permalink|permalink\.php|story\.php|.*/videos/|reel/|share/p/|photo|.*/photos/)", re.I)
 
