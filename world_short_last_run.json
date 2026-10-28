@@ -1,8 +1,8 @@
 {
  "mode": "short",
- "clips": 16,
- "clips_rejected": 0,
- "vision_checks": 0,
+ "clips": 17,
+ "clips_rejected": 1,
+ "vision_checks": 2,
  "errors": [],
  "search_phrases": [
   "hidden gems in japan",
@@ -17,8 +17,8 @@
   "hidden gems in chicago"
  ],
  "search": "hidden gems in california",
- "seconds": 59.9,
+ "seconds": 69.8,
  "subject": "California",
  "series": "hidden",
- "title": "5 Hidden Places in California You Never Knew Existed"
+ "title": "Hidden Gems in California You Must Visit"
 }
