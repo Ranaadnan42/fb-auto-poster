@@ -1,0 +1,35 @@
+name: Screenshot pages (check)
+on:
+  workflow_dispatch:
+    inputs:
+      urls:
+        description: 'space separated URLs'
+        required: true
+permissions:
+  contents: write
+jobs:
+  shot:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: npm i playwright@1.48.2 && npx playwright install --with-deps chromium
+      - name: Shots
+        env:
+          URLS: ${{ inputs.urls }}
+        run: |
+          mkdir -p shots && cat > s.js <<'JS'
+          const { chromium } = require('playwright');
+          (async () => { const b = await chromium.launch(); let i = 0;
+            for (const u of process.env.URLS.split(/\s+/).filter(Boolean)) { i++;
+              for (const [w,h,t] of [[1440,900,'desk'],[390,844,'mob']]) {
+                const p = await b.newPage({ viewport: { width: w, height: h } });
+                await p.goto(u, { waitUntil: 'networkidle' }).catch(()=>{}); await p.waitForTimeout(3000);
+                await p.evaluate(async () => { for (let y = 0; y < document.body.scrollHeight; y += 500) { scrollTo(0, y); await new Promise(r => setTimeout(r, 120)); } scrollTo(0,0); });
+                await p.waitForTimeout(1500);
+                await p.screenshot({ path: `shots/${i}_${t}.jpg`, fullPage: true, quality: 70, type: 'jpeg' }); await p.close(); } }
+            await b.close(); })();
+          JS
+          node s.js
+      - run: |
+          git config user.name "auto-poster"; git config user.email "auto-poster@users.noreply.github.com"
+          git add shots && git commit -qm "page screenshots" && git pull -q --rebase origin main && git push -q origin HEAD:main || true
