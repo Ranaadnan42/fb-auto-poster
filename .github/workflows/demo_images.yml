@@ -1,0 +1,31 @@
+name: Demo website images (one time)
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  get:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install requests pillow
+      - name: Download
+        env:
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+        run: python tools/demo_images.py
+      - name: Resize (fast loading)
+        run: |
+          python3 - <<'PY'
+          import glob
+          from PIL import Image
+          for p in glob.glob("demo_img/*/*.jpg"):
+              im = Image.open(p).convert("RGB")
+              im.thumbnail((1920, 1280))
+              im.save(p, "JPEG", quality=80, optimize=True, progressive=True)
+          PY
+      - name: Commit
+        run: |
+          git config user.name "auto-poster"
+          git config user.email "auto-poster@users.noreply.github.com"
+          git add demo_img
+          git commit -q -m "Demo website images" && git pull -q --rebase origin main && git push -q origin HEAD:main || true
