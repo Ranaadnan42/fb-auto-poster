@@ -1,19 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 10,
+ "stock_clips": 48,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
- "search_phrases": [
-  "eid shopping funny video",
-  "eid ki shopping funny video",
-  "funny eid shopping vlog",
-  "eid goat shopping comedy"
- ],
- "search": "eid ki shopping funny video",
- "laughs": 3,
- "reel_minutes": 0.72,
- "time_utc": "2026-10-28 12:44",
- "title": "پانڈا اینکر اور عید کی شاپنگ",
+ "format": "story",
+ "long_minutes": 10.71,
+ "series": "پپو کا رزلٹ اور انوکھا مشن | قسط 1 part 1 (ai)",
+ "laughs": 7,
+ "time_utc": "2026-10-28 15:24",
+ "title": "پپو کا رزلٹ اور انوکھا مشن | قسط 1 | قسط 1",
  "dry_run": false
 }
