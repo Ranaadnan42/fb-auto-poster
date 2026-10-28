@@ -1,10 +1,8 @@
 {
- "started": "2026-10-28T00:47:56.558813+00:00",
- "loops": 0,
+ "started": "2026-10-28T00:48:27.484013+00:00",
+ "loops": 1500,
  "replies": 0,
  "errors": [],
- "log": [
-  "TEST 'POS ki price kya hai? meri grocery shop Riyadh mein hai' -> Riyadh ki grocery shop ke liye Rana POS sirf SAR 600 ka one‑time license hai, offline kaam karta hai aur koi monthly fee nahi. Agar aap interested hain to apna naam aur city confirm kar dein, phir aage ka process batata hoon.\n\n🌐 https://client-hunt-six.vercel.app/\n💬 WhatsApp: +92 307 5267349",
-  "TEST 'Demo dikha sakte ho?' -> Bilkul! Rana POS ka demo hum aap ko free mein de sakte hain. Aap ka business kis type ka hai aur aapko kis cheez ka demo chahiye?\n\n🌐 https://client-hunt-six.vercel.app/\n💬 WhatsApp: +92 307 5267349"
- ]
+ "log": [],
+ "last_check": "2026-10-28T05:48:16.648914+00:00"
 }
