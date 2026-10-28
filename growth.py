@@ -316,7 +316,8 @@ def run_facebook(acct, st):
             SEEN.append(f"{who}: {(c.get('message') or '')[:30]!r} [{why or 'jawab'}]")
             if why:
                 continue
-            if len(todo) < MAX_REPLIES and c.get("message"):
+            # FB comments ke jawab ab live_replies.py (har minute) deta hai - yahan sirf pehla comment
+            if os.environ.get("FB_REPLIES_HERE") == "1" and len(todo) < MAX_REPLIES and c.get("message"):
                 todo.append({"id": c["id"], "video": title, "comment": c["message"]})
     done = 0
     for it, reply in zip(todo, write_replies(acct, "facebook", todo)):
