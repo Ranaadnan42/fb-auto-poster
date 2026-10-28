@@ -1,4 +1,5 @@
 name: Comment Helper search
+run-name: ${{ github.workflow }} [${{ inputs.sched || github.event.schedule || 'manual' }}]
 # Facebook par woh posts dhoondta hai jahan log software/website poochh rahe hain -> comment_hits.json
 # Supabase `comment-helper` is file se comments likh kar Rana ko email karta hai.
 on:
@@ -6,9 +7,15 @@ on:
     - cron: '41 3 * * *'    # ~8:41 subah PK
     - cron: '41 12 * * *'   # ~5:41 shaam PK
   workflow_dispatch:
+    inputs:
+      sched:
+        description: 'Scheduler ka slot (khud bharta hai)'
+        type: string
+        default: ''
 
 permissions:
   contents: write
+  actions: read
 
 concurrency:
   group: comment-search
@@ -24,7 +31,8 @@ jobs:
         with:
           python-version: '3.11'
       - run: pip install ddgs
-      - run: python tools/fb_search.py
+      # Khud-ilaaj: pehli dafa fail ho to 1 minute ruk kar dobara
+      - run: python tools/fb_search.py || (sleep 60 && python tools/fb_search.py)
       - name: Save hits
         if: always()
         run: |

@@ -50,27 +50,41 @@ def main():
         old = []
     seen = {h["url"] for h in old}
     new, stats = [], {}
-    with DDGS() as d:
-        for q in QUERIES:
-            got = []
+    # Khud-ilaaj: ek search engine block/fail ho to agla aazmao (auto -> bing -> brave -> mojeek -> yahoo -> google)
+    backends = ["auto", "bing", "brave", "mojeek", "yahoo", "google"]
+    bad = set()
+    for q in QUERIES:
+        got, used = [], ""
+        for be in backends:
+            if be in bad:
+                continue
             for tl in ("m", None):          # pehle pichhla mahina; kuch na mile to bina time limit
                 try:
-                    got = d.text(q, timelimit=tl, max_results=15) or []
+                    with DDGS() as d:
+                        got = d.text(q, timelimit=tl, max_results=15, backend=be) or []
                 except Exception as e:
-                    stats[q] = f"err {str(e)[:60]}"
+                    msg = str(e)[:80]
+                    stats[q] = f"err {be}: {msg}"
+                    if "ratelimit" in msg.lower() or "202" in msg or "403" in msg:
+                        bad.add(be)       # ye engine abhi block hai - baqi queries mein skip
+                    got = []
+                    break
                 if got:
                     break
-            n = 0
-            for r in got:
-                url = clean(r.get("href") or "")
-                if not POST_URL.search(url) or url in seen:
-                    continue
-                seen.add(url)
-                n += 1
-                new.append({"url": url, "title": (r.get("title") or "")[:200], "snippet": (r.get("body") or "")[:500],
-                            "found": dt.datetime.utcnow().strftime("%Y-%m-%dT%H:%MZ")})
-            stats.setdefault(q, n)
-            time.sleep(2)
+            if got:
+                used = be
+                break
+        n = 0
+        for r in got:
+            url = clean(r.get("href") or "")
+            if not POST_URL.search(url) or url in seen:
+                continue
+            seen.add(url)
+            n += 1
+            new.append({"url": url, "title": (r.get("title") or "")[:200], "snippet": (r.get("body") or "")[:500],
+                        "found": dt.datetime.utcnow().strftime("%Y-%m-%dT%H:%MZ")})
+        stats[q] = f"{n} ({used or 'none'})"
+        time.sleep(2)
     hits = (new + old)[:300]
     json.dump({"updated": dt.datetime.utcnow().strftime("%Y-%m-%dT%H:%MZ"), "new": len(new), "stats": stats, "hits": hits},
               open(OUT, "w"), ensure_ascii=False, indent=1)

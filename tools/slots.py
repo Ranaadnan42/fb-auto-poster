@@ -43,6 +43,9 @@ SLOTS = [
     dict(file="webbuilder.yml", crons=["27 18 * * *"], post="18:27", lead=15),
     dict(file="webbuilder.yml", crons=["13 19 * * *"], post="19:13", lead=15),
     dict(file="webbuilder.yml", crons=["3 20 * * *"], post="20:03", lead=15),
+    # Comment Helper search (Facebook posts dhoondta hai -> comment_hits.json; Supabase 04:15/13:15 email)
+    dict(file="comment_search.yml", crons=["41 3 * * *"], post="03:41", lead=10),
+    dict(file="comment_search.yml", crons=["41 12 * * *"], post="12:41", lead=10),
 ]
 
 WINDOW_H = 9          # ek post ke saare runs isi ghante ki khirki mein hote hain
