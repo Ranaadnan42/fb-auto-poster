@@ -1,6 +1,6 @@
 {
  "lang": "ur",
- "stock_clips": 10,
+ "stock_clips": 47,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
@@ -23,10 +23,10 @@
   "sabrina carpenter kiss wallpaper 4k",
   "sabri qawwal"
  ],
- "search": "صبر کے واقعات",
- "reel_minutes": 1.12,
- "time_utc": "2026-10-28 13:30",
- "title": "صبر کے واقعات: مشکل وقت میں ان صحابی کا ایمان افروز استقامت",
- "dry_run": true,
+ "search": "صبر کا بیان",
+ "long_minutes": 6.06,
+ "time_utc": "2026-10-28 15:33",
+ "title": "صبر کا بیان: مشکلات میں استقامت کا ایک ایمان افروز واقعہ",
+ "dry_run": false,
  "posted_ok": 1
 }
