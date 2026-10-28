@@ -1,0 +1,44 @@
+name: Comment Helper search
+# Facebook par woh posts dhoondta hai jahan log software/website poochh rahe hain -> comment_hits.json
+# Supabase `comment-helper` is file se comments likh kar Rana ko email karta hai.
+on:
+  schedule:
+    - cron: '41 3 * * *'    # ~8:41 subah PK
+    - cron: '41 12 * * *'   # ~5:41 shaam PK
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: comment-search
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install ddgs
+      - run: python tools/fb_search.py
+      - name: Save hits
+        if: always()
+        run: |
+          FILES="comment_hits.json"
+          mkdir -p /tmp/keep
+          for f in $FILES; do [ -f "$f" ] && cp "$f" /tmp/keep/; done
+          git config user.name "auto-poster"
+          git config user.email "auto-poster@users.noreply.github.com"
+          for i in 1 2 3 4 5; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            for f in $FILES; do [ -f "/tmp/keep/$f" ] && cp "/tmp/keep/$f" "$f"; done
+            for f in $FILES; do [ -f "$f" ] && git add "$f"; done
+            git diff --cached --quiet && break
+            git commit -q -m "Comment Helper: new FB posts"
+            git push -q origin HEAD:main && break
+            sleep $((i * 5))
+          done
