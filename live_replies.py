@@ -23,7 +23,9 @@ import groq_backup
 from growth import PERSONA, FB_ACCOUNTS, fb_call, env, log
 
 LIVE_MINUTES = float(os.environ.get("LIVE_MINUTES") or 345)
-POLL = int(os.environ.get("POLL_SECONDS") or 60)
+POLL = int(os.environ.get("POLL_SECONDS") or 12)        # Web Builder har ~12 second
+OTHERS_EVERY = int(os.environ.get("OTHERS_SECONDS") or 45)  # baqi pages har ~45 second
+PAUSE = {}          # page -> kab tak ruke (Facebook rate limit par)
 DRY_RUN = os.environ.get("DRY_RUN") == "1"
 MAX_AGE_HOURS = 72          # is se purani customer baat ka jawab nahi
 POSTS = 25
@@ -122,11 +124,15 @@ def threads_for(acct):
     return pid, token, out
 
 
-def one_pass():
-    for acct in ["webbuilder"] + [a for a in FB_ACCOUNTS if a != "webbuilder"]:
+def one_pass(accts):
+    for acct in accts:
+        if PAUSE.get(acct, 0) > time.time():
+            continue
         try:
             pid, token, todo = threads_for(acct)
         except Exception as e:
+            if "limit" in str(e).lower() or "(#4)" in str(e) or "(#32)" in str(e):
+                PAUSE[acct] = time.time() + 300      # FB ne roka - 5 minute aaram
             msg = f"{acct}: {str(e)[:150]}"
             if msg not in STATS["errors"]:
                 STATS["errors"].append(msg)
@@ -166,9 +172,15 @@ def save():
 def main():
     STATS["started"] = now().isoformat()
     end = time.time() + LIVE_MINUTES * 60
+    last_others = 0
+    others = [a for a in FB_ACCOUNTS if a != "webbuilder"]
     while True:
         t0 = time.time()
-        one_pass()
+        accts = ["webbuilder"]
+        if t0 - last_others >= OTHERS_EVERY:
+            accts += others
+            last_others = t0
+        one_pass(accts)
         STATS["loops"] += 1
         STATS["last_check"] = now().isoformat()
         if STATS["loops"] % 30 == 1:
