@@ -1,8 +1,12 @@
 {
- "started": "2026-10-28T00:40:32.607219+00:00",
- "loops": 31,
+ "started": "2026-10-28T00:47:04.659081+00:00",
+ "loops": 0,
  "replies": 0,
  "errors": [],
- "log": [],
- "last_check": "2026-10-28T00:46:33.280778+00:00"
+ "log": [
+  "TEST 'POS ki price kya hai? meri grocery shop Riyadh mein hai' -> Rana POS — السعر يبدأ من 600 ريال سعودي للترخيص الدائم، يعمل بدون اتصال إنترنت ويشمل الفواتير، المخزون، والتقارير اليومية. إذا حابب تفاصيل أكثر أو طلب الشراء، أخبرنا باسمك وموقعك.\n\n🌐 https://client-hunt-six.vercel.app/\n💬 WhatsApp: +92 307 5267349",
+  "TEST 'كم سعر برنامج الكاشير؟ عندي سوبرماركت في دبي' -> برنامج كاشير رانا للمتاجر في الإمارات يبدأ من 600 درهم/ريال مرة واحدة، يشمل الفوترة، المخزون والتقارير دون أي رسوم شهرية. هل تود معرفة التفاصيل أكثر؟ يرجى ترك اسمك وموقعك لنرسل لك المعلومات الكاملة.\n\n🌐 https://client-hunt-six.vercel.app/\n💬 WhatsApp: +92 307 5267349",
+  "TEST 'Do you make websites? I am in London' -> Yes, we create custom business websites and online stores. Prices start from $150 for a basic site, $400 for a standard site, and $900 for an e‑commerce store. Let us know what you need and we’ll tailor it for you!\n\n🌐 https://client-hunt-six.vercel.app/\n💬 WhatsApp: +92 307 5267349",
+  "TEST 'Demo dikha sakte ho?' -> جی ہاں! ہم آپ کو Rana POS کا مفت ڈیمو دکھا سکتے ہیں۔ براہِ کرم اپنا نام اور شہر بتائیں تاکہ ہم ترتیب دے سکیں۔\n\n🌐 https://client-hunt-six.vercel.app/\n💬 WhatsApp: +92 307 5267349"
+ ]
 }
