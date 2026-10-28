@@ -15,6 +15,7 @@ DRY_RUN=1 -> video banegi, post nahi hogi.
 import os
 import sys
 import json
+import re
 import time
 import random
 import asyncio
@@ -60,8 +61,9 @@ LANGS = {
         "write_in": ("simple, heart-touching spoken Pakistani URDU written in Urdu script "
                      "(not Roman Urdu). Use common words people speak daily; Islamic terms "
                      "like Allah, Sabr, Dua, Jannat are fine. Always address the viewer respectfully "
-                     "as آپ (never تم or تو). After the Prophet's name write "
-                     "صلی اللہ علیہ وسلم"),
+                     "as آپ (never تم or تو). After the Prophet's name ALWAYS write the full words "
+                     "صلی اللہ علیہ وسلم (never the ﷺ symbol, never abbreviations). Never add "
+                     "zabar/zer/pesh/tashdeed (harakat) to any word"),
         "follow": "آخر میں کہیں: پیج Islamic Motivational Videos کو فالو کریں اور یہ ویڈیو شیئر کریں",
         "reel_end": "آخر میں کہیں: ایسی مزید ویڈیوز کے لیے فالو کریں",
         "caption_lang": "Urdu (Urdu script)",
@@ -115,6 +117,9 @@ SAY_RULE = ("PRONUNCIATION: a text-to-speech voice reads 'text', so Arabic and o
             "(e.g. Bismillah -> 'Biss-mil-lah', Alhamdulillah -> 'Al-ham-du-lil-lah', InshaAllah -> "
             "'In-sha-Allah', SubhanAllah -> 'Sub-haan-Allah', Surah -> 'Soo-rah', Taqwa -> 'Tuq-waa'). "
             "Respell in the SAME language/script as 'text'. Keep every other word identical to 'text'. "
+            "URDU: NEVER add zabar/zer/pesh/tashdeed (harakat) - they make the voice mispronounce; split hard "
+            "Arabic words with hyphens instead (e.g. بس-م-اللہ، ال-حم-دو-لل-لاہ، ان-شا-اللہ، سب-حان-اللہ). "
+            "Never respell or hyphenate the Prophet's name محمد or صلی اللہ علیہ وسلم - keep them exactly so. "
             "If a scene has no hard word, omit 'say'.")
 
 # Har scene mein aadhe clips inn mein se (masjid waghera zyada dikhein)
@@ -452,7 +457,30 @@ Return JSON: {{"scenes": [{{"text": "...", "say": "text with hard words phonetic
 
 
 # ---------------------------------------------------------------- audio
+DUROOD_UR = " صلی اللہ علیہ وسلم "
+_HARAKAT = re.compile(r"[\u064B-\u065F\u0670\u06D6-\u06ED]")
+
+
+def clean_for_voice(text):
+    """Awaaz se pehle text saaf: Nabi pak ka naam aur durood hamesha theek bole.
+    Test (Whisper) se pata chala: ﷺ nishan awaaz bilkul skip kar deti hai, aur zabar/zer/pesh/tashdeed
+    lagane se lafz bigar jaate hain (محمد -> 'معیمیت'). Saada likha 'صلی اللہ علیہ وسلم' sab se saaf bolta hai."""
+    t = text
+    if LANG == "ur":
+        t = re.sub(r"\(?\s*(ﷺ|\u0610|صلعم|\(ص\))\s*\)?", DUROOD_UR, t)
+        t = _HARAKAT.sub("", t)                                        # zabar/zer/pesh/shadd hatao
+        t = re.sub(r"صل[یىي]?\s*-?\s*ا?لل[هہ]\s*-?\s*عل[یىي][هہ]\s*-?\s*(و\s*آل[هہ]\s*)?و?\s*-?\s*سلم",
+                   lambda m: "صلی اللہ علیہ وآلہ وسلم" if m.group(1) else DUROOD_UR.strip(), t)  # ek saaf shakal
+        t = re.sub(r"صل-?لل-?لاہو\s*علیہ-?\s*وسلم", DUROOD_UR.strip(), t)
+        t = t.replace("ى", "ی").replace("ي", "ی")
+    else:
+        t = re.sub(r"\(?\s*(ﷺ|\u0610|PBUH|P\.B\.U\.H\.?|SAWS|SAW|S\.A\.W\.?)\s*\)?", " peace be upon him ", t)
+    return re.sub(r"\s{2,}", " ", t).strip()
+
+
 def tts(text, path):
+    text = clean_for_voice(text)
+
     async def go():
         await edge_tts.Communicate(text, L["voice"], rate=L["rate"]).save(path)
     for attempt in range(6):                                   # Microsoft kabhi kabhi rok deta hai
