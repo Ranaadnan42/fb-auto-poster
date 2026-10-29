@@ -1,12 +1,18 @@
 {
  "mode": "auto",
- "stock_clips": 0,
+ "stock_clips": 7,
  "fallback_clips": 0,
  "errors": [],
- "format": "chat",
- "reel_minutes": 1.25,
- "laughs": 3,
- "time_utc": "2026-10-29 08:23",
- "title": "باس کا عذاب اور پیر کی صبح کا بہانہ",
+ "format": "animal",
+ "search_phrases": [
+  "ammi abbu video",
+  "ammi abbu dadi jaan",
+  "ammi abbu dadi jaan poem"
+ ],
+ "search": "ammi abbu dadi jaan",
+ "laughs": 2,
+ "reel_minutes": 0.52,
+ "time_utc": "2026-10-29 12:54",
+ "title": "مرغی اور امی اببو دادی جان کا ہنگامہ",
  "dry_run": false
 }
