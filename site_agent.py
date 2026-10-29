@@ -304,7 +304,7 @@ def write_article(posts, category):
                         log(f"section fail: {str(e)[:150]}")
                 if sec:
                     parts.append(f"<h2>{esc(x['h2'])}</h2>{sec}")
-                time.sleep(1)
+                time.sleep(4)   # Groq per-minute limit ke andar
             a["body_html"] = "\n".join(parts)
             wc = word_count(a["body_html"])
             log(f"Article try {attempt + 1}: {wc} words")
@@ -319,39 +319,53 @@ def write_article(posts, category):
 
 
 # ---------------------------------------------------------------- image
+def _save_cover(url, slug, credit, credit_url, source):
+    from PIL import Image
+    img = requests.get(url, timeout=60).content
+    im = Image.open(io.BytesIO(img)).convert("RGB")
+    w, h = im.size
+    tw, th = 1200, 630
+    scale = max(tw / w, th / h)
+    im = im.resize((int(w * scale) + 1, int(h * scale) + 1))
+    w, h = im.size
+    im = im.crop(((w - tw) // 2, (h - th) // 2, (w - tw) // 2 + tw, (h - th) // 2 + th))
+    os.makedirs(os.path.join(OUT, "img"), exist_ok=True)
+    name = f"{slug}.jpg"
+    im.save(os.path.join(OUT, "img", name), "JPEG", quality=80, optimize=True, progressive=True)
+    return {"file": f"img/{name}", "credit": credit, "credit_url": credit_url, "source": source}
+
+
 def fetch_image(query, slug):
-    key = os.environ.get("PEXELS_API_KEY")
-    if not key:
-        return None
-    try:
-        r = requests.get("https://api.pexels.com/v1/search", headers={"Authorization": key},
-                         params={"query": query, "orientation": "landscape", "per_page": 15}, timeout=20)
-        photos = r.json().get("photos", []) if r.status_code == 200 else []
-        if not photos:
-            r = requests.get("https://api.pexels.com/v1/search", headers={"Authorization": key},
-                             params={"query": "small business technology", "orientation": "landscape",
-                                     "per_page": 15}, timeout=20)
-            photos = r.json().get("photos", [])
-        if not photos:
-            return None
-        ph = random.choice(photos[:8])
-        img = requests.get(ph["src"]["large2x"], timeout=60).content
-        from PIL import Image
-        im = Image.open(io.BytesIO(img)).convert("RGB")
-        w, h = im.size
-        tw, th = 1200, 630
-        scale = max(tw / w, th / h)
-        im = im.resize((int(w * scale) + 1, int(h * scale) + 1))
-        w, h = im.size
-        im = im.crop(((w - tw) // 2, (h - th) // 2, (w - tw) // 2 + tw, (h - th) // 2 + th))
-        os.makedirs(os.path.join(OUT, "img"), exist_ok=True)
-        name = f"{slug}.jpg"
-        im.save(os.path.join(OUT, "img", name), "JPEG", quality=80, optimize=True, progressive=True)
-        return {"file": f"img/{name}", "credit": ph.get("photographer", "Pexels"),
-                "credit_url": ph.get("url", "https://www.pexels.com")}
-    except Exception as e:
-        log(f"image fail: {str(e)[:200]}")
-        return None
+    for q in (query, "small business technology"):
+        key = os.environ.get("PEXELS_API_KEY")
+        if key:
+            try:
+                r = requests.get("https://api.pexels.com/v1/search", headers={"Authorization": key},
+                                 params={"query": q, "orientation": "landscape", "per_page": 15}, timeout=20)
+                photos = r.json().get("photos", []) if r.status_code == 200 else []
+                log(f"Pexels '{q}': {r.status_code}, {len(photos)} photos")
+                if photos:
+                    ph = random.choice(photos[:8])
+                    return _save_cover(ph["src"]["large2x"], slug, ph.get("photographer", "Pexels"),
+                                       ph.get("url", "https://www.pexels.com"), "Pexels")
+            except Exception as e:
+                log(f"pexels fail: {str(e)[:150]}")
+        key = os.environ.get("PIXABAY_API_KEY")
+        if key:
+            try:
+                r = requests.get("https://pixabay.com/api/", params={
+                    "key": key, "q": q, "image_type": "photo", "orientation": "horizontal",
+                    "safesearch": "true", "per_page": 20, "min_width": 1200}, timeout=20)
+                hits = r.json().get("hits", []) if r.status_code == 200 else []
+                log(f"Pixabay '{q}': {r.status_code}, {len(hits)} photos")
+                if hits:
+                    ph = random.choice(hits[:8])
+                    return _save_cover(ph.get("largeImageURL") or ph["webformatURL"], slug, ph.get("user", "Pixabay"),
+                                       ph.get("pageURL", "https://pixabay.com"), "Pixabay")
+            except Exception as e:
+                log(f"pixabay fail: {str(e)[:150]}")
+    log("image nahi mili")
+    return None
 
 
 # ---------------------------------------------------------------- render
@@ -463,7 +477,7 @@ def render_post(p, posts):
     img = ""
     if p.get("image"):
         img = (f'<img src="{rel}{p["image"]["file"]}" alt="{esc(p.get("image_alt"))}" width="1200" height="630" fetchpriority="high">'
-               f'<div class="credit">Photo: <a href="{esc(p["image"]["credit_url"])}" rel="nofollow noopener" target="_blank">{esc(p["image"]["credit"])}</a> on Pexels</div>')
+               f'<div class="credit">Photo: <a href="{esc(p["image"]["credit_url"])}" rel="nofollow noopener" target="_blank">{esc(p["image"]["credit"])}</a> on {esc(p["image"].get("source", "Pexels"))}</div>')
     take = "".join(f"<li>{esc(t)}</li>" for t in p.get("key_takeaways", []))
     toc_html = "".join(f'<li><a href="#{h}">{esc(t)}</a></li>' for h, t in toc)
     faq_html = "".join(f"<h3>{esc(f['q'])}</h3><p>{esc(f['a'])}</p>" for f in faq)
@@ -644,6 +658,10 @@ def main():
             new_urls = [f"{SITE_URL}/{slug}/", f"{SITE_URL}/", f"{SITE_URL}/category/{cat}/"]
             log(f"NEW: {p['title']} -> {SITE_URL}/{slug}/")
     posts = [fix_meta(p) for p in posts]
+    # self-heal: jis post ki photo gum hai usko dobara lagao
+    for p in posts:
+        if not p.get("image") or not os.path.exists(os.path.join(OUT, p["image"]["file"])):
+            p["image"] = fetch_image(p.get("keyword") or p["title"], p["slug"])
     render_site(posts)
     health(posts)
     if not dry:
