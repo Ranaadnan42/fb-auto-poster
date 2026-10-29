@@ -237,7 +237,7 @@ Return JSON:
  "intro_html": "<p>2 short paragraphs that answer the question directly in the first sentences</p>",
  "key_takeaways": ["3-5 short takeaways"],
  "experience_angle": "which real experience facts to weave in and where (or empty if none fit)",
- "sections": [{{"h2": "section heading", "notes": "what this section must cover (specific points, steps, examples)", "table": true/false}}, ... 7 or 8 sections; exactly one has table=true],
+ "sections": [{{"h2": "section heading", "notes": "what this section must cover (specific points, steps, examples)", "table": true/false, "use_experience": true/false}}, ... 7 or 8 sections; exactly one has table=true; use_experience=true on AT MOST 2 sections where a real fact truly fits],
  "faq": [{{"q": "real follow-up question", "a": "2-4 sentence answer"}}, ... 5 items],
  "image_query": "2-4 word stock photo query",
  "image_alt": "descriptive alt text",
@@ -302,7 +302,8 @@ True facts about the author (anything first-person beyond these is invented):
 Article HTML:
 {body}
 
-Find sentences that: state a precise statistic, survey or study result without a source; invent a first-person
+Find sentences that: make a first-person claim (I/my/we) that adds ANY detail not literally stated in the true facts
+(other cities, devices, business types, results), or repeat the author's experience more than twice in the article; state a precise statistic, survey or study result without a source; invent a first-person
 story/client/result not supported by the facts above; name a specific product price as exact fact; are empty fluff
 or keyword stuffing. For each, give the exact sentence text as it appears (plain text, no tags) and a safer
 replacement (approximate/"typically" wording) or "" to delete. Max 12 fixes.
@@ -354,15 +355,17 @@ def write_article(posts, category):
                 raise RuntimeError("topic pehle se hai")
             log(f"Outline: '{a['title']}' [{a.get('keyword')}] - {len(secs)} sections")
             heads = [x["h2"] for x in secs]
+            used_exp = []
             parts = [clean_html(a.get("intro_html", ""))]
             for x in secs:
                 sp = SECTION_PROMPT.format(
                     title=a["title"], keyword=a.get("keyword", ""), author=AUTHOR, h2=x["h2"],
                     notes=x.get("notes", ""), others="; ".join(h for h in heads if h != x["h2"]),
-                    experience_rule=(f"Planned real-experience angle for the article: {a.get('experience_angle')}\n"
-                                     f"If it fits THIS section, add 1-3 first-person sentences based ONLY on these true facts:\n{EXPERIENCE}\n"
-                                     "Never invent clients, numbers or outcomes beyond them. Skip if not relevant here."
-                                     if a.get("experience_angle") else ""),
+                    experience_rule=(f"Planned real-experience angle: {a.get('experience_angle')}\n"
+                                     f"Add ONE short first-person note (1-2 sentences) based strictly on these true facts:\n{EXPERIENCE}\n"
+                                     "Do not add any detail they don't state (no cities, devices, business types, numbers or results beyond them)."
+                                     if x.get("use_experience") and used_exp.append(1) is None and len(used_exp) <= 2
+                                     else "Write in a neutral expert voice. Do NOT use first-person experience claims (no 'I built', 'my clients', 'in my experience')."),
                     table_rule=("Include one comparison <table> with <thead> and <tbody>." if x.get("table") else ""))
                 sec = ""
                 for _ in range(2):
