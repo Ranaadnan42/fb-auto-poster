@@ -1,19 +1,28 @@
 {
- "time": "2026-10-29T21:04:05Z",
- "failed": "Article nahi bana: bohat chhota article (528 words)",
+ "time": "2026-10-29T21:05:52Z",
+ "mode": "post",
+ "posts": 1,
+ "new": [
+  "https://ranaadnan42.github.io/fb-auto-poster/blog/automate-small-business-operations-ai/"
+ ],
  "log": [
-  "Category: websites",
-  "Keyword ideas (websites): 150",
+  "Category: ai-tools",
+  "Keyword ideas (ai-tools): 134",
   "Groq model: openai/gpt-oss-120b",
-  "Article try 1: 'SEO for Small Business: A Practical Guide to Boost Rankings in 2026' - 571 words",
-  "article fail: bohat chhota article (571 words)",
+  "Outline: 'How to Automate Small Business Operations with AI' [how to automate small business operations with AI] - 8 sections",
   "Groq model: openai/gpt-oss-120b",
-  "Article try 2: 'SEO for Small Business: A Practical Guide to Grow Your Online Presence' - 776 words",
-  "article fail: bohat chhota article (776 words)",
   "Groq model: openai/gpt-oss-120b",
-  "Article try 3: 'SEO for Small Business: A Practical Guide to Grow Your Online Presence' - 528 words",
-  "article fail: bohat chhota article (528 words)",
-  "FAILED: Article nahi bana: bohat chhota article (528 words)",
-  "Traceback (most recent call last):\n  File \"/home/runner/work/fb-auto-poster/fb-auto-poster/site_agent.py\", line 616, in <module>\n    main()\n  File \"/home/runner/work/fb-auto-poster/fb-auto-poster/site_agent.py\", line 590, in main\n    a = write_article(posts, cat)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^\n  "
+  "Groq model: openai/gpt-oss-120b",
+  "Groq model: openai/gpt-oss-120b",
+  "Groq model: openai/gpt-oss-120b",
+  "Groq model: openai/gpt-oss-120b",
+  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6183",
+  "Groq model: openai/gpt-oss-120b",
+  "Groq model: openai/gpt-oss-120b",
+  "Article try 1: 2670 words",
+  "NEW: How to Automate Small Business Operations with AI -> https://ranaadnan42.github.io/fb-auto-poster/blog/automate-small-business-operations-ai/",
+  "Health: 1 posts, 1 issues",
+  "  - automate-small-business-operations-ai: image nahi",
+  "IndexNow skip (github.io par key root par nahi rakh sakte) - custom/vercel domain par chalega"
  ]
 }

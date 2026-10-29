@@ -1,0 +1,5 @@
+{
+ "ignoreCommand": "git diff --quiet HEAD^ HEAD -- .",
+ "cleanUrls": false,
+ "trailingSlash": true
+}

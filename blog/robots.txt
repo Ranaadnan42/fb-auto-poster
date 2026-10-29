@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ranaadnan42.github.io/fb-auto-poster/blog/sitemap.xml
