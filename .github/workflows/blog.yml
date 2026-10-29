@@ -54,7 +54,7 @@ jobs:
             git fetch -q origin main && git reset -q --hard origin/main
             [ -d /tmp/keep/blog ] && rm -rf blog && cp -r /tmp/keep/blog blog
             for f in site_posts.json blog_report.json site_last_run.json; do [ -f "/tmp/keep/$f" ] && cp "/tmp/keep/$f" .; done
-            git add blog site_posts.json blog_report.json site_last_run.json 2>/dev/null
+            for f in blog site_posts.json blog_report.json site_last_run.json; do [ -e "$f" ] && git add "$f"; done
             git diff --cached --quiet && break
             git commit -q -m "Website agent: daily article + site update"
             git push -q origin HEAD:main && break

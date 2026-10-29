@@ -67,8 +67,13 @@ SUGGEST_URL = "https://suggestqueries.google.com/complete/search"
 UA = {"User-Agent": "Mozilla/5.0 (compatible; BizToolsHubBot/1.0)"}
 
 
+LOG_LINES = []
+
+
 def log(*a):
-    print(*a, flush=True)
+    msg = " ".join(str(x) for x in a)
+    LOG_LINES.append(msg[:300])
+    print(msg, flush=True)
 
 
 def load_json(path, default):
@@ -603,12 +608,16 @@ def main():
         save_json(DATA, posts)
         indexnow(new_urls)
     save_json(LAST, {"time": datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z", "mode": mode,
-                     "posts": len(posts), "new": new_urls[:1]})
+                     "posts": len(posts), "new": new_urls[:1], "log": LOG_LINES[-40:]})
 
 
 if __name__ == "__main__":
     try:
         main()
     except Exception as e:
+        import traceback
         log(f"FAILED: {e}")
+        log(traceback.format_exc()[-1500:])
+        save_json(LAST, {"time": datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z",
+                         "failed": str(e)[:500], "log": LOG_LINES[-60:]})
         sys.exit(1)
