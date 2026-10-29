@@ -1,0 +1,19 @@
+{
+ "time": "2026-10-29T21:04:05Z",
+ "failed": "Article nahi bana: bohat chhota article (528 words)",
+ "log": [
+  "Category: websites",
+  "Keyword ideas (websites): 150",
+  "Groq model: openai/gpt-oss-120b",
+  "Article try 1: 'SEO for Small Business: A Practical Guide to Boost Rankings in 2026' - 571 words",
+  "article fail: bohat chhota article (571 words)",
+  "Groq model: openai/gpt-oss-120b",
+  "Article try 2: 'SEO for Small Business: A Practical Guide to Grow Your Online Presence' - 776 words",
+  "article fail: bohat chhota article (776 words)",
+  "Groq model: openai/gpt-oss-120b",
+  "Article try 3: 'SEO for Small Business: A Practical Guide to Grow Your Online Presence' - 528 words",
+  "article fail: bohat chhota article (528 words)",
+  "FAILED: Article nahi bana: bohat chhota article (528 words)",
+  "Traceback (most recent call last):\n  File \"/home/runner/work/fb-auto-poster/fb-auto-poster/site_agent.py\", line 616, in <module>\n    main()\n  File \"/home/runner/work/fb-auto-poster/fb-auto-poster/site_agent.py\", line 590, in main\n    a = write_article(posts, cat)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^\n  "
+ ]
+}
