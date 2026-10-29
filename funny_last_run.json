@@ -1,19 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 8,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
- "search_phrases": [
-  "mobile addiction funny video",
-  "mobile phone addiction video",
-  "mobile phone addiction skit",
-  "mobile addiction comedy video"
- ],
- "search": "mobile addiction funny video",
+ "format": "chat",
+ "reel_minutes": 1.25,
  "laughs": 3,
- "reel_minutes": 0.58,
- "time_utc": "2026-10-28 17:09",
- "title": "بطخ اینکر کی موبائل فون ایڈکشن ویڈیو",
+ "time_utc": "2026-10-29 08:23",
+ "title": "باس کا عذاب اور پیر کی صبح کا بہانہ",
  "dry_run": false
 }
