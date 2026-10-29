@@ -1,12 +1,13 @@
 {
- "time_utc": "2026-10-28 20:30",
- "spotlight": "pharmacy",
- "post_id": "1940321890275028",
+ "time_utc": "2026-10-29 23:51",
+ "spotlight": "real estate agency",
+ "post_id": "2140923163179725",
  "error": null,
  "lang": "ar",
  "kind": "long",
- "clips": 22,
+ "clips": 3,
  "fallback": 0,
  "errors": [],
- "seconds": 113.0
+ "mock": 13,
+ "seconds": 108.9
 }
