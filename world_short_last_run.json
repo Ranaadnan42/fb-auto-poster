@@ -1,26 +1,19 @@
 {
  "mode": "short",
- "clips": 15,
- "clips_rejected": 41,
- "vision_checks": 46,
+ "clips": 16,
+ "clips_rejected": 1,
+ "vision_checks": 0,
  "errors": [],
  "search_phrases": [
-  "living in a car",
-  "living in alaska",
-  "living in japan",
-  "living in thailand",
-  "living in the sunlight",
-  "living in the philippines",
-  "living in a van",
-  "living in china",
-  "living in a storage unit",
-  "living in america"
+  "wages vs cost of living",
+  "inflation and cost of living",
+  "prices and cost of living class 9"
  ],
- "search": "living in alaska",
- "vision_skipped": 7,
- "seconds": 69.6,
+ "search": "wages vs cost of living",
+ "vision_skipped": 16,
+ "seconds": 66.0,
  "links": [],
- "subject": "Anchorage, Alaska, USA",
- "series": "living_short",
- "title": "Would You Live in Anchorage, Alaska? Cost & Reality"
+ "subject": "London vs Toronto",
+ "series": "versus_short",
+ "title": "London vs Toronto: Wages vs Cost of Living Comparison"
 }
