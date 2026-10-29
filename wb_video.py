@@ -19,9 +19,12 @@ import time
 import random
 import asyncio
 import datetime
+import re
 import subprocess
 
 import requests
+
+import wb_mock
 
 GRAPH_VER = "v23.0"
 WB_TOKEN = os.environ.get("WB_PAGE_TOKEN")
@@ -56,11 +59,11 @@ BUSINESSES = ["restaurant", "grocery store", "pharmacy", "clothing shop", "beaut
               "wholesale distributor", "jewellery shop", "travel agency"]
 
 # Asal facts - AI inhi se baat kare, apni taraf se qeemat/wade na banaye
-FACTS = """- Business website: clean, fast, professional, mobile friendly, brings more customers. Starting from $150.
-- Online store (e-commerce): customers order from anywhere, anytime. Starting from $900.
+FACTS = """- Business website: clean, fast, professional, mobile friendly, brings more customers.
+- Online store (e-commerce): customers order from anywhere, anytime.
 - Mobile app: custom Android apps - online ordering, delivery, booking, owner dashboard.
 - POS software (Rana POS): fast billing, barcode, live stock & inventory, daily sales & profit reports,
-  works offline, one-time price with no monthly fee. Used by shops in Saudi Arabia, UAE and Pakistan.
+  works offline. Used by shops in Saudi Arabia, UAE and Pakistan.
 - Made for EVERY business: restaurant, grocery, pharmacy, clothing, salon, school, clinic, bakery,
   mobile shop, supermarket, wholesale and more.
 - Contact: WhatsApp +92 307 5267349, website client-hunt-six.vercel.app"""
@@ -132,12 +135,18 @@ def ask_json(prompt):
     raise RuntimeError(f"AI fail: {last}")
 
 
+PRICE_RE = re.compile(r"[$€£]|\b(usd|pkr|sar|aed|dollars?|rupees?|riyals?|dirhams?|price|cost|cheap|discount|"
+                      r"monthly fee|one[- ]time (price|payment|fee)|starting from|qeemat|keemat|rupay|"
+                      r"mahana fees?)\b|قیمت|روپے|ریال|ڈالر|ماہانہ فیس|سعر|ريال|دولار|درهم|اشتراك شهري|कीमत|रुपये|फीस",
+                      re.I)
+
+
 def write_script(spot, used_titles):
     if LANG == "ar":   # Arabic = Saudi/UAE dukaandar - zyada POS
         if LONG:
             shape = ("about 2 minutes 30 seconds spoken (about 300 words), exactly 12 scenes: 1 hook for shop owners "
                      "in Saudi Arabia and the UAE, 1 the problem (wrong bills, lost stock, no idea of daily profit), "
-                     "6 about the POS SOFTWARE (billing, barcode, stock, reports, offline, one-time price), "
+                     "6 about the POS SOFTWARE (billing, barcode, stock, reports, works offline), "
                      "1 WEBSITE / online store, 1 MOBILE APP, 1 'for every business' naming many shop types "
                      f"(spotlight a {spot}), 1 call to action with WhatsApp number and website")
         else:
@@ -177,21 +186,31 @@ def write_script(spot, used_titles):
     data = ask_json(f"""You make a promo video for the Facebook page "{PAGE_NAME}" - a team that builds
 websites, mobile apps and POS software for businesses. Length: {shape}.
 {lang_rule}
-Use ONLY these facts (never invent prices, discounts, guarantees or clients):
+Use ONLY these facts (never invent discounts, guarantees or clients):
 {FACTS}
+NEVER mention any price, cost, fee, money amount, dollars, rupees, riyals, dirhams, "cheap", "one-time payment"
+or "no monthly fee" anywhere (not in narration, title or caption). Price is only discussed on WhatsApp.
 Make it exciting and persuasive like a professional ad: first line is a scroll-stopping hook,
 talk about real benefits (more customers, no wrong bills, know daily profit, sell online).
 Past video titles (make this one fresh and different): {json.dumps(used_titles[-30:], ensure_ascii=False)}
 
 For each scene also give:
  "label": 1-3 word ENGLISH on-screen heading (e.g. "WEBSITE", "MOBILE APP", "POS SOFTWARE", "EVERY BUSINESS"),
- "visual": 1-3 word ENGLISH stock-video search term showing EXACTLY what this scene talks about
-   (e.g. "laptop website", "smartphone app", "cash register", "restaurant kitchen", "grocery store", "pharmacy").
+ "show": what the scene talks about, EXACTLY one of: "pos" (billing / barcode / POS software),
+   "report" (stock, inventory, daily sales, profit), "website" (website / online store), "app" (mobile app),
+   "business" (hook, problem, business types), "contact" (call to action),
+ "visual": 1-2 word ENGLISH stock-video search term of a real thing in this scene
+   (e.g. "cash register", "barcode scanner", "typing laptop", "smartphone", "{spot}").
 
 Return JSON: {{"title": "short catchy title (in the video language)",
+ "demo_name": "a realistic made-up shop name for a {spot} (English letters, max 3 words), shown on demo screens",
  "scenes": [{{"text": "...", {'"roman": "...", ' if LANG == 'ur' else ''}"label": "...", "visual": "..."}}],
  {lang_fields}}}""")
     scenes = [s for s in data.get("scenes", []) if (s.get("text") or "").strip()]
+    bad = [x for x in [data.get("title"), data.get("caption"), data.get("caption_ur"), data.get("caption_hi")]
+           + [s.get("text") for s in scenes] + [s.get("roman") for s in scenes] if x and PRICE_RE.search(x)]
+    if bad:
+        raise RuntimeError(f"script mein price aa gayi: {bad[0][:80]}")
     if len(scenes) < (8 if LONG else 4):
         raise RuntimeError("script mein scenes kam hain")
     data["scenes"] = scenes
@@ -200,10 +219,10 @@ Return JSON: {{"title": "short catchy title (in the video language)",
 
 FALLBACK = {
     "en": [("Is your business still missing customers online?", "YOUR BUSINESS", "small business owner"),
-           ("We build fast, professional websites that bring you new customers, starting from 150 dollars.",
-            "WEBSITE", "laptop website"),
+           ("We build fast, professional websites that bring you new customers.",
+            "WEBSITE", "typing laptop"),
            ("Get your own mobile app for orders, delivery and bookings.", "MOBILE APP", "smartphone app"),
-           ("Our POS software gives fast billing, live stock and daily profit reports, with no monthly fee.",
+           ("Our POS software gives fast billing, barcode scanning, live stock and daily profit reports.",
             "POS SOFTWARE", "cash register"),
            ("Restaurant, grocery, pharmacy, salon, school or clinic, we build it for every business.",
             "EVERY BUSINESS", "shop owner"),
@@ -212,7 +231,7 @@ FALLBACK = {
     "ar": [("هل ما زالت فواتير محلك تتعبك؟", "YOUR SHOP", "shop owner"),
            ("برنامج الكاشير من ويب بلدر: فواتير سريعة ومسح الباركود في ثوان.", "POS SOFTWARE", "cash register"),
            ("تابع مخزونك لحظة بلحظة واعرف أرباحك كل يوم.", "STOCK & PROFIT", "barcode scanner"),
-           ("يعمل بدون إنترنت، بدفعة واحدة وبدون اشتراك شهري.", "NO MONTHLY FEE", "supermarket checkout"),
+           ("يعمل حتى بدون إنترنت، وتقارير يومية للمبيعات.", "WORKS OFFLINE", "supermarket checkout"),
            ("ونصمم لك موقعا إلكترونيا وتطبيق جوال لنشاطك.", "WEBSITE & APP", "laptop website"),
            ("تواصل معنا على واتساب الآن: زائد تسعة اثنان، ثلاثة صفر سبعة، خمسة اثنان ستة سبعة ثلاثة أربعة تسعة.",
             "CONTACT US", "phone message")],
@@ -220,11 +239,11 @@ FALLBACK = {
             "YOUR BUSINESS", "small business owner"),
            ("ہم آپ کے بزنس کی خوبصورت اور تیز ویب سائٹ بناتے ہیں، جو نئے کسٹمر لاتی ہے۔",
             "Hum aap ke business ki khoobsurat aur tez website banate hain, jo naye customer laati hai.",
-            "WEBSITE", "laptop website"),
+            "WEBSITE", "typing laptop"),
            ("آرڈر، ڈیلیوری اور بکنگ کے لیے آپ کی اپنی موبائل ایپ۔",
             "Order, delivery aur booking ke liye aap ki apni mobile app.", "MOBILE APP", "smartphone app"),
-           ("ہمارا پی او ایس سافٹ ویئر: تیز بل، اسٹاک کا پورا حساب اور روز کا منافع، کوئی ماہانہ فیس نہیں۔",
-            "Hamara POS software: tez bill, stock ka poora hisaab aur roz ka munafa, koi mahana fees nahi.",
+           ("ہمارا پی او ایس سافٹ ویئر: تیز بل، بارکوڈ، اسٹاک کا پورا حساب اور روز کا منافع۔",
+            "Hamara POS software: tez bill, barcode, stock ka poora hisaab aur roz ka munafa.",
             "POS SOFTWARE", "cash register"),
            ("ریسٹورنٹ ہو، کریانہ، فارمیسی، سیلون، اسکول یا کلینک، ہر بزنس کے لیے۔",
             "Restaurant ho, kiryana, pharmacy, salon, school ya clinic, har business ke liye.",
@@ -279,10 +298,11 @@ def make_music(path, secs):
 
 # ------------------------------------------------------------- clips
 def pixabay_clips(query, count, prefix):
+    """Sirf woh clips jin ke tags mein search ke SAARE lafz hon - taake clip scene se related ho."""
     got = []
-    if not PIXABAY_KEY:
+    if not PIXABAY_KEY or count <= 0:
         return got
-    for q in (query, "business office", "laptop", "smartphone"):
+    for q in (query,):
         if len(got) >= count:
             break
         try:
@@ -294,7 +314,7 @@ def pixabay_clips(query, count, prefix):
             for h in r.json().get("hits", []):
                 tags = (h.get("tags") or "").lower()
                 words = set(tags.replace(",", " ").split())
-                if h["id"] in USED or words & BLOCK or (qw and not any(w in tags for w in qw)):
+                if h["id"] in USED or words & BLOCK or (qw and not all(w in tags for w in qw)):
                     continue
                 hits.append(h)
         except Exception as e:
@@ -382,13 +402,90 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 
 
 # ------------------------------------------------------------- build
+SHOWS = ("pos", "report", "website", "app", "business", "contact")
+# har topic ke liye sirf related stock search (strict) - na mile to apni product pic
+STOCK = {"pos": ["cash register", "barcode scanner", "supermarket checkout"],
+         "report": ["barcode scanner", "warehouse inventory"], "website": ["typing laptop"],
+         "app": ["smartphone", "mobile phone"], "contact": [], "business": []}
+SPOT_STOCK = {"grocery store": "grocery", "clothing shop": "clothing store", "beauty salon": "hair salon",
+              "mobile phone shop": "phone shop", "hardware store": "hardware", "electronics shop": "electronics",
+              "real estate agency": "real estate", "car workshop": "car repair", "furniture store": "furniture",
+              "wholesale distributor": "warehouse", "jewellery shop": "jewelry", "travel agency": "travel"}
+
+
+def show_of(sc):
+    sh = (sc.get("show") or "").strip().lower()
+    if sh in SHOWS:
+        return sh
+    t = f"{sc.get('label', '')} {sc.get('visual', '')}".lower()
+    for key, words in (("contact", ("contact", "whatsapp", "call")), ("report", ("stock", "profit", "report")),
+                       ("pos", ("pos", "bill", "cash", "barcode")), ("app", ("app",)),
+                       ("website", ("website", "online", "store", "web"))):
+        if any(w in t for w in words):
+            return key
+    return "business"
+
+
+def image_clip(img, path, secs):
+    """Pic ko halka zoom de kar video clip banaye."""
+    fr = int(secs * 30) + 15
+    run(["ffmpeg", "-y", "-loop", "1", "-i", img, "-vf",
+         f"scale={W * 2}:{H * 2},zoompan=z='1+0.07*on/{fr}':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)'"
+         f":d={fr}:s={W}x{H}:fps=30,format=yuv420p", "-frames:v", str(fr),
+         "-c:v", "libx264", "-preset", "veryfast", "-crf", "22", path])
+    return path
+
+
+def scene_visuals(i, sc, k, dur):
+    sh = show_of(sc)
+    spot = SCRIPT_CTX["spot"]
+    name = SCRIPT_CTX["name"]
+    seg = dur / k + 0.5
+    mocks = {"pos": ["pos", "report"], "report": ["report", "pos"], "website": ["website", "business"],
+             "app": ["app", "business"], "contact": ["contact"], "business": ["business", "business"]}[sh]
+    out = []
+    # 1st clip hamesha apni related pic (POS screen / website / app / business photo)
+    stock_q = list(STOCK[sh])
+    if sh == "business":
+        stock_q = [SPOT_STOCK.get(spot, spot)]
+        v = (sc.get("visual") or "").strip().lower()
+        if v and v not in stock_q and len(v.split()) <= 2:
+            stock_q.insert(0, v)
+    for j in range(k):
+        if j == 0 or sh == "contact" or not stock_q:
+            kind = mocks[min(j, len(mocks) - 1)] if j < len(mocks) else mocks[0]
+            img = wb_mock.make(kind, W, H, spot, os.path.join(WORK, f"m{i}_{j}.jpg"), name, WA, SITE_SHORT)
+            out.append(image_clip(img, os.path.join(WORK, f"c{i}_{j}.mp4"), seg))
+            REPORT["mock"] = REPORT.get("mock", 0) + 1
+            continue
+        got = []
+        while stock_q and not got:
+            got = pixabay_clips(stock_q.pop(0), 1, f"c{i}_{j}")
+        if got:
+            REPORT["clips"] += 1
+            out.append(got[0])
+        else:
+            kind = mocks[min(j, len(mocks) - 1)]
+            img = wb_mock.make(kind, W, H, spot, os.path.join(WORK, f"m{i}_{j}.jpg"), name, WA, SITE_SHORT)
+            out.append(image_clip(img, os.path.join(WORK, f"c{i}_{j}.mp4"), seg))
+            REPORT["mock"] = REPORT.get("mock", 0) + 1
+    log(f"scene {i + 1}: {sh}")
+    return out
+
+
+SCRIPT_CTX = {"spot": "restaurant", "name": "City Restaurant"}
+
+
 def build_scene(i, sc):
     audio = f"a{i}.mp3"
     tts(sc["text"].strip(), os.path.join(WORK, audio))
     dur = duration(os.path.join(WORK, audio)) + 0.35
-    k = max(1, min(3, round(dur / 5)))                 # har ~5 sec naya clip
-    clips = pixabay_clips(sc.get("visual") or "business", k, f"c{i}")
-    REPORT["clips"] += len(clips)
+    k = max(1, min(2, round(dur / 6)))                 # har ~6 sec naya visual
+    try:
+        clips = scene_visuals(i, sc, k, dur)
+    except Exception as e:
+        log(f"visual error: {str(e)[:200]}")
+        clips = []
     if not clips:
         REPORT["fallback"] += 1
         fb = os.path.join(WORK, f"c{i}_fb.mp4")
@@ -400,7 +497,7 @@ def build_scene(i, sc):
     make_ass(os.path.join(WORK, f"s{i}.ass"), sub, sc.get("label"), dur - 0.35)
     cmd = ["ffmpeg", "-y"]
     for c in clips:
-        cmd += ["-stream_loop", "-1", "-t", f"{seg + 0.2:.2f}", "-i", os.path.basename(c)]
+        cmd += ["-stream_loop", "-1", "-t", f"{seg + 0.2:.2f}", "-i", os.path.basename(c)]  # sab WORK mein
     cmd += ["-i", audio]
     fd = min(0.4, seg / 4)
     chains = [f"[{j}:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps=30,setsar=1,"
@@ -492,12 +589,19 @@ def main():
     report = {"time_utc": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), "spotlight": spot,
               "post_id": None, "error": None}
     try:
-        try:
-            script = write_script(spot, [v.get("title", "") for v in vids])
-        except Exception as e:
-            log(f"AI script fail, fixed script: {e}")
-            REPORT["errors"].append(f"script: {str(e)[:200]}")
+        script = None
+        for attempt in range(2):
+            try:
+                script = write_script(spot, [v.get("title", "") for v in vids])
+                break
+            except Exception as e:
+                log(f"AI script try {attempt + 1} fail: {e}")
+                REPORT["errors"].append(f"script: {str(e)[:200]}")
+        if not script:
+            log("fixed script use ho raha hai")
             script = fallback_script()
+        nm = re.sub(r"[^A-Za-z0-9 &'-]", "", script.get("demo_name") or "").strip()
+        SCRIPT_CTX.update(spot=spot, name=(nm[:28] if len(nm) >= 3 else f"City {spot.title()}"))
         path = build_video(script)
         cap = caption(script)
         log(f"--- caption ---\n{cap}\n")
