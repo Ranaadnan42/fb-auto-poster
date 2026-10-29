@@ -1,19 +1,26 @@
 {
  "mode": "short",
  "clips": 16,
- "clips_rejected": 1,
- "vision_checks": 0,
+ "clips_rejected": 125,
+ "vision_checks": 133,
  "errors": [],
  "search_phrases": [
-  "wages vs cost of living",
-  "inflation and cost of living",
-  "prices and cost of living class 9"
+  "things to know about arc raiders",
+  "things to know about cars",
+  "things to know about iphone 17 pro max",
+  "things to know about 2k26",
+  "things to know about cats",
+  "things to know about battlefield 6",
+  "things to know about real estate",
+  "things to know about ios 26",
+  "things to know about periods",
+  "things to know about day trading"
  ],
- "search": "wages vs cost of living",
- "vision_skipped": 16,
- "seconds": 66.0,
+ "photos": 4,
+ "vision_skipped": 6,
+ "seconds": 72.7,
  "links": [],
- "subject": "London vs Toronto",
- "series": "versus_short",
- "title": "London vs Toronto: Wages vs Cost of Living Comparison"
+ "subject": "Barcelona, Spain",
+ "series": "city_facts",
+ "title": "Barcelona in 60 Seconds: Spain's Mediterranean Wonder"
 }
