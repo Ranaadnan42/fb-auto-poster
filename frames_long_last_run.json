@@ -1,33 +1,30 @@
 {
  "mode": "long",
- "clips": 67,
- "clips_rejected": 35,
- "vision_checks": 33,
+ "clips": 52,
+ "clips_rejected": 52,
+ "vision_checks": 46,
  "errors": [],
  "search_phrases": [
-  "dubai vs saudi arabia jobs",
-  "dubai vs saudi arabia war",
-  "dubai vs saudi arabia vs qatar",
-  "dubai vs saudi arabia military",
-  "dubai vs saudi arabia football",
-  "dubai vs saudi arabia comparison",
-  "dubai vs saudi arabia tamil",
-  "dubai vs saudi arabia malayalam",
-  "dubai and saudi arabia"
+  "jane se pehle kon mare",
+  "jane se pehle itna bata do",
+  "jane se pehle ek aakhri baar milna",
+  "jane se pehle jeena sikha de",
+  "jane se pehle mujhko",
+  "jane se pehle irfan khan",
+  "jaane se pehle soch lo itna",
+  "jaane se pehle wada karo tum",
+  "jaane se pehle awaaz to di hogi",
+  "moving abroad from pakistan vlog",
+  "moving from pakistan to canada"
  ],
- "search": "dubai vs saudi arabia comparison",
- "vision_skipped": 67,
- "seconds": 271.9,
+ "vision_skipped": 54,
+ "seconds": 198.6,
  "links": [
-  "https://smartservices.icp.gov.ae",
-  "https://gdrfad.gov.ae",
-  "https://u.ae/en/information-and-services/visa-and-emirates-id",
-  "https://ksavisa.sa",
-  "https://visa.mofa.gov.sa",
+  "https://immi.homeaffairs.gov.au",
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Dubai vs Saudi Arabia",
- "series": "pk_versus",
- "title": "دبئی بمقابلہ سعودی عرب: کون سا ملک بہتر ہے؟ | Dubai vs Saudi Arabia"
+ "subject": "Australia",
+ "series": "pk_moving",
+ "title": "آسٹریلیا جانے سے پہلے یہ ضرور جان لیں | Life in Australia"
 }
