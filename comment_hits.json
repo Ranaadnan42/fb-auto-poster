@@ -1,34 +1,124 @@
 {
- "updated": "2026-10-29T10:26Z",
- "new": 16,
+ "updated": "2026-10-29T13:14Z",
+ "new": 15,
  "stats": {
-  "site:facebook.com \"POS software\" chahiye": "0 (auto)",
+  "site:facebook.com \"POS software\" chahiye": "0 (bing)",
   "site:facebook.com \"billing software\" chahiye dukan": "0 (auto)",
-  "site:facebook.com \"software chahiye\" shop": "0 (bing)",
-  "site:facebook.com/groups \"POS\" recommend shop Pakistan": "1 (auto)",
-  "site:facebook.com \"POS system\" recommend restaurant": "1 (auto)",
+  "site:facebook.com \"software chahiye\" shop": "0 (auto)",
+  "site:facebook.com/groups \"POS\" recommend shop Pakistan": "1 (bing)",
+  "site:facebook.com \"POS system\" recommend restaurant": "0 (auto)",
   "site:facebook.com \"looking for POS\" shop": "0 (auto)",
-  "site:facebook.com \"inventory software\" recommend small business": "0 (auto)",
-  "site:facebook.com \"need a website\" for my business": "1 (auto)",
+  "site:facebook.com \"inventory software\" recommend small business": "0 (none)",
+  "site:facebook.com \"need a website\" for my business": "0 (bing)",
   "site:facebook.com \"website banwani\" hai": "0 (auto)",
   "site:facebook.com \"app banwani\" hai": "0 (auto)",
-  "site:facebook.com \"looking for web developer\" small business": "0 (auto)",
+  "site:facebook.com \"looking for web developer\" small business": "0 (google)",
   "site:facebook.com \"need a social media manager\"": "1 (auto)",
-  "site:facebook.com \"faceless youtube\" automation help": "2 (bing)",
-  "site:facebook.com \"برنامج كاشير\" افضل": "0 (bing)",
+  "site:facebook.com \"faceless youtube\" automation help": "0 (auto)",
+  "site:facebook.com \"برنامج كاشير\" افضل": "0 (yahoo)",
   "site:facebook.com \"برنامج محاسبي\" محل": "0 (auto)",
-  "site:facebook.com \"نظام نقاط البيع\" مطعم": "0 (auto)",
-  "site:facebook.com \"ابي موقع\" لمحلي": "0 (yahoo)",
-  "site:facebook.com/groups \"website chahiye\"": "0 (auto)",
+  "site:facebook.com \"نظام نقاط البيع\" مطعم": "1 (bing)",
+  "site:facebook.com \"ابي موقع\" لمحلي": "1 (auto)",
+  "site:facebook.com/groups \"website chahiye\"": "0 (google)",
   "site:facebook.com/groups \"koi acha software\" dukan": "0 (none)",
-  "site:facebook.com/groups \"POS\" Riyadh recommend": "3 (auto)",
-  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "1 (auto)",
+  "site:facebook.com/groups \"POS\" Riyadh recommend": "2 (yahoo)",
+  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "3 (auto)",
   "site:facebook.com/groups \"برنامج كاشير\" الرياض": "0 (auto)",
-  "site:facebook.com/groups \"برنامج كاشير\" دبي": "0 (auto)",
-  "site:facebook.com/groups \"who can make a website\"": "0 (yahoo)",
+  "site:facebook.com/groups \"برنامج كاشير\" دبي": "0 (bing)",
+  "site:facebook.com/groups \"who can make a website\"": "0 (auto)",
   "site:facebook.com/groups \"need an app\" for my business": "6 (auto)"
  },
  "hits": [
+  {
+   "url": "https://www.facebook.com/groups/LOTRcostuming/posts/4646842665580297",
+   "title": "So I have my sources set for my Ring Wraith Costume .. | Facebook",
+   "snippet": "Oct 12, 2026 · accouterments. I found these:Are there any more guides out there? Ian JediDad and 5 others Rob Cross Tolkien Cosplayers Looking for Ring Wraith costume maker recommendations.. want something that's not an Etsy POS from Pakistan. Thanks in advance! Steinarr Bjarnarson and Brandon Leslie O'Leary Phil Cline Lord of the Rings Costuming",
+   "found": "2026-10-29T13:12Z"
+  },
+  {
+   "url": "https://www.facebook.com/joal.cabrera/posts/i-need-a-social-media-manager-yung-legit-and-understands-lead-generation-targeti/10163686335252149",
+   "title": "I NEED A SOCIAL MEDIA MANAGER. Yung... - Joal ... - Facebook",
+   "snippet": "1 day ago · I NEED A SOCIAL MEDIA MANAGER. Yung legit and understands lead generation, targeting, ad optimization, and all the things related to online media. I'm not looking for someone who just knows how to...",
+   "found": "2026-10-29T13:13Z"
+  },
+  {
+   "url": "https://www.facebook.com/Casheetah/videos/شرح-نظام-casheetah-pos-لإدارة-عمليات-البيع-والمخازن-والمشتريات-والحسابات-والعملا/1121036750877034",
+   "title": "شرح نظام Casheetah POS لإدارة عمليات البيع والمخازن ...",
+   "snippet": "Oct 3, 2026 · شرح نظام Casheetah POS لإدارة عمليات البيع والمخازن والمشتريات والحسابات والعملاء والموظفين والتقارير، مع إدارة التوصيل والعروض ونقاط الولاء والتكامل مع المتاجر الإلكترونية. للحصول على نظام...",
+   "found": "2026-10-29T13:13Z"
+  },
+  {
+   "url": "https://www.facebook.com/alghadtv/videos/من-مقام-محلي-إلى-موقع-ديني-يهودي-كيف-غيرت-إسرائيل-حقيقة-رواية-قبر-يوسف-بعد-1967ق/1098069669692929",
+   "title": "من مقام محلي إلى موقع ديني يهودي.. كيف غيرت إسرائيل حقيقة ...",
+   "snippet": "Oct 1, 2026 · من مقام محلي إلى موقع ديني يهودي.. كيف غيرت إسرائيل حقيقة رواية قبر يوسف بعد 1967؟ #قناة_الغد #مدار_الغد",
+   "found": "2026-10-29T13:13Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/418977675096/posts/10166035304105097",
+   "title": "WE’RE HIRING! | Facebook",
+   "snippet": "Oct 18, 2026 · WE’RE HIRING! L’AVO is looking for: ☕ Barista – PM shift, latte art skills, and a positive attitude. Runner – Energetic, organized, and a team player. Interested candidates can send their CV...",
+   "found": "2026-10-29T13:13Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/253950878619382",
+   "title": "Gérer mon compte Facebook",
+   "snippet": "1 day ago · Cette page vous permet de trouver de l'aider pour mieux gérer compte Facebook en vidéos.",
+   "found": "2026-10-29T13:13Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/3062192010712678/members",
+   "title": "Florida Small Business Network and Support - Facebook",
+   "snippet": "58 minutes ago · This group was created for business owners in Florida and it’s surrounding areas. Come in, introduce yourself, and market your business. It is Free to...",
+   "found": "2026-10-29T13:13Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1966044257006984",
+   "title": "Starosti a radosti občanů Frenštátu pod Radhoštěm | Facebook",
+   "snippet": "2 days ago · Skupina pro obyvatele Frenštátu pod Radhoštěm k diskusi o každodenních starostech a radostech.",
+   "found": "2026-10-29T13:13Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1090712601017030/posts/28558789380449315",
+   "title": "True Trini Discussing Real Issues | Beckles slams Govt’s ...",
+   "snippet": "Oct 13, 2026 · The Minister does not tell of any objective to - improve the living conditions of the destitute, - empower the small man, - mobilize domestic energies - and to tap the country’s creative potential.",
+   "found": "2026-10-29T13:13Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1315930371755499",
+   "title": "Heathfield Community Group | Facebook",
+   "snippet": "21 hours ago · Whether you're a tradesperson, shop owner, salon, gym, restaurant or running something completely different, I'd love to hear what you do! 👇 Comment with your business name below, or drop me a message if you'd like to chat about some content ideas.",
+   "found": "2026-10-29T13:14Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/114260890649",
+   "title": "Forum for skøytehistorie | Facebook",
+   "snippet": "2 days ago · After several attempts, this was the best we could come up with! 😂There's never a dull moment with my dad, and I hope you Will enjoy this als much as we did! What he is trying to say is that he is SO thankful for all your greetings in his birthday! He LOVED it and he loves you ️ Kåre Jacobsen and 157 others 158 reactions · 11 comments",
+   "found": "2026-10-29T13:14Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/800428337080056",
+   "title": "South Hill, VA Community Information | Facebook",
+   "snippet": "Oct 6, 2019 · I'm concerned about the security lighting being so close to my home eliminating my night sky. I'm concerned about the property value of my home due to the proximity of the data center and I'm concerned about my electricity bill increasing due to the power demand it creates.",
+   "found": "2026-10-29T13:14Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/469820494480580",
+   "title": "NC Contractors - Facebook",
+   "snippet": "6 days ago · Whether you’re looking to build a new deck, replace an aging roof, or finally get that garage or pole barn you’ve been wanting, we’d love to help bring your project to life.",
+   "found": "2026-10-29T13:14Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/800428337080056/posts/2708228886299982",
+   "title": "South Hill, VA Community Information | In Loving Memory of ...",
+   "snippet": "Oct 13, 2026 · In Loving Memory of Councilor Lillie Feggins-Boone On behalf of the officers and members of the South Hill Volunteer Fire Department, we extend our deepest and most heartfelt condolences to the...",
+   "found": "2026-10-29T13:14Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1506697696215833",
+   "title": "Motýlí klenoty | Facebook",
+   "snippet": "2 days ago · ZÁKLADNÍ PRAVIDLO SKUPINY: Ke každému příspěvku, včetně žádostí o určení druhu, prosím přikládejte vždy datum a místo nálezu - vždy nejméně katastr obce,...",
+   "found": "2026-10-29T13:14Z"
+  },
   {
    "url": "https://www.facebook.com/groups/phanmembanhangpos/posts/4641277476093674",
    "title": "Em tly bộ máy pos kèm in hoá đơn và két tiền, phần mềm miễn ...",
