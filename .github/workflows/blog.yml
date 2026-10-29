@@ -1,0 +1,62 @@
+name: Website Agent (BizTools Hub)
+run-name: ${{ github.workflow }} [${{ inputs.mode || 'post' }}]
+
+on:
+  schedule:
+    - cron: '41 12 * * *'   # rozana 1 naya article - 8:41am New York, 1:41pm London, 5:41pm Pakistan
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'post = naya article + site rebuild, rebuild = sirf site dobara banaye'
+        type: choice
+        options: ['post', 'rebuild']
+        default: 'post'
+      force:
+        description: 'Aaj article ho chuka ho phir bhi naya likhe'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: website-agent
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: pip install requests pillow
+      - name: Website agent
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          SITE_URL: ${{ vars.SITE_URL }}
+          MODE: ${{ inputs.mode || 'post' }}
+          FORCE: ${{ inputs.force && '1' || '' }}
+        run: python site_agent.py
+      - name: Save site
+        if: always()
+        run: |
+          mkdir -p /tmp/keep
+          cp -r blog /tmp/keep/ 2>/dev/null || true
+          for f in site_posts.json blog_report.json site_last_run.json; do [ -f "$f" ] && cp "$f" /tmp/keep/; done
+          git config user.name "auto-poster"
+          git config user.email "auto-poster@users.noreply.github.com"
+          for i in 1 2 3 4 5; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            [ -d /tmp/keep/blog ] && rm -rf blog && cp -r /tmp/keep/blog blog
+            for f in site_posts.json blog_report.json site_last_run.json; do [ -f "/tmp/keep/$f" ] && cp "/tmp/keep/$f" .; done
+            git add blog site_posts.json blog_report.json site_last_run.json 2>/dev/null
+            git diff --cached --quiet && break
+            git commit -q -m "Website agent: daily article + site update"
+            git push -q origin HEAD:main && break
+            sleep $((i * 5))
+          done
