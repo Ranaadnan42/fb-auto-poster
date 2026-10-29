@@ -45,6 +45,23 @@ AUTHOR_BIO = ("Muhammad Adnan is a software developer who builds point-of-sale (
               "websites and mobile apps for retail shops and restaurants. He writes these guides from "
               "hands-on experience setting up software for real small businesses.")
 CONTACT_EMAIL = "ranaadnan320@gmail.com"
+
+# Author ka ASLI kaam (sirf sach baatein). Articles mein "first-hand experience" isi se aata hai.
+# Client ke naam, jhoote numbers ya kahaniyan kabhi nahi banai jati.
+EXPERIENCE = """- Built a full POS system for retail shops and restaurants in Saudi Arabia, the UAE and Pakistan, sold as one full version (no feature tiers).
+- The POS supports Saudi ZATCA Phase 2 e-invoicing; invoices and bills for Saudi/UAE shops are printed in both Arabic and English.
+- In Saudi Arabia and the UAE, shop owners prefer a one-time license because cheap competitors sell that way; in Pakistan a monthly plan also works alongside one-time.
+- Restaurant features (menu, table orders) are shown only for food businesses; a jewellery or mobile shop never sees them - keeping the screen simple matters to shopkeepers.
+- The POS had to fit everything from small touch-screen POS terminals to large PC monitors.
+- License control is designed fail-safe: if the internet or the license server is down, the shop keeps selling; the software only stops if the license is explicitly blocked.
+- Shops back up their data to their own Gmail and to WhatsApp, because many owners don't trust or understand cloud dashboards.
+- Built distribution software for a wholesale distributor supplying 600+ shops that previously kept shop records in a paper register: an office PC app, a mobile app for order bookers, and a mobile dashboard for the owner.
+- That office PC still ran Windows 7, so the software had to support old Windows as well as Windows 10/11; daily backups go to the owner's WhatsApp at times he chooses.
+- Added optional tax features (on/off) for a distributor preparing to register with Pakistan's tax authority (FBR), so the software works unchanged when they are off.
+- Built ledger software for a poultry medicine and feed supplier: farmers with multiple sheds, a medicine list, ledgers, Excel import of old records, shed-wise reports, plus an Android app for customers without a PC. Many small businesses there already use free ledger apps, so the software has to be clearly more useful.
+- Built a real-estate management system: projects, plots measured in local units (kanal/marla), installment tracking, partner shares, expenses, and WhatsApp/Google Drive backups - made simple enough for staff who can barely read, and old handwritten registers had to be entered date by date.
+- Built AI chatbots and automation for his own business: a website sales chatbot that answers in English, Arabic and Urdu, AI email outreach, and bots that auto-post videos to Facebook, YouTube and TikTok every day.
+- Delivers Windows software as both an installer and a portable version, and licenses each copy to one computer so it can't be resold."""
 SERVICE_URL = "https://client-hunt-six.vercel.app/"
 WHATSAPP = "+92 307 5267349"
 INDEXNOW_KEY = "b7e4c1a9d2f84e6a9c3b5d7e1f2a4c6b"
@@ -205,6 +222,11 @@ intent that a small site can rank for and that attract business owners in the US
 (valuable advertisers). Avoid broad head terms like "seo for small business".
 Plan an article that fully satisfies that searcher (Google helpful-content policy: people-first, original, no fluff).
 
+The author's REAL work experience (the only first-hand facts you may use):
+{experience}
+Pick the 1-3 experience facts that genuinely fit this topic and plan where they add a real-world angle
+(e.g. "From my work building a POS for restaurants in Saudi Arabia..."). Never invent clients, numbers, results or stories.
+
 Return JSON:
 {{
  "keyword": "chosen phrase",
@@ -214,6 +236,7 @@ Return JSON:
  "excerpt": "1-2 sentence summary",
  "intro_html": "<p>2 short paragraphs that answer the question directly in the first sentences</p>",
  "key_takeaways": ["3-5 short takeaways"],
+ "experience_angle": "which real experience facts to weave in and where (or empty if none fit)",
  "sections": [{{"h2": "section heading", "notes": "what this section must cover (specific points, steps, examples)", "table": true/false}}, ... 7 or 8 sections; exactly one has table=true],
  "faq": [{{"q": "real follow-up question", "a": "2-4 sentence answer"}}, ... 5 items],
  "image_query": "2-4 word stock photo query",
@@ -228,6 +251,7 @@ Section heading: {h2}
 Must cover: {notes}
 {table_rule}
 Other sections in the article (don't repeat their content): {others}
+{experience_rule}
 
 Rules: 280-380 words. Specific and practical: steps, checklists, examples, typical USD price ranges stated as approximate.
 No fake statistics, no invented studies or quotes, no fake product reviews. Do not mention AI. No intro like
@@ -270,13 +294,55 @@ def add_ids(body):
     return re.sub(r"(?is)<h2>(.*?)</h2>", rep, body), toc
 
 
+REVIEW_PROMPT = """You are a strict editor enforcing Google's Search spam and helpful-content policies.
+Article title: "{title}"
+True facts about the author (anything first-person beyond these is invented):
+{experience}
+
+Article HTML:
+{body}
+
+Find sentences that: state a precise statistic, survey or study result without a source; invent a first-person
+story/client/result not supported by the facts above; name a specific product price as exact fact; are empty fluff
+or keyword stuffing. For each, give the exact sentence text as it appears (plain text, no tags) and a safer
+replacement (approximate/"typically" wording) or "" to delete. Max 12 fixes.
+Also score overall usefulness 1-10 for a small business owner.
+Return JSON: {{"score": 0, "fixes": [{{"find": "...", "replace": "..."}}]}}"""
+
+
+def review(body, a):
+    """AI editor: jhoote stats / banawati kahaniyan / fluff nikalta hai (Google spam policy se bachao)."""
+    try:
+        time.sleep(20)   # Groq per-minute token limit
+        plain_ok = body[:24000]
+        r = ask(REVIEW_PROMPT.format(title=a.get("title"), experience=EXPERIENCE, body=plain_ok), temp=0.2)
+        n = 0
+        for f in (r.get("fixes") or [])[:12]:
+            find = (f.get("find") or "").strip()
+            if len(find) < 15:
+                continue
+            rep = esc(f.get("replace") or "")
+            if find in body:
+                body = body.replace(find, rep, 1)
+                n += 1
+            elif esc(find) in body:
+                body = body.replace(esc(find), rep, 1)
+                n += 1
+        body = re.sub(r"<p>\s*</p>|<li>\s*</li>", "", body)
+        log(f"Editor review: score {r.get('score')}, {n} fixes applied")
+        a["review_score"] = r.get("score")
+    except Exception as e:
+        log(f"review skip: {str(e)[:150]}")
+    return body
+
+
 def write_article(posts, category):
     cands = research(posts, category)
     if len(cands) < 5:
         cands += [s + " guide" for s in CATEGORIES[category][1]]
     done = "\n".join(f"- {p['title']}" for p in posts[-80:]) or "- (none yet)"
     prompt = OUTLINE_PROMPT.format(site=SITE_NAME, author=AUTHOR, cat_name=CATEGORIES[category][0],
-                                   cands="\n".join(f"- {c}" for c in cands), done=done)
+                                   cands="\n".join(f"- {c}" for c in cands), done=done, experience=EXPERIENCE)
     last_err = None
     for attempt in range(3):
         try:
@@ -293,6 +359,10 @@ def write_article(posts, category):
                 sp = SECTION_PROMPT.format(
                     title=a["title"], keyword=a.get("keyword", ""), author=AUTHOR, h2=x["h2"],
                     notes=x.get("notes", ""), others="; ".join(h for h in heads if h != x["h2"]),
+                    experience_rule=(f"Planned real-experience angle for the article: {a.get('experience_angle')}\n"
+                                     f"If it fits THIS section, add 1-3 first-person sentences based ONLY on these true facts:\n{EXPERIENCE}\n"
+                                     "Never invent clients, numbers or outcomes beyond them. Skip if not relevant here."
+                                     if a.get("experience_angle") else ""),
                     table_rule=("Include one comparison <table> with <thead> and <tbody>." if x.get("table") else ""))
                 sec = ""
                 for _ in range(2):
@@ -305,7 +375,7 @@ def write_article(posts, category):
                 if sec:
                     parts.append(f"<h2>{esc(x['h2'])}</h2>{sec}")
                 time.sleep(4)   # Groq per-minute limit ke andar
-            a["body_html"] = "\n".join(parts)
+            a["body_html"] = review("\n".join(parts), a)
             wc = word_count(a["body_html"])
             log(f"Article try {attempt + 1}: {wc} words")
             if wc < 1300:
@@ -630,6 +700,38 @@ def indexnow(urls):
         log(f"IndexNow fail: {str(e)[:150]}")
 
 
+REFRESH_PROMPT = """Article: "{title}" (keyword: "{keyword}"). Existing FAQ questions: {old}
+People are now searching Google for these related phrases:
+{cands}
+Write 2 NEW FAQ entries answering the most useful of these that the article doesn't already cover.
+Practical, honest, 2-4 sentences each, no invented statistics.
+Return JSON: {{"faq": [{{"q": "...", "a": "..."}}]}}"""
+
+
+def refresh_one(posts):
+    """Roz ek purana article (120+ din) taaza: naye search sawal FAQ mein + editor review."""
+    today = datetime.date.today()
+    old = [p for p in posts if (today - datetime.date.fromisoformat(p.get("updated", p["date"])[:10])).days >= 120]
+    if not old:
+        return None
+    p = sorted(old, key=lambda x: x.get("updated", x["date"]))[0]
+    try:
+        cands = autocomplete(p.get("keyword") or p["title"]) + autocomplete(f"{p.get('keyword') or p['title']} how")
+        if cands:
+            r = ask(REFRESH_PROMPT.format(title=p["title"], keyword=p.get("keyword"),
+                                          old="; ".join(f["q"] for f in p.get("faq", [])),
+                                          cands="\n".join(f"- {c}" for c in cands[:15])), temp=0.5)
+            new = [f for f in r.get("faq", []) if f.get("q") and f.get("a")][:2]
+            p["faq"] = (p.get("faq", []) + new)[-8:]
+        p["body_html"] = review(p["body_html"], p)
+        p["updated"] = today.isoformat()
+        log(f"Refreshed: {p['title']}")
+        return f"{SITE_URL}/{p['slug']}/"
+    except Exception as e:
+        log(f"refresh fail: {str(e)[:150]}")
+        return None
+
+
 # --------------------------------------------------------------------- main
 def main():
     mode = os.environ.get("MODE", "post")
@@ -657,6 +759,10 @@ def main():
             posts.append(fix_meta(p))
             new_urls = [f"{SITE_URL}/{slug}/", f"{SITE_URL}/", f"{SITE_URL}/category/{cat}/"]
             log(f"NEW: {p['title']} -> {SITE_URL}/{slug}/")
+    if mode == "post":
+        ru = refresh_one(posts)
+        if ru:
+            new_urls.append(ru)
     posts = [fix_meta(p) for p in posts]
     # self-heal: jis post ki photo gum hai usko dobara lagao
     for p in posts:
