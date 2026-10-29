@@ -1,12 +1,13 @@
 {
- "time_utc": "2026-10-28 23:15",
- "spotlight": "school",
- "post_id": "1754820245813695",
+ "time_utc": "2026-10-29 18:40",
+ "spotlight": "clinic",
+ "post_id": "dry_run",
  "error": null,
  "lang": "en",
  "kind": "long",
- "clips": 13,
+ "clips": 10,
  "fallback": 0,
  "errors": [],
- "seconds": 79.4
+ "mock": 14,
+ "seconds": 171.3
 }
