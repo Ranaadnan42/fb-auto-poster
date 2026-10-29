@@ -1,12 +1,13 @@
 {
- "time_utc": "2026-10-28 15:29",
- "spotlight": "restaurant",
- "post_id": "1593050215422857",
+ "time_utc": "2026-10-29 18:40",
+ "spotlight": "clinic",
+ "post_id": "dry_run",
  "error": null,
  "lang": "ur",
  "kind": "reel",
- "clips": 11,
+ "clips": 2,
  "fallback": 0,
  "errors": [],
- "seconds": 54.7
+ "mock": 7,
+ "seconds": 49.5
 }
