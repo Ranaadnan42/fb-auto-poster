@@ -43,7 +43,12 @@
    "productivity",
    "technology guide"
   ],
-  "image": null,
+  "image": {
+   "file": "img/automate-small-business-operations-ai.jpg",
+   "credit": "invisibleai",
+   "credit_url": "https://pixabay.com/photos/industry-worker-factory-safety-10489741/",
+   "source": "Pixabay"
+  },
   "image_alt": "Laptop screen showing AI workflow automation for a small business",
   "words": 2670
  }
