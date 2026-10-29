@@ -1,23 +1,14 @@
 {
  "mode": "short",
- "clips": 22,
- "clips_rejected": 109,
- "vision_checks": 121,
+ "clips": 15,
+ "clips_rejected": 206,
+ "vision_checks": 208,
  "errors": [],
- "search_phrases": [
-  "mein job kaise kare",
-  "blanket mein job kaise kare",
-  "australia mein job kaise paye",
-  "germany mein job kaise paye",
-  "google mein job kaise paye",
-  "rapido mein job kaise kare",
-  "dubai mein job kaise paye",
-  "flipkart mein job kaise kare",
-  "dubai mein job kaise dhundhe",
-  "linkedin mein job kaise dhundhe"
- ],
- "seconds": 96.1,
- "subject": "South Korea / Seoul",
- "series": "pk_jobtip",
- "title": "سیئول میں جاب ڈھونڈنے کے 5 طریقے | South Korea Jobs"
+ "search_phrases": [],
+ "photos": 1,
+ "seconds": 81.5,
+ "links": [],
+ "subject": "Thailand",
+ "series": "pk_food",
+ "title": "Thailand ke 5 Mashhoor Khane aur Halal Guide | Thailand Food"
 }
