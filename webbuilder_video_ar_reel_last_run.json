@@ -1,13 +1,12 @@
 {
- "time_utc": "2026-10-29 18:49",
- "spotlight": "bakery",
- "post_id": "3237415429787579",
+ "time_utc": "2026-10-28 22:44",
+ "spotlight": "beauty salon",
+ "post_id": "3366654313535674",
  "error": null,
  "lang": "ar",
  "kind": "reel",
- "clips": 3,
+ "clips": 15,
  "fallback": 0,
  "errors": [],
- "mock": 7,
- "seconds": 68.2
+ "seconds": 68.7
 }
