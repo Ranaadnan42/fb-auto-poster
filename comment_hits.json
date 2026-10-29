@@ -1,34 +1,142 @@
 {
- "updated": "2026-10-29T13:14Z",
- "new": 15,
+ "updated": "2026-10-29T18:39Z",
+ "new": 18,
  "stats": {
-  "site:facebook.com \"POS software\" chahiye": "0 (bing)",
+  "site:facebook.com \"POS software\" chahiye": "0 (auto)",
   "site:facebook.com \"billing software\" chahiye dukan": "0 (auto)",
   "site:facebook.com \"software chahiye\" shop": "0 (auto)",
-  "site:facebook.com/groups \"POS\" recommend shop Pakistan": "1 (bing)",
+  "site:facebook.com/groups \"POS\" recommend shop Pakistan": "3 (auto)",
   "site:facebook.com \"POS system\" recommend restaurant": "0 (auto)",
   "site:facebook.com \"looking for POS\" shop": "0 (auto)",
-  "site:facebook.com \"inventory software\" recommend small business": "0 (none)",
-  "site:facebook.com \"need a website\" for my business": "0 (bing)",
-  "site:facebook.com \"website banwani\" hai": "0 (auto)",
-  "site:facebook.com \"app banwani\" hai": "0 (auto)",
-  "site:facebook.com \"looking for web developer\" small business": "0 (google)",
-  "site:facebook.com \"need a social media manager\"": "1 (auto)",
-  "site:facebook.com \"faceless youtube\" automation help": "0 (auto)",
-  "site:facebook.com \"برنامج كاشير\" افضل": "0 (yahoo)",
+  "site:facebook.com \"inventory software\" recommend small business": "1 (auto)",
+  "site:facebook.com \"need a website\" for my business": "0 (auto)",
+  "site:facebook.com \"website banwani\" hai": "0 (bing)",
+  "site:facebook.com \"app banwani\" hai": "0 (google)",
+  "site:facebook.com \"looking for web developer\" small business": "0 (auto)",
+  "site:facebook.com \"need a social media manager\"": "0 (bing)",
+  "site:facebook.com \"faceless youtube\" automation help": "1 (bing)",
+  "site:facebook.com \"برنامج كاشير\" افضل": "0 (auto)",
   "site:facebook.com \"برنامج محاسبي\" محل": "0 (auto)",
-  "site:facebook.com \"نظام نقاط البيع\" مطعم": "1 (bing)",
-  "site:facebook.com \"ابي موقع\" لمحلي": "1 (auto)",
-  "site:facebook.com/groups \"website chahiye\"": "0 (google)",
+  "site:facebook.com \"نظام نقاط البيع\" مطعم": "0 (auto)",
+  "site:facebook.com \"ابي موقع\" لمحلي": "0 (auto)",
+  "site:facebook.com/groups \"website chahiye\"": "0 (auto)",
   "site:facebook.com/groups \"koi acha software\" dukan": "0 (none)",
-  "site:facebook.com/groups \"POS\" Riyadh recommend": "2 (yahoo)",
-  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "3 (auto)",
-  "site:facebook.com/groups \"برنامج كاشير\" الرياض": "0 (auto)",
-  "site:facebook.com/groups \"برنامج كاشير\" دبي": "0 (bing)",
+  "site:facebook.com/groups \"POS\" Riyadh recommend": "1 (auto)",
+  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "5 (auto)",
+  "site:facebook.com/groups \"برنامج كاشير\" الرياض": "0 (bing)",
+  "site:facebook.com/groups \"برنامج كاشير\" دبي": "0 (auto)",
   "site:facebook.com/groups \"who can make a website\"": "0 (auto)",
-  "site:facebook.com/groups \"need an app\" for my business": "6 (auto)"
+  "site:facebook.com/groups \"need an app\" for my business": "7 (auto)"
  },
  "hits": [
+  {
+   "url": "https://www.facebook.com/groups/290901127726820",
+   "title": "Sei di Sacrofano se... | Facebook",
+   "snippet": "1 day ago · MAMMA RINGRAZIA TUTTE E TUTTI PER L'AFFETTO E GLI AUGURI. 🙏😘💕 Sacrofano cara, sono lieta e fiera di condividere con tutta la nostra comunità il traguardo della mamma più professoressa del mondo: 90 anni di cultura, di empatía, di ostacoli familiari, fisici, professionali. 90 anni di te, mimmi mia. Grazie",
+   "found": "2026-10-29T18:38Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/395896967098306",
+   "title": "Kälviä - Facebook",
+   "snippet": "2 days ago · Tervetuloa Lohtajan kirjastoon to 29.10. klo 18 kuuntelemaan marinkaislaislähtöistä Marjaana Herleviä! Marjaana on motivaatiovalmentaja ja hän kertoo tuoreesta kirjastaan Tunne motiivisi. Aihe sopii kaikille, jotka haluavat oppia tuntemaan omat vahvuutensa ja ymmärtämään läheisiään paremmin.",
+   "found": "2026-10-29T18:38Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/nedervetil",
+   "title": "Nedervetil Idag - Facebook",
+   "snippet": "2 days ago · Nedervetil Idag är en grupp vars syfte är att fungera som en informations tavla för Nedervetil. Alla medlemmar kan dela med sig av olika evenemang,...",
+   "found": "2026-10-29T18:38Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/474075125746087/posts/986636014489993",
+   "title": "Small Business Development | Hey everyone, | Facebook",
+   "snippet": "Oct 17, 2026 · Other posts Related groups What features are essential for a small business management app? Anish Kafle IT Entrepreneurs for Nepal 2y · Public Hey everyone! 👋 I'm building a web app to help small businesses manage things like sales, purchases, customers, suppliers, and financial accounts. I'm aiming for something really robust and useful.",
+   "found": "2026-10-29T18:38Z"
+  },
+  {
+   "url": "https://www.facebook.com/Successtepss/posts/-breaking-claude-can-now-help-you-build-a-faceless-youtube-channel-in-just-7-day/1405238891762053",
+   "title": "Success Steps - BREAKING: Claude can now help you build ...",
+   "snippet": "Oct 15, 2026 · 🚨 BREAKING: Claude can now help you build a FACELESS YouTube channel in just 7 days. No camera. No editing skills. No production team. Here’s the...",
+   "found": "2026-10-29T18:39Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/958482400890033",
+   "title": "Tuusulan kuntapolitiikkaryhmä | Facebook",
+   "snippet": "1 day ago · Taitaa mennä hetki ennen kuin nyt viranomaisen kannustamat ”työpajat ja keskustelutilaisuudet” korvaavat kuntalaiset siivuuttaneen salailun vaikutuksen. ”Mielipiteissä korostuu kokemus siitä, että hanketta on edistetty kuulematta asukkaita, mikä heikentää hankkeen hyväksyttävyyttä alueella. Mielipiteissä toivotaan, että hankkeen tiimoilta järjestettäisiin työpajoja ja ...",
+   "found": "2026-10-29T18:39Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/puskaradioaki",
+   "title": "Ilmoitustaulu Äänekoski | Facebook",
+   "snippet": "13 hours ago · Yleishyödyllinen ryhmä! - Jokainen hakee itse ryhmään, älä siis kutsu kavereitasi. -Paikalliset ja lähialueen palvelut ja muut toimijat. -Työlle tekijää tai tarjoa palvelua. -Tapahtumat ja menovinkit. -Tervetuloa ryhmään Huom! Käytäthän tavaran myyntiin niille tarkoitettuja ryhmiä!",
+   "found": "2026-10-29T18:39Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/151531881704004",
+   "title": "Puskaradio Savonlinna - Facebook",
+   "snippet": "11 hours ago · Minne mennä? Mitä tehdä? Missä oli? Mihin meni? Pistetään puskaradio soimaan! FB on pullollaan kaikenlaisia kierrätykseen, ostamiseen, myymiseen ja...",
+   "found": "2026-10-29T18:39Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1393039937626697",
+   "title": "Noeux-Mémoire | Facebook",
+   "snippet": "1 day ago · Ce groupe a été créé par l'association NOEUX MEMOIRE il y a plus de 10 ans pour vous raconter l'histoire de notre ville de Noeux-les-Mines du passé et du...",
+   "found": "2026-10-29T18:39Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/mantsala",
+   "title": "Mäntsälä | Facebook",
+   "snippet": "1 day ago · Mäntsälä mielessäin.. ;) Avointa keskustelua Mäntsälästä ja siihen liittyvistä asioista.",
+   "found": "2026-10-29T18:39Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1511314052439961",
+   "title": "Ähtärin historiaa - Facebook",
+   "snippet": "2 days ago · Tämän ryhmän tarkoitus on kerätä Ähtärin paikallishistoriaa tänne julkisesti kaikkien nähtäville. Varsinkin vanhat yksityisalbumien valokuvat ja niihin...",
+   "found": "2026-10-29T18:39Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/862223796338871",
+   "title": "Phoenix Small Business Owners - Free Advertising | Facebook",
+   "snippet": "6 days ago · The ultimate community for entrepreneurs, creators, and local businesses across Phoenix, Scottsdale, Mesa, Glendale, and the surrounding areas. This group was built to give small business owners something most platforms don’t offer anymore: a place to freely promote, advertise, and grow without restrictions.",
+   "found": "2026-10-29T18:39Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/NvstStudio",
+   "title": "Phoenix Local Small Businesses | Facebook",
+   "snippet": "6 days ago · From arriving in the U.S. from Colombia with one suitcase and $300 to building a powerful platform that empowers Hispanic business owners, families, and leaders through education, business growth, and civic engagement — Monica is a living example of the American Dream.",
+   "found": "2026-10-29T18:39Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/azsmallbusinessconnector",
+   "title": "Arizona Small Business Connector (by Go Local Arizona)",
+   "snippet": "Oct 22, 2026 · About this group Welcome, this group is open to Arizona small business owners and anyone looking to stay and support local businesses. The purpose of the group is to help small businesses grow and increase sale through networking activities.",
+   "found": "2026-10-29T18:39Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/68317537607",
+   "title": "Phoenix Business Owners - Facebook",
+   "snippet": "Oct 19, 2026 · This is a group formed for business owners in the Greater Phoenix Metropolitan area. It is intended to be a forum for owners to connect with one another...",
+   "found": "2026-10-29T18:39Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/gilbertarizonasmallbusinessnetwork",
+   "title": "Gilbert Arizona Small Businesses (By Go Local Arizona) - Facebook",
+   "snippet": "Oct 22, 2026 · I can shop multiple carriers and compare options for your home, auto, renters, flood, and business insurance at no cost to you. Serving Gilbert, Chandler and all of AZ.",
+   "found": "2026-10-29T18:39Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/smallbusinessforsale",
+   "title": "Business For Sale By Owner - Facebook",
+   "snippet": "2 days ago · For business owners to advertise their business for sale, exclusively, without the help of a broker or intermediary. This group is a place to buy and sell small businesses.",
+   "found": "2026-10-29T18:39Z"
+  },
+  {
+   "url": "https://business.facebook.com/groups/puskaradiosuomi",
+   "title": "Puskaradio Suomi | Facebook - Meta Business Suite",
+   "snippet": "4 days ago · Tervetuloa seuraamaan ja levittämään suomalaisia juoruja ja tapahtumia! Ryhmään voi liittyä kuka tahansa :) Jotta täällä alkaisi tapahtua ja puskaradio toimisi, voit kutsua vaikka kaikki kaverisi \"lisää jäseniä\" -kohdasta tai laita vaikka ryhmän linkki seinällesi. Sivulla voi pienimuotoisesti mainostellakin kunhan ei karkaa mopo käsistä. Asiattomat viestit toki poistetaan ...",
+   "found": "2026-10-29T18:39Z"
+  },
   {
    "url": "https://www.facebook.com/groups/LOTRcostuming/posts/4646842665580297",
    "title": "So I have my sources set for my Ring Wraith Costume .. | Facebook",
