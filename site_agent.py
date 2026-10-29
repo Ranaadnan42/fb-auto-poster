@@ -48,6 +48,8 @@ CONTACT_EMAIL = "ranaadnan320@gmail.com"
 SERVICE_URL = "https://client-hunt-six.vercel.app/"
 WHATSAPP = "+92 307 5267349"
 INDEXNOW_KEY = "b7e4c1a9d2f84e6a9c3b5d7e1f2a4c6b"
+ADSENSE_ID = (os.environ.get("ADSENSE_ID") or "").strip()      # ca-pub-xxxxxxxx (AdSense approve hone ke baad)
+GSC_VERIFY = (os.environ.get("GSC_VERIFY") or "").strip()      # Google Search Console meta verification code
 
 # Topic clusters (high-value, English, worldwide). Har cluster ki apni category page banti hai.
 CATEGORIES = {
@@ -188,42 +190,51 @@ def research(posts, category):
 
 
 # -------------------------------------------------------------- article
-ARTICLE_PROMPT = """You are an expert small-business technology writer for the website "{site}".
+OUTLINE_PROMPT = """You are the editor of "{site}", a website of practical technology guides for small business owners.
 Author: {author} - a software developer who builds POS systems, websites and mobile apps for real shops and restaurants.
 
 Category: {cat_name}
-Real search phrases people type into Google right now (pick ONE as the main keyword - choose the one with
-clear search intent, buying/learning value for US/UK/Canada/Australia readers, and that an honest expert article can fully answer):
+Real phrases people type into Google right now:
 {cands}
 
 Already published (do NOT repeat these topics):
 {done}
 
-Write ONE genuinely helpful, original article that follows Google's helpful-content and spam policies:
-- Answer the searcher's question directly in the first paragraph (no fluff intro).
-- 1600-2200 words. Practical, specific, experience-based: real steps, real feature checklists, typical price ranges
-  in USD stated as approximate ranges, mistakes to avoid, who should choose what. No fake statistics, no invented
-  studies, no fake quotes, no made-up product reviews. If unsure, say "typically" / "around".
-- Natural language; use the keyword in the title, first paragraph and one H2 only - never keyword stuffing.
-- Structure with <h2> and <h3>; include at least one <ul> or <ol>, and one comparison <table> with <thead>/<tbody>.
-- Allowed HTML tags only: h2, h3, p, ul, ol, li, strong, em, table, thead, tbody, tr, th, td, blockquote.
-- Do not include <h1>, images, links, scripts or a FAQ section inside "body_html" (FAQ goes separately).
-- Do not mention AI or that this was generated.
+Pick ONE long-tail phrase as the main keyword. Prefer specific, lower-competition questions (4+ words) with clear
+intent that a small site can rank for and that attract business owners in the US/UK/Canada/Australia
+(valuable advertisers). Avoid broad head terms like "seo for small business".
+Plan an article that fully satisfies that searcher (Google helpful-content policy: people-first, original, no fluff).
 
 Return JSON:
 {{
- "keyword": "the chosen main search phrase",
- "title": "SEO title, max 60 characters, compelling, includes keyword (year {year} allowed only if truly relevant)",
+ "keyword": "chosen phrase",
+ "title": "SEO title, max 60 characters, includes keyword",
  "meta_description": "140-155 characters, includes keyword, makes people click",
- "slug": "short-url-slug-with-keyword",
- "excerpt": "1-2 sentence summary for cards",
- "key_takeaways": ["3-5 short bullet takeaways"],
- "body_html": "the full article HTML",
- "faq": [{{"q": "real follow-up question", "a": "2-4 sentence answer"}}, ... 4 to 6 items],
- "image_query": "2-4 word stock-photo search query showing the topic (e.g. 'cashier pos terminal')",
- "image_alt": "descriptive alt text for the cover photo",
- "tags": ["3-6 short tags"]
+ "slug": "short-url-slug",
+ "excerpt": "1-2 sentence summary",
+ "intro_html": "<p>2 short paragraphs that answer the question directly in the first sentences</p>",
+ "key_takeaways": ["3-5 short takeaways"],
+ "sections": [{{"h2": "section heading", "notes": "what this section must cover (specific points, steps, examples)", "table": true/false}}, ... 7 or 8 sections; exactly one has table=true],
+ "faq": [{{"q": "real follow-up question", "a": "2-4 sentence answer"}}, ... 5 items],
+ "image_query": "2-4 word stock photo query",
+ "image_alt": "descriptive alt text",
+ "tags": ["3-6 tags"]
 }}"""
+
+SECTION_PROMPT = """Write one section of the article "{title}" (main keyword: "{keyword}") for small business owners.
+Author voice: {author}, a developer who builds POS systems, websites and apps for real shops - practical, first-hand, honest.
+
+Section heading: {h2}
+Must cover: {notes}
+{table_rule}
+Other sections in the article (don't repeat their content): {others}
+
+Rules: 280-380 words. Specific and practical: steps, checklists, examples, typical USD price ranges stated as approximate.
+No fake statistics, no invented studies or quotes, no fake product reviews. Do not mention AI. No intro like
+"In this section". Use <h3> subheadings and a <ul>/<ol> where useful.
+Allowed tags: h3, p, ul, ol, li, strong, em, table, thead, tbody, tr, th, td, blockquote. No h1/h2, links or images.
+
+Return JSON: {{"html": "the section HTML (without the h2)"}}"""
 
 
 ALLOWED = {"h2", "h3", "p", "ul", "ol", "li", "strong", "em", "table", "thead", "tbody", "tr", "th", "td",
@@ -264,22 +275,41 @@ def write_article(posts, category):
     if len(cands) < 5:
         cands += [s + " guide" for s in CATEGORIES[category][1]]
     done = "\n".join(f"- {p['title']}" for p in posts[-80:]) or "- (none yet)"
-    prompt = ARTICLE_PROMPT.format(site=SITE_NAME, author=AUTHOR, cat_name=CATEGORIES[category][0],
-                                   cands="\n".join(f"- {c}" for c in cands), done=done,
-                                   year=datetime.date.today().year)
+    prompt = OUTLINE_PROMPT.format(site=SITE_NAME, author=AUTHOR, cat_name=CATEGORIES[category][0],
+                                   cands="\n".join(f"- {c}" for c in cands), done=done)
     last_err = None
     for attempt in range(3):
         try:
             a = ask(prompt, temp=0.7)
-            a["body_html"] = clean_html(a.get("body_html", ""))
-            wc = word_count(a["body_html"])
-            log(f"Article try {attempt + 1}: '{a.get('title')}' - {wc} words")
-            if wc < 1100:
-                raise RuntimeError(f"bohat chhota article ({wc} words)")
-            if not a.get("title") or not a.get("meta_description"):
-                raise RuntimeError("title/meta missing")
+            secs = [x for x in a.get("sections", []) if x.get("h2")][:8]
+            if len(secs) < 5 or not a.get("title") or not a.get("meta_description"):
+                raise RuntimeError("outline adhoora")
             if any(similar(a["title"], p["title"]) > 0.6 for p in posts):
                 raise RuntimeError("topic pehle se hai")
+            log(f"Outline: '{a['title']}' [{a.get('keyword')}] - {len(secs)} sections")
+            heads = [x["h2"] for x in secs]
+            parts = [clean_html(a.get("intro_html", ""))]
+            for x in secs:
+                sp = SECTION_PROMPT.format(
+                    title=a["title"], keyword=a.get("keyword", ""), author=AUTHOR, h2=x["h2"],
+                    notes=x.get("notes", ""), others="; ".join(h for h in heads if h != x["h2"]),
+                    table_rule=("Include one comparison <table> with <thead> and <tbody>." if x.get("table") else ""))
+                sec = ""
+                for _ in range(2):
+                    try:
+                        sec = clean_html(ask(sp, temp=0.6).get("html", ""))
+                        if word_count(sec) >= 150:
+                            break
+                    except Exception as e:
+                        log(f"section fail: {str(e)[:150]}")
+                if sec:
+                    parts.append(f"<h2>{esc(x['h2'])}</h2>{sec}")
+                time.sleep(1)
+            a["body_html"] = "\n".join(parts)
+            wc = word_count(a["body_html"])
+            log(f"Article try {attempt + 1}: {wc} words")
+            if wc < 1300:
+                raise RuntimeError(f"bohat chhota article ({wc} words)")
             return a
         except Exception as e:
             last_err = e
@@ -355,6 +385,11 @@ footer{border-top:1px solid var(--line);margin-top:30px;padding:24px 0;color:var
 @media (max-width:600px){.hero h1,article h1{font-size:27px}article h2{font-size:22px}nav a{margin:0 12px 0 0}}"""
 
 
+ADS_HEAD = ((f'\n<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_ID}" crossorigin="anonymous"></script>'
+             f'\n<meta name="google-adsense-account" content="{ADSENSE_ID}">') if ADSENSE_ID else "") + \
+           (f'\n<meta name="google-site-verification" content="{GSC_VERIFY}">' if GSC_VERIFY else "")
+
+
 def page(title, desc, path, body, rel="", head_extra="", og_image="", og_type="website"):
     """rel = root tak relative raasta ('' ya '../'). path = canonical ke liye site-relative URL."""
     canonical = f"{SITE_URL}/{path}"
@@ -373,7 +408,7 @@ def page(title, desc, path, body, rel="", head_extra="", og_image="", og_type="w
 <meta name="twitter:card" content="summary_large_image">
 <link rel="alternate" type="application/rss+xml" title="{SITE_NAME}" href="{rel}feed.xml">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b6e4f'/%3E%3Ctext x='50' y='68' font-size='56' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EB%3C/text%3E%3C/svg%3E">
-<style>{CSS}</style>{head_extra}
+<style>{CSS}</style>{head_extra}{ADS_HEAD}
 </head><body>
 <header><div class="wrap"><a class="logo" href="{rel or './'}">BizTools<span>Hub</span></a><nav>{nav}</nav></div></header>
 {body}
@@ -516,6 +551,8 @@ def render_site(posts):
     write_file("feed.xml", f'<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0"><channel><title>{SITE_NAME}</title>'
                            f"<link>{SITE_URL}/</link><description>{esc(TAGLINE)}</description>{items}</channel></rss>\n")
     write_file(f"{INDEXNOW_KEY}.txt", INDEXNOW_KEY)
+    if ADSENSE_ID:
+        write_file("ads.txt", f"google.com, {ADSENSE_ID.replace('ca-', '')}, DIRECT, f08c47fec0942fa0\n")
     # vercel: sirf blog folder badle to deploy ho (baqi bots ke commits par nahi)
     save_json(os.path.join(OUT, "vercel.json"),
               {"ignoreCommand": "git diff --quiet HEAD^ HEAD -- .", "cleanUrls": False, "trailingSlash": True})
@@ -541,8 +578,13 @@ def health(posts):
             issues.append(f"{p['slug']}: page nahi bana")
     if len(slugs) != len(posts):
         issues.append("duplicate slugs")
+    host = urllib.parse.urlparse(SITE_URL).netloc
+    own_domain = not host.endswith((".github.io", ".vercel.app", ".netlify.app", ".pages.dev"))
+    adsense = {"posts_30_plus": len(posts) >= 30, "own_domain": own_domain,
+               "policy_pages": True, "search_console": bool(GSC_VERIFY), "ads_code": bool(ADSENSE_ID)}
+    adsense["ready_to_apply"] = adsense["posts_30_plus"] and own_domain
     rep = {"checked": datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z", "posts": len(posts),
-           "issues": issues}
+           "issues": issues, "adsense_readiness": adsense}
     save_json(REPORT, rep)
     log(f"Health: {len(posts)} posts, {len(issues)} issues")
     for i in issues:

@@ -39,6 +39,8 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
           SITE_URL: ${{ vars.SITE_URL }}
+          ADSENSE_ID: ${{ vars.ADSENSE_ID }}
+          GSC_VERIFY: ${{ vars.GSC_VERIFY }}
           MODE: ${{ inputs.mode || 'post' }}
           FORCE: ${{ inputs.force && '1' || '' }}
         run: python site_agent.py
