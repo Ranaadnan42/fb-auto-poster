@@ -1,18 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 7,
+ "stock_clips": 46,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
- "search_phrases": [
-  "ammi abbu video",
-  "ammi abbu dadi jaan",
-  "ammi abbu dadi jaan poem"
- ],
- "search": "ammi abbu dadi jaan",
- "laughs": 2,
- "reel_minutes": 0.52,
- "time_utc": "2026-10-29 12:54",
- "title": "مرغی اور امی اببو دادی جان کا ہنگامہ",
+ "format": "story",
+ "long_minutes": 5.54,
+ "series": "ببلو اور رشتہ آنٹی کا طوفان | قسط 1 part 3 (cartoon)",
+ "laughs": 7,
+ "time_utc": "2026-10-29 15:29",
+ "title": "ببلو اور رشتہ آنٹی کا طوفان | قسط 1 | آخری قسط",
  "dry_run": false
 }
