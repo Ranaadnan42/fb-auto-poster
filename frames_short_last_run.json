@@ -1,14 +1,30 @@
 {
  "mode": "short",
- "clips": 15,
- "clips_rejected": 206,
- "vision_checks": 208,
+ "clips": 19,
+ "clips_rejected": 70,
+ "vision_checks": 77,
  "errors": [],
- "search_phrases": [],
- "photos": 1,
- "seconds": 81.5,
- "links": [],
- "subject": "Thailand",
- "series": "pk_food",
- "title": "Thailand ke 5 Mashhoor Khane aur Halal Guide | Thailand Food"
+ "search_phrases": [
+  "khubsurat jagah",
+  "khubsurat jagah ki video",
+  "khubsurat jagah de khade kar lo",
+  "khubsurat jagah ki photo",
+  "khubsurat jagah ki kathi kar lo",
+  "khubsurat jagah ki picture",
+  "khubsurat jagah ki drawing",
+  "khubsurat jagah ka video",
+  "khubsurat jagah ka photo",
+  "khubsurat jagahon ke naam"
+ ],
+ "search": "khubsurat jagahon ke naam",
+ "photos": 2,
+ "vision_skipped": 10,
+ "seconds": 87.2,
+ "links": [
+  "https://beoe.gov.pk",
+  "https://oec.gov.pk"
+ ],
+ "subject": "Uzbekistan",
+ "series": "pk_hidden",
+ "title": "ازبکستان کی 5 خوبصورت چھپی جگہیں | Hidden Uzbekistan"
 }
