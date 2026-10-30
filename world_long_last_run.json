@@ -1,34 +1,21 @@
 {
  "mode": "long",
- "clips": 52,
- "clips_rejected": 16,
- "vision_checks": 4,
- "errors": [],
- "search_phrases": [
-  "travel documentary national geographic",
-  "travel documentary usa",
-  "travel documentary europe",
-  "travel documentary india",
-  "travel documentary africa",
-  "travel documentary japan",
-  "travel documentary vlog",
-  "travel documentary bbc",
-  "travel documentary china",
-  "country documentary national geographic",
-  "country documentary in hindi",
-  "country documentary in urdu",
-  "country documentary bangla",
-  "countries documentary in english",
-  "documentary country life",
-  "documentary country music",
-  "jordan country documentary",
-  "chad country documentary"
+ "clips": 43,
+ "clips_rejected": 9,
+ "vision_checks": 2,
+ "errors": [
+  "list indices must be integers or slices, not str"
  ],
- "search": "travel documentary europe",
- "vision_skipped": 62,
- "seconds": 214.2,
+ "search_phrases": [
+  "japan cost of living compared to india",
+  "cost of living us",
+  "cost of living dunn"
+ ],
+ "search": "retire in spain",
+ "vision_skipped": 50,
+ "seconds": 183.1,
  "links": [],
- "subject": "Italy",
- "series": "country",
- "title": "Explore Italy: History, Food, and Travel Tips in 11 Minutes"
+ "subject": "Dubai vs Singapore",
+ "series": "versus",
+ "title": "Dubai vs Singapore – Cost, Culture, Safety & Lifestyle Explained"
 }
