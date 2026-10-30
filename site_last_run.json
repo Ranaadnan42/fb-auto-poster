@@ -1,10 +1,33 @@
 {
- "time": "2026-10-29T21:47:27Z",
- "mode": "rebuild",
- "posts": 2,
- "new": [],
+ "time": "2026-10-30T18:14:12Z",
+ "mode": "post",
+ "posts": 3,
+ "new": [
+  "https://ranaadnan42.github.io/fb-auto-poster/blog/improve-restaurant-customer-retention/"
+ ],
  "log": [
-  "Health: 2 posts, 0 issues",
+  "Category: business-growth",
+  "Keyword ideas (business-growth): 164",
+  "Groq model: openai/gpt-oss-120b",
+  "Outline: 'How to Improve Customer Retention for Restaurants – Proven Steps' [how to improve customer retention for restaurants] - 8 sections",
+  "Groq model: openai/gpt-oss-120b",
+  "Groq model: openai/gpt-oss-120b",
+  "Groq model: openai/gpt-oss-120b",
+  "Groq model: openai/gpt-oss-120b",
+  "Groq model: openai/gpt-oss-120b",
+  "Groq model: openai/gpt-oss-120b",
+  "Groq model: openai/gpt-oss-120b",
+  "Groq model: openai/gpt-oss-120b",
+  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3667",
+  "groq openai/gpt-oss-120b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3245",
+  "groq llama-3.3-70b-versatile try 1 failed: 404: {\"error\":{\"message\":\"The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.\",\"type\":\"invalid_request_error\",\"code\":\"model_not_found\"}}\n",
+  "groq llama-3.3-70b-versatile try 2 failed: 404: {\"error\":{\"message\":\"The model `llama-3.3-70b-versatile` does not exist or you do not have access to it.\",\"type\":\"invalid_request_error\",\"code\":\"model_not_found\"}}\n",
+  "Groq model: openai/gpt-oss-20b",
+  "Editor review: score 8, 4 fixes applied",
+  "Article try 1: 2901 words",
+  "Pixabay 'restaurant loyalty program': 200, 20 photos",
+  "NEW: How to Improve Customer Retention for Restaurants – Proven Steps -> https://ranaadnan42.github.io/fb-auto-poster/blog/improve-restaurant-customer-retention/",
+  "Health: 3 posts, 0 issues",
   "IndexNow skip (github.io par key root par nahi rakh sakte) - custom/vercel domain par chalega"
  ]
 }
