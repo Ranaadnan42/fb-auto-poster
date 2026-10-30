@@ -1,28 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 11,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
- "search_phrases": [
-  "monday morning funny motivation",
-  "monday morning funny videos",
-  "monday morning fun with prasad",
-  "monday morning misery funny moments",
-  "funny monday morning skit",
-  "monday morning episode",
-  "monday morning wishes",
-  "morning funny videos",
-  "monday morning funny",
-  "monday morning humor",
-  "morning morning comedy",
-  "monday morning film",
-  "morning comedy"
- ],
- "search": "monday morning funny",
+ "format": "chat",
+ "reel_minutes": 1.28,
  "laughs": 3,
- "reel_minutes": 0.75,
- "time_utc": "2026-10-29 17:25",
- "title": "پینگوئن انکل کی پیر کی صبح کی مشق",
+ "time_utc": "2026-10-30 08:31",
+ "title": "جاب انٹرویو اور امی کے مشورے",
  "dry_run": false
 }
