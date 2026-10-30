@@ -1,12 +1,21 @@
 {
  "mode": "auto",
- "stock_clips": 0,
+ "stock_clips": 8,
  "fallback_clips": 0,
  "errors": [],
- "format": "chat",
- "reel_minutes": 1.28,
+ "format": "animal",
+ "search_phrases": [
+  "homework funny short",
+  "homework funny videos",
+  "how to do homework funny",
+  "homework comedy video",
+  "homework funny video",
+  "homework comedy"
+ ],
+ "search": "homework funny short",
  "laughs": 3,
- "time_utc": "2026-10-30 08:31",
- "title": "جاب انٹرویو اور امی کے مشورے",
+ "reel_minutes": 0.51,
+ "time_utc": "2026-10-30 12:46",
+ "title": "خرگوش میاں کا ہوم ورک اور ٹیوشن کا عذاب",
  "dry_run": false
 }
