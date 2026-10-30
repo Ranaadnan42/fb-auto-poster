@@ -1,12 +1,13 @@
 {
- "time_utc": "2026-10-28 22:44",
- "spotlight": "beauty salon",
- "post_id": "3366654313535674",
+ "time_utc": "2026-10-30 22:30",
+ "spotlight": "jewellery shop",
+ "post_id": "2203406321059073",
  "error": null,
  "lang": "ar",
  "kind": "reel",
- "clips": 15,
+ "clips": 3,
  "fallback": 0,
  "errors": [],
- "seconds": 68.7
+ "mock": 8,
+ "seconds": 63.1
 }
