@@ -1,21 +1,19 @@
 {
  "mode": "long",
- "clips": 43,
- "clips_rejected": 9,
- "vision_checks": 2,
- "errors": [
-  "list indices must be integers or slices, not str"
- ],
+ "clips": 45,
+ "clips_rejected": 3,
+ "vision_checks": 3,
+ "errors": [],
  "search_phrases": [
   "japan cost of living compared to india",
   "cost of living us",
   "cost of living dunn"
  ],
- "search": "retire in spain",
- "vision_skipped": 50,
- "seconds": 183.1,
+ "search": "japan cost of living compared to india",
+ "vision_skipped": 45,
+ "seconds": 204.2,
  "links": [],
- "subject": "Dubai vs Singapore",
+ "subject": "Japan vs India",
  "series": "versus",
- "title": "Dubai vs Singapore – Cost, Culture, Safety & Lifestyle Explained"
+ "title": "Japan vs India Cost of Living, Safety & Culture – What’s Cheaper?"
 }
