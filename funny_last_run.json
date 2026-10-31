@@ -1,12 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 0,
+ "stock_clips": 10,
  "fallback_clips": 0,
  "errors": [],
- "format": "chat",
- "reel_minutes": 1.31,
- "laughs": 4,
- "time_utc": "2026-10-31 08:21",
- "title": "کتابوں سے الرجی اور ابو کا علاج",
+ "format": "animal",
+ "search_phrases": [],
+ "laughs": 3,
+ "reel_minutes": 0.68,
+ "time_utc": "2026-10-31 11:15",
+ "title": "کتّے کی بریکنگ نیوز اور رشتہ آنٹی",
  "dry_run": false
 }
