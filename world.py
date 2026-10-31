@@ -1153,6 +1153,8 @@ def fb_post(path, title, script, plan):
                                                   "video_state": "PUBLISHED", "description": caption,
                                                   "access_token": FB_TOKEN}))
         log(f"FB reel posted: {vid}")
+        import stories
+        stories.try_story(FB_ID, FB_TOKEN, path, FB_VER, log, REPORT["errors"])
         return vid
     url = f"https://graph-video.facebook.com/{FB_VER}/{FB_ID}/videos"
     size = os.path.getsize(path)

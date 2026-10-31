@@ -520,6 +520,8 @@ def post_reel(path, desc):
         "upload_phase": "finish", "video_id": vid, "video_state": "PUBLISHED",
         "description": desc, "access_token": FB_TOKEN}))
     log(f"Reel posted: {vid}")
+    import stories
+    stories.try_story(FB_PAGE, FB_TOKEN, path, GRAPH_VER, log, REPORT["errors"])
     return vid
 
 

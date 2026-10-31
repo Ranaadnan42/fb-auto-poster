@@ -571,6 +571,8 @@ def post_reel(path, desc):
     fb_json(requests.post(base, timeout=60, data={
         "upload_phase": "finish", "video_id": vid, "video_state": "PUBLISHED",
         "description": desc, "access_token": WB_TOKEN}))
+    import stories
+    stories.try_story(WB_ID, WB_TOKEN, path, GRAPH_VER, log, REPORT["errors"])
     return vid
 
 
