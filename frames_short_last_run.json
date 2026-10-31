@@ -1,29 +1,28 @@
 {
  "mode": "short",
- "clips": 15,
- "clips_rejected": 154,
- "vision_checks": 164,
+ "clips": 16,
+ "clips_rejected": 166,
+ "vision_checks": 176,
  "errors": [],
  "search_phrases": [
-  "dubai vs saudi arabia jobs",
-  "dubai vs saudi arabia war",
-  "dubai vs saudi arabia vs qatar",
-  "dubai vs saudi arabia military",
-  "dubai vs saudi arabia football",
-  "dubai vs saudi arabia comparison",
-  "dubai vs saudi arabia tamil",
-  "dubai vs saudi arabia malayalam",
-  "dubai and saudi arabia"
+  "visa for pakistani 2025",
+  "visa for pakistani passport",
+  "visa for pakistani 2026",
+  "visa for pakistani in uae",
+  "spain visa for pakistani",
+  "albania visa for pakistani",
+  "kyrgyzstan visa for pakistani",
+  "azerbaijan visa for pakistani nationals",
+  "germany visa for pakistani"
  ],
- "photos": 4,
- "seconds": 75.1,
+ "search": "albania visa for pakistani",
+ "vision_skipped": 1,
+ "seconds": 97.9,
  "links": [
-  "https://www.canada.ca/en/immigration-refugees-citizenship.html",
-  "https://immi.homeaffairs.gov.au",
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Canada vs Australia",
- "series": "pk_versus_short",
- "title": "Canada ya Australia: Pakistani ke liye kaun behtar? | Life Comparison"
+ "subject": "Albania",
+ "series": "pk_visa_short",
+ "title": "الْبانیہ ویزا اور سفر: 5 ضروری باتیں | Albania Visa for Pakistani"
 }
