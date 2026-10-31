@@ -1,24 +1,23 @@
 {
  "lang": "ur",
- "stock_clips": 13,
+ "stock_clips": 40,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "اللہ تعالیٰ پر بھروسہ",
-  "tawakkul in allah",
-  "tawakkul youth club",
-  "tawakkul kya hai",
-  "tawakkul dr israr",
-  "tawakkul in allah youth club",
-  "tawakkul nasheed",
-  "tawakkul stories",
-  "tawakkul bayan",
-  "tawakkul muhammad ali"
+  "quran ki ayat tarjuma ke sath",
+  "quran ki ayat kitni hai",
+  "quran ki ayat ka tarjuma",
+  "quran ki ayatul kursi",
+  "quran ki ayat ki tadad",
+  "quran ki ayat al talaq",
+  "quran ki ayat with tarjuma",
+  "quran ki ayat ki tafseer",
+  "quran ki ayat manzil"
  ],
- "search": "اللہ تعالیٰ پر بھروسہ",
- "reel_minutes": 1.34,
- "time_utc": "2026-10-31 07:29",
- "title": "غارِ ثور کا واقعہ: جب اللہ تعالیٰ پر بھروسہ نے معجزہ دکھایا",
+ "search": "quran ki ayat ka tarjuma",
+ "long_minutes": 4.91,
+ "time_utc": "2026-10-31 15:26",
+ "title": "قرآن کی آیت کا ترجمہ: جب حضرت عمرؓ کا دل بدل گیا",
  "dry_run": false,
  "posted_ok": 1
 }
