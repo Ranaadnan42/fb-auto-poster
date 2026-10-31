@@ -1,28 +1,29 @@
 {
  "mode": "short",
  "clips": 15,
- "clips_rejected": 160,
- "vision_checks": 173,
+ "clips_rejected": 154,
+ "vision_checks": 164,
  "errors": [],
  "search_phrases": [
-  "talaq ke bare mein maloomat",
-  "din ke bare mein maloomat",
-  "hajj ke bare mein maloomat",
-  "quran ke bare mein maloomat",
-  "islam ke bare mein maloomat",
-  "mausam ke bare mein maloomat",
-  "duniya ke bare mein maloomat",
-  "jinnat ke bare mein maloomat",
-  "pakistan ke bare mein maloomat"
+  "dubai vs saudi arabia jobs",
+  "dubai vs saudi arabia war",
+  "dubai vs saudi arabia vs qatar",
+  "dubai vs saudi arabia military",
+  "dubai vs saudi arabia football",
+  "dubai vs saudi arabia comparison",
+  "dubai vs saudi arabia tamil",
+  "dubai vs saudi arabia malayalam",
+  "dubai and saudi arabia"
  ],
  "photos": 4,
- "seconds": 72.0,
+ "seconds": 75.1,
  "links": [
-  "https://france-visas.gouv.fr",
+  "https://www.canada.ca/en/immigration-refugees-citizenship.html",
+  "https://immi.homeaffairs.gov.au",
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "France / Paris",
- "series": "pk_city_facts",
- "title": "پیرس کی اصل زندگی: 60 سیکنڈ میں سب کچھ جانیں | Life in Paris"
+ "subject": "Canada vs Australia",
+ "series": "pk_versus_short",
+ "title": "Canada ya Australia: Pakistani ke liye kaun behtar? | Life Comparison"
 }
