@@ -1,13 +1,20 @@
 {
  "mode": "auto",
- "stock_clips": 43,
+ "stock_clips": 7,
  "fallback_clips": 0,
  "errors": [],
- "format": "story",
- "long_minutes": 5.01,
- "series": "پپو کا رزلٹ اور انوکھا مشن | قسط 1 part 3 (ai)",
- "laughs": 7,
- "time_utc": "2026-11-01 15:26",
- "title": "پپو کا رزلٹ اور انوکھا مشن | قسط 1 | آخری قسط",
+ "format": "animal",
+ "search_phrases": [
+  "winter mornings",
+  "winter vine",
+  "winter morning comedy",
+  "winter good morning",
+  "winter vines"
+ ],
+ "search": "winter mornings",
+ "laughs": 2,
+ "reel_minutes": 0.53,
+ "time_utc": "2026-11-01 16:25",
+ "title": "سردی کی صبح اور بھیڑ میاں",
  "dry_run": false
 }
