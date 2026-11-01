@@ -1,7 +1,7 @@
 {
- "time_utc": "2026-10-31 17:54",
- "spotlight": "restaurant",
- "post_id": "2134082750803078",
+ "time_utc": "2026-11-01 18:31",
+ "spotlight": "clinic",
+ "post_id": "1687479586115183",
  "error": null,
  "lang": "en",
  "kind": "reel",
@@ -9,5 +9,5 @@
  "fallback": 0,
  "errors": [],
  "mock": 7,
- "seconds": 50.2
+ "seconds": 47.3
 }
