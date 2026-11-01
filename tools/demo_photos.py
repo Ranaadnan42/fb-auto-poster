@@ -14,7 +14,7 @@ API = "https://fobzocsluzwcqretshnm.supabase.co/functions/v1/make-demo"
 KEY = os.environ.get("PIXABAY_API_KEY", "")
 
 
-def search(q, seen):
+def search(q, seen, want=4):
     try:
         r = requests.get("https://pixabay.com/api/", timeout=30, params={
             "key": KEY, "q": q[:90], "image_type": "photo", "orientation": "horizontal",
@@ -31,7 +31,7 @@ def search(q, seen):
             continue
         seen.add(h["id"])
         out.append(u)
-        if len(out) >= 4:
+        if len(out) >= want:
             break
     return out
 
@@ -46,8 +46,9 @@ def main():
             return
         for d in demos:
             seen, urls = set(), []
+            want = max(3, -(-9 // max(1, len(d["queries"]))))   # kul ~9 photos
             for q in d["queries"]:
-                urls += search(q, seen)
+                urls += search(q, seen, want)
             if len(urls) < 3:          # bohat khaas lafz par kuch na mile to aam lafz
                 for q in d["queries"]:
                     urls += search(" ".join(q.split()[:2]), seen)
