@@ -1,28 +1,33 @@
 {
  "mode": "short",
- "clips": 14,
- "clips_rejected": 105,
- "vision_checks": 117,
+ "clips": 16,
+ "clips_rejected": 45,
+ "vision_checks": 59,
  "errors": [],
  "search_phrases": [
-  "ki sair kar duniya ki gafil",
-  "ki sair kab hai",
-  "sairat ki video",
-  "sairam ki sketchbook",
-  "sairat ki kahani",
-  "sairat ki serial",
-  "sairat ki short video",
-  "saira ki video",
-  "saira ki duniya"
+  "harat angaze malomat",
+  "hasi tv kainat",
+  "haqaiq",
+  "ke avishkar",
+  "معلوماتی ویڈیو",
+  "معلومات کی دنیا",
+  "معلوماتی رپورٹ",
+  "معلومات عامہ",
+  "معلوماتی ویڈیوز",
+  "معلومات پاکستان",
+  "معلومات اسلامی",
+  "معلوماتی رپورٹ لکھنے کا طریقہ",
+  "معلومات قرآن"
  ],
- "photos": 2,
- "seconds": 74.2,
+ "search": "haqaiq",
+ "vision_skipped": 1,
+ "seconds": 63.9,
  "links": [
-  "https://vistoperitalia.esteri.it",
+  "https://www.visaforchina.cn",
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Italy / Rome",
- "series": "pk_tour_short",
- "title": "60 سیکنڈ میں روم کی سیر | Rome Travel & Life"
+ "subject": "China",
+ "series": "pk_facts",
+ "title": "چین کے 6 ناقابل یقین اور حیران کن حقائق | China Facts in Urdu"
 }
