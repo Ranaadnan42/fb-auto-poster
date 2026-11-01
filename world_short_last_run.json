@@ -1,26 +1,22 @@
 {
  "mode": "short",
- "clips": 16,
- "clips_rejected": 5,
- "vision_checks": 5,
+ "clips": 15,
+ "clips_rejected": 145,
+ "vision_checks": 144,
  "errors": [],
  "search_phrases": [
-  "living in a car",
-  "living in alaska",
-  "living in the sunlight",
-  "living in thailand",
-  "living in japan",
-  "living in a van",
-  "living in nyc",
-  "living in a storage unit",
-  "living in america",
-  "living in vietnam"
+  "wages vs cost of living",
+  "inflation and cost of living",
+  "prices and cost of living class 9",
+  "cost of living edmonton",
+  "cost of living worldwide"
  ],
- "search": "living in vietnam",
- "vision_skipped": 16,
- "seconds": 59.5,
+ "search": "wages vs cost of living",
+ "vision_skipped": 2,
+ "photos": 1,
+ "seconds": 86.4,
  "links": [],
- "subject": "Ho Chi Minh City, Vietnam",
- "series": "living_short",
- "title": "Living in Vietnam: Would You Move to Ho Chi Minh City?"
+ "subject": "Australia vs Canada",
+ "series": "versus_short",
+ "title": "Australia vs Canada: Wages and Cost of Living Compared"
 }
