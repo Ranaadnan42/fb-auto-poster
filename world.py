@@ -214,61 +214,105 @@ def ask_json(prompt, temp=0.8):
     raise RuntimeError(f"Gemini fail: {last}")
 
 
-VISION_Q = ("This is a frame from a stock video/photo found for '{what}'. Does it realistically show {want} "
-            "as real camera footage or a real photo (not animation, CGI, illustration or AI art)? "
-            "It must show THAT thing (that dish/food, place, landmark, animal or activity) clearly - say false if it "
-            "shows something else (e.g. a city skyline when a dish is wanted, a different dish, people's faces "
-            "instead of the thing). For a dish, say false only if it is clearly a different dish or obviously "
-            "another country's cuisine. Answer JSON {{\"match\": true/false}}")
+VISION_Q = ("You are the footage-checking agent of a documentary channel. These {n} frame(s) are from ONE stock clip "
+            "found for '{what}'. The narrator is saying at this moment: \"{said}\". "
+            "Decide if this clip really shows {want} as real camera footage or a real photo (not animation, CGI, "
+            "illustration or AI art), so that it matches what the narrator says. "
+            "Say false if ANY frame shows something else: a different country or city than the one being talked "
+            "about (e.g. a European street when the narration is about an Arab country, or the wrong famous landmark), "
+            "a city skyline when a dish is wanted, a different dish, a generic office/laptop/people shot that has "
+            "nothing to do with the narration, or faces instead of the thing. "
+            "For a dish, say false only if it is clearly a different dish or obviously another country's cuisine. "
+            "Answer JSON {{\"match\": true/false, \"why\": \"max 8 words\"}}")
 GROQ_KEY = os.environ.get("GROQ_API_KEY")
-GROQ_VISION = ["meta-llama/llama-4-scout-17b-16e-instruct", "meta-llama/llama-4-maverick-17b-128e-instruct"]
+GROQ_VISION = ["qwen/qwen3.8-27b", "meta-llama/llama-4-scout-17b-16e-instruct"]
+# Har model ka apna free quota hai - ek khatam ho to agla. Gemma ka free quota sab se bara.
+VISION_MODELS = ["gemma-4-31b-it", "gemma-4-26b-a4b-it", "gemini-3.1-flash-lite", "gemini-flash-lite-latest",
+                 "gemini-3.5-flash-lite", "gemini-3-flash-preview", "gemini-3.6-flash", "gemini-3.7-flash",
+                 "gemini-3.5-flash", "gemini-3.8-flash", "gemini-flash-latest"]
+_DEAD = set()          # jin models ka quota is run mein khatam / jo chalte nahi
 
 
-def _groq_vision(data, prompt):
+def _parse_match(txt):
+    m = re.search(r"\{[\s\S]*?\}", txt or "")
+    if not m:
+        low = (txt or "").lower()
+        if "true" in low and "false" not in low:
+            return True
+        if "false" in low:
+            return False
+        return None
+    try:
+        return bool(json.loads(m.group(0)).get("match"))
+    except Exception:
+        return None
+
+
+def _groq_vision(datas, prompt):
     import base64
     if not GROQ_KEY:
         return None
-    b64 = base64.b64encode(data).decode()
     for model in GROQ_VISION:
+        if model in _DEAD:
+            continue
         try:
+            content = [{"type": "text", "text": prompt}] + [
+                {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + base64.b64encode(d).decode()}}
+                for d in datas]
             r = requests.post("https://api.groq.com/openai/v1/chat/completions", timeout=60,
                               headers={"Authorization": f"Bearer {GROQ_KEY}"},
-                              json={"model": model, "temperature": 0, "response_format": {"type": "json_object"},
-                                    "messages": [{"role": "user", "content": [
-                                        {"type": "text", "text": prompt},
-                                        {"type": "image_url", "image_url": {"url": f"data:image/jpeg;base64,{b64}"}}]}]})
+                              json={"model": model, "temperature": 0, "messages": [{"role": "user", "content": content}]})
+            if r.status_code in (400, 404):
+                _DEAD.add(model)
+                continue
             if r.status_code == 429:
                 time.sleep(4)
                 continue
             r.raise_for_status()
-            return bool(json.loads(r.json()["choices"][0]["message"]["content"]).get("match"))
+            v = _parse_match(r.json()["choices"][0]["message"]["content"])
+            if v is not None:
+                return v
         except Exception as e:
             log(f"groq vision {model}: {str(e)[:100]}")
     return None
 
 
-def vision_ok(jpg, want, what):
-    """Kya yeh frame waqai WAHI cheez dikha raha hai jiski baat ho rahi (khaana/jagah/cheez)?
-    Pehle Gemini, phir Groq vision (backup). Dono fail -> None (tag par bharosa)."""
+def vision_ok(jpgs, want, what, said=""):
+    """Agent: kya clip waqai WAHI dikha rahi hai jo narration keh rahi hai (usi mulk ki)?
+    Kai frames ek saath dekhta hai. Models bari bari (quota khatam -> agla). Sab fail -> None."""
     from google.genai import types
-    prompt = VISION_Q.format(what=what, want=want)
-    try:
-        data = open(jpg, "rb").read()
-    except Exception:
+    if isinstance(jpgs, str):
+        jpgs = [jpgs]
+    datas = []
+    for j in jpgs:
+        try:
+            datas.append(open(j, "rb").read())
+        except Exception:
+            pass
+    if not datas:
         return None
+    prompt = VISION_Q.format(n=len(datas), what=what, want=want, said=(said or what)[:400].replace('"', "'"))
     last = ""
-    for model in MODELS[::-1]:                              # lite pehle - free quota zyada
+    for model in VISION_MODELS:
+        if model in _DEAD:
+            continue
         try:
             res = _gem().models.generate_content(
                 model=model,
-                contents=[types.Part.from_bytes(data=data, mime_type="image/jpeg"), prompt],
-                config=types.GenerateContentConfig(response_mime_type="application/json", temperature=0))
+                contents=[types.Part.from_bytes(data=d, mime_type="image/jpeg") for d in datas] + [prompt],
+                config=types.GenerateContentConfig(temperature=0))
+            v = _parse_match(res.text)
+            if v is None:
+                continue
             REPORT["vision_checks"] += 1
-            return bool(json.loads(res.text).get("match"))
+            return v
         except Exception as e:
             last = str(e)
-            time.sleep(2)
-    g = _groq_vision(data, prompt)
+            if any(x in last for x in ("429", "RESOURCE_EXHAUSTED", "404", "NOT_FOUND", "not supported", "400")):
+                _DEAD.add(model)        # is run mein dobara nahi
+            else:
+                time.sleep(2)
+    g = _groq_vision(datas, prompt)
     if g is not None:
         REPORT["vision_checks"] += 1
         REPORT["vision_groq"] = REPORT.get("vision_groq", 0) + 1
@@ -729,6 +773,7 @@ def get_clips(scene, country_words, job, prefix, need):
         subj_q += [" ".join(sw)] + [w for w in sw if len(w) > 3]
     subj_q = list(dict.fromkeys(q for q in subj_q if q.strip()))
     want = f"{show_c} from {country}" if show and country else (show or place or country)
+    said = (scene.get("text") or "").strip()
     subj_accept = sw or (pw + cw)
     rounds = [("video", subj_q, subj_accept, want), ("photo", subj_q[:4], subj_accept, want)]
     if food:
@@ -773,11 +818,21 @@ def get_clips(scene, country_words, job, prefix, need):
                 if os.path.getsize(src) < 30000:
                     continue
                 jpg = path + ".chk.jpg"
+                jpgs = [jpg]
                 if kind == "photo":
                     run(["ffmpeg", "-y", "-loglevel", "error", "-i", src, "-vf", "scale=640:-2", jpg])
                 else:
-                    run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{min(c['dur'] / 2, 3):.1f}", "-i", src,
+                    # agent clip ke 2 hisse dekhta hai (shuru + aakhir) - beech mein kuch aur na aa jaye
+                    run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{min(c['dur'] * 0.25, 2):.1f}", "-i", src,
                          "-frames:v", "1", "-vf", "scale=640:-2", jpg])
+                    jpg2 = path + ".chk2.jpg"
+                    try:
+                        run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{max(min(c['dur'] * 0.75, 9), 1):.1f}", "-i", src,
+                             "-frames:v", "1", "-vf", "scale=640:-2", jpg2])
+                        if os.path.exists(jpg2):
+                            jpgs.append(jpg2)
+                    except Exception:
+                        pass
                 try:
                     from PIL import Image, ImageStat
                     if ImageStat.Stat(Image.open(jpg).convert("L")).mean[0] < 28:   # kaali/andheri clip
@@ -786,8 +841,10 @@ def get_clips(scene, country_words, job, prefix, need):
                         continue
                 except Exception:
                     pass
-                ok = vision_ok(jpg, want_r, q)
-                if ok is False or (ok is None and kind == "photo"):   # photo sirf vision pass par
+                ok = vision_ok(jpgs, want_r, q, said)
+                # agent check na ho sake to sirf tab chalao jab clip ke tags mein usi mulk/jagah aur usi cheez ka naam ho
+                strong = any(w in c["text"] for w in (pw + cw)) and (not sw or any(w in c["text"] for w in sw))
+                if ok is False or (ok is None and (kind == "photo" or not strong)):
                     REPORT["clips_rejected"] += 1
                     USED.add(c["id"])
                     continue
