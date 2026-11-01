@@ -263,7 +263,33 @@ def laptop(W, H, spot, title):
     return bg.convert("RGB")
 
 
-def phone(W, H, spot, title):
+def social_screen(w, h, spot, title):
+    """Phone par Facebook/Instagram jaisi feed - business ki post, likes, comments."""
+    im = Image.new("RGB", (w, h), (240, 242, 245))
+    d = ImageDraw.Draw(im)
+    u = w / 100
+    d.rectangle((0, 0, w, 14 * u), fill=(255, 255, 255))
+    d.text((6 * u, 4 * u), "Social Feed", font=font(int(5.4 * u)), fill=(24, 119, 242))
+    y = 17 * u
+    for i in range(2):
+        rr(d, (3 * u, y, w - 3 * u, y + 96 * u), int(3 * u), (255, 255, 255))
+        d.ellipse((7 * u, y + 4 * u, 17 * u, y + 14 * u), fill=GREEN)
+        d.text((20 * u, y + 4.5 * u), (title or "Your Business")[:20], font=font(int(4.2 * u)), fill=(20, 30, 40))
+        d.text((20 * u, y + 10 * u), "Sponsored  -  New post", font=font(int(3.2 * u)), fill=(120, 130, 140))
+        p = photo(spot, i + 1)
+        pw_, ph_ = int(w - 6 * u), int(62 * u)
+        if p:
+            im.paste(cover(p, pw_, ph_), (int(3 * u), int(y + 17 * u)))
+        else:
+            d.rectangle((3 * u, y + 17 * u, w - 3 * u, y + 17 * u + ph_), fill=(200, 210, 205))
+        yy = y + 17 * u + ph_ + 3 * u
+        d.text((7 * u, yy), f"\u2665 {random.randint(120, 980)}   \u2709 {random.randint(12, 90)}   \u21aa Share",
+               font=font(int(3.8 * u)), fill=(80, 90, 100))
+        y += 100 * u
+    return im
+
+
+def phone(W, H, spot, title, screen_fn=None):
     bg = background(W, H, spot).convert("RGBA")
     vertical = H > W
     ph = int(H * (0.6 if vertical else 0.7))
@@ -274,7 +300,7 @@ def phone(W, H, spot, title):
     shadow(bg, (x - b, y - b, x + pw + b, y + ph + b), b * 3)
     d = ImageDraw.Draw(bg)
     rr(d, (x - b, y - b, x + pw + b, y + ph + b), b * 3, (20, 22, 24))
-    scr = app_screen(pw, ph, spot, title)
+    scr = (screen_fn or app_screen)(pw, ph, spot, title)
     m = Image.new("L", (pw, ph), 0)
     ImageDraw.Draw(m).rounded_rectangle((0, 0, pw, ph), b * 2, fill=255)
     bg.paste(scr, (x, y), m)
@@ -311,7 +337,7 @@ def business(W, H, spot):
 
 
 def make(kind, W, H, spot, path, title="", wa="", site=""):
-    """kind: pos | report | website | app | contact | business"""
+    """kind: pos | report | website | app | social | contact | business"""
     if kind == "pos":
         im = monitor(W, H, spot, lambda w, h: pos_screen(w, h, spot), "POS")
     elif kind == "report":
@@ -320,6 +346,8 @@ def make(kind, W, H, spot, path, title="", wa="", site=""):
         im = laptop(W, H, spot, title)
     elif kind == "app":
         im = phone(W, H, spot, title)
+    elif kind == "social":
+        im = phone(W, H, spot, title, social_screen)
     elif kind == "contact":
         im = contact(W, H, spot, wa, site)
     else:

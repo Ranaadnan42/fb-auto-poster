@@ -24,6 +24,8 @@ import subprocess
 
 import requests
 
+import wb_mock
+
 # ------------------------------------------------------------- config
 GRAPH_VER = "v23.0"
 WB_TOKEN = os.environ.get("WB_PAGE_TOKEN")
@@ -237,6 +239,27 @@ def pixabay_image(queries, path, used):
     return False
 
 
+POS_SPOTS = ["grocery store", "pharmacy", "supermarket", "restaurant", "mobile phone shop", "bakery",
+             "clothing shop", "electronics shop", "hardware store", "cafe"]
+NAME_START = ["Al Noor", "City", "Royal", "Star", "Golden", "Green Valley", "Al Madina", "Prime"]
+
+
+def product_pic(focus, path):
+    kind = {"pos": random.choice(["pos", "report"]), "website": "website", "store": "website",
+            "app": "app", "social": "social"}.get(focus, "website")
+    spot = random.choice(POS_SPOTS if focus == "pos" else list(wb_mock.FOLDER))
+    name = f"{random.choice(NAME_START)} {spot.title()}"
+    if len(name) > 22:
+        name = f"{random.choice(NAME_START)} {spot.split()[0].title()}"
+    try:
+        wb_mock.make(kind, PIC_W * 2, PIC_H * 2, spot, path, name, WA, SITE.replace("https://", "").rstrip("/"))
+        log(f"Product pic: mock {kind} ({spot})")
+        return os.path.getsize(path) > 20000
+    except Exception as e:
+        log(f"Mock pic fail: {str(e)[:150]}")
+        return False
+
+
 def gradient_bg(path):
     c = random.choice([("0x071b14", "0x0f5a3f"), ("0x0b1a33", "0x15603f"),
                        ("0x06231a", "0x0a7a5a"), ("0x0a1f14", "0x12805a")])
@@ -387,8 +410,11 @@ def make_card(promo, used_images):
     with open(ass, "w", encoding="utf-8") as f:
         f.write(ass_head(styles) + "\n".join(ev) + "\n")
     photo = os.path.join(WORK, "wb_photo.jpg")
-    if not pixabay_image(promo["img"], photo, used_images):
-        gradient_bg(photo)
+    # Beech wali pic = hamari ASAL service ki screen (POS screen / laptop par website / phone par app /
+    # social feed) kisi asal business ki photo ke sath - stock pics service se match nahi karti thin.
+    if not product_pic(promo["focus"], photo):
+        if not pixabay_image(promo["img"], photo, used_images):
+            gradient_bg(photo)
     out = os.path.join(WORK, "wb_post.jpg")
     render(photo, ass, out)
     return out

@@ -404,9 +404,10 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 # ------------------------------------------------------------- build
 SHOWS = ("pos", "report", "website", "app", "business", "contact")
 # har topic ke liye sirf related stock search (strict) - na mile to apni product pic
-STOCK = {"pos": ["cash register", "barcode scanner", "supermarket checkout"],
-         "report": ["barcode scanner", "warehouse inventory"], "website": ["typing laptop"],
-         "app": ["smartphone", "mobile phone"], "contact": [], "business": []}
+# Service wale scenes (POS / report / website / app) mein sirf apni product screens (wb_mock) -
+# stock clips (koi bhi laptop / phone / cash register) service se match nahi karti thin.
+# Stock video sirf "business" scenes mein, us business ki.
+STOCK = {"pos": [], "report": [], "website": [], "app": [], "contact": [], "business": []}
 SPOT_STOCK = {"grocery store": "grocery", "clothing shop": "clothing store", "beauty salon": "hair salon",
               "mobile phone shop": "phone shop", "hardware store": "hardware", "electronics shop": "electronics",
               "real estate agency": "real estate", "car workshop": "car repair", "furniture store": "furniture",
