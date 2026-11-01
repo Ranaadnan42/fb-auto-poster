@@ -1,0 +1,44 @@
+name: AI Employee (sab bots check + khud theek)
+
+# Din mein 2 dafa: saare bots ka kaam dekhta hai, fail hua kaam khud dobara chalata hai,
+# phir Supabase wala AI employee (database: leads, demo websites, cron) chalata hai. Koi email nahi.
+on:
+  schedule:
+    - cron: '23 3 * * *'    # 8:23 subah Pakistan
+    - cron: '23 15 * * *'   # 8:23 raat Pakistan
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: write
+
+concurrency:
+  group: ai-employee
+  cancel-in-progress: false
+
+jobs:
+  employee:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check all bots and fix
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/ai_employee.py
+      - name: Save record
+        run: |
+          git config user.name "auto-poster"
+          git config user.email "auto-poster@users.noreply.github.com"
+          cp employee_github.json /tmp/emp.json
+          for i in 1 2 3 4 5; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            cp /tmp/emp.json employee_github.json
+            git add employee_github.json
+            git diff --cached --quiet && break
+            git commit -q -m "AI employee record"
+            git push -q origin HEAD:main && break
+            sleep $((i * 5))
+          done
+      - name: Database side (leads, demo websites, cron)
+        run: curl -s -m 170 "https://fobzocsluzwcqretshnm.supabase.co/functions/v1/ai-employee?run=1" | head -c 2000 || true
