@@ -1,39 +1,23 @@
 {
  "mode": "long",
- "clips": 41,
- "clips_rejected": 48,
- "vision_checks": 58,
+ "clips": 58,
+ "clips_rejected": 213,
+ "vision_checks": 230,
  "errors": [],
  "search_phrases": [
-  "mein job kaise kare",
-  "mein job dein job",
-  "main job",
-  "main job karta hun",
-  "main job per hun",
-  "main job par ja raha hun",
-  "main job karna chahta hun",
-  "main job karta hun drama",
-  "main job nahi karti",
-  "jobs for pakistani in china",
-  "jobs for pakistani in qatar",
-  "jobs for pakistani in dubai",
-  "jobs for pakistani in kuwait",
-  "jobs for pakistani in japan",
-  "jobs for pakistani in thailand",
-  "jobs for pakistani in uk",
-  "jobs for pakistani in europe",
-  "work visa for pakistani in uae",
-  "work visa for pakistani in italy"
+  "sham country documentary in urdu",
+  "malta country documentary in urdu",
+  "brunei country documentary in urdu"
  ],
- "search": "work visa for pakistani in italy",
- "vision_skipped": 30,
- "seconds": 160.0,
+ "search": "malta country documentary in urdu",
+ "photos": 6,
+ "vision_skipped": 37,
+ "seconds": 237.2,
  "links": [
-  "https://vistoperitalia.esteri.it",
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Italy",
- "series": "pk_jobs",
- "title": "Italy mein naukri | Italy mein kaun se kaam milte hain"
+ "subject": "Malta",
+ "series": "pk_country",
+ "title": "Malta Country Documentary in Urdu | مالٹا کا سفر اور زندگی"
 }
