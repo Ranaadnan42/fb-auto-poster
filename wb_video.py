@@ -62,8 +62,11 @@ BUSINESSES = ["restaurant", "grocery store", "pharmacy", "clothing shop", "beaut
 FACTS = """- Business website: clean, fast, professional, mobile friendly, brings more customers.
 - Online store (e-commerce): customers order from anywhere, anytime.
 - Mobile app: custom Android apps - online ordering, delivery, booking, owner dashboard.
-- POS software (Rana POS): fast billing, barcode, live stock & inventory, daily sales & profit reports,
+- POS software (Web Builder POS): fast billing, barcode, live stock & inventory, daily sales & profit reports,
   works offline. Used by shops in Saudi Arabia, UAE and Pakistan.
+- Web Builder AutoPilot (AI auto system / AI employee): runs a business's social media by itself - makes and posts
+  daily videos, reels and photos on Facebook, Instagram, YouTube and TikTok, replies to comments and messages,
+  and finds new customers automatically, 24/7. The owner just runs the business.
 - Made for EVERY business: restaurant, grocery, pharmacy, clothing, salon, school, clinic, bakery,
   mobile shop, supermarket, wholesale and more.
 - Contact: WhatsApp +92 307 5267349, website client-hunt-six.vercel.app"""
@@ -146,7 +149,8 @@ def write_script(spot, used_titles):
         if LONG:
             shape = ("about 2 minutes 30 seconds spoken (about 300 words), exactly 12 scenes: 1 hook for shop owners "
                      "in Saudi Arabia and the UAE, 1 the problem (wrong bills, lost stock, no idea of daily profit), "
-                     "6 about the POS SOFTWARE (billing, barcode, stock, reports, works offline), "
+                     "5 about the POS SOFTWARE (billing, barcode, stock, reports, works offline), "
+                     "1 about Web Builder AUTOPILOT (AI system that runs their social media and finds customers by itself), "
                      "1 WEBSITE / online store, 1 MOBILE APP, 1 'for every business' naming many shop types "
                      f"(spotlight a {spot}), 1 call to action with WhatsApp number and website")
         else:
@@ -156,11 +160,11 @@ def write_script(spot, used_titles):
     elif LONG:
         shape = ("about 2 minutes 30 seconds spoken (about 330 words), exactly 12 scenes: 1 hook, 1 the problem "
                  "businesses face without these tools, 2 about the WEBSITE / online store, 2 about the MOBILE APP, "
-                 "3 about the POS SOFTWARE, 2 showing it works for every business (name many business types, "
+                 "3 about the POS SOFTWARE, 1 about Web Builder AUTOPILOT (AI system that posts daily videos/reels, replies to comments and finds new customers automatically), 1 showing it works for every business (name many business types, "
                  f"with a short example for a {spot}), 1 final call to action with WhatsApp number and website")
     else:
-        shape = ("about 45 seconds spoken (about 105 words), exactly 6 scenes: 1 hook, 1 WEBSITE, 1 MOBILE APP, "
-                 f"1 POS SOFTWARE, 1 'for every business' naming many types (spotlight a {spot}), "
+        shape = ("about 50 seconds spoken (about 120 words), exactly 7 scenes: 1 hook, 1 WEBSITE, 1 MOBILE APP, "
+                 f"1 POS SOFTWARE, 1 Web Builder AUTOPILOT (AI auto system for social media + new customers), 1 'for every business' naming many types (spotlight a {spot}), "
                  "1 call to action with WhatsApp number and website")
     if LANG == "en":
         lang_rule = ("Narration in clear, friendly, confident ENGLISH for business owners worldwide. "
@@ -184,7 +188,7 @@ def write_script(spot, used_titles):
         lang_fields = ('"caption_ur": "3 line caption in Urdu script", '
                        '"caption_hi": "the same caption in Hindi (Devanagari script)"')
     data = ask_json(f"""You make a promo video for the Facebook page "{PAGE_NAME}" - a team that builds
-websites, mobile apps and POS software for businesses. Length: {shape}.
+websites, mobile apps, POS software and the AI AutoPilot system for businesses. Length: {shape}.
 {lang_rule}
 Use ONLY these facts (never invent discounts, guarantees or clients):
 {FACTS}
@@ -198,6 +202,7 @@ For each scene also give:
  "label": 1-3 word ENGLISH on-screen heading (e.g. "WEBSITE", "MOBILE APP", "POS SOFTWARE", "EVERY BUSINESS"),
  "show": what the scene talks about, EXACTLY one of: "pos" (billing / barcode / POS software),
    "report" (stock, inventory, daily sales, profit), "website" (website / online store), "app" (mobile app),
+   "autopilot" (Web Builder AutoPilot - AI auto system for social media / new customers),
    "business" (hook, problem, business types), "contact" (call to action),
  "visual": 1-2 word ENGLISH stock-video search term of a real thing in this scene
    (e.g. "cash register", "barcode scanner", "typing laptop", "smartphone", "{spot}").
@@ -402,12 +407,12 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 
 
 # ------------------------------------------------------------- build
-SHOWS = ("pos", "report", "website", "app", "business", "contact")
+SHOWS = ("pos", "report", "website", "app", "autopilot", "business", "contact")
 # har topic ke liye sirf related stock search (strict) - na mile to apni product pic
 # Service wale scenes (POS / report / website / app) mein sirf apni product screens (wb_mock) -
 # stock clips (koi bhi laptop / phone / cash register) service se match nahi karti thin.
 # Stock video sirf "business" scenes mein, us business ki.
-STOCK = {"pos": [], "report": [], "website": [], "app": [], "contact": [], "business": []}
+STOCK = {"autopilot": [], "pos": [], "report": [], "website": [], "app": [], "contact": [], "business": []}
 SPOT_STOCK = {"grocery store": "grocery", "clothing shop": "clothing store", "beauty salon": "hair salon",
               "mobile phone shop": "phone shop", "hardware store": "hardware", "electronics shop": "electronics",
               "real estate agency": "real estate", "car workshop": "car repair", "furniture store": "furniture",
@@ -419,7 +424,7 @@ def show_of(sc):
     if sh in SHOWS:
         return sh
     t = f"{sc.get('label', '')} {sc.get('visual', '')}".lower()
-    for key, words in (("contact", ("contact", "whatsapp", "call")), ("report", ("stock", "profit", "report")),
+    for key, words in (("autopilot", ("autopilot", "auto pilot", "social", "automat")), ("contact", ("contact", "whatsapp", "call")), ("report", ("stock", "profit", "report")),
                        ("pos", ("pos", "bill", "cash", "barcode")), ("app", ("app",)),
                        ("website", ("website", "online", "store", "web"))):
         if any(w in t for w in words):
@@ -442,7 +447,7 @@ def scene_visuals(i, sc, k, dur):
     spot = SCRIPT_CTX["spot"]
     name = SCRIPT_CTX["name"]
     seg = dur / k + 0.5
-    mocks = {"pos": ["pos", "report"], "report": ["report", "pos"], "website": ["website", "business"],
+    mocks = {"autopilot": ["social", "app"], "pos": ["pos", "report"], "report": ["report", "pos"], "website": ["website", "business"],
              "app": ["app", "business"], "contact": ["contact"], "business": ["business", "business"]}[sh]
     out = []
     # 1st clip hamesha apni related pic (POS screen / website / app / business photo)

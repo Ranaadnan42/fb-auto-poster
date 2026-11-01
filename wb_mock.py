@@ -91,7 +91,7 @@ def pos_screen(w, h, spot):
     d = ImageDraw.Draw(im)
     u = h / 100
     d.rectangle((0, 0, w, 9 * u), fill=(10, 60, 45))
-    d.text((2 * u, 2 * u), "RANA POS", font=font(int(4.5 * u)), fill=GREEN)
+    d.text((2 * u, 2 * u), "WEB BUILDER POS", font=font(int(4.5 * u)), fill=GREEN)
     d.text((w - 34 * u, 2.6 * u), "Bill # 1048   Cashier: Ali", font=font(int(3 * u)), fill=(220, 235, 230))
     items = ITEMS.get(folder(spot), DEFAULT_ITEMS)
     lw = int(w * 0.6)
@@ -135,7 +135,7 @@ def report_screen(w, h, spot):
     d = ImageDraw.Draw(im)
     u = h / 100
     d.rectangle((0, 0, w, 9 * u), fill=(10, 60, 45))
-    d.text((2 * u, 2 * u), "RANA POS  -  Reports", font=font(int(4.5 * u)), fill=GREEN)
+    d.text((2 * u, 2 * u), "WEB BUILDER POS  -  Reports", font=font(int(4.5 * u)), fill=GREEN)
     cards = [("Today Sales", f"{random.randint(38, 96)},{random.randint(100, 999)}"),
              ("Profit", f"{random.randint(8, 22)},{random.randint(100, 999)}"),
              ("Bills", str(random.randint(80, 240))), ("Low Stock", str(random.randint(3, 9)))]
@@ -283,7 +283,7 @@ def social_screen(w, h, spot, title):
         else:
             d.rectangle((3 * u, y + 17 * u, w - 3 * u, y + 17 * u + ph_), fill=(200, 210, 205))
         yy = y + 17 * u + ph_ + 3 * u
-        d.text((7 * u, yy), f"\u2665 {random.randint(120, 980)}   \u2709 {random.randint(12, 90)}   \u21aa Share",
+        d.text((7 * u, yy), f"{random.randint(120, 980)} likes    {random.randint(12, 90)} comments    Share",
                font=font(int(3.8 * u)), fill=(80, 90, 100))
         y += 100 * u
     return im

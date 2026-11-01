@@ -81,8 +81,8 @@ async function ai(prompt: string, debug: string[]): Promise<string> {
 }
 
 // Sirf yehi sach facts — comment in se bahar koi feature claim na kare.
-const ABOUT = `We are "Web Builder" (Rana, Pakistan; WhatsApp +92 307 5267349). EXACT facts (do not add anything else):
-- Rana POS: Windows billing/cashier software for shops, restaurants, supermarkets, pharmacies. Works OFFLINE. Fast billing,
+const ABOUT = `We are "Web Builder" (Pakistan; WhatsApp +92 307 5267349). EXACT facts (do not add anything else):
+- Web Builder POS: Windows billing/cashier software for shops, restaurants, supermarkets, pharmacies. Works OFFLINE. Fast billing,
   barcode scanning, stock/inventory, daily sales & profit reports, receipt printing. One-time license, no monthly fee.
   Saudi version has ZATCA Phase-2 e-invoicing. Sold in Pakistan, Saudi Arabia and UAE. Free live demo on WhatsApp.
   It does NOT have: cloud sync, live multi-branch sync, mobile/Android POS app, machine/vending integration, multi-currency,

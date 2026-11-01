@@ -37,12 +37,15 @@ WB_FACTS = """- Prices "starting from" in the customer's region:
 - Business website: clean, fast, professional, mobile friendly.
 - Online store (e-commerce): customers order 24/7, cart, payments, delivery.
 - Mobile app: custom Android apps - online ordering, delivery, booking, owner dashboard.
-- POS software (Rana POS / cashier system): fast billing, barcode, live stock & inventory, daily sales & profit
+- POS software (Web Builder POS / cashier system): fast billing, barcode, live stock & inventory, daily sales & profit
   reports, works offline, one-time price with no monthly fee. Used by shops in Saudi Arabia, UAE and Pakistan.
 - Works for every business: restaurant, grocery, supermarket, pharmacy, clothing, salon, school, clinic, bakery...
 - Discount: never give or promise any discount yourself. If they ask for a discount or a lower price, politely say
-  discount ki baat Boss (Rana) se WhatsApp par karein - he decides.
-- Demo: Rana shows a live demo on WhatsApp. Contact: WhatsApp."""
+  discount ki baat Web Builder team se WhatsApp par karein - they decide.
+- Web Builder AutoPilot (AI auto system / AI employee): runs a business's social media by itself - makes and posts
+  daily videos, reels and photos on Facebook, Instagram, YouTube and TikTok, replies to comments and messages,
+  and finds new customers automatically, 24/7. The owner just runs the business.
+- Demo: the Web Builder team shows a live demo on WhatsApp. Contact: WhatsApp."""
 
 STATS = {"started": None, "loops": 0, "replies": 0, "errors": [], "log": []}
 SKIP = set()       # jin messages par AI ne jawab na dena chuna (spam/gaali) - dobara na poochhe

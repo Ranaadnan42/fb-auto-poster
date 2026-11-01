@@ -6,7 +6,7 @@ Saare bots ka kaam check karta hai aur jo theek ho sakta hai khud theek karta ha
   2. Har bot ki last_run report parho: error, purani (bot chala hi nahi), video mein footage bina check
      ke lagi (Atlas Untold / Frames of Life), AI model band (404) waghera.
   3. Sab kuch employee_github.json mein likho. Supabase wala AI employee (ai-employee function) ise parh
-     kar database wala kaam check karta hai aur Rana ko Roman Urdu mein email bhejta hai.
+     kar database wala kaam khud theek karta hai (koi email nahi).
 """
 import os
 import sys

@@ -52,7 +52,7 @@ os.makedirs(WORK, exist_ok=True)
 # scene = background pic search words, tags = hashtags.
 COUNTRY_CORE = "#UAE #SaudiArabia #Pakistan #Dubai"
 # POS (phase 2): sab se zyada Saudi Arabia + UAE audience
-POS_TAGS = ("#RanaPOS #POS #PointOfSale #CashierSystem #RetailSoftware #BillingSoftware "
+POS_TAGS = ("#WebBuilderPOS #POS #PointOfSale #CashierSystem #RetailSoftware #BillingSoftware "
             "#InventorySoftware #SaudiArabia #KSA #Riyadh #Jeddah #Dammam #Makkah "
             "#UAE #Dubai #AbuDhabi #Sharjah #Ajman")
 AR_TAGS = {"pos": "#برنامج_كاشير #نظام_نقاط_البيع #برنامج_محاسبة #نقاط_البيع #السعودية #الرياض #جدة "
@@ -174,6 +174,27 @@ PROMOS.append(
             "for": "للمحلات والمطاعم والعيادات والعلامات التجارية", "where": ""},
      "hi": "आपका सोशल मीडिया हम संभालें - रोज़ाना पोस्ट, रील्स और वीडियो, फेसबुक, इंस्टाग्राम और टिकटॉक। ज़्यादा फॉलोअर्स, ज़्यादा ग्राहक।"})
 
+PROMOS.append(
+    {"focus": "autopilot", "tags": ("#WebBuilderAutoPilot #AIAutomation #AIEmployee #SocialMediaAutomation #DigitalMarketing "
+                                    "#SmallBusiness #SaudiArabia #UAE #Dubai #Riyadh #Pakistan #USA #UK"),
+     "img": ["artificial intelligence", "robot technology", "automation", "social media", "smartphone"],
+     "en": {"label": "WEB BUILDER AUTOPILOT", "head": "Your Business on AI AutoPilot",
+            "points": ["Daily videos, reels & posts made for you", "Replies to comments & messages 24/7",
+                       "Finds new customers automatically"],
+            "badge": "Your AI employee - works 24/7",
+            "for": "Shops - Restaurants - Clinics - Brands & more", "where": ""},
+     "ur": {"label": "ویب بلڈر آٹو پائلٹ", "head": "آپ کا کاروبار، AI آٹو پائلٹ پر",
+            "points": ["روزانہ ویڈیوز، ریلز اور پوسٹس خود بخود", "کمنٹس اور میسجز کا جواب 24 گھنٹے",
+                       "نئے گاہک خود بخود تلاش"],
+            "badge": "آپ کا AI ملازم - 24 گھنٹے کام",
+            "for": "دکان، ریسٹورنٹ، کلینک، برانڈ - ہر کاروبار کے لیے", "where": ""},
+     "ar": {"label": "ويب بلدر أوتوبايلت", "head": "نشاطك يعمل بالذكاء الاصطناعي تلقائياً",
+            "points": ["فيديوهات وريلز ومنشورات يومية تلقائياً", "رد على التعليقات والرسائل على مدار الساعة",
+                       "يجلب لك عملاء جدد تلقائياً"],
+            "badge": "موظفك الذكي - يعمل 24/7",
+            "for": "للمحلات والمطاعم والعيادات والعلامات التجارية", "where": ""},
+     "hi": "आपका बिज़नेस AI ऑटोपायलट पर - रोज़ाना वीडियो, रील्स और पोस्ट खुद बनें, कमेंट्स का जवाब 24 घंटे, और नए ग्राहक अपने आप।"})
+
 IMG_BLOCK = {"woman", "women", "girl", "lady", "female", "model", "sexy", "bikini", "lingerie",
              "kiss", "couple", "romance", "fashion", "beauty", "makeup", "wine", "beer", "alcohol",
              "party", "christmas", "halloween", "church"}
@@ -246,7 +267,7 @@ NAME_START = ["Al Noor", "City", "Royal", "Star", "Golden", "Green Valley", "Al 
 
 def product_pic(focus, path):
     kind = {"pos": random.choice(["pos", "report"]), "website": "website", "store": "website",
-            "app": "app", "social": "social"}.get(focus, "website")
+            "app": "app", "social": "social", "autopilot": "social"}.get(focus, "website")
     spot = random.choice(POS_SPOTS if focus == "pos" else list(wb_mock.FOLDER))
     name = f"{random.choice(NAME_START)} {spot.title()}"
     if len(name) > 22:
@@ -474,7 +495,7 @@ def pick_promo(hist):
     n = sum(1 for p in hist.get("posts", []) if p.get("lang", "en") == LANG)
     if LANG == "ar":
         # Arabic (Saudi/UAE) - har doosra din POS
-        order = ["pos", "website", "pos", "app", "pos", "store"]
+        order = ["pos", "website", "pos", "app", "pos", "store", "pos", "autopilot"]
         want = order[n % len(order)]
         return next(p for p in PROMOS if p["focus"] == want)
     off = 0 if LANG == "en" else 2
