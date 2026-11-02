@@ -872,10 +872,21 @@ def get_clips(scene, country_words, job, prefix, need):
     else:
         place_q = [f"{city} aerial", city, f"{country} landscape", f"{country} city", country]
         rounds.append(("video", place_q, pw + cw, place or country))
+    rounds.insert(2, ("alt", [], subj_accept, want))      # na mile -> agent naye naam soch kar dobara dhoonde
     got = []
-    for kind, queries, accept, want_r in rounds:
+    ri = 0
+    while ri < len(rounds):
+      kind, queries, accept, want_r = rounds[ri]
+      ri += 1
       if got:          # pehle (zyada theek) round se clip mil gayi to aage nahi
         break
+      if kind == "alt":
+        aq = alt_queries(want, said)
+        if aq:
+            aw = sorted({w for q in aq for w in _words(q) if len(w) > 3 and w not in GENERIC})
+            rounds[ri:ri] = [("video", aq, aw, want), ("photo", aq[:5], aw, want)]
+            REPORT["alt_searches"] = REPORT.get("alt_searches", 0) + 1
+        continue
       for q in queries:
         if len(got) >= need:
             break
@@ -951,6 +962,22 @@ def get_clips(scene, country_words, job, prefix, need):
 
 
 FOOD_WORDS_LIST = sorted(w for w in FOOD_WORDS if " " not in w)
+
+
+def alt_queries(want, said):
+    """Clip na mile to agent soche: yeh cheez stock sites par aur kin lafzon se milegi."""
+    try:
+        d = ask_json(f"""A documentary scene needs real footage of: "{want}".
+Narration: "{said[:300]}"
+Searching stock-video sites (Pexels, Pixabay, Wikimedia Commons) with the obvious words found nothing.
+Give 8 OTHER short English search phrases (1-4 words) that would find footage truly showing this same thing:
+its other/English/local names, the exact landmark or city it is in, its main visible parts or ingredients,
+how it is made or served, typical close-ups. Every phrase must still show THIS thing (and its country if relevant),
+not something generic. Return JSON {{"queries": ["..."]}}""", 0.4)
+        return [q for q in (d.get("queries") or []) if isinstance(q, str) and q.strip()][:8]
+    except Exception as e:
+        log(f"alt queries fail: {str(e)[:100]}")
+        return []
 
 
 # ---------------------------------------------------------------- awaaz, music, likhai

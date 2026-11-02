@@ -214,3 +214,48 @@ def build_long(history, out_path, force_style=None):
             laugh_at.append(t - 2.1)
     F.REPORT["laughs"] = F.REPORT.get("laughs", 0) + sfx.add_laughs(os.path.abspath(out_path), laugh_at)
     return script
+
+
+def build_reel(history, out_path):
+    """Cartoon REEL (~45 sec, 1080x1920): ek chhoti mukammal mazahiya cartoon kahani - qisten nahi."""
+    import content_rules
+    used = [h["title"] for h in history[-150:]]
+    recent = {h.get("topic") for h in history[-40:]}
+    situation = random.choice([x for x in F.SITUATIONS if x not in recent] or F.SITUATIONS)
+    data = F.ask_json(f"""You write a viral 45-second FUNNY CARTOON reel in URDU for the Pakistani Facebook page
+"{F.PAGE_NAME}".{content_rules.text("funny")} Topic: {situation}. The visuals are bright 2D cartoon pictures.
+Never reuse an idea from these past titles: {json.dumps(used, ensure_ascii=False)}
+One complete mini story: an original desi cartoon character with a funny name (never a famous cartoon/TV
+character), a hook in line 1, a plan that goes hilariously wrong, and a surprising twist punchline at the end.
+About 110 words total. Last line: "ایسی مزید ویڈیوز کے لیے فالو کریں"
+{F.RULES}
+Split into exactly 6 scenes. For each scene give "visual": a 1-3 word ENGLISH cartoon image search term
+for what is shown (simple common things: "old man", "goat", "kitchen", "cricket", "angry woman", "car"),
+and "meme": a very short funny Urdu header (max 7 words).
+Return JSON: {{"title": "funny Urdu title, max 60 characters",
+ "scenes": [{{"text": "...", "visual": "...", "meme": "...", "laugh": true/false}}],
+ "caption": "1 funny Urdu line asking people to tag a friend",
+ "hashtags": ["#funny", "#cartoon", "..."] (6 hashtags)}}""")
+    job = os.path.join(F.WORK, "cartoon_reel")
+    shutil.rmtree(job, ignore_errors=True)
+    os.makedirs(job)
+    scenes = [s for s in data.get("scenes", []) if (s.get("text") or "").strip()]
+    if len(scenes) < 3:
+        raise RuntimeError("Cartoon reel script mein scenes kam hain")
+    for sc in scenes:
+        if sfx.is_funny_text(sc.get("text")):
+            sc["laugh"] = True
+    scenes[-1]["laugh"] = True
+    parts = [build_scene(job, i, sc, 1080, 1920, "cartoon", data["title"]) for i, sc in enumerate(scenes)]
+    with open(os.path.join(job, "list.txt"), "w") as f:
+        f.writelines(f"file '{p}'\n" for p in parts)
+    F.run(["ffmpeg", "-y", "-f", "concat", "-safe", "0", "-i", "list.txt", "-c", "copy",
+           "-movflags", "+faststart", os.path.abspath(out_path)], cwd=job)
+    laugh_at, t = [], 0.0
+    for p, sc in zip(parts, scenes):
+        t += F.duration(os.path.join(job, p))
+        if sc.get("laugh"):
+            laugh_at.append(t - 2.1)
+    F.REPORT["laughs"] = F.REPORT.get("laughs", 0) + sfx.add_laughs(os.path.abspath(out_path), laugh_at)
+    data.update({"animal": "cartoon", "topic": situation, "style": "cartoon"})
+    return data

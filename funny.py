@@ -701,7 +701,11 @@ def _main():
         chat_today = sum(1 for h in history if h.get("mode") == "reel" and h.get("format") == "chat"
                          and (datetime.datetime.strptime(h["date"], "%Y-%m-%d %H:%M")
                               + datetime.timedelta(hours=5)).strftime("%Y-%m-%d") == pk_today)
-        fmt = os.environ.get("FORMAT") or ("animal" if chat_today >= 1 else "chat")
+        cartoon_today = sum(1 for h in history if h.get("mode") == "reel" and h.get("format") == "cartoon"
+                            and (datetime.datetime.strptime(h["date"], "%Y-%m-%d %H:%M")
+                                 + datetime.timedelta(hours=5)).strftime("%Y-%m-%d") == pk_today)
+        # roz: 1 chat reel, 1 cartoon reel, baaqi janwar wali
+        fmt = os.environ.get("FORMAT") or ("chat" if chat_today < 1 else "cartoon" if cartoon_today < 1 else "animal")
     entry["format"] = fmt
     REPORT["format"] = fmt
     if MODE == "long":
@@ -731,6 +735,10 @@ def _main():
         if fmt == "animal":
             script = write_reel(history)
             build_video(script, "reel", 1080, 1920, "funny_reel.mp4")
+        elif fmt == "cartoon":
+            import story
+            script = story.build_reel(history, "funny_reel.mp4")
+            REPORT["reel_minutes"] = round(duration("funny_reel.mp4") / 60, 2)
         else:
             script = chat_comedy.build_reel(history, "funny_reel.mp4")
             REPORT["reel_minutes"] = round(duration("funny_reel.mp4") / 60, 2)
