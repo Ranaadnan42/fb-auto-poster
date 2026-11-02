@@ -378,10 +378,68 @@ def pixabay_clips(query, count, job, prefix, backup, want_vertical=False, strict
                             f.write(chunk)
                 if os.path.getsize(path) > 50000:
                     USED_CLIPS.add(h["id"])
+                    if _clip_ok(path, backup, query, h.get("duration", 10)) is False:
+                        REPORT["clips_rejected"] = REPORT.get("clips_rejected", 0) + 1
+                        continue
                     got.append(path)
             except Exception as e:
                 log(f"Clip download fail: {str(e)[:150]}")
     return got
+
+
+_VDEAD = set()
+
+
+def _clip_ok(path, animal, query, dur):
+    """Agent clip ka frame dekhta hai: asli {animal} hai, scene ki baat se milta hai, family-friendly hai?
+    None = check na ho saka (tab tag wala match hi kaafi)."""
+    import base64
+    jpg = path + ".chk.jpg"
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{min(float(dur) * 0.4, 4):.1f}", "-i", path,
+                    "-frames:v", "1", "-vf", "scale=640:-2", jpg], capture_output=True)
+    if not os.path.exists(jpg):
+        return None
+    img = base64.b64encode(open(jpg, "rb").read()).decode()
+    prompt = (f"Frame from a stock clip for a funny family-friendly reel. The scene needs: '{query}' "
+              f"(main animal: {animal}). Reply JSON {{\"ok\": true/false}}. ok = it is a REAL {animal} (not cartoon/3D/toy), "
+              "clearly visible, and nothing sad, injured, dead, violent, or adult.")
+    gk = os.environ.get("GROQ_API_KEY")
+    for m in ("gemini-3.1-flash-lite", "gemini-flash-lite-latest", "gemini-3.5-flash-lite"):
+        if not GEMINI_KEY or m in _VDEAD:
+            continue
+        try:
+            r = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={GEMINI_KEY}",
+                              timeout=25, json={"contents": [{"parts": [{"text": prompt},
+                                                                         {"inline_data": {"mime_type": "image/jpeg", "data": img}}]}],
+                                                "generationConfig": {"responseMimeType": "application/json", "temperature": 0}})
+            if r.status_code in (404, 429):
+                _VDEAD.add(m)
+            r.raise_for_status()
+            REPORT["vision_checks"] = REPORT.get("vision_checks", 0) + 1
+            return bool(json.loads(r.json()["candidates"][0]["content"]["parts"][0]["text"]).get("ok"))
+        except Exception as e:
+            log(f"vision {m}: {str(e)[:90]}")
+    for m in ("qwen/qwen3.8-27b",):
+        if not gk or m in _VDEAD:
+            continue
+        try:
+            r = requests.post("https://api.groq.com/openai/v1/chat/completions", timeout=40,
+                              headers={"Authorization": f"Bearer {gk}"},
+                              json={"model": m, "temperature": 0, "response_format": {"type": "json_object"},
+                                    "messages": [{"role": "user", "content": [
+                                        {"type": "text", "text": prompt},
+                                        {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + img}}]}]})
+            if r.status_code in (400, 404):
+                _VDEAD.add(m)
+                continue
+            r.raise_for_status()
+            import re as _re
+            d = json.loads(_re.search(r"\{.*\}", r.json()["choices"][0]["message"]["content"], _re.S).group(0))
+            REPORT["vision_checks"] = REPORT.get("vision_checks", 0) + 1
+            return bool(d.get("ok"))
+        except Exception as e:
+            log(f"groq vision {m}: {str(e)[:90]}")
+    return None
 
 
 def fallback_clip(path, w, h):
