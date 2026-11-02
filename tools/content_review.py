@@ -19,7 +19,8 @@ BOTS = {
     "islamic": ("history.json", "Islamic Motivational Videos - FB page, YouTube, TikTok. Authentic Islamic "
                 "stories, Quran/hadith lessons, motivation. Respectful, no sectarian topics."),
     "funny": ("funny_history.json", "Hansi Ka Adda - FB, YouTube, TikTok. Clean family-friendly Pakistani Urdu "
-              "comedy: funny animal voice-overs, latifay, chat comedy, cartoon stories."),
+              "comedy about everyday desi life with real people footage (POV, latifay, types of people, "
+              "har ghar mein, expectation vs reality), chat comedy, occasional cartoon. No animal videos."),
     "world": ("world_long_history.json", "Atlas Untold - English YouTube country documentaries (real footage)."),
     "world_short": ("world_short_history.json", "Atlas Untold Shorts - English country facts."),
     "frames": ("frames_long_history.json", "Frames of Life - Urdu country documentaries for Pakistani viewers."),
@@ -32,7 +33,7 @@ CORE = {
     "islamic": ["prophet", "anbiya", "sabr", "patience", "tawakkul", "trust", "dua", "parent", "jumma", "jummah",
                 "friday", "anger", "humility", "arrogance", "tawbah", "repentance", "charity", "sadaqah", "tahajjud",
                 "prayer", "salah", "namaz", "quran", "ramadan", "story", "stories", "hadith", "sahaba", "companion"],
-    "funny": ["format", "voice", "cartoon", "animal videos", "chat", "reel", "latifa", "comedy"],
+    "funny": ["format", "voice", "cartoon", "people", "chat", "reel", "latifa", "comedy", "pov", "types"],
     "world": ["cost", "living", "moving", "vs", "versus", "affordable", "cheap", "retire", "city", "country",
               "documentary", "list", "best"],
     "frames": ["cost", "living", "life in", "moving", "visa", "job", "salary", "vs", "cheap", "affordable",

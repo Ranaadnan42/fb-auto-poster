@@ -14,6 +14,7 @@ import os
 import sys
 import json
 import time
+import re
 import random
 import asyncio
 import shutil
@@ -29,6 +30,10 @@ from google.genai import types
 
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY")
 PIXABAY_KEY = os.environ.get("PIXABAY_API_KEY")
+PEXELS_KEY = os.environ.get("PEXELS_API_KEY")
+HUMAN = {"man", "woman", "men", "women", "people", "person", "boy", "girl", "family", "friends", "kid", "kids",
+         "child", "children", "guy", "student", "students", "couple", "father", "mother", "grandmother",
+         "grandfather", "worker", "businessman", "teenager", "baby", "crowd", "lady", "chef", "teacher"}
 FB_TOKEN = os.environ.get("FUNNY_PAGE_TOKEN")
 FB_PAGE = os.environ.get("FUNNY_PAGE_ID")
 DRY_RUN = os.environ.get("DRY_RUN") == "1"
@@ -111,6 +116,25 @@ REEL_FORMATS = {
     "news": "A fake funny 'breaking news' bulletin about the topic, read by the {animal} as a news anchor, "
             "with an on-the-spot reporter and a silly twist.",
 }
+
+PEOPLE_FORMATS = {
+    "pov": "'POV / Jab...' reel: the viewer IS the person in the situation, each scene a funnier escalation.",
+    "latifay": "3 short, clean, NEW Urdu jokes (latifay) about the topic with desi characters, each with its own punchline. Never old famous jokes.",
+    "types": "'Types of people' about the topic: each scene is ONE type of person ('type 1: woh jo...').",
+    "expectation": "'Expectation vs Reality' about the topic: first scenes the dream, then the painfully funny reality.",
+    "har_ghar": "'Har ghar mein...' - the funny things that happen in EVERY Pakistani home in this situation.",
+    "kya_hota_agar": "'Kya hota agar...' - a funny what-if: escalating chaos, twist ending.",
+    "news": "A fake funny 'breaking news' bulletin about the topic with an on-the-spot reporter and a silly twist.",
+    "dialogue": "A short funny conversation between two desi characters (e.g. ammi and beta, dukandaar and customer); the narrator voices both, naming who speaks.",
+}
+
+PEOPLE_STYLES = [
+    "observational desi comedy - 'har kisi ke saath hota hai'", "dramatic TV-serial narration of a tiny problem",
+    "cricket-commentary style narration of an everyday moment", "sarcastic narrator roasting the situation (gently)",
+    "over-the-top breaking-news style", "a desi aunty's commentary", "a lazy student's confessions",
+    "a middle-class abbu's logic", "a motivational speaker giving terrible advice",
+    "nature-documentary narrator describing desi people", "a strict ammi's rules explained",
+]
 
 RULES = """Humor rules (very important):
 - Clean family-friendly comedy only: no abuse, no vulgar words, no double meaning.
@@ -222,43 +246,73 @@ def _take_phrase(data, searches):
 SEARCH_FIELD = ',\n "search_phrase": "the exact real search phrase from the list you used, or empty"'
 
 
-def write_reel(history):
+def write_reel(history, people=False):
     used = [h["title"] for h in history[-120:]]
     recent_animals = [h.get("animal") for h in history[-8:]]
-    animal = random.choice([a for a in ANIMALS if a not in recent_animals])
+    animal = "people" if people else random.choice([a for a in ANIMALS if a not in recent_animals])
     recent_styles = [h.get("style") for h in history[-6:]]
     style = random.choice([x for x in STYLES if x not in recent_styles] or STYLES)
     recent_topics = {h.get("topic") for h in history[-40:]}
     situation = random.choice([x for x in SITUATIONS if x not in recent_topics] or SITUATIONS)
     recent_fmts = [h.get("reel_format") for h in history[-4:]]
-    rfmt = os.environ.get("REEL_FORMAT") or random.choice([k for k in REEL_FORMATS if k not in recent_fmts])
+    fmts = PEOPLE_FORMATS if people else REEL_FORMATS
+    rfmt = os.environ.get("REEL_FORMAT") or random.choice([k for k in fmts if k not in recent_fmts] or list(fmts))
     searches, search_txt = _search_part(situation)
     import content_rules
-    data = ask_json(f"""You write viral funny Facebook Reels for the Pakistani page "{PAGE_NAME}".{content_rules.text("funny")}
-Animal: {animal}. Comedy style: {style}.
-REEL FORMAT (follow this, it decides the whole structure): {REEL_FORMATS[rfmt].format(animal=animal)}
+    if people:
+        recent_styles = [h.get("style") for h in history[-6:]]
+        style = random.choice([x for x in PEOPLE_STYLES if x not in recent_styles] or PEOPLE_STYLES)
+        data = ask_json(f"""You write VIRAL funny Facebook Reels for the Pakistani comedy page "{PAGE_NAME}".{content_rules.text("funny")}
+The page is pure COMEDY about everyday desi life - people must laugh out loud (lot pot), share it and tag friends.
+Comedy style: {style}.
+REEL FORMAT (follow this, it decides the whole structure): {PEOPLE_FORMATS[rfmt]}
 Today's topic (relatable everyday Pakistani situation): {situation}.{search_txt}
-Invent a FRESH joke idea about this topic - never reuse an idea from these past titles:
+Invent a FRESH, ORIGINAL joke idea about this topic - never reuse an idea from these past titles:
 {json.dumps(used, ensure_ascii=False)}
 
-Write a 100-word Urdu voice-over (about 40 seconds) for stock clips of a {animal}.
-Follow the REEL FORMAT above for structure (the {animal} is the main character unless the format says otherwise).
-Make it GENUINELY funny: one relatable situation, exaggeration, desi references
-(ammi, abbu, chai, biryani, load shedding, WhatsApp, rishta, cricket), short punchy lines,
-and a surprising twist punchline at the end. Line 1 is a hook that makes people stop scrolling.
-Only refer to simple things any clip of a {animal} shows (looking, staring, sitting, eating,
-sleeping, walking, running) so the video always matches the words.
+Write a 100-word Urdu voice-over (about 40 seconds) shown over real stock clips of PEOPLE.
+Make it GENUINELY hilarious: one super-relatable moment everybody has lived, big exaggeration, desi
+characters (ammi, abbu, chachu, phupho, bhabhi, dost, teacher, dukandaar), desi references (chai, biryani,
+load shedding, WhatsApp, rishta, cricket), short punchy lines, a twist punchline at the end.
+Line 1 is a hook that makes people stop scrolling (e.g. "Har ghar mein ek aisa banda hota hai...").
 After the punchline end with: "ایسی مزید ویڈیوز کے لیے فالو کریں"
 {RULES}
 
-Split into exactly 5 scenes. For each scene give a 1-3 word ENGLISH stock-video search term
-that will show a {animal} (e.g. "{animal}", "{animal} playing", "funny {animal}").
+Split into exactly 5 scenes. For each scene give a 2-5 word ENGLISH stock-video search term showing PEOPLE
+doing what that line says, with a clear expression (e.g. "man laughing phone", "woman angry kitchen",
+"student sleeping desk", "family dinner table", "man shocked bill", "friends laughing cafe").
 
 Return JSON: {{"title": "funny Urdu title, max 60 characters",
  "meme": "very short meme header in Urdu shown on top of the whole reel, max 7 words, like a POV line",
- "scenes": [{{"text": "...", "visual": "...", "animal": "only for the types format: that scene's animal (one English word)", "laugh": true/false}}] ("laugh": true if this scene ends with a punchline or someone laughs (about half the scenes), else false),
+ "scenes": [{{"text": "...", "visual": "...", "laugh": true/false}}] ("laugh": true if this scene ends with a punchline (about half the scenes), else false),
  "caption": "1 funny line in Urdu that asks people to tag a friend",
  "hashtags": ["#funny", "..."] (6 hashtags, English and Urdu){SEARCH_FIELD if searches else ""}}}""")
+    else:
+        data = ask_json(f"""You write viral funny Facebook Reels for the Pakistani page "{PAGE_NAME}".{content_rules.text("funny")}
+    Animal: {animal}. Comedy style: {style}.
+    REEL FORMAT (follow this, it decides the whole structure): {REEL_FORMATS[rfmt].format(animal=animal)}
+    Today's topic (relatable everyday Pakistani situation): {situation}.{search_txt}
+    Invent a FRESH joke idea about this topic - never reuse an idea from these past titles:
+    {json.dumps(used, ensure_ascii=False)}
+
+    Write a 100-word Urdu voice-over (about 40 seconds) for stock clips of a {animal}.
+    Follow the REEL FORMAT above for structure (the {animal} is the main character unless the format says otherwise).
+    Make it GENUINELY funny: one relatable situation, exaggeration, desi references
+    (ammi, abbu, chai, biryani, load shedding, WhatsApp, rishta, cricket), short punchy lines,
+    and a surprising twist punchline at the end. Line 1 is a hook that makes people stop scrolling.
+    Only refer to simple things any clip of a {animal} shows (looking, staring, sitting, eating,
+    sleeping, walking, running) so the video always matches the words.
+    After the punchline end with: "ایسی مزید ویڈیوز کے لیے فالو کریں"
+    {RULES}
+
+    Split into exactly 5 scenes. For each scene give a 1-3 word ENGLISH stock-video search term
+    that will show a {animal} (e.g. "{animal}", "{animal} playing", "funny {animal}").
+
+    Return JSON: {{"title": "funny Urdu title, max 60 characters",
+     "meme": "very short meme header in Urdu shown on top of the whole reel, max 7 words, like a POV line",
+     "scenes": [{{"text": "...", "visual": "...", "animal": "only for the types format: that scene's animal (one English word)", "laugh": true/false}}] ("laugh": true if this scene ends with a punchline or someone laughs (about half the scenes), else false),
+     "caption": "1 funny line in Urdu that asks people to tag a friend",
+     "hashtags": ["#funny", "..."] (6 hashtags, English and Urdu){SEARCH_FIELD if searches else ""}}}""")
     if len(data.get("scenes", [])) < 2:
         raise RuntimeError("Reel script mein scenes kam hain")
     _take_phrase(data, searches)
@@ -339,10 +393,14 @@ def tts(text, path):
 # ---------------------------------------------------------------- clips
 def pixabay_clips(query, count, job, prefix, backup, want_vertical=False, strict=True):
     got = []
+    if backup == "people" and PEXELS_KEY:      # insaanon ki footage Pexels par behtar
+        got += _pexels_people(query, count, job, prefix)
     if not PIXABAY_KEY:
         return got
     queries = []
-    for q in (f"funny {backup}", query if backup in query else f"{backup} {query}", backup):
+    seeds = (query, f"{query} funny", "funny people laughing") if backup == "people" else \
+        (f"funny {backup}", query if backup in query else f"{backup} {query}", backup)
+    for q in seeds:
         if q not in queries:
             queries.append(q)
     for q in queries:
@@ -354,7 +412,8 @@ def pixabay_clips(query, count, job, prefix, backup, want_vertical=False, strict
             r.raise_for_status()
             bad = ("animation", "3d", "cartoon", "render", "illustration", "christmas", "abstract")
             hits = [h for h in r.json().get("hits", []) if h["id"] not in USED_CLIPS
-                    and (not strict or backup.split()[-1] in h.get("tags", "").lower())
+                    and (not strict or (bool(HUMAN & set(re.findall(r"[a-z]+", h.get("tags", "").lower())))
+                                        if backup == "people" else backup.split()[-1] in h.get("tags", "").lower()))
                     and not any(b in h.get("tags", "").lower() for b in bad)]
         except Exception as e:
             log(f"Pixabay error ({q}): {str(e)[:150]}")
@@ -372,6 +431,8 @@ def pixabay_clips(query, count, job, prefix, backup, want_vertical=False, strict
             if not pick:
                 continue
             path = os.path.join(job, f"{prefix}_{len(got)}.mp4")
+            if os.path.exists(path):
+                path = os.path.join(job, f"{prefix}_x{len(got)}.mp4")
             try:
                 with requests.get(pick["url"], stream=True, timeout=180) as resp:
                     resp.raise_for_status()
@@ -384,6 +445,48 @@ def pixabay_clips(query, count, job, prefix, backup, want_vertical=False, strict
                         REPORT["clips_rejected"] = REPORT.get("clips_rejected", 0) + 1
                         continue
                     got.append(path)
+            except Exception as e:
+                log(f"Clip download fail: {str(e)[:150]}")
+    return got
+
+
+def _pexels_people(query, count, job, prefix):
+    got = []
+    for q in (query, " ".join(query.split()[:2])):
+        if len(got) >= count:
+            break
+        try:
+            r = requests.get("https://api.pexels.com/videos/search", timeout=40, headers={"Authorization": PEXELS_KEY},
+                             params={"query": q, "per_page": 30})
+            vids = r.json().get("videos", [])
+        except Exception as e:
+            log(f"Pexels error ({q}): {str(e)[:120]}")
+            continue
+        random.shuffle(vids)
+        for v in vids:
+            if len(got) >= count:
+                break
+            if f"pe{v['id']}" in USED_CLIPS:
+                continue
+            slug = set(re.findall(r"[a-z]+", (v.get("url") or "").lower()))
+            if not HUMAN & slug:
+                continue
+            fs = sorted([f for f in v.get("video_files", []) if (f.get("width") or 0) >= 1080 and f.get("link")],
+                        key=lambda f: f["width"])
+            if not fs:
+                continue
+            path = os.path.join(job, f"{prefix}_pe{len(got)}.mp4")
+            try:
+                with requests.get(fs[0]["link"], stream=True, timeout=180) as resp:
+                    resp.raise_for_status()
+                    with open(path, "wb") as f:
+                        for chunk in resp.iter_content(1 << 20):
+                            f.write(chunk)
+                USED_CLIPS.add(f"pe{v['id']}")
+                if os.path.getsize(path) < 50000 or _clip_ok(path, "people", query, v.get("duration", 10)) is False:
+                    REPORT["clips_rejected"] = REPORT.get("clips_rejected", 0) + 1
+                    continue
+                got.append(path)
             except Exception as e:
                 log(f"Clip download fail: {str(e)[:150]}")
     return got
@@ -402,9 +505,15 @@ def _clip_ok(path, animal, query, dur):
     if not os.path.exists(jpg):
         return None
     img = base64.b64encode(open(jpg, "rb").read()).decode()
-    prompt = (f"Frame from a stock clip for a funny family-friendly reel. The scene needs: '{query}' "
-              f"(main animal: {animal}). Reply JSON {{\"ok\": true/false}}. ok = it is a REAL {animal} (not cartoon/3D/toy), "
-              "clearly visible, and nothing sad, injured, dead, violent, or adult.")
+    if animal == "people":
+        prompt = (f"Frame from a stock clip for a funny family-friendly Pakistani comedy reel. The scene needs: '{query}'. "
+                  "Reply JSON {\"ok\": true/false}. ok = real people clearly doing roughly that (matching action/mood), "
+                  "modestly dressed (no swimwear, no revealing clothes), no alcohol, no romance/kissing, "
+                  "nothing sad, violent or adult.")
+    else:
+        prompt = (f"Frame from a stock clip for a funny family-friendly reel. The scene needs: '{query}' "
+                  f"(main animal: {animal}). Reply JSON {{\"ok\": true/false}}. ok = it is a REAL {animal} (not cartoon/3D/toy), "
+                  "clearly visible, and nothing sad, injured, dead, violent, or adult.")
     gk = os.environ.get("GROQ_API_KEY")
     for m in ("gemini-3.1-flash-lite", "gemini-flash-lite-latest", "gemini-3.5-flash-lite"):
         if not GEMINI_KEY or m in _VDEAD:
@@ -694,7 +803,7 @@ def _main():
         # lambi video: har din alag qism - pichhli 2 se mukhtalif
         recent_long = [h.get("format") for h in history if h.get("mode") == "long"][-2:]
         fmt = os.environ.get("FORMAT") or random.choice(
-            [f for f in ("story", "cartoon", "animal", "chat") if f not in recent_long] or ["story"])
+            [f for f in ("story", "cartoon", "chat") if f not in recent_long] or ["story"])
     else:
         # roz sirf 1 chat reel, baaqi janwar wali
         pk_today = (now + datetime.timedelta(hours=5)).strftime("%Y-%m-%d")
@@ -706,11 +815,13 @@ def _main():
         last_fmt = reels[-1].get("format") if reels else None
         cut = (now - datetime.timedelta(days=2)).strftime("%Y-%m-%d %H:%M")
         cartoon_recent = any(h.get("format") == "cartoon" and h["date"] >= cut for h in reels)
-        pool = {"animal": 4, "chat": 2, "cartoon": 0 if cartoon_recent else 1}
-        pool.pop(last_fmt, None)
+        # janwar nahi - asli desi insaanon wali comedy zyada, chat kabhi, cartoon kabhi kabhi
+        pool = {"people": 5, "chat": 2, "cartoon": 0 if cartoon_recent else 1}
+        if last_fmt != "people":      # people reels ke andar format khud badalta hai
+            pool.pop(last_fmt, None)
         if chat_today >= 1:
             pool.pop("chat", None)
-        pool = {k: v for k, v in pool.items() if v} or {"animal": 1}
+        pool = {k: v for k, v in pool.items() if v} or {"people": 1}
         fmt = os.environ.get("FORMAT") or random.choices(list(pool), weights=list(pool.values()))[0]
     entry["format"] = fmt
     REPORT["format"] = fmt
@@ -738,8 +849,8 @@ def _main():
             import social
             social.share_long("funny", "funny_long.mp4", desc, entry, REPORT, log)
     else:
-        if fmt == "animal":
-            script = write_reel(history)
+        if fmt in ("people", "animal"):
+            script = write_reel(history, people=(fmt == "people"))
             build_video(script, "reel", 1080, 1920, "funny_reel.mp4")
         elif fmt == "cartoon":
             import story
