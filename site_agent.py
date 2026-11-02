@@ -828,7 +828,7 @@ HASHTAGS = {"pos-systems": "#POS #PointOfSale #SmallBusiness #RetailTech #Restau
 
 
 def share_social(posts):
-    """Web Builder Facebook page par: naya article foran + purana backlog (roz max 2 posts).
+    """Web Builder Facebook page par: naya article foran + purana backlog (roz sirf 1 post, page par zyada na ho).
     Sirf asli domain par (github.io wale link baad mein badal jate) - tab tak queue mein rehte hain."""
     host = urllib.parse.urlparse(SITE_URL).netloc
     if host.endswith("github.io"):
@@ -847,7 +847,7 @@ def share_social(posts):
     order = newest + [q for q in queue if q not in newest]
     sent = []
     for key, link, msg in order:
-        if key in done or len(sent) >= 2:
+        if key in done or len(sent) >= 1:
             continue
         if fb_share(link, msg):
             state["shared"].append(key)
