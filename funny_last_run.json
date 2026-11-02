@@ -1,12 +1,12 @@
 {
- "mode": "reel",
+ "mode": "auto",
  "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "cartoon",
- "reel_minutes": 0.61,
- "laughs": 4,
- "time_utc": "2026-11-02 20:38",
- "title": "گڈو میاں اور اے ٹی ایم مشین کا معجزہ",
- "dry_run": true
+ "format": "chat",
+ "long_minutes": 6.51,
+ "laughs": 14,
+ "time_utc": "2026-11-02 20:45",
+ "title": "ٹک ٹاک کا جن اور ڈلیوری رائڈر",
+ "dry_run": false
 }
