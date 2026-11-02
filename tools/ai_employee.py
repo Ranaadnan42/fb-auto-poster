@@ -72,7 +72,10 @@ def check_workflows(fixed, problems, ok):
         file = os.path.basename(wf.get("path", ""))
         if wf.get("state") != "active" or file in SKIP_WF:
             continue
-        runs = ghapi.runs_since(file, SINCE)
+        try:
+            runs = ghapi.runs_since(file, SINCE)
+        except Exception:
+            continue          # dynamic/purana workflow - runs API 404
         done = [r for r in runs if r.get("status") == "completed"]
         bad = [r for r in done if r.get("conclusion") == "failure"]
         good = [r for r in done if r.get("conclusion") == "success"]
