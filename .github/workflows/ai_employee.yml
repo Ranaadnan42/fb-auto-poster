@@ -41,15 +41,31 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GH_TOKEN: ${{ github.token }}
         run: python3 tools/content_review.py || true
+      - name: Page manager - FB pages ki settings, monetization tracking, ruki posting
+        env:
+          GH_TOKEN: ${{ github.token }}
+          FB_PAGE_ID: ${{ secrets.FB_PAGE_ID }}
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+          FUNNY_PAGE_ID: ${{ secrets.FUNNY_PAGE_ID }}
+          FUNNY_PAGE_TOKEN: ${{ secrets.FUNNY_PAGE_TOKEN }}
+          CINE_FB_PAGE_ID: ${{ secrets.CINE_FB_PAGE_ID }}
+          CINE_FB_TOKEN: ${{ secrets.CINE_FB_TOKEN }}
+          FRAMES_PAGE_ID: ${{ secrets.FRAMES_PAGE_ID }}
+          FRAMES_PAGE_TOKEN: ${{ secrets.FRAMES_PAGE_TOKEN }}
+          WB_PAGE_ID: ${{ secrets.WB_PAGE_ID }}
+          WB_PAGE_TOKEN: ${{ secrets.WB_PAGE_TOKEN }}
+        run: |
+          pip install -q requests >/dev/null 2>&1 || true
+          python3 tools/page_manager.py || true
       - name: Save record
         run: |
           git config user.name "auto-poster"
           git config user.email "auto-poster@users.noreply.github.com"
-          cp employee_github.json /tmp/emp.json; cp agent_record.json /tmp/agent.json 2>/dev/null || true; cp content_rules.json /tmp/rules.json 2>/dev/null || true
+          cp employee_github.json /tmp/emp.json; cp agent_record.json /tmp/agent.json 2>/dev/null || true; cp content_rules.json /tmp/rules.json 2>/dev/null || true; cp page_manager.json /tmp/pm.json 2>/dev/null || true
           for i in 1 2 3 4 5; do
             git fetch -q origin main && git reset -q --hard origin/main
-            cp /tmp/emp.json employee_github.json; cp /tmp/agent.json agent_record.json 2>/dev/null || true; cp /tmp/rules.json content_rules.json 2>/dev/null || true
-            git add employee_github.json; git add agent_record.json content_rules.json 2>/dev/null || true
+            cp /tmp/emp.json employee_github.json; cp /tmp/agent.json agent_record.json 2>/dev/null || true; cp /tmp/rules.json content_rules.json 2>/dev/null || true; cp /tmp/pm.json page_manager.json 2>/dev/null || true
+            git add employee_github.json; git add agent_record.json content_rules.json page_manager.json 2>/dev/null || true
             git diff --cached --quiet && break
             git commit -q -m "AI employee record"
             git push -q origin HEAD:main && break
