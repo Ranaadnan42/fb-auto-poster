@@ -54,8 +54,9 @@ def write_chats(history, n_chats, n_msgs):
 
 
 def ask_chats(plan, n_chats, n_msgs, used):
+    import content_rules
     return F.ask_json(f"""You write viral funny WhatsApp-chat comedy videos in URDU for the Pakistani
-Facebook page "{F.PAGE_NAME}". Write {n_chats} separate chat(s):
+Facebook page "{F.PAGE_NAME}".{content_rules.text("funny")} Write {n_chats} separate chat(s):
 {plan}
 
 Each chat has about {n_msgs} messages between "me" and "them" (the other person).

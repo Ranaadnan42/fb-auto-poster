@@ -60,8 +60,9 @@ def write_story(history, st):
     look = ("realistic, colourful AI-art scenes" if style == "ai" else "bright 2D cartoon scenes")
     extra, best = "", None
     for _ in range(3):
+        import content_rules
         data = F.ask_json(f"""You write a 5-6 minute FUNNY story video in URDU for the Pakistani Facebook
-page "{F.PAGE_NAME}". Topic: {situation}. The visuals will be {look}.
+page "{F.PAGE_NAME}".{content_rules.text("funny")} Topic: {situation}. The visuals will be {look}.
 {series_txt}
 Never reuse an idea from these past titles: {json.dumps(used, ensure_ascii=False)}
 

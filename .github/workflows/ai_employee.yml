@@ -35,15 +35,21 @@ jobs:
         run: |
           pip install -q requests google-genai >/dev/null 2>&1 || true
           python3 tools/ai_agent.py
+      - name: Content editor - repeat content rokna, naye topics
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GH_TOKEN: ${{ github.token }}
+        run: python3 tools/content_review.py || true
       - name: Save record
         run: |
           git config user.name "auto-poster"
           git config user.email "auto-poster@users.noreply.github.com"
-          cp employee_github.json /tmp/emp.json; cp agent_record.json /tmp/agent.json 2>/dev/null || true
+          cp employee_github.json /tmp/emp.json; cp agent_record.json /tmp/agent.json 2>/dev/null || true; cp content_rules.json /tmp/rules.json 2>/dev/null || true
           for i in 1 2 3 4 5; do
             git fetch -q origin main && git reset -q --hard origin/main
-            cp /tmp/emp.json employee_github.json; cp /tmp/agent.json agent_record.json 2>/dev/null || true
-            git add employee_github.json agent_record.json 2>/dev/null || git add employee_github.json
+            cp /tmp/emp.json employee_github.json; cp /tmp/agent.json agent_record.json 2>/dev/null || true; cp /tmp/rules.json content_rules.json 2>/dev/null || true
+            git add employee_github.json; git add agent_record.json content_rules.json 2>/dev/null || true
             git diff --cached --quiet && break
             git commit -q -m "AI employee record"
             git push -q origin HEAD:main && break

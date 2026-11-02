@@ -483,7 +483,9 @@ channel or brand, or are about news, politics, war, disasters or tragedies.
                "'best / cheapest / safest countries to live, retire or visit' lists; and world-famous cities. "
                "Keep variety across many countries over time, but lean towards places and angles with a big "
                "audience in those high-paying countries rather than obscure, low-interest ones.\n")
-    plan = ask_json(f"""You plan the next video for the YouTube travel & world documentary channel "{CHANNEL}".
+    import content_rules
+    _rk = ("frames" if URDU else "world") + ("" if LONG else "_short")
+    plan = ask_json(f"""You plan the next video for the YouTube travel & world documentary channel "{CHANNEL}".{content_rules.text(_rk)}
 {aud}
 Video type: {SERIES_HINT[series]}.
 Already covered (do NOT repeat the same subject for this type): {json.dumps(used)}

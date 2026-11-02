@@ -233,7 +233,8 @@ def write_reel(history):
     recent_fmts = [h.get("reel_format") for h in history[-4:]]
     rfmt = os.environ.get("REEL_FORMAT") or random.choice([k for k in REEL_FORMATS if k not in recent_fmts])
     searches, search_txt = _search_part(situation)
-    data = ask_json(f"""You write viral funny Facebook Reels for the Pakistani page "{PAGE_NAME}".
+    import content_rules
+    data = ask_json(f"""You write viral funny Facebook Reels for the Pakistani page "{PAGE_NAME}".{content_rules.text("funny")}
 Animal: {animal}. Comedy style: {style}.
 REEL FORMAT (follow this, it decides the whole structure): {REEL_FORMATS[rfmt].format(animal=animal)}
 Today's topic (relatable everyday Pakistani situation): {situation}.{search_txt}
@@ -281,7 +282,8 @@ def write_long(history):
     extra = ""
     best = None
     for _ in range(3):
-        data = ask_json(f"""You write funny Facebook videos for the Pakistani page "{PAGE_NAME}".
+        import content_rules
+        data = ask_json(f"""You write funny Facebook videos for the Pakistani page "{PAGE_NAME}".{content_rules.text("funny")}
 Make a 5-minute funny animal compilation with a running joke. Main comedy style: {style}.
 Today's topic for the whole video (relatable everyday Pakistani situation): {situation}.{search_txt}
 Every animal reacts to this topic in its own funny way.

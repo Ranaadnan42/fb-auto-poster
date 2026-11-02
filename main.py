@@ -318,7 +318,8 @@ naturally in the title so it shows up in search - but the title must honestly de
 what the video says (no clickbait, no promises the video does not keep).
 IGNORE phrases that name a scholar, speaker, channel or person, or ask for a cartoon, movie,
 song, status, or another language (Pashto, Hindi...) - never put such names in the title."""
-    data = ask_json(f"""You plan videos for the Facebook page "{PAGE_NAME}".
+    import content_rules
+    data = ask_json(f"""You plan videos for the Facebook page "{PAGE_NAME}".{content_rules.text("islamic")}
 Language of this video: {L['caption_lang']}. Theme for today: {theme}
 These titles were ALREADY posted (any language). Do NOT repeat or closely resemble them:
 {json.dumps(used, ensure_ascii=False)}
