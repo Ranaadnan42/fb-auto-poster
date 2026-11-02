@@ -227,10 +227,21 @@ VISION_Q = ("You are the footage-checking agent of a documentary channel. These 
 GROQ_KEY = os.environ.get("GROQ_API_KEY")
 GROQ_VISION = ["qwen/qwen3.8-27b", "meta-llama/llama-4-scout-17b-16e-instruct"]
 # Har model ka apna free quota hai - ek khatam ho to agla. Gemma ka free quota sab se bara.
-VISION_MODELS = ["gemma-4-31b-it", "gemma-4-26b-a4b-it", "gemini-3.1-flash-lite", "gemini-flash-lite-latest",
-                 "gemini-3.5-flash-lite", "gemini-3-flash-preview", "gemini-3.6-flash", "gemini-3.7-flash",
-                 "gemini-3.5-flash", "gemini-3.8-flash", "gemini-flash-latest"]
-_DEAD = set()          # jin models ka quota is run mein khatam / jo chalte nahi
+# Tez (lite) models pehle; Gemma bara free quota magar dheera - aakhir mein.
+VISION_MODELS = ["gemini-3.1-flash-lite", "gemini-flash-lite-latest", "gemini-3.5-flash-lite",
+                 "gemini-3-flash-preview", "gemini-3.6-flash", "gemini-3.7-flash", "gemini-3.5-flash",
+                 "gemini-3.8-flash", "gemini-flash-latest", "gemma-4-26b-a4b-it", "gemma-4-31b-it"]
+_DEAD = set()          # jin models ka quota is run mein khatam / jo chalte nahi / bahut dheere
+VISION_TIMEOUT_S = 25  # ek check is se zyada le to woh model is run mein band
+_vclient = None
+
+
+def _vgem():
+    global _vclient
+    from google import genai
+    if _vclient is None:
+        _vclient = genai.Client(api_key=GEMINI_KEY, http_options={"timeout": VISION_TIMEOUT_S * 1000})
+    return _vclient
 
 
 def _parse_match(txt):
@@ -296,11 +307,15 @@ def vision_ok(jpgs, want, what, said=""):
     for model in VISION_MODELS:
         if model in _DEAD:
             continue
+        t0 = time.time()
         try:
-            res = _gem().models.generate_content(
+            res = _vgem().models.generate_content(
                 model=model,
                 contents=[types.Part.from_bytes(data=d, mime_type="image/jpeg") for d in datas] + [prompt],
                 config=types.GenerateContentConfig(temperature=0))
+            if time.time() - t0 > VISION_TIMEOUT_S * 0.8:
+                _DEAD.add(model)        # chal to gaya magar bahut dheera - aage tez wala
+                log(f"vision: {model} dheera ({time.time() - t0:.0f}s) - agle checks doosre model se")
             v = _parse_match(res.text)
             if v is None:
                 continue
@@ -308,10 +323,10 @@ def vision_ok(jpgs, want, what, said=""):
             return v
         except Exception as e:
             last = str(e)
-            if any(x in last for x in ("429", "RESOURCE_EXHAUSTED", "404", "NOT_FOUND", "not supported", "400")):
+            if any(x in last for x in ("429", "RESOURCE_EXHAUSTED", "404", "NOT_FOUND", "not supported", "400")) \
+                    or time.time() - t0 >= VISION_TIMEOUT_S - 1 or "timed out" in last.lower() or "timeout" in last.lower():
                 _DEAD.add(model)        # is run mein dobara nahi
-            else:
-                time.sleep(2)
+                log(f"vision: {model} band ({last[:60]})")
     g = _groq_vision(datas, prompt)
     if g is not None:
         REPORT["vision_checks"] += 1
