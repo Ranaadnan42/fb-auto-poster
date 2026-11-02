@@ -2,93 +2,107 @@
  "islamic": {
   "avoid": [],
   "try": [
-   "Prophet Dawud (David) and the lesson of gratitude for blessings",
-   "Incorporating dhikr during daily commute for stress relief",
-   "Fasting on Mondays and Thursdays: spiritual and physical rewards",
-   "Companion Bilal's perseverance and the power of steadfastness"
+   "Story of Prophet Dawud (David) and the lesson of sincere repentance",
+   "True incident highlighting the transformative power of charity (Sadaqah)",
+   "Companion’s dedication to seeking knowledge (Ilm) and its rewards",
+   "Hadith on fasting on Mondays and Thursdays and its spiritual benefits",
+   "Modern example of gratitude (Shukr) leading to increased barakah",
+   "Collective dhikr in a community setting and its calming effect"
   ],
-  "note": "Page thodi repetitive hai."
+  "note": "Page bohat repetitive hai, aksar anger aur humility topics dohraye ja rahe hain."
  },
  "funny": {
   "avoid": [
-   "پپو کا رزلٹ اور انوکھا مشن series",
-   "ببلو اور رشتہ آنٹی کا طوفان series",
-   "چمپا کلی اور ہوم ورک کا پہاڑ series",
-   "teacher vs students topic",
-   "rishta aunty topic",
-   "load of homework topic"
+   "پپو کا رزلٹ اور انوکھا مشن",
+   "ببلو اور رشتہ آنٹی کا طوفان",
+   "چمپا کلی اور ہوم ورک کا پہاڑ",
+   "قسط 1",
+   "قسط 2",
+   "duck",
+   "panda"
   ],
   "try": [
-   "گائے میاں کی دیسی ڈانس اور سوشل میڈیا ٹرینڈ",
-   "بندر انکل کا سائیکلنگ چیلنج اور پارک کی ہنسی",
-   "ٹماٹر کی دکان پر ٹماٹر کی بیکنگ اور گاہکوں کی مزاحیہ گفتگو",
-   "نیا سال کا جشن اور ٹرک ڈرائیور کی ڈائری",
-   "پانی کی قلت پر گدھے کی ہنسی اور اسکول کے طلباء کی مہم",
-   "بچوں کی اسکول بیک پیک کی مسکراہٹ اور کتا انکل کی مدد"
+   "نیا گیس کا بل اور گھر کی بچت",
+   "نیا سوشل میڈیا پلیٹ فارم پر فیملی کا تجربہ",
+   "نیا گھر کا سائز اور بچوں کا کھیل",
+   "نیا موبائل فون اپ ڈیٹ اور فیملی کا ہنگامہ",
+   "نیا ٹیکنالوجی ڈیوائس: ڈرون پر گھر کی سیر",
+   "نیا گیس کا سٹیشن اور ٹریفک کا مسئلہ"
   ],
-  "note": "Page bohat repetitive lag rahi hai, especially chat aur teacher vs students topics."
+  "note": "Page bohat repetitive hai."
  },
  "world": {
   "avoid": [
-   "Japan"
+   "Japan",
+   "What ... Is Really Like"
   ],
   "try": [
-   "Living in Vietnam: Cost, Safety & Daily Life",
-   "Moving to Mexico: What You Need to Know",
-   "Kenya vs Ghana: Cost of Living & Culture Comparison",
-   "Exploring New Zealand: Lifestyle, Work, and Travel Tips",
-   "Affordable Cities in Eastern Europe: Bulgaria and Romania",
-   "Daily Life in South Korea: Housing, Food, and Culture"
+   "Retiring in New Zealand",
+   "Living in South Korea",
+   "Exploring Mexico's Indigenous Communities",
+   "Cost of Living in Norway",
+   "Traveling Through Kenya's Wildlife Reserves",
+   "Historical Sites in Egypt's Ancient Thebes"
   ],
-  "note": "Page thodi repetitive hai"
+  "note": "Page bohat repetitive hai."
  },
  "world_short": {
   "avoid": [
    "California",
-   "Japan",
    "London",
+   "Japan",
    "Australia"
   ],
   "try": [
-   "What Life Really Costs in Seoul, South Korea",
-   "5 Street Food Secrets of Bangkok, Thailand",
-   "Would You Live in Lisbon, Portugal? Pros & Cons",
-   "Traditional Food of Peru: 5 Must-Try Dishes in Lima",
-   "Hidden Gems in New Zealand You Must Visit",
-   "Paris vs Berlin: Which European Capital Should You Visit?"
+   "Cost of living in Zurich, Switzerland",
+   "6 Amazing Facts About South Korea",
+   "Berlin vs Munich: Which German City is Better?",
+   "5 Must-Try Foods in Italy",
+   "Hidden Gems in Peru You Must Visit",
+   "Lisbon in 60 Seconds: Portugal's Coastal Capital"
   ],
-  "note": "Page is repetitive with California, Japan, and London appearing multiple times; also over-relies on 'Cost of Living' and 'Hidden Gems' formats."
+  "note": "Content thora repetitive ho raha hai, khaas tor par California aur London bar bar aa rahay hain."
  },
  "frames": {
   "avoid": [
-   "Dubai"
+   "Dubai aur UAE par posts",
+   "Canada mein zindagi",
+   "Title wording: 'ویزا کیسے لگتا ہے؟'"
   ],
   "try": [
-   "France Visa Guide for Pakistanis",
-   "Spain Life in Spain",
-   "Brazil Job Opportunities for Pakistanis",
-   "South Africa Cheapest Countries for Pakistanis",
-   "China Life in China"
+   "Malaysia Documentary in Urdu: پاکستانیوں کے لیے ملائیشیا میں نوکری اور زندگی",
+   "South Korea Guide: جنوبی کوریا میں E-9 ویزا اور پاکستانیوں کا مستقبل",
+   "Norway Documentary: نروے میں برفانی زندگی اور مفت تعلیم کی حقیقت",
+   "Qatar vs Oman: خلیجی ممالک میں پاکستانیوں کے لیے کون سا ملک بہتر ہے؟",
+   "New Zealand Country Documentary: نیوزی لینڈ میں خوبصورت زندگی اور ورک ویزا",
+   "Georgia (Tbilisi) Tour: بغیر مشکل کے جورجیا کا ویزا اور سیاحت"
   ],
-  "note": "Page thodi repetitive hai"
+  "note": "Page par Dubai aur visa guides baar baar repeat ho rahi hain, ab naye mulkon ki documentaries par focus karna chahiye."
  },
  "frames_short": {
-  "avoid": [],
-  "try": [
-   "برازیل کے 5 چھپے ہوئے ساحل",
-   "مصر کے 6 تاریخی عجائب اور ان کے راز",
-   "نائجیریا کے 5 مشہور سٹریٹ فوڈز",
-   "جنوبی افریقہ کے 5 بہترین وائلڈ لائف سفاری",
-   "میکسیکو کے 5 روایتی تہوار"
+  "avoid": [
+   "Dubai",
+   "Canada",
+   "Australia",
+   "Pakistanis comparison series",
+   "Saudi Arabia"
   ],
-  "note": "Haan, page repetitive hai."
+  "try": [
+   "Norway visa and work culture for Pakistanis",
+   "Hidden historical sites in Egypt",
+   "Singapore cost of living and lifestyle",
+   "Brazil travel facts and cultural insights",
+   "New Zealand immigration and job market",
+   "Vietnam's top tourist destinations and food"
+  ],
+  "note": "Page ka content kafi had tak repetitive ho raha hai, khaas tor par cost of living aur job guides ke hawale se."
  },
  "_platforms": {
   "islamic": {
    "posts": 10,
-   "facebook": 6,
+   "facebook": 5,
    "youtube": 10,
-   "tiktok": 6
+   "tiktok": 5
   },
   "funny": {
    "posts": 10,

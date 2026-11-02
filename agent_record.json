@@ -11,21 +11,25 @@
    "workflow": "",
    "why": "llama-3.3-70b-versatile retired (404); replace with current Groq model llama-3.1-405b",
    "time": "2026-11-02T20:37:10.685381"
+  },
+  {
+   "commit": "aaebab846c49634a71d4e81a1e0fdc9e4982c3fb",
+   "workflow": "frames.yml",
+   "why": "Abort on quota exhaustion instead of skipping footage check",
+   "time": "2026-11-02T22:18:13.421255"
   }
  ],
- "time_utc": "2026-11-02 20:37",
- "summary": "Website agent ka retired AI model update kar diya hai, ab backup sahi chalega.",
+ "time_utc": "2026-11-02 22:18",
+ "summary": "Atlas Untold mein footage check skip ho raha tha quota khatam hone par. Maine world.py mein fix kar diya hai ke ab quota khatam hone par run ruk jaye ga taake ghalat footage post na ho.",
  "notes": [],
  "actions": [
-  "code fix push kiya (7e8a50b)"
+  "code fix push kiya (aaebab8)"
  ],
  "edits": [
   {
-   "path": "groq_backup.py",
-   "why": "llama-3.3-70b-versatile retired (404); replace with current Groq model llama-3.1-405b"
+   "path": "world.py",
+   "why": "Abort on quota exhaustion instead of skipping footage check"
   }
  ],
- "needs_owner": [
-  "Atlas Untold (AI quota limit reached - footage check skipped)"
- ]
+ "needs_owner": []
 }
