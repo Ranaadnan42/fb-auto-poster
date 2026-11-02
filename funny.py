@@ -58,6 +58,20 @@ SITUATIONS = [
     "online shopping", "load of homework", "cooking disaster", "road trip", "bijli ka bill",
     "rishta aunty", "sleeping late and waking late", "salary day", "friends' group chat",
     "teacher vs students", "summer heat", "winter mornings", "street food", "barish (rain)",
+    "petrol price and bike", "wedding food (shaadi ka khaana) rush", "cousin ki shaadi dance practice",
+    "gas load shedding and cold water", "rickshaw / Careem bargaining", "bargaining in bazaar",
+    "neighbour aunty's gossip", "family WhatsApp group forwards", "dentist visit", "barber shop",
+    "first day at gym", "buying a new phone", "phone battery 1%", "wifi password at relatives' house",
+    "Sunday breakfast halwa puri", "chai addiction", "fridge raid at midnight", "fake diet plans",
+    "selfie / TikTok craze", "village cousins visiting city", "traffic jam", "motorway road trip",
+    "PSL / cricket fans", "relatives asking 'kitne number aaye' and 'shaadi kab'", "power nap at office",
+    "bank queue", "government office file", "ATM out of cash", "parking fight", "ice cream truck",
+    "Ramzan sehri wake up", "Eid ul Adha bakra mandi", "Eidi collection", "mehndi function",
+    "moving to a new house", "plumber who never comes on time", "mechanic's 'sirf 5 minute'",
+    "online class mute button", "group project where one does all work", "freelancing client",
+    "gaming addiction (PUBG / Ludo)", "Ludo fights at home", "remote control fight", "AC vs electricity bill",
+    "mosquito season", "pigeon / kabootar baazi", "pet cat ruling the house", "grandma's home remedies",
+    "laundry day", "lost TV remote", "aunties at a wedding judging food", "train journey",
 ]
 
 STYLES = [
@@ -69,7 +83,34 @@ STYLES = [
     "a dramatic TV-serial style narration (saas-bahu drama) of the animal's life",
     "the animal giving a news report like a breaking-news anchor",
     "the animal planning a wedding / shaadi",
+    "a nature-documentary narrator who takes the animal far too seriously",
+    "the animal as a food vlogger reviewing everything",
+    "the animal as a motivational speaker giving terrible advice",
+    "the animal as a strict PT teacher",
+    "the animal as a property dealer selling its home",
+    "the animal giving a cooking show like a famous chef",
+    "the animal as a cricket player at a press conference",
+    "the animal as a government officer who says 'kal aana'",
+    "the animal as a shopkeeper bargaining",
+    "the animal as a tour guide",
 ]
+
+# Reel ke alag andaaz - har dafa pichhle se mukhtalif (ek hi pattern bar bar na ho)
+REEL_FORMATS = {
+    "voiceover": "One {animal} talks in first person about the topic (classic funny voice-over).",
+    "latifay": "3 short, clean, NEW Urdu jokes (latifay) about the topic, one after another, each with its own "
+               "punchline. Never use old famous jokes. The {animal} clips just play along.",
+    "paheli": "A funny riddle (paheli) about the topic: ask it in scene 1, give silly wrong guesses in the "
+              "middle scenes, reveal the surprising funny answer in the last scene. Ask viewers to comment "
+              "their guess before the answer.",
+    "kya_hota_agar": "'Kya hota agar...' - a funny 'what if' story: what if the {animal} had to deal with "
+                     "this topic for a day. Escalating chaos, twist ending.",
+    "types": "'Types of people' video about the topic: each scene is ONE type of person, played by a DIFFERENT "
+             "animal (give a different 'animal' in each scene), e.g. 'type 1: the one who...'.",
+    "expectation": "'Expectation vs Reality' about the topic: first scenes show the dream, then the funny reality.",
+    "news": "A fake funny 'breaking news' bulletin about the topic, read by the {animal} as a news anchor, "
+            "with an on-the-spot reporter and a silly twist.",
+}
 
 RULES = """Humor rules (very important):
 - Clean family-friendly comedy only: no abuse, no vulgar words, no double meaning.
@@ -183,19 +224,24 @@ SEARCH_FIELD = ',\n "search_phrase": "the exact real search phrase from the list
 
 def write_reel(history):
     used = [h["title"] for h in history[-120:]]
-    recent_animals = [h.get("animal") for h in history[-6:]]
+    recent_animals = [h.get("animal") for h in history[-8:]]
     animal = random.choice([a for a in ANIMALS if a not in recent_animals])
-    style = random.choice(STYLES)
-    situation = SITUATIONS[len(history) % len(SITUATIONS)]
+    recent_styles = [h.get("style") for h in history[-6:]]
+    style = random.choice([x for x in STYLES if x not in recent_styles] or STYLES)
+    recent_topics = {h.get("topic") for h in history[-40:]}
+    situation = random.choice([x for x in SITUATIONS if x not in recent_topics] or SITUATIONS)
+    recent_fmts = [h.get("reel_format") for h in history[-4:]]
+    rfmt = os.environ.get("REEL_FORMAT") or random.choice([k for k in REEL_FORMATS if k not in recent_fmts])
     searches, search_txt = _search_part(situation)
     data = ask_json(f"""You write viral funny Facebook Reels for the Pakistani page "{PAGE_NAME}".
 Animal: {animal}. Comedy style: {style}.
+REEL FORMAT (follow this, it decides the whole structure): {REEL_FORMATS[rfmt].format(animal=animal)}
 Today's topic (relatable everyday Pakistani situation): {situation}.{search_txt}
 Invent a FRESH joke idea about this topic - never reuse an idea from these past titles:
 {json.dumps(used, ensure_ascii=False)}
 
 Write a 100-word Urdu voice-over (about 40 seconds) for stock clips of a {animal}.
-The {animal} is the main character talking in first person like a typical desi person.
+Follow the REEL FORMAT above for structure (the {animal} is the main character unless the format says otherwise).
 Make it GENUINELY funny: one relatable situation, exaggeration, desi references
 (ammi, abbu, chai, biryani, load shedding, WhatsApp, rishta, cricket), short punchy lines,
 and a surprising twist punchline at the end. Line 1 is a hook that makes people stop scrolling.
@@ -209,7 +255,7 @@ that will show a {animal} (e.g. "{animal}", "{animal} playing", "funny {animal}"
 
 Return JSON: {{"title": "funny Urdu title, max 60 characters",
  "meme": "very short meme header in Urdu shown on top of the whole reel, max 7 words, like a POV line",
- "scenes": [{{"text": "...", "visual": "...", "laugh": true/false}}] ("laugh": true if this scene ends with a punchline or someone laughs (about half the scenes), else false),
+ "scenes": [{{"text": "...", "visual": "...", "animal": "only for the types format: that scene's animal (one English word)", "laugh": true/false}}] ("laugh": true if this scene ends with a punchline or someone laughs (about half the scenes), else false),
  "caption": "1 funny line in Urdu that asks people to tag a friend",
  "hashtags": ["#funny", "..."] (6 hashtags, English and Urdu){SEARCH_FIELD if searches else ""}}}""")
     if len(data.get("scenes", [])) < 2:
@@ -217,6 +263,12 @@ Return JSON: {{"title": "funny Urdu title, max 60 characters",
     _take_phrase(data, searches)
     data["animal"] = animal
     data["topic"] = situation
+    data["style"] = style
+    data["reel_format"] = rfmt
+    if rfmt != "types":
+        for sc in data.get("scenes", []):
+            sc.pop("animal", None)
+    REPORT["reel_format"] = rfmt
     return data
 
 
@@ -579,7 +631,10 @@ def _main():
     entry = {"date": now.strftime("%Y-%m-%d %H:%M"), "mode": MODE}
     import chat_comedy
     if MODE == "long":
-        fmt = os.environ.get("FORMAT") or "story"       # lambi video: qiston wali kahani
+        # lambi video: har din alag qism - pichhli 2 se mukhtalif
+        recent_long = [h.get("format") for h in history if h.get("mode") == "long"][-2:]
+        fmt = os.environ.get("FORMAT") or random.choice(
+            [f for f in ("story", "cartoon", "animal", "chat") if f not in recent_long] or ["story"])
     else:
         # roz sirf 1 chat reel, baaqi janwar wali
         pk_today = (now + datetime.timedelta(hours=5)).strftime("%Y-%m-%d")
@@ -632,7 +687,7 @@ def _main():
     entry.update({"title": script["title"], "animal": script["animal"], "topic": script.get("topic")})
     if script.get("search_phrase"):
         entry["search"] = script["search_phrase"]
-    for key in ("series", "series_title", "part", "summary", "style"):
+    for key in ("series", "series_title", "part", "summary", "style", "reel_format"):
         if script.get(key) is not None:
             entry[key] = script[key]
     import funny as _f          # doosre modules ki ginti isi report mein

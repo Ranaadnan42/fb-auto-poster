@@ -495,45 +495,135 @@ def tts(text, path):
 
 
 # ---------------------------------------------------------------- stock clips
-def pixabay_clips(query, count, job, prefix):
-    """Ek search se `count` alag clips laata hai. Wapas: file paths ki list."""
-    got = []
-    if not PIXABAY_KEY:
-        return got
-    for q in (query, "mosque", "sky clouds", "sunset sky"):
-        if len(got) >= count:
-            break
+PEXELS_KEY = os.environ.get("PEXELS_API_KEY")
+WM_UA = {"User-Agent": "IslamicVideosBot/1.0 (https://github.com/Ranaadnan42/fb-auto-poster)"}
+VISION_MODELS = ["gemini-3.1-flash-lite", "gemini-flash-lite-latest", "gemini-3.5-flash-lite", "gemini-3-flash-preview"]
+_VDEAD = set()
+
+
+def _blocked_text(text):
+    return bool(set(re.findall(r"[a-z]+", (text or "").lower())) & BLOCK_TAGS)
+
+
+def _cands(q):
+    """Teen jagah se clips: Pixabay, Pexels, Wikimedia Commons (asli Makkah/Madinah/masjid footage)."""
+    out = []
+    if PIXABAY_KEY:
         try:
             r = requests.get("https://pixabay.com/api/videos/", timeout=40, params={
-                "key": PIXABAY_KEY, "q": q, "safesearch": "true", "per_page": 40,
-                "video_type": "film"})
-            r.raise_for_status()
-            qw = [w for w in q.lower().split() if len(w) > 2]
-            hits = [h for h in r.json().get("hits", [])
-                    if h["id"] not in USED_CLIPS and not clip_blocked(h)
-                    and (not qw or any(w in (h.get("tags") or "").lower() for w in qw))]
+                "key": PIXABAY_KEY, "q": q, "safesearch": "true", "per_page": 40, "video_type": "film"})
+            for h in r.json().get("hits", []):
+                v = h.get("videos", {})
+                pick = next((v[x] for x in ("large", "medium")
+                             if v.get(x, {}).get("url") and v[x].get("width", 0) >= 1280), None)
+                if pick:
+                    out.append({"id": f"px{h['id']}", "url": pick["url"], "text": (h.get("tags") or "").lower(),
+                                "dur": h.get("duration", 10)})
         except Exception as e:
-            log(f"Pixabay error ({q}): {str(e)[:150]}")
+            log(f"Pixabay error ({q}): {str(e)[:120]}")
+    if PEXELS_KEY:
+        try:
+            r = requests.get("https://api.pexels.com/videos/search", timeout=40, headers={"Authorization": PEXELS_KEY},
+                             params={"query": q, "per_page": 30})
+            for v in r.json().get("videos", []):
+                fs = sorted([f for f in v.get("video_files", []) if (f.get("width") or 0) >= 1280 and f.get("link")],
+                            key=lambda f: f["width"])
+                if fs:
+                    out.append({"id": f"pe{v['id']}", "url": fs[0]["link"],
+                                "text": (v.get("url") or "").lower().replace("-", " "), "dur": v.get("duration", 10)})
+        except Exception as e:
+            log(f"Pexels error ({q}): {str(e)[:120]}")
+    try:
+        r = requests.get("https://commons.wikimedia.org/w/api.php", headers=WM_UA, timeout=40, params={
+            "action": "query", "format": "json", "generator": "search", "gsrnamespace": 6, "gsrlimit": 25,
+            "gsrsearch": "filetype:video " + q, "prop": "videoinfo", "viprop": "url|size|derivatives"})
+        for pg in (r.json().get("query", {}).get("pages", {}) or {}).values():
+            info = (pg.get("videoinfo") or [{}])[0]
+            ders = sorted([d for d in info.get("derivatives", []) if d.get("src") and (d.get("height") or 0) >= 480],
+                          key=lambda d: abs((d.get("height") or 0) - 1080))
+            if (info.get("width") or 0) >= 640 and float(info.get("duration") or 0) >= 4:
+                out.append({"id": f"wm{pg.get('pageid')}", "url": ders[0]["src"] if ders else info.get("url"),
+                            "text": (pg.get("title") or "").lower().replace("_", " "),
+                            "dur": float(info.get("duration") or 10)})
+    except Exception as e:
+        log(f"Commons error ({q}): {str(e)[:120]}")
+    return out
+
+
+def _vision_ok(jpg, want):
+    """Agent frame dekh kar batata hai: kya yeh WOHI cheez hai aur Islamic page ke laiq hai? None = check na ho saka."""
+    import base64
+    if not GEMINI_KEY:
+        return None
+    img = base64.b64encode(open(jpg, "rb").read()).decode()
+    prompt = (f"This frame is for a respectful Islamic video. The narration needs: '{want}'. "
+              "Answer JSON {\"match\": true/false, \"safe\": true/false}. match = the frame clearly shows that "
+              "thing (a mosque must be a real mosque, not a church/temple/other building). safe = no women or girls, "
+              "no close-up faces, no musical instruments, no alcohol, no church/temple/cross/statue, nothing "
+              "immodest or silly.")
+    for m in VISION_MODELS:
+        if m in _VDEAD:
             continue
-        random.shuffle(hits)
-        for h in hits:
-            if len(got) >= count:
+        try:
+            t0 = time.time()
+            r = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={GEMINI_KEY}",
+                              timeout=25, json={"contents": [{"parts": [{"text": prompt},
+                                                                         {"inline_data": {"mime_type": "image/jpeg", "data": img}}]}],
+                                                "generationConfig": {"responseMimeType": "application/json", "temperature": 0}})
+            if time.time() - t0 > 20 or r.status_code in (404, 429):
+                _VDEAD.add(m)
+            r.raise_for_status()
+            d = json.loads(r.json()["candidates"][0]["content"]["parts"][0]["text"])
+            REPORT["vision_checks"] = REPORT.get("vision_checks", 0) + 1
+            return bool(d.get("match")) and bool(d.get("safe"))
+        except Exception as e:
+            _VDEAD.add(m)
+            log(f"vision {m}: {str(e)[:100]}")
+    return None
+
+
+def pixabay_clips(query, count, job, prefix):
+    """`count` clips jo WOHI cheez dikhayen jo boli ja rahi hai. Har clip agent dekh kar pass karta hai."""
+    got = []
+    for q in (query, random.choice(ISLAMIC_VISUALS), "mosque", "sky clouds"):
+        if len(got) >= count or not q:
+            continue
+        qw = [w for w in q.lower().split() if len(w) > 2]
+        cands = [c for c in _cands(q) if c["id"] not in USED_CLIPS and not _blocked_text(c["text"])]
+        full = [c for c in cands if all(w in c["text"] for w in qw)]       # sab lafz match - pehle
+        part = [c for c in cands if c not in full and any(w in c["text"] for w in qw)]
+        random.shuffle(full)
+        random.shuffle(part)
+        tries = 0
+        for c in full + part:
+            if len(got) >= count or tries >= 8:
                 break
-            v = h.get("videos", {})
-            pick = next((v[s] for s in ("large", "medium")
-                         if v.get(s, {}).get("url") and v[s].get("width", 0) >= 1280), None)
-            if not pick:
-                continue
+            tries += 1
             path = os.path.join(job, f"{prefix}_{len(got)}.mp4")
             try:
-                with requests.get(pick["url"], stream=True, timeout=180) as resp:
+                with requests.get(c["url"], stream=True, timeout=180, headers=WM_UA) as resp:
                     resp.raise_for_status()
                     with open(path, "wb") as f:
                         for chunk in resp.iter_content(1 << 20):
                             f.write(chunk)
-                if os.path.getsize(path) > 50000:
-                    USED_CLIPS.add(h["id"])
-                    got.append(path)
+                if os.path.getsize(path) < 50000:
+                    continue
+                ok = True
+                for k, at in enumerate((min(c["dur"] * 0.25, 2), max(min(c["dur"] * 0.75, 9), 1))):
+                    jpg = f"{path}.chk{k}.jpg"
+                    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{at:.1f}", "-i", path,
+                                    "-frames:v", "1", "-vf", "scale=640:-2", jpg], capture_output=True)
+                    if not os.path.exists(jpg):
+                        continue
+                    v = _vision_ok(jpg, q)
+                    if v is False or (v is None and c not in full):
+                        ok = False
+                        break
+                USED_CLIPS.add(c["id"])
+                if not ok:
+                    REPORT["clips_rejected"] = REPORT.get("clips_rejected", 0) + 1
+                    continue
+                got.append(path)
             except Exception as e:
                 log(f"Clip download fail: {str(e)[:150]}")
     return got
@@ -612,9 +702,7 @@ def build_scene(job, i, sc, w, h, title):
     # pehle WOHI cheez jiska is scene mein zikr ho raha hai (khaana, janwar, jagah...);
     # Islamic clips sirf tab jab us cheez ki poori clips na milen
     vis = (sc.get("visual") or "").strip()
-    clips = pixabay_clips(vis, k, job, f"c{i}") if vis else []
-    if len(clips) < k:
-        clips += pixabay_clips(random.choice(ISLAMIC_VISUALS), k - len(clips), job, f"c{i}i")
+    clips = pixabay_clips(vis or random.choice(ISLAMIC_VISUALS), k, job, f"c{i}")
     REPORT["stock_clips"] += len(clips)
     if not clips:
         REPORT["fallback_clips"] += 1
