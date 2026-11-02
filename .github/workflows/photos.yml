@@ -7,6 +7,10 @@ on:
     # Run post se ~1-2 ghante pehle (GitHub par lamba intezar nahi - kam load)
     - cron: '17 0 * * *'    # post 06:47 UTC = ~11:45 subah  -> Islamic (Urdu) + funny meme
     - cron: '17 7 * * *'    # post 13:47 UTC = ~6:45 shaam   -> Islamic (English) + funny meme
+    # FB weekly tasks (Islamic 23 + Hansi 30 photo posts/hafta) - Islamic (Urdu) + funny
+    - cron: '47 2 * * *'    # post 08:47 UTC = ~1:47 dopehar
+    - cron: '47 4 * * *'    # post 10:47 UTC = ~3:47 sehpehar
+    - cron: '17 10 * * *'   # post 16:47 UTC = ~9:47 raat
   workflow_dispatch:
     inputs:
       sched:
@@ -87,7 +91,7 @@ jobs:
           SLOT: ${{ env.S == '17 7 * * *' && '2' || env.S && '1' || inputs.slot || '1' }}
           # Islamic page par din mein 1 pic (subah), shaam wali funny + Frames Of Life page
           PAGES: ${{ env.S && (env.S == '17 7 * * *' && 'funny,frames' || 'islamic,funny') || inputs.pages || 'islamic,funny' }}
-          POST_AT: ${{ env.S == '17 0 * * *' && '06:47' || env.S == '17 7 * * *' && '13:47' || '' }}
+          POST_AT: ${{ env.S == '17 0 * * *' && '06:47' || env.S == '17 7 * * *' && '13:47' || env.S == '47 2 * * *' && '08:47' || env.S == '47 4 * * *' && '10:47' || env.S == '17 10 * * *' && '16:47' || '' }}
           DRY_RUN: ${{ !env.S && inputs.dry_run && '1' || '0' }}
         run: python photos.py
       - name: Upload preview

@@ -10,6 +10,7 @@ on:
     - cron: '17 9 * * *'   # post 16:17 UTC = ~9:17 raat     -> Urdu lambi video (Pakistan prime time)
     - cron: '37 11 * * *'    # post 18:07 UTC = ~11:07 raat    -> English reel (UK shaam 7 baje)
     - cron: '17 14 * * *'   # post 21:17 UTC = ~2:17 raat     -> English lambi video (UK raat 10 / America shaam 5)
+    - cron: '7 6 * * *'     # post 12:37 UTC = ~5:37 shaam    -> doosri Urdu reel (FB weekly task: 12 reels)
   workflow_dispatch:
     inputs:
       sched:
@@ -98,7 +99,7 @@ jobs:
           TIKTOK_CLIENT_SECRET: ${{ secrets.TIKTOK_CLIENT_SECRET }}
           TIKTOK_ISLAMIC_REFRESH_TOKEN: ${{ secrets.TIKTOK_ISLAMIC_REFRESH_TOKEN }}
           LANGUAGE: ${{ (env.S == '37 11 * * *' || env.S == '17 14 * * *') && 'en' || env.S && 'ur' || inputs.language || 'ur' }}
-          POST_AT: ${{ env.S == '37 1 * * *' && '08:07' || env.S == '17 9 * * *' && '16:17' || env.S == '37 11 * * *' && '18:07' || env.S == '17 14 * * *' && '21:17' || '' }}
+          POST_AT: ${{ env.S == '37 1 * * *' && '08:07' || env.S == '17 9 * * *' && '16:17' || env.S == '37 11 * * *' && '18:07' || env.S == '17 14 * * *' && '21:17' || env.S == '7 6 * * *' && '12:37' || '' }}
           DRY_RUN: ${{ !env.S && inputs.dry_run && '1' || '0' }}
           # har run mein ya reel ya lambi video (hath se chalayen to dono)
           POST_TYPE: ${{ (env.S == '17 9 * * *' || env.S == '17 14 * * *') && 'long' || (env.S && 'reel' || inputs.post_type || 'both') }}

@@ -13,6 +13,7 @@ SLOTS = [
     dict(file="main.yml", crons=["17 9 * * *"], post="16:17", lead=120),
     dict(file="main.yml", crons=["37 11 * * *"], post="18:07", lead=90),
     dict(file="main.yml", crons=["17 14 * * *"], post="21:17", lead=120),
+    dict(file="main.yml", crons=["7 6 * * *"], post="12:37", lead=90),     # 2nd Urdu reel (FB weekly task)
     # Hansi Ka Adda
     dict(file="funny.yml", crons=["8 2 * * *"], post="08:33", lead=90),
     dict(file="funny.yml", crons=["8 6 * * *"], post="12:33", lead=90),
@@ -21,6 +22,10 @@ SLOTS = [
     # Pics
     dict(file="photos.yml", crons=["17 0 * * *"], post="06:47", lead=60),
     dict(file="photos.yml", crons=["17 7 * * *"], post="13:47", lead=60),
+    # FB weekly task (photo posts) - Islamic + Hansi Ka Adda par zyada pics
+    dict(file="photos.yml", crons=["47 2 * * *"], post="08:47", lead=60),
+    dict(file="photos.yml", crons=["47 4 * * *"], post="10:47", lead=60),
+    dict(file="photos.yml", crons=["17 10 * * *"], post="16:47", lead=60),
     # Frames of Life
     dict(file="frames.yml", crons=["47 1 * * *"], post="08:17", lead=100),
     dict(file="frames.yml", crons=["47 6 * * *"], post="13:17", lead=100),
