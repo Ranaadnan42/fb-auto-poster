@@ -702,6 +702,76 @@ def pexels_search(q):
         log(f"Pexels error: {str(e)[:120]}")
         return []
 
+# ---- aur platforms: Wikimedia Commons (asal jagahon/landmarks/khanon ki asli videos aur photos) + Openverse ----
+WM_UA = {"User-Agent": "AtlasUntoldBot/1.0 (https://github.com/Ranaadnan42/fb-auto-poster)"}
+CREDITS = []
+_BAD_LIC = ("nc", "nd", "noncommercial", "noderiv")
+
+
+def _clean(t):
+    return re.sub(r"<[^>]+>", " ", t or "").replace("_", " ").lower()
+
+
+def commons_search(q, video=True):
+    """Wikimedia Commons: duniya bhar ki asli jagahon ki free videos/photos (title+description se match)."""
+    try:
+        r = requests.get("https://commons.wikimedia.org/w/api.php", headers=WM_UA, timeout=40, params={
+            "action": "query", "format": "json", "generator": "search", "gsrnamespace": 6, "gsrlimit": 30,
+            "gsrsearch": ("filetype:video " if video else "filetype:bitmap ") + q[:90],
+            "prop": "videoinfo" if video else "imageinfo",
+            ("viprop" if video else "iiprop"): "url|size|extmetadata" + ("|derivatives" if video else ""),
+            **({} if video else {"iiurlwidth": 1920})})
+        out = []
+        for pg in (r.json().get("query", {}).get("pages", {}) or {}).values():
+            info = (pg.get("videoinfo") or pg.get("imageinfo") or [{}])[0]
+            meta = info.get("extmetadata") or {}
+            lic = (meta.get("LicenseShortName", {}).get("value") or "").lower()
+            if any(b in lic.replace("-", " ").split() or b in lic for b in _BAD_LIC):
+                continue
+            text = _clean(pg.get("title", "")) + " " + _clean(meta.get("ImageDescription", {}).get("value"))[:400] + \
+                " " + _clean(meta.get("Categories", {}).get("value"))[:300]
+            artist = re.sub(r"<[^>]+>", " ", meta.get("Artist", {}).get("value") or "").strip()[:60] or "Wikimedia Commons"
+            credit = f"{artist} / Wikimedia Commons ({lic or 'free license'})"
+            if video:
+                ders = [d for d in info.get("derivatives", []) if d.get("src") and (d.get("height") or 0) >= 480]
+                ders.sort(key=lambda d: (abs((d.get("height") or 0) - 1080), "webm" not in (d.get("type") or "")))
+                url = ders[0]["src"] if ders else info.get("url")
+                if (info.get("width") or 0) < 640 or not url:
+                    continue
+                dur = float(info.get("duration") or 10)
+                if dur < 4:
+                    continue
+                out.append({"id": f"wm{pg.get('pageid')}", "url": url, "text": text, "dur": min(dur, 60),
+                            "credit": credit})
+            else:
+                url = info.get("thumburl") or info.get("url")
+                if (info.get("width") or 0) < 1200 or not url:
+                    continue
+                out.append({"id": f"wmi{pg.get('pageid')}", "url": url, "text": text, "photo": True, "credit": credit})
+        return out
+    except Exception as e:
+        log(f"Commons error: {str(e)[:120]}")
+        return []
+
+
+def openverse_photos(q):
+    """Openverse: Flickr waghera ki free (commercial use) photos - khaas dish/jagah ke liye."""
+    try:
+        r = requests.get("https://api.openverse.org/v1/images/", headers=WM_UA, timeout=40, params={
+            "q": q[:90], "page_size": 20, "license_type": "commercial,modification", "size": "large"})
+        out = []
+        for h in r.json().get("results", []):
+            if (h.get("width") or 0) < 1200 or not h.get("url"):
+                continue
+            tags = " ".join(t.get("name", "") for t in (h.get("tags") or []))
+            out.append({"id": f"ov{h['id']}", "url": h["url"], "text": _clean(f"{h.get('title', '')} {tags}"),
+                        "photo": True, "credit": f"{(h.get('creator') or 'unknown')[:50]} / {h.get('source', 'Openverse')} "
+                                                  f"({(h.get('license') or '').upper()})"})
+        return out
+    except Exception as e:
+        log(f"Openverse error: {str(e)[:120]}")
+        return []
+
 
 GENERIC = {"food", "foods", "dish", "dishes", "meal", "meals", "cuisine", "street", "streets", "market",
            "markets", "traditional", "local", "people", "city", "night", "view", "aerial", "landscape",
@@ -808,9 +878,9 @@ def get_clips(scene, country_words, job, prefix, need):
         if len(got) >= need:
             break
         if kind == "video":
-            cands = pexels_search(q) + pixabay_search(q)
+            cands = pexels_search(q) + pixabay_search(q) + commons_search(q, True)
         else:
-            cands = pexels_photos(q) + pixabay_photos(q)
+            cands = pexels_photos(q) + pixabay_photos(q) + commons_search(q, False) + openverse_photos(q)
         random.shuffle(cands)
         cands.sort(key=lambda c: -_score(c["text"], accept))       # sab se mutabiq pehle
         tries = 0
@@ -825,7 +895,7 @@ def get_clips(scene, country_words, job, prefix, need):
             path = os.path.join(job, f"{prefix}_{len(got)}.mp4")
             src = path + (".jpg" if kind == "photo" else "")
             try:
-                with requests.get(c["url"], stream=True, timeout=180) as resp:
+                with requests.get(c["url"], stream=True, timeout=180, headers=WM_UA) as resp:
                     resp.raise_for_status()
                     with open(src, "wb") as f:
                         for chunk in resp.iter_content(1 << 20):
@@ -867,6 +937,8 @@ def get_clips(scene, country_words, job, prefix, need):
                     photo_to_clip(src, path)
                     REPORT["photos"] = REPORT.get("photos", 0) + 1
                 USED.add(c["id"])
+                if c.get("credit"):
+                    CREDITS.append(c["credit"])
                 got.append(path)
                 REPORT["clips"] += 1
             except Exception as e:
@@ -1275,7 +1347,9 @@ def description(script, chapters_ts):
     aff = (os.environ.get("AFFILIATE_TEXT") or "").strip()
     if aff:
         d += "\n\n" + aff.replace("\\n", "\n")
-    d += ("\n\nFootage: real stock video from Pixabay / Pexels contributors. "
+    if CREDITS:
+        d += "\n\nFootage credits: " + "; ".join(list(dict.fromkeys(CREDITS))[:15])
+    d += ("\n\nFootage: real video from Pixabay / Pexels / Wikimedia Commons contributors. "
           "Facts: World Bank, Wikipedia" + (", exchange rates: open.er-api.com" if URDU else "") +
           ". Narration voice is synthetic.")
     d += "\n\n" + " ".join(script.get("hashtags", [])[:10])
