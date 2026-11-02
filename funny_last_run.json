@@ -1,13 +1,20 @@
 {
- "mode": "auto",
- "stock_clips": 16,
+ "mode": "reel",
+ "stock_clips": 9,
  "fallback_clips": 0,
  "errors": [],
- "format": "story",
- "long_minutes": 1.99,
- "series": "چمپا کلی اور ہوم ورک کا پہاڑ | قسط 1 part 2 (cartoon)",
- "laughs": 8,
- "time_utc": "2026-11-02 18:47",
- "title": "چمپا کلی اور ہوم ورک کا پہاڑ | قسط 1 | قسط 2",
- "dry_run": false
+ "format": "animal",
+ "search_phrases": [
+  "gas load shedding timing",
+  "gas load shedding",
+  "gas ki load shedding",
+  "gas load shedding in karachi"
+ ],
+ "search": "gas load shedding timing",
+ "reel_format": "paheli",
+ "laughs": 2,
+ "reel_minutes": 0.62,
+ "time_utc": "2026-11-02 20:23",
+ "title": "گیس load shedding timing اور ہمارا ناشتہ",
+ "dry_run": true
 }
