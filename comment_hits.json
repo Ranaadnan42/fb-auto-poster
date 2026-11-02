@@ -1,34 +1,124 @@
 {
- "updated": "2026-11-02T04:42Z",
- "new": 5,
+ "updated": "2026-11-02T11:42Z",
+ "new": 15,
  "stats": {
   "site:facebook.com \"POS software\" chahiye": "0 (auto)",
-  "site:facebook.com \"billing software\" chahiye dukan": "0 (auto)",
+  "site:facebook.com \"billing software\" chahiye dukan": "0 (bing)",
   "site:facebook.com \"software chahiye\" shop": "0 (auto)",
-  "site:facebook.com/groups \"POS\" recommend shop Pakistan": "0 (none)",
-  "site:facebook.com \"POS system\" recommend restaurant": "0 (auto)",
+  "site:facebook.com/groups \"POS\" recommend shop Pakistan": "4 (bing)",
+  "site:facebook.com \"POS system\" recommend restaurant": "0 (bing)",
   "site:facebook.com \"looking for POS\" shop": "0 (auto)",
-  "site:facebook.com \"inventory software\" recommend small business": "0 (auto)",
-  "site:facebook.com \"need a website\" for my business": "0 (yahoo)",
+  "site:facebook.com \"inventory software\" recommend small business": "0 (google)",
+  "site:facebook.com \"need a website\" for my business": "0 (auto)",
   "site:facebook.com \"website banwani\" hai": "0 (auto)",
-  "site:facebook.com \"app banwani\" hai": "0 (auto)",
-  "site:facebook.com \"looking for web developer\" small business": "0 (auto)",
-  "site:facebook.com \"need a social media manager\"": "0 (auto)",
-  "site:facebook.com \"faceless youtube\" automation help": "1 (auto)",
-  "site:facebook.com \"برنامج كاشير\" افضل": "0 (none)",
-  "site:facebook.com \"برنامج محاسبي\" محل": "1 (yahoo)",
-  "site:facebook.com \"نظام نقاط البيع\" مطعم": "0 (yahoo)",
+  "site:facebook.com \"app banwani\" hai": "0 (bing)",
+  "site:facebook.com \"looking for web developer\" small business": "1 (bing)",
+  "site:facebook.com \"need a social media manager\"": "1 (auto)",
+  "site:facebook.com \"faceless youtube\" automation help": "1 (google)",
+  "site:facebook.com \"برنامج كاشير\" افضل": "0 (auto)",
+  "site:facebook.com \"برنامج محاسبي\" محل": "0 (bing)",
+  "site:facebook.com \"نظام نقاط البيع\" مطعم": "0 (bing)",
   "site:facebook.com \"ابي موقع\" لمحلي": "0 (auto)",
   "site:facebook.com/groups \"website chahiye\"": "0 (auto)",
   "site:facebook.com/groups \"koi acha software\" dukan": "0 (none)",
-  "site:facebook.com/groups \"POS\" Riyadh recommend": "0 (auto)",
-  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "1 (auto)",
+  "site:facebook.com/groups \"POS\" Riyadh recommend": "3 (auto)",
+  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "3 (auto)",
   "site:facebook.com/groups \"برنامج كاشير\" الرياض": "0 (auto)",
-  "site:facebook.com/groups \"برنامج كاشير\" دبي": "0 (auto)",
+  "site:facebook.com/groups \"برنامج كاشير\" دبي": "0 (yahoo)",
   "site:facebook.com/groups \"who can make a website\"": "0 (none)",
-  "site:facebook.com/groups \"need an app\" for my business": "2 (auto)"
+  "site:facebook.com/groups \"need an app\" for my business": "2 (bing)"
  },
  "hits": [
+  {
+   "url": "https://www.facebook.com/groups/vocpakistan",
+   "title": "Voice Of Customer Pakistan - Facebook",
+   "snippet": "6 days ago · Unacceptable customer service from #JSBANK ! 🚨 I registered a complaint back on 29th August, and today (27th October) marks nearly 2 full months with ZERO resolution or meaningful update. How is this compliant with State Bank of Pakistan rules? Absolutely terrible customer support experience. Complaint Ref #: 010926-C2267813 Calling on management to look into this immediately: JS Bank State ...",
+   "found": "2026-11-02T11:41Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/olikerransavonlinna",
+   "title": "Oli kerran Savonlinna | Facebook",
+   "snippet": "1 day ago · Oli kerran Savonlinna - on julkinen ryhmä jossa käsitellään Savonlinnan historiaa; kuvia, paikkoja, tapahtumia, henkilöitä, jne. Aikakaudella ei oli...",
+   "found": "2026-11-02T11:41Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/743570055729774",
+   "title": "Gostynin - Najlepsze Ogłoszenia | Facebook",
+   "snippet": "17 hours ago · Zapraszam wszystkich do zamieszczania bezpłatnych ogłoszeń.",
+   "found": "2026-11-02T11:41Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/ValMastallone",
+   "title": "Val Mastallone | Facebook",
+   "snippet": "4 days ago · Questo gruppo nasce con l’obbiettivo di riunire chiunque sia legato alla Valmastallone. Attraverso ricordi del passato e del presente, tra tradizioni,...",
+   "found": "2026-11-02T11:41Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/fixwebsoft/posts/1944024336570314",
+   "title": "WE NEED WEB DEVELOPERS - Facebook",
+   "snippet": "Oct 24, 2026 · Hey! I run a small web design agency and I’m looking for a reliable developer to help with simple small business websites — WordPress, Wix, Shopify, landing pages, that kind of thing. It’s paid per project, and there’s definitely potential for ongoing work if it goes well. If you’re interested, drop me a WhatsApp message with your ...",
+   "found": "2026-11-02T11:41Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/gaojocho",
+   "title": "Bhe In-Demand (Social Media Management for Beginners)",
+   "snippet": "Oct 23, 2026 · Welcome to Bhe In-Demand (Social Media Management for Beginners) I started this community because I didn't want beginners to feel alone the way I did...",
+   "found": "2026-11-02T11:41Z"
+  },
+  {
+   "url": "https://www.facebook.com/CoachGlenMar/posts/if-i-were-starting-a-faceless-youtube-channel-from-zero-today-heres-exactly-what/122238436928551301",
+   "title": "If I were starting a faceless YouTube... - Glen Mar Merinillo ...",
+   "snippet": "19 hours ago · If I were starting a faceless YouTube channel from ZERO today, here’s exactly what I’d do. #youtubeautomation #yta",
+   "found": "2026-11-02T11:41Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/43369651399",
+   "title": "MVV Waregem '74 | Facebook",
+   "snippet": "17 hours ago · MVV Waregem '74 is een minivoetbalclub actief in de tweede nationale van het minivoetbal onder Voetbal Vlaanderen. Deze club beschikt over verschillende ploegen (zowel heren nationaal en kern als een uitgebreide jeugdwerking) en organiseert jaarlijks een tornooi gesmaakt bij vele regionale clubs.",
+   "found": "2026-11-02T11:42Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/588569747881188",
+   "title": "Volim Komižu - Facebook",
+   "snippet": "1 day ago · GRUPA \"VOLIM KOMIŽU\" GOVORI O SEBI, SÂMIM SVOJIM IMENOM!",
+   "found": "2026-11-02T11:42Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/537246009717399",
+   "title": "SEI DE FIUMINATA SE............ | Facebook",
+   "snippet": "1 day ago · REGOLAMENTO : PAGINA DEPOLITICIZZATA. Alla larga le polemiche , soprattutto quelle a sfondo politico. Evitiamo offese e/o diffamazioni , godiamoci e...",
+   "found": "2026-11-02T11:42Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/stiavnica",
+   "title": "Banska Stiavnica - Facebook",
+   "snippet": "1 day ago · Prvá novembrová slnečná nedeľa pri tajchoch. Banska Stiavnica Livingslovakia Región Banská Štiavnica This Is Slovakia #banskastiavnica - at Štiavnické vrchy Protected Landscape Area.",
+   "found": "2026-11-02T11:42Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/Much.und.seine.Buerger",
+   "title": "Much und seine Bürger - Facebook",
+   "snippet": "1 day ago · Herzlich Willkommen in der Gruppe – Much und seine Bürger Dies ist eine Gruppe für die Mucher Bürger und die, die es mal waren. Aber auch Bürger aus...",
+   "found": "2026-11-02T11:42Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/299999973370305",
+   "title": "OBITUARIO TAXQUEÑO - Facebook",
+   "snippet": "1 day ago · participar el deceso de algún familiar, amigo o persona conocida, con toda corrección, y mesura, sin afectar a la familia ni a la sociedad, no serán...",
+   "found": "2026-11-02T11:42Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/438797126274097",
+   "title": "small local businesses of central iowa - Facebook",
+   "snippet": "Oct 21, 2026 · Small local businesses, up and coming businesses or side work. It is your own responsibility to make sure they are certified, legit, insured and if...",
+   "found": "2026-11-02T11:42Z"
+  },
+  {
+   "url": "https://business.facebook.com/groups/ksfda",
+   "title": "The Kansas Flying Disc Association ; Past, Present and Future.",
+   "snippet": "13 hours ago · My plan is to start installing these over the next month and hopefully open the course up for play soon. I'm still looking for hole sponsors. If you or your business are interested in being a part of the project, please reach out to me and I'll share the details with you.#OakCountryDiscGolfCourse Michael Bristow and 12 others 13 reactions Mike ...",
+   "found": "2026-11-02T11:42Z"
+  },
   {
    "url": "https://www.facebook.com/ytcashcowprogram/videos/rs47-only-yt-faceless-mastery/1135967225607809",
    "title": "For Working Professionals Do You Want To Run An Ai Based ...",
