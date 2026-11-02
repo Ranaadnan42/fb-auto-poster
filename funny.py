@@ -49,7 +49,7 @@ FONT = "Noto Naskh Arabic"
 VOICE = "ur-PK-AsadNeural"
 VOICE_RATE = "+0%"
 VOICE_PITCH = "+8Hz"            # thori mazahiya awaaz
-MODEL_CANDIDATES = ["gemini-3.5-flash", "gemini-2.5-flash", "gemini-3.5-flash-lite"]
+MODEL_CANDIDATES = ["gemini-3.8-flash", "gemini-3.5-flash", "gemini-3-flash-preview", "gemini-3.5-flash-lite"]
 
 ANIMALS = ["cat", "kitten", "dog", "puppy", "goat", "monkey", "duck", "parrot", "cow",
            "chicken", "rooster", "panda", "horse", "donkey", "sheep", "rabbit", "squirrel",
