@@ -31,11 +31,15 @@ import urllib.parse
 
 import requests
 
+import site_tools
+
 ROOT = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(ROOT, "blog")
 DATA = os.path.join(ROOT, "site_posts.json")
 REPORT = os.path.join(ROOT, "blog_report.json")
 LAST = os.path.join(ROOT, "site_last_run.json")
+SOCIAL = os.path.join(ROOT, "site_social.json")      # kya kya Facebook par share ho chuka
+DIARY = os.path.join(ROOT, "site_diary.json")        # AI employee ki rozana work diary
 
 SITE_NAME = "BizTools Hub"
 TAGLINE = "Practical tech guides for small businesses: POS systems, websites, apps & AI tools"
@@ -469,7 +473,9 @@ blockquote{border-left:4px solid var(--brand);margin:18px 0;padding:6px 16px;bac
 .cta{border:2px solid var(--brand);border-radius:14px;padding:18px 20px;margin:30px 0}.btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;padding:10px 18px;border-radius:10px;font-weight:700}
 .related a{display:block;padding:8px 0;border-bottom:1px solid var(--line);text-decoration:none}
 footer{border-top:1px solid var(--line);margin-top:30px;padding:24px 0;color:var(--muted);font-size:14px}footer a{color:var(--muted);margin-right:14px}
-@media (max-width:600px){.hero h1,article h1{font-size:27px}article h2{font-size:22px}nav a{margin:0 12px 0 0}}"""
+@media (max-width:600px){.hero h1,article h1{font-size:27px}article h2{font-size:22px}nav a{margin:0 12px 0 0}}
+nav a.hot{color:var(--brand);font-weight:700}
+""" + site_tools.TOOL_CSS
 
 
 ADS_HEAD = ((f'\n<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client={ADSENSE_ID}" crossorigin="anonymous"></script>'
@@ -481,7 +487,8 @@ def page(title, desc, path, body, rel="", head_extra="", og_image="", og_type="w
     """rel = root tak relative raasta ('' ya '../'). path = canonical ke liye site-relative URL."""
     canonical = f"{SITE_URL}/{path}"
     img = f"{SITE_URL}/{og_image}" if og_image else ""
-    nav = "".join(f'<a href="{rel}category/{k}/">{esc(v[0])}</a>' for k, v in CATEGORIES.items())
+    nav = f'<a class="hot" href="{rel}tools/">Free Tools</a>' + "".join(
+        f'<a href="{rel}category/{k}/">{esc(v[0])}</a>' for k, v in CATEGORIES.items())
     return f"""<!doctype html>
 <html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -500,7 +507,7 @@ def page(title, desc, path, body, rel="", head_extra="", og_image="", og_type="w
 <header><div class="wrap"><a class="logo" href="{rel or './'}">BizTools<span>Hub</span></a><nav>{nav}</nav></div></header>
 {body}
 <footer><div class="wrap"><p>&copy; {datetime.date.today().year} {SITE_NAME} &middot; {esc(TAGLINE)}</p>
-<p><a href="{rel}about/">About</a><a href="{rel}contact/">Contact</a><a href="{rel}privacy-policy/">Privacy Policy</a><a href="{rel}terms/">Terms</a><a href="{rel}disclaimer/">Disclaimer</a><a href="{rel}feed.xml">RSS</a></p></div></footer>
+<p><a href="{rel}tools/">Free Tools</a><a href="{rel}about/">About</a><a href="{rel}contact/">Contact</a><a href="{rel}privacy-policy/">Privacy Policy</a><a href="{rel}terms/">Terms</a><a href="{rel}disclaimer/">Disclaimer</a><a href="{rel}feed.xml">RSS</a></p></div></footer>
 </body></html>"""
 
 
@@ -556,6 +563,12 @@ def render_post(p, posts):
     faq_html = "".join(f"<h3>{esc(f['q'])}</h3><p>{esc(f['a'])}</p>" for f in faq)
     rel_html = "".join(f'<a href="{rel}{q["slug"]}/">{esc(q["title"])}</a>' for q in related(p, posts))
     d = datetime.date.fromisoformat(date_mod[:10]).strftime("%B %-d, %Y")
+    ts = site_tools.tool_for_post(p)
+    toolbox = ""
+    if ts:
+        t = site_tools.TOOLS[ts]
+        toolbox = (f'<div class="toolbox"><strong>Free tool:</strong> {esc(t["card"])} '
+                   f'<a href="{rel}tools/{ts}/">Try the {esc(t["name"])} &rarr;</a></div>')
     html_body = f"""<main class="wrap narrow"><article>
 <div class="crumbs"><a href="{rel}">Home</a> &rsaquo; <a href="{rel}category/{p['category']}/">{esc(cat_name)}</a></div>
 <h1>{esc(p['title'])}</h1>
@@ -563,6 +576,7 @@ def render_post(p, posts):
 {img}
 {f'<div class="box"><h3>Key takeaways</h3><ul>{take}</ul></div>' if take else ''}
 {f'<div class="box toc"><strong>In this guide</strong><ol>{toc_html}</ol></div>' if len(toc) > 2 else ''}
+{toolbox}
 {body}
 {f'<h2 id="faq">Frequently asked questions</h2>{faq_html}' if faq_html else ''}
 <div class="cta"><h3>Need a POS system, website or app for your business?</h3>
@@ -597,6 +611,62 @@ STATIC = {
 }
 
 
+def tool_cards(rel):
+    return "".join(f'<a href="{rel}tools/{k}/"><b>{esc(t["name"])}</b><span>{esc(t["card"])}</span></a>'
+                   for k, t in site_tools.TOOLS.items())
+
+
+def render_tools(posts):
+    """/tools/ index + har tool ka page (calculator + guide + FAQ + schema)."""
+    body = (f'<main class="wrap"><section class="hero"><h1>Free calculators for small business owners</h1>'
+            f'<p>Quick, free estimates for the costs that matter when you open or grow a shop, restaurant or online business. '
+            f'No sign-up - everything runs in your browser.</p></section><div class="tcards">{tool_cards("../")}</div></main>')
+    ld = {"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [
+        {"@type": "ListItem", "position": i + 1, "url": f"{SITE_URL}/tools/{k}/", "name": t["name"]}
+        for i, (k, t) in enumerate(site_tools.TOOLS.items())]}
+    write_file("tools/index.html", page(f"Free Small Business Calculators | {SITE_NAME}",
+                                        "Free POS, food cost, website and app cost calculators for small business owners. No sign-up.",
+                                        "tools/", body, rel="../",
+                                        head_extra=f'\n<script type="application/ld+json">{json.dumps(ld)}</script>'))
+    rel = "../../"
+    for k, t in site_tools.TOOLS.items():
+        url = f"{SITE_URL}/tools/{k}/"
+        lds = [{"@context": "https://schema.org", "@type": "WebApplication", "name": t["name"], "url": url,
+                "description": t["desc"], "applicationCategory": "BusinessApplication", "operatingSystem": "Any",
+                "isAccessibleForFree": True, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
+                "author": {"@type": "Person", "name": AUTHOR, "url": f"{SITE_URL}/about/"}},
+               {"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [
+                   {"@type": "Question", "name": f["q"], "acceptedAnswer": {"@type": "Answer", "text": f["a"]}} for f in t["faq"]]},
+               {"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [
+                   {"@type": "ListItem", "position": 1, "name": "Home", "item": f"{SITE_URL}/"},
+                   {"@type": "ListItem", "position": 2, "name": "Free Tools", "item": f"{SITE_URL}/tools/"},
+                   {"@type": "ListItem", "position": 3, "name": t["name"], "item": url}]}]
+        head = "".join(f'\n<script type="application/ld+json">{json.dumps(x, ensure_ascii=False)}</script>' for x in lds)
+        guides = [p for p in posts if site_tools.tool_for_post(p) == k][:6]
+        rel_html = "".join(f'<a href="{rel}{q["slug"]}/">{esc(q["title"])}</a>' for q in guides)
+        others = "".join(f'<a href="{rel}tools/{o}/"><b>{esc(x["name"])}</b><span>{esc(x["card"])}</span></a>'
+                         for o, x in site_tools.TOOLS.items() if o != k)
+        faq_html = "".join(f"<h3>{esc(f['q'])}</h3><p>{esc(f['a'])}</p>" for f in t["faq"])
+        html_body = f"""<main class="wrap narrow"><article>
+<div class="crumbs"><a href="{rel}">Home</a> &rsaquo; <a href="{rel}tools/">Free Tools</a></div>
+<h1>{esc(t['h1'])}</h1>
+<div class="meta">Free tool by <a href="{rel}about/">{AUTHOR}</a> &middot; No sign-up &middot; Results are estimates</div>
+<p>{esc(t['lead'])}</p>
+{t['form']}
+{t['guide']}
+<h2 id="faq">Frequently asked questions</h2>{faq_html}
+<div class="cta"><h3>Want an exact price for your business?</h3>
+<p>Tell me what you need and I will send a free, no-obligation quote for a POS system, website or mobile app.</p>
+<a class="btn" href="{SERVICE_URL}" rel="noopener" target="_blank">Get a free quote</a></div>
+{f'<h2>Related guides</h2><div class="related">{rel_html}</div>' if rel_html else ''}
+<h2>More free tools</h2><div class="tcards">{others}</div>
+<div class="author"><div class="avatar">MA</div><div><strong>{AUTHOR}</strong><br>{esc(AUTHOR_BIO)}</div></div>
+</article></main>
+<script>{site_tools.BASE_JS}
+{t['js']}</script>"""
+        write_file(f"tools/{k}/index.html", page(t["title"], t["desc"], f"tools/{k}/", html_body, rel=rel, head_extra=head))
+
+
 def render_site(posts):
     posts = sorted(posts, key=lambda p: p["date"], reverse=True)
     today = datetime.date.today().isoformat()
@@ -605,7 +675,8 @@ def render_site(posts):
     # home
     cards = "".join(card(p, "") for p in posts[:30])
     home = f"""<main class="wrap"><section class="hero"><h1>Tech guides that help small businesses grow</h1><p>{esc(TAGLINE)}.</p></section>
-<div class="grid">{cards or '<p>First guide coming soon.</p>'}</div></main>"""
+<h2>Free business calculators</h2><div class="tcards">{tool_cards("")}</div>
+<h2>Latest guides</h2><div class="grid">{cards or '<p>First guide coming soon.</p>'}</div></main>"""
     ld = {"@context": "https://schema.org", "@type": "WebSite", "name": SITE_NAME, "url": f"{SITE_URL}/",
           "description": TAGLINE}
     write_file("index.html", page(f"{SITE_NAME} - Small Business Tech Guides", TAGLINE, "", home, rel="",
@@ -623,8 +694,11 @@ def render_site(posts):
         write_file(f"{k}/index.html", page(f"{title} | {SITE_NAME}", desc, f"{k}/",
                                            f'<main class="wrap narrow"><article>{content.replace("{date}", today)}</article></main>',
                                            rel="../"))
+    render_tools(posts)
     # sitemap
-    urls = [(f"{SITE_URL}/", today)] + [(f"{SITE_URL}/{p['slug']}/", p.get("updated", p["date"])[:10]) for p in posts]
+    urls = [(f"{SITE_URL}/", today), (f"{SITE_URL}/tools/", today)]
+    urls += [(f"{SITE_URL}/tools/{k}/", today) for k in site_tools.TOOLS]
+    urls += [(f"{SITE_URL}/{p['slug']}/", p.get("updated", p["date"])[:10]) for p in posts]
     urls += [(f"{SITE_URL}/category/{k}/", today) for k in CATEGORIES] + [(f"{SITE_URL}/{k}/", today) for k in STATIC]
     sm = '<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
     sm += "".join(f"<url><loc>{esc(u)}</loc><lastmod>{d}</lastmod></url>\n" for u, d in urls) + "</urlset>\n"
@@ -649,6 +723,30 @@ def render_site(posts):
 
 
 # --------------------------------------------------------------- health check
+def check_links():
+    """Poori site ke andar ke links/images check: koi toota link (404) na rahe."""
+    broken = []
+    base = urllib.parse.urlparse(SITE_URL + "/")
+    for dp, _, files in os.walk(OUT):
+        for fn in files:
+            if not fn.endswith(".html") or fn == "404.html":
+                continue
+            fpath = os.path.join(dp, fn)
+            page_url = SITE_URL + "/" + os.path.relpath(fpath, OUT).replace(os.sep, "/")
+            txt = open(fpath, encoding="utf-8").read()
+            for href in re.findall(r'(?:href|src)="([^"#]+)"', txt):
+                full = urllib.parse.urljoin(page_url, html.unescape(href))
+                u = urllib.parse.urlparse(full)
+                if u.netloc != base.netloc or not u.path.startswith(base.path) or u.scheme not in ("http", "https"):
+                    continue
+                local = os.path.join(OUT, u.path[len(base.path):])
+                if local.endswith("/") or os.path.isdir(local):
+                    local = os.path.join(local, "index.html")
+                if not os.path.exists(local):
+                    broken.append(f"{os.path.relpath(fpath, OUT)} -> {href}")
+    return sorted(set(broken))[:30]
+
+
 def health(posts):
     issues = []
     slugs = {p["slug"] for p in posts}
@@ -665,18 +763,101 @@ def health(posts):
             issues.append(f"{p['slug']}: page nahi bana")
     if len(slugs) != len(posts):
         issues.append("duplicate slugs")
+    titles = [p["title"].lower() for p in posts]
+    if len(set(titles)) != len(titles):
+        issues.append("duplicate titles")
+    for b in check_links():
+        issues.append(f"broken link: {b}")
     host = urllib.parse.urlparse(SITE_URL).netloc
     own_domain = not host.endswith((".github.io", ".vercel.app", ".netlify.app", ".pages.dev"))
     adsense = {"posts_30_plus": len(posts) >= 30, "own_domain": own_domain,
                "policy_pages": True, "search_console": bool(GSC_VERIFY), "ads_code": bool(ADSENSE_ID)}
     adsense["ready_to_apply"] = adsense["posts_30_plus"] and own_domain
-    rep = {"checked": datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z", "posts": len(posts),
-           "issues": issues, "adsense_readiness": adsense}
+    per_cat = {k: sum(1 for p in posts if p["category"] == k) for k in CATEGORIES}
+    rep = {"checked": datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z", "site": SITE_URL,
+           "posts": len(posts), "tools": len(site_tools.TOOLS), "posts_per_category": per_cat,
+           "issues": issues, "adsense_readiness": adsense,
+           "next_steps_for_owner": owner_todo(adsense, len(posts))}
     save_json(REPORT, rep)
     log(f"Health: {len(posts)} posts, {len(issues)} issues")
     for i in issues:
         log("  -", i)
     return issues
+
+
+def owner_todo(a, n):
+    """Sirf woh kaam jo insaan ko karne hain (baqi sab agent khud karta hai)."""
+    todo = []
+    if not a["own_domain"]:
+        todo.append("Buy a domain (~$10/yr) and add it in Vercel -> then set SITE_URL")
+    if a["own_domain"] and not a["search_console"]:
+        todo.append("Add the domain in Google Search Console and give the verification code (GSC_VERIFY)")
+    if a["ready_to_apply"] and not a["ads_code"]:
+        todo.append("Apply for Google AdSense now and give the ca-pub ID (ADSENSE_ID)")
+    if not a["posts_30_plus"]:
+        todo.append(f"Nothing - agent is writing articles ({n}/30 before AdSense)")
+    return todo
+
+
+# ------------------------------------------------------------- social sharing
+FB_GRAPH = "https://graph.facebook.com/v23.0"
+
+
+def fb_share(link, message):
+    tok, pid = os.environ.get("WB_PAGE_TOKEN"), os.environ.get("WB_PAGE_ID")
+    if not tok or not pid:
+        log("FB share skip: WB_PAGE_TOKEN/WB_PAGE_ID nahi")
+        return False
+    try:
+        r = requests.post(f"{FB_GRAPH}/{pid}/feed", data={"access_token": tok, "message": message, "link": link},
+                          timeout=60)
+        ok = r.status_code == 200 and "id" in r.json()
+        log(f"FB share {'OK' if ok else 'fail'}: {r.status_code} {'' if ok else r.text[:200]}")
+        return ok
+    except Exception as e:
+        log(f"FB share fail: {str(e)[:150]}")
+        return False
+
+
+HASHTAGS = {"pos-systems": "#POS #PointOfSale #SmallBusiness #RetailTech #RestaurantTech",
+            "websites": "#WebDesign #SmallBusiness #SEO #BusinessWebsite",
+            "mobile-apps": "#AppDevelopment #MobileApp #SmallBusiness",
+            "ai-tools": "#AI #AITools #Automation #SmallBusiness",
+            "business-growth": "#SmallBusiness #BusinessGrowth #Entrepreneur",
+            "tools": "#FreeTools #SmallBusiness #Calculator"}
+
+
+def share_social(posts):
+    """Web Builder Facebook page par: naya article foran + purana backlog (roz max 2 posts).
+    Sirf asli domain par (github.io wale link baad mein badal jate) - tab tak queue mein rehte hain."""
+    host = urllib.parse.urlparse(SITE_URL).netloc
+    if host.endswith("github.io"):
+        log("Social share wait: site abhi asli domain (Vercel/custom) par nahi")
+        return []
+    state = load_json(SOCIAL, {"shared": []})
+    done = set(state["shared"])
+    queue = [("tool:" + k, f"{SITE_URL}/tools/{k}/",
+              f"Free tool: {t['name']}\n\n{t['lead']}\n\nNo sign-up, works on your phone.\n\n{HASHTAGS['tools']}")
+             for k, t in site_tools.TOOLS.items()]
+    for p in sorted(posts, key=lambda x: x["date"], reverse=True):
+        queue.append(("post:" + p["slug"], f"{SITE_URL}/{p['slug']}/",
+                      f"{p['title']}\n\n{p.get('excerpt', '')}\n\nRead the full guide:\n\n{HASHTAGS.get(p['category'], '')}"))
+    today = datetime.date.today().isoformat()
+    newest = [q for q in queue if q[0] == "post:" + max(posts, key=lambda x: x["date"])["slug"]] if posts else []
+    order = newest + [q for q in queue if q not in newest]
+    sent = []
+    for key, link, msg in order:
+        if key in done or len(sent) >= 2:
+            continue
+        if fb_share(link, msg):
+            state["shared"].append(key)
+            sent.append(key)
+            time.sleep(5)
+        else:
+            break
+    state["last"] = today
+    save_json(SOCIAL, state)
+    return sent
 
 
 def fix_meta(p):
@@ -762,6 +943,7 @@ def main():
             posts.append(fix_meta(p))
             new_urls = [f"{SITE_URL}/{slug}/", f"{SITE_URL}/", f"{SITE_URL}/category/{cat}/"]
             log(f"NEW: {p['title']} -> {SITE_URL}/{slug}/")
+    ru = None
     if mode == "post":
         ru = refresh_one(posts)
         if ru:
@@ -772,10 +954,18 @@ def main():
         if not p.get("image") or not os.path.exists(os.path.join(OUT, p["image"]["file"])):
             p["image"] = fetch_image(p.get("keyword") or p["title"], p["slug"])
     render_site(posts)
-    health(posts)
+    issues = health(posts)
+    shared = []
     if not dry:
         save_json(DATA, posts)
-        indexnow(new_urls)
+        indexnow(new_urls + [f"{SITE_URL}/tools/{k}/" for k in site_tools.TOOLS] if new_urls else new_urls)
+        if mode == "post":
+            shared = share_social(posts)
+    diary = load_json(DIARY, [])
+    diary.append({"date": today, "mode": mode, "new_article": next((p["title"] for p in posts if p["date"][:10] == today), None),
+                  "refreshed": [ru] if ru else [], "facebook_shared": shared,
+                  "issues_found": len(issues), "total_posts": len(posts)})
+    save_json(DIARY, diary[-60:])
     save_json(LAST, {"time": datetime.datetime.utcnow().isoformat(timespec="seconds") + "Z", "mode": mode,
                      "posts": len(posts), "new": new_urls[:1], "log": LOG_LINES[-40:]})
 

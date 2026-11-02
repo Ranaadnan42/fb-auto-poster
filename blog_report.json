@@ -1,6 +1,15 @@
 {
- "checked": "2026-11-01T18:07:41Z",
+ "checked": "2026-11-02T20:47:44Z",
+ "site": "https://ranaadnan42.github.io/fb-auto-poster/blog",
  "posts": 5,
+ "tools": 4,
+ "posts_per_category": {
+  "pos-systems": 1,
+  "websites": 1,
+  "mobile-apps": 1,
+  "ai-tools": 1,
+  "business-growth": 1
+ },
  "issues": [],
  "adsense_readiness": {
   "posts_30_plus": false,
@@ -9,5 +18,9 @@
   "search_console": false,
   "ads_code": false,
   "ready_to_apply": false
- }
+ },
+ "next_steps_for_owner": [
+  "Buy a domain (~$10/yr) and add it in Vercel -> then set SITE_URL",
+  "Nothing - agent is writing articles (5/30 before AdSense)"
+ ]
 }

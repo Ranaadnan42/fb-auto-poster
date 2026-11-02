@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Restaurant Food Cost Calculator - Plate Cost &amp; Menu Price</title>
+<meta name="description" content="Free food cost calculator for restaurants and cafes: work out the cost per plate with yield, your food cost percentage and a suggested menu price.">
+<link rel="canonical" href="https://ranaadnan42.github.io/fb-auto-poster/blog/tools/restaurant-food-cost-calculator/">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:site_name" content="BizTools Hub"><meta property="og:type" content="website">
+<meta property="og:title" content="Restaurant Food Cost Calculator - Plate Cost &amp; Menu Price"><meta property="og:description" content="Free food cost calculator for restaurants and cafes: work out the cost per plate with yield, your food cost percentage and a suggested menu price.">
+<meta property="og:url" content="https://ranaadnan42.github.io/fb-auto-poster/blog/tools/restaurant-food-cost-calculator/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="alternate" type="application/rss+xml" title="BizTools Hub" href="../../feed.xml">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='22' fill='%230b6e4f'/%3E%3Ctext x='50' y='68' font-size='56' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'%3EB%3C/text%3E%3C/svg%3E">
+<style>:root{--bg:#ffffff;--fg:#1d2330;--muted:#5b6475;--line:#e6e9ef;--brand:#0b6e4f;--brand2:#e9f5f0;--card:#f7f9fb}
+@media (prefers-color-scheme:dark){:root{--bg:#10141b;--fg:#e8ebf1;--muted:#a3abba;--line:#262d3a;--brand:#4cc79a;--brand2:#14251f;--card:#161b24}}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--fg);font:17px/1.7 system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif}
+a{color:var(--brand)}img{max-width:100%;height:auto;display:block;border-radius:12px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 16px}.narrow{max-width:760px}
+header{border-bottom:1px solid var(--line)}header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:14px;padding-bottom:14px;flex-wrap:wrap}
+.logo{font-weight:800;font-size:20px;color:var(--fg);text-decoration:none}.logo span{color:var(--brand)}
+nav a{color:var(--muted);text-decoration:none;margin-left:14px;font-size:15px}nav a:hover{color:var(--brand)}
+.hero{padding:40px 0 24px}.hero h1{font-size:34px;line-height:1.2;margin:0 0 8px}.hero p{color:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:22px;padding:20px 0 40px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;text-decoration:none;color:var(--fg);display:flex;flex-direction:column}
+.card img{border-radius:0;aspect-ratio:1200/630;object-fit:cover}.card div{padding:14px 16px 18px}
+.card h3{margin:6px 0;font-size:19px;line-height:1.35}.card p{margin:0;color:var(--muted);font-size:15px}
+.tag{font-size:12px;text-transform:uppercase;letter-spacing:.06em;color:var(--brand);font-weight:700}
+article h1{font-size:34px;line-height:1.2;margin:18px 0 10px}.meta{color:var(--muted);font-size:14px;margin-bottom:18px}
+.crumbs{font-size:14px;color:var(--muted);margin-top:20px}.crumbs a{color:var(--muted)}
+article h2{font-size:26px;margin-top:36px;line-height:1.3}article h3{font-size:20px;margin-top:26px}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px;display:block;overflow-x:auto}
+th,td{border:1px solid var(--line);padding:9px 11px;text-align:left;vertical-align:top}th{background:var(--brand2)}
+blockquote{border-left:4px solid var(--brand);margin:18px 0;padding:6px 16px;background:var(--card);border-radius:0 10px 10px 0}
+.box{background:var(--brand2);border-radius:14px;padding:16px 20px;margin:22px 0}.box h2,.box h3{margin-top:4px}
+.toc ol{margin:6px 0 0;padding-left:20px}.credit{font-size:12px;color:var(--muted);margin-top:6px}
+.author{display:flex;gap:14px;align-items:flex-start;border-top:1px solid var(--line);margin-top:36px;padding-top:20px;font-size:15px;color:var(--muted)}
+.avatar{flex:0 0 52px;height:52px;border-radius:50%;background:var(--brand);color:#fff;display:grid;place-items:center;font-weight:800;font-size:20px}
+.cta{border:2px solid var(--brand);border-radius:14px;padding:18px 20px;margin:30px 0}.btn{display:inline-block;background:var(--brand);color:#fff;text-decoration:none;padding:10px 18px;border-radius:10px;font-weight:700}
+.related a{display:block;padding:8px 0;border-bottom:1px solid var(--line);text-decoration:none}
+footer{border-top:1px solid var(--line);margin-top:30px;padding:24px 0;color:var(--muted);font-size:14px}footer a{color:var(--muted);margin-right:14px}
+@media (max-width:600px){.hero h1,article h1{font-size:27px}article h2{font-size:22px}nav a{margin:0 12px 0 0}}
+nav a.hot{color:var(--brand);font-weight:700}
+.tool{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:20px;margin:22px 0}
+.tool label{display:block;font-weight:600;font-size:15px;margin:12px 0 4px}
+.tool input,.tool select{width:100%;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--fg);font:inherit;font-size:16px}
+.tool .row{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0 16px}
+.tool .checks{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:6px 16px;margin-top:6px}
+.tool .checks label{font-weight:400;display:flex;gap:8px;align-items:center;margin:4px 0}
+.tool .checks input{width:auto}
+.tool button{margin-top:16px;background:var(--brand);color:#fff;border:0;border-radius:10px;padding:12px 20px;font:inherit;font-weight:700;cursor:pointer}
+.tool button.ghost{background:transparent;color:var(--brand);border:1px solid var(--brand);margin-left:8px}
+.result{margin-top:20px;display:none}.result.show{display:block}
+.big{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin:12px 0}
+.big div{background:var(--brand2);border-radius:12px;padding:12px 14px}.big b{display:block;font-size:24px;color:var(--brand)}
+.big span{font-size:13px;color:var(--muted)}.note{font-size:13px;color:var(--muted)}
+.ing{display:grid;grid-template-columns:2fr 1fr 1fr 1fr 1fr auto;gap:6px;align-items:end;margin-bottom:6px}
+.ing{border-bottom:1px solid var(--line);padding-bottom:8px}.ing label{margin:0;font-weight:400}.ing label span{display:block;font-size:12px;color:var(--muted)}
+.ing input{padding:8px}.ing .x{background:transparent;color:var(--muted);border:1px solid var(--line);margin:0;padding:8px 12px}
+@media (max-width:640px){.ing{grid-template-columns:1fr 1fr}.ing label:first-child{grid-column:1/-1}.ing .x{grid-column:1/-1;justify-self:end}}
+.tcards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px;margin:16px 0 30px}
+.tcards a{border:1px solid var(--line);background:var(--card);border-radius:14px;padding:16px;text-decoration:none;color:var(--fg)}
+.tcards a b{display:block;font-size:18px;margin-bottom:4px}.tcards a span{color:var(--muted);font-size:14px}
+.toolbox{border:2px dashed var(--brand);border-radius:14px;padding:14px 18px;margin:22px 0}</style>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Restaurant Food Cost Calculator", "url": "https://ranaadnan42.github.io/fb-auto-poster/blog/tools/restaurant-food-cost-calculator/", "description": "Free food cost calculator for restaurants and cafes: work out the cost per plate with yield, your food cost percentage and a suggested menu price.", "applicationCategory": "BusinessApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Person", "name": "Muhammad Adnan", "url": "https://ranaadnan42.github.io/fb-auto-poster/blog/about/"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is the formula for food cost percentage?", "acceptedAnswer": {"@type": "Answer", "text": "Food cost % = (ingredient cost of one portion / menu price) x 100. For example, a dish that costs $3 to make and sells for $10 has a 30% food cost."}}, {"@type": "Question", "name": "How do I set a menu price from food cost?", "acceptedAnswer": {"@type": "Answer", "text": "Divide the portion cost by your target food cost as a decimal. A $2.50 portion at a 30% target gives $2.50 / 0.30 = about $8.35, which you can round to a menu-friendly price."}}, {"@type": "Question", "name": "Does food cost include labour and packaging?", "acceptedAnswer": {"@type": "Answer", "text": "No. Food cost is ingredients only. Packaging is often tracked separately, and labour plus food together are called prime cost, which many restaurants keep under about 60-65% of sales."}}, {"@type": "Question", "name": "Why should I include yield percentage?", "acceptedAnswer": {"@type": "Answer", "text": "Because you rarely serve 100% of what you buy. Trimming, peeling and cooking loss raise the true cost per usable gram, and ignoring it makes dishes look more profitable than they are."}}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "position": 1, "name": "Home", "item": "https://ranaadnan42.github.io/fb-auto-poster/blog/"}, {"@type": "ListItem", "position": 2, "name": "Free Tools", "item": "https://ranaadnan42.github.io/fb-auto-poster/blog/tools/"}, {"@type": "ListItem", "position": 3, "name": "Restaurant Food Cost Calculator", "item": "https://ranaadnan42.github.io/fb-auto-poster/blog/tools/restaurant-food-cost-calculator/"}]}</script>
+</head><body>
+<header><div class="wrap"><a class="logo" href="../../">BizTools<span>Hub</span></a><nav><a class="hot" href="../../tools/">Free Tools</a><a href="../../category/pos-systems/">POS Systems</a><a href="../../category/websites/">Business Websites</a><a href="../../category/mobile-apps/">Mobile Apps</a><a href="../../category/ai-tools/">AI Tools for Business</a><a href="../../category/business-growth/">Business Growth</a></nav></div></header>
+<main class="wrap narrow"><article>
+<div class="crumbs"><a href="../../">Home</a> &rsaquo; <a href="../../tools/">Free Tools</a></div>
+<h1>Restaurant Food Cost Calculator</h1>
+<div class="meta">Free tool by <a href="../../about/">Muhammad Adnan</a> &middot; No sign-up &middot; Results are estimates</div>
+<p>Add the ingredients of any dish to find its exact cost per portion, your food cost percentage and a menu price that hits your target margin.</p>
+<div class="tool" id="calc">
+<div class="row">
+<div><label for="dish">Dish name</label><input id="dish" type="text" value="Chicken burger" maxlength="60"></div>
+<div><label for="portions">Portions this recipe makes</label><input id="portions" type="number" min="1" value="1"></div>
+</div>
+<div id="ings"></div>
+<button type="button" class="ghost" style="margin-left:0" onclick="addIng()">+ Add ingredient</button>
+<p class="note">Use the same unit for pack size and amount used (for example both in grams, or both in pieces).</p>
+<div class="row">
+<div><label for="target">Target food cost %</label><input id="target" type="number" min="5" max="80" value="30"></div>
+<div><label for="price">Your current menu price ($, optional)</label><input id="price" type="number" min="0" step="0.25" value=""></div>
+</div>
+<button type="button" onclick="calc()">Calculate food cost</button>
+<div class="result" id="out" aria-live="polite"></div>
+</div>
+<h2>How to calculate food cost for a menu item</h2>
+<p>Food cost is the ingredient cost of one portion, divided by its menu price. The formula is simple, but getting the ingredient costs right is where most owners make mistakes.</p>
+<ol><li><strong>Cost each ingredient per unit:</strong> pack price divided by pack size. A 1,000 g pack of chicken at $9 costs $0.009 per gram.</li>
+<li><strong>Adjust for yield:</strong> trimming, bones, peel and cooking loss mean you use more than you serve. If only 90% of the chicken is usable, divide by 0.9.</li>
+<li><strong>Multiply by the amount used</strong> in the recipe and add up all ingredients, including sauces, oil and garnish.</li>
+<li><strong>Divide by portions</strong> if the recipe makes more than one serving.</li>
+<li><strong>Price the dish:</strong> menu price = portion cost / target food cost %. At a 30% target, a $2.40 portion should sell for about $8.00.</li></ol>
+<h2>What is a good food cost percentage?</h2>
+<p>Most restaurants aim for 25-35% overall. Coffee and drinks often run 10-20%, while steak or seafood dishes can sit at 35-40% because the cash profit per plate is still high. Look at both the percentage and the gross profit in dollars before changing a price.</p>
+<h3>Ways to lower food cost without raising prices</h3>
+<ul><li>Weigh portions for your most-sold dishes and train staff on them.</li><li>Re-price recipes whenever supplier prices change, not once a year.</li>
+<li>Use trim from one dish in another (soups, sauces, staff meals).</li><li>Track waste daily; a POS with inventory tracking makes this much easier.</li></ul>
+<h2 id="faq">Frequently asked questions</h2><h3>What is the formula for food cost percentage?</h3><p>Food cost % = (ingredient cost of one portion / menu price) x 100. For example, a dish that costs $3 to make and sells for $10 has a 30% food cost.</p><h3>How do I set a menu price from food cost?</h3><p>Divide the portion cost by your target food cost as a decimal. A $2.50 portion at a 30% target gives $2.50 / 0.30 = about $8.35, which you can round to a menu-friendly price.</p><h3>Does food cost include labour and packaging?</h3><p>No. Food cost is ingredients only. Packaging is often tracked separately, and labour plus food together are called prime cost, which many restaurants keep under about 60-65% of sales.</p><h3>Why should I include yield percentage?</h3><p>Because you rarely serve 100% of what you buy. Trimming, peeling and cooking loss raise the true cost per usable gram, and ignoring it makes dishes look more profitable than they are.</p>
+<div class="cta"><h3>Want an exact price for your business?</h3>
+<p>Tell me what you need and I will send a free, no-obligation quote for a POS system, website or mobile app.</p>
+<a class="btn" href="https://client-hunt-six.vercel.app/" rel="noopener" target="_blank">Get a free quote</a></div>
+
+<h2>More free tools</h2><div class="tcards"><a href="../../tools/pos-system-cost-calculator/"><b>POS System Cost Calculator</b><span>Compare subscription vs one-time POS cost, with hardware and card fees.</span></a><a href="../../tools/website-cost-calculator/"><b>Website Cost Calculator</b><span>Estimate build and yearly costs: DIY, freelancer or agency.</span></a><a href="../../tools/app-development-cost-calculator/"><b>App Development Cost Calculator</b><span>Pick features and platforms to estimate app cost and timeline.</span></a></div>
+<div class="author"><div class="avatar">MA</div><div><strong>Muhammad Adnan</strong><br>Muhammad Adnan is a software developer who builds point-of-sale (POS) systems, business websites and mobile apps for retail shops and restaurants. He writes these guides from hands-on experience setting up software for real small businesses.</div></div>
+</article></main>
+<script>function $(i){return document.getElementById(i)}
+function num(i){var v=parseFloat(($(i)||{}).value);return isNaN(v)?0:v}
+function money(v){return '$'+Math.round(v).toLocaleString('en-US')}
+function range(a,b){return money(a)+' - '+money(b)}
+function show(id,html){var r=$(id);r.innerHTML=html;r.classList.add('show');r.scrollIntoView({behavior:'smooth',block:'nearest'})}
+function stat(label,val){return '<div><span>'+label+'</span><b>'+val+'</b></div>'}
+var START=[['Burger bun',3.5,6,1,100],['Chicken breast (g)',9,1000,150,90],['Cheese slice',4,12,1,100],['Lettuce (g)',2,500,20,80],['Sauce (g)',5,1000,30,100]];
+function addIng(v){v=v||['',0,1,0,100];var d=document.createElement('div');d.className='ing';
+ var f=['text','number','number','number','number'],ph=['Ingredient','Pack price ($)','Pack size','Used in recipe','Usable yield %'];
+ for(var i=0;i<5;i++){var w=document.createElement('label');var c=document.createElement('span');c.textContent=ph[i];var e=document.createElement('input');e.type=f[i];e.value=v[i]===0&&i>0?'':v[i];if(i>0){e.min='0';e.step='any';}w.appendChild(c);w.appendChild(e);d.appendChild(w);}
+ var x=document.createElement('button');x.type='button';x.className='x';x.textContent='\u00d7';x.setAttribute('aria-label','Remove');x.onclick=function(){d.remove();};d.appendChild(x);
+ $('ings').appendChild(d);}
+START.forEach(addIng);
+function calc(){
+ var rows=document.querySelectorAll('#ings .ing'),total=0,lines=[];
+ rows.forEach(function(r){var e=r.querySelectorAll('input');var name=e[0].value||'Ingredient';
+  var price=parseFloat(e[1].value)||0,size=parseFloat(e[2].value)||0,used=parseFloat(e[3].value)||0,y=parseFloat(e[4].value)||100;
+  if(size<=0||used<=0)return;var c=price/size*used/(Math.min(100,Math.max(1,y))/100);total+=c;lines.push([name,c]);});
+ var p=Math.max(1,num('portions')),cost=total/p,t=Math.min(80,Math.max(5,num('target')||30)),sug=cost/(t/100),cur=num('price');
+ var tb=document.createElement('tbody');lines.forEach(function(l){var tr=document.createElement('tr');var a=document.createElement('td');a.textContent=l[0];var b=document.createElement('td');b.textContent='$'+(l[1]/p).toFixed(2);tr.appendChild(a);tr.appendChild(b);tb.appendChild(tr);});
+ var h='<h3></h3><div class="big">'+stat('Cost per portion','$'+cost.toFixed(2))+stat('Suggested price at '+t+'%','$'+sug.toFixed(2));
+ if(cur>0){var pct=cost/cur*100;h+=stat('Your food cost %',pct.toFixed(1)+'%')+stat('Gross profit per plate','$'+(cur-cost).toFixed(2));}
+ h+='</div><table><thead><tr><th>Ingredient</th><th>Cost per portion</th></tr></thead></table>';
+ if(cur>0){var pct2=cost/cur*100;h+='<p>'+(pct2>t+3?'Your food cost is above your target. Consider a smaller portion, a cheaper supplier or a price of about $'+sug.toFixed(2)+'.':(pct2<t-8?'Your food cost is well below target - good margin. Check the portion still feels like value to customers.':'Your food cost is close to your target.'))+'</p>';}
+ h+='<p class="note">Food cost covers ingredients only. Labour, rent, packaging and waste are extra, which is why most restaurants aim for 25-35%.</p>';
+ show('out',h);$('out').querySelector('h3').textContent='Food cost for '+($('dish').value||'your dish');$('out').querySelector('table').appendChild(tb);
+}</script>
+<footer><div class="wrap"><p>&copy; 2026 BizTools Hub &middot; Practical tech guides for small businesses: POS systems, websites, apps &amp; AI tools</p>
+<p><a href="../../tools/">Free Tools</a><a href="../../about/">About</a><a href="../../contact/">Contact</a><a href="../../privacy-policy/">Privacy Policy</a><a href="../../terms/">Terms</a><a href="../../disclaimer/">Disclaimer</a><a href="../../feed.xml">RSS</a></p></div></footer>
+</body></html>
