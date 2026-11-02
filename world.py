@@ -283,6 +283,7 @@ def _groq_vision(datas, prompt):
                 _DEAD.add(model)
                 continue
             if r.status_code == 429:
+                raise RuntimeError("AI quota exhausted, aborting run for retry")
                 time.sleep(4)
                 continue
             r.raise_for_status()
