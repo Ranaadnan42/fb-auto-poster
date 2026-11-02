@@ -499,6 +499,7 @@ PEXELS_KEY = os.environ.get("PEXELS_API_KEY")
 WM_UA = {"User-Agent": "IslamicVideosBot/1.0 (https://github.com/Ranaadnan42/fb-auto-poster)"}
 VISION_MODELS = ["gemini-3.1-flash-lite", "gemini-flash-lite-latest", "gemini-3.5-flash-lite", "gemini-3-flash-preview"]
 _VDEAD = set()
+_VSLOW = {}
 
 
 def _blocked_text(text):
@@ -570,15 +571,39 @@ def _vision_ok(jpg, want):
                               timeout=25, json={"contents": [{"parts": [{"text": prompt},
                                                                          {"inline_data": {"mime_type": "image/jpeg", "data": img}}]}],
                                                 "generationConfig": {"responseMimeType": "application/json", "temperature": 0}})
-            if time.time() - t0 > 20 or r.status_code in (404, 429):
+            if r.status_code in (404, 429):
                 _VDEAD.add(m)
+            if time.time() - t0 > 20:
+                _VSLOW[m] = _VSLOW.get(m, 0) + 1
+                if _VSLOW[m] >= 2:
+                    _VDEAD.add(m)
             r.raise_for_status()
             d = json.loads(r.json()["candidates"][0]["content"]["parts"][0]["text"])
             REPORT["vision_checks"] = REPORT.get("vision_checks", 0) + 1
             return bool(d.get("match")) and bool(d.get("safe"))
         except Exception as e:
-            _VDEAD.add(m)
             log(f"vision {m}: {str(e)[:100]}")
+    # Gemini busy/khatam -> Groq vision backup
+    gk = os.environ.get("GROQ_API_KEY")
+    for m in ("qwen/qwen3.8-27b", "meta-llama/llama-4-scout-17b-16e-instruct"):
+        if not gk or m in _VDEAD:
+            continue
+        try:
+            r = requests.post("https://api.groq.com/openai/v1/chat/completions", timeout=40,
+                              headers={"Authorization": f"Bearer {gk}"},
+                              json={"model": m, "temperature": 0, "response_format": {"type": "json_object"},
+                                    "messages": [{"role": "user", "content": [
+                                        {"type": "text", "text": prompt},
+                                        {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + img}}]}]})
+            if r.status_code in (400, 404):
+                _VDEAD.add(m)
+                continue
+            r.raise_for_status()
+            d = json.loads(re.search(r"\{.*\}", r.json()["choices"][0]["message"]["content"], re.S).group(0))
+            REPORT["vision_checks"] = REPORT.get("vision_checks", 0) + 1
+            return bool(d.get("match")) and bool(d.get("safe"))
+        except Exception as e:
+            log(f"groq vision {m}: {str(e)[:100]}")
     return None
 
 
