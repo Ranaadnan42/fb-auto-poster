@@ -8,7 +8,7 @@ import time
 
 import requests
 
-MODELS = ["openai/gpt-oss-120b", "qwen/qwen3.8-27b", "openai/gpt-oss-20b"]   # llama-3.3 Groq ne band kar diya
+MODELS = ["llama-3.3-70b-versatile", "qwen-2.5-32b", "llama-3.1-8b-instant"]
 
 
 def enabled():
