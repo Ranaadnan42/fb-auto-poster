@@ -1,12 +1,16 @@
 {
- "mode": "auto",
- "stock_clips": 0,
- "fallback_clips": 0,
+ "mode": "reel",
+ "stock_clips": 4,
+ "fallback_clips": 3,
  "errors": [],
- "format": "chat",
- "long_minutes": 6.51,
- "laughs": 14,
- "time_utc": "2026-11-02 20:45",
- "title": "ٹک ٹاک کا جن اور ڈلیوری رائڈر",
- "dry_run": false
+ "format": "people",
+ "search_phrases": [],
+ "reel_format": "pov",
+ "vision_checks": 161,
+ "clips_rejected": 157,
+ "laughs": 3,
+ "reel_minutes": 0.83,
+ "time_utc": "2026-11-02 21:08",
+ "title": "رات دو بجے کا فریج اٹیک اور کچن کا صدمہ",
+ "dry_run": true
 }
