@@ -4,138 +4,122 @@
    "kindness to parents",
    "humility and avoiding arrogance",
    "controlling anger",
-   "prophet stories",
-   "patience (sabr)",
-   "Friday blessings",
-   "dua answered incidents",
+   "patience (sabr) in hardship",
    "trusting Allah (tawakkul)",
-   "charity (sadaqah)",
-   "night prayer (tahajjud)"
+   "a dua that Allah answered",
+   "stories of the prophets",
+   "the blessings of Friday (Jumma)"
   ],
   "try": [
-   "Islamic finance basics and ethical investing",
-   "Health & hygiene practices in Islam (e.g., fasting health tips)",
-   "Environmental stewardship: Islam and caring for the earth",
-   "Women’s rights and contributions in Islamic history",
-   "Youth mental health: coping with stress using Islamic teachings",
-   "Digital etiquette: navigating social media with Islamic values"
+   "Prophet Dawud (David) and the lesson of gratitude for blessings",
+   "The health benefits of giving Zakat in modern societies",
+   "Incorporating dhikr during daily commute for stress relief",
+   "Fasting on Mondays and Thursdays: spiritual and physical rewards",
+   "Companion Bilal's perseverance and the power of steadfastness",
+   "Sincere repentance (tawbah) and its effect on mental peace"
   ],
-  "note": "Page bohat hi repeat ho rahi hai."
+  "note": "Page thodi repetitive hai."
  },
  "funny": {
   "avoid": [
-   "monday morning",
-   "teacher vs students",
-   "rishta aunty",
-   "load of homework",
-   "exam results",
-   "animal voice‑over reels",
-   "chat format reels",
    "پپو کا رزلٹ اور انوکھا مشن series",
    "ببلو اور رشتہ آنٹی کا طوفان series",
-   "duck videos"
+   "چمپا کلی اور ہوم ورک کا پہاڑ series",
+   "chat format with cat (chat)",
+   "teacher vs students topic",
+   "rishta aunty topic",
+   "load of homework topic",
+   "duck animal videos"
   ],
   "try": [
-   "Ramadan special comedy sketches",
-   "Travel adventure with animal voice‑overs",
-   "Tech gadget parody videos",
-   "Environmental comedy (climate, recycling)",
-   "Historical figure satire in Urdu",
-   "Celebrity impersonation skits"
+   "گائے میاں کی دیسی ڈانس اور سوشل میڈیا ٹرینڈ",
+   "بندر انکل کا سائیکلنگ چیلنج اور پارک کی ہنسی",
+   "ٹماٹر کی دکان پر ٹماٹر کی بیکنگ اور گاہکوں کی مزاحیہ گفتگو",
+   "نیا سال کا جشن اور ٹرک ڈرائیور کی ڈائری",
+   "پانی کی قلت پر گدھے کی ہنسی اور اسکول کے طلباء کی مہم",
+   "بچوں کی اسکول بیک پیک کی مسکراہٹ اور کتا انکل کی مدد"
   ],
-  "note": "Page bohat repetitive lag rahi hai, naye topics lana zaroori hain."
+  "note": "Page bohat repetitive lag rahi hai, especially chat aur teacher vs students topics."
  },
  "world": {
   "avoid": [
-   "Cost of living comparisons",
-   "Moving to X videos",
-   "Country vs Country battles",
-   "Top affordable countries lists",
-   "City documentaries",
-   "Expat lifestyle overviews",
-   "Safety & culture summaries",
-   "Japan‑focused content",
-   "Europe affordability series",
-   "Short travel tip reels"
+   "Japan",
+   "Canada vs Australia",
+   "Dubai vs Singapore",
+   "Japan vs India",
+   "Moving to Thailand",
+   "Living in Alaska",
+   "London Documentary",
+   "Most Affordable Countries to Live in Europe"
   ],
   "try": [
-   "Deep dive into lesser‑known cultural festivals worldwide",
-   "Exploring local street food and culinary traditions with chefs",
-   "Chronological storytelling of pivotal historical events in each country",
-   "In‑depth interviews with residents about daily life and aspirations",
-   "Showcasing sustainable living practices in remote or off‑grid communities",
-   "Highlighting emerging tech and innovation hubs in unexpected regions"
+   "Living in Vietnam: Cost, Safety & Daily Life",
+   "Moving to Mexico: What You Need to Know",
+   "Kenya vs Ghana: Cost of Living & Culture Comparison",
+   "Exploring New Zealand: Lifestyle, Work, and Travel Tips",
+   "Affordable Cities in Eastern Europe: Bulgaria and Romania",
+   "Daily Life in South Korea: Housing, Food, and Culture"
   ],
-  "note": "Haan, page bohat repeat ho raha hai"
+  "note": "Page thodi repetitive hai"
  },
  "world_short": {
   "avoid": [
-   "60 Seconds city guides",
-   "Would You Live in ... cost of living",
-   "Hidden Gems/Places series",
-   "Surprising Facts lists",
-   "Vs comparisons (city vs city, country vs country)",
-   "Traditional Food lists",
-   "Cost of Living guides",
-   "Travel city vs city comparisons",
-   "Country fact countdowns",
-   "Regional food tours"
+   "California",
+   "Japan",
+   "London",
+   "Australia",
+   "60 Seconds format",
+   "Cost of Living comparison",
+   "Hidden Gems/Places",
+   "Surprising Facts listicles"
   ],
   "try": [
-   "Local festivals and celebrations",
-   "Historical landmarks deep dive",
-   "Travel safety and health tips",
-   "Eco‑friendly travel destinations",
-   "Language basics and common phrases",
-   "Myths, legends, and folklore of countries"
+   "What Life Really Costs in Seoul, South Korea",
+   "5 Street Food Secrets of Bangkok, Thailand",
+   "Would You Live in Lisbon, Portugal? Pros & Cons",
+   "Traditional Food of Peru: 5 Must-Try Dishes in Lima",
+   "Hidden Gems in New Zealand You Must Visit",
+   "Paris vs Berlin: Which European Capital Should You Visit?"
   ],
-  "note": "Page bohat repeat ho rahi hai"
+  "note": "Page is repetitive with California, Japan, and London appearing multiple times; also over-relies on 'Cost of Living' and 'Hidden Gems' formats."
  },
  "frames": {
   "avoid": [
-   "Visa guides",
-   "Country comparison",
-   "Cheap living lists",
-   "Job visa guides",
-   "Life in Dubai",
-   "Life in Canada",
-   "Travel tours of cities",
-   "Australia pre‑travel tips",
-   "Italy job posts",
-   "Malta documentary"
+   "Dubai",
+   "Life in",
+   "Job",
+   "Visa Guide"
   ],
   "try": [
-   "Pakistani diaspora success stories in Europe",
-   "Documentary on traditional Pakistani festivals abroad",
-   "Food culture exchange: Pakistani dishes in foreign kitchens",
-   "Historical ties between Pakistan and Turkey",
-   "Tech startup ecosystem for Pakistani youth overseas",
-   "Environmental challenges faced by Pakistani migrants"
+   "France Visa Guide for Pakistanis",
+   "Spain Life in Spain",
+   "Brazil Job Opportunities for Pakistanis",
+   "South Africa Cheapest Countries for Pakistanis",
+   "India vs Pakistan: Which country offers better opportunities?",
+   "China Life in China"
   ],
-  "note": "Page bohat repetitive hai"
+  "note": "Page thodi repetitive hai"
  },
  "frames_short": {
   "avoid": [
+   "60 سیکنڈ میں",
+   "5",
    "Cost of Living",
-   "60-second city tours",
-   "Visa guides",
-   "Life in city",
-   "Country comparisons",
-   "Hidden gems",
-   "Food highlights",
-   "Facts about countries",
-   "Job opportunities",
-   "Salary information"
+   "Visa",
+   "Job",
+   "Hidden",
+   "Facts",
+   "Tour"
   ],
   "try": [
-   "Education system in X",
-   "Healthcare system in X",
-   "Safety and crime rates in X",
-   "Local festivals and cultural events in X",
-   "Traditional music and dance of X",
-   "Real estate market in X"
+   "پاکستانی کے لیے بھارت میں تعلیم کے 5 بہترین یونیورسٹیاں",
+   "برازیل کے 5 چھپے ہوئے ساحل",
+   "مصر کے 6 تاریخی عجائب اور ان کے راز",
+   "نائجیریا کے 5 مشہور سٹریٹ فوڈز",
+   "جنوبی افریقہ کے 5 بہترین وائلڈ لائف سفاری",
+   "میکسیکو کے 5 روایتی تہوار"
   ],
-  "note": "Page repetitive lag raha hai."
+  "note": "Haan, page repetitive hai."
  },
  "_platforms": {
   "islamic": {
