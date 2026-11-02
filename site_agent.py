@@ -959,8 +959,7 @@ def main():
     if not dry:
         save_json(DATA, posts)
         indexnow(new_urls + [f"{SITE_URL}/tools/{k}/" for k in site_tools.TOOLS] if new_urls else new_urls)
-        if mode == "post":
-            shared = share_social(posts)
+        # Web Builder FB page par sharing owner ne band karwai hai (2026-11-02).
     diary = load_json(DIARY, [])
     diary.append({"date": today, "mode": mode, "new_article": next((p["title"] for p in posts if p["date"][:10] == today), None),
                   "refreshed": [ru] if ru else [], "facebook_shared": shared,
