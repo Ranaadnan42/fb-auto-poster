@@ -20,9 +20,9 @@ on:
         options: [reel, long]
         default: reel
       format:
-        description: 'auto, chat ya animal'
+        description: 'auto, people, chat, cartoon'
         type: choice
-        options: [auto, chat, animal, story, ai, cartoon]
+        options: [auto, people, chat, animal, story, ai, cartoon]
         default: auto
       dry_run:
         description: 'Sirf video banaye, post na kare'
