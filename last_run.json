@@ -1,15 +1,32 @@
 {
  "lang": "ur",
- "stock_clips": 10,
+ "stock_clips": 42,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "nabi ke sabr ka waqia"
+  "دعا قنوت",
+  "دعای توسل",
+  "دعا مانگنے کا طریقہ",
+  "دعای کمیل",
+  "دعا توسل",
+  "دعا کمیل",
+  "دعای عهد",
+  "دعائے عہد",
+  "دعاء كميل",
+  "dua qabool hone ki nishani",
+  "dua qabool hone ki dua",
+  "dua qabool wazifa",
+  "dua qabool ka wazifa",
+  "dua qabool nahi hoti",
+  "dua qabool hone ki nishaniyan",
+  "dua qabool hone ka tarika",
+  "dua qabool karne ka tarika",
+  "dua qabool karne ka wazifa"
  ],
- "search": "nabi ke sabr ka waqia",
- "reel_minutes": 1.27,
- "time_utc": "2026-11-02 08:15",
- "title": "حضرت ایوبؑ کی شدید آزمائش اور صبر کا ایمان افروز واقعہ",
+ "search": "dua qabool hone ka tarika",
+ "long_minutes": 5.49,
+ "time_utc": "2026-11-02 19:37",
+ "title": "دعا مانگنے کا طریقہ اور دعا قبول ہونے کی شرائط",
  "dry_run": false,
  "posted_ok": 1
 }
