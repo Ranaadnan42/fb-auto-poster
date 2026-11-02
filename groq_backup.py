@@ -8,7 +8,7 @@ import time
 
 import requests
 
-MODELS = ["llama-3.3-70b-versatile", "qwen-2.5-32b", "llama-3.1-8b-instant"]
+MODELS = ["llama-3.1-405b", "qwen-2.5-32b", "llama-3.1-8b-instant"]
 
 
 def enabled():
