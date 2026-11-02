@@ -59,9 +59,12 @@ def main():
                 {"role": "system", "content": "You are the content editor of a social media network. Reply JSON only."},
                 {"role": "user", "content": f"""Page: {about}
 Its last 30 posts (oldest first): {json.dumps(summary(h), ensure_ascii=False)}
-1. Which topics, story subjects, characters, settings, joke situations, countries or formats were used too
-   often recently (viewers get bored)? List them short, max 10.
-2. Suggest 6 fresh directions that fit this page's audience and rules and were NOT done recently.
+The page's CORE categories and formats (named in the page description above, and the channel's series) are what
+its audience follows - NEVER put a whole category, series or format in 'avoid'.
+1. 'avoid': only SPECIFIC things repeated too often recently: an exact story/person/incident, a specific joke
+   situation, a specific animal or character, a specific country or city, a recurring title wording. Max 8.
+2. 'try': 6 fresh SPECIFIC subjects INSIDE the page's core categories and rules (e.g. a story not told yet,
+   a country not covered yet, a new everyday joke situation) - same audience, same style, nothing off-brand.
 Return {{"avoid": ["..."], "try": ["..."], "note": "one line: is the page repetitive? (Roman Urdu)"}}"""}])
             rules[bot] = {"avoid": [str(x)[:80] for x in (r.get("avoid") or [])][:10],
                           "try": [str(x)[:80] for x in (r.get("try") or [])][:6], "note": str(r.get("note", ""))[:200]}
