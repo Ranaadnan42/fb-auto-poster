@@ -701,11 +701,17 @@ def _main():
         chat_today = sum(1 for h in history if h.get("mode") == "reel" and h.get("format") == "chat"
                          and (datetime.datetime.strptime(h["date"], "%Y-%m-%d %H:%M")
                               + datetime.timedelta(hours=5)).strftime("%Y-%m-%d") == pk_today)
-        cartoon_today = sum(1 for h in history if h.get("mode") == "reel" and h.get("format") == "cartoon"
-                            and (datetime.datetime.strptime(h["date"], "%Y-%m-%d %H:%M")
-                                 + datetime.timedelta(hours=5)).strftime("%Y-%m-%d") == pk_today)
-        # roz: 1 chat reel, 1 cartoon reel, baaqi janwar wali
-        fmt = os.environ.get("FORMAT") or ("chat" if chat_today < 1 else "cartoon" if cartoon_today < 1 else "animal")
+        # FB originality: har reel pichhli se alag format; cartoon kabhi kabhi (2 din mein zyada se zyada 1), roz pakka kuch nahi
+        reels = [h for h in history if h.get("mode") == "reel"]
+        last_fmt = reels[-1].get("format") if reels else None
+        cut = (now - datetime.timedelta(days=2)).strftime("%Y-%m-%d %H:%M")
+        cartoon_recent = any(h.get("format") == "cartoon" and h["date"] >= cut for h in reels)
+        pool = {"animal": 4, "chat": 2, "cartoon": 0 if cartoon_recent else 1}
+        pool.pop(last_fmt, None)
+        if chat_today >= 1:
+            pool.pop("chat", None)
+        pool = {k: v for k, v in pool.items() if v} or {"animal": 1}
+        fmt = os.environ.get("FORMAT") or random.choices(list(pool), weights=list(pool.values()))[0]
     entry["format"] = fmt
     REPORT["format"] = fmt
     if MODE == "long":
