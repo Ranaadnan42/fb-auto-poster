@@ -1,0 +1,178 @@
+{
+ "islamic": {
+  "avoid": [
+   "kindness to parents",
+   "humility and avoiding arrogance",
+   "controlling anger",
+   "prophet stories",
+   "patience (sabr)",
+   "Friday blessings",
+   "dua answered incidents",
+   "trusting Allah (tawakkul)",
+   "charity (sadaqah)",
+   "night prayer (tahajjud)"
+  ],
+  "try": [
+   "Islamic finance basics and ethical investing",
+   "Health & hygiene practices in Islam (e.g., fasting health tips)",
+   "Environmental stewardship: Islam and caring for the earth",
+   "Women’s rights and contributions in Islamic history",
+   "Youth mental health: coping with stress using Islamic teachings",
+   "Digital etiquette: navigating social media with Islamic values"
+  ],
+  "note": "Page bohat hi repeat ho rahi hai."
+ },
+ "funny": {
+  "avoid": [
+   "monday morning",
+   "teacher vs students",
+   "rishta aunty",
+   "load of homework",
+   "exam results",
+   "animal voice‑over reels",
+   "chat format reels",
+   "پپو کا رزلٹ اور انوکھا مشن series",
+   "ببلو اور رشتہ آنٹی کا طوفان series",
+   "duck videos"
+  ],
+  "try": [
+   "Ramadan special comedy sketches",
+   "Travel adventure with animal voice‑overs",
+   "Tech gadget parody videos",
+   "Environmental comedy (climate, recycling)",
+   "Historical figure satire in Urdu",
+   "Celebrity impersonation skits"
+  ],
+  "note": "Page bohat repetitive lag rahi hai, naye topics lana zaroori hain."
+ },
+ "world": {
+  "avoid": [
+   "Cost of living comparisons",
+   "Moving to X videos",
+   "Country vs Country battles",
+   "Top affordable countries lists",
+   "City documentaries",
+   "Expat lifestyle overviews",
+   "Safety & culture summaries",
+   "Japan‑focused content",
+   "Europe affordability series",
+   "Short travel tip reels"
+  ],
+  "try": [
+   "Deep dive into lesser‑known cultural festivals worldwide",
+   "Exploring local street food and culinary traditions with chefs",
+   "Chronological storytelling of pivotal historical events in each country",
+   "In‑depth interviews with residents about daily life and aspirations",
+   "Showcasing sustainable living practices in remote or off‑grid communities",
+   "Highlighting emerging tech and innovation hubs in unexpected regions"
+  ],
+  "note": "Haan, page bohat repeat ho raha hai"
+ },
+ "world_short": {
+  "avoid": [
+   "60 Seconds city guides",
+   "Would You Live in ... cost of living",
+   "Hidden Gems/Places series",
+   "Surprising Facts lists",
+   "Vs comparisons (city vs city, country vs country)",
+   "Traditional Food lists",
+   "Cost of Living guides",
+   "Travel city vs city comparisons",
+   "Country fact countdowns",
+   "Regional food tours"
+  ],
+  "try": [
+   "Local festivals and celebrations",
+   "Historical landmarks deep dive",
+   "Travel safety and health tips",
+   "Eco‑friendly travel destinations",
+   "Language basics and common phrases",
+   "Myths, legends, and folklore of countries"
+  ],
+  "note": "Page bohat repeat ho rahi hai"
+ },
+ "frames": {
+  "avoid": [
+   "Visa guides",
+   "Country comparison",
+   "Cheap living lists",
+   "Job visa guides",
+   "Life in Dubai",
+   "Life in Canada",
+   "Travel tours of cities",
+   "Australia pre‑travel tips",
+   "Italy job posts",
+   "Malta documentary"
+  ],
+  "try": [
+   "Pakistani diaspora success stories in Europe",
+   "Documentary on traditional Pakistani festivals abroad",
+   "Food culture exchange: Pakistani dishes in foreign kitchens",
+   "Historical ties between Pakistan and Turkey",
+   "Tech startup ecosystem for Pakistani youth overseas",
+   "Environmental challenges faced by Pakistani migrants"
+  ],
+  "note": "Page bohat repetitive hai"
+ },
+ "frames_short": {
+  "avoid": [
+   "Cost of Living",
+   "60-second city tours",
+   "Visa guides",
+   "Life in city",
+   "Country comparisons",
+   "Hidden gems",
+   "Food highlights",
+   "Facts about countries",
+   "Job opportunities",
+   "Salary information"
+  ],
+  "try": [
+   "Education system in X",
+   "Healthcare system in X",
+   "Safety and crime rates in X",
+   "Local festivals and cultural events in X",
+   "Traditional music and dance of X",
+   "Real estate market in X"
+  ],
+  "note": "Page repetitive lag raha hai."
+ },
+ "_platforms": {
+  "islamic": {
+   "posts": 10,
+   "facebook": 6,
+   "youtube": 10,
+   "tiktok": 6
+  },
+  "funny": {
+   "posts": 10,
+   "facebook": 10,
+   "youtube": 0,
+   "tiktok": 0
+  },
+  "world": {
+   "posts": 10,
+   "facebook": 0,
+   "youtube": 10,
+   "tiktok": 0
+  },
+  "world_short": {
+   "posts": 10,
+   "facebook": 0,
+   "youtube": 10,
+   "tiktok": 0
+  },
+  "frames": {
+   "posts": 10,
+   "facebook": 6,
+   "youtube": 10,
+   "tiktok": 0
+  },
+  "frames_short": {
+   "posts": 10,
+   "facebook": 10,
+   "youtube": 10,
+   "tiktok": 0
+  }
+ }
+}

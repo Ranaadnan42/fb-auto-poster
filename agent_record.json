@@ -1,11 +1,25 @@
 {
- "open_fixes": [],
- "time_utc": "2026-11-02 20:10",
- "summary": "Movie Recaps fail hone ki wajah missing secrets hain (owner ko check karna hoga). Atlas Untold ka footage issue temporary AI quota ki wajah se hai, jo khud theek ho jayega. Website agent ka model issue investigate kiya, code mein direct reference nahi mila, shayad API side par hai.",
+ "open_fixes": [
+  {
+   "commit": "a8ac9940d0b836a1b29de5875a7e149fa766a018",
+   "workflow": "",
+   "why": "Updating Groq models list to use currently available stable models instead of deprecated ones.",
+   "time": "2026-11-02T20:35:26.031694"
+  }
+ ],
+ "time_utc": "2026-11-02 20:35",
+ "summary": "Groq backup models list update kar di hai taake deprecated models ki wajah se 404 error na aaye.",
  "notes": [],
- "actions": [],
- "edits": [],
+ "actions": [
+  "code fix push kiya (a8ac994)"
+ ],
+ "edits": [
+  {
+   "path": "groq_backup.py",
+   "why": "Updating Groq models list to use currently available stable models instead of deprecated ones."
+  }
+ ],
  "needs_owner": [
-  "Movie Recaps (YouTube) - YT_CLIENT_ID/YT_CLIENT_SECRET/YT_REFRESH_TOKEN ya Facebook (CINE_FB_PAGE_ID/CINE_FB_TOKEN) secrets missing hain"
+  "Atlas Untold AI quota limit reached"
  ]
 }
