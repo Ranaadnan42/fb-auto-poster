@@ -1,20 +1,12 @@
 {
  "mode": "reel",
- "stock_clips": 9,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "animal",
- "search_phrases": [
-  "gas load shedding timing",
-  "gas load shedding",
-  "gas ki load shedding",
-  "gas load shedding in karachi"
- ],
- "search": "gas load shedding timing",
- "reel_format": "paheli",
- "laughs": 2,
- "reel_minutes": 0.62,
- "time_utc": "2026-11-02 20:23",
- "title": "گیس load shedding timing اور ہمارا ناشتہ",
+ "format": "cartoon",
+ "reel_minutes": 0.61,
+ "laughs": 4,
+ "time_utc": "2026-11-02 20:38",
+ "title": "گڈو میاں اور اے ٹی ایم مشین کا معجزہ",
  "dry_run": true
 }
