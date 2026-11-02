@@ -1,22 +1,25 @@
 {
  "mode": "short",
- "clips": 15,
- "clips_rejected": 145,
- "vision_checks": 144,
+ "clips": 16,
+ "clips_rejected": 3,
+ "vision_checks": 5,
  "errors": [],
  "search_phrases": [
-  "wages vs cost of living",
-  "inflation and cost of living",
-  "prices and cost of living class 9",
-  "cost of living edmonton",
-  "cost of living worldwide"
+  "things to know about arc raiders",
+  "things to know about cars",
+  "things to know about iphone 17 pro max",
+  "things to know about 2k26",
+  "things to know about cats",
+  "things to know about wow forever",
+  "things to know about battlefield 6",
+  "things to know about real estate",
+  "things to know about ios 26",
+  "things to know about periods"
  ],
- "search": "wages vs cost of living",
- "vision_skipped": 2,
- "photos": 1,
- "seconds": 86.4,
+ "vision_skipped": 14,
+ "seconds": 64.5,
  "links": [],
- "subject": "Australia vs Canada",
- "series": "versus_short",
- "title": "Australia vs Canada: Wages and Cost of Living Compared"
+ "subject": "Amsterdam, Netherlands",
+ "series": "city_facts",
+ "title": "Amsterdam in 60 Seconds: Venice of the North"
 }
