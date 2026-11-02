@@ -232,6 +232,11 @@ VISION_MODELS = ["gemini-3.1-flash-lite", "gemini-flash-lite-latest", "gemini-3.
                  "gemini-3-flash-preview", "gemini-3.6-flash", "gemini-3.7-flash", "gemini-3.5-flash",
                  "gemini-3.8-flash", "gemini-flash-latest", "gemma-4-26b-a4b-it", "gemma-4-31b-it"]
 _DEAD = set()          # jin models ka quota is run mein khatam / jo chalte nahi / bahut dheere
+_SLOW = {}             # timeout/503 wale models: 3 minute baad dobara try (Google ka load aata jaata hai)
+
+
+def _resting(model):
+    return model in _DEAD or time.time() - _SLOW.get(model, 0) < 180
 VISION_TIMEOUT_S = 25  # ek check is se zyada le to woh model is run mein band
 _vclient = None
 
@@ -274,6 +279,7 @@ def _groq_vision(datas, prompt):
                               headers={"Authorization": f"Bearer {GROQ_KEY}"},
                               json={"model": model, "temperature": 0, "messages": [{"role": "user", "content": content}]})
             if r.status_code in (400, 404):
+                log(f"groq vision {model}: {r.status_code} {r.text[:120]}")
                 _DEAD.add(model)
                 continue
             if r.status_code == 429:
@@ -305,7 +311,7 @@ def vision_ok(jpgs, want, what, said=""):
     prompt = VISION_Q.format(n=len(datas), what=what, want=want, said=(said or what)[:400].replace('"', "'"))
     last = ""
     for model in VISION_MODELS:
-        if model in _DEAD:
+        if _resting(model):
             continue
         t0 = time.time()
         try:
@@ -314,7 +320,7 @@ def vision_ok(jpgs, want, what, said=""):
                 contents=[types.Part.from_bytes(data=d, mime_type="image/jpeg") for d in datas] + [prompt],
                 config=types.GenerateContentConfig(temperature=0))
             if time.time() - t0 > VISION_TIMEOUT_S * 0.8:
-                _DEAD.add(model)        # chal to gaya magar bahut dheera - aage tez wala
+                _SLOW[model] = time.time()  # chal to gaya magar bahut dheera - thori der doosra
                 log(f"vision: {model} dheera ({time.time() - t0:.0f}s) - agle checks doosre model se")
             v = _parse_match(res.text)
             if v is None:
@@ -323,10 +329,12 @@ def vision_ok(jpgs, want, what, said=""):
             return v
         except Exception as e:
             last = str(e)
-            if any(x in last for x in ("429", "RESOURCE_EXHAUSTED", "404", "NOT_FOUND", "not supported", "400")) \
-                    or time.time() - t0 >= VISION_TIMEOUT_S - 1 or "timed out" in last.lower() or "timeout" in last.lower():
+            if any(x in last for x in ("429", "RESOURCE_EXHAUSTED", "404", "NOT_FOUND", "not supported", "400")):
                 _DEAD.add(model)        # is run mein dobara nahi
                 log(f"vision: {model} band ({last[:60]})")
+            elif time.time() - t0 >= VISION_TIMEOUT_S - 1 or any(x in last.lower() for x in ("timed out", "timeout", "503", "504", "unavailable", "deadline")):
+                _SLOW[model] = time.time()   # thori der aaraam, phir dobara
+                log(f"vision: {model} abhi dheera/busy ({last[:50]}) - 3 min baad dobara")
     g = _groq_vision(datas, prompt)
     if g is not None:
         REPORT["vision_checks"] += 1
