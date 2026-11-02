@@ -19,7 +19,8 @@ def text(bot):
         return ""
     out = "\nCONTENT EDITOR NOTES (from the page's reviewer - follow them):"
     if avoid:
-        out += "\n- Recent videos repeated these too much - do NOT use them again now: " + "; ".join(avoid[:12])
+        out += ("\n- These SPECIFIC subjects were used too often recently - pick a different specific one "
+                "(today's theme/series itself is fine): " + "; ".join(avoid[:12]))
     if fresh:
-        out += "\n- Prefer fresh directions like: " + "; ".join(fresh[:8])
+        out += ("\n- Fresh ideas you MAY use if they fit today's theme and all the rules: " + "; ".join(fresh[:8]))
     return out + "\n"

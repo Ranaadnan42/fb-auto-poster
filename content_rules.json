@@ -1,22 +1,11 @@
 {
  "islamic": {
-  "avoid": [
-   "kindness to parents",
-   "humility and avoiding arrogance",
-   "controlling anger",
-   "patience (sabr) in hardship",
-   "trusting Allah (tawakkul)",
-   "a dua that Allah answered",
-   "stories of the prophets",
-   "the blessings of Friday (Jumma)"
-  ],
+  "avoid": [],
   "try": [
    "Prophet Dawud (David) and the lesson of gratitude for blessings",
-   "The health benefits of giving Zakat in modern societies",
    "Incorporating dhikr during daily commute for stress relief",
    "Fasting on Mondays and Thursdays: spiritual and physical rewards",
-   "Companion Bilal's perseverance and the power of steadfastness",
-   "Sincere repentance (tawbah) and its effect on mental peace"
+   "Companion Bilal's perseverance and the power of steadfastness"
   ],
   "note": "Page thodi repetitive hai."
  },
@@ -25,11 +14,9 @@
    "پپو کا رزلٹ اور انوکھا مشن series",
    "ببلو اور رشتہ آنٹی کا طوفان series",
    "چمپا کلی اور ہوم ورک کا پہاڑ series",
-   "chat format with cat (chat)",
    "teacher vs students topic",
    "rishta aunty topic",
-   "load of homework topic",
-   "duck animal videos"
+   "load of homework topic"
   ],
   "try": [
    "گائے میاں کی دیسی ڈانس اور سوشل میڈیا ٹرینڈ",
@@ -43,14 +30,7 @@
  },
  "world": {
   "avoid": [
-   "Japan",
-   "Canada vs Australia",
-   "Dubai vs Singapore",
-   "Japan vs India",
-   "Moving to Thailand",
-   "Living in Alaska",
-   "London Documentary",
-   "Most Affordable Countries to Live in Europe"
+   "Japan"
   ],
   "try": [
    "Living in Vietnam: Cost, Safety & Daily Life",
@@ -67,11 +47,7 @@
    "California",
    "Japan",
    "London",
-   "Australia",
-   "60 Seconds format",
-   "Cost of Living comparison",
-   "Hidden Gems/Places",
-   "Surprising Facts listicles"
+   "Australia"
   ],
   "try": [
    "What Life Really Costs in Seoul, South Korea",
@@ -85,34 +61,20 @@
  },
  "frames": {
   "avoid": [
-   "Dubai",
-   "Life in",
-   "Job",
-   "Visa Guide"
+   "Dubai"
   ],
   "try": [
    "France Visa Guide for Pakistanis",
    "Spain Life in Spain",
    "Brazil Job Opportunities for Pakistanis",
    "South Africa Cheapest Countries for Pakistanis",
-   "India vs Pakistan: Which country offers better opportunities?",
    "China Life in China"
   ],
   "note": "Page thodi repetitive hai"
  },
  "frames_short": {
-  "avoid": [
-   "60 سیکنڈ میں",
-   "5",
-   "Cost of Living",
-   "Visa",
-   "Job",
-   "Hidden",
-   "Facts",
-   "Tour"
-  ],
+  "avoid": [],
   "try": [
-   "پاکستانی کے لیے بھارت میں تعلیم کے 5 بہترین یونیورسٹیاں",
    "برازیل کے 5 چھپے ہوئے ساحل",
    "مصر کے 6 تاریخی عجائب اور ان کے راز",
    "نائجیریا کے 5 مشہور سٹریٹ فوڈز",

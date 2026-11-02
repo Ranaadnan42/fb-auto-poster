@@ -27,6 +27,31 @@ BOTS = {
 }
 
 
+# Page ki asal qism - editor inhein kabhi "avoid" nahi kar sakta (audience inhi ke liye aati hai)
+CORE = {
+    "islamic": ["prophet", "anbiya", "sabr", "patience", "tawakkul", "trust", "dua", "parent", "jumma", "jummah",
+                "friday", "anger", "humility", "arrogance", "tawbah", "repentance", "charity", "sadaqah", "tahajjud",
+                "prayer", "salah", "namaz", "quran", "ramadan", "story", "stories", "hadith", "sahaba", "companion"],
+    "funny": ["format", "voice", "cartoon", "animal videos", "chat", "reel", "latifa", "comedy"],
+    "world": ["cost", "living", "moving", "vs", "versus", "affordable", "cheap", "retire", "city", "country",
+              "documentary", "list", "best"],
+    "frames": ["cost", "living", "life in", "moving", "visa", "job", "salary", "vs", "cheap", "affordable",
+               "country", "city", "documentary", "guide"],
+}
+CORE["world_short"] = CORE["world"] + ["60", "seconds", "hidden", "facts", "food", "tour", "format"]
+CORE["frames_short"] = CORE["frames"] + ["60", "سیکنڈ", "hidden", "facts", "food", "tour", "format"]
+BANNED = ["india", "بھارت", "انڈیا", "vs india", "vs pakistan", "pakistan vs", "politic", "election", "war ", "israel", "sect",
+          "shia", "sunni", "music", "dance", "health benefit", "mental", "invest", "finance", "crypto"]
+
+
+def clean(bot, avoid, tryl):
+    core = CORE.get(bot, [])
+    a = [x for x in avoid if len(x.strip()) > 3 and not x.strip().isdigit()
+         and not any(c in x.lower() for c in core)]
+    t = [x for x in tryl if not any(b in x.lower() for b in BANNED)]
+    return a, t
+
+
 def summary(h):
     keep = ("title", "topic", "theme", "subject", "country", "format", "reel_format", "style", "animal",
             "series_title", "mode", "lang")
@@ -66,8 +91,8 @@ its audience follows - NEVER put a whole category, series or format in 'avoid'.
 2. 'try': 6 fresh SPECIFIC subjects INSIDE the page's core categories and rules (e.g. a story not told yet,
    a country not covered yet, a new everyday joke situation) - same audience, same style, nothing off-brand.
 Return {{"avoid": ["..."], "try": ["..."], "note": "one line: is the page repetitive? (Roman Urdu)"}}"""}])
-            rules[bot] = {"avoid": [str(x)[:80] for x in (r.get("avoid") or [])][:10],
-                          "try": [str(x)[:80] for x in (r.get("try") or [])][:6], "note": str(r.get("note", ""))[:200]}
+            a, t = clean(bot, [str(x)[:80] for x in (r.get("avoid") or [])], [str(x)[:80] for x in (r.get("try") or [])])
+            rules[bot] = {"avoid": a[:8], "try": t[:6], "note": str(r.get("note", ""))[:200]}
             print(bot, json.dumps(rules[bot], ensure_ascii=False))
         except Exception as e:
             print(f"{bot}: review fail {e}")
