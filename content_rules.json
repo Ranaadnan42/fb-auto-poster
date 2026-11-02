@@ -1,108 +1,108 @@
 {
  "islamic": {
-  "avoid": [],
-  "try": [
-   "Story of Prophet Dawud (David) and the lesson of sincere repentance",
-   "True incident highlighting the transformative power of charity (Sadaqah)",
-   "Companion’s dedication to seeking knowledge (Ilm) and its rewards",
-   "Hadith on fasting on Mondays and Thursdays and its spiritual benefits",
-   "Modern example of gratitude (Shukr) leading to increased barakah",
-   "Collective dhikr in a community setting and its calming effect"
+  "avoid": [
+   "dhikr peace theme"
   ],
-  "note": "Page bohat repetitive hai, aksar anger aur humility topics dohraye ja rahe hain."
+  "try": [
+   "Story of Prophet Saleh and the she‑camel",
+   "Narration of Prophet Hud’s perseverance against ‘Ad",
+   "Companion Bilal’s dedication to call to prayer",
+   "Prophet Muhammad’s forgiveness of the people of Ta’if",
+   "Early Muslim woman Khadijah’s support and charity",
+   "Companion Umar’s justice in governance"
+  ],
+  "note": "Page thodi repetitive lag rahi hai."
  },
  "funny": {
   "avoid": [
-   "پپو کا رزلٹ اور انوکھا مشن",
-   "ببلو اور رشتہ آنٹی کا طوفان",
-   "چمپا کلی اور ہوم ورک کا پہاڑ",
-   "قسط 1",
-   "قسط 2",
-   "duck",
-   "panda"
+   "animal videos",
+   "rishta aunty",
+   "homework load",
+   "exams and results",
+   "monday morning",
+   "teacher vs students",
+   "bijli ka bill",
+   "panda character"
   ],
   "try": [
-   "نیا گیس کا بل اور گھر کی بچت",
-   "نیا سوشل میڈیا پلیٹ فارم پر فیملی کا تجربہ",
-   "نیا گھر کا سائز اور بچوں کا کھیل",
-   "نیا موبائل فون اپ ڈیٹ اور فیملی کا ہنگامہ",
-   "نیا ٹیکنالوجی ڈیوائس: ڈرون پر گھر کی سیر",
-   "نیا گیس کا سٹیشن اور ٹریفک کا مسئلہ"
+   "Expectation vs Reality: Grocery shopping with Desi parents",
+   "Types of people at a Pakistani wedding buffet",
+   "POV: Trying to explain freelancing to a traditional father",
+   "Har ghar mein: The struggle of finding the TV remote",
+   "Chat comedy: The chaos of a family WhatsApp group",
+   "Expectation vs Reality: Cooking a new recipe for the first time"
   ],
-  "note": "Page bohat repetitive hai."
+  "note": "Page ka content kafi repetitive ho gaya hai, khas tor par janwaron aur purani themes ki wajah se."
  },
  "world": {
   "avoid": [
    "Japan",
-   "What ... Is Really Like"
+   "Explore X"
   ],
   "try": [
-   "Retiring in New Zealand",
-   "Living in South Korea",
-   "Exploring Mexico's Indigenous Communities",
-   "Cost of Living in Norway",
-   "Traveling Through Kenya's Wildlife Reserves",
-   "Historical Sites in Egypt's Ancient Thebes"
+   "Vietnam",
+   "New Zealand",
+   "Singapore",
+   "Morocco",
+   "Mexico",
+   "South Africa vs Kenya"
   ],
-  "note": "Page bohat repetitive hai."
+  "note": "Haan, page repetitive hai."
  },
  "world_short": {
   "avoid": [
    "California",
    "London",
    "Japan",
-   "Australia"
+   "Would You Live in"
   ],
   "try": [
-   "Cost of living in Zurich, Switzerland",
-   "6 Amazing Facts About South Korea",
-   "Berlin vs Munich: Which German City is Better?",
-   "5 Must-Try Foods in Italy",
-   "Hidden Gems in Peru You Must Visit",
-   "Lisbon in 60 Seconds: Portugal's Coastal Capital"
+   "5 Unique Cultural Traditions in South Korea",
+   "Living in Buenos Aires: Cost and Lifestyle Guide",
+   "Hidden Natural Wonders of Norway",
+   "Portugal vs Greece: Which Mediterranean Gem to Visit?",
+   "6 Fascinating Facts About New Zealand You Didn't Know"
   ],
-  "note": "Content thora repetitive ho raha hai, khaas tor par California aur London bar bar aa rahay hain."
+  "note": "Haan, page kafi repetitive hai, bar bar wahi topics aur titles repeat ho rahe hain."
  },
  "frames": {
   "avoid": [
-   "Dubai aur UAE par posts",
-   "Canada mein zindagi",
-   "Title wording: 'ویزا کیسے لگتا ہے؟'"
+   "Dubai",
+   "Italy",
+   "Malta",
+   "Germany",
+   "Japan"
   ],
   "try": [
-   "Malaysia Documentary in Urdu: پاکستانیوں کے لیے ملائیشیا میں نوکری اور زندگی",
-   "South Korea Guide: جنوبی کوریا میں E-9 ویزا اور پاکستانیوں کا مستقبل",
-   "Norway Documentary: نروے میں برفانی زندگی اور مفت تعلیم کی حقیقت",
-   "Qatar vs Oman: خلیجی ممالک میں پاکستانیوں کے لیے کون سا ملک بہتر ہے؟",
-   "New Zealand Country Documentary: نیوزی لینڈ میں خوبصورت زندگی اور ورک ویزا",
-   "Georgia (Tbilisi) Tour: بغیر مشکل کے جورجیا کا ویزا اور سیاحت"
+   "ناروے میں زندگی اور وہاں کی خوبصورت ثقافت",
+   "سویٹزرلینڈ کا سفر: سیاحوں کے لیے بہترین گائیڈ",
+   "سنگاپور کی ترقی کا راز: ایک مختصر دستاویزی فلم",
+   "نیوزی لینڈ میں پاکستانیوں کے لیے روزگار کے مواقع",
+   "آئس لینڈ: برفانی ملک کی حیران کن حقیقت",
+   "قطر میں زندگی اور وہاں کا طرزِ معاشرت"
   ],
-  "note": "Page par Dubai aur visa guides baar baar repeat ho rahi hain, ab naye mulkon ki documentaries par focus karna chahiye."
+  "note": "Page kafi had tak visa aur job guides par focus kar rahi hai, thora variety lane ki zaroorat hai."
  },
  "frames_short": {
   "avoid": [
-   "Dubai",
-   "Canada",
-   "Australia",
-   "Pakistanis comparison series",
-   "Saudi Arabia"
+   "Comparison",
+   "Canada"
   ],
   "try": [
-   "Norway visa and work culture for Pakistanis",
-   "Hidden historical sites in Egypt",
-   "Singapore cost of living and lifestyle",
-   "Brazil travel facts and cultural insights",
-   "New Zealand immigration and job market",
-   "Vietnam's top tourist destinations and food"
+   "Egypt: 5 must-visit historical sites",
+   "Brazil: Career opportunities for expats in São Paulo",
+   "South Africa: Visa process for Pakistani citizens",
+   "Vietnam: Secret spots in Hanoi you shouldn't miss",
+   "Portugal: Traditional dishes you must try"
   ],
-  "note": "Page ka content kafi had tak repetitive ho raha hai, khaas tor par cost of living aur job guides ke hawale se."
+  "note": "Page ka content bohat repetitive lag raha hai."
  },
  "_platforms": {
   "islamic": {
    "posts": 10,
-   "facebook": 5,
+   "facebook": 4,
    "youtube": 10,
-   "tiktok": 5
+   "tiktok": 4
   },
   "funny": {
    "posts": 10,

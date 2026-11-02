@@ -17,18 +17,24 @@
    "workflow": "frames.yml",
    "why": "Abort on quota exhaustion instead of skipping footage check",
    "time": "2026-11-02T22:18:13.421255"
+  },
+  {
+   "commit": "7d8c7c2e4e7657091f0818f6163bac00a4f47b64",
+   "workflow": "frames.yml",
+   "why": "Adding a check to skip list values in 'facts' to prevent 'list indices must be integers or slices, not str' error if a list is accidentally inserted into the facts dictionary.",
+   "time": "2026-11-02T23:09:39.729391"
   }
  ],
- "time_utc": "2026-11-02 22:18",
- "summary": "Atlas Untold mein footage check skip ho raha tha quota khatam hone par. Maine world.py mein fix kar diya hai ke ab quota khatam hone par run ruk jaye ga taake ghalat footage post na ho.",
+ "time_utc": "2026-11-02 23:09",
+ "summary": "Atlas Untold short video error fix: Added a type check in world.py to prevent list-related indexing errors when iterating over facts.",
  "notes": [],
  "actions": [
-  "code fix push kiya (aaebab8)"
+  "code fix push kiya (7d8c7c2)"
  ],
  "edits": [
   {
    "path": "world.py",
-   "why": "Abort on quota exhaustion instead of skipping footage check"
+   "why": "Adding a check to skip list values in 'facts' to prevent 'list indices must be integers or slices, not str' error if a list is accidentally inserted into the facts dictionary."
   }
  ],
  "needs_owner": []
