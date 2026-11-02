@@ -422,6 +422,8 @@ def gather_facts(plan):
     for name, f in facts.items():
         if isinstance(f, dict) and f.get("atlas_score"):
             SCORES.append((name, f["atlas_score"]))
+        elif isinstance(f, list):
+            continue
     return facts
 
 
