@@ -1,4 +1,4 @@
-name: AI Employee (sab bots check + khud theek)
+name: AI Employee (agent - sab bots check + khud theek)
 
 # Din mein 2 dafa: saare bots ka kaam dekhta hai, fail hua kaam khud dobara chalata hai,
 # phir Supabase wala AI employee (database: leads, demo websites, cron) chalata hai. Koi email nahi.
@@ -19,22 +19,31 @@ concurrency:
 jobs:
   employee:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 30
     steps:
       - uses: actions/checkout@v4
       - name: Check all bots and fix
         env:
           GH_TOKEN: ${{ github.token }}
+          NO_RERUN: "1"
         run: python3 tools/ai_employee.py
+      - name: AI agent - wajah dhoond kar khud theek kare
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: |
+          pip install -q requests google-genai >/dev/null 2>&1 || true
+          python3 tools/ai_agent.py
       - name: Save record
         run: |
           git config user.name "auto-poster"
           git config user.email "auto-poster@users.noreply.github.com"
-          cp employee_github.json /tmp/emp.json
+          cp employee_github.json /tmp/emp.json; cp agent_record.json /tmp/agent.json 2>/dev/null || true
           for i in 1 2 3 4 5; do
             git fetch -q origin main && git reset -q --hard origin/main
-            cp /tmp/emp.json employee_github.json
-            git add employee_github.json
+            cp /tmp/emp.json employee_github.json; cp /tmp/agent.json agent_record.json 2>/dev/null || true
+            git add employee_github.json agent_record.json 2>/dev/null || git add employee_github.json
             git diff --cached --quiet && break
             git commit -q -m "AI employee record"
             git push -q origin HEAD:main && break

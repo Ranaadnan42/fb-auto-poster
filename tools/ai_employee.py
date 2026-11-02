@@ -82,7 +82,9 @@ def check_workflows(fixed, problems, ok):
         if good:
             ok.append(f"{wf['name']}: {len(good)} kamyab run")
         for r in bad:
-            if r.get("run_attempt", 1) == 1:
+            if os.environ.get("NO_RERUN"):
+                problems.append(f"{wf['name']}: fail hua ({r['created_at'][:16]} UTC) run {r['id']}")
+            elif r.get("run_attempt", 1) == 1:
                 try:
                     ghapi.call("POST", f"/actions/runs/{r['id']}/rerun-failed-jobs")
                     fixed.append(f"{wf['name']}: fail hua tha ({r['created_at'][:16]} UTC) - dobara chala diya")
