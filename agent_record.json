@@ -11,18 +11,27 @@
    "workflow": "",
    "why": "llama-3.3-70b-versatile retired (404); replace with current Groq model llama-3.1-405b",
    "time": "2026-11-02T20:37:10.685381"
+  },
+  {
+   "commit": "cd5d58071e648db1c37b1338fed0c0889841f3f4",
+   "workflow": "blog.yml",
+   "why": "Preventing crash when AI generates a duplicate topic; returning None allows the main loop to handle it gracefully.",
+   "time": "2026-11-03T20:08:17.271990"
   }
  ],
- "time_utc": "2026-11-03 11:04",
- "summary": "Koi code bug nahi mila. Pichhla quota fix kaam kar raha hai. Ab AI quota khatam hone ki wajah se clips bina footage check ke post ho rahi hain - yeh temporary hai, quota reset hone par theek ho jayega. Frames of Life mein kuch specific footage items nahi mile (Saudi kabsa rice, laptop worker, Riyadh financial district) - footage agent yeh handle karta hai.",
+ "time_utc": "2026-11-03 20:08",
+ "summary": "",
  "notes": [
-  "pichhla fix (aaebab8) kaam kar gaya: Abort on quota exhaustion instead of skipping footage check",
-  "pichhla fix (7d8c7c2) kaam kar gaya: Adding a check to skip list values in 'facts' to prevent 'list indices must be integers or slices, not str' error if a list is accidentally inserted into the facts dictionary."
+  "dimagh na chala: koi AI model na chala: 429 Client Error: Too Many Requests for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key=AQ.Ab8RN6JEBLS_Wx4fjj01RK62vLMt1ueinioyF0xbkUJ2Ln3nZg"
  ],
- "actions": [],
- "edits": [],
- "needs_owner": [
-  "AI API quota khatam hai - Atlas Untold (lambi+short) aur Frames of Life short ke liye quota reset/upgrade chahiye",
-  "Frames of Life short mein specific footage nahi mili: Saudi kabsa rice dish, person working on laptop, Riyadh financial district - footage library mein yeh items add karne hain"
- ]
+ "actions": [
+  "code fix push kiya (cd5d580)"
+ ],
+ "edits": [
+  {
+   "path": "site_agent.py",
+   "why": "Preventing crash when AI generates a duplicate topic; returning None allows the main loop to handle it gracefully."
+  }
+ ],
+ "needs_owner": []
 }

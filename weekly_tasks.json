@@ -1,0 +1,21 @@
+{
+ "at": "2026-11-03T20:09+00:00",
+ "week_start": "2026-11-01",
+ "deadline_pk": "2026-11-07T00:00+05:00",
+ "pages": {
+  "islamic": {
+   "photos": "6/23",
+   "reels": "7/12",
+   "extra": [
+    "photos: 4 extra chala di (kami 7)"
+   ]
+  },
+  "funny": {
+   "photos": "9/30",
+   "reels": "12/11",
+   "extra": [
+    "photos: 4 extra chala di (kami 9)"
+   ]
+  }
+ }
+}

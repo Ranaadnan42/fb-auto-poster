@@ -1,26 +1,27 @@
 {
- "time_utc": "2026-11-03 11:04",
+ "time_utc": "2026-11-03 20:08",
  "fixed": [],
  "problems": [
+  "Website Agent / AI Employee (BizTools Hub): fail hua (2026-11-03T19:48 UTC) run 41706680182",
   "Atlas Untold - lambi video: 49 clips bina agent check ke (AI quota khatam) - footage ghalat ho sakti hai",
-  "Atlas Untold - short: 209 clips bina agent check ke (AI quota khatam) - footage ghalat ho sakti hai",
-  "Frames of Life - short: 854 clips bina agent check ke (AI quota khatam) - footage ghalat ho sakti hai",
-  "Frames of Life - short: in cheezon ki sahi footage nahi mili: Saudi kabsa rice dish, person working on laptop, Riyadh financial district"
+  "Atlas Untold - short: error - list indices must be integers or slices, not str",
+  "Frames of Life - short: 255 clips bina agent check ke (AI quota khatam) - footage ghalat ho sakti hai"
  ],
  "ok": [
   "Website Agent / AI Employee (BizTools Hub): 1 kamyab run",
-  "Cinematic AI Stories (YouTube): 7 kamyab run",
+  "Cinematic AI Stories (YouTube): 9 kamyab run",
   "Comment Helper search: 3 kamyab run",
   "Demo website photos (Pixabay): 4 kamyab run",
-  "Frames of Life (Urdu World Documentaries): 2 kamyab run",
-  "Funny Videos Poster: 9 kamyab run",
+  "Frames of Life (Urdu World Documentaries): 3 kamyab run",
+  "Funny Videos Poster: 10 kamyab run",
   "Growth Bot (comment replies): 3 kamyab run",
-  "Live Replies (FB comments): 1 kamyab run",
-  "Daily Auto Poster: 7 kamyab run",
-  "Daily Photo Posts: 4 kamyab run",
+  "Live Replies (FB comments): 2 kamyab run",
+  "Daily Auto Poster: 12 kamyab run",
+  "Daily Photo Posts: 6 kamyab run",
   "Pinterest Pins: 2 kamyab run",
-  "Web Builder Promo: 9 kamyab run",
-  "Atlas Untold (World Documentaries): 4 kamyab run",
+  "Web Builder Promo: 14 kamyab run",
+  "Atlas Untold (World Documentaries): 5 kamyab run",
+  "Atlas Untold - short: 14 clips, agent ne 63 check kin, 60 ghalat clips hata din",
   "Frames of Life - lambi video: 58 clips, agent ne 230 check kin, 213 ghalat clips hata din"
  ]
 }
