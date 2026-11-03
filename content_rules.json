@@ -1,93 +1,90 @@
 {
  "islamic": {
-  "avoid": [
-   "dhikr for peace"
-  ],
+  "avoid": [],
   "try": [
-   "Bilal ibn Rabah ki sabr aur azaan ki kahani",
-   "Prophet Muhammad ki non‑Muslim padosi ke saath rehmat ka waqia",
-   "Isra aur Mi'raj ka roshan sabak",
-   "Salman al‑Farsi ka qibla dhoondhne ka safar",
-   "Ramadan ki ek anokhi roza ki kahani – gareeb ki qurbani",
-   "Zaroori moqa par flood victims ki madad ka sadaqah ka amal"
+   "Story of Prophet Musa and his staff miracle",
+   "The Hijrah: Prophet Muhammad's migration and reliance on Allah",
+   "Companion Bilal ibn Rabah's perseverance and call to prayer",
+   "Hadith on the virtue of smiling from the Prophet",
+   "Gratitude (shukr) lesson from the grateful servant in Surah Al‑Insan",
+   "Miracle of Isra and Mi'raj focusing on the significance of prayer"
   ],
-  "note": "Page bohat repetitive lag rahi hai."
+  "note": "Page bohat repeat ho rahi hai, aksar wahi topics dhohraye ja rahe hain."
  },
  "funny": {
   "avoid": [
    "پپو کا رزلٹ اور انوکھا مشن series",
    "ببلو اور رشتہ آنٹی کا طوفان series",
    "چمپا کلی اور ہوم ورک کا پہاڑ series",
-   "duck animal videos",
-   "panda animal videos",
-   "monday morning topic",
-   "teacher vs students topic",
-   "rishta aunty topic"
+   "Monday morning jokes",
+   "Rishta aunty topic"
   ],
   "try": [
-   "Bhai ka internet data ka khatam hona aur emergency Wi‑Fi hunt",
-   "Naya school uniform ka drama aur parents ki negotiation",
-   "Neighbour ki Wi‑Fi ki jhagad aur funny misunderstanding",
-   "Ramzan ke sehri ki traffic jam aur roadside chai stall ka scene",
-   "Ghar ki chhoti chhoti kharche ki comedy – electricity bill vs water bill",
-   "Online grocery delivery ka ghalat address mishap aur delivery rider ka reaction"
+   "پڑوسی کی نئی گاڑی اور ٹریفک کی ہنسی",
+   "نیا موبائل ڈیٹا پلان اور بیوی کی شکایت",
+   "دادی کی پرانی ریسپی اور نوجوانوں کی رائے",
+   "انٹرنیٹ سست ہونے پر گھر کا ڈرامہ",
+   "پہلا دن آفیس میں بوس کی غیر متوقع ٹاسک",
+   "سکول کے ہوم ورک کا نیا طریقہ - والدین کی مدد"
   ],
   "note": "Page thodi repetitive lag rahi hai."
  },
  "world": {
   "avoid": [
-   "Explore Italy"
+   "Japan-focused videos",
+   "Europe affordability series"
   ],
   "try": [
-   "Vietnam: Daily Life, Cost of Living & Culture",
-   "Kenya: Living, Work & Safety Guide",
-   "New Zealand: Relocation Tips & Expenses 2025",
-   "Chile: Culture, Safety & Everyday Costs",
-   "South Korea: Lifestyle, Food & Living Expenses",
-   "Argentina: Expat Life, Costs & Hidden Gems"
+   "Living in Kenya: Cost, Safety & Daily Life",
+   "Moving to Mexico: What You Need to Know",
+   "South Korea vs Vietnam: Cost, Culture & Lifestyle Comparison",
+   "Exploring Morocco: History, Food, and Travel Tips",
+   "Best European Cities for Digital Nomads",
+   "Living in New Zealand: Jobs, Safety, and Lifestyle"
+  ],
+  "note": "Page thodi repetitive lag rahi hai."
+ },
+ "world_short": {
+  "avoid": [],
+  "try": [
+   "5 Surprising Facts About Chile You Didn't Know",
+   "Cost of Living in Seoul, South Korea: Honest Guide",
+   "Hidden Gems in Portugal: 5 Lesser‑Known Spots",
+   "Traditional Food of Greece: 5 Must‑Try Dishes",
+   "Living in Nairobi, Kenya: Pros & Cons",
+   "60 Seconds in Budapest: Central Europe's Gem"
   ],
   "note": "Page bohat repetitive hai"
  },
- "world_short": {
-  "avoid": [
-   "Japan",
-   "California"
-  ],
-  "try": [
-   "The Ultimate Guide to Nairobi, Kenya",
-   "A Day in the Life of a Seoul, South Korean",
-   "Why You Should Visit Peru's Machu Picchu",
-   "The Culture of Oregon's Portland",
-   "The Hidden History of Berlin"
-  ],
-  "note": "Page bohat repetitive hai."
- },
  "frames": {
   "avoid": [
-   "Istanbul Tour"
+   "Japan",
+   "United Kingdom",
+   "Spain"
   ],
   "try": [
-   "New Zealand Visa Guide for Pakistanis",
-   "South Africa Life in South Africa",
-   "Brazil Job Opportunities for Pakistanis",
-   "Egypt Travel Documentary in Urdu",
-   "Vietnam Cost of Living for Pakistanis",
-   "Norway Immigration Process for Pakistanis"
+   "France Visa Guide for Pakistanis",
+   "Life in New Zealand",
+   "Job Opportunities in South Korea",
+   "Singapore vs Malaysia: Which is better for Pakistani expats",
+   "Cheapest countries for Pakistani students",
+   "Brazil Country Documentary in Urdu"
   ],
-  "note": "Page thodi repetitive hai, lekin naya content zaroori hai."
+  "note": "Page thoda repetitive hai."
  },
  "frames_short": {
   "avoid": [
    "Dubai",
-   "Saudi Arabia",
    "Canada",
-   "Australia"
+   "Australia",
+   "Comparison"
   ],
   "try": [
-   "Egypt visa guide",
-   "Nigeria cost of living",
-   "Bangladesh food guide",
-   "Egypt hidden gems"
+   "Egypt: 5 must-visit historic sites",
+   "Nigeria: Cost of living in Lagos",
+   "Brazil: Food culture and local cuisine",
+   "South Africa: Safety and crime rates for expats",
+   "Argentina: Real estate market and property prices"
   ],
   "note": "Page bohat repetitive hai."
  },

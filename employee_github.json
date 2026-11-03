@@ -1,9 +1,9 @@
 {
- "time_utc": "2026-11-03 20:08",
+ "time_utc": "2026-11-03 21:07",
  "fixed": [],
  "problems": [
   "Website Agent / AI Employee (BizTools Hub): fail hua (2026-11-03T19:48 UTC) run 41706680182",
-  "Atlas Untold - lambi video: 49 clips bina agent check ke (AI quota khatam) - footage ghalat ho sakti hai",
+  "Atlas Untold - lambi video: 909 clips bina agent check ke (AI quota khatam) - footage ghalat ho sakti hai",
   "Atlas Untold - short: error - list indices must be integers or slices, not str",
   "Frames of Life - short: 255 clips bina agent check ke (AI quota khatam) - footage ghalat ho sakti hai"
  ],
@@ -13,14 +13,14 @@
   "Comment Helper search: 3 kamyab run",
   "Demo website photos (Pixabay): 4 kamyab run",
   "Frames of Life (Urdu World Documentaries): 3 kamyab run",
-  "Funny Videos Poster: 10 kamyab run",
-  "Growth Bot (comment replies): 3 kamyab run",
+  "Funny Videos Poster: 11 kamyab run",
+  "Growth Bot (comment replies): 4 kamyab run",
   "Live Replies (FB comments): 2 kamyab run",
-  "Daily Auto Poster: 12 kamyab run",
-  "Daily Photo Posts: 6 kamyab run",
-  "Pinterest Pins: 2 kamyab run",
-  "Web Builder Promo: 14 kamyab run",
-  "Atlas Untold (World Documentaries): 5 kamyab run",
+  "Daily Auto Poster: 13 kamyab run",
+  "Daily Photo Posts: 14 kamyab run",
+  "Pinterest Pins: 3 kamyab run",
+  "Web Builder Promo: 16 kamyab run",
+  "Atlas Untold (World Documentaries): 6 kamyab run",
   "Atlas Untold - short: 14 clips, agent ne 63 check kin, 60 ghalat clips hata din",
   "Frames of Life - lambi video: 58 clips, agent ne 230 check kin, 213 ghalat clips hata din"
  ]
