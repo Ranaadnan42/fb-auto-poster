@@ -1,29 +1,28 @@
 {
  "mode": "short",
  "clips": 14,
- "clips_rejected": 133,
- "vision_checks": 144,
- "errors": [
-  "list indices must be integers or slices, not str",
-  "list indices must be integers or slices, not str"
- ],
+ "clips_rejected": 256,
+ "vision_checks": 58,
+ "errors": [],
  "search_phrases": [
-  "cost of living in thailand",
-  "cost of living in japan",
-  "cost of living in hawaii",
-  "cost of living in qatar",
-  "cost of living in vietnam",
-  "cost of living in america",
-  "cost of living in dubai",
-  "cost of living in new york city",
-  "cost of living in nyc",
-  "cost of living in mexico"
+  "hidden gems in japan",
+  "hidden gems in florida",
+  "hidden gems in new york city",
+  "hidden gems in roblox",
+  "hidden gems in tokyo",
+  "hidden gems in las vegas",
+  "hidden gems in los angeles",
+  "hidden gems in california",
+  "hidden gems in san diego",
+  "hidden gems in chicago"
  ],
- "search": "cost of living in hawaii",
- "photos": 2,
- "seconds": 62.6,
+ "vision_skipped": 209,
+ "alt_searches": 2,
+ "vision_groq": 1,
+ "photos": 5,
+ "seconds": 63.1,
  "links": [],
- "subject": "Hawaii, USA",
- "series": "cost_short",
- "title": "Cost of Living in Hawaii: What Life Really Costs"
+ "subject": "Norway",
+ "series": "hidden",
+ "title": "Norway's Secret Places Most Travelers Miss"
 }
