@@ -1,0 +1,126 @@
+"""
+Weekly Tasks agent - Facebook ke "This week's tasks" (reels + photo posts) hafte se 1 din PEHLE poore karna.
+
+FB hafta: Itwaar se Hafta. Hamari deadline: Jumma raat (Pakistan) = hafte ka 6th din khatam.
+Har run (din mein 2 dafa, ai_employee.yml ke andar):
+  1. Is hafte page par kitni reels aur photo posts lag chuki (Graph API se ginti).
+  2. Roz ke schedule se deadline tak kitni aur lagengi.
+  3. Kami ho -> abhi extra runs chala do (photos.yml / main.yml / funny.yml), taake Jumme tak target poora.
+Targets weekly_targets.json mein (jo Facebook ne is hafte diye - naye hafte mein naye number wahan likhein).
+"""
+import os
+import sys
+import json
+import math
+import datetime as dt
+
+import requests
+
+sys.path.insert(0, os.path.dirname(__file__))
+import ghapi      # noqa: E402
+
+GRAPH = "https://graph.facebook.com/v23.0"
+PK = dt.timezone(dt.timedelta(hours=5))
+NOW = dt.datetime.now(dt.timezone.utc)
+TARGETS_FILE = "weekly_targets.json"
+OUT = "weekly_tasks.json"
+MAX_EXTRA = 4            # ek run mein zyada se zyada itni extra posts (GitHub par halka load)
+
+# page -> secrets, roz ka schedule (FB par), extra post kaise chalani hai
+PAGES = {
+    "islamic": dict(id="FB_PAGE_ID", tok="FB_PAGE_TOKEN", daily_photos=4, daily_reels=2,
+                    photo=("photos.yml", {"pages": "islamic", "slot": "1"}),
+                    reel=("main.yml", {"language": "ur", "post_type": "reel"})),
+    "funny": dict(id="FUNNY_PAGE_ID", tok="FUNNY_PAGE_TOKEN", daily_photos=5, daily_reels=3,
+                  photo=("photos.yml", {"pages": "funny", "slot": "1"}),
+                  reel=("funny.yml", {"mode": "reel"})),
+}
+DEFAULT_TARGETS = {"islamic": {"reels": 12, "photos": 23}, "funny": {"reels": 11, "photos": 30}}
+
+
+def env(k):
+    return (os.environ.get(k) or "").strip()
+
+
+def fb(path, token, **params):
+    params["access_token"] = token
+    j = requests.get(f"{GRAPH}/{path}", params=params, timeout=60).json()
+    if "error" in j:
+        raise RuntimeError(j["error"].get("message", str(j["error"]))[:200])
+    return j
+
+
+def week_bounds():
+    pk = NOW.astimezone(PK)
+    start = (pk - dt.timedelta(days=(pk.weekday() + 1) % 7)).replace(hour=0, minute=0, second=0, microsecond=0)
+    deadline = start + dt.timedelta(days=6)          # Jumma raat 12 baje (Pakistan)
+    return start, deadline
+
+
+def count(pid, token, start):
+    since = int(start.timestamp())
+    photos = 0
+    posts = fb(f"{pid}/published_posts", token, since=since, limit=100,
+               fields="created_time,attachments{media_type,type}").get("data", [])
+    for p in posts:
+        att = (p.get("attachments") or {}).get("data", [])
+        if any((a.get("media_type") == "photo" or a.get("type") == "photo") for a in att):
+            photos += 1
+    reels = 0
+    try:
+        vids = fb(f"{pid}/video_reels", token, since=since, limit=100, fields="created_time").get("data", [])
+        reels = sum(1 for v in vids
+                    if dt.datetime.strptime(v["created_time"], "%Y-%m-%dT%H:%M:%S%z") >= start)
+    except Exception:
+        reels = -1
+    return photos, reels
+
+
+def dispatch(wf, inputs, n):
+    ok = 0
+    for _ in range(n):
+        try:
+            ghapi.call("POST", f"/actions/workflows/{wf}/dispatches", {"ref": "main", "inputs": inputs})
+            ok += 1
+        except Exception as e:
+            print(f"   dispatch fail {wf}: {str(e)[:120]}", flush=True)
+    return ok
+
+
+def main():
+    try:
+        targets = json.load(open(TARGETS_FILE, encoding="utf-8"))
+    except Exception:
+        targets = DEFAULT_TARGETS
+    start, deadline = week_bounds()
+    days_left = max(0.0, (deadline - NOW).total_seconds() / 86400)
+    rec = {"at": NOW.isoformat(timespec="minutes"), "week_start": start.date().isoformat(),
+           "deadline_pk": deadline.isoformat(timespec="minutes"), "pages": {}}
+    for name, cfg in PAGES.items():
+        pid, token = env(cfg["id"]), env(cfg["tok"])
+        if not (pid and token):
+            continue
+        t = targets.get(name, DEFAULT_TARGETS[name])
+        try:
+            photos, reels = count(pid, token, start)
+        except Exception as e:
+            rec["pages"][name] = {"error": str(e)}
+            continue
+        r = {"photos": f"{photos}/{t['photos']}", "reels": f"{reels}/{t['reels']}", "extra": []}
+        for kind, done, daily in (("photos", photos, cfg["daily_photos"]), ("reels", reels, cfg["daily_reels"])):
+            if done < 0 or days_left <= 0:
+                continue
+            coming = math.floor(daily * days_left * 0.85)      # 15% margin - koi post fail bhi ho jaye
+            short = t[kind] - done - coming
+            if short > 0:
+                wf, inputs = cfg["photo" if kind == "photos" else "reel"]
+                n = dispatch(wf, inputs, min(short, MAX_EXTRA))
+                r["extra"].append(f"{kind}: {n} extra chala di (kami {short})")
+        rec["pages"][name] = r
+        print(f"== {name}: {r}", flush=True)
+    with open(OUT, "w", encoding="utf-8") as f:
+        json.dump(rec, f, ensure_ascii=False, indent=1)
+
+
+if __name__ == "__main__":
+    main()
