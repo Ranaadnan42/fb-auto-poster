@@ -1,12 +1,16 @@
 {
  "mode": "auto",
- "stock_clips": 0,
+ "stock_clips": 14,
  "fallback_clips": 0,
  "errors": [],
- "format": "chat",
- "reel_minutes": 1.48,
+ "format": "people",
+ "search_phrases": [],
+ "reel_format": "latifay",
+ "vision_checks": 40,
+ "clips_rejected": 39,
  "laughs": 4,
- "time_utc": "2026-11-03 16:29",
- "title": "مہندی کا ہنگامہ اور ڈلیوری رائڈر کا تماشہ",
+ "reel_minutes": 0.86,
+ "time_utc": "2026-11-03 18:25",
+ "title": "ایڈی کلیکشن اور امی کا شاہکار بینک",
  "dry_run": false
 }
