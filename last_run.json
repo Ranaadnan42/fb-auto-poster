@@ -1,25 +1,18 @@
 {
- "lang": "ur",
- "stock_clips": 50,
+ "lang": "en",
+ "stock_clips": 9,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "nabi ka mojza bayan",
-  "nabi ka mojza tariq jameel",
-  "nabi ka mojza engineer muhammad ali mirza",
-  "nabi ka mojza salman azhari",
-  "nabi pak ka mojza",
-  "nabi saw ka mojza",
-  "nabi pak ka mojza imran aasi",
-  "chand par nabi ka mojza",
-  "allah ke nabi ka mojza"
+  "honesty in islam stories",
+  "importance of honesty in islam"
  ],
- "search": "chand par nabi ka mojza",
- "vision_checks": 145,
- "clips_rejected": 60,
- "long_minutes": 6.19,
- "time_utc": "2026-11-03 17:10",
- "title": "چاند پر نبی کا معجزہ: جب کفار کے مانگنے پر چاند دو ٹکڑے ہوا",
+ "search": "honesty in islam stories",
+ "vision_checks": 5,
+ "clips_rejected": 17,
+ "reel_minutes": 0.85,
+ "time_utc": "2026-11-03 18:40",
+ "title": "Honesty in Islam Stories: The True Test of Trust",
  "dry_run": false,
  "posted_ok": 1
 }
