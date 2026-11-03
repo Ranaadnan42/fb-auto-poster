@@ -265,34 +265,9 @@ def _parse_match(txt):
 
 
 def _groq_vision(datas, prompt):
-    import base64
-    if not GROQ_KEY:
-        return None
-    for model in GROQ_VISION:
-        if model in _DEAD:
-            continue
-        try:
-            content = [{"type": "text", "text": prompt}] + [
-                {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + base64.b64encode(d).decode()}}
-                for d in datas]
-            r = requests.post("https://api.groq.com/openai/v1/chat/completions", timeout=60,
-                              headers={"Authorization": f"Bearer {GROQ_KEY}"},
-                              json={"model": model, "temperature": 0, "messages": [{"role": "user", "content": content}]})
-            if r.status_code in (400, 404):
-                log(f"groq vision {model}: {r.status_code} {r.text[:120]}")
-                _DEAD.add(model)
-                continue
-            if r.status_code == 429:
-                raise RuntimeError("AI quota exhausted, aborting run for retry")
-                time.sleep(4)
-                continue
-            r.raise_for_status()
-            v = _parse_match(r.json()["choices"][0]["message"]["content"])
-            if v is not None:
-                return v
-        except Exception as e:
-            log(f"groq vision {model}: {str(e)[:100]}")
-    return None
+    import groq_vision
+    t = groq_vision.ask(datas, prompt, json_mode=False)
+    return _parse_match(t) if t else None
 
 
 def vision_ok(jpgs, want, what, said=""):

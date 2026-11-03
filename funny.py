@@ -535,26 +535,11 @@ def _clip_ok(path, animal, query, dur):
             return bool(json.loads(r.json()["candidates"][0]["content"]["parts"][0]["text"]).get("ok"))
         except Exception as e:
             log(f"vision {m}: {str(e)[:90]}")
-    for m in ("qwen/qwen3.8-27b",):
-        if not gk or m in _VDEAD:
-            continue
-        try:
-            r = requests.post("https://api.groq.com/openai/v1/chat/completions", timeout=40,
-                              headers={"Authorization": f"Bearer {gk}"},
-                              json={"model": m, "temperature": 0, "response_format": {"type": "json_object"},
-                                    "messages": [{"role": "user", "content": [
-                                        {"type": "text", "text": prompt},
-                                        {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + img}}]}]})
-            if r.status_code in (400, 404):
-                _VDEAD.add(m)
-                continue
-            r.raise_for_status()
-            import re as _re
-            d = json.loads(_re.search(r"\{.*\}", r.json()["choices"][0]["message"]["content"], _re.S).group(0))
-            REPORT["vision_checks"] = REPORT.get("vision_checks", 0) + 1
-            return bool(d.get("ok"))
-        except Exception as e:
-            log(f"groq vision {m}: {str(e)[:90]}")
+    import groq_vision
+    d = groq_vision.ask_json([img], prompt)
+    if d is not None:
+        REPORT["vision_checks"] = REPORT.get("vision_checks", 0) + 1
+        return bool(d.get("ok"))
     return None
 
 

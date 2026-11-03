@@ -588,27 +588,12 @@ def _vision_ok(jpg, want):
             return bool(d.get("match")) and bool(d.get("safe"))
         except Exception as e:
             log(f"vision {m}: {str(e)[:100]}")
-    # Gemini busy/khatam -> Groq vision backup
-    gk = os.environ.get("GROQ_API_KEY")
-    for m in ("qwen/qwen3.8-27b", "meta-llama/llama-4-scout-17b-16e-instruct"):
-        if not gk or m in _VDEAD:
-            continue
-        try:
-            r = requests.post("https://api.groq.com/openai/v1/chat/completions", timeout=40,
-                              headers={"Authorization": f"Bearer {gk}"},
-                              json={"model": m, "temperature": 0, "response_format": {"type": "json_object"},
-                                    "messages": [{"role": "user", "content": [
-                                        {"type": "text", "text": prompt},
-                                        {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + img}}]}]})
-            if r.status_code in (400, 404):
-                _VDEAD.add(m)
-                continue
-            r.raise_for_status()
-            d = json.loads(re.search(r"\{.*\}", r.json()["choices"][0]["message"]["content"], re.S).group(0))
-            REPORT["vision_checks"] = REPORT.get("vision_checks", 0) + 1
-            return bool(d.get("match")) and bool(d.get("safe"))
-        except Exception as e:
-            log(f"groq vision {m}: {str(e)[:100]}")
+    # Gemini busy/khatam -> Groq vision backup (live model list, limit par ruk kar / agla model)
+    import groq_vision
+    d = groq_vision.ask_json([img], prompt)
+    if d is not None:
+        REPORT["vision_checks"] = REPORT.get("vision_checks", 0) + 1
+        return bool(d.get("match")) and bool(d.get("safe"))
     return None
 
 
