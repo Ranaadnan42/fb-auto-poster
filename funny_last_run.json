@@ -1,16 +1,31 @@
 {
- "mode": "auto",
- "stock_clips": 14,
+ "mode": "reel",
+ "stock_clips": 11,
  "fallback_clips": 0,
  "errors": [],
  "format": "people",
- "search_phrases": [],
- "reel_format": "latifay",
- "vision_checks": 40,
- "clips_rejected": 39,
- "laughs": 4,
- "reel_minutes": 0.86,
- "time_utc": "2026-11-03 18:25",
- "title": "ایڈی کلیکشن اور امی کا شاہکار بینک",
- "dry_run": false
+ "search_phrases": [
+  "online class video funny"
+ ],
+ "search": "online class video funny",
+ "reel_format": "pov",
+ "clips_rejected": 55,
+ "no_match": [
+  "man singing laptop",
+  "man singing laptop",
+  "teacher confused screen",
+  "teacher confused screen",
+  "woman kitchen tea",
+  "woman kitchen tea",
+  "man searching router",
+  "man searching router",
+  "teacher laughing classroom",
+  "teacher laughing classroom",
+  "teacher laughing classroom"
+ ],
+ "laughs": 2,
+ "reel_minutes": 0.73,
+ "time_utc": "2026-11-03 20:36",
+ "title": "آن لائن کلاس کا میوٹ بٹن اور بھینس کی چیخ",
+ "dry_run": true
 }
