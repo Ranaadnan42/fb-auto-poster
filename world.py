@@ -952,7 +952,11 @@ def get_clips(scene, country_words, job, prefix, need):
                     pass
                 ok = vision_ok(jpgs, want_r, q, said)
                 # agent check na ho sake to sirf tab chalao jab clip ke tags mein usi mulk/jagah aur usi cheez ka naam ho
-                strong = any(w in c["text"] for w in (pw + cw)) and (not sw or any(w in c["text"] for w in sw))
+                # (free AI quota khatam ho to bhi be-taalluq clip na aaye: jis cheez ki baat ho rahi hai uska
+                #  lafz clip ke tags mein lazmi ho - sirf mulk ka naam kaafi nahi, warna "Spain visa" par ghaas aa jati hai)
+                subj_w = sw or [w for w in _words(" ".join(subj_q)) if w not in GENERIC
+                                and not any(x in w for x in pw + cw + country_words)]
+                strong = any(w in c["text"] for w in (pw + cw)) and (not subj_w or any(w in c["text"] for w in subj_w))
                 if ok is False or (ok is None and (kind == "photo" or not strong)):
                     REPORT["clips_rejected"] += 1
                     USED.add(c["id"])
