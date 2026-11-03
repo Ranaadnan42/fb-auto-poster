@@ -1,31 +1,36 @@
 {
  "mode": "reel",
- "stock_clips": 11,
+ "stock_clips": 10,
  "fallback_clips": 0,
  "errors": [],
  "format": "people",
  "search_phrases": [
-  "online class video funny"
+  "grandmother funny video",
+  "grandma's home",
+  "grandma comedy",
+  "grandmother comedy",
+  "grandma home remedies"
  ],
- "search": "online class video funny",
- "reel_format": "pov",
+ "search": "grandma home remedies",
+ "reel_format": "news",
+ "vision_checks": 1,
  "clips_rejected": 55,
  "no_match": [
-  "man singing laptop",
-  "man singing laptop",
-  "teacher confused screen",
-  "teacher confused screen",
-  "woman kitchen tea",
-  "woman kitchen tea",
-  "man searching router",
-  "man searching router",
-  "teacher laughing classroom",
-  "teacher laughing classroom",
-  "teacher laughing classroom"
+  "grandmother kitchen herbs",
+  "woman ginger tea",
+  "man salt water glass",
+  "confused expression",
+  "woman leaf water",
+  "child sweating",
+  "router sunlight",
+  "bright signal icon"
  ],
+ "sources": {
+  "pixabay": 7
+ },
  "laughs": 2,
- "reel_minutes": 0.73,
- "time_utc": "2026-11-03 20:36",
- "title": "آن لائن کلاس کا میوٹ بٹن اور بھینس کی چیخ",
+ "reel_minutes": 0.61,
+ "time_utc": "2026-11-03 20:53",
+ "title": "دادی کی گھر کی جڑی بوٹیوں پر بھروسہ",
  "dry_run": true
 }
