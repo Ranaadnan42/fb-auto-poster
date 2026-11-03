@@ -1,13 +1,13 @@
 {
- "time_utc": "2026-11-01 22:50",
- "spotlight": "supermarket",
- "post_id": "1435382541421082",
+ "time_utc": "2026-11-03 01:36",
+ "spotlight": "furniture store",
+ "post_id": "1009850932148379",
  "error": null,
  "lang": "en",
  "kind": "long",
- "clips": 0,
+ "clips": 2,
  "fallback": 0,
  "errors": [],
- "mock": 12,
- "seconds": 79.9
+ "mock": 15,
+ "seconds": 128.8
 }
