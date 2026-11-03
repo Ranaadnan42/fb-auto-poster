@@ -1,17 +1,33 @@
 {
- "lang": "en",
- "stock_clips": 34,
+ "lang": "ur",
+ "stock_clips": 60,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "prophet of allah stories",
-  "prophets path prophet stories"
+  "نبی کریم صلی اللہ علیہ وسلم کا واقعہ",
+  "nabi ka waqia in urdu",
+  "nabi ka waqia tariq jameel",
+  "nabi ka waqia pashto",
+  "nabi ka waqia cartoon",
+  "nabi ka waqia bachpan ka",
+  "nabi ka waqia movie",
+  "nabi ka waqia meraj ka",
+  "nabi ka waqia short video",
+  "nabi ka waqia tariq masood"
  ],
- "search": "prophet of allah stories",
- "clips_rejected": 41,
- "long_minutes": 4.46,
- "time_utc": "2026-11-03 20:37",
- "title": "Prophet of Allah Stories: Ibrahim’s Fiery Test of Patience",
- "dry_run": false,
- "posted_ok": 1
+ "search": "نبی کریم صلی اللہ علیہ وسلم کا واقعہ",
+ "vision_checks": 215,
+ "clips_rejected": 106,
+ "sources": {
+  "pixabay": 39,
+  "commons": 13,
+  "openverse": 8
+ },
+ "photo_clips": 14,
+ "long_minutes": 5.57,
+ "reel_minutes": 1.03,
+ "time_utc": "2026-11-03 22:20",
+ "title": "واقعہ معراج: نبی کریم صلی اللہ علیہ وسلم کا واقعہ اور نماز کا تحفہ",
+ "dry_run": true,
+ "posted_ok": 2
 }
