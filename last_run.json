@@ -1,18 +1,28 @@
 {
- "lang": "en",
+ "lang": "ur",
  "stock_clips": 9,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "honesty in islam stories",
-  "importance of honesty in islam"
+  "نبی کریم کی سنتیں",
+  "nabi ki sunnatein",
+  "nabi ki sunnat hai",
+  "nabi ki sunnat nabi ki seerat",
+  "nabi ki sunnat naat",
+  "nabi ki sunnat ka tarika",
+  "nabi ki sunnat sama ke rakhna",
+  "nabi ki sunnat bayan",
+  "nabi ki sunnat par bayan",
+  "nabi ki sunnat kaun kaun si hai"
  ],
- "search": "honesty in islam stories",
- "vision_checks": 5,
- "clips_rejected": 17,
- "reel_minutes": 0.85,
- "time_utc": "2026-11-03 18:40",
- "title": "Honesty in Islam Stories: The True Test of Trust",
- "dry_run": false,
+ "search": "نبی کریم کی سنتیں",
+ "sources": {
+  "pixabay": 8,
+  "commons": 1
+ },
+ "reel_minutes": 0.89,
+ "time_utc": "2026-11-03 20:37",
+ "title": "نبی کریم کی سنتیں: سلام سے جھگڑے کا حل کیسے ہوا",
+ "dry_run": true,
  "posted_ok": 1
 }
