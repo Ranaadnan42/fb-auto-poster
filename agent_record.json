@@ -11,31 +11,18 @@
    "workflow": "",
    "why": "llama-3.3-70b-versatile retired (404); replace with current Groq model llama-3.1-405b",
    "time": "2026-11-02T20:37:10.685381"
-  },
-  {
-   "commit": "aaebab846c49634a71d4e81a1e0fdc9e4982c3fb",
-   "workflow": "frames.yml",
-   "why": "Abort on quota exhaustion instead of skipping footage check",
-   "time": "2026-11-02T22:18:13.421255"
-  },
-  {
-   "commit": "7d8c7c2e4e7657091f0818f6163bac00a4f47b64",
-   "workflow": "frames.yml",
-   "why": "Adding a check to skip list values in 'facts' to prevent 'list indices must be integers or slices, not str' error if a list is accidentally inserted into the facts dictionary.",
-   "time": "2026-11-02T23:09:39.729391"
   }
  ],
- "time_utc": "2026-11-02 23:09",
- "summary": "Atlas Untold short video error fix: Added a type check in world.py to prevent list-related indexing errors when iterating over facts.",
- "notes": [],
- "actions": [
-  "code fix push kiya (7d8c7c2)"
+ "time_utc": "2026-11-03 11:04",
+ "summary": "Koi code bug nahi mila. Pichhla quota fix kaam kar raha hai. Ab AI quota khatam hone ki wajah se clips bina footage check ke post ho rahi hain - yeh temporary hai, quota reset hone par theek ho jayega. Frames of Life mein kuch specific footage items nahi mile (Saudi kabsa rice, laptop worker, Riyadh financial district) - footage agent yeh handle karta hai.",
+ "notes": [
+  "pichhla fix (aaebab8) kaam kar gaya: Abort on quota exhaustion instead of skipping footage check",
+  "pichhla fix (7d8c7c2) kaam kar gaya: Adding a check to skip list values in 'facts' to prevent 'list indices must be integers or slices, not str' error if a list is accidentally inserted into the facts dictionary."
  ],
- "edits": [
-  {
-   "path": "world.py",
-   "why": "Adding a check to skip list values in 'facts' to prevent 'list indices must be integers or slices, not str' error if a list is accidentally inserted into the facts dictionary."
-  }
- ],
- "needs_owner": []
+ "actions": [],
+ "edits": [],
+ "needs_owner": [
+  "AI API quota khatam hai - Atlas Untold (lambi+short) aur Frames of Life short ke liye quota reset/upgrade chahiye",
+  "Frames of Life short mein specific footage nahi mili: Saudi kabsa rice dish, person working on laptop, Riyadh financial district - footage library mein yeh items add karne hain"
+ ]
 }

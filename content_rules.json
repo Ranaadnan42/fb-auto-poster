@@ -1,108 +1,104 @@
 {
  "islamic": {
   "avoid": [
-   "dhikr peace theme"
+   "dhikr for inner peace videos"
   ],
   "try": [
-   "Story of Prophet Saleh and the she‑camel",
-   "Narration of Prophet Hud’s perseverance against ‘Ad",
-   "Companion Bilal’s dedication to call to prayer",
-   "Prophet Muhammad’s forgiveness of the people of Ta’if",
-   "Early Muslim woman Khadijah’s support and charity",
-   "Companion Umar’s justice in governance"
+   "Prophet Yunus (Jonah) story emphasizing repentance and hope",
+   "Real-life modern incident highlighting the blessings of charity (Sadaqah)",
+   "Personal transformation narrative during Ramadan emphasizing spiritual growth",
+   "Heartfelt gratitude (Shukr) story showing its impact on daily life",
+   "Etiquette and rewards of visiting the sick (Ziyarat al-Mareed) with a touching e",
+   "Amanah in business: true story of a Muslim entrepreneur upholding Islamic financ"
   ],
-  "note": "Page thodi repetitive lag rahi hai."
+  "note": "Page bohat repeat ho rahi hai"
  },
  "funny": {
   "avoid": [
-   "animal videos",
-   "rishta aunty",
-   "homework load",
-   "exams and results",
-   "monday morning",
-   "teacher vs students",
-   "bijli ka bill",
-   "panda character"
+   "پپو کا رزلٹ اور انوکھا مشن",
+   "ببلو اور رشتہ آنٹی کا طوفان",
+   "duck (بطخ) videos",
+   "panda (پانڈا) videos",
+   "teacher vs students topic",
+   "rishta aunty topic",
+   "load of homework topic"
   ],
   "try": [
-   "Expectation vs Reality: Grocery shopping with Desi parents",
-   "Types of people at a Pakistani wedding buffet",
-   "POV: Trying to explain freelancing to a traditional father",
-   "Har ghar mein: The struggle of finding the TV remote",
-   "Chat comedy: The chaos of a family WhatsApp group",
-   "Expectation vs Reality: Cooking a new recipe for the first time"
+   "Ramzan ke iftar ki family gathering aur biryani ki race",
+   "Traffic jam mein carpool ki funny conversation",
+   "Online shopping ka return saga aur delivery boy ka reaction",
+   "TV remote ke liye family ki ladai aur remote ka gum ho jana",
+   "Pakistani wedding ke baraat ka unexpected rain aur umbrella drama",
+   "Ghar ki safai ka Sunday mission aur sabzi mandi ki bargaining"
   ],
-  "note": "Page ka content kafi repetitive ho gaya hai, khas tor par janwaron aur purani themes ki wajah se."
+  "note": "Page bohat repetitive hai."
  },
  "world": {
   "avoid": [
-   "Japan",
-   "Explore X"
+   "Japan"
   ],
   "try": [
-   "Vietnam",
-   "New Zealand",
-   "Singapore",
-   "Morocco",
-   "Mexico",
-   "South Africa vs Kenya"
+   "Living in Kenya: Cost, Culture, and Daily Life",
+   "Exploring Vietnam: Food, History, and Expat Tips",
+   "Iceland: Sustainable Living and Unique Challenges",
+   "Chile: From Patagonia to City Life – Real Footage Journey",
+   "South Korea: Work Culture and Lifestyle for Expats",
+   "Morocco: Markets, Traditions, and Modern Living"
   ],
-  "note": "Haan, page repetitive hai."
+  "note": "Page thodi repetitive lag rahi hai."
  },
  "world_short": {
-  "avoid": [
-   "California",
-   "London",
-   "Japan",
-   "Would You Live in"
-  ],
+  "avoid": [],
   "try": [
-   "5 Unique Cultural Traditions in South Korea",
-   "Living in Buenos Aires: Cost and Lifestyle Guide",
-   "Hidden Natural Wonders of Norway",
-   "Portugal vs Greece: Which Mediterranean Gem to Visit?",
-   "6 Fascinating Facts About New Zealand You Didn't Know"
+   "Exploring the Street Food Scene in Lagos, Nigeria",
+   "Hidden Waterfalls of Slovenia You Must See",
+   "Cost of Living in Zurich, Switzerland: Honest Guide",
+   "Portugal vs Spain: Which Offers Better Lifestyle?",
+   "5 Must-Visit Islands in the Philippines",
+   "Traditional Tea Culture in Taiwan: 5 Essential Experiences"
   ],
-  "note": "Haan, page kafi repetitive hai, bar bar wahi topics aur titles repeat ho rahe hain."
+  "note": "Page ka content thoda repeat ho raha hai."
  },
  "frames": {
   "avoid": [
    "Dubai",
-   "Italy",
-   "Malta",
+   "Japan",
+   "Canada",
    "Germany",
-   "Japan"
+   "Australia",
+   "Italy",
+   "Malta"
   ],
   "try": [
-   "ناروے میں زندگی اور وہاں کی خوبصورت ثقافت",
-   "سویٹزرلینڈ کا سفر: سیاحوں کے لیے بہترین گائیڈ",
-   "سنگاپور کی ترقی کا راز: ایک مختصر دستاویزی فلم",
-   "نیوزی لینڈ میں پاکستانیوں کے لیے روزگار کے مواقع",
-   "آئس لینڈ: برفانی ملک کی حیران کن حقیقت",
-   "قطر میں زندگی اور وہاں کا طرزِ معاشرت"
+   "Life in New Zealand: Nature and Job Market for Pakistanis",
+   "Norway: High Cost of Living vs High Salary Guide",
+   "Netherlands: Cycling Culture and Work-Life Balance",
+   "South Korea: K-Drama Locations and Visa Process",
+   "Switzerland: Banking, Tourism, and Cost of Living",
+   "Ireland: Tech Jobs and English-speaking Environment"
   ],
-  "note": "Page kafi had tak visa aur job guides par focus kar rahi hai, thora variety lane ki zaroorat hai."
+  "note": "Page is repetitive with visa guides and major Western countries; needs fresh destinations."
  },
  "frames_short": {
   "avoid": [
-   "Comparison",
-   "Canada"
+   "Dubai (covered in 2 separate posts)"
   ],
   "try": [
-   "Egypt: 5 must-visit historical sites",
-   "Brazil: Career opportunities for expats in São Paulo",
-   "South Africa: Visa process for Pakistani citizens",
-   "Vietnam: Secret spots in Hanoi you shouldn't miss",
-   "Portugal: Traditional dishes you must try"
+   "Life in Lisbon, Portugal: Cost & Culture",
+   "Top 5 Halal Food Streets in Bangkok, Thailand",
+   "Moving to Singapore: Salary vs Savings Reality",
+   "Historical Facts about Cairo, Egypt",
+   "Life in Helsinki, Finland: Winter Survival Guide",
+   "Top 5 Safe Countries for Solo Female Travelers from Pakistan"
   ],
-  "note": "Page ka content bohat repetitive lag raha hai."
+  "note": "Page is repetitive on cost of living and visa/job guides; needs more variety in travel experiences and cultural facts."
  },
  "_platforms": {
   "islamic": {
    "posts": 10,
-   "facebook": 4,
+   "facebook": 5,
    "youtube": 10,
-   "tiktok": 4
+   "tiktok": 5
   },
   "funny": {
    "posts": 10,
@@ -124,7 +120,7 @@
   },
   "frames": {
    "posts": 10,
-   "facebook": 6,
+   "facebook": 7,
    "youtube": 10,
    "tiktok": 0
   },

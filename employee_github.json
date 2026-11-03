@@ -1,25 +1,26 @@
 {
- "time_utc": "2026-11-02 23:09",
+ "time_utc": "2026-11-03 11:04",
  "fixed": [],
  "problems": [
   "Atlas Untold - lambi video: 49 clips bina agent check ke (AI quota khatam) - footage ghalat ho sakti hai",
-  "Atlas Untold - short: error - list indices must be integers or slices, not str"
+  "Atlas Untold - short: 209 clips bina agent check ke (AI quota khatam) - footage ghalat ho sakti hai",
+  "Frames of Life - short: 854 clips bina agent check ke (AI quota khatam) - footage ghalat ho sakti hai",
+  "Frames of Life - short: in cheezon ki sahi footage nahi mili: Saudi kabsa rice dish, person working on laptop, Riyadh financial district"
  ],
  "ok": [
   "Website Agent / AI Employee (BizTools Hub): 1 kamyab run",
-  "Cinematic AI Stories (YouTube): 6 kamyab run",
-  "Comment Helper search: 4 kamyab run",
-  "Demo website photos (Pixabay): 5 kamyab run",
-  "Funny Videos Poster: 8 kamyab run",
+  "Cinematic AI Stories (YouTube): 7 kamyab run",
+  "Comment Helper search: 3 kamyab run",
+  "Demo website photos (Pixabay): 4 kamyab run",
+  "Frames of Life (Urdu World Documentaries): 2 kamyab run",
+  "Funny Videos Poster: 9 kamyab run",
   "Growth Bot (comment replies): 3 kamyab run",
-  "Live Replies (FB comments): 2 kamyab run",
+  "Live Replies (FB comments): 1 kamyab run",
   "Daily Auto Poster: 7 kamyab run",
-  "Daily Photo Posts: 3 kamyab run",
+  "Daily Photo Posts: 4 kamyab run",
   "Pinterest Pins: 2 kamyab run",
-  "Web Builder Promo: 8 kamyab run",
-  "Atlas Untold (World Documentaries): 3 kamyab run",
-  "Atlas Untold - short: 14 clips, agent ne 144 check kin, 133 ghalat clips hata din",
-  "Frames of Life - lambi video: 58 clips, agent ne 230 check kin, 213 ghalat clips hata din",
-  "Frames of Life - short: 16 clips, agent ne 59 check kin, 45 ghalat clips hata din"
+  "Web Builder Promo: 9 kamyab run",
+  "Atlas Untold (World Documentaries): 4 kamyab run",
+  "Frames of Life - lambi video: 58 clips, agent ne 230 check kin, 213 ghalat clips hata din"
  ]
 }
