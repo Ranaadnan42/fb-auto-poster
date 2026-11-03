@@ -1,6 +1,6 @@
 {
  "lang": "ur",
- "stock_clips": 9,
+ "stock_clips": 10,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
@@ -17,12 +17,12 @@
  ],
  "search": "نبی کریم کی سنتیں",
  "sources": {
-  "pixabay": 8,
-  "commons": 1
+  "commons": 3,
+  "pixabay": 7
  },
- "reel_minutes": 0.89,
- "time_utc": "2026-11-03 20:37",
- "title": "نبی کریم کی سنتیں: سلام سے جھگڑے کا حل کیسے ہوا",
- "dry_run": true,
+ "reel_minutes": 1.16,
+ "time_utc": "2026-11-03 21:11",
+ "title": "نبی کریم کی سنت: روزانہ پڑوسی کو مسکراہٹ اور دعا سے خوش کرنا",
+ "dry_run": false,
  "posted_ok": 1
 }
