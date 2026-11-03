@@ -1,28 +1,17 @@
 {
- "lang": "ur",
- "stock_clips": 10,
+ "lang": "en",
+ "stock_clips": 34,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "نبی کریم کی سنتیں",
-  "nabi ki sunnatein",
-  "nabi ki sunnat hai",
-  "nabi ki sunnat nabi ki seerat",
-  "nabi ki sunnat naat",
-  "nabi ki sunnat ka tarika",
-  "nabi ki sunnat sama ke rakhna",
-  "nabi ki sunnat bayan",
-  "nabi ki sunnat par bayan",
-  "nabi ki sunnat kaun kaun si hai"
+  "prophet of allah stories",
+  "prophets path prophet stories"
  ],
- "search": "نبی کریم کی سنتیں",
- "sources": {
-  "commons": 3,
-  "pixabay": 7
- },
- "reel_minutes": 1.16,
- "time_utc": "2026-11-03 21:11",
- "title": "نبی کریم کی سنت: روزانہ پڑوسی کو مسکراہٹ اور دعا سے خوش کرنا",
+ "search": "prophet of allah stories",
+ "clips_rejected": 41,
+ "long_minutes": 4.46,
+ "time_utc": "2026-11-03 20:37",
+ "title": "Prophet of Allah Stories: Ibrahim’s Fiery Test of Patience",
  "dry_run": false,
  "posted_ok": 1
 }
