@@ -520,7 +520,7 @@ def _clip_ok(path, animal, query, dur):
                   f"(main animal: {animal}). Reply JSON {{\"ok\": true/false}}. ok = it is a REAL {animal} (not cartoon/3D/toy), "
                   "clearly visible, and nothing sad, injured, dead, violent, or adult.")
     gk = os.environ.get("GROQ_API_KEY")
-    for m in ("gemini-3.1-flash-lite", "gemini-flash-lite-latest", "gemini-3.5-flash-lite"):
+    for m in ("gemini-3.1-flash-lite", "gemini-flash-lite-latest", "gemini-3.5-flash-lite", "gemma-4-31b-it", "gemma-4-26b-a4b-it"):
         if not GEMINI_KEY or m in _VDEAD:
             continue
         try:

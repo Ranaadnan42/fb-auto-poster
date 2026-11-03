@@ -502,7 +502,7 @@ def tts(text, path):
 # ---------------------------------------------------------------- stock clips
 PEXELS_KEY = os.environ.get("PEXELS_API_KEY")
 WM_UA = {"User-Agent": "IslamicVideosBot/1.0 (https://github.com/Ranaadnan42/fb-auto-poster)"}
-VISION_MODELS = ["gemini-3.1-flash-lite", "gemini-flash-lite-latest", "gemini-3.5-flash-lite", "gemini-3-flash-preview"]
+VISION_MODELS = ["gemini-3.1-flash-lite", "gemini-flash-lite-latest", "gemini-3.5-flash-lite", "gemini-3-flash-preview", "gemma-4-31b-it", "gemma-4-26b-a4b-it"]
 _VDEAD = set()
 _VSLOW = {}
 
