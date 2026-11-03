@@ -1,13 +1,13 @@
 {
- "time_utc": "2026-11-01 22:13",
- "spotlight": "cafe",
- "post_id": "1708711190679408",
+ "time_utc": "2026-11-03 01:05",
+ "spotlight": "car workshop",
+ "post_id": "1689851395835605",
  "error": null,
  "lang": "ar",
  "kind": "reel",
- "clips": 2,
+ "clips": 0,
  "fallback": 0,
  "errors": [],
- "mock": 7,
- "seconds": 62.7
+ "mock": 10,
+ "seconds": 57.0
 }
