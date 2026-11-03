@@ -1,5 +1,8 @@
 {
- "_note": "Facebook ke is hafte ke tasks (Professional Dashboard > Page status). Naye hafte mein number badlein.",
+ "_note": "Har hafte Claude ka browser agent Facebook Page status se khud likhta hai. week = hafte ka Itwaar (Pakistan).",
+ "week": "2026-11-01",
  "islamic": {"reels": 12, "photos": 23},
- "funny": {"reels": 11, "photos": 30}
+ "funny": {"reels": 11, "photos": 30},
+ "frames": {"reels": 0, "photos": 0},
+ "webbuilder": {"reels": 9, "photos": 30}
 }

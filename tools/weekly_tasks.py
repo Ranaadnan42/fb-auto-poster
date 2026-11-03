@@ -6,7 +6,8 @@ Har run (din mein 2 dafa, ai_employee.yml ke andar):
   1. Is hafte page par kitni reels aur photo posts lag chuki (Graph API se ginti).
   2. Roz ke schedule se deadline tak kitni aur lagengi.
   3. Kami ho -> abhi extra runs chala do (photos.yml / main.yml / funny.yml), taake Jumme tak target poora.
-Targets weekly_targets.json mein (jo Facebook ne is hafte diye - naye hafte mein naye number wahan likhein).
+Targets weekly_targets.json mein - har hafte ek browser agent (Claude scheduled task) Facebook ka Page status
+khud parh kar likhta hai. Agar is hafte abhi nahi parhe gaye to pichhle hafte se 20% zyada maan kar kaam chalta hai.
 """
 import os
 import sys
@@ -26,16 +27,23 @@ TARGETS_FILE = "weekly_targets.json"
 OUT = "weekly_tasks.json"
 MAX_EXTRA = 4            # ek run mein zyada se zyada itni extra posts (GitHub par halka load)
 
-# page -> secrets, roz ka schedule (FB par), extra post kaise chalani hai
+# page -> secrets, roz ka schedule (FB par), extra post kaise chalani hai (list = baari baari)
 PAGES = {
     "islamic": dict(id="FB_PAGE_ID", tok="FB_PAGE_TOKEN", daily_photos=4, daily_reels=2,
-                    photo=("photos.yml", {"pages": "islamic", "slot": "1"}),
-                    reel=("main.yml", {"language": "ur", "post_type": "reel"})),
+                    photo=[("photos.yml", {"pages": "islamic", "slot": "1"})],
+                    reel=[("main.yml", {"language": "ur", "post_type": "reel"})]),
     "funny": dict(id="FUNNY_PAGE_ID", tok="FUNNY_PAGE_TOKEN", daily_photos=5, daily_reels=3,
-                  photo=("photos.yml", {"pages": "funny", "slot": "1"}),
-                  reel=("funny.yml", {"mode": "reel"})),
+                  photo=[("photos.yml", {"pages": "funny", "slot": "1"})],
+                  reel=[("funny.yml", {"mode": "reel"})]),
+    "frames": dict(id="FRAMES_PAGE_ID", tok="FRAMES_PAGE_TOKEN", daily_photos=1, daily_reels=2,
+                   photo=[("photos.yml", {"pages": "frames", "slot": "2"})],
+                   reel=[("frames.yml", {"mode": "short", "dry_run": "false"})]),
+    "webbuilder": dict(id="WB_PAGE_ID", tok="WB_PAGE_TOKEN", daily_photos=3, daily_reels=3,
+                       photo=[("webbuilder.yml", {"mode": m}) for m in ("pic_ar", "pic_en", "pic_ur")],
+                       reel=[("webbuilder.yml", {"mode": m}) for m in ("reel_ar", "reel_en", "reel_ur")]),
 }
-DEFAULT_TARGETS = {"islamic": {"reels": 12, "photos": 23}, "funny": {"reels": 11, "photos": 30}}
+DEFAULT_TARGETS = {"reels": 0, "photos": 0}
+GROW = 1.2          # naye hafte ke targets abhi parhe nahi gaye -> pichhle hafte se 20% zyada maan lo
 
 
 def env(k):
@@ -76,9 +84,10 @@ def count(pid, token, start):
     return photos, reels
 
 
-def dispatch(wf, inputs, n):
+def dispatch(options, n):
     ok = 0
-    for _ in range(n):
+    for i in range(n):
+        wf, inputs = options[i % len(options)]
         try:
             ghapi.call("POST", f"/actions/workflows/{wf}/dispatches", {"ref": "main", "inputs": inputs})
             ok += 1
@@ -91,16 +100,21 @@ def main():
     try:
         targets = json.load(open(TARGETS_FILE, encoding="utf-8"))
     except Exception:
-        targets = DEFAULT_TARGETS
+        targets = {}
     start, deadline = week_bounds()
+    fresh = targets.get("week") == start.date().isoformat()
+    if not fresh:      # is hafte ke tasks abhi browser agent ne nahi parhe - pichhle se zyada rakh lo
+        targets = {k: ({kk: math.ceil(vv * GROW) for kk, vv in v.items()} if isinstance(v, dict) else v)
+                   for k, v in targets.items()}
     days_left = max(0.0, (deadline - NOW).total_seconds() / 86400)
     rec = {"at": NOW.isoformat(timespec="minutes"), "week_start": start.date().isoformat(),
-           "deadline_pk": deadline.isoformat(timespec="minutes"), "pages": {}}
+           "deadline_pk": deadline.isoformat(timespec="minutes"),
+           "targets_fresh": fresh, "pages": {}}
     for name, cfg in PAGES.items():
         pid, token = env(cfg["id"]), env(cfg["tok"])
         if not (pid and token):
             continue
-        t = targets.get(name, DEFAULT_TARGETS[name])
+        t = {**DEFAULT_TARGETS, **(targets.get(name) or {})}
         try:
             photos, reels = count(pid, token, start)
         except Exception as e:
@@ -113,8 +127,7 @@ def main():
             coming = math.floor(daily * days_left * 0.85)      # 15% margin - koi post fail bhi ho jaye
             short = t[kind] - done - coming
             if short > 0:
-                wf, inputs = cfg["photo" if kind == "photos" else "reel"]
-                n = dispatch(wf, inputs, min(short, MAX_EXTRA))
+                n = dispatch(cfg["photo" if kind == "photos" else "reel"], min(short, MAX_EXTRA))
                 r["extra"].append(f"{kind}: {n} extra chala di (kami {short})")
         rec["pages"][name] = r
         print(f"== {name}: {r}", flush=True)
