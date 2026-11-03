@@ -1,17 +1,39 @@
 {
- "time": "2026-11-03T19:49:09Z",
- "failed": "Article nahi bana: topic pehle se hai",
+ "time": "2026-11-03T21:10:16Z",
+ "mode": "post",
+ "posts": 7,
+ "new": [
+  "https://ranaadnan42.github.io/fb-auto-poster/blog/ai-photo-editing-guide/"
+ ],
  "log": [
   "Category: ai-tools",
-  "Keyword ideas (ai-tools): 114",
+  "Keyword ideas (ai-tools): 109",
   "Groq live models: openai/gpt-oss-120b, openai/gpt-oss-20b, allam-2-7b, qwen/qwen3.8-27b",
+  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6929",
+  "groq openai/gpt-oss-120b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6522",
+  "Groq model: openai/gpt-oss-20b",
+  "Outline: 'How to Use AI for Photo Editing: A Step‑by‑Step Guide' [how to use ai for photo editing] - 8 sections",
   "Groq model: openai/gpt-oss-120b",
-  "article fail: topic pehle se hai",
   "Groq model: openai/gpt-oss-120b",
-  "article fail: topic pehle se hai",
+  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 6790",
   "Groq model: openai/gpt-oss-120b",
-  "article fail: topic pehle se hai",
-  "FAILED: Article nahi bana: topic pehle se hai",
-  "Traceback (most recent call last):\n  File \"/home/runner/work/fb-auto-poster/fb-auto-poster/site_agent.py\", line 974, in <module>\n    main()\n  File \"/home/runner/work/fb-auto-poster/fb-auto-poster/site_agent.py\", line 932, in main\n    a = write_article(posts, cat)\n        ^^^^^^^^^^^^^^^^^^^^^^^^^\n  "
+  "Groq model: openai/gpt-oss-120b",
+  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7135",
+  "Groq model: openai/gpt-oss-120b",
+  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7070",
+  "Groq model: openai/gpt-oss-120b",
+  "Groq model: openai/gpt-oss-120b",
+  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7460",
+  "groq openai/gpt-oss-120b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 7052",
+  "Groq model: openai/gpt-oss-20b",
+  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3214",
+  "groq openai/gpt-oss-120b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 2807",
+  "Groq model: openai/gpt-oss-20b",
+  "Editor review: score 8, 0 fixes applied",
+  "Article try 1: 2670 words",
+  "Pixabay 'business photo editing': 200, 20 photos",
+  "NEW: How to Use AI for Photo Editing: A Step‑by‑Step Guide -> https://ranaadnan42.github.io/fb-auto-poster/blog/ai-photo-editing-guide/",
+  "Health: 7 posts, 0 issues",
+  "IndexNow skip (github.io par key root par nahi rakh sakte) - custom/vercel domain par chalega"
  ]
 }
