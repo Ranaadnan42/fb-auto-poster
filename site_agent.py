@@ -356,7 +356,8 @@ def write_article(posts, category):
             if len(secs) < 5 or not a.get("title") or not a.get("meta_description"):
                 raise RuntimeError("outline adhoora")
             if any(similar(a["title"], p["title"]) > 0.6 for p in posts):
-                raise RuntimeError("topic pehle se hai")
+                log("topic pehle se hai, skipping...")
+                return None
             log(f"Outline: '{a['title']}' [{a.get('keyword')}] - {len(secs)} sections")
             heads = [x["h2"] for x in secs]
             used_exp = []
