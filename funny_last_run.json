@@ -1,16 +1,20 @@
 {
- "mode": "reel",
- "stock_clips": 4,
- "fallback_clips": 3,
+ "mode": "auto",
+ "stock_clips": 0,
+ "fallback_clips": 5,
  "errors": [],
  "format": "people",
- "search_phrases": [],
- "reel_format": "pov",
- "vision_checks": 161,
- "clips_rejected": 157,
- "laughs": 3,
- "reel_minutes": 0.83,
- "time_utc": "2026-11-02 21:08",
- "title": "رات دو بجے کا فریج اٹیک اور کچن کا صدمہ",
- "dry_run": true
+ "search_phrases": [
+  "ludo funny moments",
+  "ludo game funny scenes"
+ ],
+ "search": "ludo funny moments",
+ "reel_format": "expectation",
+ "vision_checks": 168,
+ "clips_rejected": 168,
+ "laughs": 4,
+ "reel_minutes": 0.68,
+ "time_utc": "2026-11-03 09:27",
+ "title": "لودو کے فنی مومنٹس اور گھر کا شاہکار ڈرامہ",
+ "dry_run": false
 }
