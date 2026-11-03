@@ -1,23 +1,41 @@
 {
  "mode": "long",
- "clips": 58,
- "clips_rejected": 213,
- "vision_checks": 230,
+ "clips": 38,
+ "clips_rejected": 1281,
+ "vision_checks": 87,
  "errors": [],
  "search_phrases": [
-  "sham country documentary in urdu",
-  "malta country documentary in urdu",
-  "brunei country documentary in urdu"
+  "ki sair kar duniya ki gafil",
+  "ki sair kab hai",
+  "sairat ki video",
+  "sairam ki sketchbook",
+  "sairat ki kahani",
+  "sairat ki serial",
+  "sairat ki short video",
+  "saira ki video",
+  "saira ki duniya",
+  "madina tour in urdu",
+  "israel tour in urdu",
+  "tour meaning in urdu",
+  "london tour in urdu",
+  "turkey tour in urdu",
+  "istanbul tour in urdu",
+  "world tour in urdu",
+  "spain tour in urdu",
+  "makkah tour in urdu",
+  "germany tour in urdu"
  ],
- "search": "malta country documentary in urdu",
- "photos": 6,
- "vision_skipped": 37,
- "seconds": 237.2,
- "links": [
-  "https://beoe.gov.pk",
-  "https://oec.gov.pk"
+ "vision_skipped": 1186,
+ "alt_searches": 5,
+ "vision_groq": 3,
+ "photos": 2,
+ "no_match": [
+  "people cycling in Paris street",
+  "Paris landmarks panoramic view"
  ],
- "subject": "Malta",
- "series": "pk_country",
- "title": "Malta Country Documentary in Urdu | مالٹا کا سفر اور زندگی"
+ "seconds": 229.3,
+ "links": [],
+ "subject": "Paris, France",
+ "series": "pk_tour",
+ "title": "پیرس کی سیر | فرانس کا سفر | Paris City Tour"
 }
