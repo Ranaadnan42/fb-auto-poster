@@ -5,32 +5,34 @@
  "errors": [],
  "format": "people",
  "search_phrases": [
-  "grandmother funny video",
-  "grandma's home",
-  "grandma comedy",
-  "grandmother comedy",
-  "grandma home remedies"
+  "cooking disaster",
+  "cooking fail",
+  "cooking fail compilation",
+  "cooking jokes",
+  "cooking humor",
+  "cooking disasters",
+  "cooking with fun"
  ],
- "search": "grandma home remedies",
- "reel_format": "news",
- "vision_checks": 1,
- "clips_rejected": 55,
- "no_match": [
-  "grandmother kitchen herbs",
-  "woman ginger tea",
-  "man salt water glass",
-  "confused expression",
-  "woman leaf water",
-  "child sweating",
-  "router sunlight",
-  "bright signal icon"
- ],
+ "search": "cooking disaster",
+ "reel_format": "types",
+ "vision_checks": 148,
+ "clips_rejected": 145,
  "sources": {
-  "pixabay": 7
+  "pixabay": 7,
+  "openverse": 1
  },
- "laughs": 2,
- "reel_minutes": 0.61,
- "time_utc": "2026-11-03 20:53",
- "title": "دادی کی گھر کی جڑی بوٹیوں پر بھروسہ",
+ "no_match": [
+  "burnt rice pot",
+  "man smiling kitchen",
+  "drinking tea confused",
+  "boy holding pan lid",
+  "messy kitchen counter",
+  "angry mother kitchen",
+  "friends laughing dining table"
+ ],
+ "laughs": 4,
+ "reel_minutes": 0.95,
+ "time_utc": "2026-11-03 22:18",
+ "title": "کوکنگ ڈیزاسٹر اور کچن کے 3 شاہکار",
  "dry_run": true
 }
