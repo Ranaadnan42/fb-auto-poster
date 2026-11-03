@@ -22,6 +22,8 @@ import datetime
 import subprocess
 
 import requests
+
+from footage import VISUALS_RULE
 import edge_tts
 
 import sfx
@@ -282,9 +284,10 @@ Split into exactly 5 scenes. For each scene give a 2-5 word ENGLISH stock-video 
 doing what that line says, with a clear expression (e.g. "man laughing phone", "woman angry kitchen",
 "student sleeping desk", "family dinner table", "man shocked bill", "friends laughing cafe").
 
+{VISUALS_RULE}
 Return JSON: {{"title": "funny Urdu title, max 60 characters",
  "meme": "very short meme header in Urdu shown on top of the whole reel, max 7 words, like a POV line",
- "scenes": [{{"text": "...", "visual": "...", "laugh": true/false}}] ("laugh": true if this scene ends with a punchline (about half the scenes), else false),
+ "scenes": [{{"text": "...", "visual": "...", "visuals": ["...", "..."], "laugh": true/false}}] ("laugh": true if this scene ends with a punchline (about half the scenes), else false),
  "caption": "1 funny line in Urdu that asks people to tag a friend",
  "hashtags": ["#funny", "..."] (6 hashtags, English and Urdu){SEARCH_FIELD if searches else ""}}}""")
     else:
@@ -308,9 +311,10 @@ Return JSON: {{"title": "funny Urdu title, max 60 characters",
     Split into exactly 5 scenes. For each scene give a 1-3 word ENGLISH stock-video search term
     that will show a {animal} (e.g. "{animal}", "{animal} playing", "funny {animal}").
 
+    {VISUALS_RULE}
     Return JSON: {{"title": "funny Urdu title, max 60 characters",
      "meme": "very short meme header in Urdu shown on top of the whole reel, max 7 words, like a POV line",
-     "scenes": [{{"text": "...", "visual": "...", "animal": "only for the types format: that scene's animal (one English word)", "laugh": true/false}}] ("laugh": true if this scene ends with a punchline or someone laughs (about half the scenes), else false),
+     "scenes": [{{"text": "...", "visual": "...", "visuals": ["...", "..."], "animal": "only for the types format: that scene's animal (one English word)", "laugh": true/false}}] ("laugh": true if this scene ends with a punchline or someone laughs (about half the scenes), else false),
      "caption": "1 funny line in Urdu that asks people to tag a friend",
      "hashtags": ["#funny", "..."] (6 hashtags, English and Urdu){SEARCH_FIELD if searches else ""}}}""")
     if len(data.get("scenes", [])) < 2:
@@ -354,8 +358,9 @@ Last segment ends with: "ویڈیو اچھی لگی ہو تو پیج فالو ک
 {extra}
 
 For each segment give a 1-3 word ENGLISH stock-video search term showing that animal.
+{VISUALS_RULE}
 Return JSON: {{"title": "funny Urdu title, max 70 characters",
- "scenes": [{{"text": "...", "visual": "...", "meme": "very short funny Urdu header for this segment, max 7 words", "laugh": true/false}}] (exactly 10; "laugh": true if this scene ends with a punchline or someone laughs (about half the scenes), else false),
+ "scenes": [{{"text": "...", "visual": "...", "visuals": ["...", "..."], "meme": "very short funny Urdu header for this segment, max 7 words", "laugh": true/false}}] (exactly 10; "laugh": true if this scene ends with a punchline or someone laughs (about half the scenes), else false),
  "caption": "2 funny lines in Urdu asking people to comment their favourite animal",
  "hashtags": ["#funny", "..."] (8 hashtags){SEARCH_FIELD if searches else ""}}}""")
         n = word_count(data)
@@ -553,6 +558,54 @@ def _clip_ok(path, animal, query, dur):
     return None
 
 
+def term_clips(terms, count, job, prefix, backup, w, h):
+    """Har slot par WOHI cheez jo us waqt boli ja rahi hai (khaana, jagah, cheez, kaam) - sab platforms se.
+    Video na mile to usi cheez ki asli photo (zoom ke saath)."""
+    import footage
+    got = []
+    for j in range(count):
+        term = terms[min(j * len(terms) // count, len(terms) - 1)] if terms else ""
+        if not term:
+            continue
+        qw = footage.words(term)
+        human = bool(HUMAN & set(qw))
+        subject = "people" if human else (backup if backup != "people" and backup in term else term)
+        done = False
+        for kind in ("video", "photo"):
+            if done or (kind == "photo" and human):      # insaan ke kaam ki photo bejaan lagti hai
+                continue
+            cands = footage.videos(term, h > w) if kind == "video" else footage.photos(term)
+            bad = ("animation", "3d", "cartoon", "render", "illustration", "abstract")
+            cands = [c for c in cands if c["id"] not in USED_CLIPS and footage.match_score(c["text"], qw) > 0
+                     and not any(b in c["text"] for b in bad)]
+            random.shuffle(cands)
+            cands.sort(key=lambda c: (-footage.match_score(c["text"], qw), c.get("vertical") != (h > w)))
+            for c in cands[:5]:
+                USED_CLIPS.add(c["id"])
+                path = os.path.join(job, f"{prefix}_t{j}.mp4")
+                src = path + (".jpg" if kind == "photo" else "")
+                try:
+                    if not footage.download(c["url"], src):
+                        continue
+                    if kind == "photo":
+                        footage.photo_to_clip(src, path, w, h, secs=5)
+                    ok = _clip_ok(path, subject, term, c.get("dur", 5) if kind == "video" else 2)
+                    full = footage.match_score(c["text"], qw) == len(qw)
+                    if ok is False or (ok is None and (kind == "photo" or not full)):
+                        REPORT["clips_rejected"] = REPORT.get("clips_rejected", 0) + 1
+                        continue
+                    REPORT.setdefault("sources", {})
+                    REPORT["sources"][c["src"]] = REPORT["sources"].get(c["src"], 0) + 1
+                    got.append(path)
+                    done = True
+                    break
+                except Exception as e:
+                    log(f"clip fail ({term}): {str(e)[:120]}")
+        if not done:
+            REPORT.setdefault("no_match", []).append(term)
+    return got
+
+
 def fallback_clip(path, w, h):
     c = random.choice([("0xff9a00", "0xff3d77"), ("0x00c6ff", "0x7a00ff"), ("0x11d483", "0xffd200")])
     run(["ffmpeg", "-y", "-f", "lavfi", "-i",
@@ -620,7 +673,11 @@ def build_scene(job, i, sc, w, h, title, backup, meme=None):
     if sc.get("laugh"):
         dur += 1.8                                          # hansi ke liye jagah
     k = max(1, min(6, round(dur / 4)))                      # har ~4 sec naya clip
-    clips = pixabay_clips(sc.get("visual") or backup, k, job, f"c{i}", backup, want_vertical=h > w)
+    import footage
+    terms = footage.scene_terms(sc)
+    clips = term_clips(terms, max(k, min(6, len(terms))), job, f"c{i}", backup, w, h) if terms else []
+    if len(clips) < k:   # baqi jagah purane tareeqe se (us scene ke kaam/janwar ki clips)
+        clips += pixabay_clips(sc.get("visual") or backup, k - len(clips), job, f"c{i}", backup, want_vertical=h > w)
     if not clips:   # sakht filter se kuch na mile to naram filter
         clips = pixabay_clips(sc.get("visual") or backup, k, job, f"c{i}", backup,
                               want_vertical=h > w, strict=False)

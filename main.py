@@ -98,6 +98,8 @@ THEMES = [
     "an authentic hadith of Prophet Muhammad and its meaning", "a sunnah of the Prophet for daily life",
 ]
 
+from footage import VISUALS_RULE
+
 SAFE_VISUALS = ("The visual term is what the viewer SEES while this scene is spoken, so it MUST match the "
                 "narration. If the scene mentions a concrete thing, the term is THAT thing: food or drink "
                 "(dates fruit, honey, milk, bread, water, olives, figs, pomegranate, grapes), an animal "
@@ -367,9 +369,10 @@ narrations; never invent events, names or details.
 Split into exactly {scenes} scenes, each about {per} words (total about {L['long_words']} words,
 between {L['long_min']} and {L['long_max']} - count carefully). {extra}
 For each scene give a 1-3 word ENGLISH stock-footage search term. {SAFE_VISUALS}
+{VISUALS_RULE} The same Islamic-safety rules apply to every term in 'visuals'.
 {SAY_RULE}
 
-Return JSON: {{"scenes": [{{"text": "...", "say": "text with hard words phonetic (omit if none)", "visual": "..."}}],
+Return JSON: {{"scenes": [{{"text": "...", "say": "text with hard words phonetic (omit if none)", "visual": "...", "visuals": ["...", "..."]}}],
  "caption": "2-3 line Facebook description in {L['caption_lang']} that invites comments",
  "hashtags": ["#Islam", "..."] (8 hashtags, mix of English and the video language)}}""")
 
@@ -448,9 +451,10 @@ narrations, never invented events. {L['reel_end']}
 
 Split into exactly 5 scenes. For each scene give a 1-3 word ENGLISH stock-footage search term.
 {SAFE_VISUALS}
+{VISUALS_RULE} The same Islamic-safety rules apply to every term in 'visuals'.
 {SAY_RULE}
 
-Return JSON: {{"scenes": [{{"text": "...", "say": "text with hard words phonetic (omit if none)", "visual": "..."}}],
+Return JSON: {{"scenes": [{{"text": "...", "say": "text with hard words phonetic (omit if none)", "visual": "...", "visuals": ["...", "..."]}}],
  "caption": "1-2 lines in {L['caption_lang']}", "hashtags": ["#..."] (6 hashtags)}}""")
     if len(data.get("scenes", [])) < 2:
         raise RuntimeError("Reel script mein scenes kam hain")
@@ -655,6 +659,68 @@ def pixabay_clips(query, count, job, prefix):
     return got
 
 
+def scene_clips(terms, count, job, prefix, w, h):
+    """Har clip slot ko WOHI cheez jo us waqt boli ja rahi hai (terms isi tarteeb mein).
+    Pehle har platform ki videos (Pixabay, Commons, NASA, Pexels-agar-key), na milen to usi cheez ki asli
+    photo (zoom ke saath). Be-taalluq 'random Islamic' clip sirf tab jab kuch bhi na mile."""
+    import footage
+    got = []
+    for j in range(count):
+        term = terms[min(j * len(terms) // count, len(terms) - 1)] if terms else ""
+        clip = _one_clip(term, job, f"{prefix}_{j}", w, h) if term else None
+        if clip:
+            got.append(clip)
+    if not got:   # is scene ki koi cheez kahin na mili - tab hi purana tareeqa (mosque/aasman)
+        got = pixabay_clips(random.choice(ISLAMIC_VISUALS), min(count, 2), job, prefix)
+    return got
+
+
+def _one_clip(term, job, name, w, h):
+    import footage
+    qw = footage.words(term)
+    for kind in ("video", "photo"):
+        cands = footage.videos(term, h > w) if kind == "video" else footage.photos(term)
+        cands = [c for c in cands if c["id"] not in USED_CLIPS and not _blocked_text(c["text"])
+                 and footage.match_score(c["text"], qw) > 0]
+        random.shuffle(cands)
+        cands.sort(key=lambda c: (-footage.match_score(c["text"], qw), c.get("vertical") != (h > w)))
+        for c in cands[:6]:
+            USED_CLIPS.add(c["id"])
+            path = os.path.join(job, f"{name}.mp4")
+            src = path + (".jpg" if kind == "photo" else "")
+            try:
+                if not footage.download(c["url"], src):
+                    continue
+                full = footage.match_score(c["text"], qw) == len(qw)
+                points = [None] if kind == "photo" else [min(c["dur"] * 0.25, 2), max(min(c["dur"] * 0.75, 9), 1)]
+                ok = True
+                for k, at in enumerate(points):
+                    jpg = f"{path}.chk{k}.jpg"
+                    if kind == "photo":
+                        subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", src, "-vf", "scale=640:-2", jpg],
+                                       capture_output=True)
+                    elif not footage.frame(src, jpg, at):
+                        continue
+                    v = _vision_ok(jpg, term)
+                    # photo sirf agent ki haan par; video agent na dekh sake to sirf poore lafz match par
+                    if v is False or (v is None and (kind == "photo" or not full)):
+                        ok = False
+                        break
+                if not ok:
+                    REPORT["clips_rejected"] = REPORT.get("clips_rejected", 0) + 1
+                    continue
+                if kind == "photo":
+                    footage.photo_to_clip(src, path, w, h)
+                    REPORT["photo_clips"] = REPORT.get("photo_clips", 0) + 1
+                REPORT.setdefault("sources", {})
+                REPORT["sources"][c["src"]] = REPORT["sources"].get(c["src"], 0) + 1
+                return path
+            except Exception as e:
+                log(f"clip fail ({term}): {str(e)[:120]}")
+    REPORT.setdefault("no_match", []).append(term)
+    return None
+
+
 def fallback_clip(path, w, h):
     c = random.choice([("0x0b1a33", "0x1f4d7a"), ("0x10261a", "0x2f6b4a"),
                        ("0x2b1a33", "0x5b3d7a"), ("0x2a1c0c", "0x7a5a1f")])
@@ -727,8 +793,9 @@ def build_scene(job, i, sc, w, h, title):
     k = max(1, min(4, round(dur / 8)))                     # har ~8 second baad naya clip
     # pehle WOHI cheez jiska is scene mein zikr ho raha hai (khaana, janwar, jagah...);
     # Islamic clips sirf tab jab us cheez ki poori clips na milen
-    vis = (sc.get("visual") or "").strip()
-    clips = pixabay_clips(vis or random.choice(ISLAMIC_VISUALS), k, job, f"c{i}")
+    import footage
+    terms = footage.scene_terms(sc)
+    clips = scene_clips(terms, max(k, min(4, len(terms))), job, f"c{i}", w, h)
     REPORT["stock_clips"] += len(clips)
     if not clips:
         REPORT["fallback_clips"] += 1
