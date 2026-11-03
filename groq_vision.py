@@ -44,6 +44,22 @@ def models(key):
     return _MODELS
 
 
+def _small(img, width=384):
+    """Choti tasveer = kam tokens (Groq ki roz ki token limit der se khatam ho)."""
+    try:
+        import io
+        from PIL import Image
+        raw = base64.b64decode(img) if isinstance(img, str) else img
+        im = Image.open(io.BytesIO(raw)).convert("RGB")
+        if im.width > width:
+            im = im.resize((width, int(im.height * width / im.width)))
+        buf = io.BytesIO()
+        im.save(buf, "JPEG", quality=70)
+        return base64.b64encode(buf.getvalue()).decode()
+    except Exception:
+        return img if isinstance(img, str) else base64.b64encode(img).decode()
+
+
 def _wait_secs(r):
     try:
         return float(r.headers.get("retry-after") or 0)
@@ -56,7 +72,7 @@ def ask(images, prompt, json_mode=True):
     key = os.environ.get("GROQ_API_KEY")
     if not key or not images:
         return None
-    b64 = [i if isinstance(i, str) else base64.b64encode(i).decode() for i in images][:5]
+    b64 = [_small(i) for i in images][:4]
     content = [{"type": "text", "text": prompt}] + [
         {"type": "image_url", "image_url": {"url": "data:image/jpeg;base64," + b}} for b in b64]
     for m in models(key):
@@ -83,7 +99,7 @@ def ask(images, prompt, json_mode=True):
                 if 0 < w <= 25 and attempt < 2:
                     time.sleep(w + 1)          # minute wali limit - thora ruk kar dobara
                     continue
-                _REST[m] = time.time() + max(w, 120)   # lambi limit - is model ko aaraam, agla model
+                _REST[m] = time.time() + (6 * 3600 if "per day" in txt else max(w, 120))   # lambi limit - is model ko aaraam, agla model
                 break
             if r.status_code == 400 and json_mode and "json" in txt.lower():
                 body.pop("response_format", None)      # kuch models json mode nahi lete

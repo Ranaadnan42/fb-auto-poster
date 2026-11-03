@@ -528,7 +528,7 @@ def _clip_ok(path, animal, query, dur):
                               timeout=25, json={"contents": [{"parts": [{"text": prompt},
                                                                          {"inline_data": {"mime_type": "image/jpeg", "data": img}}]}],
                                                 "generationConfig": {"responseMimeType": "application/json", "temperature": 0}})
-            if r.status_code in (404, 429):
+            if r.status_code in (401, 403, 404, 429):
                 _VDEAD.add(m)
             r.raise_for_status()
             REPORT["vision_checks"] = REPORT.get("vision_checks", 0) + 1

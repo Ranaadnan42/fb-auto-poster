@@ -576,7 +576,7 @@ def _vision_ok(jpg, want):
                               timeout=25, json={"contents": [{"parts": [{"text": prompt},
                                                                          {"inline_data": {"mime_type": "image/jpeg", "data": img}}]}],
                                                 "generationConfig": {"responseMimeType": "application/json", "temperature": 0}})
-            if r.status_code in (404, 429):
+            if r.status_code in (401, 403, 404, 429):
                 _VDEAD.add(m)
             if time.time() - t0 > 20:
                 _VSLOW[m] = _VSLOW.get(m, 0) + 1
