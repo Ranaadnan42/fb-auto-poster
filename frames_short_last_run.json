@@ -1,32 +1,14 @@
 {
  "mode": "short",
- "clips": 15,
- "clips_rejected": 383,
- "vision_checks": 130,
+ "clips": 18,
+ "clips_rejected": 142,
+ "vision_checks": 155,
  "errors": [],
- "search_phrases": [
-  "mein job kaise kare",
-  "blanket mein job kaise kare",
-  "australia mein job kaise paye",
-  "germany mein job kaise paye",
-  "google mein job kaise paye",
-  "rapido mein job kaise kare",
-  "dubai mein job kaise paye",
-  "flipkart mein job kaise kare",
-  "dubai mein job kaise dhundhe",
-  "linkedin mein job kaise dhundhe"
- ],
- "photos": 3,
- "vision_skipped": 255,
- "vision_groq": 7,
- "alt_searches": 2,
- "seconds": 73.9,
- "links": [
-  "https://evisa.rop.gov.om",
-  "https://beoe.gov.pk",
-  "https://oec.gov.pk"
- ],
- "subject": "Oman / Muscat",
- "series": "pk_jobtip",
- "title": "عمان میں نوکری کیسے ڈھونڈیں | 5 Tips for Oman"
+ "search_phrases": [],
+ "photos": 1,
+ "seconds": 90.1,
+ "links": [],
+ "subject": "Indonesia",
+ "series": "pk_food",
+ "title": "انڈونیشیا کی سیر | 5 مشہور کھانے اور سفر"
 }
