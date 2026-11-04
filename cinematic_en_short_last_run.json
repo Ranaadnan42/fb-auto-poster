@@ -1,12 +1,12 @@
 {
- "images_ai": 30,
+ "images_ai": 32,
  "images_backup": 0,
  "images_failed": 0,
  "errors": [],
- "seconds": 150.9,
- "time_utc": "2026-11-03 22:38",
- "title": "Part 2: The Heart of Glass",
+ "seconds": 144.8,
+ "time_utc": "2026-11-04 01:17",
+ "title": "Whispers of the Glass Forest: Part 2",
  "part": 2,
- "dry_run": true,
- "posted": 0
+ "dry_run": false,
+ "posted": 1
 }
