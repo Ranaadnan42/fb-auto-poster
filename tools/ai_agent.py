@@ -274,6 +274,10 @@ def main():
         except Exception as e:
             notes.append(f"dimagh na chala: {e}")
             break
+        if isinstance(act, list):      # AI ne [{..}] bheja - pehla hissa lo, crash na ho
+            act = next((a for a in act if isinstance(a, dict)), {})
+        if not isinstance(act, dict):
+            act = {}
         log(f"[{step + 1}] {act.get('thought', '')[:200]}")
         msgs.append({"role": "assistant", "content": json.dumps(act, ensure_ascii=False)})
         if act.get("done"):

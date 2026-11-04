@@ -189,6 +189,13 @@ def _gem():
     return _client
 
 
+def _one(d):
+    """AI kabhi {..} ki jagah [{..}] bhej deta hai - us se 'list indices' crash hota tha."""
+    if isinstance(d, list) and d and isinstance(d[0], dict) and len(d) == 1:
+        return d[0]
+    return d
+
+
 def ask_json(prompt, temp=0.8):
     from google.genai import types
     last = None
@@ -199,7 +206,7 @@ def ask_json(prompt, temp=0.8):
                     model=model, contents=prompt,
                     config=types.GenerateContentConfig(response_mime_type="application/json",
                                                        temperature=temp))
-                return json.loads(res.text)
+                return _one(json.loads(res.text))
             except Exception as e:
                 last = e
                 log(f"{model} try {attempt + 1}: {str(e)[:160]}")
@@ -208,7 +215,7 @@ def ask_json(prompt, temp=0.8):
     if groq_backup.enabled():
         log(f"Gemini fail ({str(last)[:80]}) - Groq backup try")
         try:
-            return groq_backup.ask_json(prompt, temp, log)
+            return _one(groq_backup.ask_json(prompt, temp, log))
         except Exception as e:
             last = f"{last} | {e}"
     raise RuntimeError(f"Gemini fail: {last}")
