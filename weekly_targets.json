@@ -1,8 +1,8 @@
 {
  "_note": "Har hafte Claude ka browser agent Facebook Page status se khud likhta hai. week = hafte ka Itwaar (Pakistan).",
  "week": "2026-11-01",
- "islamic": {"reels": 12, "photos": 23},
- "funny": {"reels": 11, "photos": 30},
- "frames": {"reels": 0, "photos": 0},
- "webbuilder": {"reels": 9, "photos": 30}
+ "islamic": {"reels": 12, "photos": 23, "stories": 0},
+ "funny": {"reels": 11, "photos": 30, "stories": 0},
+ "frames": {"reels": 0, "photos": 0, "stories": 0},
+ "webbuilder": {"reels": 9, "photos": 30, "stories": 0}
 }
