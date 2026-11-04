@@ -95,7 +95,8 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y ffmpeg
-          pip install requests pillow google-genai "edge-tts>=7.3.0"
+          pip install requests pillow google-genai "edge-tts>=7.3.0" playwright
+          python -c "from playwright.sync_api import sync_playwright as s; p=s().start(); p.chromium.launch(channel='chrome').close(); p.stop()" || python -m playwright install --with-deps chromium
       - name: Pic post
         if: steps.m.outputs.kind == 'pic'
         env:
@@ -130,7 +131,7 @@ jobs:
       - name: Save history
         if: always()
         run: |
-          FILES="webbuilder_history.json webbuilder_en_last_run.json webbuilder_ur_last_run.json webbuilder_ar_last_run.json webbuilder_video_history.json webbuilder_video_en_reel_last_run.json webbuilder_video_ur_reel_last_run.json webbuilder_video_en_long_last_run.json webbuilder_video_ur_long_last_run.json webbuilder_video_ar_reel_last_run.json webbuilder_video_ar_long_last_run.json"
+          FILES="webbuilder_history.json webbuilder_en_last_run.json webbuilder_ur_last_run.json webbuilder_ar_last_run.json webbuilder_video_history.json webbuilder_video_en_reel_last_run.json webbuilder_video_ur_reel_last_run.json webbuilder_video_en_long_last_run.json webbuilder_video_ur_long_last_run.json webbuilder_video_ar_reel_last_run.json webbuilder_video_ar_long_last_run.json showcase_history.json"
           mkdir -p /tmp/keep
           for f in $FILES; do [ -f "$f" ] && cp "$f" /tmp/keep/; done
           git config user.name "auto-poster"

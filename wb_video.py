@@ -25,6 +25,7 @@ import subprocess
 import requests
 
 import wb_mock
+import showcase
 
 GRAPH_VER = "v23.0"
 WB_TOKEN = os.environ.get("WB_PAGE_TOKEN")
@@ -458,6 +459,16 @@ def scene_visuals(i, sc, k, dur):
         if v and v not in stock_q and len(v.split()) <= 2:
             stock_q.insert(0, v)
     for j in range(k):
+        if j == 0 and sh in ("website", "app", "business"):
+            # hamara asli kaam: banayi hui demo website / app (har video mein alag business)
+            real = "app" if sh == "app" else "website"
+            did = showcase.pick(spot)
+            png = did and showcase.shot(did, real, os.path.join(WORK, f"r{i}.png"), mobile=not LONG,
+                                        tab=random.choice(["home", "shop", "book"]) if real == "app" else None)
+            if png:
+                out.append(showcase.scroll_clip(png, os.path.join(WORK, f"c{i}_{j}.mp4"), seg, W, H))
+                REPORT["real_work"] = REPORT.get("real_work", 0) + 1
+                continue
         if j == 0 or sh == "contact" or not stock_q:
             kind = mocks[min(j, len(mocks) - 1)] if j < len(mocks) else mocks[0]
             img = wb_mock.make(kind, W, H, spot, os.path.join(WORK, f"m{i}_{j}.jpg"), name, WA, SITE_SHORT)
@@ -628,6 +639,7 @@ def main():
         report["error"] = str(e)[:300]
     with open(HISTORY_FILE, "w", encoding="utf-8") as f:
         json.dump(vids[-300:], f, ensure_ascii=False, indent=1)
+    showcase.save_used()
     report.update(REPORT)
     with open(REPORT_FILE, "w", encoding="utf-8") as f:
         json.dump(report, f, ensure_ascii=False, indent=1)

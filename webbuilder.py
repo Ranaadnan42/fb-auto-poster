@@ -25,6 +25,7 @@ import subprocess
 import requests
 
 import wb_mock
+import showcase
 
 # ------------------------------------------------------------- config
 GRAPH_VER = "v23.0"
@@ -272,6 +273,28 @@ def product_pic(focus, path):
     name = f"{random.choice(NAME_START)} {spot.title()}"
     if len(name) > 22:
         name = f"{random.choice(NAME_START)} {spot.split()[0].title()}"
+    if kind in ("website", "app"):      # hamara asli kaam: banayi hui demo website / app ki tasveer
+        try:
+            from PIL import Image
+            did = showcase.pick(spot)
+            png = did and showcase.shot(did, kind, path + ".png", mobile=(kind == "app"),
+                                        tab=random.choice(["home", "shop", "book"]) if kind == "app" else None)
+            if png:
+                scr = Image.open(png).convert("RGB")
+
+                def top(w, h, *_):      # screenshot ka upar wala hissa frame mein
+                    s_ = w / scr.width
+                    im = scr.resize((w, max(h, int(scr.height * s_))), Image.LANCZOS)
+                    return im.crop((0, 0, w, h))
+                W2, H2 = PIC_W * 2, PIC_H * 2
+                img = wb_mock.phone(W2, H2, spot, name, top) if kind == "app" else \
+                    wb_mock.monitor(W2, H2, spot, top, name)
+                img.save(path, quality=92)
+                showcase.save_used()
+                log(f"Product pic: asli demo {kind} {did} ({spot})")
+                return True
+        except Exception as e:
+            log(f"Real demo pic fail: {str(e)[:150]}")
     try:
         wb_mock.make(kind, PIC_W * 2, PIC_H * 2, spot, path, name, WA, SITE.replace("https://", "").rstrip("/"))
         log(f"Product pic: mock {kind} ({spot})")
