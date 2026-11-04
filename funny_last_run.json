@@ -5,31 +5,33 @@
  "errors": [],
  "format": "people",
  "search_phrases": [
-  "mechanical hacks 5 minute crafts",
-  "mechanical life hacks",
-  "5 minute crafts mechanic",
-  "mechanical comedy video",
-  "5 minute comedy video",
-  "mechanic comedian"
+  "traffic jam funny video",
+  "traffic jam funny horn",
+  "traffic jam weird al",
+  "funny traffic jam music",
+  "traffic jam funny",
+  "sundara travels traffic jam comedy scenes"
  ],
- "search": "5 minute comedy video",
- "reel_format": "types",
- "vision_checks": 103,
+ "search": "traffic jam funny video",
+ "reel_format": "dialogue",
+ "vision_checks": 115,
+ "clips_rejected": 107,
  "sources": {
-  "pixabay": 7,
-  "commons": 3
+  "pixabay": 4
  },
- "clips_rejected": 93,
  "no_match": [
-  "man drinking hot tea",
-  "angry middle aged man",
-  "motorbike key",
-  "plate of hot biryani",
-  "strict mother pointing finger"
+  "man driving frustrated",
+  "student sleeping car",
+  "mother talking smartphone",
+  "mother talking smartphone",
+  "man hitting steering wheel",
+  "pakistani chai cup",
+  "diploma degree certificate",
+  "diploma degree certificate"
  ],
- "laughs": 3,
- "reel_minutes": 0.79,
+ "laughs": 4,
+ "reel_minutes": 0.74,
  "time_utc": "2026-11-04 11:20",
- "title": "مکینک کے 5 منٹ کا سچ | 5 minute comedy video",
+ "title": "ٹریفک جام اور سست طالب علم کا ماسٹر پلان",
  "dry_run": false
 }
