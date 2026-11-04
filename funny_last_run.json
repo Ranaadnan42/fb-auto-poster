@@ -1,12 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 0,
+ "stock_clips": 48,
  "fallback_clips": 0,
  "errors": [],
- "format": "chat",
- "reel_minutes": 1.32,
- "laughs": 4,
- "time_utc": "2026-11-04 11:24",
- "title": "دادی اماں اور کپڑے دھونے کا ہنگامہ",
+ "format": "cartoon",
+ "long_minutes": 6.36,
+ "series": "چمپا کلی اور ہوم ورک کا پہاڑ | قسط 1 part 3 (cartoon)",
+ "laughs": 10,
+ "time_utc": "2026-11-04 16:31",
+ "title": "چمپا کلی اور ہوم ورک کا پہاڑ | قسط 1 | آخری قسط",
  "dry_run": false
 }
