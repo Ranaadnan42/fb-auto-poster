@@ -1,28 +1,29 @@
-"""Urdu TTS test: har candidate ki awaaz banao, Whisper se wapas likhwao (kaan ki jagah)."""
-import asyncio, json, edge_tts
+"""Atlas awaaz check: user wali video sun kar likho + Ryan TTS ki kai dafa test (kat to nahi rahi?)."""
+import asyncio, json, os, subprocess, edge_tts
 from faster_whisper import WhisperModel
-C = {
- "A_plain": "حضرت محمد صلی اللہ علیہ وسلم نے فرمایا",
- "B_harakat": "حضرت مُحَمَّد صَلَّی اللّٰہُ عَلَیْہِ وَسَلَّم نے فرمایا",
- "C_shadd": "حضرت محمد صلّی اللہ علیہ وسلّم نے فرمایا",
- "D_hyphen": "حضرت محمد صل-لل-لاہو علیہ-وسلم نے فرمایا",
- "E_seen": "حضرت محمد سَلّلّاہُو عَلَیہِ وَسَلّم نے فرمایا",
- "F_sallallahu": "حضرت مُحَمَّد صَلَّ اللّٰہُ عَلَیْہِ وَ آلِہٖ وَسَلَّم نے فرمایا",
- "G_ligature": "حضرت محمد ﷺ نے فرمایا",
- "H_nabi": "نبی کریم صَلَّی اللّٰہُ عَلَیْہِ وَسَلَّم نے ارشاد فرمایا",
- "I_rasool": "رَسُولُ اللّٰہ صَلَّی اللّٰہُ عَلَیْہِ وَسَلَّم کی سنت",
- "J_words": "بِسْمِ اللّٰہ، اَلْحَمْدُ لِلّٰہ، اِنْ شَاءَ اللّٰہ، سُبْحَانَ اللّٰہ، صبر، تقویٰ، جنت",
- "K_hyphwords": "بس-م-اللہ، ال-حم-دو-لل-لاہ، ان-شا-اللہ، سب-حان-اللہ",
-}
-async def mk(k, t):
-    await edge_tts.Communicate(t, "ur-PK-AsadNeural", rate="-4%").save(f"tts_test/{k}.mp3")
-import os; os.makedirs("tts_test", exist_ok=True)
-for k, t in C.items():
-    asyncio.run(mk(k, t))
-m = WhisperModel("large-v3", device="cpu", compute_type="int8")
-out = {}
-for k, t in C.items():
-    segs, _ = m.transcribe(f"tts_test/{k}.mp3", language="ur", beam_size=5)
-    out[k] = {"in": t, "heard": " ".join(s.text for s in segs).strip()}
-    print(k, "|", out[k]["heard"], flush=True)
-json.dump(out, open("tts_test/result.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)
+os.makedirs("tts_test", exist_ok=True)
+T = ["Lisbon sits on seven hills above the Tagus River, where yellow trams climb narrow cobbled streets.",
+     "Local eateries serve iconic pastel de nata, warm custard tarts dusted with cinnamon.",
+     "Across the nation of Portugal, life moves at a gentle pace, with long lunches and late dinners."]
+async def mk(t, p, rate):
+    await edge_tts.Communicate(t, "en-GB-RyanNeural", rate=rate).save(p)
+def dur(p):
+    return float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", p],
+                                capture_output=True, text=True).stdout.strip() or 0)
+m = WhisperModel("small", device="cpu", compute_type="int8")
+out = {"user": [], "tts": []}
+segs, _ = m.transcribe("tts_test/user_atlas.mp3", language="en", word_timestamps=True)
+for s in segs:
+    out["user"].append(f"{s.start:.1f}-{s.end:.1f} {s.text}")
+    print("USER", out["user"][-1], flush=True)
+for i, t in enumerate(T):
+    for r in range(3):
+        p = f"tts_test/r{i}_{r}.mp3"
+        try:
+            asyncio.run(mk(t, p, "-6%"))
+            h = " ".join(s.text for s in m.transcribe(p, language="en")[0]).strip()
+            out["tts"].append({"in": t, "dur": dur(p), "heard": h})
+        except Exception as e:
+            out["tts"].append({"in": t, "err": str(e)[:200]})
+        print("TTS", out["tts"][-1], flush=True)
+json.dump(out, open("tts_test/atlas_probe.json", "w", encoding="utf-8"), ensure_ascii=False, indent=1)

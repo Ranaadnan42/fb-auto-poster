@@ -15,4 +15,4 @@ jobs:
       - name: Save
         run: |
           git config user.name auto-poster; git config user.email auto-poster@users.noreply.github.com
-          git add tts_test; git commit -qm "TTS probe"; git pull -q --rebase origin main; git push -q origin HEAD:main
+          git add tts_test/atlas_probe.json; git commit -qm "TTS probe"; git pull -q --rebase origin main; git push -q origin HEAD:main
