@@ -2,9 +2,7 @@
  "lang": "ur",
  "stock_clips": 13,
  "fallback_clips": 0,
- "errors": [
-  "tiktok: TikTok HTTP 503: "
- ],
+ "errors": [],
  "search_phrases": [
   "اخلاق حسنہ کا خلاصہ",
   "اخلاقی کہانیاں",
@@ -20,20 +18,19 @@
   "acha ikhlaq"
  ],
  "search": "اخلاق نبوی",
- "vision_checks": 57,
- "clips_rejected": 46,
+ "vision_checks": 35,
+ "clips_rejected": 26,
+ "photo_clips": 1,
  "sources": {
-  "pixabay": 11,
-  "commons": 1,
-  "openverse": 1
+  "commons": 2,
+  "pixabay": 11
  },
- "photo_clips": 4,
  "no_match": [
   "mosque sunset sky"
  ],
- "reel_minutes": 1.12,
- "time_utc": "2026-11-04 11:20",
- "title": "اخلاق نبوی کا واقعہ: جب نبی کریم نے بیمار یہودی بچے کی عیادت کی",
+ "reel_minutes": 1.01,
+ "time_utc": "2026-11-04 11:25",
+ "title": "اخلاق نبوی کا خوبصورت واقعہ: حضرت انسؓ کی ۱۰ سالہ خدمت کا سبق",
  "dry_run": false,
  "posted_ok": 1
 }
