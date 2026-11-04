@@ -1,13 +1,34 @@
 {
  "mode": "auto",
- "stock_clips": 48,
+ "stock_clips": 11,
  "fallback_clips": 0,
  "errors": [],
- "format": "cartoon",
- "long_minutes": 6.36,
- "series": "چمپا کلی اور ہوم ورک کا پہاڑ | قسط 1 part 3 (cartoon)",
- "laughs": 10,
- "time_utc": "2026-11-04 16:31",
- "title": "چمپا کلی اور ہوم ورک کا پہاڑ | قسط 1 | آخری قسط",
+ "format": "people",
+ "search_phrases": [
+  "funnymike moving to a new house",
+  "moving to our new house",
+  "moving to a new house alone"
+ ],
+ "search": "moving to our new house",
+ "reel_format": "har_ghar",
+ "vision_checks": 153,
+ "clips_rejected": 144,
+ "sources": {
+  "pixabay": 2,
+  "commons": 3
+ },
+ "no_match": [
+  "family packing moving boxes",
+  "old junk items box",
+  "broken kitchen crockery",
+  "wooden chair on top truck",
+  "broken glass plate floor",
+  "broken glass plate floor",
+  "boy guilty expression shocked"
+ ],
+ "laughs": 3,
+ "reel_minutes": 0.79,
+ "time_utc": "2026-11-04 18:36",
+ "title": "نئے گھر میں شفٹنگ اور ابّا کے آسان مشورے",
  "dry_run": false
 }
