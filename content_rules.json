@@ -2,98 +2,107 @@
  "islamic": {
   "avoid": [],
   "try": [
-   "Story of Prophet Musa and his staff miracle",
-   "The Hijrah: Prophet Muhammad's migration and reliance on Allah",
-   "Companion Bilal ibn Rabah's perseverance and call to prayer",
-   "Hadith on the virtue of smiling from the Prophet",
-   "Gratitude (shukr) lesson from the grateful servant in Surah Al‑Insan",
-   "Miracle of Isra and Mi'raj focusing on the significance of prayer"
+   "Prophet Musa’s (Moses) miracle of the Red Sea split",
+   "Virtues of giving Sadaqah al-Fitr during Ramadan",
+   "Lessons from the Battle of Badr on unity and reliance on Allah",
+   "Significance of Dhul Hijjah and the rites of Hajj",
+   "Power of gratitude (Shukr) – a companion’s thankfulness story",
+   "Prophet’s habit of visiting the sick (Riqaq) and its impact"
   ],
-  "note": "Page bohat repeat ho rahi hai, aksar wahi topics dhohraye ja rahe hain."
+  "note": "Page bohat repetitive lag rahi hai, aksar wahi topics dohraye ja rahe hain."
  },
  "funny": {
   "avoid": [
    "پپو کا رزلٹ اور انوکھا مشن series",
    "ببلو اور رشتہ آنٹی کا طوفان series",
    "چمپا کلی اور ہوم ورک کا پہاڑ series",
-   "Monday morning jokes",
-   "Rishta aunty topic"
+   "rishta aunty topic",
+   "monday morning topic",
+   "teacher vs students topic",
+   "duck animal videos",
+   "panda animal videos"
   ],
   "try": [
-   "پڑوسی کی نئی گاڑی اور ٹریفک کی ہنسی",
-   "نیا موبائل ڈیٹا پلان اور بیوی کی شکایت",
-   "دادی کی پرانی ریسپی اور نوجوانوں کی رائے",
-   "انٹرنیٹ سست ہونے پر گھر کا ڈرامہ",
-   "پہلا دن آفیس میں بوس کی غیر متوقع ٹاسک",
-   "سکول کے ہوم ورک کا نیا طریقہ - والدین کی مدد"
+   "Nani ki chai ki kahani aur traffic jam",
+   "Bhai ki online shopping fail aur funny return experience",
+   "School bus ka surprise driver with quirky passengers",
+   "Ramzan ke sehri ki kitchen disaster aur family jokes",
+   "Neighbour ki WiFi ki ladai aur funny negotiations",
+   "Bachon ka school exam anxiety aur Mom ki desi advice"
   ],
-  "note": "Page thodi repetitive lag rahi hai."
+  "note": "Page bohat repetitive hai, especially animal reels aur same series ka bar bar istemal."
  },
  "world": {
   "avoid": [
-   "Japan-focused videos",
-   "Europe affordability series"
+   "Japan focus",
+   "Honest pros/cons series"
   ],
   "try": [
-   "Living in Kenya: Cost, Safety & Daily Life",
-   "Moving to Mexico: What You Need to Know",
-   "South Korea vs Vietnam: Cost, Culture & Lifestyle Comparison",
-   "Exploring Morocco: History, Food, and Travel Tips",
-   "Best European Cities for Digital Nomads",
-   "Living in New Zealand: Jobs, Safety, and Lifestyle"
+   "Living in Kenya: Safety, Cost, and Culture",
+   "Exploring Iceland: Daily Life and Natural Wonders",
+   "A Day in Buenos Aires: Food, Work, and Leisure",
+   "South Korea Urban vs Rural Lifestyle Deep Dive",
+   "Vietnam Expat Experience 2025: Challenges and Rewards",
+   "New Zealand Living: Work Opportunities and Lifestyle"
   ],
   "note": "Page thodi repetitive lag rahi hai."
  },
  "world_short": {
-  "avoid": [],
-  "try": [
-   "5 Surprising Facts About Chile You Didn't Know",
-   "Cost of Living in Seoul, South Korea: Honest Guide",
-   "Hidden Gems in Portugal: 5 Lesser‑Known Spots",
-   "Traditional Food of Greece: 5 Must‑Try Dishes",
-   "Living in Nairobi, Kenya: Pros & Cons",
-   "60 Seconds in Budapest: Central Europe's Gem"
+  "avoid": [
+   "Japan",
+   "California",
+   "New York"
   ],
-  "note": "Page bohat repetitive hai"
+  "try": [
+   "What Life Really Costs in Seoul, South Korea",
+   "6 Surprising Facts About Kenya",
+   "Hidden Gems in Portugal: Lisbon and Beyond",
+   "Food Tour of Peru: 5 Must‑Try Dishes",
+   "London vs Dubai: Cost of Living Comparison",
+   "60 Seconds: Marrakech, Morocco"
+  ],
+  "note": "Page thodi repetitive lag rahi hai"
  },
  "frames": {
   "avoid": [
+   "Dubai",
    "Japan",
    "United Kingdom",
+   "Canada",
+   "Germany",
+   "Australia",
+   "Italy",
    "Spain"
   ],
   "try": [
-   "France Visa Guide for Pakistanis",
-   "Life in New Zealand",
-   "Job Opportunities in South Korea",
-   "Singapore vs Malaysia: Which is better for Pakistani expats",
-   "Cheapest countries for Pakistani students",
-   "Brazil Country Documentary in Urdu"
+   "Life in New Zealand: Nature and Job Market for Pakistanis",
+   "Norway: High Cost of Living vs High Salary Reality",
+   "Netherlands: Cycling Culture and Work-Life Balance",
+   "South Korea: K-Drama Locations and Tech Industry Jobs",
+   "Ireland: Tech Hub and English-speaking Environment"
   ],
-  "note": "Page thoda repetitive hai."
+  "note": "Page is highly repetitive with visa guides and life-in-country docs for the same set of Western countries."
  },
  "frames_short": {
   "avoid": [
-   "Dubai",
-   "Canada",
-   "Australia",
-   "Comparison"
+   "دبئی (Dubai)"
   ],
   "try": [
-   "Egypt: 5 must-visit historic sites",
-   "Nigeria: Cost of living in Lagos",
-   "Brazil: Food culture and local cuisine",
-   "South Africa: Safety and crime rates for expats",
-   "Argentina: Real estate market and property prices"
+   "برازیل کے 5 حیران کن ثقافتی حقائق | Brazil Culture Facts",
+   "ناروے میں ویزا کے بعد کی زندگی: 5 اہم نکات | Life in Norway",
+   "مصر کے 5 تاریخی راز | Egypt Historical Secrets",
+   "نیوزی لینڈ کے 5 عجیب و غریب قوانین | NZ Weird Laws",
+   "ترکی میں شادی کے 5 روایتی طریقے | Turkish Wedding Traditions",
+   "جنوبی افریقہ کے 5 مشہور قومی پارک | South Africa National Parks"
   ],
-  "note": "Page bohat repetitive hai."
+  "note": "Page is highly repetitive with Cost of Living, Visa, and Job topics; needs variety in facts and culture."
  },
  "_platforms": {
   "islamic": {
    "posts": 10,
-   "facebook": 5,
+   "facebook": 6,
    "youtube": 10,
-   "tiktok": 5
+   "tiktok": 6
   },
   "funny": {
    "posts": 10,
@@ -115,7 +124,7 @@
   },
   "frames": {
    "posts": 10,
-   "facebook": 7,
+   "facebook": 8,
    "youtube": 10,
    "tiktok": 0
   },

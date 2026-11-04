@@ -17,16 +17,28 @@
    "workflow": "blog.yml",
    "why": "Preventing crash when AI generates a duplicate topic; returning None allows the main loop to handle it gracefully.",
    "time": "2026-11-03T20:08:17.271990"
+  },
+  {
+   "commit": "61787fb77465ca6e649e098a0c6aeced36afa581",
+   "workflow": "frames.yml",
+   "why": "Script format validate karne ke liye taake error ki asal wajah pata chale.",
+   "time": "2026-11-04T00:33:15.992868"
   }
  ],
- "time_utc": "2026-11-03 21:07",
- "summary": "",
- "notes": [
-  "dimagh na chala: koi AI model na chala: 401 Client Error: Unauthorized for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key=AQ.Ab8RN6JEBLS_Wx4fjj01RK62vLMt1ueinioyF0xbkUJ2Ln3nZg"
- ],
+ "time_utc": "2026-11-04 00:33",
+ "summary": "Web Builder Promo ka 401 API key error hai (owner fix kare). Atlas Untold short ke liye script validation add ki hai taake format error pakda ja sake.",
+ "notes": [],
  "actions": [
-  "run 41706680182 (Website Agent / AI Employee (BizTools Hub) [post]) dobara chalaya"
+  "code fix push kiya (61787fb)"
  ],
- "edits": [],
- "needs_owner": []
+ "edits": [
+  {
+   "path": "world.py",
+   "why": "Script format validate karne ke liye taake error ki asal wajah pata chale."
+  }
+ ],
+ "needs_owner": [
+  "Web Builder Promo: API key invalid (401 UNAUTHENTICATED)",
+  "Atlas Untold / Frames of Life: AI quota khatam hone ki wajah se footage check nahi ho rahi"
+ ]
 }
