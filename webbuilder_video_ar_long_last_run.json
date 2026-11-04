@@ -1,7 +1,7 @@
 {
- "time_utc": "2026-11-03 02:05",
- "spotlight": "wholesale distributor",
- "post_id": "1677207414018583",
+ "time_utc": "2026-11-04 00:29",
+ "spotlight": "pharmacy",
+ "post_id": "2544693729359788",
  "error": null,
  "lang": "ar",
  "kind": "long",
@@ -9,5 +9,5 @@
  "fallback": 0,
  "errors": [],
  "mock": 16,
- "seconds": 130.5
+ "seconds": 129.5
 }
