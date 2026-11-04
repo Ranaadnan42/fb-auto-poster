@@ -36,16 +36,14 @@ for name, pid_k, tok_k in PAGES:
     rows = {}
     add = lambda d, k: d and rows.setdefault(d, {"photo": 0, "reel": 0, "long": 0, "story": 0, "text": 0}).__setitem__(k, rows[d][k] + 1)
     err = []
-    reel_ids = set()
-    try:
-        for v in get(f"{pid}/video_reels", tok, since=since, limit=100, fields="id,created_time"):
-            reel_ids.add(v["id"]); add(day(v["created_time"]), "reel")
-    except Exception as e: err.append(f"reels: {e}")
-    try:
-        for v in get(f"{pid}/videos", tok, since=since, limit=100, type="uploaded", fields="id,created_time,length"):
-            if v["id"] not in reel_ids and float(v.get("length") or 0) > 90:
-                add(day(v["created_time"]), "long")
-    except Exception as e: err.append(f"videos: {e}")
+    seen = set()
+    for ep in ("video_reels", "videos"):
+        try:
+            for v in get(f"{pid}/{ep}", tok, since=since, limit=100, fields="id,created_time,length"):
+                if v["id"] in seen: continue
+                seen.add(v["id"])
+                add(day(v["created_time"]), "long" if float(v.get("length") or 0) > 90 else "reel")
+        except Exception as e: err.append(f"{ep}: {e}")
     try:
         for p in get(f"{pid}/published_posts", tok, since=since, limit=100, fields="created_time,attachments{media_type,type}"):
             att = (p.get("attachments") or {}).get("data", [])
