@@ -26,7 +26,7 @@ PK = dt.timezone(dt.timedelta(hours=5))
 NOW = dt.datetime.now(dt.timezone.utc)
 TARGETS_FILE = "weekly_targets.json"
 OUT = "weekly_tasks.json"
-MAX_EXTRA = 4            # ek run mein zyada se zyada itni extra posts (GitHub par halka load)
+MAX_EXTRA = 1            # har page par ek run mein sirf 1 extra post (din mein 2 run = roz max 2 extra) - reach kharab na ho
 
 # page -> secrets, roz ka schedule (FB par), extra post kaise chalani hai (list = baari baari)
 PAGES = {
@@ -142,17 +142,19 @@ def main():
         t.setdefault("stories", t["reels"])          # target na likha ho to: jitni reels utni stories
         r = {"photos": f"{photos}/{t['photos']}", "reels": f"{reels}/{t['reels']}",
              "stories": f"{stories}/{t['stories']}", "extra": []}
+        left = MAX_EXTRA
         # story alag se nahi banti - har reel post hote hi wahi video story par bhi lagti hai (stories.py)
-        for kind, done, daily in (("photos", photos, cfg["daily_photos"]), ("reels", reels, cfg["daily_reels"]),
-                                  ("stories", stories, cfg["daily_reels"])):
+        for kind, done, daily in (("reels", reels, cfg["daily_reels"]), ("stories", stories, cfg["daily_reels"]),
+                                  ("photos", photos, cfg["daily_photos"])):   # pehle reel (reach zyada)
             if done < 0 or days_left <= 0:
                 continue
             coming = math.floor(daily * days_left * 0.85)      # 15% margin - koi post fail bhi ho jaye
             short = t[kind] - done - coming
             if kind == "stories" and short > 0:
                 short -= sum(int(x.split()[1]) for x in r["extra"] if x.startswith("reels:"))  # extra reels = extra stories
-            if short > 0:
-                n = dispatch(cfg["photo" if kind == "photos" else "reel"], min(short, MAX_EXTRA))
+            if short > 0 and left > 0:
+                n = dispatch(cfg["photo" if kind == "photos" else "reel"], min(short, left))
+                left -= n
                 r["extra"].append(f"{kind}: {n} extra chala di (kami {short})")
         rec["pages"][name] = r
         print(f"== {name}: {r}", flush=True)
