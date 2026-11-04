@@ -1,0 +1,47 @@
+{
+ "user": [
+  "0.0-2.9  Lisbon, portugal, targuss",
+  "4.3-7.6  Lisbon, lisbon",
+  "9.0-11.5  partel de natar, portugese",
+  "12.9-16.2  portugal, portugal",
+  "17.6-19.4  Lisbon, portugal"
+ ],
+ "tts": [
+  {
+   "in": "Lisbon sits on seven hills above the Tagus River, where yellow trams climb narrow cobbled streets.",
+   "err": "[Errno 2] No such file or directory: 'ffprobe'"
+  },
+  {
+   "in": "Lisbon sits on seven hills above the Tagus River, where yellow trams climb narrow cobbled streets.",
+   "err": "[Errno 2] No such file or directory: 'ffprobe'"
+  },
+  {
+   "in": "Lisbon sits on seven hills above the Tagus River, where yellow trams climb narrow cobbled streets.",
+   "err": "[Errno 2] No such file or directory: 'ffprobe'"
+  },
+  {
+   "in": "Local eateries serve iconic pastel de nata, warm custard tarts dusted with cinnamon.",
+   "err": "[Errno 2] No such file or directory: 'ffprobe'"
+  },
+  {
+   "in": "Local eateries serve iconic pastel de nata, warm custard tarts dusted with cinnamon.",
+   "err": "[Errno 2] No such file or directory: 'ffprobe'"
+  },
+  {
+   "in": "Local eateries serve iconic pastel de nata, warm custard tarts dusted with cinnamon.",
+   "err": "[Errno 2] No such file or directory: 'ffprobe'"
+  },
+  {
+   "in": "Across the nation of Portugal, life moves at a gentle pace, with long lunches and late dinners.",
+   "err": "[Errno 2] No such file or directory: 'ffprobe'"
+  },
+  {
+   "in": "Across the nation of Portugal, life moves at a gentle pace, with long lunches and late dinners.",
+   "err": "[Errno 2] No such file or directory: 'ffprobe'"
+  },
+  {
+   "in": "Across the nation of Portugal, life moves at a gentle pace, with long lunches and late dinners.",
+   "err": "[Errno 2] No such file or directory: 'ffprobe'"
+  }
+ ]
+}
