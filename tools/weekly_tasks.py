@@ -2,6 +2,7 @@
 Weekly Tasks agent - Facebook ke "This week's tasks" (reels + photo posts) hafte se 1 din PEHLE poore karna.
 
 FB hafta: Itwaar se Hafta. Hamari deadline: Jumma raat (Pakistan) = hafte ka 6th din khatam.
+Tasks: posts (photos), reels, stories. Story har reel ke saath khud lagti hai; stories kam hon to extra reel chalti hai.
 Har run (din mein 2 dafa, ai_employee.yml ke andar):
   1. Is hafte page par kitni reels aur photo posts lag chuki (Graph API se ginti).
   2. Roz ke schedule se deadline tak kitni aur lagengi.
@@ -42,7 +43,7 @@ PAGES = {
                        photo=[("webbuilder.yml", {"mode": m}) for m in ("pic_ar", "pic_en", "pic_ur")],
                        reel=[("webbuilder.yml", {"mode": m}) for m in ("reel_ar", "reel_en", "reel_ur")]),
 }
-DEFAULT_TARGETS = {"reels": 0, "photos": 0}
+DEFAULT_TARGETS = {"reels": 0, "photos": 0}   # "stories" na ho to = reels
 GROW = 1.2          # naye hafte ke targets abhi parhe nahi gaye -> pichhle hafte se 20% zyada maan lo
 
 
@@ -84,6 +85,23 @@ def count(pid, token, start):
     return photos, reels
 
 
+def count_stories(pid, token, start):
+    """Is hafte page par kitni stories lagi (har reel ke saath story bhi lagti hai)."""
+    try:
+        data = fb(f"{pid}/stories", token, since=int(start.timestamp()), limit=100).get("data", [])
+    except Exception:
+        return -1
+    n = 0
+    for st in data:
+        try:
+            t = float(st.get("creation_time") or 0)
+        except Exception:
+            t = dt.datetime.strptime(st["creation_time"], "%Y-%m-%dT%H:%M:%S%z").timestamp()
+        if t >= start.timestamp() and (st.get("status") or "PUBLISHED").upper() == "PUBLISHED":
+            n += 1
+    return n
+
+
 def dispatch(options, n):
     ok = 0
     for i in range(n):
@@ -120,12 +138,19 @@ def main():
         except Exception as e:
             rec["pages"][name] = {"error": str(e)}
             continue
-        r = {"photos": f"{photos}/{t['photos']}", "reels": f"{reels}/{t['reels']}", "extra": []}
-        for kind, done, daily in (("photos", photos, cfg["daily_photos"]), ("reels", reels, cfg["daily_reels"])):
+        stories = count_stories(pid, token, start)
+        t.setdefault("stories", t["reels"])          # target na likha ho to: jitni reels utni stories
+        r = {"photos": f"{photos}/{t['photos']}", "reels": f"{reels}/{t['reels']}",
+             "stories": f"{stories}/{t['stories']}", "extra": []}
+        # story alag se nahi banti - har reel post hote hi wahi video story par bhi lagti hai (stories.py)
+        for kind, done, daily in (("photos", photos, cfg["daily_photos"]), ("reels", reels, cfg["daily_reels"]),
+                                  ("stories", stories, cfg["daily_reels"])):
             if done < 0 or days_left <= 0:
                 continue
             coming = math.floor(daily * days_left * 0.85)      # 15% margin - koi post fail bhi ho jaye
             short = t[kind] - done - coming
+            if kind == "stories" and short > 0:
+                short -= sum(int(x.split()[1]) for x in r["extra"] if x.startswith("reels:"))  # extra reels = extra stories
             if short > 0:
                 n = dispatch(cfg["photo" if kind == "photos" else "reel"], min(short, MAX_EXTRA))
                 r["extra"].append(f"{kind}: {n} extra chala di (kami {short})")
