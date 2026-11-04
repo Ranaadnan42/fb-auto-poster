@@ -1433,6 +1433,9 @@ def _main():
             log(f"Topic: {plan['series']} | {plan['subject']}")
             facts = gather_facts(plan)
             script = write_script(plan, facts)
+            if not isinstance(script, dict) or 'chapters' not in script:
+                log(f"Invalid script format: {type(script)}")
+                raise ValueError("Script format error")
             chapters_ts = build(script, plan, OUT_FILE)
             break
         except Exception as e:
