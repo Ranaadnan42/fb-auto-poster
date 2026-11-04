@@ -1,8 +1,10 @@
 {
  "lang": "ur",
- "stock_clips": 14,
+ "stock_clips": 13,
  "fallback_clips": 0,
- "errors": [],
+ "errors": [
+  "tiktok: TikTok HTTP 503: "
+ ],
  "search_phrases": [
   "اخلاق حسنہ کا خلاصہ",
   "اخلاقی کہانیاں",
@@ -18,17 +20,20 @@
   "acha ikhlaq"
  ],
  "search": "اخلاق نبوی",
- "vision_checks": 39,
- "clips_rejected": 20,
- "photo_clips": 2,
+ "vision_checks": 57,
+ "clips_rejected": 46,
  "sources": {
-  "openverse": 1,
-  "pixabay": 12,
-  "commons": 1
+  "pixabay": 11,
+  "commons": 1,
+  "openverse": 1
  },
- "reel_minutes": 1.14,
- "time_utc": "2026-11-04 11:21",
- "title": "اخلاق نبوی: دشمن کے ساتھ حسنِ سلوک اور دل جیتنے کا نبوی طریقہ",
+ "photo_clips": 4,
+ "no_match": [
+  "mosque sunset sky"
+ ],
+ "reel_minutes": 1.12,
+ "time_utc": "2026-11-04 11:20",
+ "title": "اخلاق نبوی کا واقعہ: جب نبی کریم نے بیمار یہودی بچے کی عیادت کی",
  "dry_run": false,
  "posted_ok": 1
 }
