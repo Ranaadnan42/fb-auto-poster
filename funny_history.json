@@ -1096,5 +1096,17 @@
   "topic": "Eidi collection",
   "style": "over-the-top breaking-news style",
   "reel_format": "latifay"
+ },
+ {
+  "date": "2026-11-04 09:01",
+  "mode": "reel",
+  "format": "people",
+  "id": "1928369331472310",
+  "title": "ہر گھر کا کوکنگ ڈسائسٹر اور نیا ماسٹر شیف",
+  "animal": "people",
+  "topic": "cooking disaster",
+  "search": "cooking disaster",
+  "style": "sarcastic narrator roasting the situation (gently)",
+  "reel_format": "har_ghar"
  }
 ]

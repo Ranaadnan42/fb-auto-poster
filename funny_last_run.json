@@ -1,7 +1,7 @@
 {
- "mode": "reel",
- "stock_clips": 10,
- "fallback_clips": 0,
+ "mode": "auto",
+ "stock_clips": 4,
+ "fallback_clips": 1,
  "errors": [],
  "format": "people",
  "search_phrases": [
@@ -10,29 +10,27 @@
   "cooking fail compilation",
   "cooking jokes",
   "cooking humor",
-  "cooking disasters",
-  "cooking with fun"
+  "cooking disasters"
  ],
  "search": "cooking disaster",
- "reel_format": "types",
- "vision_checks": 148,
- "clips_rejected": 145,
- "sources": {
-  "pixabay": 7,
-  "openverse": 1
- },
+ "reel_format": "har_ghar",
+ "vision_checks": 160,
+ "clips_rejected": 156,
  "no_match": [
-  "burnt rice pot",
-  "man smiling kitchen",
-  "drinking tea confused",
-  "boy holding pan lid",
-  "messy kitchen counter",
-  "angry mother kitchen",
-  "friends laughing dining table"
+  "man making tea kitchen",
+  "mother angry talking",
+  "adding salt cooking dish",
+  "family eating dinner confused",
+  "father yelling angry son",
+  "friends laughing pointing screen"
  ],
+ "sources": {
+  "pixabay": 3,
+  "commons": 1
+ },
  "laughs": 4,
- "reel_minutes": 0.95,
- "time_utc": "2026-11-03 22:18",
- "title": "کوکنگ ڈیزاسٹر اور کچن کے 3 شاہکار",
- "dry_run": true
+ "reel_minutes": 0.75,
+ "time_utc": "2026-11-04 09:01",
+ "title": "ہر گھر کا کوکنگ ڈسائسٹر اور نیا ماسٹر شیف",
+ "dry_run": false
 }
