@@ -1,28 +1,29 @@
 {
- "time_utc": "2026-11-04 00:33",
+ "time_utc": "2026-11-04 11:14",
  "fixed": [],
  "problems": [
   "Web Builder Promo: fail hua (2026-11-03T22:00 UTC) run 41726817370",
   "Atlas Untold - lambi video: 909 clips bina agent check ke (AI quota khatam) - footage ghalat ho sakti hai",
   "Atlas Untold - short: error - list indices must be integers or slices, not str",
-  "Frames of Life - lambi video: 1186 clips bina agent check ke (AI quota khatam) - footage ghalat ho sakti hai",
-  "Frames of Life - lambi video: in cheezon ki sahi footage nahi mili: people cycling in Paris street, Paris landmarks panoramic view",
-  "Frames of Life - short: 255 clips bina agent check ke (AI quota khatam) - footage ghalat ho sakti hai"
+  "Frames of Life - lambi video: 1565 clips bina agent check ke (AI quota khatam) - footage ghalat ho sakti hai",
+  "Frames of Life - lambi video: in cheezon ki sahi footage nahi mili: Pakistani chicken biryani plate",
+  "Web Builder reel (Arabic): 34 ghante se nahi chala"
  ],
  "ok": [
   "Website Agent / AI Employee (BizTools Hub): 1 kamyab run",
-  "Cinematic AI Stories (YouTube): 9 kamyab run",
+  "Cinematic AI Stories (YouTube): 7 kamyab run",
   "Comment Helper search: 2 kamyab run",
   "Demo website photos (Pixabay): 4 kamyab run",
-  "Frames of Life (Urdu World Documentaries): 3 kamyab run",
-  "Funny Videos Poster: 8 kamyab run",
-  "Growth Bot (comment replies): 4 kamyab run",
+  "Frames of Life (Urdu World Documentaries): 4 kamyab run",
+  "Funny Videos Poster: 9 kamyab run",
+  "Growth Bot (comment replies): 3 kamyab run",
   "Live Replies (FB comments): 1 kamyab run",
-  "Daily Auto Poster: 11 kamyab run",
-  "Daily Photo Posts: 22 kamyab run",
-  "Pinterest Pins: 3 kamyab run",
-  "Web Builder Promo: 21 kamyab run",
-  "Atlas Untold (World Documentaries): 5 kamyab run",
-  "Atlas Untold - short: 14 clips, agent ne 63 check kin, 60 ghalat clips hata din"
+  "Daily Auto Poster: 10 kamyab run",
+  "Daily Photo Posts: 25 kamyab run",
+  "Pinterest Pins: 2 kamyab run",
+  "Web Builder Promo: 19 kamyab run",
+  "Atlas Untold (World Documentaries): 4 kamyab run",
+  "Atlas Untold - short: 14 clips, agent ne 63 check kin, 60 ghalat clips hata din",
+  "Frames of Life - short: 18 clips, agent ne 155 check kin, 142 ghalat clips hata din"
  ]
 }
