@@ -1,6 +1,6 @@
 {
  "lang": "ur",
- "stock_clips": 13,
+ "stock_clips": 14,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
@@ -18,16 +18,17 @@
   "acha ikhlaq"
  ],
  "search": "اخلاق نبوی",
- "vision_checks": 51,
- "clips_rejected": 26,
- "sources": {
-  "pixabay": 9,
-  "commons": 4
- },
+ "vision_checks": 39,
+ "clips_rejected": 20,
  "photo_clips": 2,
- "reel_minutes": 1.15,
+ "sources": {
+  "openverse": 1,
+  "pixabay": 12,
+  "commons": 1
+ },
+ "reel_minutes": 1.14,
  "time_utc": "2026-11-04 11:21",
- "title": "اخلاق نبوی کا خوبصورت واقعہ: بیمار یہودی بچے کی عیادت",
+ "title": "اخلاق نبوی: دشمن کے ساتھ حسنِ سلوک اور دل جیتنے کا نبوی طریقہ",
  "dry_run": false,
  "posted_ok": 1
 }
