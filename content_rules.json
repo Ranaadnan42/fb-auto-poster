@@ -4,14 +4,13 @@
    "Dhikr for inner peace"
   ],
   "try": [
-   "Prophet Muhammad’s Hijrah: Trust in Allah during migration",
-   "Companion Bilal’s perseverance under torture",
-   "Quranic story of Prophet Yunus and the whale: repentance lesson",
-   "Hadith on the virtue of smiling and its impact",
-   "Lesson from Surah Ibrahim (14:7) on gratitude with practical steps",
-   "Sadaqah Jariyah example: planting trees for lasting charity"
+   "Prophet Musa’s trust at the Red Sea split",
+   "Prophet Dawud’s gratitude after receiving Zabur",
+   "Isra and Mi'raj: spiritual lessons of the night journey",
+   "Ramadan charity: companion who fed an orphan family",
+   "Salat al-Istikhara: real-life decision through prayer"
   ],
-  "note": "Page bohat repeat ho rahi hai, aksar wahi topics dhohraye ja rahe hain."
+  "note": "Page bohat repetitive hai"
  },
  "funny": {
   "avoid": [
@@ -48,20 +47,17 @@
  },
  "world_short": {
   "avoid": [
-   "Japan",
-   "California",
-   "New York",
-   "Dubai, UAE"
+   "Would You Live in"
   ],
   "try": [
-   "Tbilisi, Georgia: Cost of Living and Must-See Spots",
-   "Lima, Peru: 5 Traditional Dishes You Must Try",
-   "Masai Mara, Kenya: Secret Safari Spots Off the Beaten Path",
-   "Lisbon vs Porto: Wage and Living Cost Comparison in Portugal",
-   "Seoul, South Korea: 6 Surprising Facts You Didn't Know",
-   "Patagonia, Argentina: Hidden Natural Wonders to Explore"
+   "What Life Really Costs in Nairobi, Kenya",
+   "6 Surprising Facts About Portugal",
+   "Hidden Gems in Portugal",
+   "Would You Live in Lisbon, Portugal?",
+   "Portugal in 60 Seconds: The Ultimate City Guide",
+   "Cost of Living in Lagos, Nigeria"
   ],
-  "note": "Haan, page ka content kaafi repetitive lag raha hai."
+  "note": "Page thodi repetitive lag rahi hai."
  },
  "frames": {
   "avoid": [
@@ -98,9 +94,9 @@
  "_platforms": {
   "islamic": {
    "posts": 10,
-   "facebook": 6,
+   "facebook": 8,
    "youtube": 10,
-   "tiktok": 6
+   "tiktok": 7
   },
   "funny": {
    "posts": 10,
