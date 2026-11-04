@@ -11,17 +11,12 @@
    "workflow": "",
    "why": "llama-3.3-70b-versatile retired (404); replace with current Groq model llama-3.1-405b",
    "time": "2026-11-02T20:37:10.685381"
-  },
-  {
-   "commit": "cd5d58071e648db1c37b1338fed0c0889841f3f4",
-   "workflow": "blog.yml",
-   "why": "Preventing crash when AI generates a duplicate topic; returning None allows the main loop to handle it gracefully.",
-   "time": "2026-11-03T20:08:17.271990"
   }
  ],
- "time_utc": "2026-11-04 12:12",
+ "time_utc": "2026-11-04 21:23",
  "summary": "",
  "notes": [
+  "pichhla fix (cd5d580) kaam kar gaya: Preventing crash when AI generates a duplicate topic; returning None allows the main loop to handle it gracefully.",
   "dimagh na chala: koi AI model na chala: 401 Client Error: Unauthorized for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key=AQ.Ab8RN6Inui1CqX6mQigIMlSYFvkTFoTitDS8jZx79k147ZWasQ"
  ],
  "actions": [],

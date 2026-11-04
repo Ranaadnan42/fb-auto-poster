@@ -1,14 +1,16 @@
 {
  "islamic": {
   "avoid": [
-   "Dhikr for inner peace"
+   "Ibrahim’s Fiery Test",
+   "dhikr for peace"
   ],
   "try": [
-   "Prophet Musa’s trust at the Red Sea split",
-   "Prophet Dawud’s gratitude after receiving Zabur",
-   "Isra and Mi'raj: spiritual lessons of the night journey",
-   "Ramadan charity: companion who fed an orphan family",
-   "Salat al-Istikhara: real-life decision through prayer"
+   "Prophet Musa’s parting of the Red Sea and reliance on Allah",
+   "Prophet Nuh’s perseverance while building the Ark",
+   "Companion Bilal ibn Rabah’s story of steadfastness in call to prayer",
+   "Companion Khadija’s charitable deeds and support for the Prophet",
+   "Companion Salman al-Farsi’s search for truth and conversion to Islam",
+   "Companion Abu Bakr’s generosity and leadership during the early Caliphate"
   ],
   "note": "Page bohat repetitive hai"
  },
@@ -16,87 +18,84 @@
   "avoid": [
    "پپو کا رزلٹ اور انوکھا مشن series",
    "چمپا کلی اور ہوم ورک کا پہاڑ series",
-   "Monday morning topic",
-   "Rishta aunty topic",
-   "Teacher vs students topic",
-   "Bijli ka bill topic"
+   "پیر کی صبح (Monday morning) theme",
+   "Rishta aunty scenario",
+   "Teacher vs students scenario",
+   "بارش کامیڈی ویڈیو: پیر کی صبح اور باس کا سرپرائز"
   ],
   "try": [
-   "Wi‑Fi buffering ka drama ghar mein",
-   "Neighbour ke baby ki raat ki cheekh aur desi solution",
-   "Ramzan Sehri ki kitchen disaster aur surprise",
-   "Online grocery delivery ka unexpected twist",
-   "Mehndi artist ki wedding mishap aur funny commentary",
-   "School bus driver ki route ki funny kahani"
+   "School bus late arrival ka drama",
+   "Neighbour ki Wi‑Fi password ki ladai",
+   "Maa ki biryani banane ki disaster",
+   "Online grocery delivery ka galat address mishap",
+   "Mobile data bill shock ka comedy sketch",
+   "Desi wedding baraat parking ka hungama"
   ],
-  "note": "Page bohat repetitive hai, especially animal series aur repeat topics."
+  "note": "Page thodi repetitive lag rahi hai."
  },
  "world": {
   "avoid": [
-   "Japan (multiple videos)"
+   "Japan"
   ],
   "try": [
-   "Living in Kenya: Cost, Safety & Daily Life",
-   "Moving to Mexico: What Nobody Tells You",
-   "South Korea vs Japan: Lifestyle, Cost & Culture Comparison",
-   "Exploring Morocco: History, Food, and Travel Tips",
-   "Retiring in Greece: Pros, Cons & 2025 Outlook",
-   "Living in New Zealand: Affordable Cities and Lifestyle"
+   "Living in Vietnam: Cost, Culture, and Daily Life",
+   "South Korea vs Japan: Lifestyle and Expenses",
+   "Moving to Mexico: What Expats Need to Know",
+   "Exploring New Zealand: Nature, Cities, and Cost of Living",
+   "Retiring in Greece: Benefits and Challenges",
+   "Urban Life in Berlin: History, Culture, and Affordability"
   ],
-  "note": "Page thodi repetitive lag rahi hai."
+  "note": "Page thodi repetitive lag rahi hai"
  },
  "world_short": {
   "avoid": [
-   "Would You Live in"
+   "Japan",
+   "California",
+   "London",
+   "Would You Live in..."
   ],
   "try": [
-   "What Life Really Costs in Nairobi, Kenya",
-   "6 Surprising Facts About Portugal",
-   "Hidden Gems in Portugal",
-   "Would You Live in Lisbon, Portugal?",
-   "Portugal in 60 Seconds: The Ultimate City Guide",
-   "Cost of Living in Lagos, Nigeria"
+   "5 Underrated Street Foods in Seoul, South Korea",
+   "Living in Buenos Aires: The Real Cost of Life",
+   "Top 5 Natural Wonders in New Zealand",
+   "Dubai vs Singapore: Which City is Better for Expat Life?",
+   "Traditional Cuisine of Peru: 5 Dishes You Must Try",
+   "Secret Spots in Greece Most Tourists Miss"
   ],
-  "note": "Page thodi repetitive lag rahi hai."
+  "note": "Page is repetitive with Japan, California, and London appearing multiple times, and title formats are heavily reused."
  },
  "frames": {
-  "avoid": [
-   "Dubai",
-   "Italy",
-   "Spain",
-   "France",
-   "Malta",
-   "Australia",
-   "Canada",
-   "Germany"
-  ],
-  "try": [
-   "Life in Netherlands: Student Visa & Part-time Jobs",
-   "Norway: High Cost of Living vs High Salary",
-   "South Korea: Work-Stay Visa & Factory Jobs",
-   "New Zealand: Skilled Migrant Category Guide",
-   "Qatar: Construction & Engineering Opportunities"
-  ],
-  "note": "Page is repetitive on European visa guides and Gulf city comparisons; needs more diverse destinations."
- },
- "frames_short": {
   "avoid": [],
   "try": [
-   "Cost of Living in Berlin, Germany (since Germany jobs were covered, now focus on",
-   "5 Hidden Gems in Vietnam (new country, travel/facts angle)",
-   "Life in Lisbon, Portugal: Visa & Cost (new European country)",
-   "5 Famous Foods in Turkey (since Istanbul tour was done, now focus on food)",
-   "Cost of Living in Singapore (new Asian hub, high demand)",
-   "5 Tips for Working in Qatar (since Doha cost was covered, now focus on jobs)"
+   "Brazil Visa Guide for Pakistanis",
+   "South Africa Life in South Africa",
+   "New Zealand Job Opportunities for Pakistanis",
+   "Norway Education System for Pakistani Students",
+   "Sweden Travel Guide for Pakistanis"
   ],
-  "note": "Page is slightly repetitive on 'Cost of Living' for Gulf cities and Visa guides; needs more variety in countries and angles like food or hidden gems."
+  "note": "Page thoda repetitive hai."
+ },
+ "frames_short": {
+  "avoid": [
+   "Comparison",
+   "Dubai"
+  ],
+  "try": [
+   "Egypt",
+   "Nigeria",
+   "Philippines",
+   "Bangladesh",
+   "Sri Lanka",
+   "Kenya"
+  ],
+  "note": "Haan, page bohat repetitive hai."
  },
  "_platforms": {
   "islamic": {
    "posts": 10,
-   "facebook": 8,
+   "facebook": 7,
    "youtube": 10,
-   "tiktok": 7
+   "tiktok": 6
   },
   "funny": {
    "posts": 10,
