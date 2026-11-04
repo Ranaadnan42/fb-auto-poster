@@ -1,36 +1,33 @@
 {
  "lang": "ur",
- "stock_clips": 13,
+ "stock_clips": 41,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "اخلاق حسنہ کا خلاصہ",
-  "اخلاقی کہانیاں",
-  "اخلاق حسنہ",
-  "اخلاقیات پر تقریر",
-  "اخلاق نبوی",
-  "اخلاق کیا ہے",
-  "اخلاق نبوی کا خلاصہ",
-  "اخلاق مصطفی",
-  "اخلاق میں بڑی طاقت ہے کہانی",
-  "achay ikhlaq",
-  "achay akhlaq by tariq jameel",
-  "acha ikhlaq"
+  "صحابہ کرام کے واقعات پشتو",
+  "sahaba ka waqia tariq jameel",
+  "sahaba ka waqia ajmal raza qadri",
+  "sahaba ka waqia peer ajmal raza qadri",
+  "sahaba ka waqia maulana tariq jameel",
+  "sahaba ke waqiat",
+  "sahaba ka waqia engineer muhammad ali mirza",
+  "sahaba ka waqia mufti tariq masood",
+  "sahaba ka waqia dr israr ahmed",
+  "sahaba ka waqia tariq masood"
  ],
- "search": "اخلاق نبوی",
- "vision_checks": 35,
- "clips_rejected": 26,
- "photo_clips": 1,
+ "search": "sahaba ke waqiat",
+ "vision_checks": 128,
  "sources": {
-  "commons": 2,
-  "pixabay": 11
+  "pixabay": 25,
+  "commons": 12,
+  "nasa": 3,
+  "openverse": 1
  },
- "no_match": [
-  "mosque sunset sky"
- ],
- "reel_minutes": 1.01,
- "time_utc": "2026-11-04 11:25",
- "title": "اخلاق نبوی کا خوبصورت واقعہ: حضرت انسؓ کی ۱۰ سالہ خدمت کا سبق",
+ "clips_rejected": 59,
+ "photo_clips": 7,
+ "long_minutes": 4.97,
+ "time_utc": "2026-11-04 17:20",
+ "title": "صحابہ کے واقعات: ایک درخت کے بدلے پورا باغ قربان کر دیا",
  "dry_run": false,
  "posted_ok": 1
 }
