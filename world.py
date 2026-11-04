@@ -907,14 +907,23 @@ def get_clips(scene, country_words, job, prefix, need):
     got = []
     ri = 0
     # har scene par zyada se zyada itni clips check (warna lambi video 5-6 ghante mein banti thi aur post na hoti)
+    # Har round ki apni had: videos 10, asli photos (Wikipedia/Commons - sab se sahi) 8, naye naam 6, jagah 4.
+    # Is se ek round ki had khatam ho to agla (zyada pakka) round phir bhi chalta hai - sahi footage pehle,
+    # magar lambi video 5-6 ghante na atke. Har clip phir bhi vision/tag check se guzarti hai.
     late = time.time() - RUN_T0 > (150 if LONG else 35) * 60
-    cap = [6 if late else (18 if LONG else 24)]
+    CAPS = {"video": 10, "photo": 8, "alt_video": 6, "alt_photo": 6, "place": 4}
+    alt_done = [False]
+    cap = [0]
     while ri < len(rounds):
       kind, queries, accept, want_r = rounds[ri]
       ri += 1
-      if got or cap[0] <= 0:          # pehle (zyada theek) round se clip mil gayi to aage nahi
+      if got:          # pehle (zyada theek) round se clip mil gayi to aage nahi
         break
+      key = "place" if (kind == "video" and queries and queries[0].endswith(" aerial")) else \
+          (("alt_" + kind) if alt_done[0] and kind != "alt" else kind)
+      cap[0] = max(2, CAPS.get(key, 6) // (2 if late else 1))
       if kind == "alt":
+        alt_done[0] = True
         aq = alt_queries(want, said)
         if aq:
             aw = sorted({w for q in aq for w in _words(q) if len(w) > 3 and w not in GENERIC})
