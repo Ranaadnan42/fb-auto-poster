@@ -408,7 +408,7 @@ def voice_minutes(script, job):
     scenes = [s for s in script["scenes"] if (s.get("text") or "").strip()]
     for i, sc in enumerate(scenes):
         a = os.path.join(job, f"a{i}.mp3")
-        tts((sc.get("say") or sc["text"]).strip(), a)   # say = mushkil lafz phonetic (TTS); subtitle `text` hi
+        tts(spoken_text(sc, sc["text"]), a)   # say = mushkil lafz phonetic (TTS); subtitle `text` hi
         total += duration(a) + 0.5
     script["scenes"] = scenes
     return total / 60
@@ -482,6 +482,12 @@ def clean_for_voice(text):
         t = re.sub(r"\(?\s*(ﷺ|\u0610|PBUH|P\.B\.U\.H\.?|SAWS|SAW|S\.A\.W\.?)\s*\)?", " peace be upon him ", t)
     return re.sub(r"\s{2,}", " ", t).strip()
 
+
+
+def spoken_text(sc, text):
+    """`say` sirf tab jab poora jumla ho - AI kabhi sirf mushkil lafz likh deta hai, phir awaaz adhoori bolti hai."""
+    say = (sc.get("say") or "").strip()
+    return say if len(say.split()) >= 0.7 * len(text.split()) else text.strip()
 
 def tts(text, path):
     text = clean_for_voice(text)
@@ -773,7 +779,7 @@ def build_scene(job, i, sc, w, h, title):
     text = (sc.get("text") or "").strip()
     audio = f"a{i}.mp3"
     if not os.path.exists(os.path.join(job, audio)):
-        tts((sc.get("say") or text).strip(), os.path.join(job, audio))   # say = phonetic (TTS); subtitle `text` hi
+        tts(spoken_text(sc, text), os.path.join(job, audio))   # say = phonetic (TTS); subtitle `text` hi
     dur = duration(os.path.join(job, audio)) + 0.5
     k = max(1, min(4, round(dur / 8)))                     # har ~8 second baad naya clip
     # pehle WOHI cheez jiska is scene mein zikr ho raha hai (khaana, janwar, jagah...);

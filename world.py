@@ -250,6 +250,7 @@ VISION_KEYS = [k for k in dict.fromkeys([GEMINI_KEY, os.environ.get("GEMINI_SPAR
 def _resting(model, ki=0):
     return (ki, model) in _DEAD or time.time() - _SLOW.get(model, 0) < VISION_REST_S
 VISION_TIMEOUT_S = 40  # Google busy ho to jawab der se aata hai - 25s par bohat checks zaaya ho rahe the
+RUN_T0 = time.time()
 VISION_WAIT_BUDGET_S = 75 * 60   # poori run mein vision ke intezar ka zyada se zyada waqt (accuracy pehle, magar run atke nahi)
 _VWAITED = [0.0]
 _vclients = {}
@@ -905,10 +906,13 @@ def get_clips(scene, country_words, job, prefix, need):
     rounds.insert(2, ("alt", [], subj_accept, want))      # na mile -> agent naye naam soch kar dobara dhoonde
     got = []
     ri = 0
+    # har scene par zyada se zyada itni clips check (warna lambi video 5-6 ghante mein banti thi aur post na hoti)
+    late = time.time() - RUN_T0 > (150 if LONG else 35) * 60
+    cap = [6 if late else (18 if LONG else 24)]
     while ri < len(rounds):
       kind, queries, accept, want_r = rounds[ri]
       ri += 1
-      if got:          # pehle (zyada theek) round se clip mil gayi to aage nahi
+      if got or cap[0] <= 0:          # pehle (zyada theek) round se clip mil gayi to aage nahi
         break
       if kind == "alt":
         aq = alt_queries(want, said)
@@ -918,7 +922,7 @@ def get_clips(scene, country_words, job, prefix, need):
             REPORT["alt_searches"] = REPORT.get("alt_searches", 0) + 1
         continue
       for q in queries:
-        if len(got) >= need:
+        if len(got) >= need or cap[0] <= 0:
             break
         if kind == "video":
             cands = pexels_search(q) + pixabay_search(q) + commons_search(q, True)
@@ -928,13 +932,14 @@ def get_clips(scene, country_words, job, prefix, need):
         cands.sort(key=lambda c: -_score(c["text"], accept))       # sab se mutabiq pehle
         tries = 0
         for c in cands:
-            if len(got) >= need or tries >= 8:
+            if len(got) >= need or tries >= 8 or cap[0] <= 0:
                 break
             if c["id"] in USED:
                 continue
             if accept and not any(w in c["text"] for w in accept):
                 continue
             tries += 1
+            cap[0] -= 1
             path = os.path.join(job, f"{prefix}_{len(got)}.mp4")
             src = path + (".jpg" if kind == "photo" else "")
             try:
@@ -1200,7 +1205,9 @@ def build(script, plan, out_path):
     map_clip = None
     for n, (ci, si, cname, sc) in enumerate(scenes):
         text = sc["text"].strip()
-        spoken = (sc.get("say") or text).strip()        # TTS ke liye (mushkil foreign lafz phonetic); subtitle `text` hi rehta hai
+        spoken = (sc.get("say") or "").strip()          # TTS ke liye (mushkil foreign lafz phonetic); subtitle `text` hi rehta hai
+        if len(spoken.split()) < 0.7 * len(text.split()):  # AI ne "say" mein sirf naam likhe -> awaaz sirf "Lisbon, Portugal" bolti thi
+            spoken = text
         tts(spoken, os.path.join(job, f"a{n}.mp3"))
         dur = duration(os.path.join(job, f"a{n}.mp3")) + 0.45
         need = max(1, min(4, math.ceil(dur / 5.5)))
