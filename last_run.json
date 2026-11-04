@@ -1,33 +1,34 @@
 {
- "lang": "ur",
- "stock_clips": 41,
+ "lang": "en",
+ "stock_clips": 9,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "صحابہ کرام کے واقعات پشتو",
-  "sahaba ka waqia tariq jameel",
-  "sahaba ka waqia ajmal raza qadri",
-  "sahaba ka waqia peer ajmal raza qadri",
-  "sahaba ka waqia maulana tariq jameel",
-  "sahaba ke waqiat",
-  "sahaba ka waqia engineer muhammad ali mirza",
-  "sahaba ka waqia mufti tariq masood",
-  "sahaba ka waqia dr israr ahmed",
-  "sahaba ka waqia tariq masood"
+  "power of dua hisham abu yusuf",
+  "power of dua in islam",
+  "power of dua mufti menk",
+  "power of dua omar suleiman",
+  "power of dua book",
+  "power of duality",
+  "power of dua bilal assad",
+  "power of dua nouman ali khan",
+  "power of dua story"
  ],
- "search": "sahaba ke waqiat",
- "vision_checks": 128,
+ "search": "power of dua in islam",
+ "vision_checks": 37,
  "sources": {
-  "pixabay": 25,
-  "commons": 12,
-  "nasa": 3,
+  "pixabay": 7,
+  "commons": 1,
   "openverse": 1
  },
- "clips_rejected": 59,
- "photo_clips": 7,
- "long_minutes": 4.97,
- "time_utc": "2026-11-04 17:20",
- "title": "صحابہ کے واقعات: ایک درخت کے بدلے پورا باغ قربان کر دیا",
+ "clips_rejected": 19,
+ "no_match": [
+  "Zabur"
+ ],
+ "photo_clips": 1,
+ "reel_minutes": 0.82,
+ "time_utc": "2026-11-04 18:47",
+ "title": "The Power of Dua in Islam: How Gratitude Transforms Your Life",
  "dry_run": false,
  "posted_ok": 1
 }
