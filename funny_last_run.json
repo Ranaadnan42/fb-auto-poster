@@ -1,36 +1,35 @@
 {
- "mode": "auto",
- "stock_clips": 4,
- "fallback_clips": 1,
+ "mode": "reel",
+ "stock_clips": 10,
+ "fallback_clips": 0,
  "errors": [],
  "format": "people",
  "search_phrases": [
-  "cooking disaster",
-  "cooking fail",
-  "cooking fail compilation",
-  "cooking jokes",
-  "cooking humor",
-  "cooking disasters"
+  "mechanical hacks 5 minute crafts",
+  "mechanical life hacks",
+  "5 minute crafts mechanic",
+  "mechanical comedy video",
+  "5 minute comedy video",
+  "mechanic comedian"
  ],
- "search": "cooking disaster",
- "reel_format": "har_ghar",
- "vision_checks": 160,
- "clips_rejected": 156,
- "no_match": [
-  "man making tea kitchen",
-  "mother angry talking",
-  "adding salt cooking dish",
-  "family eating dinner confused",
-  "father yelling angry son",
-  "friends laughing pointing screen"
- ],
+ "search": "5 minute comedy video",
+ "reel_format": "types",
+ "vision_checks": 103,
  "sources": {
-  "pixabay": 3,
-  "commons": 1
+  "pixabay": 7,
+  "commons": 3
  },
- "laughs": 4,
- "reel_minutes": 0.75,
- "time_utc": "2026-11-04 09:01",
- "title": "ہر گھر کا کوکنگ ڈسائسٹر اور نیا ماسٹر شیف",
+ "clips_rejected": 93,
+ "no_match": [
+  "man drinking hot tea",
+  "angry middle aged man",
+  "motorbike key",
+  "plate of hot biryani",
+  "strict mother pointing finger"
+ ],
+ "laughs": 3,
+ "reel_minutes": 0.79,
+ "time_utc": "2026-11-04 11:20",
+ "title": "مکینک کے 5 منٹ کا سچ | 5 minute comedy video",
  "dry_run": false
 }
