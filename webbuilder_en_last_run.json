@@ -1,8 +1,8 @@
 {
- "time_utc": "2026-11-03 18:36",
+ "time_utc": "2026-11-04 12:12",
  "focus": "app",
  "lang": "en",
- "dry_run": false,
- "post_id": "1291543147384233_122119314699484999",
+ "dry_run": true,
+ "post_id": "dry_run",
  "error": null
 }
