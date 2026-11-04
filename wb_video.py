@@ -459,6 +459,13 @@ def scene_visuals(i, sc, k, dur):
         if v and v not in stock_q and len(v.split()) <= 2:
             stock_q.insert(0, v)
     for j in range(k):
+        if sh in ("pos", "report") and (j == 0 or not stock_q):
+            # hamara asli Rana POS software (har dafa alag dukaan / rang / bill)
+            png = showcase.pos_pick(spot)
+            if png:
+                out.append(showcase.pos_clip(png, os.path.join(WORK, f"c{i}_{j}.mp4"), seg, W, H))
+                REPORT["real_pos"] = REPORT.get("real_pos", 0) + 1
+                continue
         if j == 0 and sh in ("website", "app", "business"):
             # hamara asli kaam: banayi hui demo website / app (har video mein alag business)
             real = "app" if sh == "app" else "website"

@@ -273,6 +273,20 @@ def product_pic(focus, path):
     name = f"{random.choice(NAME_START)} {spot.title()}"
     if len(name) > 22:
         name = f"{random.choice(NAME_START)} {spot.split()[0].title()}"
+    if kind in ("pos", "report"):       # hamara asli Rana POS software ki screen
+        try:
+            from PIL import Image
+            png = showcase.pos_pick(spot)
+            if png:
+                scr = Image.open(png).convert("RGB")
+                W2, H2 = PIC_W * 2, PIC_H * 2
+                img = wb_mock.monitor(W2, H2, spot, lambda w, h, *_: wb_mock.cover(scr, w, h), name)
+                img.save(path, quality=92)
+                showcase.save_used()
+                log(f"Product pic: asli POS {png}")
+                return True
+        except Exception as e:
+            log(f"Real POS pic fail: {str(e)[:150]}")
     if kind in ("website", "app"):      # hamara asli kaam: banayi hui demo website / app ki tasveer
         try:
             from PIL import Image

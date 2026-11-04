@@ -110,3 +110,45 @@ def scroll_clip(img, out, secs, W, H):
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-loop", "1", "-i", img, "-vf", vf,
                     "-frames:v", str(fr), "-c:v", "libx264", "-preset", "veryfast", "-crf", "22", out], check=True)
     return out
+
+
+# ------------------------------------------------------------- Rana POS (hamara asli software)
+POS_DIR = "assets/pos_real"
+POS_SPOT = {"restaurant": ["restaurant", "pizza", "tea"], "cafe": ["tea", "juice", "icecream"], "grocery store": ["kiryana", "supermarket", "dairy"],
+            "supermarket": ["supermarket", "kiryana", "dairy"], "pharmacy": ["pharmacy"], "clinic": ["pharmacy"],
+            "clothing shop": ["fashion", "shoes"], "beauty salon": ["salon", "cosmetics"], "school": ["school", "books"],
+            "mobile phone shop": ["mobile"], "electronics shop": ["electronics", "mobile"], "bakery": ["bakery", "sweets"],
+            "hardware store": ["hardware"], "gym": ["sports"], "car workshop": ["auto"], "furniture store": ["furniture", "decor"],
+            "wholesale distributor": ["wholesale"], "jewellery shop": ["jewellery", "watches"]}
+
+
+def pos_pick(spot):
+    """assets/pos_real se Rana POS ki asli screenshot - spot se milti hui, jo haal mein na dikhi ho."""
+    if not os.path.isdir(POS_DIR):
+        return None
+    if _LIST is None:
+        _load_used()
+    files = sorted(f for f in os.listdir(POS_DIR) if f.endswith((".png", ".jpg")))
+    seen = set(USED[-40:] + NEW)
+    want = POS_SPOT.get(spot, [])
+    fresh = [f for f in files if f"pos:{f}" not in seen] or files
+    match = [f for f in fresh if any(f"_{w}_" in f for w in want)]
+    f = random.choice(match or fresh) if files else None
+    if f:
+        NEW.append(f"pos:{f}")
+        return os.path.join(POS_DIR, f)
+    return None
+
+
+def pos_clip(img, out, secs, W, H):
+    """POS screen par camera chalti hui: reel mein bill se products ki taraf, lambi video mein halka zoom."""
+    fr = max(30, int(secs * 30))
+    if H > W:   # reel: poori height, left->right ya right->left pan
+        a, b = random.choice([("0", "(iw-ow)"), ("(iw-ow)", "0")])
+        vf = (f"scale=-2:{H},crop={W}:{H}:'{a}+({b}-{a})*n/{fr}':0,fps=30,format=yuv420p")
+    else:       # lambi video: random kone mein dheere zoom
+        x, y = random.choice([("0", "0"), ("iw-iw/zoom", "0"), ("0", "ih-ih/zoom"), ("iw/2-iw/zoom/2", "ih/2-ih/zoom/2")])
+        vf = (f"scale={W * 2}:{H * 2},zoompan=z='1+0.35*on/{fr}':x='{x}':y='{y}':d={fr}:s={W}x{H}:fps=30,format=yuv420p")
+    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-loop", "1", "-i", img, "-vf", vf,
+                    "-frames:v", str(fr), "-c:v", "libx264", "-preset", "veryfast", "-crf", "22", out], check=True)
+    return out
