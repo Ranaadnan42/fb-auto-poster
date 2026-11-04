@@ -235,18 +235,24 @@ _DEAD = set()          # jin models ka quota is run mein khatam / jo chalte nahi
 _SLOW = {}             # timeout/503 wale models: 3 minute baad dobara try (Google ka load aata jaata hai)
 
 
-def _resting(model):
-    return model in _DEAD or time.time() - _SLOW.get(model, 0) < 180
-VISION_TIMEOUT_S = 25  # ek check is se zyada le to woh model is run mein band
-_vclient = None
+VISION_REST_S = 60     # timeout/503 ke baad model sirf 1 minute aaraam kare (pehle 3 min - is dauran clips bina check reh jati thin)
+# Vision ke liye apni key + spare key (alag Google project = alag free quota). Ek ka quota khatam -> doosri.
+VISION_KEYS = [k for k in dict.fromkeys([GEMINI_KEY, os.environ.get("GEMINI_SPARE_KEY")]) if k]
 
 
-def _vgem():
-    global _vclient
+def _resting(model, ki=0):
+    return (ki, model) in _DEAD or time.time() - _SLOW.get(model, 0) < VISION_REST_S
+VISION_TIMEOUT_S = 40  # Google busy ho to jawab der se aata hai - 25s par bohat checks zaaya ho rahe the
+VISION_WAIT_BUDGET_S = 75 * 60   # poori run mein vision ke intezar ka zyada se zyada waqt (accuracy pehle, magar run atke nahi)
+_VWAITED = [0.0]
+_vclients = {}
+
+
+def _vgem(ki=0):
     from google import genai
-    if _vclient is None:
-        _vclient = genai.Client(api_key=GEMINI_KEY, http_options={"timeout": VISION_TIMEOUT_S * 1000})
-    return _vclient
+    if ki not in _vclients:
+        _vclients[ki] = genai.Client(api_key=VISION_KEYS[ki], http_options={"timeout": VISION_TIMEOUT_S * 1000})
+    return _vclients[ki]
 
 
 def _parse_match(txt):
@@ -286,36 +292,45 @@ def vision_ok(jpgs, want, what, said=""):
         return None
     prompt = VISION_Q.format(n=len(datas), what=what, want=want, said=(said or what)[:400].replace('"', "'"))
     last = ""
-    for model in VISION_MODELS:
-        if _resting(model):
-            continue
-        t0 = time.time()
-        try:
-            res = _vgem().models.generate_content(
-                model=model,
-                contents=[types.Part.from_bytes(data=d, mime_type="image/jpeg") for d in datas] + [prompt],
-                config=types.GenerateContentConfig(temperature=0))
-            if time.time() - t0 > VISION_TIMEOUT_S * 0.8:
-                _SLOW[model] = time.time()  # chal to gaya magar bahut dheera - thori der doosra
-                log(f"vision: {model} dheera ({time.time() - t0:.0f}s) - agle checks doosre model se")
-            v = _parse_match(res.text)
-            if v is None:
-                continue
+    while True:
+        for ki in range(len(VISION_KEYS)):
+            for model in VISION_MODELS:
+                if _resting(model, ki):
+                    continue
+                t0 = time.time()
+                try:
+                    res = _vgem(ki).models.generate_content(
+                        model=model,
+                        contents=[types.Part.from_bytes(data=d, mime_type="image/jpeg") for d in datas] + [prompt],
+                        config=types.GenerateContentConfig(temperature=0))
+                    v = _parse_match(res.text)
+                    if v is None:
+                        continue
+                    REPORT["vision_checks"] += 1
+                    return v
+                except Exception as e:
+                    last = str(e)
+                    if any(x in last for x in ("429", "RESOURCE_EXHAUSTED", "404", "NOT_FOUND", "not supported", "400",
+                                               "401", "403", "API_KEY")):
+                        _DEAD.add((ki, model))        # is key par is run mein dobara nahi
+                        log(f"vision: {model} key{ki + 1} band ({last[:60]})")
+                    elif time.time() - t0 >= VISION_TIMEOUT_S - 1 or any(x in last.lower() for x in ("timed out", "timeout", "503", "504", "unavailable", "deadline")):
+                        _SLOW[model] = time.time()   # thori der aaraam, phir dobara
+                        log(f"vision: {model} abhi busy ({last[:50]}) - {VISION_REST_S}s baad dobara")
+        g = _groq_vision(datas, prompt)
+        if g is not None:
             REPORT["vision_checks"] += 1
-            return v
-        except Exception as e:
-            last = str(e)
-            if any(x in last for x in ("429", "RESOURCE_EXHAUSTED", "404", "NOT_FOUND", "not supported", "400")):
-                _DEAD.add(model)        # is run mein dobara nahi
-                log(f"vision: {model} band ({last[:60]})")
-            elif time.time() - t0 >= VISION_TIMEOUT_S - 1 or any(x in last.lower() for x in ("timed out", "timeout", "503", "504", "unavailable", "deadline")):
-                _SLOW[model] = time.time()   # thori der aaraam, phir dobara
-                log(f"vision: {model} abhi dheera/busy ({last[:50]}) - 3 min baad dobara")
-    g = _groq_vision(datas, prompt)
-    if g is not None:
-        REPORT["vision_checks"] += 1
-        REPORT["vision_groq"] = REPORT.get("vision_groq", 0) + 1
-        return g
+            REPORT["vision_groq"] = REPORT.get("vision_groq", 0) + 1
+            return g
+        # Koi model abhi sirf busy hai (quota baqi) -> bina check clip lagane ke bajaye ruk kar dobara check
+        alive = [m for m in VISION_MODELS for ki in range(len(VISION_KEYS)) if (ki, m) not in _DEAD]
+        if not alive or _VWAITED[0] >= VISION_WAIT_BUDGET_S:
+            break
+        wake = min(_SLOW.get(m, 0) for m in set(alive)) + VISION_REST_S
+        nap = max(5.0, min(VISION_REST_S, wake - time.time()))
+        _VWAITED[0] += nap
+        REPORT["vision_waits"] = REPORT.get("vision_waits", 0) + 1
+        time.sleep(nap)
     REPORT["vision_skipped"] = REPORT.get("vision_skipped", 0) + 1
     log(f"vision skip: {last[:120]}")
     return None
@@ -742,6 +757,28 @@ def commons_search(q, video=True):
         return []
 
 
+def wiki_photos(q):
+    """Wikipedia: jis jagah/dish/cheez ki baat ho, uske apne article ki asli tasveer (sab se pakka match).
+    Sirf Wikimedia Commons par mojood (free license) tasveerein - fair-use wali nahi."""
+    try:
+        r = requests.get("https://en.wikipedia.org/w/api.php", headers=WM_UA, timeout=40, params={
+            "action": "query", "format": "json", "generator": "search", "gsrsearch": q[:90], "gsrlimit": 5,
+            "prop": "pageimages|description", "piprop": "original|name", "pilicense": "free"})
+        out = []
+        for pg in (r.json().get("query", {}).get("pages", {}) or {}).values():
+            img = pg.get("original") or {}
+            url = img.get("source") or ""
+            if "/wikipedia/commons/" not in url or (img.get("width") or 0) < 1000 or url.lower().endswith(".svg"):
+                continue
+            text = _clean(f"{pg.get('title', '')} {pg.get('description', '')} {pg.get('pageimage', '')}")
+            out.append({"id": f"wp{pg.get('pageid')}", "url": url, "text": text, "photo": True,
+                        "credit": f"{pg.get('title', '')} / Wikipedia (Wikimedia Commons)"})
+        return out
+    except Exception as e:
+        log(f"Wikipedia photo error: {str(e)[:120]}")
+        return []
+
+
 def openverse_photos(q):
     """Openverse: Flickr waghera ki free (commercial use) photos - khaas dish/jagah ke liye."""
     try:
@@ -879,7 +916,7 @@ def get_clips(scene, country_words, job, prefix, need):
         if kind == "video":
             cands = pexels_search(q) + pixabay_search(q) + commons_search(q, True)
         else:
-            cands = pexels_photos(q) + pixabay_photos(q) + commons_search(q, False) + openverse_photos(q)
+            cands = wiki_photos(q) + pexels_photos(q) + pixabay_photos(q) + commons_search(q, False) + openverse_photos(q)
         random.shuffle(cands)
         cands.sort(key=lambda c: -_score(c["text"], accept))       # sab se mutabiq pehle
         tries = 0

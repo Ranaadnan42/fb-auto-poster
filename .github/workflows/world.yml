@@ -71,6 +71,7 @@ jobs:
       - name: Run world.py
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_KEY_ATLAS || secrets.GEMINI_API_KEY }}
+          GEMINI_SPARE_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
