@@ -1,15 +1,15 @@
 {
- "time_utc": "2026-11-04 14:00",
- "spotlight": "clinic",
- "post_id": "dry_run",
+ "time_utc": "2026-11-04 21:16",
+ "spotlight": "hardware store",
+ "post_id": "1130659609441108",
  "error": null,
  "lang": "ur",
  "kind": "reel",
- "clips": 0,
+ "clips": 1,
  "fallback": 0,
  "errors": [],
  "real_work": 4,
- "real_pos": 1,
- "mock": 2,
- "seconds": 48.1
+ "mock": 5,
+ "real_pos": 2,
+ "seconds": 64.9
 }
