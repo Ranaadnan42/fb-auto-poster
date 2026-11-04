@@ -1,7 +1,7 @@
 {
- "time_utc": "2026-11-03 01:05",
- "spotlight": "car workshop",
- "post_id": "1689851395835605",
+ "time_utc": "2026-11-04 11:21",
+ "spotlight": "clothing shop",
+ "post_id": "1851999659151593",
  "error": null,
  "lang": "ar",
  "kind": "reel",
@@ -9,5 +9,5 @@
  "fallback": 0,
  "errors": [],
  "mock": 10,
- "seconds": 57.0
+ "seconds": 64.5
 }
