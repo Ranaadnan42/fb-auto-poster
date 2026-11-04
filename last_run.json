@@ -1,34 +1,31 @@
 {
  "lang": "en",
- "stock_clips": 9,
+ "stock_clips": 40,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "power of dua hisham abu yusuf",
-  "power of dua in islam",
-  "power of dua mufti menk",
-  "power of dua omar suleiman",
-  "power of dua book",
-  "power of duality",
-  "power of dua bilal assad",
-  "power of dua nouman ali khan",
-  "power of dua story"
+  "tawbah prayer",
+  "tawbah surah",
+  "tawbah in islam",
+  "tawbah shuraim",
+  "tawbah saad ghamdi",
+  "tawbah nasheed",
+  "tawbah nasuha",
+  "tawbah luhaidan",
+  "tawbah prayer women"
  ],
- "search": "power of dua in islam",
- "vision_checks": 37,
+ "search": "tawbah nasuha",
+ "vision_checks": 134,
  "sources": {
-  "pixabay": 7,
-  "commons": 1,
+  "commons": 12,
+  "pixabay": 27,
   "openverse": 1
  },
- "clips_rejected": 19,
- "no_match": [
-  "Zabur"
- ],
- "photo_clips": 1,
- "reel_minutes": 0.82,
- "time_utc": "2026-11-04 18:47",
- "title": "The Power of Dua in Islam: How Gratitude Transforms Your Life",
+ "clips_rejected": 59,
+ "photo_clips": 6,
+ "long_minutes": 3.97,
+ "time_utc": "2026-11-04 20:54",
+ "title": "How to Make Tawbah Nasuha and Cleanse Your Heart",
  "dry_run": false,
  "posted_ok": 1
 }
