@@ -1,21 +1,23 @@
 {
  "mode": "short",
- "clips": 9,
- "clips_rejected": 282,
- "vision_checks": 53,
- "errors": [],
+ "clips": 14,
+ "clips_rejected": 60,
+ "vision_checks": 63,
+ "errors": [
+  "list indices must be integers or slices, not str"
+ ],
  "search_phrases": [
   "facts about space",
   "facts about boys",
-  "facts about my fnaf au",
   "facts about animals",
   "facts about cats",
   "facts about girls",
-  "facts about turkeys for kids",
-  "facts about the human body",
   "facts about dinosaurs",
-  "interesting facts about human brain",
+  "facts about dogs",
+  "facts about my fnaf au",
+  "facts about the world",
   "interesting facts about the world",
+  "interesting facts about human brain",
   "interesting facts about animals",
   "interesting facts about space",
   "interesting facts about history",
@@ -24,11 +26,12 @@
   "interesting facts about japan",
   "interesting facts about cats"
  ],
- "vision_skipped": 232,
- "alt_searches": 2,
- "seconds": 42.3,
+ "search": "interesting facts about japan",
+ "vision_skipped": 6,
+ "photos": 1,
+ "seconds": 64.6,
  "links": [],
- "subject": "Chile",
+ "subject": "Japan",
  "series": "facts",
- "title": "6 Surprising Facts About Chile You Didn't Know"
+ "title": "6 Surprising Facts About Japan"
 }
