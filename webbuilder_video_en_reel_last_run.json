@@ -1,14 +1,15 @@
 {
- "time_utc": "2026-11-04 12:11",
- "spotlight": "school",
- "post_id": "dry_run",
+ "time_utc": "2026-11-04 20:31",
+ "spotlight": "bakery",
+ "post_id": "1483013477052432",
  "error": null,
  "lang": "en",
  "kind": "reel",
- "clips": 0,
+ "clips": 1,
  "fallback": 0,
  "errors": [],
  "real_work": 4,
+ "real_pos": 1,
  "mock": 4,
- "seconds": 53.6
+ "seconds": 57.0
 }
