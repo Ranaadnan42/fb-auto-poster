@@ -1,13 +1,14 @@
 {
- "time_utc": "2026-11-03 20:18",
- "spotlight": "travel agency",
- "post_id": "1647679056762124",
+ "time_utc": "2026-11-04 12:11",
+ "spotlight": "school",
+ "post_id": "dry_run",
  "error": null,
  "lang": "en",
  "kind": "reel",
  "clips": 0,
  "fallback": 0,
  "errors": [],
- "mock": 9,
- "seconds": 53.3
+ "real_work": 4,
+ "mock": 4,
+ "seconds": 53.6
 }
