@@ -1,37 +1,12 @@
 {
- "mode": "reel",
- "stock_clips": 10,
+ "mode": "auto",
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "people",
- "search_phrases": [
-  "traffic jam funny video",
-  "traffic jam funny horn",
-  "traffic jam weird al",
-  "funny traffic jam music",
-  "traffic jam funny",
-  "sundara travels traffic jam comedy scenes"
- ],
- "search": "traffic jam funny video",
- "reel_format": "dialogue",
- "vision_checks": 115,
- "clips_rejected": 107,
- "sources": {
-  "pixabay": 4
- },
- "no_match": [
-  "man driving frustrated",
-  "student sleeping car",
-  "mother talking smartphone",
-  "mother talking smartphone",
-  "man hitting steering wheel",
-  "pakistani chai cup",
-  "diploma degree certificate",
-  "diploma degree certificate"
- ],
+ "format": "chat",
+ "reel_minutes": 1.32,
  "laughs": 4,
- "reel_minutes": 0.74,
- "time_utc": "2026-11-04 11:20",
- "title": "ٹریفک جام اور سست طالب علم کا ماسٹر پلان",
+ "time_utc": "2026-11-04 11:24",
+ "title": "دادی اماں اور کپڑے دھونے کا ہنگامہ",
  "dry_run": false
 }
