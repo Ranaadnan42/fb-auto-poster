@@ -1,0 +1,23 @@
+name: Image model probe
+on: workflow_dispatch
+permissions:
+  contents: read
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: tools
+      - run: pip install google-genai
+      - run: python tools/img_probe.py
+        env:
+          GEMINI_KEY_LEGENDS: ${{ secrets.GEMINI_KEY_LEGENDS }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: probe-images
+          path: probe_out/
+          if-no-files-found: ignore
