@@ -230,7 +230,11 @@ shot 1 shows what the FIRST part of this scene's narration talks about, the last
 show EXACTLY the thing being said at that moment - the same creature, person, object, place and action that the
 narration names (if it says a dragon burns a village, show the dragon burning the village; if it says a golden
 key, show the golden key). Never a random or unrelated picture.
-Each shot = {{"subject": "2-4 plain English words: the MAIN thing seen, e.g. 'red dragon', 'golden key', 'burning village'",
+Each shot = {{"line": "the EXACT words of this scene's narration that are spoken while this shot is on screen
+ (the lines of all shots of a scene, joined in order, give the whole scene text; split at the point where the
+ narration moves to a new thing)",
+ "caption": "1-3 word ALL CAPS on-screen keyword in {TITLE_LANG} naming the thing being said, e.g. TYPHON, THE GOLDEN KEY, DRAGON FIRE",
+ "subject": "2-4 plain English words: the MAIN thing seen, e.g. 'red dragon', 'golden key', 'burning village'",
  "prompt": "max 35 words: the main subject FIRST, then the action, place, light and camera angle; if a character
  appears, include ONLY that character's look from the character sheet (never other characters)"}}.
 Characters must be ORIGINAL looking people, never a real actor's likeness, no logos or brand names. For each scene also pick "fx": one of snow, rain, embers, dust, fog, none.
@@ -338,7 +342,7 @@ Return JSON:
 {{"series_title": "short catchy series title in {TITLE_LANG}, max 40 characters",
  "title": "on-screen title for this video in {TITLE_LANG}, max 45 characters{" with the part label" if PARTS > 1 else ""}",
  "characters": "ENGLISH character sheet: for each character name + age + face, hair, clothes, body, or creature look",
- "scenes": [{{"text": "narration", "fx": "snow", "shots": [{{"subject": "...", "prompt": "..."}}]}}],
+ "scenes": [{{"text": "narration", "fx": "snow", "shots": [{{"line": "...", "caption": "...", "subject": "...", "prompt": "..."}}]}}],
  "summary": "2 English sentences summarising what happened in this part",
  "yt_title": "viral YouTube title in {TITLE_LANG}, max 70 characters, strong curiosity gap that is honest to the story, include one searchable word like dragon, kingdom, legend, curse or warrior",
  "description": "3-4 line YouTube description in {TITLE_LANG} ending with a question to invite comments",
@@ -417,6 +421,17 @@ def pollinations(prompt, seed, path):
     return False
 
 
+def shot_times(shots, d):
+    """Scene ka waqt shots mein us ke 'line' ke lafzon ke hisaab se baanto (line na ho to barabar)."""
+    w = [len(str(s.get("line") or "").split()) if isinstance(s, dict) else 0 for s in shots]
+    if not all(w):
+        return [d / len(shots)] * len(shots)
+    tot = sum(w)
+    segs = [max(d * x / tot, 0.8) for x in w]          # koi shot 0.8 sec se chhoti na ho
+    k = d / sum(segs)
+    return [x * k for x in segs]
+
+
 def shot_parts(shot, fallback=""):
     """Shot naye format {subject, prompt} ya purana sirf string - dono chalein. Wapas: (prompt, subject)."""
     if isinstance(shot, dict):
@@ -477,7 +492,7 @@ def ass_text(s):
     return s.replace("\\", " ").replace("{", "(").replace("}", ")").replace("\n", " ").strip()
 
 
-def make_ass(path, timed, total, title):
+def make_ass(path, timed, total, title, captions=()):
     sub_top = 1000                                     # beech mein - neeche YouTube ka text dhak deta tha
     head = f"""[Script Info]
 ScriptType: v4.00+
@@ -490,6 +505,7 @@ ScaledBorderAndShadow: yes
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: Title,{FONT},{58 if LONG else 74},&H00FFFFFF,&H00FFFFFF,&H00000000,&H96000000,1,0,0,0,100,100,0,0,1,5,3,8,50,50,{50 if LONG else IMG_Y - 190},1
 Style: Sub,{FONT},{62 if LONG else 68},&H0040E6FF,&H0040E6FF,&H00000000,&H80000000,1,0,0,0,100,100,0,0,1,5,2,{2 if LONG else 8},70,70,{70 if LONG else sub_top},1
+Style: Key,{FONT},{84 if LONG else 92},&H0036C8F5,&H0036C8F5,&H00000000,&H96000000,1,0,0,0,100,100,2,0,1,6,3,{8 if LONG else 2},60,60,{150 if LONG else H - IMG_Y - IMG + 30},1
 Style: Mark,Noto Sans,32,&H60FFFFFF,&H60FFFFFF,&H90000000,&H00000000,1,0,0,0,100,100,0,0,1,2,0,{9 if LONG else 2},40,40,{40 if LONG else 60},1
 
 [Events]
@@ -499,6 +515,9 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
     ev = [f"Dialogue: 0,{ass_time(0)},{ass_time(shown)},Title,,0,0,0,,{{\\fad(400,600)}}{ass_text(title)}"]
     if CHANNEL:
         ev.append(f"Dialogue: 0,{ass_time(0)},{ass_time(total + 1)},Mark,,0,0,0,,{ass_text(CHANNEL)}")
+    for start, end, cap in captions:
+        ev.append(f"Dialogue: 2,{ass_time(start)},{ass_time(end)},Key,,0,0,0,,"
+                  f"{{\\fad(120,120)\\t(0,250,\\fscx108\\fscy108)\\t(250,450,\\fscx100\\fscy100)}}{ass_text(cap.upper()[:28])}")
     for start, end, text in timed:
         words = text.split()
         n = 6 if LONG else 4
@@ -682,7 +701,7 @@ def build_video(script, out_path):
     kth = threading.Thread(target=lambda: kres.update(kaggle_clips(script, job, base_seed)), daemon=True)
     kth.start()
     first_shot = {}
-    timed, clips, voice_parts, cuts, t = [], [], [], [], 0.0
+    timed, clips, voice_parts, cuts, captions, t = [], [], [], [], [], 0.0
     for i, sc in enumerate(script["scenes"]):
         text = sc["text"].strip()
         a = os.path.join(job, f"a{i}.mp3")
@@ -691,17 +710,23 @@ def build_video(script, out_path):
         voice_parts.append((f"a{i}.mp3", d))
         timed.append((t, t + d - 0.3, text))
         shots = (sc.get("shots") or [])[:SHOTS] or [text]
-        seg = d / len(shots)
+        segs = shot_times(shots, d)                # tasveer usi waqt jab us ki baat ho
         fx = (sc.get("fx") or "none").lower().strip()
+        st = t
         for j, shot in enumerate(shots):
             # sirf ISI shot ki cheez/kirdar - poori character sheet nahi (warna ghalat kirdar/cheez ban jati thi)
             full, subject = shot_parts(shot, text)
+            seg = segs[j]
             out = f"c{i}_{j}.mp4"
             first_shot[i * 10 + j] = (out, seg)
             img = get_image(full[:900], base_seed + i * 10 + j, os.path.join(job, f"i{i}_{j}.jpg"), subject)
             shot_clip(job, os.path.basename(img) if img else None, seg, len(clips), out, fx)
             clips.append(out)
-            cuts.append(t + seg * (j + 1))
+            cap = (shot.get("caption") or "").strip() if isinstance(shot, dict) else ""
+            if cap:
+                captions.append((st, st + seg, cap))
+            st += seg
+            cuts.append(st)
         t += d
         log(f"scene {i + 1}/{len(script['scenes'])} ready")
     total = t
@@ -732,7 +757,7 @@ def build_video(script, out_path):
     make_music(os.path.join(job, "music.m4a"), total)
     make_sfx(os.path.join(job, "sfx.wav"), total, cuts[:-1])
 
-    make_ass(os.path.join(job, "subs.ass"), timed, total, script.get("title", ""))
+    make_ass(os.path.join(job, "subs.ass"), timed, total, script.get("title", ""), captions)
     fontsdir = f":fontsdir={FONTS_DIR}" if os.path.isdir(FONTS_DIR) else ""
     run(["ffmpeg", "-y", "-i", "video.mp4", "-i", "voice.wav", "-i", "music.m4a", "-i", "sfx.wav",
          "-filter_complex",
