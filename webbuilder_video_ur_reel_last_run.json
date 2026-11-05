@@ -1,11 +1,15 @@
 {
- "time_utc": "2026-11-05 15:46",
+ "time_utc": "2026-11-05 21:30",
  "spotlight": "real estate agency",
- "post_id": null,
- "error": "awaaz nahi bani",
+ "post_id": "977250304969419",
+ "error": null,
  "lang": "ur",
  "kind": "reel",
  "clips": 0,
  "fallback": 0,
- "errors": []
+ "errors": [],
+ "real_work": 4,
+ "real_pos": 2,
+ "mock": 4,
+ "seconds": 64.0
 }
