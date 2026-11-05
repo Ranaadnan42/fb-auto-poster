@@ -1,41 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 14,
+ "stock_clips": 48,
  "fallback_clips": 0,
  "errors": [],
- "format": "people",
- "search_phrases": [
-  "ice cream truck funny moments",
-  "ice cream truck funny video",
-  "ice cream van funny",
-  "ice cream man funny video",
-  "ice cream truck weird song",
-  "ice cream truck weird",
-  "ice cream truck song funny",
-  "ice cream truck good humor",
-  "ice cream truck turned weird",
-  "ice cream chalan chalan",
-  "ice cream van wala",
-  "ice cream bechne wali"
- ],
- "search": "ice cream van wala",
- "reel_format": "expectation",
- "vision_checks": 244,
- "clips_rejected": 224,
- "sources": {
-  "commons": 4,
-  "pixabay": 6,
-  "mixkit": 1,
-  "openverse": 1
- },
- "no_match": [
-  "begging child",
-  "running person",
-  "broken slippers"
- ],
- "laughs": 5,
- "reel_minutes": 1.0,
- "time_utc": "2026-11-05 14:33",
- "title": "آئس کریم والے کی واپسی اور ہمارا اولمپک ریکارڈ",
+ "format": "story",
+ "long_minutes": 6.68,
+ "series": "ماموں مستانہ کا ڈائٹ ڈرامہ part 1 (cartoon)",
+ "laughs": 8,
+ "time_utc": "2026-11-05 15:12",
+ "title": "ماموں مستانہ کا ڈائٹ ڈرامہ | قسط 1",
  "dry_run": false
 }
