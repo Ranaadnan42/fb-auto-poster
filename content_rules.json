@@ -1,46 +1,54 @@
 {
  "islamic": {
   "avoid": [
-   "Finding peace through Dhikr",
-   "Good character and manners narratives"
+   "Theme: Good character and manners (used 4 times)"
   ],
   "try": [
-   "Prophet Yunus (Jonah) and the Whale: lessons of repentance",
-   "Isra and Mi'raj: spiritual journey and its motivations",
-   "Companion Bilal ibn Rabah: perseverance and the call to prayer",
-   "Quranic gratitude verse (Surah Ibrahim 14:7) and daily reflection",
-   "Hadith on the virtue of smiling and spreading positivity",
-   "Companion Abdullah ibn Umar’s dedication to seeking knowledge"
+   "The story of the woman who saved a dog from a well (Mercy to animals)",
+   "The incident of the Prophet's humility while washing his own clothes (Modesty)",
+   "The story of the man who fasted every day and its spiritual impact (Fasting beyo",
+   "The lesson from the Prophet's interaction with the Bedouin man who asked about I",
+   "The story of the Prophet's kindness to his neighbor despite differences (Communi",
+   "The incident of the Prophet's sleep and waking up for Tahajjud (Discipline in wo"
   ],
-  "note": "Page bohat repetitive hai"
+  "note": "Page is somewhat repetitive with themes like Tawakkul and Akhlaq, and specific stories like Ibrahim's fire are duplicated."
  },
  "funny": {
   "avoid": [
-   "چمپا کلی اور ہوم ورک کا پہاڑ series",
-   "پپو کا رزلٹ اور انوکھا مشن series",
-   "rishta aunty topic"
+   "خرگوش میاں (Rabbit character)",
+   "پپو کا رزلٹ اور انوکھا مشن (Pupo series)",
+   "چمپا کلی اور ہوم ورک کا پہاڑ (Champa series)",
+   "ڈلیوری رائڈر (Delivery rider character)",
+   "ہوم ورک کا پہاڑ (Homework mountain topic)",
+   "Teacher vs Students (Specific recurring topic)",
+   "Eidi collection (Specific recurring topic)",
+   "Ludo fights at home (Specific recurring topic)"
   ],
   "try": [
-   "Ramzan Sehri ki kitchen ki kahani – maa ki biryani aur bachon ki late night crav",
-   "Online class ka technical glitch – teacher ka Zoom freeze aur students ki funny ",
-   "Wedding invitation group chat drama – sab ki RSVP confusion aur aunties ki over‑",
-   "Ghar ki load‑shedding ka drama – ammi ki candle lighting aur bachon ki secret ga",
-   "Bhai ka exam result surprise – unexpected top rank aur family ki khushi ka over‑",
-   "Neighbour ki Wi‑Fi password ki ladai – logon ki chhupi hui tactics aur funny neg"
+   "امی کا ڈاکٹر کے پاس جانا اور 'بہت ہلکا' علاج (Ammi's doctor visit and 'very ligh",
+   "نیا موبائل فون اور امی کی 'صرف ضروریات' کی فہرست (New mobile phone and Ammi's 'o",
+   "پڑوسی کا نیا ڈرون اور گھر کا ہنگامہ (Neighbor's new drone and household chaos)",
+   "بازار میں امی کی بارگیننگ اور دکاندار کا صدمہ (Bargaining in bazaar and shopkeep",
+   "دادی اماں اور جدید ٹیکنالوجی کا ٹکراؤ (Dadi Amma and modern technology clash)"
   ],
-  "note": "Page thodi repetitive lag rahi hai, especially animal reels aur repeat series."
+  "note": "Page is repetitive with animal characters and homework topics; needs more fresh human-centric desi life scenarios."
  },
  "world": {
-  "avoid": [],
-  "try": [
-   "Living in Vietnam: Costs, Culture, and Daily Life",
-   "Exploring Kenya: Wildlife, Culture, and Expat Life",
-   "South Korea vs Japan: Lifestyle and Cost Comparison",
-   "Hidden Gems of Portugal: Small Town Living",
-   "Cost of Living in Mexico City: Safety and Lifestyle",
-   "Retiring in Greece: Islands vs Mainland"
+  "avoid": [
+   "Japan",
+   "Retiring in",
+   "Safety",
+   "Culture"
   ],
-  "note": "Page thodi repetitive lag rahi hai."
+  "try": [
+   "Life in Vietnam: Cost & Daily Life",
+   "New Zealand for Expats: Daily Life & Culture",
+   "Exploring Nairobi: Culture & Daily Life",
+   "The 5 Best Caribbean Countries for Retirement",
+   "Exploring Marrakech: History, Food & Daily Life",
+   "Iceland for Expats: Jobs & Best Cities"
+  ],
+  "note": "Page repetitive hai."
  },
  "world_short": {
   "avoid": [
@@ -102,7 +110,7 @@
  "_platforms": {
   "islamic": {
    "posts": 10,
-   "facebook": 8,
+   "facebook": 7,
    "youtube": 10,
    "tiktok": 7
   },
@@ -126,7 +134,7 @@
   },
   "frames": {
    "posts": 10,
-   "facebook": 8,
+   "facebook": 9,
    "youtube": 10,
    "tiktok": 0
   },
