@@ -1,0 +1,50 @@
+name: AutoPilot Customer Demo
+# Sales ke liye: demo_queue.json ke businesses ki apni website se 1 reel + 2 pics banata hai.
+# Kahin post NAHI karta. Natija "demo-output" branch par save hota hai.
+on:
+  push:
+    branches: [main]
+    paths: ['demo_queue.json']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: biz-demo
+  cancel-in-progress: false
+
+jobs:
+  demo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          pip install requests pillow google-genai "edge-tts>=7.3.0"
+      - name: Make demos
+        env:
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+        run: python biz_demo.py
+      - name: Save to demo-output branch
+        if: always()
+        run: |
+          [ -d demo_out ] || exit 0
+          cp -r demo_out /tmp/demo_out
+          git config user.name "auto-poster"
+          git config user.email "auto-poster@users.noreply.github.com"
+          git fetch -q origin demo-output && git checkout -q demo-output || git checkout -q --orphan demo-output
+          git rm -rq --cached . 2>/dev/null || true
+          find . -mindepth 1 -maxdepth 1 ! -name .git -exec rm -rf {} +
+          cp -r /tmp/demo_out/. .
+          git add -A
+          git commit -q -m "Customer demos $(date -u +%F)" || exit 0
+          git push -q origin demo-output
