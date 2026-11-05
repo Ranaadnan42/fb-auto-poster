@@ -1,40 +1,23 @@
 {
  "lang": "ur",
- "stock_clips": 18,
+ "stock_clips": 41,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "جنت کے پتے ناول",
-  "جنت ڈرامہ",
-  "جنت علی دی",
-  "جنت کا منظر",
-  "جنت کے پتے ڈرامہ",
-  "جنت براستہ جہنم",
-  "جنتری 2026",
-  "جنت البقیع",
-  "جنت ڈرامہ 61",
-  "jannat movie",
-  "jannat drama",
-  "jannat zubair",
-  "jannat song",
-  "jannat mirza",
-  "jannat ali di",
-  "jannat sajai maine tere liye",
-  "jannat 2 movie",
-  "jannat movie songs"
+  "islami tareekh ka waqia",
+  "islami tareekh"
  ],
- "search": "جنت کا منظر",
- "vision_checks": 98,
- "clips_rejected": 62,
+ "search": "islami tareekh ka waqia",
+ "vision_checks": 160,
  "sources": {
-  "pixabay": 16,
-  "mixkit": 1,
-  "commons": 1
+  "pixabay": 40,
+  "mixkit": 1
  },
+ "clips_rejected": 78,
  "photo_clips": 1,
- "reel_minutes": 1.13,
- "time_utc": "2026-11-05 14:33",
- "title": "جنت کا منظر: حارثہ بن النعمان کی ماں کی خدمت اور اجر",
+ "long_minutes": 5.58,
+ "time_utc": "2026-11-05 15:15",
+ "title": "حضرت بلالؓ کی استقامت: اسلام کی خاطر سہی جانے والی لازوال قربانیاں",
  "dry_run": false,
  "posted_ok": 1
 }
