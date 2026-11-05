@@ -1,15 +1,15 @@
 {
- "time_utc": "2026-11-04 20:31",
- "spotlight": "bakery",
- "post_id": "1483013477052432",
+ "time_utc": "2026-11-05 20:48",
+ "spotlight": "real estate agency",
+ "post_id": "1680278547135808",
  "error": null,
  "lang": "en",
  "kind": "reel",
- "clips": 1,
+ "clips": 0,
  "fallback": 0,
  "errors": [],
  "real_work": 4,
  "real_pos": 1,
- "mock": 4,
- "seconds": 57.0
+ "mock": 3,
+ "seconds": 54.6
 }
