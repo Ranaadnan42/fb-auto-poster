@@ -1,39 +1,40 @@
-"""Test: kaun sa free AI image model is key se tasveer bana sakta hai (Legends ke liye behtar tasveerein)."""
+"""Test: GitHub ke free CPU par kaun sa open-source model behtar aur kitni dair mein tasveer banata hai."""
+import gc
 import os
 import time
-from google import genai
-from google.genai import types
+import torch
 
-key = os.environ.get("GEMINI_KEY_LEGENDS") or os.environ.get("GEMINI_API_KEY")
-c = genai.Client(api_key=key)
-names = []
-for m in c.models.list():
-    n = m.name.split("/")[-1]
-    acts = getattr(m, "supported_actions", None) or []
-    if "image" in n.lower() or "imagen" in n.lower():
-        names.append(n)
-        print("MODEL", n, acts)
+torch.set_num_threads(max(os.cpu_count() or 2, 2))
 os.makedirs("probe_out", exist_ok=True)
-PROMPT = ("Vertical 9:16 epic dark fantasy painting: Typhon, a giant monster with many serpent heads and glowing "
-          "eyes, fighting Zeus with a lightning bolt on a stormy sea cliff, cinematic lighting, highly detailed")
-for n in names:
-    t0 = time.time()
+PROMPTS = [
+    "Typhon, a giant monster with many serpent heads and glowing eyes, fighting Zeus who holds a lightning bolt "
+    "on a stormy sea cliff, epic dark fantasy painting, cinematic lighting, highly detailed",
+    "a young blacksmith hammering a glowing sword in a volcanic forge, sparks flying, a small fire dragon "
+    "watching from the anvil, epic fantasy movie still, cinematic lighting, highly detailed",
+]
+
+
+def run(name, loader, kw):
     try:
-        if "imagen" in n:
-            r = c.models.generate_images(model=n, prompt=PROMPT,
-                                         config=types.GenerateImagesConfig(number_of_images=1, aspect_ratio="9:16"))
-            data = r.generated_images[0].image.image_bytes
-        else:
-            r = c.models.generate_content(model=n, contents=PROMPT,
-                                          config=types.GenerateContentConfig(response_modalities=["IMAGE", "TEXT"]))
-            data = None
-            for p in r.candidates[0].content.parts:
-                if getattr(p, "inline_data", None) and p.inline_data.data:
-                    data = p.inline_data.data
-        if data:
-            open(f"probe_out/{n}.png", "wb").write(data)
-            print("OK", n, len(data), f"{time.time() - t0:.1f}s")
-        else:
-            print("NOIMG", n)
+        t = time.time()
+        pipe = loader()
+        pipe.set_progress_bar_config(disable=True)
+        print(f"LOAD {name} {time.time() - t:.0f}s", flush=True)
+        for i, p in enumerate(PROMPTS):
+            t = time.time()
+            img = pipe(prompt=p, generator=torch.Generator("cpu").manual_seed(7), **kw).images[0]
+            img.save(f"probe_out/{name}_{i}.jpg", quality=92)
+            print(f"OK {name} img{i} {img.size} {time.time() - t:.1f}s", flush=True)
+        del pipe
     except Exception as e:
-        print("FAIL", n, str(e)[:250])
+        print(f"FAIL {name} {str(e)[:300]}", flush=True)
+    gc.collect()
+
+
+from diffusers import AutoPipelineForText2Image
+
+run("sd-turbo", lambda: AutoPipelineForText2Image.from_pretrained("stabilityai/sd-turbo", torch_dtype=torch.float32),
+    dict(num_inference_steps=2, guidance_scale=0.0, width=512, height=512))
+run("sdxl-turbo", lambda: AutoPipelineForText2Image.from_pretrained(
+    "stabilityai/sdxl-turbo", torch_dtype=torch.float32),
+    dict(num_inference_steps=3, guidance_scale=0.0, width=512, height=512))

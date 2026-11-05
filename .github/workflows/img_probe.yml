@@ -5,12 +5,12 @@ permissions:
 jobs:
   t:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
         with:
           sparse-checkout: tools
-      - run: pip install google-genai
+      - run: pip install torch --index-url https://download.pytorch.org/whl/cpu && pip install diffusers transformers accelerate pillow
       - run: python tools/img_probe.py
         env:
           GEMINI_KEY_LEGENDS: ${{ secrets.GEMINI_KEY_LEGENDS }}
