@@ -765,6 +765,48 @@ def commons_search(q, video=True):
         return []
 
 
+
+def archive_search(q):
+    """Internet Archive (archive.org): lakhon free (CC / public domain) asli videos - travel, shehar, khaane.
+    Sirf woh jin ka license commercial use allow karta hai; 120MB se chhoti mp4."""
+    try:
+        lic = "(licenseurl:*creativecommons.org/licenses/by/* OR licenseurl:*creativecommons.org/licenses/by-sa/* " \
+              "OR licenseurl:*publicdomain* OR licenseurl:*creativecommons.org/licenses/cc0*)"
+        r = requests.get("https://archive.org/advancedsearch.php", timeout=40, headers=WM_UA, params={
+            "q": f"({q[:80]}) AND mediatype:movies AND {lic}", "fl[]": ["identifier", "title", "subject", "description"],
+            "rows": 12, "output": "json"})
+        docs = r.json().get("response", {}).get("docs", [])
+        out = []
+        for d in docs[:8]:
+            ident = d.get("identifier")
+            if not ident:
+                continue
+            try:
+                m = requests.get(f"https://archive.org/metadata/{ident}", timeout=30, headers=WM_UA).json()
+            except Exception:
+                continue
+            files = [f for f in m.get("files", []) if str(f.get("name", "")).lower().endswith(".mp4")
+                     and 2e6 < float(f.get("size") or 0) < 120e6]
+            if not files:
+                continue
+            f = sorted(files, key=lambda f: -float(f.get("height") or f.get("size") or 0))[0]
+            if f.get("height") and float(f["height"]) < 480:
+                continue
+            subj = d.get("subject") or ""
+            subj = " ".join(subj) if isinstance(subj, list) else str(subj)
+            desc = d.get("description") or ""
+            desc = " ".join(desc) if isinstance(desc, list) else str(desc)
+            text = _clean(f"{d.get('title', '')} {subj} {desc[:300]}")
+            dur = float(f.get("length") or 20) if str(f.get("length") or "").replace(".", "").isdigit() else 20
+            if dur < 4:
+                continue
+            out.append({"id": f"ia{ident}", "url": f"https://archive.org/download/{ident}/{f['name']}",
+                        "text": text, "dur": min(dur, 60), "credit": f"{d.get('title', ident)[:60]} / Internet Archive"})
+        return out
+    except Exception as e:
+        log(f"Archive error: {str(e)[:120]}")
+        return []
+
 def wiki_photos(q):
     """Wikipedia: jis jagah/dish/cheez ki baat ho, uske apne article ki asli tasveer (sab se pakka match).
     Sirf Wikimedia Commons par mojood (free license) tasveerein - fair-use wali nahi."""
@@ -855,12 +897,26 @@ def pexels_photos(q):
 
 
 def photo_to_clip(img, out, secs=8):
-    """Photo -> halka zoom (Ken Burns) wali video, taake khaas dish/jagah ki photo bhi chal sake."""
-    frames = int(secs * FPS)
+    """Photo ko video jaisa banao: har dafa alag camera harkat (andar zoom, bahar zoom, daayen-baayen pan,
+    upar-neeche tilt, tirchha), halka vignette aur film grain - taake dekhne wale ko tasveer nahi, shot lage."""
+    fr = int(secs * FPS)
+    p = f"(on/{fr})"                                   # 0 -> 1
+    e = f"(0.5-0.5*cos(PI*{p}))"                       # narm shuru aur khatam (ease-in-out)
+    moves = [
+        (f"1.05+0.22*{e}", "iw/2-(iw/zoom/2)", "ih/2-(ih/zoom/2)"),                 # andar zoom
+        (f"1.27-0.22*{e}", "iw/2-(iw/zoom/2)", "ih/2-(ih/zoom/2)"),                 # bahar zoom
+        ("1.22", f"(iw-iw/zoom)*{e}", "ih/2-(ih/zoom/2)"),                         # baayen se daayen
+        ("1.22", f"(iw-iw/zoom)*(1-{e})", "ih/2-(ih/zoom/2)"),                     # daayen se baayen
+        ("1.22", "iw/2-(iw/zoom/2)", f"(ih-ih/zoom)*(1-{e})"),                     # neeche se upar
+        (f"1.08+0.16*{e}", f"(iw-iw/zoom)*{e}", f"(ih-ih/zoom)*{e}"),              # tirchha andar
+        (f"1.24-0.14*{e}", f"(iw-iw/zoom)*(1-{e})", f"(ih-ih/zoom)*0.3"),          # tirchha bahar
+    ]
+    z, x, y = random.choice(moves)
     run(["ffmpeg", "-y", "-loglevel", "error", "-loop", "1", "-i", img, "-vf",
-         f"scale={W * 2}:{H * 2}:force_original_aspect_ratio=increase,crop={W * 2}:{H * 2},"
-         f"zoompan=z='min(zoom+0.0009,1.15)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s={W}x{H}:fps={FPS},"
-         "format=yuv420p", "-t", f"{secs}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", out])
+         f"scale={W * 3}:{H * 3}:force_original_aspect_ratio=increase,crop={W * 3}:{H * 3},"
+         f"zoompan=z='{z}':x='{x}':y='{y}':d={fr}:s={W}x{H}:fps={FPS},"
+         "vignette=PI/5,noise=alls=6:allf=t,eq=contrast=1.04:saturation=1.08,"
+         "format=yuv420p", "-frames:v", str(fr), "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", out])
 
 
 def _score(text, words):
@@ -907,11 +963,11 @@ def get_clips(scene, country_words, job, prefix, need):
     got = []
     ri = 0
     # har scene par zyada se zyada itni clips check (warna lambi video 5-6 ghante mein banti thi aur post na hoti)
-    # Har round ki apni had: videos 10, asli photos (Wikipedia/Commons - sab se sahi) 8, naye naam 6, jagah 4.
+    # Har round ki apni had: videos 16 (pehle poori koshish video ki), asli photos 8, naye naam 10+6, jagah 6.
     # Is se ek round ki had khatam ho to agla (zyada pakka) round phir bhi chalta hai - sahi footage pehle,
     # magar lambi video 5-6 ghante na atke. Har clip phir bhi vision/tag check se guzarti hai.
     late = time.time() - RUN_T0 > (150 if LONG else 35) * 60
-    CAPS = {"video": 10, "photo": 8, "alt_video": 6, "alt_photo": 6, "place": 4}
+    CAPS = {"video": 16, "photo": 8, "alt_video": 10, "alt_photo": 6, "place": 6}
     alt_done = [False]
     cap = [0]
     while ri < len(rounds):
@@ -934,7 +990,7 @@ def get_clips(scene, country_words, job, prefix, need):
         if len(got) >= need or cap[0] <= 0:
             break
         if kind == "video":
-            cands = pexels_search(q) + pixabay_search(q) + commons_search(q, True)
+            cands = pexels_search(q) + pixabay_search(q) + commons_search(q, True) + archive_search(q)
         else:
             cands = wiki_photos(q) + pexels_photos(q) + pixabay_photos(q) + commons_search(q, False) + openverse_photos(q)
         random.shuffle(cands)
