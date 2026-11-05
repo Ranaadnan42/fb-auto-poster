@@ -1,15 +1,11 @@
 {
- "time_utc": "2026-11-04 21:16",
- "spotlight": "hardware store",
- "post_id": "1130659609441108",
- "error": null,
+ "time_utc": "2026-11-05 15:46",
+ "spotlight": "real estate agency",
+ "post_id": null,
+ "error": "awaaz nahi bani",
  "lang": "ur",
  "kind": "reel",
- "clips": 1,
+ "clips": 0,
  "fallback": 0,
- "errors": [],
- "real_work": 4,
- "mock": 5,
- "real_pos": 2,
- "seconds": 64.9
+ "errors": []
 }
