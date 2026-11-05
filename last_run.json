@@ -1,23 +1,30 @@
 {
- "lang": "ur",
- "stock_clips": 41,
+ "lang": "en",
+ "stock_clips": 10,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "islami tareekh ka waqia",
-  "islami tareekh"
+  "sadaqah jariyah",
+  "sadaqah in islam",
+  "sadaqah benefits",
+  "sadaqah nasheed",
+  "sadaqah stories",
+  "sadaqah omar suleiman",
+  "sadaqah song",
+  "sadaqah jariyah quran",
+  "sadaqah for dead person"
  ],
- "search": "islami tareekh ka waqia",
- "vision_checks": 160,
+ "search": "sadaqah for dead person",
+ "vision_checks": 78,
+ "clips_rejected": 58,
  "sources": {
-  "pixabay": 40,
-  "mixkit": 1
+  "pixabay": 9,
+  "commons": 1
  },
- "clips_rejected": 78,
  "photo_clips": 1,
- "long_minutes": 5.58,
- "time_utc": "2026-11-05 15:15",
- "title": "حضرت بلالؓ کی استقامت: اسلام کی خاطر سہی جانے والی لازوال قربانیاں",
+ "reel_minutes": 0.99,
+ "time_utc": "2026-11-05 18:59",
+ "title": "Sadaqah for a Dead Person: The Story of Saad ibn Ubadah",
  "dry_run": false,
  "posted_ok": 1
 }
