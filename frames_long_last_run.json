@@ -1,36 +1,33 @@
 {
  "mode": "long",
- "clips": 67,
- "clips_rejected": 1828,
- "vision_checks": 263,
+ "clips": 31,
+ "clips_rejected": 302,
+ "vision_checks": 319,
  "errors": [],
  "search_phrases": [
   "pakistani song ma pakistan ho",
   "pakistan ki shaan hain ap",
-  "life in village",
-  "life in a metro",
+  "pakistani mili na hamen",
   "life inside roblox",
+  "life in village",
   "life insurance",
-  "life in a metro songs",
-  "life in pieces",
-  "life in jungle",
-  "life in a big city essay quotations",
+  "live insaan",
   "life in germany",
-  "life insan"
+  "life in a metro songs",
+  "life in a metro",
+  "life in japan",
+  "life in canada",
+  "life in australia"
  ],
- "vision_skipped": 1565,
- "photos": 5,
- "alt_searches": 3,
- "no_match": [
-  "Pakistani chicken biryani plate"
- ],
- "seconds": 356.6,
+ "alt_searches": 11,
+ "vision_waits": 2,
+ "photos": 10,
+ "seconds": 166.9,
  "links": [
-  "https://www.immigration.govt.nz",
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "New Zealand",
+ "subject": "Netherlands mein Pakistani ki zindagi",
  "series": "pk_living",
- "title": "New Zealand میں پاکستانی کی زندگی | Rent, Jobs & Life in New Zealand"
+ "title": "نیدرلینڈز میں پاکستانی کی زندگی: رہائش، نوکری اور ثقافت | Life in Netherlands"
 }
