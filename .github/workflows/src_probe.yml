@@ -1,0 +1,11 @@
+name: Source probe
+on: workflow_dispatch
+jobs:
+  t:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install requests yt-dlp
+      - run: python tools/src_probe.py
+      - run: timeout 120 yt-dlp --print "%(title)s | %(license)s | %(duration)s" "ytsearch3:lisbon 4k drone creative commons" || true
