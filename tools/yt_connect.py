@@ -16,7 +16,7 @@ import yt_tokens  # noqa: E402
 
 PREFIX = {"legends": "YT", "world": "YT_WORLD", "frames": "YT_FRAMES", "islamic": "YT_ISLAMIC",
           "funny": "YT_FUNNY", "movie": "YT_MOVIE"}
-REDIRECT = "http://127.0.0.1:8765/"
+REDIRECT = "https://developers.google.com/oauthplayground"   # channels ke Web OAuth clients mein yahi registered
 SCOPES = "https://www.googleapis.com/auth/youtube.upload https://www.googleapis.com/auth/youtube.force-ssl"
 
 acct = os.environ["ACCOUNT"].strip().lower()
