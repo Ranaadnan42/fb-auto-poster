@@ -142,9 +142,52 @@ def nasa(q, video=True):
         return []
 
 
+def archive(q):
+    """Internet Archive (archive.org): lakhon free (CC / public domain) asli videos - travel, shehar, khaane.
+    Sirf woh jin ka license commercial use allow karta hai; 120MB se chhoti mp4."""
+    try:
+        lic = "(licenseurl:*creativecommons.org/licenses/by/* OR licenseurl:*creativecommons.org/licenses/by-sa/* " \
+              "OR licenseurl:*publicdomain* OR licenseurl:*creativecommons.org/licenses/cc0*)"
+        r = requests.get("https://archive.org/advancedsearch.php", timeout=40, headers=UA, params={
+            "q": f"({q[:80]}) AND mediatype:movies AND {lic}", "fl[]": ["identifier", "title", "subject", "description"],
+            "rows": 12, "output": "json"})
+        docs = r.json().get("response", {}).get("docs", [])
+        out = []
+        for d in docs[:8]:
+            ident = d.get("identifier")
+            if not ident:
+                continue
+            try:
+                m = requests.get(f"https://archive.org/metadata/{ident}", timeout=30, headers=UA).json()
+            except Exception:
+                continue
+            files = [f for f in m.get("files", []) if str(f.get("name", "")).lower().endswith(".mp4")
+                     and 2e6 < float(f.get("size") or 0) < 120e6]
+            if not files:
+                continue
+            f = sorted(files, key=lambda f: -float(f.get("height") or f.get("size") or 0))[0]
+            if f.get("height") and float(f["height"]) < 480:
+                continue
+            subj = d.get("subject") or ""
+            subj = " ".join(subj) if isinstance(subj, list) else str(subj)
+            desc = d.get("description") or ""
+            desc = " ".join(desc) if isinstance(desc, list) else str(desc)
+            text = _clean(f"{d.get('title', '')} {subj} {desc[:300]}")
+            dur = float(f.get("length") or 20) if str(f.get("length") or "").replace(".", "").isdigit() else 20
+            if dur < 4:
+                continue
+            out.append({"id": f"ia{ident}", "url": f"https://archive.org/download/{ident}/{f['name']}",
+                        "text": text, "dur": min(dur, 60), "src": "archive", "vertical": False,
+                        "credit": f"{d.get('title', ident)[:60]} / Internet Archive"})
+        return out
+    except Exception as e:
+        _log(f"Archive error: {str(e)[:120]}")
+        return []
+
+
 def videos(q, vertical=False):
     """Har platform se is cheez ki videos."""
-    return pixabay_videos(q, vertical) + pexels_videos(q, vertical) + commons(q, True) + nasa(q, True)
+    return pixabay_videos(q, vertical) + pexels_videos(q, vertical) + commons(q, True) + nasa(q, True) + archive(q)
 
 
 # ---------------------------------------------------------------- photos
@@ -218,12 +261,26 @@ def download(url, path, min_size=30000):
 
 
 def photo_to_clip(img, out, w, h, secs=8, fps=30):
-    """Photo -> halka zoom wali video (Ken Burns), taake us khaas cheez ki photo bhi video mein chal sake."""
-    frames = int(secs * fps)
+    """Photo ko video jaisa banao: har dafa alag camera harkat (andar/bahar zoom, pan, tilt, tirchha),
+    narm ease, halka vignette aur film grain - dekhne wale ko tasveer nahi, shot lage."""
+    import random
+    fr = int(secs * fps)
+    e = f"(0.5-0.5*cos(PI*on/{fr}))"
+    moves = [
+        (f"1.05+0.22*{e}", "iw/2-(iw/zoom/2)", "ih/2-(ih/zoom/2)"),
+        (f"1.27-0.22*{e}", "iw/2-(iw/zoom/2)", "ih/2-(ih/zoom/2)"),
+        ("1.22", f"(iw-iw/zoom)*{e}", "ih/2-(ih/zoom/2)"),
+        ("1.22", f"(iw-iw/zoom)*(1-{e})", "ih/2-(ih/zoom/2)"),
+        ("1.22", "iw/2-(iw/zoom/2)", f"(ih-ih/zoom)*(1-{e})"),
+        (f"1.08+0.16*{e}", f"(iw-iw/zoom)*{e}", f"(ih-ih/zoom)*{e}"),
+        (f"1.24-0.14*{e}", f"(iw-iw/zoom)*(1-{e})", f"(ih-ih/zoom)*0.3"),
+    ]
+    z, x, y = random.choice(moves)
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-loop", "1", "-i", img, "-vf",
-                    f"scale={w * 2}:{h * 2}:force_original_aspect_ratio=increase,crop={w * 2}:{h * 2},"
-                    f"zoompan=z='min(zoom+0.0009,1.15)':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d={frames}:s={w}x{h}:fps={fps},"
-                    "format=yuv420p", "-t", f"{secs}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", out],
+                    f"scale={w * 3}:{h * 3}:force_original_aspect_ratio=increase,crop={w * 3}:{h * 3},"
+                    f"zoompan=z='{z}':x='{x}':y='{y}':d={fr}:s={w}x{h}:fps={fps},"
+                    "vignette=PI/5,noise=alls=6:allf=t,eq=contrast=1.04:saturation=1.08,"
+                    "format=yuv420p", "-frames:v", str(fr), "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", out],
                    check=True, capture_output=True)
 
 

@@ -675,7 +675,7 @@ def _one_clip(term, job, name, w, h):
                  and footage.match_score(c["text"], qw) > 0]
         random.shuffle(cands)
         cands.sort(key=lambda c: (-footage.match_score(c["text"], qw), c.get("vertical") != (h > w)))
-        for c in cands[:6]:
+        for c in cands[:12 if kind == "video" else 6]:     # pehle video ki poori koshish
             USED_CLIPS.add(c["id"])
             path = os.path.join(job, f"{name}.mp4")
             src = path + (".jpg" if kind == "photo" else "")
