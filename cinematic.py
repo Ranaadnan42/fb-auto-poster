@@ -233,7 +233,7 @@ key, show the golden key). Never a random or unrelated picture.
 Each shot = {{"line": "the EXACT words of this scene's narration that are spoken while this shot is on screen
  (the lines of all shots of a scene, joined in order, give the whole scene text; split at the point where the
  narration moves to a new thing)",
- "caption": "1-3 word ALL CAPS on-screen keyword in {TITLE_LANG} naming the thing being said, e.g. TYPHON, THE GOLDEN KEY, DRAGON FIRE",
+ "caption": "1-3 words ONLY (never a sentence), ALL CAPS on-screen keyword in {TITLE_LANG} naming the thing being said, e.g. TYPHON, THE GOLDEN KEY, DRAGON FIRE",
  "subject": "2-4 plain English words: the MAIN thing seen, e.g. 'red dragon', 'golden key', 'burning village'",
  "prompt": "max 35 words: the main subject FIRST, then the action, place, light and camera angle; if a character
  appears, include ONLY that character's look from the character sheet (never other characters)"}}.
@@ -492,6 +492,16 @@ def ass_text(s):
     return s.replace("\\", " ").replace("{", "(").replace("}", ")").replace("\n", " ").strip()
 
 
+def short_caption(cap):
+    """Bara keyword: zyada se zyada 3 lafz / 22 harf, lafz beech se na kate."""
+    out = []
+    for w in re.sub(r"[.!?,;:]+$", "", cap.strip()).upper().split()[:3]:
+        if len(" ".join(out + [w])) > 22:
+            break
+        out.append(w)
+    return " ".join(out).rstrip(".,!?;:") or cap.upper()[:22]
+
+
 def make_ass(path, timed, total, title, captions=()):
     sub_top = 1000                                     # beech mein - neeche YouTube ka text dhak deta tha
     head = f"""[Script Info]
@@ -517,7 +527,7 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
         ev.append(f"Dialogue: 0,{ass_time(0)},{ass_time(total + 1)},Mark,,0,0,0,,{ass_text(CHANNEL)}")
     for start, end, cap in captions:
         ev.append(f"Dialogue: 2,{ass_time(start)},{ass_time(end)},Key,,0,0,0,,"
-                  f"{{\\fad(120,120)\\t(0,250,\\fscx108\\fscy108)\\t(250,450,\\fscx100\\fscy100)}}{ass_text(cap.upper()[:28])}")
+                  f"{{\\fad(120,120)\\t(0,250,\\fscx108\\fscy108)\\t(250,450,\\fscx100\\fscy100)}}{ass_text(short_caption(cap))}")
     for start, end, text in timed:
         words = text.split()
         n = 6 if LONG else 4
