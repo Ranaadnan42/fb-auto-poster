@@ -815,7 +815,9 @@ def mixkit_search(q):
         slug = re.sub(r"[^a-z0-9]+", "-", q.lower()).strip("-")[:60]
         if not slug:
             return []
-        for u in (f"https://mixkit.co/free-stock-video/{slug}/", f"https://mixkit.co/free-stock-video/discover/{slug}/"):
+        # poora naam pehle; na mile to us ke khaas lafz alag alag (aakhir mein vision check pakka karta hai)
+        parts = [w for w in slug.split("-") if len(w) > 3][::-1][:2] if "-" in slug else []
+        for u in [f"https://mixkit.co/free-stock-video/{t}/" for t in [slug] + parts]:
             r = requests.get(u, timeout=30, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36"})
             if r.status_code != 200:
                 continue
