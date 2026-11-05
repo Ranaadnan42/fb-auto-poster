@@ -19,7 +19,9 @@ def _load():
         from diffusers import AutoPipelineForText2Image
         torch.set_num_threads(max(os.cpu_count() or 2, 2))
         t = time.time()
-        pipe = AutoPipelineForText2Image.from_pretrained(MODEL, torch_dtype=torch.float32)
+        # sdxl-turbo: fp16 files download karo (aadha size, cache mein fit), CPU par float32 mein chalao
+        extra = {"variant": "fp16"} if "sdxl" in MODEL else {}
+        pipe = AutoPipelineForText2Image.from_pretrained(MODEL, torch_dtype=torch.float32, **extra)
         pipe.to("cpu")
         pipe.set_progress_bar_config(disable=True)
         _pipe[0] = pipe
@@ -44,7 +46,8 @@ def generate(prompt, seed, path, width=1024, height=1024, look=""):
         gh = max(int(height * scale) // 8 * 8, 256)
         text = f"{prompt}, {look}" if look else prompt
         g = torch.Generator("cpu").manual_seed(int(seed) % (2 ** 31))
-        img = pipe(prompt=text, num_inference_steps=2, guidance_scale=0.0,
+        steps = 3 if "sdxl" in MODEL else 2            # sdxl-turbo 3 steps par saaf aur prompt ke mutabiq
+        img = pipe(prompt=text, num_inference_steps=steps, guidance_scale=0.0,
                    width=gw, height=gh, generator=g).images[0]
         img = img.resize((width, height), Image.LANCZOS)
         img.save(path, "JPEG", quality=92)
