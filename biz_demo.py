@@ -122,6 +122,19 @@ def image_urls(html, base):
     return out
 
 
+def is_graphic(img):
+    """Logo / likhai wali graphic: bohat kam rang."""
+    small = img.convert("RGB").resize((64, 64))
+    return len(set(small.getdata())) < 700
+
+
+def ahash(img):
+    g = img.convert("L").resize((8, 8))
+    px = list(g.getdata())
+    avg = sum(px) / 64
+    return sum(1 << i for i, v in enumerate(px) if v > avg)
+
+
 def grab_images(url, folder):
     """Website (aur 1-2 andar ke pages) se asli tasveerein aur logo."""
     photos, logo, text, pages = [], None, "", [url]
@@ -168,10 +181,12 @@ def grab_images(url, folder):
             continue
         if w < 600 or h < 400 or len(photos) >= 10:
             continue
-        key = (w, h, len(r.content) // 2000)
-        if key in seen_sizes:
+        if re.search(r"logo", u, re.I) or is_graphic(img):   # logo/banner graphic - asli tasveer nahi
             continue
-        seen_sizes.add(key)
+        hsh = ahash(img)
+        if any(bin(hsh ^ o).count("1") <= 6 for o in seen_sizes):   # takreeban wahi tasveer
+            continue
+        seen_sizes.add(hsh)
         path = os.path.join(folder, f"photo_{len(photos)}.jpg")
         img.convert("RGB").save(path, quality=92)
         photos.append(path)
@@ -242,7 +257,8 @@ Rules:
 - Sound like the business's own social media post, warm and inviting, speaking to local customers.
 - NO prices, NO discounts, NO phone numbers, NO made-up claims.
 - 5 scenes. Scene 1 is a strong hook. Last scene invites people to visit / order / book (use what the website offers).
-- Each "say" is max 16 words. Each "label" is 2-4 words (on-screen title).
+- Each "say" is max 16 words. Each "label" is 2-4 catchy words shown on screen about THAT scene's content
+  (never words like "hook", "intro", "scene", "CTA", "outro").
 Return JSON:
 {{"scenes":[{{"say":"...","label":"..."}}], "caption":"2-3 line post caption with 4-6 relevant local hashtags",
  "post1":{{"title":"max 5 words","line":"max 12 words"}}, "post2":{{"title":"max 5 words","line":"max 12 words"}}}}"""
@@ -250,7 +266,9 @@ Return JSON:
         data = ask_json(prompt)
         sc = [s for s in data.get("scenes", []) if s.get("say")]
         blob = json.dumps(data, ensure_ascii=False)
-        if len(sc) >= 4 and not PRICE_RE.search(blob):
+        bad = any(re.fullmatch(r"(hook|intro|scene \d*|cta|outro|call to action)", (x.get("label") or "").strip(), re.I)
+                  for x in sc)
+        if len(sc) >= 4 and not PRICE_RE.search(blob) and not bad:
             data["scenes"] = sc[:6]
             return data
         log("  script mein masla (qeemat ya kam scenes), dobara")
@@ -358,7 +376,7 @@ def build_reel(biz, script, photos, logo, folder, lang, domain):
         tts(sc["say"], voice, lang)
         dur = duration(voice) + 0.35
         clip = os.path.join(folder, f"c{i}.mp4")
-        photo_clip(photos[i % len(photos)], clip, dur)
+        photo_clip(photos[i % len(photos)], clip, dur)   # photos pehle hi alag-alag hain
         ass = os.path.join(folder, f"s{i}.ass")
         make_ass(ass, biz, sc["say"], sc.get("label", ""), dur, lang, domain)
         out = os.path.join(folder, f"p{i}.mp4")
@@ -453,7 +471,8 @@ def process(biz):
     lang = "ar" if biz.get("country") in GULF and biz.get("lang") == "ar" else biz.get("lang", "en")
     log(f"\n=== {biz['name']} ({biz['biz_type']}, {biz.get('city')}) ===")
     photos, logo, text = grab_images(biz["website"], folder)
-    if len(photos) < 4:
+    own = len(photos)
+    if len(photos) < 3:
         photos += stock_photos(biz["biz_type"], folder, 5 - len(photos))
     if not photos:
         raise RuntimeError("koi tasveer nahi mili")
@@ -472,7 +491,7 @@ def process(biz):
             os.remove(os.path.join(folder, f))
     with open(os.path.join(folder, "info.json"), "w", encoding="utf-8") as f:
         json.dump({**biz, "lang": lang, "caption": script.get("caption"),
-                   "reel_secs": round(duration(reel), 1), "own_photos": not all("stock_" in p for p in photos)},
+                   "reel_secs": round(duration(reel), 1), "own_photos": own},
                   f, ensure_ascii=False, indent=1)
     log(f"  tayyar: {folder}")
 
