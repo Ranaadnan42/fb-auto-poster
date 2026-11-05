@@ -1,13 +1,34 @@
 {
  "mode": "auto",
- "stock_clips": 48,
+ "stock_clips": 7,
  "fallback_clips": 0,
  "errors": [],
- "format": "story",
- "long_minutes": 6.68,
- "series": "ماموں مستانہ کا ڈائٹ ڈرامہ part 1 (cartoon)",
- "laughs": 8,
- "time_utc": "2026-11-05 15:12",
- "title": "ماموں مستانہ کا ڈائٹ ڈرامہ | قسط 1",
+ "format": "people",
+ "search_phrases": [
+  "bargaining in pakistan",
+  "bargaining shopping",
+  "bargaining funny video",
+  "bargaining funny"
+ ],
+ "search": "bargaining in pakistan",
+ "reel_format": "dialogue",
+ "vision_checks": 213,
+ "clips_rejected": 203,
+ "sources": {
+  "openverse": 1,
+  "pixabay": 5
+ },
+ "no_match": [
+  "shopkeeper showing clothes",
+  "shocked man face",
+  "crying man retail shop",
+  "crying man retail shop",
+  "woman pointing smiling",
+  "people laughing bazaar"
+ ],
+ "laughs": 3,
+ "reel_minutes": 0.85,
+ "time_utc": "2026-11-05 18:41",
+ "title": "بازار میں امی کی بارگیننگ اور دکاندار کا صدمہ",
  "dry_run": false
 }
