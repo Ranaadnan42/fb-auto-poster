@@ -185,9 +185,45 @@ def archive(q):
         return []
 
 
+def mixkit(q):
+    """Mixkit.co: muft HD stock videos (license: commercial + YouTube allowed, attribution zaroori nahi).
+    Har cheez/jagah ka apna tag page - JSON-LD mein naam + mp4 link."""
+    import json as _j
+    out = []
+    try:
+        slug = re.sub(r"[^a-z0-9]+", "-", q.lower()).strip("-")[:60]
+        if not slug:
+            return []
+        for u in (f"https://mixkit.co/free-stock-video/{slug}/", f"https://mixkit.co/free-stock-video/discover/{slug}/"):
+            r = requests.get(u, timeout=30, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/124"})
+            if r.status_code != 200:
+                continue
+            for blk in re.findall(r'<script type="application/ld\+json">(.*?)</script>', r.text, re.S):
+                try:
+                    data = _j.loads(blk)
+                except Exception:
+                    continue
+                items = data.get("@graph", [data]) if isinstance(data, dict) else data
+                for v in items:
+                    if not isinstance(v, dict) or v.get("@type") != "VideoObject" or not v.get("contentUrl"):
+                        continue
+                    m = re.search(r"/videos/(\d+)/", v["contentUrl"])
+                    if not m:
+                        continue
+                    d = re.search(r"(\d+)M(\d+)S", str(v.get("duration") or ""))
+                    dur = int(d.group(1)) * 60 + int(d.group(2)) if d else 15
+                    out.append({"id": f"mk{m.group(1)}", "url": v["contentUrl"], "text": _clean(v.get("name", "")),
+                                 "dur": min(max(dur, 5), 60), "src": "mixkit", "vertical": False, "credit": f"{v.get('name', '')[:60]} / Mixkit"})
+            if out:
+                break
+    except Exception as e:
+        _log(f"Mixkit error: {str(e)[:120]}")
+    return out[:20]
+
+
 def videos(q, vertical=False):
     """Har platform se is cheez ki videos."""
-    return pixabay_videos(q, vertical) + pexels_videos(q, vertical) + commons(q, True) + nasa(q, True) + archive(q)
+    return pixabay_videos(q, vertical) + pexels_videos(q, vertical) + commons(q, True) + nasa(q, True) + archive(q) + mixkit(q)
 
 
 # ---------------------------------------------------------------- photos

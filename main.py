@@ -655,21 +655,33 @@ def scene_clips(terms, count, job, prefix, w, h):
     Pehle har platform ki videos (Pixabay, Commons, NASA, Pexels-agar-key), na milen to usi cheez ki asli
     photo (zoom ke saath). Be-taalluq 'random Islamic' clip sirf tab jab kuch bhi na mile."""
     import footage
-    got = []
-    for j in range(count):
-        term = terms[min(j * len(terms) // count, len(terms) - 1)] if terms else ""
-        clip = _one_clip(term, job, f"{prefix}_{j}", w, h) if term else None
-        if clip:
-            got.append(clip)
+    slots = [terms[min(j * len(terms) // count, len(terms) - 1)] if terms else "" for j in range(count)]
+    res = [None] * count
+    # 1) har jagah pehle VIDEO  2) na mile to is scene ki doosri boli gayi cheez ki video  3) tab jaa kar photo
+    for j, term in enumerate(slots):
+        if term:
+            res[j] = _one_clip(term, job, f"{prefix}_{j}", w, h, ("video",))
+    for j, term in enumerate(slots):
+        if not res[j] and term:
+            for t2 in [t for t in terms if t != term][:2]:
+                res[j] = _one_clip(t2, job, f"{prefix}_{j}", w, h, ("video",))
+                if res[j]:
+                    break
+    for j, term in enumerate(slots):
+        if not res[j] and term:
+            res[j] = _one_clip(term, job, f"{prefix}_{j}", w, h, ("photo",))
+            if not res[j]:
+                REPORT.setdefault("no_match", []).append(term)
+    got = [c for c in res if c]
     if not got:   # is scene ki koi cheez kahin na mili - tab hi purana tareeqa (mosque/aasman)
         got = pixabay_clips(random.choice(ISLAMIC_VISUALS), min(count, 2), job, prefix)
     return got
 
 
-def _one_clip(term, job, name, w, h):
+def _one_clip(term, job, name, w, h, kinds=("video", "photo")):
     import footage
     qw = footage.words(term)
-    for kind in ("video", "photo"):
+    for kind in kinds:
         cands = footage.videos(term, h > w) if kind == "video" else footage.photos(term)
         cands = [c for c in cands if c["id"] not in USED_CLIPS and not _blocked_text(c["text"])
                  and footage.match_score(c["text"], qw) > 0]
@@ -708,7 +720,6 @@ def _one_clip(term, job, name, w, h):
                 return path
             except Exception as e:
                 log(f"clip fail ({term}): {str(e)[:120]}")
-    REPORT.setdefault("no_match", []).append(term)
     return None
 
 

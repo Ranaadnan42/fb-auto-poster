@@ -556,9 +556,12 @@ def term_clips(terms, count, job, prefix, backup, w, h):
         human = bool(HUMAN & set(qw))
         subject = "people" if human else (backup if backup != "people" and backup in term else term)
         done = False
-        for kind in ("video", "photo"):
+        # pehle is cheez ki video, phir scene ki doosri boli gayi cheez ki video, photo sab se aakhir mein
+        tries_k = [("video", term)] + [("video", t) for t in terms if t != term][:2] + [("photo", term)]
+        for kind, term in tries_k:
             if done or (kind == "photo" and human):      # insaan ke kaam ki photo bejaan lagti hai
                 continue
+            qw = footage.words(term)
             cands = footage.videos(term, h > w) if kind == "video" else footage.photos(term)
             bad = ("animation", "3d", "cartoon", "render", "illustration", "abstract")
             cands = [c for c in cands if c["id"] not in USED_CLIPS and footage.match_score(c["text"], qw) > 0
@@ -587,7 +590,7 @@ def term_clips(terms, count, job, prefix, backup, w, h):
                 except Exception as e:
                     log(f"clip fail ({term}): {str(e)[:120]}")
         if not done:
-            REPORT.setdefault("no_match", []).append(term)
+            REPORT.setdefault("no_match", []).append(terms[min(j * len(terms) // count, len(terms) - 1)])
     return got
 
 

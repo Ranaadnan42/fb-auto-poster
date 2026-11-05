@@ -6,6 +6,5 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - run: pip install requests yt-dlp
+      - run: pip install google-genai "edge-tts>=7.3.0" requests pillow
       - run: python tools/src_probe.py
-      - run: timeout 120 yt-dlp --print "%(title)s | %(license)s | %(duration)s" "ytsearch3:lisbon 4k drone creative commons" || true

@@ -807,6 +807,41 @@ def archive_search(q):
         log(f"Archive error: {str(e)[:120]}")
         return []
 
+def mixkit_search(q):
+    """Mixkit.co: muft HD stock videos (license: commercial + YouTube allowed, attribution zaroori nahi).
+    Har cheez/jagah ka apna tag page - JSON-LD mein naam + mp4 link."""
+    import json as _j
+    out = []
+    try:
+        slug = re.sub(r"[^a-z0-9]+", "-", q.lower()).strip("-")[:60]
+        if not slug:
+            return []
+        for u in (f"https://mixkit.co/free-stock-video/{slug}/", f"https://mixkit.co/free-stock-video/discover/{slug}/"):
+            r = requests.get(u, timeout=30, headers={"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) Chrome/124"})
+            if r.status_code != 200:
+                continue
+            for blk in re.findall(r'<script type="application/ld\+json">(.*?)</script>', r.text, re.S):
+                try:
+                    data = _j.loads(blk)
+                except Exception:
+                    continue
+                items = data.get("@graph", [data]) if isinstance(data, dict) else data
+                for v in items:
+                    if not isinstance(v, dict) or v.get("@type") != "VideoObject" or not v.get("contentUrl"):
+                        continue
+                    m = re.search(r"/videos/(\d+)/", v["contentUrl"])
+                    if not m:
+                        continue
+                    d = re.search(r"(\d+)M(\d+)S", str(v.get("duration") or ""))
+                    dur = int(d.group(1)) * 60 + int(d.group(2)) if d else 15
+                    out.append({"id": f"mk{m.group(1)}", "url": v["contentUrl"], "text": _clean(v.get("name", "")),
+                                 "dur": min(max(dur, 5), 60), "credit": f"{v.get('name', '')[:60]} / Mixkit"})
+            if out:
+                break
+    except Exception as e:
+        log(f"Mixkit error: {str(e)[:120]}")
+    return out[:20]
+
 def wiki_photos(q):
     """Wikipedia: jis jagah/dish/cheez ki baat ho, uske apne article ki asli tasveer (sab se pakka match).
     Sirf Wikimedia Commons par mojood (free license) tasveerein - fair-use wali nahi."""
@@ -949,17 +984,19 @@ def get_clips(scene, country_words, job, prefix, need):
     want = f"{show_c} from {country}" if show and country else (show or place or country)
     said = (scene.get("text") or "").strip()
     subj_accept = sw or (pw + cw)
-    rounds = [("video", subj_q, subj_accept, want), ("photo", subj_q[:4], subj_accept, want)]
+    # PEHLE HAR TARAH KI VIDEO (subject -> AI ke naye naam -> mulk ka khaana), photo sirf jab koi video na mile
+    rounds = [("video", subj_q, subj_accept, want), ("alt", [], subj_accept, want)]
     if food:
         fq = [f"{country} food", f"{country} cuisine", f"traditional {country} dish"]
         rounds += [("video", fq, ["food", "dish", "cuisine", "meal", "plate", "restaurant"] + FOOD_WORDS_LIST,
                     f"a traditional dish or food of {country}"),
+                   ("photo", subj_q[:4], subj_accept, want), ("alt_photo", [], subj_accept, want),
                    ("photo", fq[:2], ["food", "dish", "cuisine", "meal", "plate"] + FOOD_WORDS_LIST,
                     f"a traditional dish or food of {country}")]
     else:
         place_q = [f"{city} aerial", city, f"{country} landscape", f"{country} city", country]
-        rounds.append(("video", place_q, pw + cw, place or country))
-    rounds.insert(2, ("alt", [], subj_accept, want))      # na mile -> agent naye naam soch kar dobara dhoonde
+        rounds += [("photo", subj_q[:4], subj_accept, want), ("alt_photo", [], subj_accept, want),
+                   ("video", place_q, pw + cw, place or country)]
     got = []
     ri = 0
     # har scene par zyada se zyada itni clips check (warna lambi video 5-6 ghante mein banti thi aur post na hoti)
@@ -969,28 +1006,37 @@ def get_clips(scene, country_words, job, prefix, need):
     late = time.time() - RUN_T0 > (150 if LONG else 35) * 60
     CAPS = {"video": 16, "photo": 8, "alt_video": 10, "alt_photo": 6, "place": 6}
     alt_done = [False]
+    alt_q = [None]
     cap = [0]
     while ri < len(rounds):
       kind, queries, accept, want_r = rounds[ri]
       ri += 1
       if got:          # pehle (zyada theek) round se clip mil gayi to aage nahi
         break
-      key = "place" if (kind == "video" and queries and queries[0].endswith(" aerial")) else \
-          (("alt_" + kind) if alt_done[0] and kind != "alt" else kind)
-      cap[0] = max(2, CAPS.get(key, 6) // (2 if late else 1))
       if kind == "alt":
         alt_done[0] = True
         aq = alt_queries(want, said)
         if aq:
             aw = sorted({w for q in aq for w in _words(q) if len(w) > 3 and w not in GENERIC})
-            rounds[ri:ri] = [("video", aq, aw, want), ("photo", aq[:5], aw, want)]
+            rounds[ri:ri] = [("alt_video", aq, aw, want)]
+            alt_q[0] = (aq, aw)
             REPORT["alt_searches"] = REPORT.get("alt_searches", 0) + 1
         continue
+      if kind == "alt_photo":
+        if not alt_q[0]:
+            continue
+        kind, queries, accept = "photo", alt_q[0][0][:5], alt_q[0][1]
+        key = "alt_photo"
+      elif kind == "alt_video":
+        kind, key = "video", "alt_video"
+      else:
+        key = "place" if (kind == "video" and queries and queries[0].endswith(" aerial")) else kind
+      cap[0] = max(2, CAPS.get(key, 6) // (2 if late else 1))
       for q in queries:
         if len(got) >= need or cap[0] <= 0:
             break
         if kind == "video":
-            cands = pexels_search(q) + pixabay_search(q) + commons_search(q, True) + archive_search(q)
+            cands = pexels_search(q) + pixabay_search(q) + commons_search(q, True) + archive_search(q) + mixkit_search(q)
         else:
             cands = wiki_photos(q) + pexels_photos(q) + pixabay_photos(q) + commons_search(q, False) + openverse_photos(q)
         random.shuffle(cands)
