@@ -1,51 +1,46 @@
 {
  "islamic": {
   "avoid": [
-   "Ibrahim’s Fiery Test",
-   "dhikr for peace"
+   "Finding peace through Dhikr",
+   "Good character and manners narratives"
   ],
   "try": [
-   "Prophet Musa’s parting of the Red Sea and reliance on Allah",
-   "Prophet Nuh’s perseverance while building the Ark",
-   "Companion Bilal ibn Rabah’s story of steadfastness in call to prayer",
-   "Companion Khadija’s charitable deeds and support for the Prophet",
-   "Companion Salman al-Farsi’s search for truth and conversion to Islam",
-   "Companion Abu Bakr’s generosity and leadership during the early Caliphate"
+   "Prophet Yunus (Jonah) and the Whale: lessons of repentance",
+   "Isra and Mi'raj: spiritual journey and its motivations",
+   "Companion Bilal ibn Rabah: perseverance and the call to prayer",
+   "Quranic gratitude verse (Surah Ibrahim 14:7) and daily reflection",
+   "Hadith on the virtue of smiling and spreading positivity",
+   "Companion Abdullah ibn Umar’s dedication to seeking knowledge"
   ],
   "note": "Page bohat repetitive hai"
  },
  "funny": {
   "avoid": [
-   "پپو کا رزلٹ اور انوکھا مشن series",
    "چمپا کلی اور ہوم ورک کا پہاڑ series",
-   "پیر کی صبح (Monday morning) theme",
-   "Rishta aunty scenario",
-   "Teacher vs students scenario",
-   "بارش کامیڈی ویڈیو: پیر کی صبح اور باس کا سرپرائز"
+   "پپو کا رزلٹ اور انوکھا مشن series",
+   "rishta aunty topic"
   ],
   "try": [
-   "School bus late arrival ka drama",
-   "Neighbour ki Wi‑Fi password ki ladai",
-   "Maa ki biryani banane ki disaster",
-   "Online grocery delivery ka galat address mishap",
-   "Mobile data bill shock ka comedy sketch",
-   "Desi wedding baraat parking ka hungama"
+   "Ramzan Sehri ki kitchen ki kahani – maa ki biryani aur bachon ki late night crav",
+   "Online class ka technical glitch – teacher ka Zoom freeze aur students ki funny ",
+   "Wedding invitation group chat drama – sab ki RSVP confusion aur aunties ki over‑",
+   "Ghar ki load‑shedding ka drama – ammi ki candle lighting aur bachon ki secret ga",
+   "Bhai ka exam result surprise – unexpected top rank aur family ki khushi ka over‑",
+   "Neighbour ki Wi‑Fi password ki ladai – logon ki chhupi hui tactics aur funny neg"
   ],
-  "note": "Page thodi repetitive lag rahi hai."
+  "note": "Page thodi repetitive lag rahi hai, especially animal reels aur repeat series."
  },
  "world": {
-  "avoid": [
-   "Japan"
-  ],
+  "avoid": [],
   "try": [
-   "Living in Vietnam: Cost, Culture, and Daily Life",
-   "South Korea vs Japan: Lifestyle and Expenses",
-   "Moving to Mexico: What Expats Need to Know",
-   "Exploring New Zealand: Nature, Cities, and Cost of Living",
-   "Retiring in Greece: Benefits and Challenges",
-   "Urban Life in Berlin: History, Culture, and Affordability"
+   "Living in Vietnam: Costs, Culture, and Daily Life",
+   "Exploring Kenya: Wildlife, Culture, and Expat Life",
+   "South Korea vs Japan: Lifestyle and Cost Comparison",
+   "Hidden Gems of Portugal: Small Town Living",
+   "Cost of Living in Mexico City: Safety and Lifestyle",
+   "Retiring in Greece: Islands vs Mainland"
   ],
-  "note": "Page thodi repetitive lag rahi hai"
+  "note": "Page thodi repetitive lag rahi hai."
  },
  "world_short": {
   "avoid": [
@@ -56,46 +51,60 @@
   ],
   "try": [
    "5 Underrated Street Foods in Seoul, South Korea",
-   "Living in Buenos Aires: The Real Cost of Life",
-   "Top 5 Natural Wonders in New Zealand",
-   "Dubai vs Singapore: Which City is Better for Expat Life?",
-   "Traditional Cuisine of Peru: 5 Dishes You Must Try",
-   "Secret Spots in Greece Most Tourists Miss"
+   "Iceland vs New Zealand: Which Adventure Destination Wins?",
+   "The Real Cost of Renting a Studio in Berlin, Germany",
+   "3 Secret Beaches in Bali You Won't Find on Maps",
+   "Traditional Breakfasts of Morocco: From Couscous to Mint Tea",
+   "Living in Cape Town: Safety, Scenery, and Salary Reality"
   ],
-  "note": "Page is repetitive with Japan, California, and London appearing multiple times, and title formats are heavily reused."
+  "note": "Page is repetitive with Japan, California, and London appearing multiple times, and title formats like '6 Surprising Facts' and 'Would You Live in' are overused."
  },
  "frames": {
-  "avoid": [],
-  "try": [
-   "Brazil Visa Guide for Pakistanis",
-   "South Africa Life in South Africa",
-   "New Zealand Job Opportunities for Pakistanis",
-   "Norway Education System for Pakistani Students",
-   "Sweden Travel Guide for Pakistanis"
+  "avoid": [
+   "Dubai",
+   "Japan",
+   "Canada",
+   "Germany",
+   "Australia",
+   "Italy",
+   "Malta"
   ],
-  "note": "Page thoda repetitive hai."
+  "try": [
+   "Life in New Zealand: Nature and Job Market for Pakistanis",
+   "Norway: High Cost of Living vs High Salary Guide",
+   "Netherlands: Cycling Culture and Work-Life Balance",
+   "South Korea: K-Drama Locations and Tech Jobs",
+   "Switzerland: Banking, Tourism, and Mountain Life",
+   "Ireland: English-speaking Europe and Tech Hubs"
+  ],
+  "note": "Page is repetitive on visa guides and major Western countries; needs fresh European and Asian destinations."
  },
  "frames_short": {
   "avoid": [
-   "Comparison",
-   "Dubai"
+   "Dubai",
+   "Saudi Arabia",
+   "Canada",
+   "Australia",
+   "United Arab Emirates",
+   "United Kingdom",
+   "Turkey",
+   "Japan"
   ],
   "try": [
-   "Egypt",
-   "Nigeria",
-   "Philippines",
-   "Bangladesh",
-   "Sri Lanka",
-   "Kenya"
+   "Egypt: 5 Hidden Gems",
+   "Norway: Cost of Living and Job Opportunities",
+   "Brazil: 5 Must-See Places",
+   "South Africa: Living in Cape Town",
+   "New Zealand: Work Visa Guide"
   ],
-  "note": "Haan, page bohat repetitive hai."
+  "note": "Page ka content thoda repetitive lag raha hai."
  },
  "_platforms": {
   "islamic": {
    "posts": 10,
-   "facebook": 7,
+   "facebook": 8,
    "youtube": 10,
-   "tiktok": 6
+   "tiktok": 7
   },
   "funny": {
    "posts": 10,
