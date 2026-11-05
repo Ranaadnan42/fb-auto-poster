@@ -1,7 +1,7 @@
 name: Image model probe
 on: workflow_dispatch
 permissions:
-  contents: read
+  contents: write
 jobs:
   t:
     runs-on: ubuntu-latest
@@ -15,6 +15,10 @@ jobs:
         env:
           GEMINI_KEY_LEGENDS: ${{ secrets.GEMINI_KEY_LEGENDS }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+      - name: Push images to probe branch
+        run: |
+          cd probe_out && git init -q -b probe-images && git add . && git -c user.name=bot -c user.email=bot@x commit -qm probe
+          git push -fq "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" probe-images
       - uses: actions/upload-artifact@v4
         if: always()
         with:
