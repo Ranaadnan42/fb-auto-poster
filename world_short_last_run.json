@@ -1,27 +1,22 @@
 {
  "mode": "short",
- "clips": 7,
- "clips_rejected": 132,
- "vision_checks": 130,
+ "clips": 16,
+ "clips_rejected": 209,
+ "vision_checks": 215,
  "errors": [],
  "search_phrases": [
-  "living in a car",
-  "living in every color for 24 hours",
-  "living in a storage unit",
-  "living in alaska",
-  "living in the sunlight",
-  "living in japan",
-  "living in nyc",
-  "living in a van",
-  "living in america james brown",
-  "living in my car"
+  "wages vs cost of living",
+  "inflation and cost of living",
+  "prices and cost of living class 9",
+  "cost of living protest"
  ],
- "photos": 1,
- "vision_groq": 1,
- "alt_searches": 1,
- "seconds": 20.9,
+ "search": "wages vs cost of living",
+ "photos": 3,
+ "vision_groq": 2,
+ "vision_waits": 60,
+ "seconds": 105.9,
  "links": [],
- "subject": "Would You Live in Lisbon, Portugal?",
- "series": "living_short",
- "title": "Would You Live in Lisbon, Portugal?"
+ "subject": "Switzerland vs Spain",
+ "series": "versus_short",
+ "title": "Switzerland vs Spain: Wages, Cost and Lifestyle Compared"
 }
