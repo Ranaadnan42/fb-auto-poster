@@ -261,7 +261,10 @@ def _search_phrases():
         return []
     try:
         import search_demand
-        return search_demand.suggestions(SEARCH_SEEDS, "en", "US")
+        phrases = search_demand.suggestions(SEARCH_SEEDS, "en", "US")
+        if LONG:   # lambi video ke title mein "short" na aaye (e.g. "fantasy story short")
+            phrases = [q for q in phrases if not re.search(r"\bshorts?\b", q, re.I)]
+        return phrases
     except Exception as e:
         log(f"search suggestions fail: {e}")
         return []
@@ -760,6 +763,8 @@ def upload_youtube(path, script):
     title = (script.get("yt_title") or script.get("title") or "Kahani")[:90]
     if REPORT.get("seconds", 999) <= 180 and "#shorts" not in title.lower():
         title = f"{title} #Shorts"[:100]
+    elif REPORT.get("seconds", 0) > 180:   # lambi video: title mein "Short/#Shorts" galat lagta hai
+        title = re.sub(r"\s*#?\bshorts?\b", "", title, flags=re.I).strip(" -|:") or title
     tags = [t.strip("# ") for t in script.get("tags", []) if t.strip("# ")][:20]
     part = f" - {PART_WORD} {script.get('part', 1)}" if PARTS > 1 else ""
     desc = (f"{script.get('description', '')}\n\n"

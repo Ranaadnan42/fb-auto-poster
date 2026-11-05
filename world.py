@@ -521,13 +521,15 @@ def _search_rule(plan):
             "(no clickbait, no names of real people, channels or brands).")
 
 
-def write_script(plan, facts):
+def write_script(plan, facts, note=""):
     if URDU:
-        return write_script_ur(plan, facts)
+        return write_script_ur(plan, facts, note)
     if LONG:
         shape = """"chapters": [{"name": "chapter title (e.g. History)", "scenes": [scene, ...]}, ...]
 7-10 chapters, 34-42 scenes in total, about 1500-1700 words in total (about 11 minutes spoken).
-The FIRST chapter is a short cold-open hook (2 scenes) and the LAST chapter is a short conclusion that asks
+The FIRST chapter is a short cold-open hook (2 scenes): scene 1 opens directly with the single most surprising
+true fact or contrast about the subject (never "Welcome to Atlas Untold" or "Today we"), scene 2 promises what the
+viewer will know by the end, so they keep watching and the LAST chapter is a short conclusion that asks
 viewers which place they would choose and to subscribe to Atlas Untold."""
     else:
         shape = """"chapters": [{"name": "main", "scenes": [scene, ...]}]
@@ -577,7 +579,7 @@ Rules:
 
 Return JSON:
 {{"title": "documentary title",
- "yt_title": "high-CTR YouTube title, max 70 chars, honest, includes the main place name",
+ "yt_title": "high-CTR YouTube title, max 60 chars, honest, includes the main place name and a curiosity gap or clear benefit (e.g. What Nobody Tells You About Living in X)",
  "thumb_text": "2-4 big words for the thumbnail",
  "description": "3 short SEO paragraphs for YouTube (no timestamps, no hashtags)",
  "hashtags": ["8-10 hashtags: some about the subject/place, PLUS the main English-speaking viewer countries so it reaches them - #USA #UK #Canada #Australia"],
@@ -587,14 +589,49 @@ Return JSON:
  }}
 scene = {{"text": "narration 1-3 sentences", "place": "...", "food": true/false (true if this scene talks about food/drink), "show": "the one thing to show on screen",
   "say": "same as text but hard foreign words respelled phonetically (omit if none)",
-  "search": ["..."], "label": "...", "score": false}}""", temp=0.7)
+  "search": ["..."], "label": "...", "score": false}}""" + note, temp=0.7)
 
 
-def write_script_ur(plan, facts):
+# lambi video ka script kabhi kabhi (khaas kar Groq backup se) bohat chhota aata hai -> video sirf 2-3 min.
+# Itna chhota ho to dobara likhwao (pehle thora ruk kar, taake Gemini wapas aa jaye) aur sab se lamba rakho.
+LONG_MIN_WORDS = 1100
+
+
+def script_words(script):
+    return sum(len(str(sc.get("text") or "").split())
+               for ch in (script or {}).get("chapters", []) for sc in ch.get("scenes", []))
+
+
+def ensure_long_script(script, plan, facts):
+    if not LONG:
+        return script
+    best, n = script, script_words(script)
+    for i in range(2):
+        if n >= LONG_MIN_WORDS:
+            break
+        log(f"Script chhota hai ({n} words, kam az kam {LONG_MIN_WORDS} chahiye) - dobara likhwa raha hoon")
+        time.sleep(90)
+        note = (f"\n\nIMPORTANT: a previous draft had only {n} words and was rejected as too short. "
+                "This is a LONG documentary: write ALL 7-10 chapters with 34-42 scenes in total and at least "
+                "1500 words of narration in total. Do not shorten it.")
+        try:
+            s2 = write_script(plan, facts, note)
+        except Exception as e:
+            log(f"dobara script fail: {str(e)[:200]}")
+            continue
+        n2 = script_words(s2) if isinstance(s2, dict) and "chapters" in s2 else 0
+        if n2 > n:
+            best, n = s2, n2
+    REPORT["script_words"] = n
+    return best
+
+
+def write_script_ur(plan, facts, note=""):
     if LONG:
         shape = """"chapters": [{"name": "chapter ka naam Urdu mein", "scenes": [scene, ...]}, ...]
 7-10 chapters, 34-42 scenes in total, about 1500-1700 Urdu words in total (about 11 minutes spoken).
-FIRST chapter = short hook (2 scenes). LAST chapter = short conclusion: ask viewers in which country they
+FIRST chapter = short hook (2 scenes): scene 1 seedha sab se hairan-kun sach baat se shuru ho (kabhi "assalam o alaikum"
+ya "aaj hum" se nahi), scene 2 bataye ke video ke aakhir tak dekhne wale ko kya pata chalega. LAST chapter = short conclusion: ask viewers in which country they
 would like to live, and to subscribe to Frames of Life."""
     else:
         shape = """"chapters": [{"name": "main", "scenes": [scene, ...]}]
@@ -664,7 +701,7 @@ Return JSON:
  }}
 scene = {{"text": "Urdu narration 1-3 sentences", "place": "...", "food": true/false (true if this scene talks about food/drink), "show": "the one thing to show on screen (English)",
   "say": "same as text but hard foreign words respelled in Urdu script phonetically (omit if none)",
-  "search": ["..."], "label": "...", "score": false}}""", temp=0.7)
+  "search": ["..."], "label": "...", "score": false}}""" + note, temp=0.7)
 
 
 # ---------------------------------------------------------------- asli footage
@@ -1549,6 +1586,7 @@ def _main():
             if not isinstance(script, dict) or 'chapters' not in script:
                 log(f"Invalid script format: {type(script)}")
                 raise ValueError("Script format error")
+            script = ensure_long_script(script, plan, facts)
             chapters_ts = build(script, plan, OUT_FILE)
             break
         except Exception as e:
