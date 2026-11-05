@@ -1,0 +1,53 @@
+name: YouTube connect (comment permission)
+on:
+  workflow_dispatch:
+    inputs:
+      account:
+        description: 'Channel'
+        type: choice
+        options: [legends, world, frames, islamic]
+      step:
+        description: 'start = permission link, finish = code save'
+        type: choice
+        options: [start, finish]
+      code:
+        description: 'finish ke liye: Google ka code'
+        type: string
+        default: ''
+permissions:
+  contents: write
+concurrency:
+  group: yt-connect
+  cancel-in-progress: false
+jobs:
+  connect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install requests
+      - name: Connect
+        env:
+          ACCOUNT: ${{ inputs.account }}
+          STEP: ${{ inputs.step }}
+          CODE: ${{ inputs.code }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_WORLD_CLIENT_ID: ${{ secrets.YT_WORLD_CLIENT_ID }}
+          YT_WORLD_CLIENT_SECRET: ${{ secrets.YT_WORLD_CLIENT_SECRET }}
+          YT_FRAMES_CLIENT_ID: ${{ secrets.YT_FRAMES_CLIENT_ID }}
+          YT_FRAMES_CLIENT_SECRET: ${{ secrets.YT_FRAMES_CLIENT_SECRET }}
+          YT_ISLAMIC_CLIENT_ID: ${{ secrets.YT_ISLAMIC_CLIENT_ID }}
+          YT_ISLAMIC_CLIENT_SECRET: ${{ secrets.YT_ISLAMIC_CLIENT_SECRET }}
+        run: python tools/yt_connect.py
+      - name: Permission link -> yt-connect branch
+        if: inputs.step == 'start'
+        run: |
+          cd connect_out && git init -q -b yt-connect && git add . && git -c user.name=auto-poster -c user.email=auto-poster@users.noreply.github.com commit -qm "connect ${{ inputs.account }}"
+          git push -fq "https://x-access-token:${{ github.token }}@github.com/${{ github.repository }}" yt-connect
+      - name: Save encrypted token
+        if: inputs.step == 'finish'
+        run: |
+          git config user.name auto-poster; git config user.email auto-poster@users.noreply.github.com
+          git add yt_tokens && git commit -qm "YouTube ${{ inputs.account }}: comment permission token" && \
+          for i in 1 2 3; do git pull -q --rebase && git push -q && break; sleep 5; done

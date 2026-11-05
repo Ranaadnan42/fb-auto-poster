@@ -180,6 +180,8 @@ Return JSON: {{"comment": "..."}}""")
 # ------------------------------------------------------------------ YouTube
 def yt_token(acct):
     cid, sec, ref = (env(k) for k in YT_ACCOUNTS[acct])
+    import yt_tokens                      # naya comment-ijazat wala token (repo mein encrypted) pehle
+    ref = yt_tokens.get(acct, sec) or ref
     if not (cid and sec and ref):
         return None
     j = requests.post("https://oauth2.googleapis.com/token", timeout=60, data={
