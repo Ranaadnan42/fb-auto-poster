@@ -7,7 +7,7 @@
   "country": "USA",
   "website": "https://murayarestaurant.com",
   "lang": "en",
-  "try": 2
+  "try": 3
  },
  {
   "id": "860b632b-5d75-45ac-8139-a85041beb2c6",
@@ -17,16 +17,26 @@
   "country": "Canada",
   "website": "https://oncemoreluxury.com",
   "lang": "en",
-  "try": 2
+  "try": 3
  },
  {
-  "id": "55a31ab3-9df0-4c0f-9615-1876c7ae9768",
-  "name": "Yoko Beauty Salon",
-  "biz_type": "beauty",
-  "city": "Ajman",
-  "country": "UAE",
-  "website": "https://yokosalonandspa.com/",
+  "id": "ff6bc7b5-7440-4974-8305-a6da12dd7fa1",
+  "name": "Plume Salon",
+  "biz_type": "hairdresser",
+  "city": "Austin",
+  "country": "USA",
+  "website": "https://plumesalonatx.com",
   "lang": "en",
-  "try": 2
+  "try": 3
+ },
+ {
+  "id": "f780c38a-66ba-444c-b6fd-4489839ba94a",
+  "name": "Flowe Studio",
+  "biz_type": "hairdresser",
+  "city": "Houston",
+  "country": "USA",
+  "website": "https://www.flowe.studio",
+  "lang": "en",
+  "try": 3
  }
 ]

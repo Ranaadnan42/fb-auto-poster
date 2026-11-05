@@ -125,7 +125,7 @@ def image_urls(html, base):
 def is_graphic(img):
     """Logo / likhai wali graphic: bohat kam rang."""
     small = img.convert("RGB").resize((64, 64))
-    return len(set(small.getdata())) < 700
+    return len(set(small.getdata())) < 180
 
 
 def ahash(img):
@@ -266,7 +266,7 @@ Return JSON:
         data = ask_json(prompt)
         sc = [s for s in data.get("scenes", []) if s.get("say")]
         blob = json.dumps(data, ensure_ascii=False)
-        bad = any(re.fullmatch(r"(hook|intro|scene \d*|cta|outro|call to action)", (x.get("label") or "").strip(), re.I)
+        bad = any(re.search(r"\b(hook|intro|scene|cta|outro|call to action)\b", (x.get("label") or ""), re.I)
                   for x in sc)
         if len(sc) >= 4 and not PRICE_RE.search(blob) and not bad:
             data["scenes"] = sc[:6]
@@ -472,10 +472,9 @@ def process(biz):
     log(f"\n=== {biz['name']} ({biz['biz_type']}, {biz.get('city')}) ===")
     photos, logo, text = grab_images(biz["website"], folder)
     own = len(photos)
-    if len(photos) < 3:
-        photos += stock_photos(biz["biz_type"], folder, 5 - len(photos))
-    if not photos:
-        raise RuntimeError("koi tasveer nahi mili")
+    # Quality gate: business ki apni kam az kam 2 tasveerein na hon to demo nahi - stock se ghalat cheez dikhti hai
+    if own < 2:
+        raise RuntimeError(f"website par apni tasveerein kam ({own}) - is business ko demo/email nahi")
     domain = urlparse(biz["website"]).netloc.replace("www.", "")
     script = write_script(biz, text or biz["name"], lang)
     log(f"  script: {[s['say'] for s in script['scenes']]}")
