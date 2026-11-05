@@ -499,6 +499,8 @@ def short_caption(cap):
         if len(" ".join(out + [w])) > 22:
             break
         out.append(w)
+    while len(out) > 1 and out[-1] in ("THE", "A", "AN", "TO", "OF", "IN", "ON", "AND", "FOR", "WITH", "AT", "HIS", "HER"):
+        out.pop()                                      # "BANISHED TO THE" -> "BANISHED"
     return " ".join(out).rstrip(".,!?;:") or cap.upper()[:22]
 
 
