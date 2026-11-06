@@ -1,109 +1,90 @@
 {
  "islamic": {
-  "avoid": [],
-  "try": [
-   "The story of Umar ibn al-Khattab's transformation from persecutor to protector",
-   "The story of the Prophet's kindness to the old woman who threw garbage at him",
-   "The story of the Prophet's interaction with the blind man who asked for a cure",
-   "The story of the Prophet's visit to the sick slave",
-   "The story of the Prophet's kindness to the old woman who threw garbage at him",
-   "The story of the Prophet's interaction with the blind man who asked for a cure"
+  "avoid": [
+   "Good character (akhlaq nabawi) episodes"
   ],
-  "note": "Page is somewhat repetitive with specific Prophet stories and Friday themes; needs more variety in Sahaba and daily Sunnah examples."
+  "try": [
+   "The story of Prophet Yunus (Jonah) and the whale, highlighting reliance on Allah",
+   "Bilal ibn Rabah’s perseverance and the first call to prayer",
+   "The Night Journey (Isra and Mi'raaj) and its spiritual lessons",
+   "Khalid ibn al-Walid’s conversion and bravery in early Islam",
+   "The virtue of giving water to the thirsty: companion Abdullah ibn Umar’s example",
+   "Ramadan family fasting: a heart‑warming story of unity and gratitude"
+  ],
+  "note": "Haan, page ka content kaafi repeat ho raha hai."
  },
  "funny": {
   "avoid": [
-   "خرگوش میاں (Rabbit character)",
-   "پپو کا رزلٹ اور انوکھا مشن (Pupo series)",
-   "چمپا کلی اور ہوم ورک کا پہاڑ (Champa series)",
-   "ڈلیوری رائڈر (Delivery rider character)",
-   "ہوم ورک کا پہاڑ (Homework mountain topic)",
-   "Teacher vs Students (Specific recurring topic)",
-   "Eidi collection (Specific recurring topic)",
-   "Ludo fights at home (Specific recurring topic)"
+   "چمپا کلی اور ہوم ورک کا پہاڑ",
+   "ڈلیوری رائڈر"
   ],
   "try": [
-   "امی کا ڈاکٹر کے پاس جانا اور 'بہت ہلکا' علاج (Ammi's doctor visit and 'very ligh",
-   "نیا موبائل فون اور امی کی 'صرف ضروریات' کی فہرست (New mobile phone and Ammi's 'o",
-   "پڑوسی کا نیا ڈرون اور گھر کا ہنگامہ (Neighbor's new drone and household chaos)",
-   "بازار میں امی کی بارگیننگ اور دکاندار کا صدمہ (Bargaining in bazaar and shopkeep",
-   "دادی اماں اور جدید ٹیکنالوجی کا ٹکراؤ (Dadi Amma and modern technology clash)"
+   "Online grocery delivery ka ghalat address drama",
+   "Mobile data recharge ki line mein lambi wait aur funny complaints",
+   "Neighbour ka Wi‑Fi chura lena aur family ka reaction",
+   "Ramadan Iftar planning ki har ghar ki tension aur surprise dishes",
+   "School bus driver ki late‑arrival aur bachon ki shikayat",
+   "Cousin ki shaadi ki invitation mix‑up aur family ki funny misunderstandings"
   ],
-  "note": "Page is repetitive with animal characters and homework topics; needs more fresh human-centric desi life scenarios."
+  "note": "Page thora repetitive lag raha hai, especially homework series aur delivery rider jokes."
  },
  "world": {
   "avoid": [
-   "Japan",
-   "Retiring in",
-   "Safety",
-   "Culture"
+   "Honest Truth"
   ],
   "try": [
-   "Life in Vietnam: Cost & Daily Life",
-   "New Zealand for Expats: Daily Life & Culture",
-   "Exploring Nairobi: Culture & Daily Life",
-   "The 5 Best Caribbean Countries for Retirement",
-   "Exploring Marrakech: History, Food & Daily Life",
-   "Iceland for Expats: Jobs & Best Cities"
+   "Living in Mexico – Cost of Living, Safety & Lifestyle",
+   "Moving to Kenya: What You Need to Know",
+   "Germany vs Norway: Cost, Culture & Quality of Life",
+   "Exploring New Zealand: History, Food, and Daily Life",
+   "South Korea: Daily Life, Costs, and Work Opportunities",
+   "Argentina: Honest Look at Living Costs and Culture"
   ],
-  "note": "Page repetitive hai."
+  "note": "haan, ye page kaafi دہراتا ہے"
  },
  "world_short": {
-  "avoid": [
-   "Japan",
-   "California",
-   "London",
-   "Would You Live in..."
-  ],
+  "avoid": [],
   "try": [
-   "5 Underrated Street Foods in Seoul, South Korea",
-   "Iceland vs New Zealand: Which Adventure Destination Wins?",
-   "The Real Cost of Renting a Studio in Berlin, Germany",
-   "3 Secret Beaches in Bali You Won't Find on Maps",
-   "Traditional Breakfasts of Morocco: From Couscous to Mint Tea",
-   "Living in Cape Town: Safety, Scenery, and Salary Reality"
+   "Exploring the Ancient Ruins of Peru: Machu Picchu Travel Guide",
+   "Kenya's Safari Secrets: Top 5 Wildlife Spots",
+   "South Korea Street Food Tour: Must‑Try Dishes in Seoul",
+   "Greece's Hidden Islands: Off‑beat Places to Visit",
+   "Cost of Living in Reykjavik, Iceland: What to Expect",
+   "Argentina's Wine Regions: A Guide to Mendoza"
   ],
-  "note": "Page is repetitive with Japan, California, and London appearing multiple times, and title formats like '6 Surprising Facts' and 'Would You Live in' are overused."
+  "note": "Page thodi repetitive lag rahi hai."
  },
  "frames": {
   "avoid": [
-   "Dubai",
-   "Japan",
-   "Canada",
-   "Germany",
-   "Australia",
-   "Italy",
-   "Malta"
+   "Dubai"
   ],
   "try": [
-   "Life in New Zealand: Nature and Job Market for Pakistanis",
-   "Norway: High Cost of Living vs High Salary Guide",
-   "Netherlands: Cycling Culture and Work-Life Balance",
-   "South Korea: K-Drama Locations and Tech Jobs",
-   "Switzerland: Banking, Tourism, and Mountain Life",
-   "Ireland: English-speaking Europe and Tech Hubs"
+   "South Korea Visa Guide for Pakistanis",
+   "Brazil Life in Brazil",
+   "New Zealand Life in New Zealand",
+   "Egypt Culture and Life",
+   "Sweden Job Opportunities for Pakistanis",
+   "Portugal Cost of Living for Pakistanis"
   ],
-  "note": "Page is repetitive on visa guides and major Western countries; needs fresh European and Asian destinations."
+  "note": "Page repetitive hai."
  },
  "frames_short": {
   "avoid": [
+   "Istanbul",
    "Dubai",
-   "Saudi Arabia",
-   "Canada",
-   "Australia",
-   "United Arab Emirates",
-   "United Kingdom",
-   "Turkey",
-   "Japan"
+   "Baku",
+   "Rome",
+   "Cairo"
   ],
   "try": [
-   "Egypt: 5 Hidden Gems",
-   "Norway: Cost of Living and Job Opportunities",
-   "Brazil: 5 Must-See Places",
-   "South Africa: Living in Cape Town",
-   "New Zealand: Work Visa Guide"
+   "لندن کی سیر",
+   "پاکستان میں ایک مہینے کا خرچہ",
+   "برطانیہ میں نوکری کیسے ڈھونڈیں",
+   "برطانیہ کے بہترین کھانے",
+   "برطانیہ کے چھپے ہوئے جواہرات",
+   "برطانیہ میں رہائش کے 5 آسان طریقے"
   ],
-  "note": "Page ka content thoda repetitive lag raha hai."
+  "note": "Page thodi repetitive hai"
  },
  "_platforms": {
   "islamic": {
