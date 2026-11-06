@@ -1,17 +1,15 @@
 {
  "islamic": {
-  "avoid": [
-   "Theme: Good character and manners (used 4 times)"
-  ],
+  "avoid": [],
   "try": [
-   "The story of the woman who saved a dog from a well (Mercy to animals)",
-   "The incident of the Prophet's humility while washing his own clothes (Modesty)",
-   "The story of the man who fasted every day and its spiritual impact (Fasting beyo",
-   "The lesson from the Prophet's interaction with the Bedouin man who asked about I",
-   "The story of the Prophet's kindness to his neighbor despite differences (Communi",
-   "The incident of the Prophet's sleep and waking up for Tahajjud (Discipline in wo"
+   "The story of Umar ibn al-Khattab's transformation from persecutor to protector",
+   "The story of the Prophet's kindness to the old woman who threw garbage at him",
+   "The story of the Prophet's interaction with the blind man who asked for a cure",
+   "The story of the Prophet's visit to the sick slave",
+   "The story of the Prophet's kindness to the old woman who threw garbage at him",
+   "The story of the Prophet's interaction with the blind man who asked for a cure"
   ],
-  "note": "Page is somewhat repetitive with themes like Tawakkul and Akhlaq, and specific stories like Ibrahim's fire are duplicated."
+  "note": "Page is somewhat repetitive with specific Prophet stories and Friday themes; needs more variety in Sahaba and daily Sunnah examples."
  },
  "funny": {
   "avoid": [
@@ -110,9 +108,9 @@
  "_platforms": {
   "islamic": {
    "posts": 10,
-   "facebook": 7,
+   "facebook": 6,
    "youtube": 10,
-   "tiktok": 7
+   "tiktok": 6
   },
   "funny": {
    "posts": 10,

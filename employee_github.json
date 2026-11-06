@@ -1,28 +1,31 @@
 {
- "time_utc": "2026-11-05 21:29",
+ "time_utc": "2026-11-06 11:11",
  "fixed": [],
  "problems": [
-  "Web Builder Promo: fail hua (2026-11-05T15:11 UTC) run 42052452605",
-  "Atlas Untold - lambi video: 909 clips bina agent check ke (AI quota khatam) - footage ghalat ho sakti hai",
-  "Web Builder reel (Urdu): error - awaaz nahi bani"
+  "Web Builder photo (Urdu): 41 ghante se nahi chala",
+  "Web Builder photo (Arabic): 37 ghante se nahi chala",
+  "Web Builder reel (English): 38 ghante se nahi chala"
  ],
  "ok": [
-  "Website Agent / AI Employee (BizTools Hub): 2 kamyab run",
-  "Cinematic AI Stories (YouTube): 7 kamyab run",
-  "Comment Helper search: 3 kamyab run",
+  "AutoPilot Sales Agent: 1 kamyab run",
+  "AutoPilot Customer Demo: 3 kamyab run",
+  "Website Agent / AI Employee (BizTools Hub): 1 kamyab run",
+  "Cinematic AI Stories (YouTube): 8 kamyab run",
+  "Comment Helper search: 2 kamyab run",
   "Demo website photos (Pixabay): 4 kamyab run",
   "Frames of Life (Urdu World Documentaries): 4 kamyab run",
-  "Funny Videos Poster: 5 kamyab run",
-  "Growth Bot (comment replies): 4 kamyab run",
-  "Live Replies (FB comments): 2 kamyab run",
-  "Daily Auto Poster: 7 kamyab run",
-  "Daily Photo Posts: 6 kamyab run",
-  "Pinterest Pins: 3 kamyab run",
-  "Source probe: 4 kamyab run",
-  "Web Builder Promo: 12 kamyab run",
-  "Atlas Untold (World Documentaries): 3 kamyab run",
-  "Atlas Untold - short: 11 clips, agent ne 157 check kin, 158 ghalat clips hata din",
+  "Funny Videos Poster: 7 kamyab run",
+  "Growth Bot (comment replies): 3 kamyab run",
+  "Live Replies (FB comments): 1 kamyab run",
+  "Daily Auto Poster: 6 kamyab run",
+  "Daily Photo Posts: 7 kamyab run",
+  "Pinterest Pins: 2 kamyab run",
+  "Web Builder Promo: 10 kamyab run",
+  "Atlas Untold (World Documentaries): 4 kamyab run",
+  "YouTube connect (comment permission): 1 kamyab run",
+  "Atlas Untold - lambi video: 36 clips, agent ne 311 check kin, 290 ghalat clips hata din",
+  "Atlas Untold - short: 14 clips, agent ne 168 check kin, 160 ghalat clips hata din",
   "Frames of Life - lambi video: 31 clips, agent ne 319 check kin, 302 ghalat clips hata din",
-  "Frames of Life - short: 13 clips, agent ne 152 check kin, 142 ghalat clips hata din"
+  "Frames of Life - short: 15 clips, agent ne 147 check kin, 136 ghalat clips hata din"
  ]
 }
