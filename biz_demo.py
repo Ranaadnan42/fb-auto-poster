@@ -464,6 +464,78 @@ def make_post(photo, logo, biz, title, line, path, lang, domain, accent):
     img.save(path, quality=92)
 
 
+# ------------------------------------------------------------- AI aankh (vision check)
+def _jpg(path, size=512):
+    im = Image.open(path).convert("RGB")
+    im.thumbnail((size, size))
+    b = io.BytesIO()
+    im.save(b, "JPEG", quality=80)
+    return b.getvalue()
+
+
+def ask_vision(prompt, paths):
+    """Gemini ko tasveerein dikha kar JSON jawab. Na chale to None (tab purana filter hi kaafi)."""
+    if not GEMINI_KEY:
+        return None
+    from google import genai
+    from google.genai import types
+    client = genai.Client(api_key=GEMINI_KEY)
+    parts = [prompt] + [types.Part.from_bytes(data=_jpg(p), mime_type="image/jpeg") for p in paths]
+    for model in MODELS:
+        try:
+            res = client.models.generate_content(
+                model=model, contents=parts,
+                config=types.GenerateContentConfig(response_mime_type="application/json", temperature=0.1))
+            return json.loads(res.text)
+        except Exception as e:
+            log(f"  vision {model}: {str(e)[:120]}")
+            time.sleep(3)
+    return None
+
+
+def vision_filter(photos, biz):
+    """Sirf asli tasveerein rakho: logo, likhai wale banner, icon, ghair-mutalliq tasveer nikal do."""
+    if not photos:
+        return photos
+    prompt = (f"These {len(photos)} images (numbered 0..{len(photos)-1} in order) come from the website of "
+              f"'{biz['name']}', a {biz['biz_type']} in {biz.get('city')}. We will use them in a social media reel for this business.\n"
+              "Keep an image ONLY if it is a real, good-looking photograph of this business's products, food, drinks, work, "
+              "interior, storefront or team at work. REJECT: logos, wordmarks, text-heavy banners or flyers, icons, "
+              "maps, screenshots, blank/very dark/blurry images, payment badges, and anything unrelated to this business.\n"
+              'Return JSON: {"keep":[indexes to keep, best photo first]}')
+    j = ask_vision(prompt, photos)
+    if not isinstance(j, dict) or not isinstance(j.get("keep"), list):
+        return photos
+    keep = [photos[i] for i in j["keep"] if isinstance(i, int) and 0 <= i < len(photos)]
+    log(f"  AI aankh: {len(keep)}/{len(photos)} tasveerein theek")
+    return keep
+
+
+def final_check(folder, biz):
+    """Bani hui reel ke frames + dono pics AI ko dikha kar paas/fail."""
+    reel = os.path.join(folder, "reel.mp4")
+    d = duration(reel)
+    paths = []
+    for k, t in enumerate((0.12, 0.45, 0.8)):
+        fp = os.path.join(folder, f"_f{k}.jpg")
+        run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{d * t:.2f}", "-i", reel, "-frames:v", "1", fp])
+        paths.append(fp)
+    paths += [os.path.join(folder, "post1.jpg"), os.path.join(folder, "post2.jpg")]
+    prompt = (f"You are a strict social media manager checking a FREE demo we will send to '{biz['name']}' "
+              f"({biz['biz_type']}, {biz.get('city')}). Images 0-2 are frames from the reel, 3-4 are the two picture posts.\n"
+              "Pass it only if it looks professional and clearly about THIS business: real photos of its products/place, "
+              "readable text, no frame that is just a logo or a text banner, nothing broken, ugly, unrelated or embarrassing.\n"
+              'Return JSON: {"score": 1-10, "problem": "short reason if score < 7, else empty"}')
+    j = ask_vision(prompt, paths)
+    for fp in paths[:3]:
+        os.remove(fp)
+    if not isinstance(j, dict):
+        return True, "vision check nahi chala"
+    score = int(j.get("score") or 0)
+    log(f"  AI final check: {score}/10 {j.get('problem') or ''}")
+    return score >= 7, f"AI check {score}/10: {j.get('problem') or ''}"[:250]
+
+
 def process(biz):
     slug = slugify(biz["name"])
     folder = os.path.join(OUT, slug)
@@ -471,6 +543,7 @@ def process(biz):
     lang = "ar" if biz.get("country") in GULF and biz.get("lang") == "ar" else biz.get("lang", "en")
     log(f"\n=== {biz['name']} ({biz['biz_type']}, {biz.get('city')}) ===")
     photos, logo, text = grab_images(biz["website"], folder)
+    photos = vision_filter(photos, biz)
     own = len(photos)
     # Quality gate: business ki apni kam az kam 2 tasveerein na hon to demo nahi - stock se ghalat cheez dikhti hai
     if own < 2:
@@ -493,6 +566,7 @@ def process(biz):
                    "reel_secs": round(duration(reel), 1), "own_photos": own},
                   f, ensure_ascii=False, indent=1)
     log(f"  tayyar: {folder}")
+    return folder, script.get("caption") or ""
 
 
 def main():
@@ -511,5 +585,55 @@ def main():
         sys.exit(1)
 
 
+# ------------------------------------------------------------- AGENT mode (roz, khud leads uthata hai)
+API = "https://fobzocsluzwcqretshnm.supabase.co/functions/v1/autopilot"
+
+
+def api(method, **kw):
+    for attempt in range(3):
+        try:
+            r = requests.request(method, API, timeout=90, **kw)
+            return r.json()
+        except Exception as e:
+            log(f"  API retry: {str(e)[:100]}")
+            time.sleep(5 * (attempt + 1))
+    return {}
+
+
+def agent():
+    target = int(os.environ.get("AP_COUNT", "15"))
+    test = os.environ.get("AP_TEST") == "1"
+    os.makedirs(OUT, exist_ok=True)
+    made = tried = 0
+    while made < target and tried < target * 3:
+        biz = api("GET", params={"next": "1"})
+        if not biz.get("id"):
+            log(f"agla business nahi mila: {biz}")
+            break
+        tried += 1
+        biz["name"] = biz.get("name") or biz["id"]
+        try:
+            folder, caption = process(biz)
+            ok, why = final_check(folder, biz)
+            if not ok:
+                raise RuntimeError(why)
+            for f in ("reel.mp4", "post1.jpg", "post2.jpg"):
+                u = api("POST", json={"action": "upload", "id": biz["id"], "file": f})
+                if not u.get("url"):
+                    raise RuntimeError(f"upload url nahi mila: {u}")
+                with open(os.path.join(folder, f), "rb") as fh:
+                    r = requests.put(u["url"], data=fh.read(), timeout=180, headers={
+                        "content-type": "video/mp4" if f.endswith("mp4") else "image/jpeg", "x-upsert": "true"})
+                if r.status_code >= 300:
+                    raise RuntimeError(f"upload fail {f}: {r.status_code} {r.text[:150]}")
+            res = api("POST", json={"action": "done", "id": biz["id"], "ok": True, "caption": caption, "test": test})
+            log(f"  NATIJA: {res}")
+            made += 1
+        except Exception as e:
+            log(f"  SKIP {biz.get('name')}: {e}")
+            api("POST", json={"action": "done", "id": biz["id"], "ok": False, "reason": str(e)[:280]})
+    log(f"\n{made} demo bani (koshish {tried})")
+
+
 if __name__ == "__main__":
-    main()
+    agent() if os.environ.get("AP_AGENT") == "1" else main()
