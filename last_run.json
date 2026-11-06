@@ -1,31 +1,31 @@
 {
  "lang": "en",
- "stock_clips": 13,
+ "stock_clips": 39,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "sunnah of prophet muhammad",
-  "sunnah of prophet muhammad in daily life",
-  "sunnah of prophet muhammad before sleeping",
-  "sunnah of prophet before sleeping",
-  "sunnah of prophet muhammad in daily life in urdu",
-  "sunnah of prophet muhammad malayalam",
-  "sunnah of prophet muhammad in tamil",
-  "sunnah of prophet muhammad in urdu",
-  "sunnah of prophet muhammad on eid ul adha"
+  "prophet muhammad story for kids",
+  "prophet muhammad story part 2",
+  "prophet muhammad story part 1",
+  "prophet muhammad story part 4",
+  "prophet muhammad story movie",
+  "prophet muhammad story part 3",
+  "prophet muhammad story ai",
+  "prophet muhammad story bangla",
+  "prophet muhammad story in urdu"
  ],
- "search": "sunnah of prophet before sleeping",
- "vision_checks": 63,
+ "search": "prophet muhammad story part 1",
+ "vision_checks": 115,
+ "clips_rejected": 56,
  "sources": {
-  "pixabay": 11,
-  "commons": 1,
-  "openverse": 1
+  "pixabay": 32,
+  "commons": 6,
+  "mixkit": 1
  },
- "clips_rejected": 38,
- "photo_clips": 2,
- "reel_minutes": 1.0,
- "time_utc": "2026-11-06 16:40",
- "title": "Sunnah of Prophet Before Sleeping: The Secret to Jannah",
+ "photo_clips": 1,
+ "long_minutes": 4.68,
+ "time_utc": "2026-11-06 20:29",
+ "title": "Prophet Muhammad Story Part 1: Kindness That Saved a Soul",
  "dry_run": false,
  "posted_ok": 1
 }
