@@ -1,15 +1,15 @@
 {
- "time_utc": "2026-11-05 00:48",
- "spotlight": "supermarket",
- "post_id": "1992972411677763",
+ "time_utc": "2026-11-06 00:54",
+ "spotlight": "jewellery shop",
+ "post_id": "1419682816948012",
  "error": null,
  "lang": "ar",
  "kind": "long",
- "clips": 1,
+ "clips": 2,
  "fallback": 0,
  "errors": [],
  "real_work": 6,
  "real_pos": 4,
- "mock": 5,
- "seconds": 109.2
+ "mock": 6,
+ "seconds": 121.4
 }
