@@ -1,13 +1,15 @@
 {
- "time_utc": "2026-11-04 00:02",
- "spotlight": "grocery store",
- "post_id": "1538046711706026",
+ "time_utc": "2026-11-06 00:18",
+ "spotlight": "wholesale distributor",
+ "post_id": "1576820061156763",
  "error": null,
  "lang": "en",
  "kind": "long",
- "clips": 3,
+ "clips": 1,
  "fallback": 0,
  "errors": [],
- "mock": 20,
- "seconds": 132.8
+ "real_work": 7,
+ "real_pos": 3,
+ "mock": 4,
+ "seconds": 99.8
 }
