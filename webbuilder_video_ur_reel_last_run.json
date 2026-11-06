@@ -1,15 +1,15 @@
 {
- "time_utc": "2026-11-05 21:30",
- "spotlight": "real estate agency",
- "post_id": "977250304969419",
+ "time_utc": "2026-11-06 20:50",
+ "spotlight": "grocery store",
+ "post_id": "1784591382774140",
  "error": null,
  "lang": "ur",
  "kind": "reel",
- "clips": 0,
+ "clips": 1,
  "fallback": 0,
  "errors": [],
  "real_work": 4,
- "real_pos": 2,
- "mock": 4,
- "seconds": 64.0
+ "real_pos": 1,
+ "mock": 3,
+ "seconds": 56.9
 }
