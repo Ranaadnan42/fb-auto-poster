@@ -1,8 +1,10 @@
 {
- "started": "2026-11-05T07:26:21.278172+00:00",
- "loops": 1722,
+ "started": "2026-11-05T20:18:08.155569+00:00",
+ "loops": 1721,
  "replies": 0,
- "errors": [],
+ "errors": [
+  "webbuilder: Please reduce the amount of data you're asking for, then retry your request"
+ ],
  "log": [],
- "last_check": "2026-11-05T13:11:11.841559+00:00"
+ "last_check": "2026-11-06T02:03:00.964820+00:00"
 }
