@@ -1,16 +1,16 @@
 {
- "time": "2026-11-05T20:17:38Z",
+ "time": "2026-11-06T19:42:11Z",
  "mode": "post",
- "posts": 9,
+ "posts": 10,
  "new": [
-  "https://ranaadnan42.github.io/fb-auto-poster/blog/choose-pos-system-small-business/"
+  "https://ranaadnan42.github.io/fb-auto-poster/blog/manage-inventory-excel-small-business/"
  ],
  "log": [
-  "Category: pos-systems",
-  "Keyword ideas (pos-systems): 159",
+  "Category: business-growth",
+  "Keyword ideas (business-growth): 164",
   "Groq live models: openai/gpt-oss-120b, openai/gpt-oss-20b, allam-2-7b, qwen/qwen3.8-27b",
   "Groq model: openai/gpt-oss-120b",
-  "Outline: 'How to Choose a POS System for Small Business – 2024 Guide' [how to choose pos system for small business] - 8 sections",
+  "Outline: 'How to Manage Inventory in Excel for Small Business' [how to manage inventory in excel for small business] - 7 sections",
   "Groq model: openai/gpt-oss-120b",
   "Groq model: openai/gpt-oss-120b",
   "Groq model: openai/gpt-oss-120b",
@@ -18,15 +18,14 @@
   "Groq model: openai/gpt-oss-120b",
   "Groq model: openai/gpt-oss-120b",
   "Groq model: openai/gpt-oss-120b",
-  "Groq model: openai/gpt-oss-120b",
-  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3807",
-  "groq openai/gpt-oss-120b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3385",
+  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3383",
+  "groq openai/gpt-oss-120b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 2970",
   "Groq model: openai/gpt-oss-20b",
-  "Editor review: score 7, 2 fixes applied",
-  "Article try 1: 2742 words",
-  "Pixabay 'POS system selection': 200, 20 photos",
-  "NEW: How to Choose a POS System for Small Business – 2024 Guide -> https://ranaadnan42.github.io/fb-auto-poster/blog/choose-pos-system-small-business/",
-  "Health: 9 posts, 0 issues",
+  "Editor review: score 8, 0 fixes applied",
+  "Article try 1: 2485 words",
+  "Pixabay 'inventory spreadsheet': 200, 20 photos",
+  "NEW: How to Manage Inventory in Excel for Small Business -> https://ranaadnan42.github.io/fb-auto-poster/blog/manage-inventory-excel-small-business/",
+  "Health: 10 posts, 0 issues",
   "IndexNow skip (github.io par key root par nahi rakh sakte) - custom/vercel domain par chalega"
  ]
 }
