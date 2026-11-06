@@ -1,35 +1,29 @@
 {
  "mode": "auto",
- "stock_clips": 13,
+ "stock_clips": 8,
  "fallback_clips": 0,
  "errors": [],
  "format": "people",
  "search_phrases": [
-  "ac vs fan electric bill"
+  "government office funny video",
+  "government office video",
+  "funny video government job"
  ],
- "search": "ac vs fan electric bill",
- "reel_format": "har_ghar",
- "vision_checks": 191,
- "clips_rejected": 161,
+ "search": "government office funny video",
+ "reel_format": "latifay",
+ "vision_checks": 98,
+ "clips_rejected": 85,
  "sources": {
-  "commons": 2
+  "pixabay": 6,
+  "commons": 1
  },
  "no_match": [
-  "man holding electricity bill",
-  "man holding electricity bill",
-  "father pointing finger angry",
-  "ceiling fan high speed",
-  "ceiling fan high speed",
-  "family lying on floor",
-  "hand touching ac remote",
-  "father side eye angry",
-  "man checking blood pressure",
-  "man checking blood pressure",
-  "family laughing living room"
+  "man drinking chai office",
+  "man drinking chai office"
  ],
- "laughs": 3,
- "reel_minutes": 0.8,
- "time_utc": "2026-11-06 08:57",
- "title": "AC vs Fan Electric Bill اور ابّا کا انوکھا قانون",
+ "laughs": 2,
+ "reel_minutes": 0.54,
+ "time_utc": "2026-11-06 14:39",
+ "title": "government office funny video اور سرکاری فائل کا سفر",
  "dry_run": false
 }
