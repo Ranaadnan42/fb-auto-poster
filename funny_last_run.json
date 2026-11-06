@@ -1,29 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 8,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "people",
- "search_phrases": [
-  "government office funny video",
-  "government office video",
-  "funny video government job"
- ],
- "search": "government office funny video",
- "reel_format": "latifay",
- "vision_checks": 98,
- "clips_rejected": 85,
- "sources": {
-  "pixabay": 6,
-  "commons": 1
- },
- "no_match": [
-  "man drinking chai office",
-  "man drinking chai office"
- ],
- "laughs": 2,
- "reel_minutes": 0.54,
- "time_utc": "2026-11-06 14:39",
- "title": "government office funny video اور سرکاری فائل کا سفر",
+ "format": "chat",
+ "long_minutes": 7.76,
+ "laughs": 13,
+ "time_utc": "2026-11-06 16:13",
+ "title": "ہنسی کا اڈا: پاکستان کے 5 شاہکار واٹس ایپ ڈرامے",
  "dry_run": false
 }
