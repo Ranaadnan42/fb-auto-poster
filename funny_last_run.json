@@ -1,34 +1,35 @@
 {
  "mode": "auto",
- "stock_clips": 7,
+ "stock_clips": 13,
  "fallback_clips": 0,
  "errors": [],
  "format": "people",
  "search_phrases": [
-  "bargaining in pakistan",
-  "bargaining shopping",
-  "bargaining funny video",
-  "bargaining funny"
+  "ac vs fan electric bill"
  ],
- "search": "bargaining in pakistan",
- "reel_format": "dialogue",
- "vision_checks": 213,
- "clips_rejected": 203,
+ "search": "ac vs fan electric bill",
+ "reel_format": "har_ghar",
+ "vision_checks": 191,
+ "clips_rejected": 161,
  "sources": {
-  "openverse": 1,
-  "pixabay": 5
+  "commons": 2
  },
  "no_match": [
-  "shopkeeper showing clothes",
-  "shocked man face",
-  "crying man retail shop",
-  "crying man retail shop",
-  "woman pointing smiling",
-  "people laughing bazaar"
+  "man holding electricity bill",
+  "man holding electricity bill",
+  "father pointing finger angry",
+  "ceiling fan high speed",
+  "ceiling fan high speed",
+  "family lying on floor",
+  "hand touching ac remote",
+  "father side eye angry",
+  "man checking blood pressure",
+  "man checking blood pressure",
+  "family laughing living room"
  ],
  "laughs": 3,
- "reel_minutes": 0.85,
- "time_utc": "2026-11-05 18:41",
- "title": "بازار میں امی کی بارگیننگ اور دکاندار کا صدمہ",
+ "reel_minutes": 0.8,
+ "time_utc": "2026-11-06 08:57",
+ "title": "AC vs Fan Electric Bill اور ابّا کا انوکھا قانون",
  "dry_run": false
 }
