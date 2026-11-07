@@ -1,31 +1,31 @@
 {
  "mode": "short",
- "clips": 16,
- "clips_rejected": 120,
- "vision_checks": 134,
+ "clips": 17,
+ "clips_rejected": 64,
+ "vision_checks": 79,
  "errors": [],
  "search_phrases": [
-  "ki sair kar duniya ki gafil",
-  "ki sair kara de",
-  "ki sirf",
-  "ki seerat",
-  "ki siren ki awaaz",
-  "li siri",
-  "ka siren",
-  "kya siren head",
-  "ki sir"
+  "harat angaze malomat",
+  "haqaiq",
+  "khalai makhlooq ki haqiqat",
+  "معلوماتی ویڈیو",
+  "معلومات کی دنیا",
+  "معلومات عامہ",
+  "معلومات پاکستان",
+  "معلوماتی ویڈیوز",
+  "معلوماتی رپورٹ",
+  "معلومات قرآن",
+  "معلومات اسلامی",
+  "معلوماتی اشارے"
  ],
- "alt_searches": 3,
- "vision_groq": 6,
- "vision_waits": 36,
- "photos": 4,
- "seconds": 76.6,
+ "search": "haqaiq",
+ "alt_searches": 1,
+ "seconds": 77.6,
  "links": [
-  "https://www.ica.gov.sg",
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Singapore",
- "series": "pk_tour_short",
- "title": "60 سیکنڈ میں سنگاپور کی خوبصورت دنیا | Singapore City Tour"
+ "subject": "Netherlands / Amsterdam",
+ "series": "pk_facts",
+ "title": "نیدرلینڈز کے 6 حیران کن حقائق | Life in Netherlands"
 }
