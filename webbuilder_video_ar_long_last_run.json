@@ -1,7 +1,7 @@
 {
- "time_utc": "2026-11-07 00:00",
- "spotlight": "beauty salon",
- "post_id": "4482175348713579",
+ "time_utc": "2026-11-07 23:30",
+ "spotlight": "cafe",
+ "post_id": "1195054359756705",
  "error": null,
  "lang": "ar",
  "kind": "long",
@@ -10,6 +10,6 @@
  "errors": [],
  "real_work": 6,
  "real_pos": 5,
- "mock": 5,
- "seconds": 111.8
+ "mock": 7,
+ "seconds": 119.6
 }
