@@ -1,45 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 9,
- "fallback_clips": 1,
+ "stock_clips": 48,
+ "fallback_clips": 0,
  "errors": [],
- "format": "people",
- "search_phrases": [
-  "first day at gym funny video",
-  "first day at gym funny short",
-  "first day at gym funny moments",
-  "first day at gym funny voice",
-  "first day at gym funny sound",
-  "1st day at gym funny",
-  "my first day at gym funny",
-  "my friend first day at gym funny",
-  "first day after gym funny",
-  "first day at gym comedy video",
-  "first day at gym stand up comedy",
-  "first day gym workout comedy"
- ],
- "search": "first day at gym funny video",
- "reel_format": "news",
- "vision_checks": 140,
- "clips_rejected": 122,
- "no_match": [
-  "man looking at gym clothes",
-  "man looking at gym clothes",
-  "man wearing new sneakers",
-  "man eating paratha breakfast",
-  "man eating paratha breakfast",
-  "man struggling with dumbbell",
-  "man struggling with dumbbell",
-  "man sleeping on sofa",
-  "man sleeping on sofa",
-  "man sleeping on sofa"
- ],
- "sources": {
-  "pixabay": 1
- },
- "laughs": 2,
- "reel_minutes": 0.65,
- "time_utc": "2026-11-07 12:53",
- "title": "my first day at gym funny video اور ابّا کا نیا مشورہ",
+ "format": "cartoon",
+ "long_minutes": 6.32,
+ "series": "ماموں مستانہ کا ڈائٹ ڈرامہ part 2 (cartoon)",
+ "laughs": 6,
+ "time_utc": "2026-11-07 14:42",
+ "title": "ماموں مستانہ کا ڈائٹ ڈرامہ | قسط 2",
  "dry_run": false
 }
