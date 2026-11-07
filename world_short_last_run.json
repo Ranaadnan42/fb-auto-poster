@@ -1,26 +1,30 @@
 {
  "mode": "short",
- "clips": 15,
- "clips_rejected": 88,
- "vision_checks": 102,
+ "clips": 10,
+ "clips_rejected": 145,
+ "vision_checks": 147,
  "errors": [],
  "search_phrases": [
-  "hidden gems in florida",
-  "hidden gems in japan",
-  "hidden gems in tokyo",
-  "hidden gems in chicago",
-  "hidden gems in los angeles",
-  "hidden gems in california",
-  "hidden gems in san francisco",
-  "hidden gems in rome",
-  "hidden gems in las vegas",
-  "hidden gems in nyc"
+  "cost of living in thailand",
+  "cost of living in the philippines",
+  "cost of living in japan",
+  "cost of living in vietnam",
+  "cost of living in panama",
+  "cost of living in america",
+  "cost of living in mexico",
+  "cost of living in costa rica",
+  "cost of living in china",
+  "cost of living in spain"
  ],
- "alt_searches": 2,
- "photos": 4,
- "seconds": 66.5,
+ "search": "cost of living in costa rica",
+ "alt_searches": 4,
+ "photos": 2,
+ "no_match": [
+  "Costa Rica map motion graphic"
+ ],
+ "seconds": 59.9,
  "links": [],
- "subject": "Italy",
- "series": "hidden",
- "title": "5 Secret Places in Italy You Never Knew Existed"
+ "subject": "Costa Rica",
+ "series": "cost_short",
+ "title": "What Life Really Costs in Costa Rica"
 }
