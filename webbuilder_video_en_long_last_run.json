@@ -1,7 +1,7 @@
 {
- "time_utc": "2026-11-06 23:44",
- "spotlight": "clothing shop",
- "post_id": "1701347151444965",
+ "time_utc": "2026-11-07 19:05",
+ "spotlight": "clinic",
+ "post_id": "1655975556018455",
  "error": null,
  "lang": "en",
  "kind": "long",
@@ -10,6 +10,6 @@
  "errors": [],
  "real_work": 7,
  "real_pos": 3,
- "mock": 4,
- "seconds": 109.0
+ "mock": 3,
+ "seconds": 84.9
 }
