@@ -1,73 +1,80 @@
 {
  "islamic": {
   "avoid": [
-   "Ibrahim’s Fiery Test",
-   "bimar Yehudi bachay ki ayadat"
+   "good character of Abu Bakr",
+   "miracle of moon split",
+   "Sunnah before sleeping"
   ],
   "try": [
-   "Prophet Musa’s patience with Pharaoh and the miracle of the staff",
-   "Prophet Yusuf’s dream interpretation and rise to power",
-   "Bilal’s first Adhan and perseverance",
-   "Umm Salama’s wise counsel to the Prophet",
-   "The Prophet’s kindness to a stray cat and its lesson",
-   "Isra and Mi'raj: the Night Journey and its spiritual benefits"
+   "Bilal's first call to prayer and perseverance",
+   "Aisha's wise counsel on marriage",
+   "Khalid ibn al-Walid's bravery at Uhud",
+   "Hadith on sincere intention (niyyah) and its reward",
+   "Etiquette of visiting the sick (riyaala)",
+   "Benefits of fasting on Mondays and Thursdays"
   ],
-  "note": "Page thodi repetitive lag rahi hai"
+  "note": "Page thodi repetitive lag rahi hai."
  },
  "funny": {
   "avoid": [
+   "ڈلیوری رائڈر اور بجلی کا شاہکار بل",
+   "ٹک ٹاک کا جن اور ڈلیوری رائڈر",
+   "مہندی کا ہنگامہ اور ڈلیوری رائڈر کا تماشہ",
    "چمپا کلی اور ہوم ورک کا پہاڑ",
-   "ڈلیوری رائڈر"
+   "استاد جی کا سوال اور ابّا کا فلسفہ",
+   "کچھوا میاں کی کلاس: ٹیچر بمقابلہ اسٹوڈنٹ فنی ویڈیو",
+   "TikTok craze selfie jokes"
   ],
   "try": [
-   "Online grocery delivery ka ghalat address drama",
-   "Mobile data recharge ki line mein lambi wait aur funny complaints",
-   "Neighbour ka Wi‑Fi chura lena aur family ka reaction",
-   "Ramadan Iftar planning ki har ghar ki tension aur surprise dishes",
-   "School bus driver ki late‑arrival aur bachon ki shikayat",
-   "Cousin ki shaadi ki invitation mix‑up aur family ki funny misunderstandings"
+   "نیا موبائل پلان اور ابو کا غیر متوقع ریٹ",
+   "پڑوسی کی بیکری میں نئی ڈونٹ کی قیمت پر ہنگامہ",
+   "سائیکل پر سفر اور ٹریفک پولیس کا ڈرامہ",
+   "پری اسکول کے بچے کی ہوم ورک کی نئی مشکل",
+   "پانی کی بِل میں گیس کے ساتھ جھگڑا",
+   "دادی کی انٹرنیٹ سروس اور وائی فائی کا ٹوٹا ہوا کنکشن"
   ],
-  "note": "Page thora repetitive lag raha hai, especially homework series aur delivery rider jokes."
+  "note": "Page thoda repetitive lag raha hai."
  },
  "world": {
   "avoid": [
-   "Honest Truth"
+   "Honest Truth phrasing"
   ],
   "try": [
-   "Living in Mexico – Cost of Living, Safety & Lifestyle",
-   "Moving to Kenya: What You Need to Know",
-   "Germany vs Norway: Cost, Culture & Quality of Life",
-   "Exploring New Zealand: History, Food, and Daily Life",
-   "South Korea: Daily Life, Costs, and Work Opportunities",
-   "Argentina: Honest Look at Living Costs and Culture"
+   "Moving to Mexico: Cost, Safety & Daily Life insights",
+   "South Korea Documentary: Culture, Work Life & Expenses",
+   "Kenya Living Guide: Jobs, Safety & Lifestyle",
+   "Greece Relocation: Real Costs, Food & Community",
+   "New Zealand Expat Guide: Housing, Jobs & Quality of Life",
+   "Philippines Everyday Life: Cost of Living, Safety & Culture"
   ],
-  "note": "haan, ye page kaafi دہراتا ہے"
+  "note": "Page thodi repetitive lag rahi hai."
  },
  "world_short": {
   "avoid": [],
   "try": [
-   "Exploring the Ancient Ruins of Peru: Machu Picchu Travel Guide",
-   "Kenya's Safari Secrets: Top 5 Wildlife Spots",
-   "South Korea Street Food Tour: Must‑Try Dishes in Seoul",
-   "Greece's Hidden Islands: Off‑beat Places to Visit",
-   "Cost of Living in Reykjavik, Iceland: What to Expect",
-   "Argentina's Wine Regions: A Guide to Mendoza"
+   "Cost of Living in Brazil",
+   "Hidden Gems in Mexico",
+   "Hidden Gems in South Africa",
+   "Traditional Food of New Zealand",
+   "Cost of Living in Russia"
   ],
-  "note": "Page thodi repetitive lag rahi hai."
+  "note": "Page repetitive hai."
  },
  "frames": {
   "avoid": [
-   "Dubai"
+   "Dubai",
+   "Tour",
+   "Pakistanis"
   ],
   "try": [
-   "South Korea Visa Guide for Pakistanis",
-   "Brazil Life in Brazil",
-   "New Zealand Life in New Zealand",
-   "Egypt Culture and Life",
-   "Sweden Job Opportunities for Pakistanis",
-   "Portugal Cost of Living for Pakistanis"
+   "Brazil Visa Process for Pakistanis",
+   "Life in Brazil",
+   "Tour of Brazil",
+   "Jobs in Brazil",
+   "Brazil vs Argentina: Which is better?",
+   "Cheapest Countries for Pakistanis: Brazil"
   ],
-  "note": "Page repetitive hai."
+  "note": "Page thoda repetitive lag raha hai."
  },
  "frames_short": {
   "avoid": [
@@ -114,7 +121,7 @@
   },
   "frames": {
    "posts": 10,
-   "facebook": 9,
+   "facebook": 10,
    "youtube": 10,
    "tiktok": 0
   },

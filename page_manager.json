@@ -1,10 +1,10 @@
 {
  "islamic": {
-  "at": "2026-11-07T10:29+00:00",
+  "at": "2026-11-07T19:30+00:00",
   "done": [],
   "problems": [],
   "name": "Islamic Motivational Videos",
-  "followers": 1298,
+  "followers": 1299,
   "insights_28d": {},
   "history": [
    {
@@ -29,13 +29,13 @@
    },
    {
     "day": "2026-11-07",
-    "followers": 1298
+    "followers": 1299
    }
   ],
-  "last_post": "2026-11-07T08:47+00:00"
+  "last_post": "2026-11-07T16:47+00:00"
  },
  "funny": {
-  "at": "2026-11-07T10:29+00:00",
+  "at": "2026-11-07T19:30+00:00",
   "done": [],
   "problems": [],
   "name": "Hansi Ka Adda ہنسی کا اڈا",
@@ -67,14 +67,14 @@
     "followers": 1517
    }
   ],
-  "last_post": "2026-11-07T08:51+00:00"
+  "last_post": "2026-11-07T17:33+00:00"
  },
  "frames": {
-  "at": "2026-11-07T10:29+00:00",
+  "at": "2026-11-07T19:30+00:00",
   "done": [],
   "problems": [],
   "name": "Frames Of Life",
-  "followers": 36,
+  "followers": 39,
   "insights_28d": {},
   "history": [
    {
@@ -99,13 +99,13 @@
    },
    {
     "day": "2026-11-07",
-    "followers": 36
+    "followers": 39
    }
   ],
-  "last_post": "2026-11-07T08:41+00:00"
+  "last_post": "2026-11-07T17:15+00:00"
  },
  "webbuilder": {
-  "at": "2026-11-07T10:29+00:00",
+  "at": "2026-11-07T19:30+00:00",
   "done": [],
   "problems": [],
   "name": "web builder",
@@ -137,6 +137,6 @@
     "followers": 31
    }
   ],
-  "last_post": "2026-11-07T00:06+00:00"
+  "last_post": "2026-11-07T19:27+00:00"
  }
 }
