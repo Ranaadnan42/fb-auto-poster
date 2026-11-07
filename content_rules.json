@@ -1,17 +1,18 @@
 {
  "islamic": {
   "avoid": [
-   "Good character (akhlaq nabawi) episodes"
+   "Ibrahim’s Fiery Test",
+   "bimar Yehudi bachay ki ayadat"
   ],
   "try": [
-   "The story of Prophet Yunus (Jonah) and the whale, highlighting reliance on Allah",
-   "Bilal ibn Rabah’s perseverance and the first call to prayer",
-   "The Night Journey (Isra and Mi'raaj) and its spiritual lessons",
-   "Khalid ibn al-Walid’s conversion and bravery in early Islam",
-   "The virtue of giving water to the thirsty: companion Abdullah ibn Umar’s example",
-   "Ramadan family fasting: a heart‑warming story of unity and gratitude"
+   "Prophet Musa’s patience with Pharaoh and the miracle of the staff",
+   "Prophet Yusuf’s dream interpretation and rise to power",
+   "Bilal’s first Adhan and perseverance",
+   "Umm Salama’s wise counsel to the Prophet",
+   "The Prophet’s kindness to a stray cat and its lesson",
+   "Isra and Mi'raj: the Night Journey and its spiritual benefits"
   ],
-  "note": "Haan, page ka content kaafi repeat ho raha hai."
+  "note": "Page thodi repetitive lag rahi hai"
  },
  "funny": {
   "avoid": [

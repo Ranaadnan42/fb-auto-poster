@@ -1,27 +1,27 @@
 {
- "time_utc": "2026-11-06 20:57",
+ "time_utc": "2026-11-07 10:28",
  "fixed": [],
- "problems": [],
+ "problems": [
+  "Atlas Untold - short: in cheezon ki sahi footage nahi mili: Costa Rica map motion graphic"
+ ],
  "ok": [
-  "AutoPilot Sales Agent: 2 kamyab run",
-  "AutoPilot Customer Demo: 3 kamyab run",
-  "Website Agent / AI Employee (BizTools Hub): 2 kamyab run",
-  "Cinematic AI Stories (YouTube): 8 kamyab run",
-  "Comment Helper search: 3 kamyab run",
+  "AutoPilot Sales Agent: 1 kamyab run",
+  "Website Agent / AI Employee (BizTools Hub): 1 kamyab run",
+  "Cinematic AI Stories (YouTube): 7 kamyab run",
+  "Comment Helper search: 2 kamyab run",
   "Demo website photos (Pixabay): 4 kamyab run",
-  "Frames of Life (Urdu World Documentaries): 2 kamyab run",
-  "Funny Videos Poster: 6 kamyab run",
-  "Growth Bot (comment replies): 4 kamyab run",
-  "Live Replies (FB comments): 2 kamyab run",
-  "Daily Auto Poster: 8 kamyab run",
-  "Daily Photo Posts: 7 kamyab run",
-  "Pinterest Pins: 3 kamyab run",
-  "Web Builder Promo: 12 kamyab run",
+  "Frames of Life (Urdu World Documentaries): 3 kamyab run",
+  "Funny Videos Poster: 8 kamyab run",
+  "Growth Bot (comment replies): 3 kamyab run",
+  "Live Replies (FB comments): 1 kamyab run",
+  "Daily Auto Poster: 7 kamyab run",
+  "Daily Photo Posts: 9 kamyab run",
+  "Pinterest Pins: 2 kamyab run",
+  "Web Builder Promo: 10 kamyab run",
   "Atlas Untold (World Documentaries): 3 kamyab run",
-  "YouTube connect (comment permission): 1 kamyab run",
   "Atlas Untold - lambi video: 36 clips, agent ne 311 check kin, 290 ghalat clips hata din",
-  "Atlas Untold - short: 15 clips, agent ne 102 check kin, 88 ghalat clips hata din",
+  "Atlas Untold - short: 10 clips, agent ne 147 check kin, 145 ghalat clips hata din",
   "Frames of Life - lambi video: 31 clips, agent ne 319 check kin, 302 ghalat clips hata din",
-  "Frames of Life - short: 12 clips, agent ne 126 check kin, 119 ghalat clips hata din"
+  "Frames of Life - short: 16 clips, agent ne 134 check kin, 120 ghalat clips hata din"
  ]
 }
