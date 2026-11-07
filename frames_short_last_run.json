@@ -1,28 +1,31 @@
 {
  "mode": "short",
- "clips": 12,
- "clips_rejected": 119,
- "vision_checks": 126,
+ "clips": 16,
+ "clips_rejected": 120,
+ "vision_checks": 134,
  "errors": [],
  "search_phrases": [
-  "visa for pakistani 2026",
-  "visa for pakistani passport",
-  "visa for pakistani in uae",
-  "spain visa for pakistani",
-  "albania visa for pakistani",
-  "kyrgyzstan visa for pakistani",
-  "azerbaijan visa for pakistani nationals",
-  "germany visa for pakistani",
-  "kazakhstan visa for pakistani"
+  "ki sair kar duniya ki gafil",
+  "ki sair kara de",
+  "ki sirf",
+  "ki seerat",
+  "ki siren ki awaaz",
+  "li siri",
+  "ka siren",
+  "kya siren head",
+  "ki sir"
  ],
- "search": "kazakhstan visa for pakistani",
- "alt_searches": 4,
- "seconds": 67.8,
+ "alt_searches": 3,
+ "vision_groq": 6,
+ "vision_waits": 36,
+ "photos": 4,
+ "seconds": 76.6,
  "links": [
+  "https://www.ica.gov.sg",
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Kazakhstan / Almaty",
- "series": "pk_visa_short",
- "title": "Kazakhstan Visa for Pakistanis: 5 Important Tips | Life in Almaty"
+ "subject": "Singapore",
+ "series": "pk_tour_short",
+ "title": "60 سیکنڈ میں سنگاپور کی خوبصورت دنیا | Singapore City Tour"
 }
