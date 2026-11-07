@@ -1,16 +1,16 @@
 {
- "time": "2026-11-06T19:42:11Z",
+ "time": "2026-11-07T17:53:20Z",
  "mode": "post",
- "posts": 10,
+ "posts": 11,
  "new": [
-  "https://ranaadnan42.github.io/fb-auto-poster/blog/manage-inventory-excel-small-business/"
+  "https://ranaadnan42.github.io/fb-auto-poster/blog/increase-sales-retail-store/"
  ],
  "log": [
   "Category: business-growth",
-  "Keyword ideas (business-growth): 164",
+  "Keyword ideas (business-growth): 167",
   "Groq live models: openai/gpt-oss-120b, openai/gpt-oss-20b, allam-2-7b, qwen/qwen3.8-27b",
   "Groq model: openai/gpt-oss-120b",
-  "Outline: 'How to Manage Inventory in Excel for Small Business' [how to manage inventory in excel for small business] - 7 sections",
+  "Outline: 'How to Increase Sales in a Retail Store – Proven Steps' [how to increase sales in a retail store] - 8 sections",
   "Groq model: openai/gpt-oss-120b",
   "Groq model: openai/gpt-oss-120b",
   "Groq model: openai/gpt-oss-120b",
@@ -18,14 +18,15 @@
   "Groq model: openai/gpt-oss-120b",
   "Groq model: openai/gpt-oss-120b",
   "Groq model: openai/gpt-oss-120b",
-  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3383",
-  "groq openai/gpt-oss-120b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 2970",
+  "Groq model: openai/gpt-oss-120b",
+  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3882",
+  "groq openai/gpt-oss-120b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3469",
   "Groq model: openai/gpt-oss-20b",
-  "Editor review: score 8, 0 fixes applied",
-  "Article try 1: 2485 words",
-  "Pixabay 'inventory spreadsheet': 200, 20 photos",
-  "NEW: How to Manage Inventory in Excel for Small Business -> https://ranaadnan42.github.io/fb-auto-poster/blog/manage-inventory-excel-small-business/",
-  "Health: 10 posts, 0 issues",
+  "Editor review: score 8, 7 fixes applied",
+  "Article try 1: 2888 words",
+  "Pixabay 'retail store checkout': 200, 20 photos",
+  "NEW: How to Increase Sales in a Retail Store – Proven Steps -> https://ranaadnan42.github.io/fb-auto-poster/blog/increase-sales-retail-store/",
+  "Health: 11 posts, 0 issues",
   "IndexNow skip (github.io par key root par nahi rakh sakte) - custom/vercel domain par chalega"
  ]
 }
