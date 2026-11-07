@@ -1,7 +1,7 @@
 {
- "time_utc": "2026-11-06 20:50",
- "spotlight": "grocery store",
- "post_id": "1784591382774140",
+ "time_utc": "2026-11-07 19:23",
+ "spotlight": "bakery",
+ "post_id": "1862624955101899",
  "error": null,
  "lang": "ur",
  "kind": "reel",
@@ -9,7 +9,7 @@
  "fallback": 0,
  "errors": [],
  "real_work": 4,
+ "mock": 5,
  "real_pos": 1,
- "mock": 3,
- "seconds": 56.9
+ "seconds": 61.6
 }
