@@ -1,15 +1,15 @@
 {
- "time_utc": "2026-11-06 23:18",
- "spotlight": "pharmacy",
- "post_id": "1126840236873030",
+ "time_utc": "2026-11-07 19:04",
+ "spotlight": "clinic",
+ "post_id": "1847450839594763",
  "error": null,
  "lang": "ar",
  "kind": "reel",
- "clips": 0,
+ "clips": 1,
  "fallback": 0,
  "errors": [],
- "real_work": 3,
- "real_pos": 4,
- "mock": 4,
- "seconds": 85.1
+ "real_work": 2,
+ "real_pos": 6,
+ "mock": 3,
+ "seconds": 70.5
 }
