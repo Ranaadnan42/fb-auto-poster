@@ -1,13 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 48,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
  "format": "cartoon",
- "long_minutes": 6.32,
- "series": "ماموں مستانہ کا ڈائٹ ڈرامہ part 2 (cartoon)",
- "laughs": 6,
- "time_utc": "2026-11-07 14:42",
- "title": "ماموں مستانہ کا ڈائٹ ڈرامہ | قسط 2",
+ "reel_minutes": 0.73,
+ "laughs": 3,
+ "time_utc": "2026-11-07 16:50",
+ "title": "شیدا میاں اور تیکھے بن کباب کا دھماکہ",
  "dry_run": false
 }
