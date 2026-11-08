@@ -74,6 +74,7 @@ SLOTS = [
     dict(file="news.yml", crons=["7 18 * * *"], post="18:17", lead=10),
     dict(file="news.yml", crons=["7 20 * * *"], post="20:17", lead=10),
     dict(file="news.yml", crons=["7 22 * * *"], post="22:17", lead=10),
+    dict(file="news.yml", crons=["3 4 * * *"], post="04:33", lead=30),
     dict(file="news.yml", crons=["33 6 * * *"], post="07:03", lead=30),
     dict(file="news.yml", crons=["33 17 * * *"], post="18:03", lead=30),
     dict(file="news.yml", crons=["3 22 * * *"], post="22:33", lead=30),
