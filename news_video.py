@@ -92,8 +92,7 @@ def pick_stories(kind, past):
         if topic in topics:
             continue
         items = [i for i in news.fresh_items(pool[topic], past) if i["link"] not in links]
-        if KIND == "reel":                      # reel ke liye wohi jis ki tafseel ho
-            items = [i for i in items if i["desc"]] or items
+        items = [i for i in items if len(i["desc"]) >= 60] or items    # tafseel wali khabar pehle
         log(f"{kind}/{topic}: {len(items)} taaza")
         if not items:
             continue
@@ -113,7 +112,7 @@ def write_script(kind, stories):
             if LANG == "ur" else "natural spoken English like a BBC news anchor")
     lst = "\n".join(f"{n + 1}. [{s['topic'].replace('_', ' ')}] {s['title']} -- {s['desc'] or '(headline only)'} "
                     f"(source: {s['source']})" for n, s in enumerate(stories))
-    per = "3-4 scenes (the whole reel 110-150 spoken words)" if KIND == "reel" \
+    per = "4-5 scenes (the whole reel 150-190 spoken words, about 50-60 seconds)" if KIND == "reel" \
         else "3 scenes each (each story 90-120 spoken words)"
     prompt = f"""You are the anchor and script writer of the Facebook page "{P['name']}"
 ({'world news' if kind == 'news' else 'world sports news'}). Write a {'short vertical REEL' if KIND == 'reel' else 'news BULLETIN video'}
@@ -122,14 +121,16 @@ in {lang} covering these stories in this order:
 
 Rules:
 - Your OWN words only - never copy the source's sentences.
-- Only facts given above. NEVER invent numbers, scores, quotes, names, dates or results. If details are thin, explain the background in general terms without new facts.
+- Only facts EXPLICITLY written above. Anything not written there (appointments, numbers, scores, quotes, names, dates,
+  causes, results) must NOT be stated, not even as a guess. If details are thin, explain general background (what the
+  country/league/tournament is) without adding new facts about this story.
 - Neutral, professional, easy to understand. Mention the source naturally ("according to BBC").
 - Start with a strong one-sentence hook. End with: ask viewers to follow {P['name']}, like and share.
 - Each story gets {per}.
 - For every scene give "visuals": 1-3 short ENGLISH stock-footage search terms IN THE ORDER the narration
   mentions them (a country's flag/city/landmark, parliament building, stadium, the sport being played,
   oil tanker, stock market screen, rain flood street...). Must be the SPECIFIC thing said. Never a person's
-  name, never violence, blood, weapons, dead bodies or explosions.
+  name, never a logo or channel/page name, never military, violence, blood, weapons, dead bodies or explosions.
 
 Return JSON:
 {{"title": "video title, max 10 words",

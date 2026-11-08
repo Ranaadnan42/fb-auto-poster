@@ -287,6 +287,8 @@ def fresh_items(urls, past):
         age = (now - it["date"]).total_seconds() / 3600 if it["date"] else 12
         if age > 30 or age < -2 or seen(it, past):
             continue
+        if len(it["title"].split()) < 4:
+            continue
         if re.search(r"\b(live|as it happened|quiz|in pictures|watch:|video:|podcast|newsletter|crossword)\b",
                      it["title"], re.I):
             continue
@@ -336,7 +338,9 @@ Source: {item['source']}
 
 Rules:
 - Write everything in your OWN words. Do NOT copy sentences from the source.
-- Only use facts in the headline/details above. Never invent numbers, quotes, scores, names or results.
+- Only use facts that are EXPLICITLY written in the headline/details above. If something is not written there
+  (who was appointed, numbers, scores, dates, causes, results, quotes), do NOT state it - not even as a guess.
+  With thin details, keep the summary short and say only what is known.
 - Neutral, factual tone like a professional news agency. No opinions, no clickbait lies.
 - If the story is only rumour/opinion, say "reportedly" / "according to {item['source']}".
 
@@ -483,6 +487,7 @@ def make_post(kind, hist, avoid_links):
         log(f"{kind}/{topic}: {len(items)} taaza khabrein")
         if not items:
             continue
+        items = [i for i in items if len(i["desc"]) >= 60] or items     # tafseel wali khabar pehle
         item = random.choice(items[:4])
         log(f"Chuni: {item['title']} ({item['source']})")
         j = write_post(kind, topic, item)
