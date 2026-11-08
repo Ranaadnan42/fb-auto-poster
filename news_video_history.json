@@ -13,6 +13,83 @@
     "rain",
     "threatens"
    ]
+  },
+  {
+   "date": "2026-11-08 20:56",
+   "topic": "middle_east",
+   "link": "https://www.bbc.co.uk/news/articles/c65yn1v99ypmo?at_medium=RSS&at_campaign=rss",
+   "title": "Houthis say at least 33 killed in Saudi air strike",
+   "words": [
+    "houthis",
+    "killed",
+    "least",
+    "saudi",
+    "strike"
+   ]
+  },
+  {
+   "date": "2026-11-08 20:56",
+   "topic": "asia",
+   "link": "https://www.bbc.co.uk/news/articles/cmvg652l927lo?at_medium=RSS&at_campaign=rss",
+   "title": "He spent $50,000 on Labubus but now the craze is dying",
+   "words": [
+    "craze",
+    "dying",
+    "labubus",
+    "spent"
+   ]
+  },
+  {
+   "date": "2026-11-08 20:56",
+   "topic": "science_tech",
+   "link": "https://www.bbc.co.uk/news/articles/cmzxjvpqrjxro?at_medium=RSS&at_campaign=rss",
+   "title": "Government 'looking seriously' at banning under-16s from Vinted and eBay",
+   "words": [
+    "banning",
+    "ebay",
+    "from",
+    "government",
+    "looking",
+    "seriously",
+    "under",
+    "vinted"
+   ]
+  },
+  {
+   "date": "2026-11-08 20:56",
+   "topic": "africa",
+   "link": "https://www.bbc.co.uk/news/videos/cw78p2km7d94o?at_medium=RSS&at_campaign=rss",
+   "title": "Footage shows derailed carriages after fatal train crash in Egypt",
+   "words": [
+    "after",
+    "carriages",
+    "crash",
+    "derailed",
+    "egypt",
+    "fatal",
+    "footage",
+    "shows",
+    "train"
+   ]
+  },
+  {
+   "date": "2026-11-08 20:56",
+   "topic": "business",
+   "link": "https://www.bbc.co.uk/news/articles/cxr5yyg2nj9eo?at_medium=RSS&at_campaign=rss",
+   "title": "'Flat', 'tired', 'cynical': Unusually gloomy Kiwis deliver New Zealand's tightest election in years",
+   "words": [
+    "cynical",
+    "deliver",
+    "election",
+    "flat",
+    "gloomy",
+    "kiwis",
+    "tightest",
+    "tired",
+    "unusually",
+    "years",
+    "zealand"
+   ]
   }
  ],
  "sports": [
@@ -28,6 +105,83 @@
     "move",
     "past",
     "second"
+   ]
+  },
+  {
+   "date": "2026-11-08 20:56",
+   "topic": "tennis",
+   "link": "https://www.bbc.co.uk/sport/tennis/articles/ck9qz8d2znl5o?at_medium=RSS&at_campaign=rss",
+   "title": "Alcaraz takes revenge on Shelton to win first Paris Masters title",
+   "words": [
+    "alcaraz",
+    "first",
+    "masters",
+    "paris",
+    "revenge",
+    "shelton",
+    "takes",
+    "title"
+   ]
+  },
+  {
+   "date": "2026-11-08 20:56",
+   "topic": "hockey",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPSExMQlBsSlVNd3VvREc4c2hFa1JsSG9Fd0NPRXRsbHZ6Xy1CLTFTaVAwU0x2U21icTN5dDRCSDVNLXNGbk11Zldfc0Q0NlBvQUgzMTdVVTVUMTd1Z2RWWDhGX2dyRmxIWjJBX0dOb0VSQVB6RnpucWt3MUZDRVE5UjdPdXBEWGdfckxoZ05pb2tZQ2F3b2ZaQlh4cEdmMzZ5M2ZFdl9zQm1YS0FySnZJ?oc=5",
+   "title": "Field Hockey Downs #20 RPI to Capture First Liberty League Title",
+   "words": [
+    "capture",
+    "downs",
+    "field",
+    "first",
+    "hockey",
+    "league",
+    "liberty",
+    "title"
+   ]
+  },
+  {
+   "date": "2026-11-08 20:56",
+   "topic": "basketball",
+   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTFBBaHlaS1NDRU9SVkhXbXRsaHRQMnhMWXp5RWNiRWZQQ0lteGduYzdmYjlMTTNydmRFaXVuZTdMNno2M1hTQU1JbGgxdnJRQXhGUFhqMUdKMTFQZ2ZwaDZEbFFLNC1sU09XQnctYlNNOA?oc=5",
+   "title": "Sacramento Kings Complete Trade",
+   "words": [
+    "complete",
+    "kings",
+    "sacramento",
+    "trade"
+   ]
+  },
+  {
+   "date": "2026-11-08 20:56",
+   "topic": "formula1",
+   "link": "https://www.bbc.co.uk/sport/formula1/articles/c35yn19r7zkvo?at_medium=RSS&at_campaign=rss",
+   "title": "Norris wins gripping race after Antonelli and Russell errors",
+   "words": [
+    "after",
+    "antonelli",
+    "errors",
+    "gripping",
+    "norris",
+    "race",
+    "russell",
+    "wins"
+   ]
+  },
+  {
+   "date": "2026-11-08 20:56",
+   "topic": "general",
+   "link": "https://www.bbc.co.uk/sport/football/videos/cqj6jldpl2gyo?at_medium=RSS&at_campaign=rss",
+   "title": "Man Utd score twice in stoppage time to share points in eight-goal thriller",
+   "words": [
+    "eight",
+    "goal",
+    "points",
+    "score",
+    "share",
+    "stoppage",
+    "thriller",
+    "time",
+    "twice"
    ]
   }
  ],
@@ -46,6 +200,76 @@
   "px348815",
   "wm171021927",
   "wm186746471",
-  "mk18042"
+  "mk18042",
+  "wm88272785",
+  "px108257",
+  "wm65410166",
+  "px365679",
+  "px353136",
+  "wm124337781",
+  "px329281",
+  "px1191",
+  "px30495",
+  "px73535",
+  "px8797",
+  "px143089",
+  "px338747",
+  "px80344",
+  "px2320",
+  "px338955",
+  "px293084",
+  "px319957",
+  "wm131667910",
+  "px123813",
+  "wm126053112",
+  "wm200555367",
+  "px35070",
+  "px121657",
+  "px61756",
+  "wm86403061",
+  "px7809",
+  "wm128759012",
+  "px58857",
+  "px153672",
+  "px30532",
+  "px8686",
+  "px206066",
+  "wm146640001",
+  "wm71931153",
+  "wm171671485",
+  "px9704",
+  "px28049",
+  "px203403",
+  "px79254",
+  "px4054",
+  "px50109",
+  "px10181",
+  "px248691",
+  "wm78039355",
+  "wm134468655",
+  "wm78855872",
+  "px115008",
+  "wm70996966",
+  "px13232",
+  "px142729",
+  "wm142804649",
+  "px30941",
+  "wm195803471",
+  "px1849",
+  "wm195831159",
+  "px172155",
+  "wm141656676",
+  "wm139865239",
+  "px239585",
+  "px171409",
+  "px372",
+  "wm20098203",
+  "px66425",
+  "px247884",
+  "px28376",
+  "wm66161434",
+  "px31404",
+  "wm199780840",
+  "px1360"
  ]
 }
