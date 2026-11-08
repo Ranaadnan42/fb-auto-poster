@@ -84,7 +84,7 @@ NEWS_REGIONS = {
 # Urdu posts mein Pakistan / Gulf / South Asia ki khabar zyada (Urdu audience ke liye zyada dilchasp)
 NEWS_WEIGHT = {"en": {"world": 4, "middle_east": 2, "asia": 2, "europe": 2, "americas": 2, "africa": 1,
                       "business": 2, "science_tech": 2, "pakistan": 1},
-               "ur": {"world": 3, "pakistan": 4, "middle_east": 3, "asia": 2, "europe": 1, "americas": 1,
+               "ur": {"world": 3, "pakistan": 4, "middle_east": 3, "asia": 2, "europe": 1, "americas": 4,
                       "africa": 1, "business": 1, "science_tech": 1}}
 
 # Sports: dunya ke tamam bare khel - har run mein woh khel jo sab se kam dafa post hua
