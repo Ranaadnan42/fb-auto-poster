@@ -33,8 +33,12 @@ UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.3
 CRIC = "https://site.web.api.espn.com/apis/site/v2/sports/cricket"
 SOC = "https://site.api.espn.com/apis/site/v2/sports/soccer"
 SOC_LEAGUES = {"uefa.champions": 9, "eng.1": 9, "esp.1": 8, "ita.1": 6, "ger.1": 6, "fra.1": 5, "ksa.1": 6,
-               "usa.1": 5, "uefa.europa": 4, "fifa.world": 10, "fifa.worldq.afc": 4, "fifa.worldq.uefa": 4,
-               "fifa.friendly": 3, "eng.fa": 4, "esp.copa_del_rey": 3}
+               "usa.1": 5, "uefa.europa": 4, "fifa.world": 14, "fifa.worldq.afc": 4, "fifa.worldq.uefa": 4,
+               "fifa.friendly": 3, "eng.fa": 4, "esp.copa_del_rey": 3,
+               # world cup / bare tournament - jab chalein to sab se upar
+               "fifa.wwc": 9, "fifa.cwc": 9, "uefa.euro": 10, "conmebol.america": 9, "caf.nations": 8,
+               "afc.asian.cup": 8, "concacaf.gold": 6, "fifa.worldq.conmebol": 5, "fifa.worldq.caf": 4,
+               "fifa.olympics": 8}
 BIG_CLUBS = {"real madrid", "barcelona", "manchester united", "manchester city", "liverpool", "arsenal", "chelsea",
              "bayern munich", "paris saint-germain", "juventus", "inter milan", "ac milan", "al nassr", "al hilal",
              "inter miami", "tottenham hotspur", "atletico madrid", "borussia dortmund", "napoli", "al ittihad"}
@@ -108,6 +112,8 @@ def cricket_candidates(done):
             score = max([v for t, v in CRIC_TEAMS.items() if re.search(rf"\b{t}\b(?! a\b| women| under)", name)] or [0])
             if any(k in lname for k in CRIC_LEAGUES):
                 score += 6
+            if "world cup" in lname or "champions trophy" in lname:
+                score += 8
             if score <= 0:
                 continue
             out.append({"sport": "cricket", "league": lg.get("id"), "lname": lg.get("name"), "id": ev["id"],

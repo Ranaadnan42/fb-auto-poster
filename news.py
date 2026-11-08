@@ -115,11 +115,22 @@ SPORTS = {
     "squash": [gnews("squash PSA")],
     "table_tennis": [gnews("table tennis")],
     "motogp": [gnews("MotoGP")],
+    # bare tournament: World Cup (FIFA, cricket, hockey, rugby...), Olympics, Asian / Commonwealth Games -
+    # jab chal rahe hon to Google News par sab se zyada taaza khabrein inhi ki hoti hain
+    "big_events": [gnews("World Cup"), gnews("FIFA World Cup"), gnews("ICC World Cup OR T20 World Cup OR Champions Trophy"),
+                   gnews("Olympics OR Olympic Games OR Paralympics"), gnews("Asian Games OR Commonwealth Games"),
+                   gnews("Euro OR Copa America OR AFCON OR Asian Cup OR Club World Cup"),
+                   gnews("Rugby World Cup OR Hockey World Cup OR Asia Cup")],
+    "olympic_sports": [gnews("swimming championship"), gnews("gymnastics championship"), gnews("weightlifting"),
+                       gnews("javelin OR Arshad Nadeem"), gnews("archery OR shooting world cup"),
+                       gnews("judo OR fencing OR rowing championship"), gnews("handball OR water polo")],
+    "winter_sports": [gnews("figure skating OR skiing World Cup OR Winter Olympics")],
+    "esports": [gnews("esports tournament")],
     "general": ["https://feeds.bbci.co.uk/sport/rss.xml", "https://www.espn.com/espn/rss/news",
                 "https://www.skysports.com/rss/12040", gnews("sports")],
 }
 # Bare khel (cricket/football) zyada aate hain, chhote khel bhi bari bari aate rehte hain
-SPORT_WEIGHT = {"cricket": 5, "football": 5, "tennis": 2, "basketball": 2, "formula1": 2, "hockey": 2,
+SPORT_WEIGHT = {"big_events": 5, "olympic_sports": 2, "cricket": 5, "football": 5, "tennis": 2, "basketball": 2, "formula1": 2, "hockey": 2,
                 "general": 2}
 
 SPORT_IMG = {"cricket": "cricket stadium", "football": "football stadium", "tennis": "tennis court",
@@ -129,7 +140,8 @@ SPORT_IMG = {"cricket": "cricket stadium", "football": "football stadium", "tenn
              "american_football": "american football", "rugby": "rugby ball", "cycling": "road cycling",
              "snooker": "snooker table", "kabaddi": "sports arena", "volleyball": "volleyball",
              "wrestling": "wrestling ring", "squash": "squash court", "table_tennis": "table tennis",
-             "motogp": "motorcycle race", "general": "sports stadium"}
+             "motogp": "motorcycle race", "general": "sports stadium", "big_events": "stadium crowd fans flags",
+             "olympic_sports": "athletics stadium", "winter_sports": "skiing snow mountain", "esports": "gaming arena"}
 
 REPORT = {"time_utc": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), "lang": LANG,
           "dry_run": DRY_RUN, "posted": {}, "errors": []}

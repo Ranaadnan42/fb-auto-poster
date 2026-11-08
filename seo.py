@@ -51,7 +51,7 @@ PAGES = {
     "sports": {
         "name": "Sports Hubs",
         "brand_tags": ["#SportsHubs"],
-        "base_tags": ["#sports", "#sportsnews", "#sportsupdate", "#cricket", "#football", "#viral"],
+        "base_tags": ["#sports", "#sportsnews", "#sportsupdate", "#sportshighlights", "#viral"],
         "audience": ("sports fans worldwide (Pakistan, India, Gulf, UK, USA) - cricket, football, tennis, F1, NBA, "
                      "hockey, UFC and every other sport"),
         "cta": "دنیا بھر کے کھیلوں کی ہر خبر کے لیے Sports Hubs کو فالو کریں 👈",
