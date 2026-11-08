@@ -1,26 +1,22 @@
 {
  "mode": "short",
- "clips": 13,
- "clips_rejected": 80,
- "vision_checks": 92,
+ "clips": 18,
+ "clips_rejected": 67,
+ "vision_checks": 80,
  "errors": [],
  "search_phrases": [
-  "living in a car",
-  "living in america james brown",
-  "living in alaska",
-  "living in japan",
-  "living in nyc",
-  "living in the sunlight",
-  "living in thailand",
-  "living in america",
-  "living in every color for 24 hours",
-  "living in china"
+  "wages vs cost of living",
+  "inflation and cost of living",
+  "prices and cost of living class 9",
+  "cost of living protest",
+  "cost of living edmonton",
+  "cost of living worldwide"
  ],
+ "search": "wages vs cost of living",
  "alt_searches": 2,
- "photos": 2,
- "seconds": 68.3,
+ "seconds": 79.5,
  "links": [],
- "subject": "Would You Live in Cape Town, South Africa?",
- "series": "living_short",
- "title": "Would You Live in Cape Town? The Untold Truth"
+ "subject": "New Zealand vs Ireland",
+ "series": "versus_short",
+ "title": "New Zealand vs Ireland: Wages vs Cost of Living Revealed"
 }
