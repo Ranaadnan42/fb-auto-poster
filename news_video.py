@@ -125,7 +125,7 @@ Rules:
   causes, results) must NOT be stated, not even as a guess. If details are thin, explain general background (what the
   country/league/tournament is) without adding new facts about this story.
 - Neutral, professional, easy to understand. Mention the source naturally ("according to BBC").
-- Start with a strong one-sentence hook. End with: ask viewers to follow {P['name']}, like and share.
+{news.brain_tips(kind)}- Start with a strong one-sentence hook. End with: ask viewers to follow {P['name']}, like and share.
 - Each story gets {per}.
 - For every scene give "visuals": 1-3 short ENGLISH stock-footage search terms IN THE ORDER the narration
   mentions them (a country's flag/city/landmark, parliament building, stadium, the sport being played,
@@ -479,6 +479,7 @@ def main():
                 meta["post_id"] = post_reel(P, path, desc) if KIND == "reel" else \
                     post_long(P, path, script.get("title") or P["name"], desc)
                 log(f"{kind}: posted {meta['post_id']}")
+                news.log_post(kind, meta["post_id"], KIND, [s["topic"] for s in stories], meta["title"])
             for s in stories:
                 hist[kind].append({"date": meta["date"], "topic": s["topic"], "link": s["link"],
                                    "title": s["title"][:160], "words": sorted(news.words(s["title"]))})

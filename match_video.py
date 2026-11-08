@@ -453,7 +453,7 @@ Rules:
   about in that scene, the team, or the venue), as their English Wikipedia title.
 - "visuals": 1-2 short ENGLISH stock-footage terms of THIS sport ({f["sport"]}) itself (e.g. "cricket batsman shot",
   "basketball dunk arena", "formula one race car", "tennis serve court"). Never logos.
-
+{news.brain_tips("sports")}
 Return JSON:
 {{"title": "video title, max 10 words, include the team/player names",
   "scenes": [{{"text": "...", "screen": "...", "subjects": ["..."], "visuals": ["..."]}}],
@@ -543,9 +543,11 @@ def main():
             log(f"{fn.__name__} fail: {str(e)[:150]}")
     # har dafa alag khel: pichle recaps wala khel peeche (poori duniya ke sports)
     last = [m.get("sport") for m in hist["matches"][-3:]]
+    smult = (news.brain().get("sports") or {}).get("match_mult") or {}
     for c in cands:
         c["key"] = key_of(c)
         c["score"] -= 7 * last.count(c["sport"])
+        c["score"] += 6 * (float(smult.get(c["sport"], 1)) - 1)     # agent: jis khel ke recap zyada dekhe gaye
     cands.sort(key=lambda c: -c["score"])
     log("Matches: " + " | ".join(f"{c['name']} ({c['score']})" for c in cands[:8]))
     if not cands:
@@ -571,6 +573,7 @@ def main():
                     raise RuntimeError("sports page token/id secret missing")
                 meta["post_id"] = nv.post_reel(P, path, desc)
                 log(f"posted {meta['post_id']}")
+                news.log_post("sports", meta["post_id"], "match", [c["sport"]], f["match"], sport=c["sport"])
             hist["matches"].append(meta)
             REPORT["posted"]["sports"] = meta
             return save(hist)

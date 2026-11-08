@@ -129,6 +129,7 @@ jobs:
             *) M="${{ inputs.mode }}" ;;
           esac
           [ -z "$M" ] && M=pic_en
+          if [ -z "${{ inputs.mode }}" ]; then M=$(python3 tools/brain_lang.py "$M"); fi   # agent: zyada chalne wali zubaan
           echo "kind=${M%%_*}" >> $GITHUB_OUTPUT
           echo "lang=${M##*_}" >> $GITHUB_OUTPUT
           echo "Mode: $M"
@@ -172,7 +173,7 @@ jobs:
       - name: Save history
         if: always()
         run: |
-          FILES="match_history.json match_en_last_run.json match_ur_last_run.json news_history.json news_video_history.json news_last_run.json news_reel_en_last_run.json news_reel_ur_last_run.json news_long_en_last_run.json news_long_ur_last_run.json"
+          FILES="news_posts_history.json match_history.json match_en_last_run.json match_ur_last_run.json news_history.json news_video_history.json news_last_run.json news_reel_en_last_run.json news_reel_ur_last_run.json news_long_en_last_run.json news_long_ur_last_run.json"
           mkdir -p /tmp/keep
           for f in $FILES; do [ -f "$f" ] && cp "$f" /tmp/keep/; done
           git config user.name "auto-poster"

@@ -45,6 +45,39 @@ BREAKING = os.environ.get("BREAKING") == "1"     # har 2 ghante: sirf bari taaza
 BREAKING_PER_DAY = 5
 PAGES_TO_RUN = [p.strip() for p in (os.environ.get("PAGES") or "news,sports").split(",") if p.strip()]
 PIXABAY_KEY = os.environ.get("PIXABAY_API_KEY")
+POSTS_LOG = "news_posts_history.json"      # har post ka record - agent (brain.py) is se views seekhta hai
+BRAIN_FILE = "news_brain.json"             # agent ka seekha hua plan
+
+
+def brain():
+    try:
+        with open(BRAIN_FILE, encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def brain_tips(kind):
+    """Agent ne views dekh kar jo seekha - writer ko hidayat."""
+    t = (brain().get(kind) or {}).get("tips") or []
+    if not t:
+        return ""
+    return "\nLessons learned from what got the most views on this page (follow them):\n" + \
+        "\n".join(f"- {x}" for x in t[:6]) + "\n"
+
+
+def log_post(page, post_id, fmt, topics, title, sport=None):
+    if not post_id:
+        return
+    try:
+        with open(POSTS_LOG, encoding="utf-8") as f:
+            log_ = json.load(f)
+    except Exception:
+        log_ = []
+    log_.append({"date": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), "page": page, "id": str(post_id),
+                 "fmt": fmt, "lang": LANG, "topics": topics, "sport": sport, "title": (title or "")[:140]})
+    with open(POSTS_LOG, "w", encoding="utf-8") as f:
+        json.dump(log_[-1500:], f, ensure_ascii=False, indent=1)
 
 PAGES = {
     "news": {"name": "News Act", "token": os.environ.get("NEWS_PAGE_TOKEN"),
@@ -343,9 +376,10 @@ def pick_topic(kind, past):
     else:
         pool, weight = SPORTS, SPORT_WEIGHT
     recent = [p.get("topic") for p in past[-40:]]
+    mult = (brain().get(kind) or {}).get("topic_mult") or {}     # agent: jo topic zyada views laya
     scores = {}
     for t in pool:
-        w = weight.get(t, 1)
+        w = weight.get(t, 1) * float(mult.get(t, 1))
         cnt = recent.count(t)
         last = len(recent) - 1 - recent[::-1].index(t) if t in recent else -50
         gap = len(recent) - last
@@ -373,7 +407,7 @@ Rules:
   With thin details, keep the summary short and say only what is known.
 - Neutral, factual tone like a professional news agency. No opinions, no clickbait lies.
 - If the story is only rumour/opinion, say "reportedly" / "according to {item['source']}".
-
+{brain_tips(kind)}
 Return JSON:
 {{"headline": "catchy but true headline, max 12 words",
   "card_title": "very short headline for the image, max 9 words",
@@ -607,6 +641,7 @@ def main():
                     meta["breaking"] = True
                 if not DRY_RUN:
                     meta["post_id"] = post_photo(kind, path, caption)
+                    log_post(kind, meta["post_id"], "breaking" if BREAKING else "pic", [topic], item["title"])
                 hist[kind].append(meta)
                 used_links.add(item["link"])
                 REPORT["posted"][kind] = {"post": meta.get("post_id", "dry_run"), "topic": topic,
