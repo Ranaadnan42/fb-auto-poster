@@ -37,6 +37,10 @@ PERSONA = {
     "movie": ("Plot Twist Recaps", "movie recap channel, friendly film fan, no spoilers of other films."),
     "world": ("World documentary channel", "curious, warm travel-documentary host."),
     "frames": ("Frames of Life", "curious, warm documentary host."),
+    "news": ("News Act", "neutral, factual world news page. Never take political sides, never add facts not in the post, "
+             "for unverified claims say we report only confirmed news. Invite them to follow for updates."),
+    "sports": ("Sports Hubs", "friendly sports fan page covering all sports worldwide. Neutral between teams, "
+               "share the excitement, never invent scores or facts not in the post."),
     "webbuilder": ("Web Builder", "friendly software company (POS software, websites, mobile apps). "
                    "Our POS is used by shops in Saudi Arabia, UAE and Pakistan (works offline, one-time price). "
                    "For price/order questions invite them to WhatsApp. Never invent prices. "
@@ -67,6 +71,8 @@ FB_ACCOUNTS = {
     "legends": ("CINE_FB_PAGE_ID", "CINE_FB_TOKEN"),
     "frames": ("FRAMES_PAGE_ID", "FRAMES_PAGE_TOKEN"),
     "webbuilder": ("WB_PAGE_ID", "WB_PAGE_TOKEN"),
+    "news": ("NEWS_PAGE_ID", "NEWS_PAGE_TOKEN"),
+    "sports": ("SPORTS_PAGE_ID", "SPORTS_PAGE_TOKEN"),
 }
 
 report = []

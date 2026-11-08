@@ -135,7 +135,9 @@ Rules:
 Return JSON:
 {{"title": "video title, max 10 words",
   "intro": {{"text": "hook sentence", "visuals": ["..."]}},
-  "stories": [{{"headline": "short on-screen headline max 8 words", "scenes": [{{"text": "...", "visuals": ["..."]}}]}}],
+  "stories": [{{"headline": "short on-screen headline max 8 words",
+    "subjects": ["1-3 REAL names written in that story above: the main person, team, player, city/country or building, as their English Wikipedia title (e.g. 'Pete Hegseth', 'Real Madrid CF', 'Gaza City'). [] if none"],
+    "scenes": [{{"text": "...", "visuals": ["..."]}}]}}],
   "outro": {{"text": "follow / like / share line", "visuals": ["..."]}},
   "caption": "2-3 sentence post description in the same language",
   "hashtags": ["6 hashtags without #"]}}"""
@@ -230,13 +232,34 @@ def get_clip(term, secs, out, used):
     return False
 
 
+def subject_clip(name, secs, out, used):
+    """Khabar wale asli insaan/team/jagah ki asli photo (Wikipedia Commons) - harkat ke sath."""
+    img = out + ".jpg"
+    try:
+        if footage.real_photo(name, img, used):
+            footage.photo_to_clip(img, out, W, H, secs=secs, fps=FPS)
+            log(f"  asli photo '{name}'")
+            return True
+    except Exception as e:
+        log(f"  asli photo fail '{name}': {str(e)[:100]}")
+    finally:
+        if os.path.exists(img):
+            os.remove(img)
+    return False
+
+
 def scene_video(i, terms, secs, used, fallback_terms):
-    terms = [t for t in terms if t][:3] or fallback_terms[:1]
+    terms = [t for t in terms if t][:4] or fallback_terms[:1]
     n = max(1, min(len(terms), int(secs // 2.8)))
     seg = secs / n
     parts = []
     for k, t in enumerate(terms[:n]):
         out = os.path.join(WORK, f"s{i}_{k}.mp4")
+        if t.startswith("@"):
+            if subject_clip(t[1:], seg + 0.1, out, used):
+                parts.append(out)
+                continue
+            t = next((x for x in terms[n:] if not x.startswith("@")), fallback_terms[0])
         if not (get_clip(t, seg + 0.1, out, used) or
                 any(get_clip(f, seg + 0.1, out, used) for f in fallback_terms)):
             color_clip(out, seg + 0.1)
@@ -333,16 +356,19 @@ def build_video(kind, script, stories, used):
     i = 0
     intro = script.get("intro") or {}
     if intro.get("text"):
-        scenes.append(build_scene(i, kind, intro["text"], intro.get("visuals") or [], None, badge, used, fb))
+        first = [f"@{x}" for x in ((script["stories"][0].get("subjects") or [])[:1]) if isinstance(x, str) and x.strip()]
+        scenes.append(build_scene(i, kind, intro["text"], first + (intro.get("visuals") or []), None, badge, used, fb))
         i += 1
     for n, st in enumerate(script["stories"][:len(stories)]):
         topic = stories[n]["topic"] if n < len(stories) else ""
         sfb = ([news.SPORT_IMG.get(topic, "sports stadium")] if kind == "sports" else []) + fb
-        for sc in (st.get("scenes") or [])[:4]:
+        subj = [x.strip() for x in (st.get("subjects") or []) if isinstance(x, str) and x.strip()][:3]
+        for k, sc in enumerate((st.get("scenes") or [])[:4]):
             if not str(sc.get("text") or "").strip():
                 continue
-            scenes.append(build_scene(i, kind, sc["text"], sc.get("visuals") or [], st.get("headline"), badge,
-                                      used, sfb))
+            real = [f"@{subj[k]}"] if k < len(subj) else []      # har scene ke shuru mein asli shakal/jagah
+            scenes.append(build_scene(i, kind, sc["text"], real + (sc.get("visuals") or []), st.get("headline"),
+                                      badge, used, sfb))
             i += 1
     outro = script.get("outro") or {}
     if outro.get("text"):

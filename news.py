@@ -41,6 +41,8 @@ UA = {"User-Agent": "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, 
 
 DRY_RUN = os.environ.get("DRY_RUN") == "1"
 LANG = (os.environ.get("LANGUAGE") or "en").strip().lower()
+BREAKING = os.environ.get("BREAKING") == "1"     # har 2 ghante: sirf bari taaza khabar ho to foran post
+BREAKING_PER_DAY = 5
 PAGES_TO_RUN = [p.strip() for p in (os.environ.get("PAGES") or "news,sports").split(",") if p.strip()]
 PIXABAY_KEY = os.environ.get("PIXABAY_API_KEY")
 
@@ -361,6 +363,7 @@ Return JSON:
   "card_title": "very short headline for the image, max 9 words",
   "summary": "2-4 short sentences explaining the story in your own words",
   "label": "1-2 word category in CAPITALS for the image badge, e.g. {'CRICKET' if kind == 'sports' else 'WORLD'} (write in the post language)",
+  "subject": "the main REAL person, team or place named in the item, as its English Wikipedia title (e.g. 'Keir Starmer', 'Pakistan national cricket team'), or empty string",
   "image_query": "2-3 plain ENGLISH words for a neutral stock photo matching the topic (a place, object, flag, building or sport scene; never violence, blood, weapons, dead bodies or a specific person's name)",
   "hashtags": ["5 relevant hashtags without #, mix English and the post language"]}}"""
     j = ask_json(prompt)
@@ -498,11 +501,55 @@ def post_photo(kind, path, caption):
 
 
 # ---------------------------------------------------------------- one post
+class NoBreaking(Exception):
+    pass
+
+
+def breaking_pick(kind, past, avoid_links):
+    """Woh khabar jo pichle ~3 ghante mein KAI alag sources par aa chuki ho (yani bari breaking) aur hum ne na di ho."""
+    today = datetime.datetime.utcnow().strftime("%Y-%m-%d")
+    done = sum(1 for p in past if p.get("breaking") and str(p.get("date", "")).startswith(today))
+    if done >= BREAKING_PER_DAY:
+        raise NoBreaking(f"aaj {done} breaking ho chuki")
+    pool = NEWS_REGIONS if kind == "news" else SPORTS
+    now = datetime.datetime.now(datetime.timezone.utc)
+    allit = []
+    for topic, urls in pool.items():
+        for u in urls:
+            for it in fetch_feed(u):
+                age = (now - it["date"]).total_seconds() / 3600 if it["date"] else 99
+                if -2 <= age <= 8:
+                    it["topic"], it["age"], it["ws"] = topic, age, words(it["title"])
+                    allit.append(it)
+    best, best_n = None, 0
+    for it in allit:
+        if it["age"] > 3 or len(it["title"].split()) < 5 or it["link"] in avoid_links or seen(it, past):
+            continue
+        if re.search(r"\b(live|as it happened|quiz|in pictures|watch:|video:|podcast|newsletter|crossword|opinion)\b",
+                     it["title"], re.I):
+            continue
+        ws = it["ws"]
+        if len(ws) < 3:
+            continue
+        srcs = {o["source"] for o in allit
+                if len(ws & o["ws"]) >= 3 and len(ws & o["ws"]) / max(1, min(len(ws), len(o["ws"]))) >= 0.5}
+        n = len(srcs) + (0.5 if it["desc"] else 0)
+        if n > best_n:
+            best, best_n = it, n
+    need = 3 if kind == "news" else 2
+    if not best or best_n < need:
+        raise NoBreaking(f"koi bari breaking nahi (sab se zyada {int(best_n)} sources)")
+    log(f"BREAKING ({int(best_n)} sources): {best['title']}")
+    return best["topic"], best
+
+
 def make_post(kind, hist, avoid_links):
     past = hist[kind]
     pool = NEWS_REGIONS if kind == "news" else SPORTS
-    for topic in pick_topic(kind, past)[:6]:
-        items = [i for i in fresh_items(pool[topic], past) if i["link"] not in avoid_links]
+    if BREAKING:
+        bt, bi = breaking_pick(kind, past, avoid_links)
+    for topic in ([bt] if BREAKING else pick_topic(kind, past)[:6]):
+        items = [bi] if BREAKING else [i for i in fresh_items(pool[topic], past) if i["link"] not in avoid_links]
         log(f"{kind}/{topic}: {len(items)} taaza khabrein")
         if not items:
             continue
@@ -516,7 +563,10 @@ def make_post(kind, hist, avoid_links):
             q.append(SPORT_IMG.get(topic, "sports stadium"))
         else:
             q += ["world map globe", "city skyline night"]
-        if not pixabay_image(q, bg, hist["used_images"]):
+        import footage
+        if footage.real_photo(j.get("subject"), bg, None, min_w=800):      # khabar wale ki ASLI photo pehle
+            log(f"asli photo: {j.get('subject')}")
+        elif not pixabay_image(q, bg, hist["used_images"]):
             gradient_bg(bg, kind)
         out = os.path.join(WORK, f"{kind}_{LANG}.jpg")
         render_card(kind, bg, j.get("label"), j["card_title"], out)
@@ -537,12 +587,18 @@ def main():
                 log(f"--- {kind} caption ---\n{caption}\n")
                 meta = {"date": REPORT["time_utc"], "lang": LANG, "topic": topic, "link": item["link"],
                         "title": item["title"][:160], "words": sorted(words(item["title"]))}
+                if BREAKING:
+                    meta["breaking"] = True
                 if not DRY_RUN:
                     meta["post_id"] = post_photo(kind, path, caption)
                 hist[kind].append(meta)
                 used_links.add(item["link"])
                 REPORT["posted"][kind] = {"post": meta.get("post_id", "dry_run"), "topic": topic,
                                           "title": item["title"][:120]}
+                ok += 1
+                break
+            except NoBreaking as e:
+                log(f"{kind}: {e} - is dafa post nahi")
                 ok += 1
                 break
             except Exception as e:

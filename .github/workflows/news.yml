@@ -9,9 +9,26 @@ on:
     - cron: '26 5 * * *'    # pic EN   - post 05:41 UTC = 9:41 subah Gulf / London subah
     - cron: '56 9 * * *'    # pic UR   - post 10:11 UTC = 3:11 sehpehar Pakistan
     - cron: '26 14 * * *'   # pic EN   - post 14:41 UTC = 9:41 subah New York
-    # Reels: 2 rozana
     - cron: '51 7 * * *'    # reel UR  - post ~08:21 UTC = 1:21 dopehar Pakistan
     - cron: '51 15 * * *'   # reel EN  - post ~16:21 UTC = 11:21 subah New York, 4:21 London
+    # Reels: 6 rozana (2 Urdu Pakistan ke waqt, 4 English - America ka RPM sab se zyada)
+    - cron: '51 3 * * *'    # reel_ur  - post ~04:21 UTC = 9:21 subah Pakistan
+    - cron: '21 12 * * *'    # reel_en  - post ~12:51 UTC = 7:51 subah New York, 12:51 London
+    - cron: '21 19 * * *'    # reel_en  - post ~19:51 UTC = 2:51 dopehar New York
+    - cron: '21 23 * * *'    # reel_en  - post ~23:51 UTC = 6:51 shaam New York
+    # Breaking: har 2 ghante check - bari taaza khabar (kai sources par) ho to foran pic, warna kuch nahi
+    - cron: '7 0 * * *'
+    - cron: '7 2 * * *'
+    - cron: '7 4 * * *'
+    - cron: '7 6 * * *'
+    - cron: '7 8 * * *'
+    - cron: '7 10 * * *'
+    - cron: '7 12 * * *'
+    - cron: '7 14 * * *'
+    - cron: '7 16 * * *'
+    - cron: '7 18 * * *'
+    - cron: '7 20 * * *'
+    - cron: '7 22 * * *'
     # Long video bulletin (5 khabrein): 2 rozana
     - cron: '46 14 * * *'   # long UR  - post ~15:31 UTC = 8:31 raat Pakistan
     - cron: '16 20 * * *'   # long EN  - post ~21:01 UTC = 4:01 sehpehar New York
@@ -24,7 +41,7 @@ on:
       mode:
         description: 'Kya banaye'
         type: choice
-        options: ['pic_en', 'pic_ur', 'reel_en', 'reel_ur', 'long_en', 'long_ur']
+        options: ['pic_en', 'pic_ur', 'reel_en', 'reel_ur', 'long_en', 'long_ur', 'breaking_en', 'breaking_ur', 'match_en', 'match_ur']
         default: 'pic_en'
       pages:
         description: 'Kis page par'
@@ -84,6 +101,22 @@ jobs:
             '51 15 * * *') M=reel_en ;;
             '46 14 * * *') M=long_ur ;;
             '16 20 * * *') M=long_en ;;
+            '51 3 * * *') M=reel_ur ;;
+            '21 12 * * *') M=reel_en ;;
+            '21 19 * * *') M=reel_en ;;
+            '21 23 * * *') M=reel_en ;;
+            '7 0 * * *') M=breaking_en ;;
+            '7 2 * * *') M=breaking_ur ;;
+            '7 4 * * *') M=breaking_en ;;
+            '7 6 * * *') M=breaking_ur ;;
+            '7 8 * * *') M=breaking_en ;;
+            '7 10 * * *') M=breaking_ur ;;
+            '7 12 * * *') M=breaking_en ;;
+            '7 14 * * *') M=breaking_ur ;;
+            '7 16 * * *') M=breaking_en ;;
+            '7 18 * * *') M=breaking_en ;;
+            '7 20 * * *') M=breaking_en ;;
+            '7 22 * * *') M=breaking_en ;;
             *) M="${{ inputs.mode }}" ;;
           esac
           [ -z "$M" ] && M=pic_en
@@ -111,7 +144,12 @@ jobs:
           KIND: ${{ steps.m.outputs.kind }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
         run: |
-          if [ "$KIND" = "pic" ]; then python news.py; else python news_video.py; fi
+          case "$KIND" in
+            pic) python news.py ;;
+            breaking) BREAKING=1 python news.py ;;
+            match) python match_video.py ;;
+            *) python news_video.py ;;
+          esac
       - name: Upload preview
         if: always()
         uses: actions/upload-artifact@v4

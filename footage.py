@@ -339,3 +339,45 @@ VISUALS_RULE = ("Also give 'visuals': a list of 1-4 short ENGLISH stock-footage 
                 "[\"turkish kebab\", \"turkish tea glass\", \"bosphorus istanbul\"]). Each term must be the SPECIFIC "
                 "thing said (that country's dish, that animal, that place, that object) - never a generic word. "
                 "If a country/city is being talked about, put its name in the term.")
+
+
+def real_photo(name, path, used=None, min_w=600):
+    """Khabar ke ASLI insaan / jagah / team ki free photo (Wikipedia page ki Commons tasveer - CC/public domain).
+    Sirf wikimedia COMMONS (free license) - en.wikipedia ki non-free (fair-use) tasveer aur logo nahi."""
+    name = (name or "").strip()
+    if len(name) < 3:
+        return None
+    try:
+        r = requests.get("https://en.wikipedia.org/w/api.php", headers=UA, timeout=40, params={
+            "action": "query", "format": "json", "generator": "search", "gsrsearch": name[:80], "gsrlimit": 3,
+            "prop": "pageimages", "piprop": "original|name"})
+        pages = sorted((r.json().get("query", {}).get("pages", {}) or {}).values(), key=lambda p: p.get("index", 9))
+        want = words(name)
+        for pg in pages:
+            title = (pg.get("title") or "").lower()
+            if want and sum(1 for w in want if w in title) < max(1, (len(want) + 1) // 2):
+                continue
+            o = pg.get("original") or {}
+            url, fname = o.get("source") or "", (pg.get("pageimage") or "").lower()
+            if "/wikipedia/commons/" not in url or (o.get("width") or 0) < min_w:
+                continue
+            if "logo" in fname or "crest" in fname or "badge" in fname or url.lower().endswith(".svg"):
+                continue
+            pid = f"wp:{fname}"
+            if used is not None and pid in used:
+                continue
+            if url.lower().endswith((".tif", ".tiff")):
+                continue
+            big = url
+            if (o.get("width") or 0) > 2400 and "/commons/" in url:      # bari file ka chhota thumb
+                parts = url.split("/wikipedia/commons/")
+                fn = url.rsplit("/", 1)[-1]
+                big = f"{parts[0]}/wikipedia/commons/thumb/{parts[1]}/2000px-{fn}"
+            if download(big, path, 20000) or download(url, path, 20000):
+                _log(f"Asli photo '{name}': {pg.get('title')}")
+                if used is not None:
+                    used.append(pid)
+                return pid
+    except Exception as e:
+        _log(f"real_photo error ({name}): {str(e)[:100]}")
+    return None

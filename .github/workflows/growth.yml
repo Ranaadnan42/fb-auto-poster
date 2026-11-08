@@ -46,6 +46,10 @@ jobs:
           FRAMES_PAGE_TOKEN: ${{ secrets.FRAMES_PAGE_TOKEN }}
           WB_PAGE_ID: ${{ secrets.WB_PAGE_ID }}
           WB_PAGE_TOKEN: ${{ secrets.WB_PAGE_TOKEN }}
+          NEWS_PAGE_ID: ${{ secrets.NEWS_PAGE_ID }}
+          NEWS_PAGE_TOKEN: ${{ secrets.NEWS_PAGE_TOKEN }}
+          SPORTS_PAGE_ID: ${{ secrets.SPORTS_PAGE_ID }}
+          SPORTS_PAGE_TOKEN: ${{ secrets.SPORTS_PAGE_TOKEN }}
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
