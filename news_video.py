@@ -39,7 +39,7 @@ W, H = (1080, 1920) if KIND == "reel" else (1920, 1080)
 FPS = 30
 VOICE = {"en": ("en-GB-RyanNeural", "+4%"), "ur": ("ur-PK-AsadNeural", "+0%")}[LANG]
 FONT = "Noto Naskh Arabic" if LANG == "ur" else "Noto Sans"
-STORIES = 1 if KIND == "reel" else 5
+STORIES = 1 if KIND == "reel" else 6
 
 REPORT = {"time_utc": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), "kind": KIND, "lang": LANG,
           "dry_run": DRY_RUN, "posted": {}, "errors": []}
@@ -113,7 +113,7 @@ def write_script(kind, stories):
     lst = "\n".join(f"{n + 1}. [{s['topic'].replace('_', ' ')}] {s['title']} -- {s['desc'] or '(headline only)'} "
                     f"(source: {s['source']})" for n, s in enumerate(stories))
     per = "4-5 scenes (the whole reel 150-190 spoken words, about 50-60 seconds)" if KIND == "reel" \
-        else "3 scenes each (each story 90-120 spoken words)"
+        else "4 scenes each (EACH story at least 130-160 spoken words - the whole video must be 3-4 minutes)"
     prompt = f"""You are the anchor and script writer of the Facebook page "{P['name']}"
 ({'world news' if kind == 'news' else 'world sports news'}). Write a {'short vertical REEL' if KIND == 'reel' else 'news BULLETIN video'}
 in {lang} covering these stories in this order:
