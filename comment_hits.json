@@ -1,34 +1,130 @@
 {
- "updated": "2026-11-07T17:52Z",
- "new": 14,
+ "updated": "2026-11-08T10:47Z",
+ "new": 16,
  "stats": {
   "site:facebook.com \"POS software\" chahiye": "0 (auto)",
-  "site:facebook.com \"billing software\" chahiye dukan": "1 (auto)",
-  "site:facebook.com \"software chahiye\" shop": "1 (auto)",
-  "site:facebook.com/groups \"POS\" recommend shop Pakistan": "1 (auto)",
-  "site:facebook.com \"POS system\" recommend restaurant": "0 (none)",
+  "site:facebook.com \"billing software\" chahiye dukan": "0 (bing)",
+  "site:facebook.com \"software chahiye\" shop": "0 (auto)",
+  "site:facebook.com/groups \"POS\" recommend shop Pakistan": "1 (yahoo)",
+  "site:facebook.com \"POS system\" recommend restaurant": "1 (auto)",
   "site:facebook.com \"looking for POS\" shop": "1 (auto)",
-  "site:facebook.com \"inventory software\" recommend small business": "0 (yahoo)",
-  "site:facebook.com \"need a website\" for my business": "0 (auto)",
-  "site:facebook.com \"website banwani\" hai": "0 (auto)",
-  "site:facebook.com \"app banwani\" hai": "0 (auto)",
-  "site:facebook.com \"looking for web developer\" small business": "0 (auto)",
-  "site:facebook.com \"need a social media manager\"": "0 (auto)",
-  "site:facebook.com \"faceless youtube\" automation help": "0 (bing)",
-  "site:facebook.com \"برنامج كاشير\" افضل": "0 (auto)",
-  "site:facebook.com \"برنامج محاسبي\" محل": "0 (bing)",
-  "site:facebook.com \"نظام نقاط البيع\" مطعم": "1 (auto)",
+  "site:facebook.com \"inventory software\" recommend small business": "1 (bing)",
+  "site:facebook.com \"need a website\" for my business": "1 (yahoo)",
+  "site:facebook.com \"website banwani\" hai": "0 (bing)",
+  "site:facebook.com \"app banwani\" hai": "0 (bing)",
+  "site:facebook.com \"looking for web developer\" small business": "0 (bing)",
+  "site:facebook.com \"need a social media manager\"": "1 (auto)",
+  "site:facebook.com \"faceless youtube\" automation help": "1 (bing)",
+  "site:facebook.com \"برنامج كاشير\" افضل": "1 (auto)",
+  "site:facebook.com \"برنامج محاسبي\" محل": "0 (yahoo)",
+  "site:facebook.com \"نظام نقاط البيع\" مطعم": "0 (auto)",
   "site:facebook.com \"ابي موقع\" لمحلي": "0 (auto)",
   "site:facebook.com/groups \"website chahiye\"": "0 (auto)",
   "site:facebook.com/groups \"koi acha software\" dukan": "0 (none)",
-  "site:facebook.com/groups \"POS\" Riyadh recommend": "1 (auto)",
-  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "3 (auto)",
-  "site:facebook.com/groups \"برنامج كاشير\" الرياض": "1 (bing)",
-  "site:facebook.com/groups \"برنامج كاشير\" دبي": "0 (yahoo)",
+  "site:facebook.com/groups \"POS\" Riyadh recommend": "2 (bing)",
+  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "2 (auto)",
+  "site:facebook.com/groups \"برنامج كاشير\" الرياض": "3 (auto)",
+  "site:facebook.com/groups \"برنامج كاشير\" دبي": "0 (auto)",
   "site:facebook.com/groups \"who can make a website\"": "0 (none)",
-  "site:facebook.com/groups \"need an app\" for my business": "4 (auto)"
+  "site:facebook.com/groups \"need an app\" for my business": "1 (auto)"
  },
  "hits": [
+  {
+   "url": "https://www.facebook.com/groups/1460086757537260",
+   "title": "Sei di Bussana se ... | Facebook",
+   "snippet": "1 day ago · Questo gruppo riguarda Bussana Nuova, il nostro amato paese.",
+   "found": "2026-11-08T10:46Z"
+  },
+  {
+   "url": "https://business.facebook.com/groups/svetconnect",
+   "title": "SVET CONNECT - Facebook",
+   "snippet": "3 days ago · This group is created to connect people and businesses. Feel free to ask questions, recommendations or post info about your business.",
+   "found": "2026-11-08T10:46Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/245646194310228",
+   "title": "Restaurant, Food and Beverage Business owners | Facebook",
+   "snippet": "Oct 25, 2026 · I run Born & Raised Collective , a food business directory, and I'm adding local businesses every week. I run Born & Raised Collective , a food business directory, and I'm adding local businesses every week. You can add yours with a free listing in a few minutes & also go Featured for 12 months. Featured includes a blog article about your business. Link in the comments.",
+   "found": "2026-11-08T10:46Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/347783159764094/posts/1605328960676168",
+   "title": "It was a pleasure attending today’s meeting! | Facebook",
+   "snippet": "Oct 28, 2026 · It was a pleasure attending today’s meeting! If you know of any restaurants, foodservice operators, or businesses looking for a reliable foodservice distributor, please keep me in mind! I would...",
+   "found": "2026-11-08T10:46Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/2327375611076477/posts/2536870450126991",
+   "title": "I Need a Website for My Business | Ranking on Google and ...",
+   "snippet": "6 days ago · That's an interesting point, Sheerka. I work on websites, and I think clear page structure, useful content and consistent business information matter for both. Have you noticed businesses ranking well on Google but barely showing up in AI search?",
+   "found": "2026-11-08T10:46Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/socialmediamanagementjobsadvice",
+   "title": "Social Media Management (Jobs & Advice) - Facebook",
+   "snippet": "Oct 23, 2026 · Hi everyone! I'm a freelance social media manager with 7+ years of experience, currently based in the Bay Area. I've worked with brands across healthcare, beauty, lifestyle, and expert-led businesses, handling everything from content strategy and creation to social media management. Most of my clients so far have come through word of mouth and referrals. While I'm confident in my skills and ...",
+   "found": "2026-11-08T10:46Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/800740964840364/posts/1635561211358331",
+   "title": "Faceless Youtube Video Editors ScriptWriters Voiceover ...",
+   "snippet": "Oct 29, 2026 · Here are some popular types of faceless YouTube channels that work well in the automation model: 1. Storytelling Channels True crime, historical events, creepy stories, motivational stories 🎙 Use AI voiceovers or hire VAs 🎞 Stock footage + background music 💰 High watch time = great for monetization 2.",
+   "found": "2026-11-08T10:46Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/4253283411388887",
+   "title": "احسن سيستم كاشير | Facebook",
+   "snippet": "Oct 21, 2026 · 🔥 VORTEX POS — سيب الحساب علينا 💻 برنامج كاشير وإدارة متكامل ⚡ سريع — سهل — عملي 📊 مبيعات وتقارير ومتابعة كاملة لشغلك 🔐 مفعل مدى الحياة بدون اشتراكات شهرية 💰 السعر: 4500 جنيه فقط خلي شغلك أذكى…",
+   "found": "2026-11-08T10:46Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/281744809331884",
+   "title": "Riyadh Eateries - مطاعم الرياض | Facebook",
+   "snippet": "1 day ago · RE20% Riyadh Eateries - مطاعم الرياض Riyadh discount at House of Rice and Grill بيت الرز والمشاوي till Nov 2026. Reviewed by Mohsin Jalali with team Riyadh Eateries - مطاعم الرياض House of Rice & Grill is a newly opened restaurant in Al Nahdah that brings something different to the table, offering a ...",
+   "found": "2026-11-08T10:47Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1458750414345800",
+   "title": "Sei di GEMONA se.... | Facebook",
+   "snippet": "1 day ago · Ciao a tutti, volevo gentilmente chiedere se ci sarebbe una persona disponibile per servizio taxi a livello privato, di Gemona. Intant, grassie. Contattatemi in privato, mandi!!!",
+   "found": "2026-11-08T10:47Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/228217405293069/posts/1899396488175144",
+   "title": "Punks Arguing Over Nothing | The dude in the upper panel is ...",
+   "snippet": "Oct 19, 2026 · The guy came to know the girl and he loved her. He had a hardware shop and started sponsoring her education. She did nursing at a local university. He was paying approximately K10,000 for her school fees and boarding house. He even paid rent for the girl's mother and helped with small bills. His business was even strained all in the name of love.",
+   "found": "2026-11-08T10:47Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/607814118147108",
+   "title": "Find a Bookkeeper Australia - Connecting Bookkeepers and ...",
+   "snippet": "1 day ago · 📣 LOOKING FOR PART-TIME ACCOUNTING & ADMINISTRATIVE SUPPORT? Running a small business or online shop and need an extra hand with your accounting records and paperwork? I’m offering flexible, part-time accounting and administrative assistance to help business owners keep their financial records organized and up to date.",
+   "found": "2026-11-08T10:47Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1238640884495616",
+   "title": "بيع و شراء اجهزة وبرامج كاشير و باركود | Facebook",
+   "snippet": "Oct 20, 2026 · دعم فني وضمان: نوفر لك الدعم الفني وضمان الحفاظ على كفاءة عمل منظومتك بدون انقطاع. برنامج كاشير جهاز كاشير جهاز كاشير المحادثة على WhatsApp 01066612460 01069675280 برنامج كاشير 6d · Public",
+   "found": "2026-11-08T10:47Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1018168221621821",
+   "title": "انظمة سيستم كاشير ERP ومعدات اللازمه للمؤسسات التجاريه",
+   "snippet": "Oct 23, 2026 · سيستم معمول عشان تدير شغلك صح، وتبقى عارف رأسك من رجلك! ️ #شركة_الأول #سيستم_مبيعات #إدارة_المحلات #برنامج_كاشير #ERP 0 reactions Merna Hamed TD 1d · Public",
+   "found": "2026-11-08T10:47Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/651454887906614",
+   "title": "سوق أجهزة كاشير POS - بيع وشراء وتجار وموردين | Facebook",
+   "snippet": "5 days ago · برنامج كاشير لإدارة السوبر ماركت ومحلات البقالة، يعمل بدون إنترنت (Offline). - إدارة المنتجات والمخزون - تسجيل المبيعات والفواتير - مراجعة تفاصيل الفواتير - نسخ احتياطي للبيانات 📩 للاستفسار عن ...",
+   "found": "2026-11-08T10:47Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1509918119201956",
+   "title": "Ukrainian Businesses in Chicago, USA /Українські Бізнеси в ...",
+   "snippet": "4 days ago · A group for the exchange of information for businesses in Illinois or North America, in which the founder is Ukrainian, Ukrainians work, or supports the Ukrainian community. Група для обміну інформацією про бізнеси в Іллінойсі або Північній Америці, в яких засновник українець, працюють ...",
+   "found": "2026-11-08T10:47Z"
+  },
   {
    "url": "https://www.facebook.com/groups/1393880761009350",
    "title": "Hotel and restaurant Jobs in indore - Facebook",
@@ -1732,102 +1828,6 @@
    "title": "POS & ERP Systems in Sri Lanka (ශ්රී ලාංකික ව්යාපාර සඳහා)",
    "snippet": "Oct 21, 2026 · ඔබේ ව්යාපාරය තවමත් Billing, Stock, Sales සහ Reports වෙන වෙනම Manage කරනවාද? 💼 දැන් ඒ හැමදේම **VOZEX POS** එකෙන් එකම System එකකින් පහසුවෙන් Manage කරන්න. 🚀 Fast Billing Stock & Inventory Control Sales & Customer Management Reports & Business Insights Offline POS + Cloud Control Retail / Grocery / Hardware / Clothing / Wholesale සඳහා සුදුසුයි 💰 **POS Software Rs. 12,500 සිට** 🎁 Free Demo 🎓 Free Training 🔄 Software Updates ඔබේ ව්යාපාරය අදම Smart විදිහට Manage කරන්න. 📲 WhatsApp: **070",
    "found": "2026-10-28T15:12Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/707279679324280",
-   "title": "Sei di Loreto se... | Facebook",
-   "snippet": "1 day ago · Per ALCINA ancora nessuna richiesta e noi ci riproviamo !!! 💪 🤞🏻 È una mix maremmana di circa 3 anni e, se dovessimo descriverla con poche parole, diremmo: bellissima, dolce, affettuosa, coccolona, molto socievole e anche tanto giocherellona! 🐾 ️ È una canetta equilibrata, con tante competenze e tutte le qualità per diventare una splendida compagna di vita, affidabile e ...",
-   "found": "2026-10-28T15:12Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1429901057796348/posts/2331360657650379",
-   "title": "සිල්ලර කඩ හිමියන්ගේ සංගමය | Book shop ekak danna kochchr ...",
-   "snippet": "1 day ago · Book shop ekak danna kochchr withara budget ekak yawid? 3 Like 10 Prasad Abeyrathna POS eka dennam 1 terminal fullset with 1 year online subscription software ekai okkoma ( second year idan masekata Rs400/-k wage )",
-   "found": "2026-10-28T15:12Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1967175560186609",
-   "title": "RAGBRAI LIIl July 18-25, 2026 | Facebook",
-   "snippet": "5 days ago · We are also including our Basic Shorts for pre- order. 👉 Shop the pre-order: https://velorosacycling. com/collections/pre-order-these-2027-collections As a women-owned small business, your support truly makes a difference. Every order helps us continue creating cycling apparel that is colorful, fun and made for women who love to ride.",
-   "found": "2026-10-28T15:12Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/190495537761967",
-   "title": "ВЕСТНИК НАРОДЕН ПРИЯТЕЛ | Facebook",
-   "snippet": "1 day ago · През 2024 година, Вестник \"Народен приятел\" ще празнува 100-годишен юбилей. Няма друг местен вестник в региона, който да има вековна история. Именуван е...",
-   "found": "2026-10-28T15:12Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/406152593190660",
-   "title": "Pos system/pos solution/pos scale for retail/restaurant/supermarket/bar ...",
-   "snippet": "Having your retail store accessible right on your mobile phone or tablet is a total game-changer! No more hassle with bulky, outdated POS machines. Are you constantly struggling with inventory mix-ups, running out of small change, or losing money due to unrecorded customer debts? Common headaches for grocery and retail store owners: Inventory errors and unnoticed damaged goods Long cashier ...",
-   "found": "2026-10-28T15:12Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/307453743202512",
-   "title": "USA RESTAURANT NETWORK - Facebook",
-   "snippet": "2 days ago · USA RESTAURANT NETWORK Restaurant owners can post info about there restaurant all foodies can post what they ate at the restaurant and the name of the restaurant.Foodies may also post there dishes,chefs may also post dishes.You may also post the name of the restaurant that serve you great food.",
-   "found": "2026-10-28T15:12Z"
-  },
-  {
-   "url": "https://www.facebook.com/DesignSouthFlooring/posts/designsouth-is-looking-for-a-warehouse-worker-to-join-our-growing-crew-experienc/1562255032566044",
-   "title": "DesignSouth is looking... - DesignSouth Flooring & Interiors ...",
-   "snippet": "Oct 12, 2026 · What you’ll be doing: • Picking and preparing customer orders • Organizing warehouse inventory • Loading and unloading trucks • Driving a forklift • Lifting up to 50 lbs • Learning the ins and outs of the flooring business • Operating inventory software",
-   "found": "2026-10-28T15:12Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/smmjobs",
-   "title": "Social Media Jobs and Internships | Facebook",
-   "snippet": "6 days ago · It’s time to book a call and trust me as your Social Media Manager! 😉 Your goals, my strategy👩💻Let me help you achieve them! Send me a message 📩 jemainealday22@gmail.com #SocialMediaManager #SocialMediaMarketing #DigitalMarketing #BusinessGrowth #HireAnSMM #trendingreels #trendingnow #trendingvideo #fypviralシ",
-   "found": "2026-10-28T15:13Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/wordpressai",
-   "title": "WordPress • AI | Speed | SEO | Developers | Facebook",
-   "snippet": "Oct 21, 2026 · Mere paas ek chhota business k liye aik package ha hai jise website chahiye ho to bata dein. Main WordPress developer hoon, 1-page professional site PKR 6,000 mein bana deta hoon.",
-   "found": "2026-10-28T15:13Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/274812453833284",
-   "title": "Mira Bhayander Mumbai - Facebook",
-   "snippet": "Oct 21, 2026 · Website Chahiye? Call Me 📞 🎓 School Website 🎓 College Website 🕌 Madrasa Website 💼 Business Website 👤 Personal Website Features Jo Milegi: ️ Modern & Professional Design ️ 100% Mobile Friendly ️ SEO Optimized - Google Me Rank Karega ️ Fast & Secure ️ Lifetime Ongoing Support Apna Business Online Grow Karna Hai?",
-   "found": "2026-10-28T15:13Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/281744809331884/posts/2320471735459171",
-   "title": "Had worst experience at Jamie’s today view mall | Facebook",
-   "snippet": "Oct 15, 2026 · Had worst experience at Jamie’s today view mall We decided to visit them the moment we entered there was no warm welcome The moment Filipino waitress saw us she took plates in front of us and...",
-   "found": "2026-10-28T15:13Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/31687303779",
-   "title": "UTT Alumni Association - Facebook",
-   "snippet": "Oct 5, 2026 · The UTT Alumni Association recently hosted a Resume Writing Workshop at the UTT Agora Campus, reaffirming its commitment to supporting the professional development and career advancement of UTT graduates. The journey doesn't stop here! As an added benefit, all participants of the Resume workshop will be automatically enrolled in the Speed Mock Interview Session at the UTT's Job Fair, giving ...",
-   "found": "2026-10-28T15:13Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1746432059851297/posts/1879820329845802",
-   "title": "Michael Daniel pictured below | Facebook",
-   "snippet": "4 days ago · Michael Daniel pictured below Michael has a story similar to Harry’s, but with a different ammo. Michael currently works for ExxonMobil and is the manager of an oil rig for the company. The oil rig...",
-   "found": "2026-10-28T15:13Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1885826831642256",
-   "title": "玫瑰栽培討論區 | Facebook",
-   "snippet": "5 days ago · 玫瑰栽培討論區. #更新贈完了，因為網路傳播速度很 快，不好意思耶～我這邊鄰居全部看 到貼文剛已經火速全搶完了😅 也謝謝大家踴躍認養～ ———————————————————————— - #免費贈送所有植物，有玫瑰.藍莓.草莓.鐵線蓮. 多肉等等（請勿直接私訊，等確定人選我再私訊 ...",
-   "found": "2026-10-28T15:13Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/141636133139682",
-   "title": "Забелязано в Етрополе | Facebook",
-   "snippet": "2 days ago · Показвайте всякакви неща които са свързани с гр.Етрополе Правила за качване: 1. В \"Забелязано в Етрополе\" се качват снимки и видеа на интересни, забавни...",
-   "found": "2026-10-28T15:13Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/178171185619458",
-   "title": "「フェイスブック俳句会」 | Facebook",
-   "snippet": "1 day ago · 2012年2月13日セントバレンタインズディ・イブに思いつきで、 このグループ結成しました。 俳句をはじめて約5年・・・「有季定型」の「定型」に固く縛られてきましたが・・・俳句の基本である「有季定型」を大切にしながら、もっと自由に、字余り・字足らず・・・言葉遊び、などなど創作 ...",
-   "found": "2026-10-28T15:13Z"
   }
  ]
 }
