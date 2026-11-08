@@ -7,8 +7,9 @@ for sc in j.get("scores") or []:
     lg = sc.get("leagues", [{}])[0]
     for ev in sc.get("events", []):
         st = ev.get("status", {}).get("type", {})
-        print("EV", lg.get("id"), lg.get("name")[:40], ev.get("id"), ev.get("name"), "|", st.get("description"), st.get("completed"), ev.get("date"))
-        if st.get("completed") and not done:
+        if 0: print("EV", lg.get("id"), lg.get("name")[:40], ev.get("id"), ev.get("name"), "|", st.get("description"), st.get("completed"), ev.get("date"))
+        print("  state", st.get("state"), st.get("name"))
+        if st.get("state") == "post" and ev.get("status", {}).get("type", {}).get("description") == "Result" and not done:
             done = (lg.get("id"), ev.get("id"))
 print("DONE", done)
 d = requests.get(f"{B}/{done[0]}/summary?event={done[1]}", headers=H, timeout=30).json()
