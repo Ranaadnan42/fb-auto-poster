@@ -315,6 +315,10 @@ def fresh_items(urls, past):
             continue
         if len(it["title"].split()) < 4:
             continue
+        if urls is SPORTS.get("big_events") and not re.search(
+                r"world cup|olympi|paralymp|asian games|commonwealth games|\beuro\b|copa am|afcon|asian cup|"
+                r"champions trophy|asia cup|club world cup", it["title"], re.I):
+            continue
         if re.search(r"\b(live|as it happened|quiz|in pictures|watch:|video:|podcast|newsletter|crossword)\b",
                      it["title"], re.I):
             continue
