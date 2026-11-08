@@ -1,0 +1,462 @@
+"""
+News Act + Sports Hubs - REEL aur LONG VIDEO agent (English + Urdu), asli footage ke sath.
+
+KIND=reel  -> 9:16, ~45-60 sec, ek bari taaza khabar (page reel + story)
+KIND=long  -> 16:9, ~3-4 min bulletin: 5 alag khabrein (sports mein 5 alag khel)
+
+Har khabar:
+  - news.py wali feeds se taaza, pehle na chali khabar
+  - AI apne alfaz mein script likhta hai (copy nahi, sirf asal facts)
+  - Har jumle par jo cheez boli ja rahi hai us ki ASLI footage (Pixabay/Wikimedia/NASA/Archive/Mixkit,
+    photo mile to Ken Burns harkat) - koi AI chehra nahi
+  - Neural awaaz (ur-PK-AsadNeural / en-GB-RyanNeural), subtitles, lower-third headline, halka music
+
+Env: PAGES, LANGUAGE, KIND, NEWS_/SPORTS_PAGE_TOKEN/ID, GROQ_API_KEY, GEMINI_API_KEY, PIXABAY_API_KEY, DRY_RUN
+"""
+import asyncio
+import datetime
+import json
+import os
+import random
+import re
+import subprocess
+import sys
+import time
+
+import requests
+
+import footage
+import news
+
+KIND = (os.environ.get("KIND") or "reel").strip().lower()
+LANG = news.LANG
+DRY_RUN = news.DRY_RUN
+GRAPH_VER = news.GRAPH_VER
+HIST_FILE = "news_video_history.json"
+REPORT_FILE = f"news_{KIND}_{LANG}_last_run.json"
+WORK = f"work_newsv_{KIND}_{LANG}"
+W, H = (1080, 1920) if KIND == "reel" else (1920, 1080)
+FPS = 30
+VOICE = {"en": ("en-GB-RyanNeural", "+4%"), "ur": ("ur-PK-AsadNeural", "+0%")}[LANG]
+FONT = "Noto Naskh Arabic" if LANG == "ur" else "Noto Sans"
+STORIES = 1 if KIND == "reel" else 5
+
+REPORT = {"time_utc": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), "kind": KIND, "lang": LANG,
+          "dry_run": DRY_RUN, "posted": {}, "errors": []}
+os.makedirs(WORK, exist_ok=True)
+log = news.log
+
+
+def run(cmd):
+    r = subprocess.run(cmd, capture_output=True, text=True)
+    if r.returncode:
+        raise RuntimeError(f"ffmpeg fail: {r.stderr[-400:]}")
+
+
+def duration(p):
+    try:
+        out = subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of",
+                              "default=nw=1:nk=1", p], capture_output=True, text=True, timeout=60)
+        return float(out.stdout.strip())
+    except Exception:
+        return 0.0
+
+
+# ---------------------------------------------------------------- history
+def load_hist():
+    try:
+        with open(HIST_FILE, encoding="utf-8") as f:
+            h = json.load(f)
+    except Exception:
+        h = {}
+    for k in ("news", "sports", "used_clips"):
+        h.setdefault(k, [])
+    return h
+
+
+def save_hist(h):
+    for k in ("news", "sports"):
+        h[k] = h[k][-400:]
+    h["used_clips"] = h["used_clips"][-2500:]
+    with open(HIST_FILE, "w", encoding="utf-8") as f:
+        json.dump(h, f, ensure_ascii=False, indent=1)
+
+
+# ---------------------------------------------------------------- stories
+def pick_stories(kind, past):
+    pool = news.NEWS_REGIONS if kind == "news" else news.SPORTS
+    picked, links, topics = [], set(), set()
+    for topic in news.pick_topic(kind, past):
+        if len(picked) >= STORIES:
+            break
+        if topic in topics:
+            continue
+        items = [i for i in news.fresh_items(pool[topic], past) if i["link"] not in links]
+        if KIND == "reel":                      # reel ke liye wohi jis ki tafseel ho
+            items = [i for i in items if i["desc"]] or items
+        log(f"{kind}/{topic}: {len(items)} taaza")
+        if not items:
+            continue
+        it = random.choice(items[:3])
+        it["topic"] = topic
+        picked.append(it)
+        links.add(it["link"])
+        topics.add(topic)
+    if not picked:
+        raise RuntimeError("koi taaza khabar nahi mili")
+    return picked
+
+
+def write_script(kind, stories):
+    P = news.PAGES[kind]
+    lang = ("natural spoken Urdu in Urdu script (like a BBC Urdu / Geo news anchor; no Hindi words, no Roman)"
+            if LANG == "ur" else "natural spoken English like a BBC news anchor")
+    lst = "\n".join(f"{n + 1}. [{s['topic'].replace('_', ' ')}] {s['title']} -- {s['desc'] or '(headline only)'} "
+                    f"(source: {s['source']})" for n, s in enumerate(stories))
+    per = "3-4 scenes (the whole reel 110-150 spoken words)" if KIND == "reel" \
+        else "3 scenes each (each story 90-120 spoken words)"
+    prompt = f"""You are the anchor and script writer of the Facebook page "{P['name']}"
+({'world news' if kind == 'news' else 'world sports news'}). Write a {'short vertical REEL' if KIND == 'reel' else 'news BULLETIN video'}
+in {lang} covering these stories in this order:
+{lst}
+
+Rules:
+- Your OWN words only - never copy the source's sentences.
+- Only facts given above. NEVER invent numbers, scores, quotes, names, dates or results. If details are thin, explain the background in general terms without new facts.
+- Neutral, professional, easy to understand. Mention the source naturally ("according to BBC").
+- Start with a strong one-sentence hook. End with: ask viewers to follow {P['name']}, like and share.
+- Each story gets {per}.
+- For every scene give "visuals": 1-3 short ENGLISH stock-footage search terms IN THE ORDER the narration
+  mentions them (a country's flag/city/landmark, parliament building, stadium, the sport being played,
+  oil tanker, stock market screen, rain flood street...). Must be the SPECIFIC thing said. Never a person's
+  name, never violence, blood, weapons, dead bodies or explosions.
+
+Return JSON:
+{{"title": "video title, max 10 words",
+  "intro": {{"text": "hook sentence", "visuals": ["..."]}},
+  "stories": [{{"headline": "short on-screen headline max 8 words", "scenes": [{{"text": "...", "visuals": ["..."]}}]}}],
+  "outro": {{"text": "follow / like / share line", "visuals": ["..."]}},
+  "caption": "2-3 sentence post description in the same language",
+  "hashtags": ["6 hashtags without #"]}}"""
+    j = news.ask_json(prompt)
+    if not j.get("stories"):
+        raise RuntimeError("AI ne script nahi di")
+    return j
+
+
+# ---------------------------------------------------------------- voice + music
+def clean_voice(t):
+    t = re.sub(r"[#*_\"“”]", " ", t or "")
+    if LANG == "ur":
+        t = t.replace("ى", "ی").replace("ي", "ی")
+    return re.sub(r"\s{2,}", " ", t).strip()
+
+
+def tts(text, path):
+    import edge_tts
+
+    async def go():
+        await edge_tts.Communicate(clean_voice(text), VOICE[0], rate=VOICE[1]).save(path)
+    for attempt in range(6):
+        try:
+            asyncio.run(go())
+            if os.path.getsize(path) > 1000:
+                return
+        except Exception as e:
+            log(f"TTS retry {attempt + 1}: {str(e)[:150]}")
+        time.sleep(5 * (attempt + 1))
+    raise RuntimeError("awaaz nahi bani")
+
+
+def make_music(path, secs):
+    root = random.choice([110.0, 123.5, 130.8])
+    parts = []
+    for k, ch in enumerate([[1, 1.5, 2], [0.89, 1.33, 1.78], [0.84, 1.26, 1.68], [0.94, 1.41, 1.88]]):
+        env = f"(0.5+0.5*sin(2*PI*t/12-{k}*PI/2))"
+        parts += [f"0.035*sin(2*PI*{root * m:.2f}*t)*{env}" for m in ch]
+    parts.append("0.02*sin(2*PI*55*t)*(0.5+0.5*sin(2*PI*t*2))")       # halki news-dhadkan
+    run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i",
+         f"aevalsrc='{'+'.join(parts)}':s=44100:d={secs + 1:.1f}", "-af", "lowpass=f=1800,volume=0.8", path])
+
+
+# ---------------------------------------------------------------- footage (asli)
+def color_clip(out, secs):
+    run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i",
+         f"gradients=s={W}x{H}:c0=0x0b1a33:c1=0x2a0606:d={secs:.2f}:speed=0.02:r={FPS}",
+         "-t", f"{secs:.2f}", "-pix_fmt", "yuv420p", "-c:v", "libx264", "-preset", "veryfast", out])
+
+
+def get_clip(term, secs, out, used):
+    want = footage.words(term)
+    vertical = H > W
+    cands = [c for c in footage.videos(term, vertical) if c["id"] not in used]
+    cands.sort(key=lambda c: (-footage.match_score(c.get("text"), want), c.get("vertical") != vertical,
+                              random.random()))
+    for c in cands[:4]:
+        if want and footage.match_score(c.get("text"), want) == 0 and c.get("src") != "pixabay":
+            continue
+        raw = out + ".src"
+        try:
+            if not footage.download(c["url"], raw, 100000):
+                continue
+            d = duration(raw) or c.get("dur", 10)
+            start = max(0.0, random.uniform(0, max(0.0, d - secs - 0.5))) if d > secs + 1 else 0
+            loop = ["-stream_loop", "-1"] if d < secs else []
+            run(["ffmpeg", "-y", "-loglevel", "error", *loop, "-ss", f"{start:.2f}", "-i", raw, "-t", f"{secs:.2f}",
+                 "-vf", f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},"
+                        f"eq=contrast=1.04:saturation=1.06,format=yuv420p",
+                 "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", out])
+            used.append(c["id"])
+            log(f"  clip '{term}': {c['src']} {c['id']}")
+            return True
+        except Exception as e:
+            log(f"  clip fail {c['id']}: {str(e)[:100]}")
+        finally:
+            if os.path.exists(raw):
+                os.remove(raw)
+    pics = [p for p in footage.photos(term) if p["id"] not in used]
+    pics.sort(key=lambda p: -footage.match_score(p.get("text"), want))
+    for p in pics[:3]:
+        img = out + ".jpg"
+        try:
+            if footage.download(p["url"], img, 40000):
+                footage.photo_to_clip(img, out, W, H, secs=secs, fps=FPS)
+                used.append(p["id"])
+                log(f"  photo-clip '{term}': {p['src']} {p['id']}")
+                return True
+        except Exception as e:
+            log(f"  photo fail: {str(e)[:100]}")
+    return False
+
+
+def scene_video(i, terms, secs, used, fallback_terms):
+    terms = [t for t in terms if t][:3] or fallback_terms[:1]
+    n = max(1, min(len(terms), int(secs // 2.8)))
+    seg = secs / n
+    parts = []
+    for k, t in enumerate(terms[:n]):
+        out = os.path.join(WORK, f"s{i}_{k}.mp4")
+        if not (get_clip(t, seg + 0.1, out, used) or
+                any(get_clip(f, seg + 0.1, out, used) for f in fallback_terms)):
+            color_clip(out, seg + 0.1)
+        parts.append(out)
+    if len(parts) == 1:
+        return parts[0]
+    lst = os.path.join(WORK, f"s{i}.txt")
+    with open(lst, "w") as f:
+        f.write("".join(f"file '{os.path.abspath(p)}'\n" for p in parts))
+    out = os.path.join(WORK, f"s{i}_v.mp4")
+    run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", out])
+    return out
+
+
+# ---------------------------------------------------------------- text on screen
+def ass_t(t):
+    t = max(0, t)
+    return f"{int(t // 3600)}:{int(t % 3600 // 60):02d}:{t % 60:05.2f}"
+
+
+def esc(s):
+    return (s or "").replace("\\", " ").replace("{", "(").replace("}", ")").replace("\n", " ").strip()
+
+
+def chunks(text, n_words):
+    ws = text.split()
+    return [" ".join(ws[k:k + n_words]) for k in range(0, len(ws), n_words)] or [text]
+
+
+def make_ass(path, kind, text, headline, secs, badge):
+    P = news.PAGES[kind]
+    reel = KIND == "reel"
+    sub = 66 if reel else 54
+    head = 66 if reel else 54
+    sub_mv = 330 if reel else 70
+    head_mv = 640 if reel else 190
+    lines = chunks(clean_voice(text), 6 if reel else 9)
+    total_w = sum(len(c.split()) for c in lines) or 1
+    ev, t = [], 0.0
+    for c in lines:
+        d = secs * len(c.split()) / total_w
+        ev.append(f"Dialogue: 1,{ass_t(t)},{ass_t(t + d)},Sub,,0,0,0,,{esc(c)}")
+        t += d
+    hl = ""
+    if headline:
+        hl = f"Dialogue: 2,{ass_t(0)},{ass_t(secs)},Head,,0,0,0,,{esc(headline)}"
+    with open(path, "w", encoding="utf-8") as f:
+        f.write(f"""[Script Info]
+ScriptType: v4.00+
+PlayResX: {W}
+PlayResY: {H}
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Brand,Noto Sans,{44 if reel else 40},&H00FFFFFF,&H00FFFFFF,{P['color']},{P['color']},1,0,0,0,100,100,1,0,3,12,0,7,50,50,50,1
+Style: Badge,{FONT},{36 if reel else 32},&H00FFFFFF,&H00FFFFFF,&H00000000,&HA0000000,1,0,0,0,100,100,0,0,3,10,0,9,50,50,56,1
+Style: Head,{FONT},{head},&H0000E5FF,&H00FFFFFF,&H00000000,&HB0000000,1,0,0,0,100,100,0,0,3,16,0,2,60,60,{head_mv},1
+Style: Sub,{FONT},{sub},&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,1,0,0,0,100,100,0,0,1,4,3,2,70,70,{sub_mv},1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 3,{ass_t(0)},{ass_t(secs)},Brand,,0,0,0,,{esc(P['name']).upper()}
+Dialogue: 3,{ass_t(0)},{ass_t(secs)},Badge,,0,0,0,,{esc(badge)}
+{hl}
+""" + "\n".join(ev) + "\n")
+
+
+def build_scene(i, kind, text, terms, headline, badge, used, fallback_terms):
+    voice = os.path.join(WORK, f"v{i}.mp3")
+    tts(text, voice)
+    secs = duration(voice) + 0.35
+    vid = scene_video(i, terms, secs, used, fallback_terms)
+    ass = os.path.join(WORK, f"s{i}.ass")
+    make_ass(ass, kind, text, headline, secs, badge)
+    fonts = news.FONTS_DIR.replace("\\", "/").replace(":", "\\:")
+    ap = os.path.abspath(ass).replace("\\", "/").replace(":", "\\:")
+    out = os.path.join(WORK, f"scene{i:02d}.mp4")
+    run(["ffmpeg", "-y", "-loglevel", "error", "-i", vid, "-i", voice, "-filter_complex",
+         f"[0:v]drawbox=x=0:y=ih*0.62:w=iw:h=ih*0.38:color=black@0.35:t=fill,"
+         f"ass='{ap}':fontsdir='{fonts}',fps={FPS},format=yuv420p[v];[1:a]apad=pad_dur=0.35,aresample=44100[a]",
+         "-map", "[v]", "-map", "[a]", "-t", f"{secs:.2f}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "21",
+         "-c:a", "aac", "-b:a", "160k", "-ar", "44100", "-ac", "2", out])
+    return out
+
+
+def build_video(kind, script, stories, used):
+    fb = (["world map globe", "news studio screen", "city skyline"] if kind == "news"
+          else ["sports stadium crowd", "stadium lights"])
+    date = datetime.datetime.utcnow().strftime("%d %b %Y")
+    badge = date if LANG == "ur" else ("WORLD NEWS" if kind == "news" else "SPORTS") + f" | {date}"
+    scenes = []
+    i = 0
+    intro = script.get("intro") or {}
+    if intro.get("text"):
+        scenes.append(build_scene(i, kind, intro["text"], intro.get("visuals") or [], None, badge, used, fb))
+        i += 1
+    for n, st in enumerate(script["stories"][:len(stories)]):
+        topic = stories[n]["topic"] if n < len(stories) else ""
+        sfb = ([news.SPORT_IMG.get(topic, "sports stadium")] if kind == "sports" else []) + fb
+        for sc in (st.get("scenes") or [])[:4]:
+            if not str(sc.get("text") or "").strip():
+                continue
+            scenes.append(build_scene(i, kind, sc["text"], sc.get("visuals") or [], st.get("headline"), badge,
+                                      used, sfb))
+            i += 1
+    outro = script.get("outro") or {}
+    if outro.get("text"):
+        scenes.append(build_scene(i, kind, outro["text"], outro.get("visuals") or [], None, badge, used, fb))
+    if len(scenes) < 2:
+        raise RuntimeError("scenes nahi banay")
+    lst = os.path.join(WORK, "all.txt")
+    with open(lst, "w") as f:
+        f.write("".join(f"file '{os.path.abspath(p)}'\n" for p in scenes))
+    joined = os.path.join(WORK, "joined.mp4")
+    run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", joined])
+    total = duration(joined)
+    music = os.path.join(WORK, "music.wav")
+    make_music(music, total)
+    final = os.path.join(WORK, f"{kind}_final.mp4")
+    run(["ffmpeg", "-y", "-loglevel", "error", "-i", joined, "-i", music, "-filter_complex",
+         f"[1:a]volume=0.22,afade=t=out:st={max(0, total - 2):.2f}:d=2[m];[0:a][m]amix=inputs=2:duration=first:normalize=0[a]",
+         "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart", final])
+    log(f"{kind}: video ban gayi {total:.0f}s")
+    return final
+
+
+# ---------------------------------------------------------------- Facebook
+def fb_json(r):
+    try:
+        j = r.json()
+    except Exception:
+        raise RuntimeError(f"Facebook jawab samajh nahi aaya: {r.text[:300]}")
+    if "error" in j:
+        raise RuntimeError(f"Facebook error: {j['error'].get('message', j)}")
+    return j
+
+
+def post_reel(P, path, desc):
+    base = f"https://graph.facebook.com/{GRAPH_VER}/{P['id']}/video_reels"
+    vid = fb_json(requests.post(base, data={"upload_phase": "start", "access_token": P["token"]},
+                                timeout=60))["video_id"]
+    with open(path, "rb") as f:
+        fb_json(requests.post(f"https://rupload.facebook.com/video-upload/{GRAPH_VER}/{vid}",
+                              headers={"Authorization": f"OAuth {P['token']}", "offset": "0",
+                                       "file_size": str(os.path.getsize(path))}, data=f, timeout=1800))
+    fb_json(requests.post(base, timeout=60, data={"upload_phase": "finish", "video_id": vid,
+                                                  "video_state": "PUBLISHED", "description": desc,
+                                                  "access_token": P["token"]}))
+    try:
+        import stories
+        stories.try_story(P["id"], P["token"], path, GRAPH_VER, log, REPORT["errors"])
+    except Exception as e:
+        log(f"story skip: {str(e)[:120]}")
+    return vid
+
+
+def post_long(P, path, title, desc):
+    with open(path, "rb") as f:
+        j = fb_json(requests.post(f"https://graph-video.facebook.com/{GRAPH_VER}/{P['id']}/videos",
+                                  timeout=1800, data={"access_token": P["token"], "title": title,
+                                                      "description": desc, "published": "true"},
+                                  files={"source": ("video.mp4", f, "video/mp4")}))
+    return j.get("id")
+
+
+def description(kind, script, stories):
+    P = news.PAGES[kind]
+    tags = " ".join("#" + re.sub(r"[\s#]+", "", t) for t in (script.get("hashtags") or [])[:6] if t)
+    if KIND == "reel":
+        tags += " #reels"
+    src_label = "ذرائع" if LANG == "ur" else "Sources"
+    srcs = "\n".join(f"• {s['source']}: {s['link']}" for s in stories)
+    follow = (f"{P['name']} کو فالو کریں - " + ("دنیا بھر کی خبریں روزانہ" if kind == "news"
+                                                  else "دنیا بھر کے کھیلوں کی ہر خبر")) if LANG == "ur" else \
+        f"Follow {P['name']} for " + ("world news every day." if kind == "news" else "every sport from around the world.")
+    return (f"🔴 {script.get('title', '').strip()}\n\n{(script.get('caption') or '').strip()}\n\n"
+            f"📰 {src_label}:\n{srcs}\n\n👉 {follow}\n\n{tags}")
+
+
+# ---------------------------------------------------------------- main
+def main():
+    hist = load_hist()
+    nh = news.load_history()
+    ok = 0
+    for kind in news.PAGES_TO_RUN:
+        P = news.PAGES[kind]
+        try:
+            for f in os.listdir(WORK):
+                os.remove(os.path.join(WORK, f))
+            past = hist[kind] + nh[kind]            # pic wali khabar video mein dobara na aaye
+            stories = pick_stories(kind, past)
+            log(f"{kind}: " + " | ".join(s["title"][:60] for s in stories))
+            script = write_script(kind, stories)
+            path = build_video(kind, script, stories, hist["used_clips"])
+            desc = description(kind, script, stories)
+            log(f"--- {kind} description ---\n{desc}\n")
+            meta = {"date": REPORT["time_utc"], "kind": KIND, "lang": LANG,
+                    "title": script.get("title", "")[:120], "dur": round(duration(path))}
+            if not DRY_RUN:
+                if not P["token"] or not P["id"]:
+                    raise RuntimeError(f"{kind}: page token/id secret missing")
+                meta["post_id"] = post_reel(P, path, desc) if KIND == "reel" else \
+                    post_long(P, path, script.get("title") or P["name"], desc)
+                log(f"{kind}: posted {meta['post_id']}")
+            for s in stories:
+                hist[kind].append({"date": meta["date"], "topic": s["topic"], "link": s["link"],
+                                   "title": s["title"][:160], "words": sorted(news.words(s["title"]))})
+            REPORT["posted"][kind] = meta
+            ok += 1
+        except Exception as e:
+            log(f"{kind} ERROR: {e}")
+            REPORT["errors"].append(f"{kind}: {str(e)[:300]}")
+    save_hist(hist)
+    with open(REPORT_FILE, "w", encoding="utf-8") as f:
+        json.dump(REPORT, f, ensure_ascii=False, indent=1, default=str)
+    if ok < len(news.PAGES_TO_RUN):
+        sys.exit(1)
+    log("Done!")
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,139 @@
+name: News Act + Sports Hubs
+run-name: ${{ github.workflow }} [${{ inputs.sched || github.event.schedule || 'manual' }}]
+
+on:
+  schedule:
+    # Har run dono pages (News Act + Sports Hubs) par post karta hai. Waqt UTC (Pakistan = +5)
+    # Pics: 4 rozana (2 Urdu, 2 English)
+    - cron: '56 1 * * *'    # pic UR   - post 02:11 UTC = 7:11 subah Pakistan
+    - cron: '26 5 * * *'    # pic EN   - post 05:41 UTC = 9:41 subah Gulf / London subah
+    - cron: '56 9 * * *'    # pic UR   - post 10:11 UTC = 3:11 sehpehar Pakistan
+    - cron: '26 14 * * *'   # pic EN   - post 14:41 UTC = 9:41 subah New York
+    # Reels: 2 rozana
+    - cron: '51 7 * * *'    # reel UR  - post ~08:21 UTC = 1:21 dopehar Pakistan
+    - cron: '51 15 * * *'   # reel EN  - post ~16:21 UTC = 11:21 subah New York, 4:21 London
+    # Long video bulletin (5 khabrein): 2 rozana
+    - cron: '46 14 * * *'   # long UR  - post ~15:31 UTC = 8:31 raat Pakistan
+    - cron: '16 20 * * *'   # long EN  - post ~21:01 UTC = 4:01 sehpehar New York
+  workflow_dispatch:
+    inputs:
+      sched:
+        description: 'Scheduler ke liye - khali chhor dein'
+        type: string
+        default: ''
+      mode:
+        description: 'Kya banaye'
+        type: choice
+        options: ['pic_en', 'pic_ur', 'reel_en', 'reel_ur', 'long_en', 'long_ur']
+        default: 'pic_en'
+      pages:
+        description: 'Kis page par'
+        type: choice
+        options: ['news,sports', 'news', 'sports']
+        default: 'news,sports'
+      dry_run:
+        description: 'Sirf banaye, post na kare'
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: news-${{ (inputs.sched || github.event.schedule) || github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    outputs:
+      go: ${{ steps.g.outputs.go }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: tools
+      - id: g
+        name: Double post check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WF_FILE: news.yml
+          SCHED: ${{ inputs.sched || github.event.schedule }}
+        run: python3 tools/slot_gate.py
+
+  post:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Pick mode
+        id: m
+        run: |
+          case "${{ inputs.sched || github.event.schedule }}" in
+            '56 1 * * *')  M=pic_ur ;;
+            '26 5 * * *')  M=pic_en ;;
+            '56 9 * * *')  M=pic_ur ;;
+            '26 14 * * *') M=pic_en ;;
+            '51 7 * * *')  M=reel_ur ;;
+            '51 15 * * *') M=reel_en ;;
+            '46 14 * * *') M=long_ur ;;
+            '16 20 * * *') M=long_en ;;
+            *) M="${{ inputs.mode }}" ;;
+          esac
+          [ -z "$M" ] && M=pic_en
+          echo "kind=${M%%_*}" >> $GITHUB_OUTPUT
+          echo "lang=${M##*_}" >> $GITHUB_OUTPUT
+          echo "Mode: $M"
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y ffmpeg
+          pip install requests "edge-tts>=7.3.0"
+      - name: Post
+        env:
+          NEWS_PAGE_TOKEN: ${{ secrets.NEWS_PAGE_TOKEN }}
+          NEWS_PAGE_ID: ${{ secrets.NEWS_PAGE_ID }}
+          SPORTS_PAGE_TOKEN: ${{ secrets.SPORTS_PAGE_TOKEN }}
+          SPORTS_PAGE_ID: ${{ secrets.SPORTS_PAGE_ID }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          PAGES: ${{ inputs.pages || 'news,sports' }}
+          LANGUAGE: ${{ steps.m.outputs.lang }}
+          KIND: ${{ steps.m.outputs.kind }}
+          DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
+        run: |
+          if [ "$KIND" = "pic" ]; then python news.py; else python news_video.py; fi
+      - name: Upload preview
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: news-${{ steps.m.outputs.kind }}-${{ steps.m.outputs.lang }}
+          path: |
+            work_news/*_en.jpg
+            work_news/*_ur.jpg
+            work_newsv_*/*_final.mp4
+          if-no-files-found: ignore
+      - name: Save history
+        if: always()
+        run: |
+          FILES="news_history.json news_video_history.json news_last_run.json news_reel_en_last_run.json news_reel_ur_last_run.json news_long_en_last_run.json news_long_ur_last_run.json"
+          mkdir -p /tmp/keep
+          for f in $FILES; do [ -f "$f" ] && cp "$f" /tmp/keep/; done
+          git config user.name "auto-poster"
+          git config user.email "auto-poster@users.noreply.github.com"
+          for i in 1 2 3 4 5; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            python3 tools/keep_files.py /tmp/keep $FILES
+            for f in $FILES; do [ -f "$f" ] && git add "$f"; done
+            git diff --cached --quiet && break
+            git commit -q -m "Update News/Sports history"
+            git push -q origin HEAD:main && break
+            sleep $((i * 5))
+          done

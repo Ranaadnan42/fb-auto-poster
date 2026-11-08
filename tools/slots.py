@@ -48,6 +48,15 @@ SLOTS = [
     dict(file="webbuilder.yml", crons=["27 18 * * *"], post="18:27", lead=15),
     dict(file="webbuilder.yml", crons=["13 19 * * *"], post="19:13", lead=15),
     dict(file="webbuilder.yml", crons=["3 20 * * *"], post="20:03", lead=15),
+    # News Act + Sports Hubs (pics turant, reel/long ban kar post)
+    dict(file="news.yml", crons=["56 1 * * *"], post="02:11", lead=15),
+    dict(file="news.yml", crons=["26 5 * * *"], post="05:41", lead=15),
+    dict(file="news.yml", crons=["56 9 * * *"], post="10:11", lead=15),
+    dict(file="news.yml", crons=["26 14 * * *"], post="14:41", lead=15),
+    dict(file="news.yml", crons=["51 7 * * *"], post="08:21", lead=30),
+    dict(file="news.yml", crons=["51 15 * * *"], post="16:21", lead=30),
+    dict(file="news.yml", crons=["46 14 * * *"], post="15:31", lead=45),
+    dict(file="news.yml", crons=["16 20 * * *"], post="21:01", lead=45),
     # Comment Helper search (Facebook posts dhoondta hai -> comment_hits.json; Supabase 04:15/13:15 email)
     dict(file="comment_search.yml", crons=["41 3 * * *"], post="03:41", lead=10),
     dict(file="comment_search.yml", crons=["41 12 * * *"], post="12:41", lead=10),
