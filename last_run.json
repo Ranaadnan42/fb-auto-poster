@@ -1,32 +1,23 @@
 {
- "lang": "ur",
- "stock_clips": 42,
+ "lang": "en",
+ "stock_clips": 14,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "انبیاء کرام کے واقعات",
-  "hazrat ka waqia video",
-  "hazrat umar ka waqia",
-  "hazrat ali ka waqia",
-  "hazrat ibrahim ka waqia",
-  "hazrat suleman ka waqia",
-  "hazrat bilal ka waqia",
-  "hazrat abbas ka waqia",
-  "hazrat nooh ka waqia",
-  "hazrat yousuf ka waqia"
+  "repentance story islam",
+  "true repentance in islam"
  ],
- "search": "hazrat suleman ka waqia",
- "vision_checks": 154,
+ "search": "repentance story islam",
+ "vision_checks": 77,
+ "clips_rejected": 49,
  "sources": {
-  "mixkit": 5,
-  "pixabay": 31,
-  "commons": 6
+  "pixabay": 11,
+  "commons": 3
  },
- "clips_rejected": 69,
  "photo_clips": 1,
- "long_minutes": 5.49,
- "time_utc": "2026-11-08 15:57",
- "title": "حضرت سلیمان کا واقعہ: چیونٹی کی صدا اور شکرگزاری کا عظیم سبق",
+ "reel_minutes": 1.11,
+ "time_utc": "2026-11-08 17:14",
+ "title": "A True Repentance Story Islam: The Sahabi Who Refused to Lie",
  "dry_run": false,
  "posted_ok": 1
 }
