@@ -63,6 +63,23 @@
     "over",
     "raided"
    ]
+  },
+  {
+   "date": "2026-11-08 22:55",
+   "lang": "ur",
+   "topic": "middle_east",
+   "link": "https://www.bbc.co.uk/news/videos/ckr5ygm78j76o?at_medium=RSS&at_campaign=rss",
+   "title": "Gaza wedding festival sees 250 couples married at the same time",
+   "words": [
+    "couples",
+    "festival",
+    "gaza",
+    "married",
+    "same",
+    "sees",
+    "time",
+    "wedding"
+   ]
   }
  ],
  "sports": [
@@ -125,6 +142,21 @@
     "that",
     "trend"
    ]
+  },
+  {
+   "date": "2026-11-08 22:55",
+   "lang": "ur",
+   "topic": "hockey",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNZy0tMHFnQzN6OFFmeXpzV1psRXJ0Z0cwZU1KYVJ3S3d1NEpwZVVkeU1BclVsQWxoXzEzU1l4TEVjV3FJaVFTX0NDYWR0RWZwRUNjYnl2QmxhZ2ZaWVRmQWNqUzREWEJZYXZGUGJld2FaeVVEaDVvOUMxcnlsQjBsLXNTMmVlQ3FyZ2cwck5SdUs?oc=5",
+   "title": "VGK@BUF: Eichel scores goal against Colten Ellis",
+   "words": [
+    "against",
+    "colten",
+    "eichel",
+    "ellis",
+    "goal",
+    "scores"
+   ]
   }
  ],
  "used_images": [
@@ -135,6 +167,8 @@
   104662,
   923659,
   2507432,
-  1610547
+  1610547,
+  260899,
+  6907300
  ]
 }

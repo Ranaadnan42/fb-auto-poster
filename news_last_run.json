@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-08 22:07",
- "lang": "en",
+ "time_utc": "2026-11-08 22:55",
+ "lang": "ur",
  "dry_run": true,
  "posted": {
   "news": {
    "post": "dry_run",
-   "topic": "europe",
-   "title": "Chinese carmaker BYD’s offices in Netherlands raided over JLR ‘copycat car’ claim"
+   "topic": "middle_east",
+   "title": "Gaza wedding festival sees 250 couples married at the same time"
   },
   "sports": {
    "post": "dry_run",
-   "topic": "basketball",
-   "title": "\"I certainly benefited from that\" - Mark Cuban admits profiting from the NBA trend he now questions"
+   "topic": "hockey",
+   "title": "VGK@BUF: Eichel scores goal against Colten Ellis"
   }
  },
  "errors": []
