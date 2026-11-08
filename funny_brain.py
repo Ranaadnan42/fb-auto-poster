@@ -56,6 +56,8 @@ def main():
         json.dump(rep, open(REPORT_FILE, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
         print(rep)
         return
+    if not rep["views"]:
+        brain.K_SHRINK = 8      # sirf likes/comments - shor zyada, faisle narm
     base = {}
     for r in R:
         base.setdefault(r.get("mode", "reel"), []).append(r["score"])

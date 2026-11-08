@@ -27,6 +27,7 @@ REPORT_FILE = "brain_report.json"
 G = f"https://graph.facebook.com/{news.GRAPH_VER}"
 MIN_AGE_H = 6          # itni der baad views kaafi had tak pakke ho jate hain
 DAYS = 21
+K_SHRINK = 0          # 0 = normal; views na milen to 8
 VIEW_KEYS = ("blue_reels_play_count", "fb_reels_total_plays", "total_video_views", "post_video_views",
              "post_media_view", "post_impressions_unique", "post_impressions")
 
@@ -76,6 +77,9 @@ def metrics(p, token):
             err = k["error"].get("message", "")[:120]
         j = get(f"{G}/{pid}", access_token=token,
                 fields="likes.summary(true).limit(0),comments.summary(true).limit(0)")
+        v = get(f"{G}/{pid}", access_token=token, fields="views")     # bina read_insights ke bhi milta hai
+        if isinstance(v.get("views"), int):
+            views = max(views, v["views"])
         eng = ((j.get("likes") or {}).get("summary") or {}).get("total_count", 0) + \
             2 * ((j.get("comments") or {}).get("summary") or {}).get("total_count", 0)
         eng = max(eng, vals.get("post_video_social_actions", 0) or 0)
@@ -88,6 +92,8 @@ def gmean(xs):
 
 
 def shrink(r, n, k=3):
+    """k bara = kam yaqeen (sirf likes ho, views na hon to data shor wala hota hai)."""
+    k = K_SHRINK if K_SHRINK else k
     """Kam data par zyada yaqeen nahi - 1 ki taraf kheencho."""
     return math.exp(math.log(r) * n / (n + k))
 
@@ -153,6 +159,8 @@ def main():
             rep["note"] = "Abhi data kam hai - kam az kam 6 posts ke views chahiye, purana plan jari"
             plan[page], report["pages"][page] = P, rep
             continue
+        brain_k = 8 if not rep["views"] else 0
+        globals()["K_SHRINK"] = brain_k
         # har format ka apna average (reel ka pic se muqabla nahi)
         base = {}
         for r in R:
