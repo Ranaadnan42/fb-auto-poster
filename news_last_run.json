@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-08 20:50",
+ "time_utc": "2026-11-08 21:48",
  "lang": "ur",
- "dry_run": true,
+ "dry_run": false,
  "posted": {
   "news": {
-   "post": "dry_run",
-   "topic": "pakistan",
-   "title": "With Stephen Miller at the helm, Trump charts a course for confrontation"
+   "post": "1448208791702551_122107129611532804",
+   "topic": "americas",
+   "title": "Top House Democrat 'a hard yes' on impeaching Hegseth"
   },
   "sports": {
-   "post": "dry_run",
-   "topic": "cricket",
-   "title": "Day Four"
+   "post": "1465090056678690_122096204325548502",
+   "topic": "football",
+   "title": "Who has made Troy's Premier League team of the week?"
   }
  },
  "errors": []

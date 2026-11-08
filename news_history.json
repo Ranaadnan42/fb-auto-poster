@@ -16,6 +16,21 @@
     "trump",
     "with"
    ]
+  },
+  {
+   "date": "2026-11-08 21:48",
+   "lang": "ur",
+   "topic": "americas",
+   "link": "https://www.bbc.co.uk/news/articles/cj4g1nwx39wno?at_medium=RSS&at_campaign=rss",
+   "title": "Top House Democrat 'a hard yes' on impeaching Hegseth",
+   "words": [
+    "democrat",
+    "hard",
+    "hegseth",
+    "house",
+    "impeaching"
+   ],
+   "post_id": "1448208791702551_122107129611532804"
   }
  ],
  "sports": [
@@ -28,10 +43,28 @@
    "words": [
     "four"
    ]
+  },
+  {
+   "date": "2026-11-08 21:48",
+   "lang": "ur",
+   "topic": "football",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cw98z7vdg546o?at_medium=RSS&at_campaign=rss",
+   "title": "Who has made Troy's Premier League team of the week?",
+   "words": [
+    "league",
+    "made",
+    "premier",
+    "team",
+    "troy",
+    "week"
+   ],
+   "post_id": "1465090056678690_122096204325548502"
   }
  ],
  "used_images": [
   3317069,
-  4181150
+  4181150,
+  4756256,
+  5289570
  ]
 }
