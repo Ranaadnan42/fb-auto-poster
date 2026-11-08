@@ -36,6 +36,26 @@ PAGES = {
                      "(Gulf, Europe, UK, Canada, etc.) and want to know cost of living, visas, jobs and life there"),
         "cta": "باہر کی زندگی، ویزا اور نوکری کی روزانہ معلومات کے لیے پیج فالو کریں 👈",
     },
+    "news": {
+        "name": "News Act",
+        "brand_tags": ["#NewsAct"],
+        "base_tags": ["#news", "#worldnews", "#breakingnews", "#latestnews", "#urdunews", "#viral"],
+        "audience": ("Urdu and English speakers in Pakistan, the Gulf, India, UK and USA who follow world news, "
+                     "Pakistan news, America news and Middle East news"),
+        "cta": "دنیا بھر کی تازہ خبروں کے لیے News Act کو فالو کریں 👈",
+        "cta_en": "Follow News Act for world news every day 👈",
+        "rules": "no fake claims, no clickbait lies, strictly neutral (no political opinion or side-taking), max 2 emojis per line.",
+    },
+    "sports": {
+        "name": "Sports Hubs",
+        "brand_tags": ["#SportsHubs"],
+        "base_tags": ["#sports", "#sportsnews", "#sportsupdate", "#cricket", "#football", "#viral"],
+        "audience": ("sports fans worldwide (Pakistan, India, Gulf, UK, USA) - cricket, football, tennis, F1, NBA, "
+                     "hockey, UFC and every other sport"),
+        "cta": "دنیا بھر کے کھیلوں کی ہر خبر کے لیے Sports Hubs کو فالو کریں 👈",
+        "cta_en": "Follow Sports Hubs for every sport from around the world 👈",
+        "rules": "no fake claims, no invented scores or results, no clickbait lies, max 2 emojis per line.",
+    },
 }
 
 
@@ -67,7 +87,7 @@ Return JSON:
  "keywords": "one line of 4-6 search keywords in Roman Urdu and English separated by ' | ' (e.g. funny video | pakistani comedy | ammi beta comedy)",
  "question": "one short question in {lang_name} that makes people comment or tag a friend",
  "hashtags": ["6 specific, popular, searchable topic hashtags in English or Roman Urdu, no spaces"]}}
-Rules: no fake claims, no clickbait lies, no politics, no religious mockery, max 2 emojis per line.""")
+Rules: {P.get("rules") or "no fake claims, no clickbait lies, no politics, no religious mockery, max 2 emojis per line."}""")
         hook = (d.get("hook") or title).strip()
         body = (d.get("body") or "").strip()
         kw = (d.get("keywords") or "").strip()

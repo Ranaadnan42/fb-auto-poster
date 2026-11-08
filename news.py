@@ -449,17 +449,24 @@ Dialogue: 0,0:00:00.00,0:00:05.00,Foot,,0,0,0,,{date}  •  Follow {esc(P['name'
 
 # ---------------------------------------------------------------- caption + Facebook
 def caption_for(kind, j, item):
+    """Baqi pages wala SEO caption (hook, keywords, sawal, follow, 10 hashtags) + khabar ki tafseel aur source."""
+    import seo
+    src = (f"📰 ذریعہ: {item['source']}" if LANG == "ur" else f"📰 Source: {item['source']}") + f"\n🔗 {item['link']}"
+    try:
+        cap = seo.build(ask_json, kind, j["headline"].strip(), f"{j['headline']}. {j['summary']}", LANG, is_reel=False)
+        parts = cap.split("\n\n")
+        parts[0] = "🔴 " + j["headline"].strip() if not parts[0].strip() else parts[0]
+        parts[1:1] = [j["summary"].strip(), src]
+        extra = " ".join("#" + re.sub(r"[\s#]+", "", t) for t in (j.get("hashtags") or [])[:3] if t)
+        if extra and parts[-1].startswith("#"):
+            have = set(parts[-1].lower().split())
+            parts[-1] = " ".join(parts[-1].split()[:10] + [t for t in extra.split() if t.lower() not in have])[:600]
+        return "\n\n".join(parts)
+    except Exception as e:
+        log(f"SEO caption fail ({str(e)[:100]}) - simple caption")
     P = PAGES[kind]
     tags = " ".join("#" + re.sub(r"[\s#]+", "", t) for t in (j.get("hashtags") or [])[:6] if t)
-    if LANG == "ur":
-        follow = ("دنیا بھر کی تازہ خبروں کے لیے" if kind == "news" else "دنیا بھر کے کھیلوں کی ہر خبر کے لیے") + \
-                 f" {P['name']} کو فالو کریں 👍"
-        src = f"📰 ذریعہ: {item['source']}"
-    else:
-        follow = f"👉 Follow {P['name']} for " + ("world news every day." if kind == "news"
-                                                  else "every sport from around the world.")
-        src = f"📰 Source: {item['source']}"
-    return f"🔴 {j['headline'].strip()}\n\n{j['summary'].strip()}\n\n{src}\n🔗 {item['link']}\n\n{follow}\n\n{tags}"
+    return f"🔴 {j['headline'].strip()}\n\n{j['summary'].strip()}\n\n{src}\n\nFollow {P['name']}\n\n{tags}"
 
 
 def post_photo(kind, path, caption):

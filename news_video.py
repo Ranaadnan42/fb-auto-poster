@@ -405,17 +405,23 @@ def post_long(P, path, title, desc):
 
 
 def description(kind, script, stories):
-    P = news.PAGES[kind]
-    tags = " ".join("#" + re.sub(r"[\s#]+", "", t) for t in (script.get("hashtags") or [])[:6] if t)
-    if KIND == "reel":
-        tags += " #reels"
+    """Baqi pages wala SEO caption + video ki khabron ke sources."""
+    import seo
     src_label = "ذرائع" if LANG == "ur" else "Sources"
-    srcs = "\n".join(f"• {s['source']}: {s['link']}" for s in stories)
-    follow = (f"{P['name']} کو فالو کریں - " + ("دنیا بھر کی خبریں روزانہ" if kind == "news"
-                                                  else "دنیا بھر کے کھیلوں کی ہر خبر")) if LANG == "ur" else \
-        f"Follow {P['name']} for " + ("world news every day." if kind == "news" else "every sport from around the world.")
-    return (f"🔴 {script.get('title', '').strip()}\n\n{(script.get('caption') or '').strip()}\n\n"
-            f"📰 {src_label}:\n{srcs}\n\n👉 {follow}\n\n{tags}")
+    srcs = f"📰 {src_label}:\n" + "\n".join(f"• {s['source']}: {s['link']}" for s in stories)
+    title = (script.get("title") or "").strip()
+    said = " ".join(sc.get("text", "") for st in script.get("stories", []) for sc in st.get("scenes", []))
+    try:
+        cap = seo.build(news.ask_json, kind, title, f"{script.get('caption', '')} {said}", LANG, is_reel=KIND == "reel")
+        parts = cap.split("\n\n")
+        parts[1:1] = [(script.get("caption") or "").strip(), srcs]
+        parts = [p for p in parts if p]
+        if KIND == "reel" and "#reels" not in parts[-1].lower():
+            parts[-1] += " #reels"
+        return "\n\n".join(parts)
+    except Exception as e:
+        log(f"SEO caption fail ({str(e)[:100]}) - simple caption")
+    return f"🔴 {title}\n\n{(script.get('caption') or '').strip()}\n\n{srcs}"
 
 
 # ---------------------------------------------------------------- main
