@@ -44,6 +44,7 @@ PAGES = {
                        reel=[("webbuilder.yml", {"mode": m}) for m in ("reel_ar", "reel_en", "reel_ur")]),
 }
 DEFAULT_TARGETS = {"reels": 0, "photos": 0}   # "stories" na ho to = reels
+MIN_STORIES = 7      # task na ho tab bhi har page par roz kam az kam 1 story (hafte ki 7)
 GROW = 1.2          # naye hafte ke targets abhi parhe nahi gaye -> pichhle hafte se 20% zyada maan lo
 
 
@@ -139,7 +140,8 @@ def main():
             rec["pages"][name] = {"error": str(e)}
             continue
         stories = count_stories(pid, token, start)
-        t.setdefault("stories", t["reels"])          # target na likha ho to: jitni reels utni stories
+        # task mile to task ke hisab se, na mile (0) tab bhi kam az kam roz 1 story
+        t["stories"] = max(int(t.get("stories", t["reels"]) or 0), MIN_STORIES)
         r = {"photos": f"{photos}/{t['photos']}", "reels": f"{reels}/{t['reels']}",
              "stories": f"{stories}/{t['stories']}", "extra": []}
         left = MAX_EXTRA
