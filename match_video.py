@@ -111,7 +111,7 @@ def cricket_candidates(done):
             if score <= 0:
                 continue
             out.append({"sport": "cricket", "league": lg.get("id"), "lname": lg.get("name"), "id": ev["id"],
-                        "name": ev.get("name"), "score": score + (6 if LANG == "ur" else 2)})
+                        "name": ev.get("name"), "score": score + (15 if LANG == "ur" else 2)})
     return out
 
 
