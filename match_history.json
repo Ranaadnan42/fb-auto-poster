@@ -7,14 +7,6 @@
    "match": "Manchester United vs Aston Villa",
    "result": "Manchester United 4-4 Aston Villa (draw)",
    "dur": 83
-  },
-  {
-   "key": "f401879243",
-   "date": "2026-11-08 23:12",
-   "lang": "en",
-   "match": "Crystal Palace vs Liverpool",
-   "result": "Liverpool beat Crystal Palace 3-1",
-   "dur": 63
   }
  ],
  "used_clips": [
@@ -34,26 +26,6 @@
   "px211450",
   "px140210",
   "px338954",
-  "px238746",
-  "px239964",
-  "wp:2023_09_09_arne_mueseler_17_18_07_00743-verbessert-rr_(53283239217).jpg",
-  "px250395",
-  "px345968",
-  "wp:alexis_mac_allister_argentina_v_spain_19_july_2026-162_(cropped).jpg",
-  "px136530",
-  "wm48789867",
-  "wm47051179",
-  "wp:florian_wirtz_ecuador_v_germany_25_june_2026-181_(cropped).jpg",
-  "wp:alexander_isak_-_sweden_-_greece21_(cropped).jpg",
-  "wm142846750",
-  "px360526",
-  "wp:1_eddie_nketiah_2018.jpg",
-  "wm129271619",
-  "px185809",
-  "px191048",
-  "px28376",
-  "px133080",
-  "px236221",
-  "px1630"
+  "px238746"
  ]
 }
