@@ -1,0 +1,51 @@
+{
+ "news": [
+  {
+   "date": "2026-11-08 20:51",
+   "topic": "world",
+   "link": "https://www.aljazeera.com/news/2026/11/8/iran-threatens-to-rain-down-hell-if-us-escalates-war?traffic_source=rss",
+   "title": "Iran threatens to ‘rain down hell’ if US escalates war",
+   "words": [
+    "down",
+    "escalates",
+    "hell",
+    "iran",
+    "rain",
+    "threatens"
+   ]
+  }
+ ],
+ "sports": [
+  {
+   "date": "2026-11-08 20:51",
+   "topic": "football",
+   "link": "https://www.bbc.co.uk/sport/football/videos/cry836l4q56po?at_medium=RSS&at_campaign=rss",
+   "title": "Brighton breeze past 10-man Brentford to move up to second",
+   "words": [
+    "breeze",
+    "brentford",
+    "brighton",
+    "move",
+    "past",
+    "second"
+   ]
+  }
+ ],
+ "used_clips": [
+  "wm182857632",
+  "px377368",
+  "px162125",
+  "px186316",
+  "wm195832537",
+  "px180623",
+  "px272331",
+  "px631",
+  "px342669",
+  "px331215",
+  "px1506",
+  "px348815",
+  "wm171021927",
+  "wm186746471",
+  "mk18042"
+ ]
+}
