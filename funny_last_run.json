@@ -1,13 +1,42 @@
 {
  "mode": "auto",
- "stock_clips": 47,
+ "stock_clips": 11,
  "fallback_clips": 0,
  "errors": [],
- "format": "story",
- "long_minutes": 5.66,
- "series": "ماموں مستانہ کا ڈائٹ ڈرامہ part 3 (cartoon)",
- "laughs": 8,
- "time_utc": "2026-11-08 15:32",
- "title": "ماموں مستانہ کا ڈائٹ ڈرامہ | آخری قسط",
+ "format": "people",
+ "search_phrases": [
+  "dentist appointment funny",
+  "dentist doctor injection",
+  "dentist dental clinic doctor baby crying",
+  "dental doctor funny video",
+  "dentist visit funny",
+  "dental comedy",
+  "dentist comedy",
+  "dentist skit",
+  "dentist and patient funny video"
+ ],
+ "search": "dentist and patient funny video",
+ "reel_format": "types",
+ "vision_checks": 235,
+ "clips_rejected": 212,
+ "no_match": [
+  "man holding aching tooth",
+  "man holding aching tooth",
+  "hot cup chai samosa",
+  "dentist holding dental mirror",
+  "man tightly closing mouth",
+  "dental tools in mouth",
+  "man shocked looking bill",
+  "man shocked looking bill",
+  "bowl of dal khichdi"
+ ],
+ "sources": {
+  "pixabay": 3,
+  "commons": 2
+ },
+ "laughs": 3,
+ "reel_minutes": 0.94,
+ "time_utc": "2026-11-08 17:01",
+ "title": "ڈینٹسٹ کے مریض | dentist and patient funny video",
  "dry_run": false
 }
