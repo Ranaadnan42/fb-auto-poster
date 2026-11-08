@@ -1,42 +1,12 @@
 {
- "mode": "auto",
- "stock_clips": 11,
+ "mode": "reel",
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "people",
- "search_phrases": [
-  "dentist appointment funny",
-  "dentist doctor injection",
-  "dentist dental clinic doctor baby crying",
-  "dental doctor funny video",
-  "dentist visit funny",
-  "dental comedy",
-  "dentist comedy",
-  "dentist skit",
-  "dentist and patient funny video"
- ],
- "search": "dentist and patient funny video",
- "reel_format": "types",
- "vision_checks": 235,
- "clips_rejected": 212,
- "no_match": [
-  "man holding aching tooth",
-  "man holding aching tooth",
-  "hot cup chai samosa",
-  "dentist holding dental mirror",
-  "man tightly closing mouth",
-  "dental tools in mouth",
-  "man shocked looking bill",
-  "man shocked looking bill",
-  "bowl of dal khichdi"
- ],
- "sources": {
-  "pixabay": 3,
-  "commons": 2
- },
- "laughs": 3,
- "reel_minutes": 0.94,
- "time_utc": "2026-11-08 17:01",
- "title": "ڈینٹسٹ کے مریض | dentist and patient funny video",
- "dry_run": false
+ "format": "chat",
+ "reel_minutes": 1.54,
+ "laughs": 4,
+ "time_utc": "2026-11-08 23:57",
+ "title": "بارش کا میچ اور کپتان کی چالاکی",
+ "dry_run": true
 }
