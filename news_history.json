@@ -46,6 +46,23 @@
     "politics",
     "pope"
    ]
+  },
+  {
+   "date": "2026-11-08 22:07",
+   "lang": "en",
+   "topic": "europe",
+   "link": "https://www.theguardian.com/business/2026/nov/08/chinese-carmaker-byd-offices-raided-netherlands-land-rover-copycat-claim",
+   "title": "Chinese carmaker BYD’s offices in Netherlands raided over JLR ‘copycat car’ claim",
+   "words": [
+    "carmaker",
+    "chinese",
+    "claim",
+    "copycat",
+    "netherlands",
+    "offices",
+    "over",
+    "raided"
+   ]
   }
  ],
  "sports": [
@@ -89,6 +106,25 @@
     "paris",
     "shelton"
    ]
+  },
+  {
+   "date": "2026-11-08 22:07",
+   "lang": "en",
+   "topic": "basketball",
+   "link": "https://news.google.com/rss/articles/CBMisAFBVV95cUxOT2VlYzFJQlQzaDZublhQT2l6WmpoRFRFbmpZcHNvcGkxX05HcktTRHVTY0dtZGpTSHBRUVlHend3MERKRXdGU0JPQjQzQjdnY3BRMDhIYzdqSENaMlVvb2FlR1VOekxJWXA0NFFwVWRlRTliSG1Ud0ZtVkRBeUNFQ0xBM3A3MFFIUm9YQzhfcktPdTJKWGl4QTQzU3lrQlFsU1hwTUdiSDFUbDZoRnRiWA?oc=5",
+   "title": "\"I certainly benefited from that\" - Mark Cuban admits profiting from the NBA trend he now questions",
+   "words": [
+    "admits",
+    "benefited",
+    "certainly",
+    "cuban",
+    "from",
+    "mark",
+    "profiting",
+    "questions",
+    "that",
+    "trend"
+   ]
   }
  ],
  "used_images": [
@@ -97,6 +133,8 @@
   4756256,
   5289570,
   104662,
-  923659
+  923659,
+  2507432,
+  1610547
  ]
 }

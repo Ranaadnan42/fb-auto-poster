@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-08 21:51",
+ "time_utc": "2026-11-08 22:07",
  "lang": "en",
  "dry_run": true,
  "posted": {
   "news": {
    "post": "dry_run",
-   "topic": "world",
-   "title": "Pope Leo in Latin America: Papal Politics and Peru"
+   "topic": "europe",
+   "title": "Chinese carmaker BYD’s offices in Netherlands raided over JLR ‘copycat car’ claim"
   },
   "sports": {
    "post": "dry_run",
-   "topic": "tennis",
-   "title": "Alcaraz beats Shelton to win first Paris Masters"
+   "topic": "basketball",
+   "title": "\"I certainly benefited from that\" - Mark Cuban admits profiting from the NBA trend he now questions"
   }
  },
  "errors": []
