@@ -29,6 +29,10 @@ on:
     - cron: '7 18 * * *'
     - cron: '7 20 * * *'
     - cron: '7 22 * * *'
+    # Match recap reel (asli scorecard): 3 rozana - naya bara match na ho to kuch nahi
+    - cron: '33 6 * * *'    # match_en - post ~07:03 UTC - raat ke matches (America/Asia) ka recap
+    - cron: '33 17 * * *'    # match_ur - post ~18:03 UTC = 11:03 raat Pakistan - cricket recap
+    - cron: '3 22 * * *'    # match_en - post ~22:33 UTC = 5:33 shaam New York - Europe football recap
     # Long video bulletin (5 khabrein): 2 rozana
     - cron: '46 14 * * *'   # long UR  - post ~15:31 UTC = 8:31 raat Pakistan
     - cron: '16 20 * * *'   # long EN  - post ~21:01 UTC = 4:01 sehpehar New York
@@ -117,6 +121,9 @@ jobs:
             '7 18 * * *') M=breaking_en ;;
             '7 20 * * *') M=breaking_en ;;
             '7 22 * * *') M=breaking_en ;;
+            '33 6 * * *') M=match_en ;;
+            '33 17 * * *') M=match_ur ;;
+            '3 22 * * *') M=match_en ;;
             *) M="${{ inputs.mode }}" ;;
           esac
           [ -z "$M" ] && M=pic_en
@@ -163,7 +170,7 @@ jobs:
       - name: Save history
         if: always()
         run: |
-          FILES="news_history.json news_video_history.json news_last_run.json news_reel_en_last_run.json news_reel_ur_last_run.json news_long_en_last_run.json news_long_ur_last_run.json"
+          FILES="match_history.json match_en_last_run.json match_ur_last_run.json news_history.json news_video_history.json news_last_run.json news_reel_en_last_run.json news_reel_ur_last_run.json news_long_en_last_run.json news_long_ur_last_run.json"
           mkdir -p /tmp/keep
           for f in $FILES; do [ -f "$f" ] && cp "$f" /tmp/keep/; done
           git config user.name "auto-poster"
