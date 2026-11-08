@@ -2,19 +2,17 @@
  "islamic": {
   "avoid": [
    "اخلاق نبوی کا خوبصورت واقعہ: بیمار یہودی بچے کی عیادت",
-   "اخلاق نبوی کا واقعہ: جب نبی کریم نے بیمار یہودی بچے کی عیادت کی",
-   "جمعہ کی فضیلت: جب صحابہ نے پوچھا ہمارا درود آپ تک کیسے پہنچے گا؟",
-   "نبی کریم کی سنت: روزانہ پڑوسی کو مسکراہٹ اور دعا سے خوش کرنا"
+   "جمعہ کی فضیلت: جب صحابہ نے پوچھا ہمارا درود آپ تک کیسے پہنچے گا؟"
   ],
   "try": [
-   "قصة الصحابي عبد الرحمن بن عوف اور اس کی سچائی کی مثال",
-   "حضرت خدیجہ رضی اللہ عنہا کی کاروباری حکمت اور اسلام میں اس کی حمایت",
-   "نبی ﷺ کی بلی کے ساتھ نرمی کا واقعہ",
-   "سورہ البقرہ میں ذکر شدہ سحابی کا معجزہ اور اس کا سبق",
-   "حضرت عائشہ رضی اللہ عنہا کی حکمت بھری مشورہ برائے ازدواجی زندگی",
-   "حضرت یوسف علیہ السلام کی صبر اور اللہ کی مدد کا معجزاتی قصہ"
+   "The Prophet’s kindness to the cat Muezza – a lesson in compassion",
+   "Companion Abu Hurairah’s dedication to preserving hadith – motivation to seek kn",
+   "The miracle of Zamzam spring – gratitude and trust in Allah",
+   "Sahabi Khalid ibn al-Walid’s humility after victory – avoiding arrogance",
+   "The story of Umm Kulthum bint Ali’s generosity to the poor",
+   "The battle of Tabuk: trusting Allah in hardship and its modern lesson"
   ],
-  "note": "Page thodi repetitive lag rahi hai"
+  "note": "Page bohat repeat ho rahi hai, aksar aik hi themes bar bar dikhai deti hain."
  },
  "funny": {
   "avoid": [
@@ -40,17 +38,20 @@
  "world": {
   "avoid": [
    "What Nobody Tells You",
-   "Japan"
+   "Retiring in",
+   "Japan",
+   "Dubai",
+   "London"
   ],
   "try": [
-   "Living in Kenya – Cost of Living, Safety & Opportunities",
-   "Moving to Estonia: Digital Nomad Friendly Country Guide",
-   "South Korea vs Taiwan: Cost, Culture & Lifestyle Comparison",
-   "What Nobody Tells You About Living in Argentina",
-   "Exploring Iceland: Life, Nature, and Cost of Living",
-   "Retiring in Greece: Benefits and Challenges"
+   "New Zealand: Life in a Remote Island Community",
+   "South Korea: Daily Life in Seoul's Subways",
+   "Greece: Living in a Traditional Village on the Aegean",
+   "Kenya: Retiring in Nairobi's Suburbs",
+   "Sweden: Cost of Living in Stockholm's Suburbs",
+   "Norway: Exploring Life in a Fjord Town"
   ],
-  "note": "Haan, page kaafi repetitive hai."
+  "note": "Haan, page repetitive hai."
  },
  "world_short": {
   "avoid": [
@@ -105,9 +106,9 @@
  "_platforms": {
   "islamic": {
    "posts": 10,
-   "facebook": 6,
+   "facebook": 7,
    "youtube": 10,
-   "tiktok": 6
+   "tiktok": 7
   },
   "funny": {
    "posts": 10,
