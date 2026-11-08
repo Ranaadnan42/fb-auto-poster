@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-08 22:55",
+ "time_utc": "2026-11-08 22:07",
  "lang": "en",
  "dry_run": true,
  "posted": {
   "news": {
    "post": "dry_run",
-   "topic": "asia",
-   "title": "Nvidia launches investigation after Jensen Huang admits affair with alleged Chinese spy"
+   "topic": "europe",
+   "title": "Chinese carmaker BYD’s offices in Netherlands raided over JLR ‘copycat car’ claim"
   },
   "sports": {
    "post": "dry_run",
-   "topic": "formula1",
-   "title": "Race Highlights: 2026 Sao Paulo Grand Prix"
+   "topic": "basketball",
+   "title": "\"I certainly benefited from that\" - Mark Cuban admits profiting from the NBA trend he now questions"
   }
  },
  "errors": []

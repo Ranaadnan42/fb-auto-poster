@@ -1,0 +1,16 @@
+{
+ "time_utc": "2026-11-08 22:54",
+ "lang": "en",
+ "dry_run": true,
+ "posted": {
+  "sports": {
+   "key": "f401879240",
+   "date": "2026-11-08 22:54",
+   "lang": "en",
+   "match": "Manchester United vs Aston Villa",
+   "result": "Manchester United 4-4 Aston Villa (draw)",
+   "dur": 65
+  }
+ },
+ "errors": []
+}
