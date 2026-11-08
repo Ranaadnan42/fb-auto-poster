@@ -1,22 +1,24 @@
 {
- "time_utc": "2026-11-08 23:12",
+ "time_utc": "2026-11-08 23:47",
  "kind": "reel",
  "lang": "en",
- "dry_run": true,
+ "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-08 23:12",
+   "date": "2026-11-08 23:47",
    "kind": "reel",
    "lang": "en",
-   "title": "India Glows as Millions Celebrate Diwali Festival of Lights",
-   "dur": 52
+   "title": "Hundreds of Seagrass Shoots Found in Estuary Restoration",
+   "dur": 47,
+   "post_id": "994520940378086"
   },
   "sports": {
-   "date": "2026-11-08 23:12",
+   "date": "2026-11-08 23:47",
    "kind": "reel",
    "lang": "en",
-   "title": "Sabastian Walcott Features in Fall Stars Game",
-   "dur": 47
+   "title": "IRL Confirms Magic Round Format for RLWC30",
+   "dur": 50,
+   "post_id": "2621323758383745"
   }
  },
  "errors": []
