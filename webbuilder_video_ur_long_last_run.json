@@ -1,15 +1,15 @@
 {
- "time_utc": "2026-11-07 20:30",
- "spotlight": "hardware store",
- "post_id": "1111475004825485",
+ "time_utc": "2026-11-08 20:46",
+ "spotlight": "gym",
+ "post_id": "4678466205745970",
  "error": null,
  "lang": "ur",
  "kind": "long",
  "clips": 1,
  "fallback": 0,
  "errors": [],
- "real_work": 6,
- "real_pos": 4,
+ "real_work": 7,
+ "real_pos": 3,
  "mock": 4,
- "seconds": 90.7
+ "seconds": 97.6
 }
