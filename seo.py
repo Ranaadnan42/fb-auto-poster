@@ -44,7 +44,9 @@ PAGES = {
                      "Pakistan news, America news and Middle East news"),
         "cta": "دنیا بھر کی تازہ خبروں کے لیے News Act کو فالو کریں 👈",
         "cta_en": "Follow News Act for world news every day 👈",
-        "rules": "no fake claims, no clickbait lies, strictly neutral (no political opinion or side-taking), max 2 emojis per line.",
+        "rules": ("the hook/body may ONLY restate facts from 'What the video says' - never add or exaggerate "
+                  "(no 'massive', 'shocking', 'watch highlights' unless stated); strictly neutral, no political opinion; "
+                  "no meta hashtags like #UrduEnglish; max 2 emojis per line."),
     },
     "sports": {
         "name": "Sports Hubs",
@@ -54,7 +56,9 @@ PAGES = {
                      "hockey, UFC and every other sport"),
         "cta": "دنیا بھر کے کھیلوں کی ہر خبر کے لیے Sports Hubs کو فالو کریں 👈",
         "cta_en": "Follow Sports Hubs for every sport from around the world 👈",
-        "rules": "no fake claims, no invented scores or results, no clickbait lies, max 2 emojis per line.",
+        "rules": ("the hook/body may ONLY restate facts from 'What the video says' - never invent or exaggerate scores, "
+                  "results or records; no 'watch highlights' unless stated; no meta hashtags like #UrduEnglish; "
+                  "max 2 emojis per line."),
     },
 }
 
