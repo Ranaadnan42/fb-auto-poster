@@ -1,25 +1,27 @@
 {
- "time_utc": "2026-11-07 19:29",
+ "time_utc": "2026-11-08 10:36",
  "fixed": [],
- "problems": [],
+ "problems": [
+  "Web Builder reel (Arabic): 35 ghante se nahi chala"
+ ],
  "ok": [
-  "AutoPilot Sales Agent: 2 kamyab run",
-  "Website Agent / AI Employee (BizTools Hub): 2 kamyab run",
+  "AutoPilot Sales Agent: 1 kamyab run",
+  "Website Agent / AI Employee (BizTools Hub): 1 kamyab run",
   "Cinematic AI Stories (YouTube): 7 kamyab run",
-  "Comment Helper search: 3 kamyab run",
+  "Comment Helper search: 2 kamyab run",
   "Demo website photos (Pixabay): 5 kamyab run",
   "Frames of Life (Urdu World Documentaries): 4 kamyab run",
-  "Funny Videos Poster: 7 kamyab run",
-  "Growth Bot (comment replies): 4 kamyab run",
-  "Live Replies (FB comments): 3 kamyab run",
+  "Funny Videos Poster: 6 kamyab run",
+  "Growth Bot (comment replies): 3 kamyab run",
+  "Live Replies (FB comments): 2 kamyab run",
   "Daily Auto Poster: 7 kamyab run",
-  "Daily Photo Posts: 6 kamyab run",
-  "Pinterest Pins: 3 kamyab run",
-  "Web Builder Promo: 15 kamyab run",
+  "Daily Photo Posts: 8 kamyab run",
+  "Pinterest Pins: 2 kamyab run",
+  "Web Builder Promo: 12 kamyab run",
   "Atlas Untold (World Documentaries): 4 kamyab run",
   "Atlas Untold - lambi video: 36 clips, agent ne 311 check kin, 290 ghalat clips hata din",
-  "Atlas Untold - short: 15 clips, agent ne 91 check kin, 85 ghalat clips hata din",
+  "Atlas Untold - short: 13 clips, agent ne 92 check kin, 80 ghalat clips hata din",
   "Frames of Life - lambi video: 106 clips, agent ne 659 check kin, 568 ghalat clips hata din",
-  "Frames of Life - short: 17 clips, agent ne 79 check kin, 64 ghalat clips hata din"
+  "Frames of Life - short: 15 clips, agent ne 133 check kin, 123 ghalat clips hata din"
  ]
 }

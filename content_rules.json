@@ -1,98 +1,106 @@
 {
  "islamic": {
   "avoid": [
-   "good character of Abu Bakr",
-   "miracle of moon split",
-   "Sunnah before sleeping"
+   "اخلاق نبوی کا خوبصورت واقعہ: بیمار یہودی بچے کی عیادت",
+   "اخلاق نبوی کا واقعہ: جب نبی کریم نے بیمار یہودی بچے کی عیادت کی",
+   "جمعہ کی فضیلت: جب صحابہ نے پوچھا ہمارا درود آپ تک کیسے پہنچے گا؟",
+   "نبی کریم کی سنت: روزانہ پڑوسی کو مسکراہٹ اور دعا سے خوش کرنا"
   ],
   "try": [
-   "Bilal's first call to prayer and perseverance",
-   "Aisha's wise counsel on marriage",
-   "Khalid ibn al-Walid's bravery at Uhud",
-   "Hadith on sincere intention (niyyah) and its reward",
-   "Etiquette of visiting the sick (riyaala)",
-   "Benefits of fasting on Mondays and Thursdays"
+   "قصة الصحابي عبد الرحمن بن عوف اور اس کی سچائی کی مثال",
+   "حضرت خدیجہ رضی اللہ عنہا کی کاروباری حکمت اور اسلام میں اس کی حمایت",
+   "نبی ﷺ کی بلی کے ساتھ نرمی کا واقعہ",
+   "سورہ البقرہ میں ذکر شدہ سحابی کا معجزہ اور اس کا سبق",
+   "حضرت عائشہ رضی اللہ عنہا کی حکمت بھری مشورہ برائے ازدواجی زندگی",
+   "حضرت یوسف علیہ السلام کی صبر اور اللہ کی مدد کا معجزاتی قصہ"
   ],
-  "note": "Page thodi repetitive lag rahi hai."
+  "note": "Page thodi repetitive lag rahi hai"
  },
  "funny": {
   "avoid": [
-   "ڈلیوری رائڈر اور بجلی کا شاہکار بل",
-   "ٹک ٹاک کا جن اور ڈلیوری رائڈر",
-   "مہندی کا ہنگامہ اور ڈلیوری رائڈر کا تماشہ",
    "چمپا کلی اور ہوم ورک کا پہاڑ",
-   "استاد جی کا سوال اور ابّا کا فلسفہ",
-   "کچھوا میاں کی کلاس: ٹیچر بمقابلہ اسٹوڈنٹ فنی ویڈیو",
-   "TikTok craze selfie jokes"
+   "ماموں مستانہ کا ڈائٹ ڈرامہ",
+   "delivery rider",
+   "Eidi collection",
+   "selfie / TikTok craze",
+   "family WhatsApp group",
+   "moving to a new house",
+   "summer heat"
   ],
   "try": [
-   "نیا موبائل پلان اور ابو کا غیر متوقع ریٹ",
-   "پڑوسی کی بیکری میں نئی ڈونٹ کی قیمت پر ہنگامہ",
-   "سائیکل پر سفر اور ٹریفک پولیس کا ڈرامہ",
-   "پری اسکول کے بچے کی ہوم ورک کی نئی مشکل",
-   "پانی کی بِل میں گیس کے ساتھ جھگڑا",
-   "دادی کی انٹرنیٹ سروس اور وائی فائی کا ٹوٹا ہوا کنکشن"
-  ],
-  "note": "Page thoda repetitive lag raha hai."
- },
- "world": {
-  "avoid": [
-   "Honest Truth phrasing"
-  ],
-  "try": [
-   "Moving to Mexico: Cost, Safety & Daily Life insights",
-   "South Korea Documentary: Culture, Work Life & Expenses",
-   "Kenya Living Guide: Jobs, Safety & Lifestyle",
-   "Greece Relocation: Real Costs, Food & Community",
-   "New Zealand Expat Guide: Housing, Jobs & Quality of Life",
-   "Philippines Everyday Life: Cost of Living, Safety & Culture"
+   "پڑوسی کی بیکری میں نئی پائی کی آزمائش",
+   "نیا موبائل ڈیٹا پلان اور امی کی انٹرنیٹ کی ہدایت",
+   "پہلا دن اسکول بس کا سفر اور مسافر کی کہانیاں",
+   "دادی کی پرانی ریسپی سے نئی ڈش بنانا اور خاندان کی رائے",
+   "پہلا موبائل گیم اپ ڈیٹ اور بھائی کا مقابلہ",
+   "نیا آن لائن کلاس کا تجربہ اور ٹیچر کی ٹیکنیکل گڑبڑ"
   ],
   "note": "Page thodi repetitive lag rahi hai."
  },
- "world_short": {
-  "avoid": [],
-  "try": [
-   "Cost of Living in Brazil",
-   "Hidden Gems in Mexico",
-   "Hidden Gems in South Africa",
-   "Traditional Food of New Zealand",
-   "Cost of Living in Russia"
+ "world": {
+  "avoid": [
+   "What Nobody Tells You",
+   "Japan"
   ],
-  "note": "Page repetitive hai."
+  "try": [
+   "Living in Kenya – Cost of Living, Safety & Opportunities",
+   "Moving to Estonia: Digital Nomad Friendly Country Guide",
+   "South Korea vs Taiwan: Cost, Culture & Lifestyle Comparison",
+   "What Nobody Tells You About Living in Argentina",
+   "Exploring Iceland: Life, Nature, and Cost of Living",
+   "Retiring in Greece: Benefits and Challenges"
+  ],
+  "note": "Haan, page kaafi repetitive hai."
+ },
+ "world_short": {
+  "avoid": [
+   "Japan",
+   "California",
+   "London",
+   "Australia",
+   "Would You Live in..."
+  ],
+  "try": [
+   "5 Underrated Street Foods in Mexico City",
+   "Cost of Living in Seoul vs Tokyo: A Realistic Breakdown",
+   "The Hidden History of the Colosseum in Rome",
+   "Would You Live in Reykjavik? Dealing with the Darkness",
+   "5 Secret Beaches in Greece You Won't Find on Maps",
+   "Traditional Food of Morocco: 5 Must-Try Dishes in Marrakech"
+  ],
+  "note": "Page is repetitive with Japan, California, and London appearing multiple times, and title formats like '6 Surprising Facts' and 'Hidden Gems' are overused."
  },
  "frames": {
   "avoid": [
+   "Japan",
+   "United Kingdom",
+   "Istanbul, Turkey",
+   "Canada",
+   "Germany",
    "Dubai",
-   "Tour",
-   "Pakistanis"
+   "Saudi Arabia",
+   "Australia"
   ],
   "try": [
-   "Brazil Visa Process for Pakistanis",
-   "Life in Brazil",
-   "Tour of Brazil",
-   "Jobs in Brazil",
-   "Brazil vs Argentina: Which is better?",
-   "Cheapest Countries for Pakistanis: Brazil"
+   "South Korea: Job Visa and Life in Seoul for Pakistanis",
+   "New Zealand: Permanent Residency Pathways and Cost of Living",
+   "Norway: Winter Life and High-Skill Job Opportunities",
+   "Portugal: Digital Nomad Visa and Affordable Housing Guide",
+   "Singapore: Career Growth and Tax Benefits for Skilled Workers"
   ],
-  "note": "Page thoda repetitive lag raha hai."
+  "note": "Page is highly repetitive with visa guides and life-in-country formats for similar European/Asian destinations."
  },
  "frames_short": {
-  "avoid": [
-   "Istanbul",
-   "Dubai",
-   "Baku",
-   "Rome",
-   "Cairo"
-  ],
+  "avoid": [],
   "try": [
-   "لندن کی سیر",
-   "پاکستان میں ایک مہینے کا خرچہ",
-   "برطانیہ میں نوکری کیسے ڈھونڈیں",
-   "برطانیہ کے بہترین کھانے",
-   "برطانیہ کے چھپے ہوئے جواہرات",
-   "برطانیہ میں رہائش کے 5 آسان طریقے"
+   "Life in Lisbon, Portugal: Cost of living and visa tips for Pakistanis",
+   "Top 5 Halal Food Spots in Tokyo, Japan",
+   "Moving to Toronto, Canada: Real expenses vs expectations",
+   "5 Surprising Facts about Life in Istanbul, Turkey",
+   "Job Market in Berlin, Germany: Salary and work culture",
+   "Travel Guide to Bali, Indonesia: Best places for Muslims"
   ],
-  "note": "Page thodi repetitive hai"
+  "note": "Page is repetitive with Gulf cost-of-living and European visa topics; needs more variety in regions and specific city deep-dives."
  },
  "_platforms": {
   "islamic": {
