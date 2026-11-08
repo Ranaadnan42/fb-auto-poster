@@ -1,23 +1,39 @@
 {
- "lang": "en",
+ "lang": "ur",
  "stock_clips": 14,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "repentance story islam",
-  "true repentance in islam"
+  "غصہ ختم کرنے کا وظیفہ",
+  "غصہ پر بیان",
+  "غصہ ختم کرنے کی دعا",
+  "غصہ نہ کیا کرو نبی کریم صلى الله عليه وسلم کی ایسی نصیحت جو زندگی بدل دے صحیح بخاری 6116",
+  "غصہ کے نقصانات",
+  "غصہ کیوں آتا ہے",
+  "غصے کا علاج",
+  "غصہ کنٹرول کرنے کا طریقہ",
+  "غصہ ختم کرنے کا تعویذ",
+  "gussa song",
+  "gussa gussa",
+  "gussa kam karne ki dua",
+  "gussa control karne ka tarika",
+  "gussa jaan de",
+  "gussa kam karne ka wazifa",
+  "gussa jatti da",
+  "gussa maine bola",
+  "gussa thanda karne ki dua"
  ],
- "search": "repentance story islam",
- "vision_checks": 77,
- "clips_rejected": 49,
+ "search": "غصے کا علاج",
+ "vision_checks": 61,
  "sources": {
   "pixabay": 11,
   "commons": 3
  },
+ "clips_rejected": 31,
  "photo_clips": 1,
- "reel_minutes": 1.11,
- "time_utc": "2026-11-08 17:14",
- "title": "A True Repentance Story Islam: The Sahabi Who Refused to Lie",
+ "reel_minutes": 1.14,
+ "time_utc": "2026-11-08 19:49",
+ "title": "غصے کا علاج: نبی کریم ﷺ کا بتایا ہوا وہ نبوی طریقہ جو زندگی بدل دے",
  "dry_run": false,
  "posted_ok": 1
 }
