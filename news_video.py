@@ -232,11 +232,14 @@ def get_clip(term, secs, out, used):
     return False
 
 
+SUBJECT_HINT = ""      # match recap: "cricketer" / "footballer" - sahi shakhs mile
+
+
 def subject_clip(name, secs, out, used):
     """Khabar wale asli insaan/team/jagah ki asli photo (Wikipedia Commons) - harkat ke sath."""
     img = out + ".jpg"
     try:
-        if footage.real_photo(name, img, used):
+        if footage.real_photo(name, img, used, hint=SUBJECT_HINT):
             footage.photo_to_clip(img, out, W, H, secs=secs, fps=FPS)
             log(f"  asli photo '{name}'")
             return True

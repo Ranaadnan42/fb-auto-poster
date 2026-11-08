@@ -344,6 +344,7 @@ def main():
     for c in cands[:4]:
         try:
             f = cricket_facts(c) if c["sport"] == "cricket" else football_facts(c)
+            nv.SUBJECT_HINT = "cricketer" if c["sport"] == "cricket" else "footballer"
             log("Facts: " + json.dumps(f, ensure_ascii=False)[:1500])
             script = write_script(f)
             path = build(f, script, hist["used_clips"])

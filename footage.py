@@ -341,23 +341,37 @@ VISUALS_RULE = ("Also give 'visuals': a list of 1-4 short ENGLISH stock-footage 
                 "If a country/city is being talked about, put its name in the term.")
 
 
-def real_photo(name, path, used=None, min_w=600):
+def _toks(s):
+    import unicodedata
+    s = unicodedata.normalize("NFKD", s or "").encode("ascii", "ignore").decode().lower()
+    s = re.sub(r"\(.*?\)", " ", s)
+    return set(re.findall(r"[a-z0-9]+", s)) - {"fc", "f", "c", "cf", "the", "of", "and"}
+
+
+def real_photo(name, path, used=None, min_w=600, hint=""):
     """Khabar ke ASLI insaan / jagah / team ki free photo (Wikipedia page ki Commons tasveer - CC/public domain).
     Sirf wikimedia COMMONS (free license) - en.wikipedia ki non-free (fair-use) tasveer aur logo nahi."""
     name = (name or "").strip()
     if len(name) < 3:
         return None
+    for q in ([f"{name} {hint}"] if hint else []) + [name]:
+        got = _real_photo(name, q, path, used, min_w)
+        if got:
+            return got
+    return None
+
+
+def _real_photo(name, q, path, used, min_w):
     try:
         r = requests.get("https://en.wikipedia.org/w/api.php", headers=UA, timeout=40, params={
-            "action": "query", "format": "json", "generator": "search", "gsrsearch": name[:80], "gsrlimit": 3,
+            "action": "query", "format": "json", "generator": "search", "gsrsearch": q[:90], "gsrlimit": 4,
             "prop": "pageimages", "piprop": "original|thumbnail|name", "pithumbsize": 1600})
         pages = sorted((r.json().get("query", {}).get("pages", {}) or {}).values(), key=lambda p: p.get("index", 9))
-        want = words(name)
+        want = _toks(name)
         for pg in pages:
-            title = (pg.get("title") or "").lower()
-            if title.startswith(("list of", "history of", "timeline of", "results of")):
-                continue
-            if want and sum(1 for w in want if w in title) < max(1, (len(want) + 1) // 2):
+            have = _toks(pg.get("title"))
+            # sirf wahi shakhs/jagah: title ke lafz == naam ke lafz (ya title naam ka hissa, 2+ lafz)
+            if not (have == want or (len(have) >= 2 and have <= want)):
                 continue
             o = pg.get("original") or {}
             url, fname = o.get("source") or "", (pg.get("pageimage") or "").lower()
