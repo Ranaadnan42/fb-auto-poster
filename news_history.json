@@ -66,20 +66,24 @@
   },
   {
    "date": "2026-11-08 22:55",
-   "lang": "ur",
-   "topic": "middle_east",
-   "link": "https://www.bbc.co.uk/news/videos/ckr5ygm78j76o?at_medium=RSS&at_campaign=rss",
-   "title": "Gaza wedding festival sees 250 couples married at the same time",
+   "lang": "en",
+   "topic": "asia",
+   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxQUVphTWhrd05kMm9MVUJwQ3RJQ2h2bld5SkgyaUFoRXVlOEdVdkg4V3dPa2NQZFJYbWV4U2JOS3A5LW5tUUMySWpHRllobndycDhlU0dZUWJtQ001V0ZicFRPT0g3dElFT2VnSldTeU1BUU5NeUlRTGlodDJSWjdKVmpaZUZ3bml2ckZCQmIyT0o?oc=5",
+   "title": "Nvidia launches investigation after Jensen Huang admits affair with alleged Chinese spy",
    "words": [
-    "couples",
-    "festival",
-    "gaza",
-    "married",
-    "same",
-    "sees",
-    "time",
-    "wedding"
-   ]
+    "admits",
+    "affair",
+    "after",
+    "alleged",
+    "chinese",
+    "huang",
+    "investigation",
+    "jensen",
+    "launches",
+    "nvidia",
+    "with"
+   ],
+   "breaking": true
   }
  ],
  "sports": [
@@ -145,18 +149,19 @@
   },
   {
    "date": "2026-11-08 22:55",
-   "lang": "ur",
-   "topic": "hockey",
-   "link": "https://news.google.com/rss/articles/CBMikAFBVV95cUxNZy0tMHFnQzN6OFFmeXpzV1psRXJ0Z0cwZU1KYVJ3S3d1NEpwZVVkeU1BclVsQWxoXzEzU1l4TEVjV3FJaVFTX0NDYWR0RWZwRUNjYnl2QmxhZ2ZaWVRmQWNqUzREWEJZYXZGUGJld2FaeVVEaDVvOUMxcnlsQjBsLXNTMmVlQ3FyZ2cwck5SdUs?oc=5",
-   "title": "VGK@BUF: Eichel scores goal against Colten Ellis",
+   "lang": "en",
+   "topic": "formula1",
+   "link": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNN3lHLUVVMHhoY1MyS2t6UklTNVdJcTBQdVdxQVR3ZFJ4WENudkVQU2lvQWNGV0ExdmNYb1BFOHFoUGstWlE2ZGtFOGEyck5mVmt6Wk5md0dzTDNOWEJZX0VaTERhRlQ4aTc1bGNPVnUwaEVIeGJXR3M3OTJQSEZCOFN2NGhlRFR6cE9oWXVnSlJ2VWx2ZFAycVFRbw?oc=5",
+   "title": "Race Highlights: 2026 Sao Paulo Grand Prix",
    "words": [
-    "against",
-    "colten",
-    "eichel",
-    "ellis",
-    "goal",
-    "scores"
-   ]
+    "2026",
+    "grand",
+    "highlights",
+    "paulo",
+    "prix",
+    "race"
+   ],
+   "breaking": true
   }
  ],
  "used_images": [
@@ -167,8 +172,6 @@
   104662,
   923659,
   2507432,
-  1610547,
-  260899,
-  6907300
+  1610547
  ]
 }

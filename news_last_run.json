@@ -1,17 +1,17 @@
 {
  "time_utc": "2026-11-08 22:55",
- "lang": "ur",
+ "lang": "en",
  "dry_run": true,
  "posted": {
   "news": {
    "post": "dry_run",
-   "topic": "middle_east",
-   "title": "Gaza wedding festival sees 250 couples married at the same time"
+   "topic": "asia",
+   "title": "Nvidia launches investigation after Jensen Huang admits affair with alleged Chinese spy"
   },
   "sports": {
    "post": "dry_run",
-   "topic": "hockey",
-   "title": "VGK@BUF: Eichel scores goal against Colten Ellis"
+   "topic": "formula1",
+   "title": "Race Highlights: 2026 Sao Paulo Grand Prix"
   }
  },
  "errors": []
