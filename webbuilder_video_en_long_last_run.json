@@ -1,7 +1,7 @@
 {
- "time_utc": "2026-11-07 19:05",
- "spotlight": "clinic",
- "post_id": "1655975556018455",
+ "time_utc": "2026-11-08 22:54",
+ "spotlight": "furniture store",
+ "post_id": "2216874169175468",
  "error": null,
  "lang": "en",
  "kind": "long",
@@ -9,7 +9,7 @@
  "fallback": 0,
  "errors": [],
  "real_work": 7,
+ "mock": 5,
  "real_pos": 3,
- "mock": 3,
- "seconds": 84.9
+ "seconds": 109.7
 }
