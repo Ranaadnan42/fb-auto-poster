@@ -1,75 +1,76 @@
 {
  "islamic": {
   "avoid": [
-   "اخلاق نبوی کا خوبصورت واقعہ: بیمار یہودی بچے کی عیادت",
-   "جمعہ کی فضیلت: جب صحابہ نے پوچھا ہمارا درود آپ تک کیسے پہنچے گا؟"
+   "بیمار یہودی بچے کی عیادت",
+   "جمعہ کی فضیلت",
+   "اخلاق نبوی کا",
+   "good character and manners"
   ],
   "try": [
-   "The Prophet’s kindness to the cat Muezza – a lesson in compassion",
-   "Companion Abu Hurairah’s dedication to preserving hadith – motivation to seek kn",
-   "The miracle of Zamzam spring – gratitude and trust in Allah",
-   "Sahabi Khalid ibn al-Walid’s humility after victory – avoiding arrogance",
-   "The story of Umm Kulthum bint Ali’s generosity to the poor",
-   "The battle of Tabuk: trusting Allah in hardship and its modern lesson"
+   "حضرت خدیجہ رضی اللہ عنہا کی مالی مدد اور ایمان کی مضبوطی",
+   "حضرت عائشہ رضی اللہ عنہا کی علم کی طلب اور حکمت",
+   "حضرت مئزہ بلی کی کہانی اور نبی ﷺ کی شفقت",
+   "سعید بن زبیر کی سادگی اور صدقہ کا عمل",
+   "حضرت ابو ہریرہ رضی اللہ عنہ کی حدیث جمع کرنے کی محنت",
+   "حضرت ام المومنین عائشہ کی حدیث کی روایت کا سفر"
   ],
-  "note": "Page bohat repeat ho rahi hai, aksar aik hi themes bar bar dikhai deti hain."
+  "note": "Page thodi repetitive lag rahi hai"
  },
  "funny": {
   "avoid": [
-   "چمپا کلی اور ہوم ورک کا پہاڑ",
-   "ماموں مستانہ کا ڈائٹ ڈرامہ",
-   "delivery rider",
+   "Mehndi function",
    "Eidi collection",
-   "selfie / TikTok craze",
-   "family WhatsApp group",
-   "moving to a new house",
-   "summer heat"
+   "Electricity bill (Bijli ka bill)",
+   "Selfie / TikTok craze",
+   "Government office file",
+   "Fake diet plans (Mamoon Mastana series)",
+   "Cricket-commentary style narration",
+   "Dramatic TV-serial narration"
   ],
   "try": [
-   "پڑوسی کی بیکری میں نئی پائی کی آزمائش",
-   "نیا موبائل ڈیٹا پلان اور امی کی انٹرنیٹ کی ہدایت",
-   "پہلا دن اسکول بس کا سفر اور مسافر کی کہانیاں",
-   "دادی کی پرانی ریسپی سے نئی ڈش بنانا اور خاندان کی رائے",
-   "پہلا موبائل گیم اپ ڈیٹ اور بھائی کا مقابلہ",
-   "نیا آن لائن کلاس کا تجربہ اور ٹیچر کی ٹیکنیکل گڑبڑ"
+   "Ammi's strict rules for using the family car (har ghar mein)",
+   "The struggle of finding a parking spot in a crowded mohalla (POV)",
+   "Uncle's 'expert' advice on fixing a leaking tap (types of people)",
+   "Expectation vs Reality: Cooking biryani for a large family (latifay)",
+   "The chaos of a sudden rainstorm during a wedding procession (barish)",
+   "A lazy student's creative excuses for missing school (dialogue)"
   ],
-  "note": "Page thodi repetitive lag rahi hai."
+  "note": "Page is slightly repetitive with electricity bills, mehndi, and specific narration styles; needs fresh everyday scenarios."
  },
  "world": {
   "avoid": [
-   "What Nobody Tells You",
-   "Retiring in",
    "Japan",
    "Dubai",
-   "London"
+   "Singapore",
+   "India",
+   "Mexico",
+   "Vietnam"
   ],
   "try": [
-   "New Zealand: Life in a Remote Island Community",
-   "South Korea: Daily Life in Seoul's Subways",
-   "Greece: Living in a Traditional Village on the Aegean",
-   "Kenya: Retiring in Nairobi's Suburbs",
-   "Sweden: Cost of Living in Stockholm's Suburbs",
-   "Norway: Exploring Life in a Fjord Town"
+   "Living in South Korea: Tech, Safety & Daily Life",
+   "Iceland Documentary: Nature, Cost & Remote Living",
+   "New Zealand: The Ultimate Remote Work Destination",
+   "Morocco: Culture, Safety & Budget Travel Guide",
+   "Switzerland: High Cost vs High Quality of Life",
+   "Colombia: Safety Myths & Real Daily Life"
   ],
-  "note": "Haan, page repetitive hai."
+  "note": "Page is repetitive with 'Cost of Living' and 'Retirement' angles; need more pure cultural documentaries."
  },
  "world_short": {
   "avoid": [
-   "Japan",
    "California",
-   "London",
-   "Australia",
-   "Would You Live in..."
+   "Japan",
+   "Would You Live in ...",
+   "5 Must-Try Dishes"
   ],
   "try": [
-   "5 Underrated Street Foods in Mexico City",
-   "Cost of Living in Seoul vs Tokyo: A Realistic Breakdown",
-   "The Hidden History of the Colosseum in Rome",
-   "Would You Live in Reykjavik? Dealing with the Darkness",
-   "5 Secret Beaches in Greece You Won't Find on Maps",
-   "Traditional Food of Morocco: 5 Must-Try Dishes in Marrakech"
+   "Moscow, Russia",
+   "Dubai, UAE",
+   "Buenos Aires, Argentina",
+   "Cairo, Egypt",
+   "Seoul, South Korea"
   ],
-  "note": "Page is repetitive with Japan, California, and London appearing multiple times, and title formats like '6 Surprising Facts' and 'Hidden Gems' are overused."
+  "note": "Page bohat repetitive hai."
  },
  "frames": {
   "avoid": [
