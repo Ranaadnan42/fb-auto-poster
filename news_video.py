@@ -430,6 +430,7 @@ def main():
     nh = news.load_history()
     ok = 0
     for kind in news.PAGES_TO_RUN:
+        news.CURRENT_PAGE = kind
         P = news.PAGES[kind]
         try:
             for f in os.listdir(WORK):

@@ -139,15 +139,20 @@ def log(msg):
 
 
 # ---------------------------------------------------------------- AI (Groq pehle, Gemini backup)
+CURRENT_PAGE = ""   # "news" / "sports" - har page ki apni Gemini key
+
+
 def gemini_json(prompt):
-    key = os.environ.get("GEMINI_API_KEY")
+    key = (os.environ.get(f"{CURRENT_PAGE.upper()}_GEMINI_API_KEY") if CURRENT_PAGE else None) \
+        or os.environ.get("GEMINI_API_KEY")
     if not key:
         raise RuntimeError("GEMINI_API_KEY nahi")
     last = None
-    for model in ("gemini-2.5-flash", "gemini-2.0-flash", "gemini-2.5-flash-lite"):
+    for model in ("gemini-3.8-flash", "gemini-3.5-flash", "gemini-flash-latest", "gemini-3.5-flash-lite",
+                  "gemini-2.5-flash", "gemini-2.5-flash-lite"):
         try:
             r = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
-                              params={"key": key}, timeout=90,
+                              params={"key": key}, timeout=120,
                               json={"contents": [{"parts": [{"text": prompt}]}],
                                     "generationConfig": {"responseMimeType": "application/json",
                                                          "temperature": 0.6}})
@@ -163,6 +168,13 @@ def gemini_json(prompt):
 
 def ask_json(prompt):
     import groq_backup
+    if CURRENT_PAGE and os.environ.get(f"{CURRENT_PAGE.upper()}_GEMINI_API_KEY"):
+        # page ki apni Gemini key pehle, Groq backup
+        try:
+            return gemini_json(prompt)
+        except Exception as e:
+            log(f"{CURRENT_PAGE} Gemini fail ({str(e)[:120]}) - Groq try")
+        return groq_backup.ask_json(prompt, 0.6, log)
     if groq_backup.enabled():
         try:
             return groq_backup.ask_json(prompt, 0.6, log)
@@ -516,7 +528,9 @@ def main():
     hist = load_history()
     ok = 0
     used_links = set()
+    global CURRENT_PAGE
     for kind in PAGES_TO_RUN:
+        CURRENT_PAGE = kind
         for attempt in range(2):
             try:
                 path, caption, item, topic = make_post(kind, hist, used_links)
