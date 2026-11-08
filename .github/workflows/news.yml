@@ -11,9 +11,9 @@ on:
     - cron: '26 14 * * *'   # pic EN   - post 14:41 UTC = 9:41 subah New York
     - cron: '51 7 * * *'    # reel UR  - post ~08:21 UTC = 1:21 dopehar Pakistan
     - cron: '51 15 * * *'   # reel EN  - post ~16:21 UTC = 11:21 subah New York, 4:21 London
-    # Reels: 6 rozana (2 Urdu Pakistan ke waqt, 4 English - America ka RPM sab se zyada)
+    # Reels: 6 rozana (3 Urdu Pakistan ke waqt - followers jaldi, 3 English - zyada RPM)
     - cron: '51 3 * * *'    # reel_ur  - post ~04:21 UTC = 9:21 subah Pakistan
-    - cron: '21 12 * * *'    # reel_en  - post ~12:51 UTC = 7:51 subah New York, 12:51 London
+    - cron: '21 12 * * *'    # reel_ur  - post ~12:51 UTC = 5:51 shaam Pakistan
     - cron: '21 19 * * *'    # reel_en  - post ~19:51 UTC = 2:51 dopehar New York
     - cron: '21 23 * * *'    # reel_en  - post ~23:51 UTC = 6:51 shaam New York
     # Breaking: har 2 ghante check - bari taaza khabar (kai sources par) ho to foran pic, warna kuch nahi
@@ -106,7 +106,7 @@ jobs:
             '46 14 * * *') M=long_ur ;;
             '16 20 * * *') M=long_en ;;
             '51 3 * * *') M=reel_ur ;;
-            '21 12 * * *') M=reel_en ;;
+            '21 12 * * *') M=reel_ur ;;
             '21 19 * * *') M=reel_en ;;
             '21 23 * * *') M=reel_en ;;
             '7 0 * * *') M=breaking_en ;;
