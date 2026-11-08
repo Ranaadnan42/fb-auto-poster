@@ -9,7 +9,25 @@ import os
 FILE = os.path.join(os.path.dirname(os.path.abspath(__file__)), "content_rules.json")
 
 
+def _brain_tips(bot):
+    """Agent (funny_brain.py) ne views se jo seekha."""
+    if bot != "funny":
+        return ""
+    try:
+        t = json.load(open("funny_brain.json", encoding="utf-8")).get("tips") or []
+    except Exception:
+        return ""
+    if not t:
+        return ""
+    return "\nLESSONS FROM WHAT MADE OUR VIEWERS LAUGH AND SHARE MOST (follow them):\n" + \
+        "\n".join(f"- {x}" for x in t[:6]) + "\n"
+
+
 def text(bot):
+    return _text(bot) + _brain_tips(bot)
+
+
+def _text(bot):
     try:
         r = (json.load(open(FILE, encoding="utf-8")).get(bot) or {})
     except Exception:

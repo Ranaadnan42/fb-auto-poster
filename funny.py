@@ -212,6 +212,64 @@ def ask_json(prompt):
     raise RuntimeError(f"Gemini fail: {last}")
 
 
+def fbrain():
+    try:
+        with open("funny_brain.json", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def wpick(options, mult_key):
+    """Agent ke seekhe weights se chunao (jo zyada hansaya wo zyada, baqi bhi kabhi kabhi)."""
+    m = fbrain().get(mult_key) or {}
+    options = list(options)
+    return random.choices(options, weights=[float(m.get(o, 1)) for o in options])[0]
+
+
+def punch_up(data, who):
+    """Writers' room: head writer draft ko sakhti se parakhta hai aur zyada mazahiya bana kar wapas deta hai."""
+    scenes = data.get("scenes") or []
+    draft = {"title": data.get("title"), "meme": data.get("meme"), "caption": data.get("caption"),
+             "scenes": [{"text": sc.get("text"), "shows": sc.get("visual")} for sc in scenes]}
+    try:
+        j = ask_json(f"""You are the HEAD WRITER of Pakistan's funniest Facebook comedy page "{PAGE_NAME}".
+A junior writer wrote this Urdu reel script ({who}). Most AI comedy is NOT funny: generic, explains the joke,
+predictable, no real punchline. Be brutally honest and fix that.
+
+DRAFT (JSON): {json.dumps(draft, ensure_ascii=False)}
+
+1. Rate how hard a normal Pakistani viewer would actually laugh (1-10).
+2. REWRITE it much funnier:
+   - Line 1 = scroll-stopping hook from a moment EVERY desi has lived.
+   - Specific desi details instead of generic words (exact things ammi says, the 'sirf 5 minute' mechanic, the
+     cousin who..., prices, excuses), big exaggeration, comic timing: setup -> misdirection -> punchline.
+   - Every scene must have a laugh or set up the next one; cut explanations and filler; never explain a joke.
+   - The LAST punchline must be an unexpected twist people want to tag a friend for.
+   - Keep the closing line "ایسی مزید ویڈیوز کے لیے فالو کریں" at the very end.
+   - Keep EXACTLY {len(scenes)} scenes in the same order; each scene's text must still match what "shows" shows.
+   - About the same length (90-115 words total).
+{RULES}
+Return JSON: {{"score_before": 1-10, "score_after": 1-10, "title": "funnier Urdu title, max 60 chars",
+ "meme": "short Urdu meme header, max 7 words", "caption": "1 funny Urdu line asking to tag a friend",
+ "scenes": [{{"text": "...", "laugh": true/false}}]}}""")
+        new = j.get("scenes") or []
+        if len(new) != len(scenes) or sum(len((x.get("text") or "").split()) for x in new) < 60:
+            raise RuntimeError("editor ne scenes badal diye")
+        for sc, n in zip(scenes, new):
+            if (n.get("text") or "").strip():
+                sc["text"] = n["text"].strip()
+                sc["laugh"] = bool(n.get("laugh", sc.get("laugh")))
+        for k in ("title", "meme", "caption"):
+            if (j.get(k) or "").strip():
+                data[k] = j[k].strip()
+        REPORT["funny_score"] = f"{j.get('score_before')} -> {j.get('score_after')}"
+        log(f"Writers' room: hansi score {REPORT['funny_score']}")
+    except Exception as e:
+        log(f"punch-up skip: {str(e)[:150]}")
+    return data
+
+
 def word_count(script):
     return sum(len((s.get("text") or "").split()) for s in script.get("scenes", []))
 
@@ -255,15 +313,16 @@ def write_reel(history, people=False):
     recent_styles = [h.get("style") for h in history[-6:]]
     style = random.choice([x for x in STYLES if x not in recent_styles] or STYLES)
     recent_topics = {h.get("topic") for h in history[-40:]}
-    situation = random.choice([x for x in SITUATIONS if x not in recent_topics] or SITUATIONS)
+    situation = wpick([x for x in SITUATIONS if x not in recent_topics] or SITUATIONS, "topic_mult")
     recent_fmts = [h.get("reel_format") for h in history[-4:]]
     fmts = PEOPLE_FORMATS if people else REEL_FORMATS
-    rfmt = os.environ.get("REEL_FORMAT") or random.choice([k for k in fmts if k not in recent_fmts] or list(fmts))
+    rfmt = os.environ.get("REEL_FORMAT") or wpick([k for k in fmts if k not in recent_fmts] or list(fmts),
+                                                  "reel_format_mult")
     searches, search_txt = _search_part(situation)
     import content_rules
     if people:
         recent_styles = [h.get("style") for h in history[-6:]]
-        style = random.choice([x for x in PEOPLE_STYLES if x not in recent_styles] or PEOPLE_STYLES)
+        style = wpick([x for x in PEOPLE_STYLES if x not in recent_styles] or PEOPLE_STYLES, "style_mult")
         data = ask_json(f"""You write VIRAL funny Facebook Reels for the Pakistani comedy page "{PAGE_NAME}".{content_rules.text("funny")}
 The page is pure COMEDY about everyday desi life - people must laugh out loud (lot pot), share it and tag friends.
 Comedy style: {style}.
@@ -319,6 +378,7 @@ Return JSON: {{"title": "funny Urdu title, max 60 characters",
      "hashtags": ["#funny", "..."] (6 hashtags, English and Urdu){SEARCH_FIELD if searches else ""}}}""")
     if len(data.get("scenes", [])) < 2:
         raise RuntimeError("Reel script mein scenes kam hain")
+    data = punch_up(data, "desi people comedy" if people else f"funny {animal} voice-over")
     _take_phrase(data, searches)
     data["animal"] = animal
     data["topic"] = situation
@@ -866,7 +926,8 @@ def _main():
             pool.pop(last_fmt, None)
         if chat_today >= 1:
             pool.pop("chat", None)
-        pool = {k: v for k, v in pool.items() if v} or {"people": 1}
+        fmult = fbrain().get("format_mult") or {}
+        pool = {k: v * float(fmult.get(k, 1)) for k, v in pool.items() if v} or {"people": 1}
         fmt = os.environ.get("FORMAT") or random.choices(list(pool), weights=list(pool.values()))[0]
     entry["format"] = fmt
     REPORT["format"] = fmt

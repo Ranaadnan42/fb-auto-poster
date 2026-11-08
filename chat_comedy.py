@@ -45,6 +45,7 @@ def write_chats(history, n_chats, n_msgs):
     topics = [F.SITUATIONS[(len(history) * 5 + i * 7) % len(F.SITUATIONS)] for i in range(n_chats)]
     plan = "\n".join(f"{i + 1}. Characters: {p[0]}. Topic: {t}" for i, (p, t) in enumerate(zip(picks, topics)))
     data = ask_chats(plan, n_chats, n_msgs, used)
+    data = punch_up_chats(data)
     chats = data.get("chats", [])[:n_chats]
     for c, p in zip(chats, picks):
         c["them_gender"] = c.get("them_gender") or p[1]
@@ -70,6 +71,39 @@ Return JSON: {{"title": "funny Urdu title for the whole video, max 60 characters
    "them_gender": "male or female",
    "messages": [{{"from": "me or them", "text": "...", "laugh": true/false}}]}}]}}
 "laugh" = true only for the 2-4 funniest punchline messages (always true for the last message).""")
+
+
+def punch_up_chats(data):
+    """Writers' room: head writer chats ko parakh kar zyada mazahiya banata hai (same structure)."""
+    try:
+        j = F.ask_json(f"""You are the HEAD WRITER of Pakistan's funniest comedy page "{F.PAGE_NAME}".
+These Urdu WhatsApp-chat comedy scripts were written by a junior writer. Most AI comedy is generic and not
+funny. Be brutally honest: rate (1-10) how hard a normal Pakistani viewer would laugh, then REWRITE the
+message texts much funnier - real desi texting style, specific relatable details, comic timing
+(setup -> misdirection -> punchline), every message earns a smile or sets one up, a killer twist at the
+end of each chat. Keep the SAME chats, contacts, number of messages and the same "from" of every message.
+{F.RULES}
+SCRIPT (JSON): {json.dumps(data, ensure_ascii=False)}
+Return the SAME JSON structure with improved "title", "caption" and message "text"/"laugh", plus
+"score_before" and "score_after" (1-10).""")
+        old = data.get("chats") or []
+        new = j.get("chats") or []
+        if len(new) != len(old) or any(len(a.get("messages", [])) != len(b.get("messages", []))
+                                       for a, b in zip(old, new)):
+            raise RuntimeError("structure badal gaya")
+        for a, b in zip(old, new):
+            for m, n in zip(a["messages"], b["messages"]):
+                if (n.get("text") or "").strip():
+                    m["text"] = n["text"].strip()
+                    m["laugh"] = bool(n.get("laugh", m.get("laugh")))
+        for k in ("title", "caption"):
+            if (j.get(k) or "").strip():
+                data[k] = j[k].strip()
+        F.REPORT["funny_score"] = f"{j.get('score_before')} -> {j.get('score_after')}"
+        F.log(f"Writers' room (chat): {F.REPORT['funny_score']}")
+    except Exception as e:
+        F.log(f"chat punch-up skip: {str(e)[:150]}")
+    return data
 
 
 # ---------------------------------------------------------------- audio
