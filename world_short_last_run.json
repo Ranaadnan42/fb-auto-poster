@@ -1,22 +1,24 @@
 {
  "mode": "short",
- "clips": 18,
- "clips_rejected": 67,
- "vision_checks": 80,
+ "clips": 15,
+ "clips_rejected": 32,
+ "vision_checks": 46,
  "errors": [],
  "search_phrases": [
-  "wages vs cost of living",
-  "inflation and cost of living",
-  "prices and cost of living class 9",
-  "cost of living protest",
-  "cost of living edmonton",
-  "cost of living worldwide"
+  "things to know about cars",
+  "things to know about cats",
+  "things to know about middle school",
+  "things to know about iphone 17 pro max",
+  "things to know about arc raiders",
+  "things to know about gta 6",
+  "things to know about palworld",
+  "things to know about real estate",
+  "things to know about fishing",
+  "things to know about day trading"
  ],
- "search": "wages vs cost of living",
- "alt_searches": 2,
- "seconds": 79.5,
+ "seconds": 60.7,
  "links": [],
- "subject": "New Zealand vs Ireland",
- "series": "versus_short",
- "title": "New Zealand vs Ireland: Wages vs Cost of Living Revealed"
+ "subject": "Seoul, South Korea",
+ "series": "city_facts",
+ "title": "What Nobody Tells You About Visiting Seoul"
 }
