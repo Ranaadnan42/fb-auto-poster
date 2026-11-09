@@ -1,18 +1,46 @@
 {
- "updated": "2026-11-09 07:10",
- "posts_checked": 2,
+ "updated": "2026-11-09 22:41",
+ "posts_checked": 19,
  "news": {
-  "topic_mult": {},
+  "topic_mult": {
+   "americas": 0.82,
+   "middle_east": 0.45,
+   "asia": 0.48,
+   "pakistan": 0.97,
+   "science_tech": 1.54
+  },
   "match_mult": {},
-  "tips": []
+  "tips": [
+   "Prioritize short video Reels in Urdu focusing on major US politics and global figures (e.g., Trump news) as they generate the highest view counts.",
+   "Focus on Pakistan sports news (especially cricket match updates) in Urdu to drive higher engagement scores.",
+   "Include Science & Tech stories with strong visual hooks, as tech/nature images perform significantly above average.",
+   "Avoid text-only English breaking news posts about corporate/Middle East affairs as they receive zero views and engagement.",
+   "Schedule primary content releases between 13:00 UTC and 15:00 UTC, avoiding early morning (04:00-09:00 UTC) and late night slots."
+  ]
  },
  "sports": {
-  "topic_mult": {},
-  "match_mult": {},
-  "tips": []
+  "topic_mult": {
+   "football": 0.53,
+   "formula 1": 0.48,
+   "golf": 0.45,
+   "olympic_sports": 0.71,
+   "big_events": 0.47,
+   "athletics": 1.32,
+   "hockey": 1.54
+  },
+  "match_mult": {
+   "formula 1": 0.47
+  },
+  "tips": [
+   "Prioritize niche and high-performing sports like hockey and athletics which show strong multipliers, while deprioritizing struggling topics like golf and Formula 1.",
+   "Focus on video formats (Reels) as they drive significantly higher views compared to static pictures and match updates.",
+   "Use Urdu text for breaking news and big events as it performs better than English for major announcements.",
+   "Schedule posts around high-engagement windows like 13:00 to 15:00 UTC instead of low-performing morning slots.",
+   "Avoid generic match updates and repetitive breaking golf stories that yield zero engagement."
+  ]
  },
  "lang_flip": {
   "ur_to_en": 0,
-  "en_to_ur": 0
+  "en_to_ur": 0.14
  }
 }
