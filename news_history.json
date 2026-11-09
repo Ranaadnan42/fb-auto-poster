@@ -63,6 +63,28 @@
     "over",
     "raided"
    ]
+  },
+  {
+   "date": "2026-11-09 06:00",
+   "lang": "en",
+   "topic": "middle_east",
+   "link": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxOS0t6VXJVNWNWT2VNUEVMLUxHNEtxelV1ZzVLZlpxLWMzcDg5VFVxcGs2RUs0ZlBDa0I5VFRCZk1OMWdmLTJlZUlpMnlXeWRWVkNsQW15dFRTajdIWHM0Y29hdFlTN2QzZ3ctUk1MVnVNbFZpTlExa3Utb2VwbWxweWFnTFBBNWRqQ25EODFCdmphbzBncnhyTTVueHc3UFpOUF9JSGx3ay1rRVhUT290bzFxVzREQlVIY1llZDFNOWd0X3pxVmM3ZTFVWXZvOUt6MThXcDRPQllaaUFSM0k1Q0NhRTI?oc=5",
+   "title": "Nvidia Investigating CEO Jensen Huang’s Relationship With Alleged Chinese Spy After He Admits Affair",
+   "words": [
+    "admits",
+    "affair",
+    "after",
+    "alleged",
+    "chinese",
+    "huang",
+    "investigating",
+    "jensen",
+    "nvidia",
+    "relationship",
+    "with"
+   ],
+   "breaking": true,
+   "post_id": "1448208791702551_122107387983532804"
   }
  ],
  "sports": [
@@ -125,6 +147,24 @@
     "that",
     "trend"
    ]
+  },
+  {
+   "date": "2026-11-09 06:00",
+   "lang": "en",
+   "topic": "golf",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxOTkNlWnhGZ1l3MUpjQXp2Wk05WUpWNl9ZUUJGQ2Vra3ozMUFPa2RIOHdxUkVqb3g2V3lkcmVZVHV5dnhlbmFQakNhVVpOT1BIZUREZzlZRUFZb3hWOTdPZkVVOGs0Ry01SWIwTXR0clZNMXNqSG9OaXRzZ3MzV0M1NHk0RXRxMmV6MFBWY0Ztc2tyYmNMRXd2d0hKZ2pkV2NU?oc=5",
+   "title": "Blades Brown Wins WWT; Youngest PGA Tour Winner in 95 Years",
+   "words": [
+    "blades",
+    "brown",
+    "tour",
+    "winner",
+    "wins",
+    "years",
+    "youngest"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122096431203548502"
   }
  ],
  "used_images": [
@@ -135,6 +175,7 @@
   104662,
   923659,
   2507432,
-  1610547
+  1610547,
+  1486354
  ]
 }
