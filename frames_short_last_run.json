@@ -1,30 +1,15 @@
 {
  "mode": "short",
- "clips": 18,
- "clips_rejected": 127,
- "vision_checks": 140,
+ "clips": 17,
+ "clips_rejected": 115,
+ "vision_checks": 129,
  "errors": [],
- "search_phrases": [
-  "mein job kaise kare",
-  "blanket mein job kaise kare",
-  "australia mein job kaise paye",
-  "germany mein job kaise paye",
-  "google mein job kaise paye",
-  "rapido mein job kaise kare",
-  "dubai mein job kaise paye",
-  "flipkart mein job kaise kare",
-  "dubai mein job kaise dhundhe",
-  "linkedin mein job kaise dhundhe"
- ],
- "alt_searches": 3,
- "photos": 2,
- "seconds": 97.4,
- "links": [
-  "https://vistos.mne.gov.pt",
-  "https://beoe.gov.pk",
-  "https://oec.gov.pk"
- ],
- "subject": "Portugal / Lisbon",
- "series": "pk_jobtip",
- "title": "پرتگال میں جاب ڈھونڈنے کے 5 آسان طریقے | Frames of Life"
+ "search_phrases": [],
+ "alt_searches": 4,
+ "photos": 4,
+ "seconds": 78.9,
+ "links": [],
+ "subject": "Morocco",
+ "series": "pk_food",
+ "title": "مراکش کے 5 مشہور ترین کھانے اور حلال غذا | Morocco Food Guide"
 }
