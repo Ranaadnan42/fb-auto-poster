@@ -262,5 +262,29 @@
   ],
   "sport": null,
   "title": "ای سپورٹس پিমیئر لیگ کا اعلان"
+ },
+ {
+  "date": "2026-11-09 18:46",
+  "page": "news",
+  "id": "1448208791702551_122107733565532804",
+  "fmt": "breaking",
+  "lang": "en",
+  "topics": [
+   "middle_east"
+  ],
+  "sport": null,
+  "title": "Saudi Arabia Reports Attack on Major Oil Pipeline"
+ },
+ {
+  "date": "2026-11-09 18:47",
+  "page": "sports",
+  "id": "1465090056678690_122096882055548502",
+  "fmt": "breaking",
+  "lang": "en",
+  "topics": [
+   "athletics"
+  ],
+  "sport": null,
+  "title": "Montella Named Ivy League Defensive Player of the Week"
  }
 ]

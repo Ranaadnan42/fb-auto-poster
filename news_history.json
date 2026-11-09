@@ -151,6 +151,23 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122107659081532804"
+  },
+  {
+   "date": "2026-11-09 18:43",
+   "lang": "en",
+   "topic": "middle_east",
+   "link": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQQ01pTHA1dXRYVjlEemZiRVptSTdqUVFRRjRxTmx3d3dyOFJ2Qk1vYmd5SnNTQ2FTQnk0NHgyODFUVDlKQ2xyeXEtN1BleEJNRWFISXBRT05xQzZsUjBvNmNpT1djeXFJMFRFMC1iVWh2Y0pQdmMwbnpNRnl1LUNOUHJXQzAxNTJGaUtVNGhIU09NR1VWT1E?oc=5",
+   "title": "Saudi Arabia Reports Attack on Major Oil Pipeline",
+   "words": [
+    "arabia",
+    "attack",
+    "major",
+    "pipeline",
+    "reports",
+    "saudi"
+   ],
+   "breaking": true,
+   "post_id": "1448208791702551_122107733565532804"
   }
  ],
  "sports": [
@@ -303,6 +320,23 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122096770749548502"
+  },
+  {
+   "date": "2026-11-09 18:43",
+   "lang": "en",
+   "topic": "athletics",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxOa05iUlFFMm5GU0FvR3FiZzNzZkZxcXVldk1aYUtRdURQU3FKTlVQZUdnYTR6SFpJZU01WjQ0LWc0TVIya29QSVhBeFFoZ2FXVkI0OXUzaEtRLXlscXBobFpBcHUtQTkzZ3lJZHZXNzRfT19UanhWOXhpVVNWWllydUJIenI5YlUtZXNuLW5uS3hSdFhHY3FjbnRVMk51aUlWSWtR?oc=5",
+   "title": "Montella Named Ivy League Defensive Player of the Week",
+   "words": [
+    "defensive",
+    "league",
+    "montella",
+    "named",
+    "player",
+    "week"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122096882055548502"
   }
  ],
  "used_images": [
@@ -321,6 +355,8 @@
   7421427,
   64167,
   83222,
-  9536049
+  9536049,
+  1928355,
+  2507902
  ]
 }

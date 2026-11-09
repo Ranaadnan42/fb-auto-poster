@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-09 15:47",
- "lang": "ur",
+ "time_utc": "2026-11-09 18:43",
+ "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1448208791702551_122107659081532804",
-   "topic": "pakistan",
-   "title": "Debutants Shine as Pakistan Reach 281-5 on Day One Against Sri Lanka"
+   "post": "1448208791702551_122107733565532804",
+   "topic": "middle_east",
+   "title": "Saudi Arabia Reports Attack on Major Oil Pipeline"
   },
   "sports": {
-   "post": "1465090056678690_122096770749548502",
-   "topic": "big_events",
-   "title": "Mexico has Secured Six Medals at the Dakar 2026 Youth Olympic Games"
+   "post": "1465090056678690_122096882055548502",
+   "topic": "athletics",
+   "title": "Montella Named Ivy League Defensive Player of the Week"
   }
  },
  "errors": []
