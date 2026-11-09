@@ -1,16 +1,16 @@
 {
- "time": "2026-11-08T18:05:55Z",
+ "time": "2026-11-09T22:42:55Z",
  "mode": "post",
- "posts": 12,
+ "posts": 13,
  "new": [
-  "https://ranaadnan42.github.io/fb-auto-poster/blog/best-pos-system-small-retail-business/"
+  "https://ranaadnan42.github.io/fb-auto-poster/blog/make-ecommerce-website-clothing-brand/"
  ],
  "log": [
-  "Category: pos-systems",
-  "Keyword ideas (pos-systems): 149",
+  "Category: websites",
+  "Keyword ideas (websites): 140",
   "Groq live models: openai/gpt-oss-120b, openai/gpt-oss-20b, allam-2-7b, qwen/qwen3.8-27b",
   "Groq model: openai/gpt-oss-120b",
-  "Outline: 'Best POS System for Small Retail Business – 2024 Guide' [best pos system for small retail business] - 8 sections",
+  "Outline: 'How to Make an Ecommerce Website for a Clothing Brand' [how to make an ecommerce website for clothing brand] - 8 sections",
   "Groq model: openai/gpt-oss-120b",
   "Groq model: openai/gpt-oss-120b",
   "Groq model: openai/gpt-oss-120b",
@@ -19,15 +19,14 @@
   "Groq model: openai/gpt-oss-120b",
   "Groq model: openai/gpt-oss-120b",
   "Groq model: openai/gpt-oss-120b",
-  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3919",
-  "groq openai/gpt-oss-120b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3507",
-  "groq openai/gpt-oss-20b try 1 failed: 413: {\"error\":{\"message\":\"Request too large for model `openai/gpt-oss-20b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Requested 1",
+  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3797",
+  "groq openai/gpt-oss-120b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3387",
   "Groq model: openai/gpt-oss-20b",
-  "Editor review: score 8, 2 fixes applied",
-  "Article try 1: 2842 words",
-  "Pixabay 'small retail POS checkout': 200, 20 photos",
-  "NEW: Best POS System for Small Retail Business – 2024 Guide -> https://ranaadnan42.github.io/fb-auto-poster/blog/best-pos-system-small-retail-business/",
-  "Health: 12 posts, 0 issues",
+  "Editor review: score 8, 1 fixes applied",
+  "Article try 1: 2876 words",
+  "Pixabay 'clothing ecommerce storefront': 200, 20 photos",
+  "NEW: How to Make an Ecommerce Website for a Clothing Brand -> https://ranaadnan42.github.io/fb-auto-poster/blog/make-ecommerce-website-clothing-brand/",
+  "Health: 13 posts, 0 issues",
   "IndexNow skip (github.io par key root par nahi rakh sakte) - custom/vercel domain par chalega"
  ]
 }
