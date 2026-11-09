@@ -1,18 +1,7 @@
 {
- "time_utc": "2026-11-09 20:41",
- "lang": "ur",
+ "time_utc": "2026-11-09 22:16",
+ "lang": "en",
  "dry_run": false,
- "posted": {
-  "news": {
-   "post": "1448208791702551_122107780629532804",
-   "topic": "middle_east",
-   "title": "Saudi East-West oil pipeline hit in Medina region"
-  },
-  "sports": {
-   "post": "1465090056678690_122096960841548502",
-   "topic": "big_events",
-   "title": "Saeed delights UAE with gold in Dakar Youth Olympic Games"
-  }
- },
+ "posted": {},
  "errors": []
 }
