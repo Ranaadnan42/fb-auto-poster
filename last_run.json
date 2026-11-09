@@ -1,25 +1,34 @@
 {
  "lang": "ur",
- "stock_clips": 14,
+ "stock_clips": 40,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "dua qabool hone ka waqia",
-  "dua qabooliyat",
-  "dua qabooliyat wazifa"
+  "اللہ تعالیٰ پر بھروسہ",
+  "tawakkul in allah",
+  "tawakkul and patience",
+  "tawakkul kya hai",
+  "tawakkul youth club",
+  "tawakkul bayan",
+  "tawakkul nasheed",
+  "tawakkul in allah dr israr",
+  "tawakkul stories",
+  "tawakkal official"
  ],
- "search": "dua qabool hone ka waqia",
- "vision_checks": 56,
+ "search": "tawakkul stories",
+ "vision_checks": 139,
  "sources": {
-  "pixabay": 11,
-  "commons": 2,
+  "pixabay": 30,
+  "commons": 6,
+  "nasa": 1,
+  "mixkit": 2,
   "openverse": 1
  },
- "clips_rejected": 28,
- "photo_clips": 1,
- "reel_minutes": 1.22,
- "time_utc": "2026-11-09 16:07",
- "title": "حضرت سعد بن ابی وقاصؓ: دعا قبول ہونے کا سچا واقعہ",
+ "clips_rejected": 58,
+ "photo_clips": 2,
+ "long_minutes": 5.08,
+ "time_utc": "2026-11-09 19:57",
+ "title": "عبداللہ بن عمر کا سفر: اللہ پر توکل اور پانی کا معجزہ",
  "dry_run": false,
  "posted_ok": 1
 }
