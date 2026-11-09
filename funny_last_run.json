@@ -1,36 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 5,
- "fallback_clips": 2,
+ "stock_clips": 48,
+ "fallback_clips": 0,
  "errors": [],
- "format": "people",
- "search_phrases": [
-  "aunties at wedding"
- ],
- "funny_score": "3 -> 9",
- "search": "aunties at wedding",
- "reel_format": "har_ghar",
- "vision_checks": 269,
- "clips_rejected": 273,
- "no_match": [
-  "mother scolding children",
-  "family getting ready wedding",
-  "woman biryani plate wedding",
-  "aunties watching buffet table",
-  "person struggling eating chicken fork",
-  "girl bowl dessert wedding table",
-  "girl bowl dessert wedding table",
-  "elderly women gossiping wedding event",
-  "people rushing wedding food buffet",
-  "people rushing wedding food buffet",
-  "woman eating biryani happily plate"
- ],
- "sources": {
-  "pixabay": 1
- },
- "laughs": 4,
- "reel_minutes": 0.83,
- "time_utc": "2026-11-09 16:06",
- "title": "شادی کا بوفے اور امی کی خطرناک وارننگ",
+ "format": "cartoon",
+ "long_minutes": 6.28,
+ "series": "یاروں کی گروپ چیٹ اور شمالی علاقہ جات part 1 (cartoon)",
+ "laughs": 8,
+ "time_utc": "2026-11-09 21:25",
+ "title": "یاروں کی گروپ چیٹ اور شمالی علاقہ جات | قسط 1",
  "dry_run": false
 }
