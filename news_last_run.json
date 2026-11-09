@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-09 06:00",
- "lang": "en",
+ "time_utc": "2026-11-09 08:57",
+ "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1448208791702551_122107387983532804",
-   "topic": "middle_east",
-   "title": "Nvidia Investigating CEO Jensen Huang’s Relationship With Alleged Chinese Spy After He Admits Affair"
+   "post": "1448208791702551_122107454103532804",
+   "topic": "asia",
+   "title": "Homes and temples glow across India to mark Diwali"
   },
   "sports": {
-   "post": "1465090056678690_122096431203548502",
-   "topic": "golf",
-   "title": "Blades Brown Wins WWT; Youngest PGA Tour Winner in 95 Years"
+   "post": "1465090056678690_122096514051548502",
+   "topic": "big_events",
+   "title": "LSFCA hails Flamingos on historic U-17 World Cup win"
   }
  },
  "errors": []
