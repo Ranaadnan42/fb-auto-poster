@@ -168,6 +168,27 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122107733565532804"
+  },
+  {
+   "date": "2026-11-09 20:13",
+   "lang": "ur",
+   "topic": "business",
+   "link": "https://www.bbc.co.uk/news/articles/c6zxjx01vyleo?at_medium=RSS&at_campaign=rss",
+   "title": "Nvidia shares tumble over investigation into Huang's affair with alleged Chinese spy",
+   "words": [
+    "affair",
+    "alleged",
+    "chinese",
+    "huang",
+    "into",
+    "investigation",
+    "nvidia",
+    "over",
+    "shares",
+    "tumble",
+    "with"
+   ],
+   "post_id": "1448208791702551_122107774323532804"
   }
  ],
  "sports": [
@@ -337,6 +358,29 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122096882055548502"
+  },
+  {
+   "date": "2026-11-09 20:13",
+   "lang": "ur",
+   "topic": "olympic_sports",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPN0I5a0RJS2JBbW41Uk0zbnJ0T1h4QWh2Q2xXRXktTkp0WGMwQy1QZHYtb0h3RGpldk1hbi1zUGdvNWpNV3JMamoxNm5hcHpnNTFDWHNxbUlMNGFsb2xXLWd4cF8zZWhpSTB4Zlh4MmUxQ0xRX210X1JQZFZoaTJZNEFpWUpUNDdFUzFCcndJS1gycHFlSW8wR3B4MXZ3NHhNY3plT1V6WHNSbFNkMUVGNV9qTDZ4UQ?oc=5",
+   "title": "2026 College Swimming League Stats: Charlotte Crush, Kaii Winkler Lead Inaugural Season Scoring",
+   "words": [
+    "2026",
+    "charlotte",
+    "college",
+    "crush",
+    "inaugural",
+    "kaii",
+    "lead",
+    "league",
+    "scoring",
+    "season",
+    "stats",
+    "swimming",
+    "winkler"
+   ],
+   "post_id": "1465090056678690_122096944635548502"
   }
  ],
  "used_images": [
@@ -357,6 +401,7 @@
   83222,
   9536049,
   1928355,
-  2507902
+  2507902,
+  1632441
  ]
 }
