@@ -1,16 +1,17 @@
 {
- "time_utc": "2026-11-08 23:40",
+ "time_utc": "2026-11-09 16:45",
  "lang": "en",
- "dry_run": true,
+ "dry_run": false,
  "posted": {
   "sports": {
-   "key": "n186507",
-   "sport": "tennis",
-   "date": "2026-11-08 23:40",
+   "key": "r401839132",
+   "sport": "formula 1",
+   "date": "2026-11-09 16:45",
    "lang": "en",
-   "match": "Carlos Alcaraz vs Ben Shelton",
-   "result": "Carlos Alcaraz beat Ben Shelton 7-6, 7-5",
-   "dur": 57
+   "match": "MSC Cruises São Paulo Grand Prix",
+   "result": "Lando Norris won the MSC Cruises São Paulo Grand Prix",
+   "dur": 62,
+   "post_id": "1678244677234609"
   }
  },
  "errors": []
