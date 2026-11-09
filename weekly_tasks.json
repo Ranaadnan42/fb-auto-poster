@@ -1,35 +1,35 @@
 {
- "at": "2026-11-08T20:34+00:00",
+ "at": "2026-11-09T11:52+00:00",
  "week_start": "2026-11-08",
  "deadline_pk": "2026-11-14T00:00+05:00",
  "targets_fresh": true,
  "pages": {
   "islamic": {
-   "photos": "4/30",
-   "reels": "6/10",
-   "stories": "4/0",
+   "photos": "7/30",
+   "reels": "7/10",
+   "stories": "3/7",
    "extra": [
-    "photos: 1 extra chala di (kami 10)"
+    "photos: 1 extra chala di (kami 9)"
    ]
   },
   "funny": {
-   "photos": "8/30",
-   "reels": "4/9",
-   "stories": "3/0",
+   "photos": "11/30",
+   "reels": "5/9",
+   "stories": "3/7",
    "extra": [
-    "photos: 1 extra chala di (kami 2)"
+    "photos: 1 extra chala di (kami 1)"
    ]
   },
   "frames": {
    "photos": "1/0",
-   "reels": "3/0",
-   "stories": "2/0",
+   "reels": "4/0",
+   "stories": "2/7",
    "extra": []
   },
   "webbuilder": {
-   "photos": "6/30",
-   "reels": "8/9",
-   "stories": "7/0",
+   "photos": "8/30",
+   "reels": "11/9",
+   "stories": "9/7",
    "extra": [
     "photos: 1 extra chala di (kami 12)"
    ]

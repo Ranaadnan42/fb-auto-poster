@@ -1,20 +1,15 @@
 {
  "islamic": {
-  "avoid": [
-   "بیمار یہودی بچے کی عیادت",
-   "جمعہ کی فضیلت",
-   "اخلاق نبوی کا",
-   "good character and manners"
-  ],
+  "avoid": [],
   "try": [
-   "حضرت خدیجہ رضی اللہ عنہا کی مالی مدد اور ایمان کی مضبوطی",
-   "حضرت عائشہ رضی اللہ عنہا کی علم کی طلب اور حکمت",
-   "حضرت مئزہ بلی کی کہانی اور نبی ﷺ کی شفقت",
-   "سعید بن زبیر کی سادگی اور صدقہ کا عمل",
-   "حضرت ابو ہریرہ رضی اللہ عنہ کی حدیث جمع کرنے کی محنت",
-   "حضرت ام المومنین عائشہ کی حدیث کی روایت کا سفر"
+   "Umm Ayman ki wafadari aur uska Nabi ﷺ ke saath rishta",
+   "Prophet Salih ki camel ka karishma aur sabr ka paigham",
+   "Companion Sa'd ibn Abi Waqqas ki sadaqah ka waqia",
+   "Nabi ﷺ ki billi Muezza ke saath mohabbat ka mazahiya waqia",
+   "Abdullah ibn Umar ki safar mein musafir ko paani pilane ki kahani",
+   "Nabi ﷺ ka maaf karna jab koi uska joota chura leta hai"
   ],
-  "note": "Page thodi repetitive lag rahi hai"
+  "note": "Page thodi repetitive lag rahi hai, especially Friday aur Prophet ki stories bar bar aati hain."
  },
  "funny": {
   "avoid": [
@@ -40,37 +35,30 @@
  "world": {
   "avoid": [
    "Japan",
-   "Dubai",
-   "Singapore",
-   "India",
-   "Mexico",
-   "Vietnam"
+   "What Nobody Tells You",
+   "Retiring in"
   ],
   "try": [
-   "Living in South Korea: Tech, Safety & Daily Life",
-   "Iceland Documentary: Nature, Cost & Remote Living",
-   "New Zealand: The Ultimate Remote Work Destination",
-   "Morocco: Culture, Safety & Budget Travel Guide",
-   "Switzerland: High Cost vs High Quality of Life",
-   "Colombia: Safety Myths & Real Daily Life"
+   "New Zealand: Cost of Living and Lifestyle for Expats",
+   "Sweden: Safety, Healthcare, and Work Culture",
+   "Greece: Living in the Mediterranean",
+   "South Africa: Cost of Living and Safety for Expats",
+   "Egypt: Daily Life and Culture for Expats",
+   "Philippines: Living in the Archipelago"
   ],
-  "note": "Page is repetitive with 'Cost of Living' and 'Retirement' angles; need more pure cultural documentaries."
+  "note": "Page ka content bohat repeat ho raha hai."
  },
  "world_short": {
-  "avoid": [
-   "California",
-   "Japan",
-   "Would You Live in ...",
-   "5 Must-Try Dishes"
-  ],
+  "avoid": [],
   "try": [
-   "Moscow, Russia",
-   "Dubai, UAE",
-   "Buenos Aires, Argentina",
-   "Cairo, Egypt",
-   "Seoul, South Korea"
+   "Cost of Living in Dublin: What Life Really Costs",
+   "Hidden Gems in Kyoto, Japan",
+   "Traditional Food of Morocco: 5 Must-Try Dishes",
+   "Berlin vs Munich: Wages vs Cost of Living Comparison",
+   "6 Surprising Facts About Brazil You Didn't Know",
+   "Would You Live in Nairobi, Kenya?"
   ],
-  "note": "Page bohat repetitive hai."
+  "note": "Page thoda repetitive lag raha hai."
  },
  "frames": {
   "avoid": [
