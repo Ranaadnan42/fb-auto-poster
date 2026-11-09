@@ -34,5 +34,29 @@
   ],
   "sport": "formula 1",
   "title": "MSC Cruises São Paulo Grand Prix"
+ },
+ {
+  "date": "2026-11-09 04:55",
+  "page": "news",
+  "id": "1448208791702551_122107366365532804",
+  "fmt": "breaking",
+  "lang": "en",
+  "topics": [
+   "middle_east"
+  ],
+  "sport": null,
+  "title": "Nvidia Investigating CEO Jensen Huang’s Relationship With Alleged Chinese Spy After He Admits Affair"
+ },
+ {
+  "date": "2026-11-09 04:59",
+  "page": "sports",
+  "id": "1465090056678690_122096397543548502",
+  "fmt": "breaking",
+  "lang": "en",
+  "topics": [
+   "golf"
+  ],
+  "sport": null,
+  "title": "Teen Blades Brown wins in Mexico to become youngest PGA Tour winner in 95 years"
  }
 ]

@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-08 22:07",
+ "time_utc": "2026-11-09 04:50",
  "lang": "en",
- "dry_run": true,
+ "dry_run": false,
  "posted": {
   "news": {
-   "post": "dry_run",
-   "topic": "europe",
-   "title": "Chinese carmaker BYD’s offices in Netherlands raided over JLR ‘copycat car’ claim"
+   "post": "1448208791702551_122107366365532804",
+   "topic": "middle_east",
+   "title": "Nvidia Investigating CEO Jensen Huang’s Relationship With Alleged Chinese Spy After He Admits Affair"
   },
   "sports": {
-   "post": "dry_run",
-   "topic": "basketball",
-   "title": "\"I certainly benefited from that\" - Mark Cuban admits profiting from the NBA trend he now questions"
+   "post": "1465090056678690_122096397543548502",
+   "topic": "golf",
+   "title": "Teen Blades Brown wins in Mexico to become youngest PGA Tour winner in 95 years"
   }
  },
  "errors": []

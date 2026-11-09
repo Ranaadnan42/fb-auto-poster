@@ -34,16 +34,6 @@
    "match": "Carlos Alcaraz vs Ben Shelton",
    "result": "Carlos Alcaraz beat Ben Shelton 7-6, 7-5",
    "dur": 57
-  },
-  {
-   "key": "r401839132",
-   "sport": "formula 1",
-   "date": "2026-11-09 04:51",
-   "lang": "en",
-   "match": "MSC Cruises São Paulo Grand Prix",
-   "result": "Lando Norris won the MSC Cruises São Paulo Grand Prix",
-   "dur": 65,
-   "post_id": "988708307640323"
   }
  ],
  "used_clips": [
@@ -114,23 +104,6 @@
   "px35265",
   "px74670",
   "mk23639",
-  "px133206",
-  "wp:2024-08-25_motorsport,_formel_1,_großer_preis_der_niederlande_2024_stp_3968_by_stepro_(cropped2).jpg",
-  "px230471",
-  "px2859",
-  "px1202",
-  "px1900",
-  "wp:2024-08-25_motorsport,_formel_1,_großer_preis_der_niederlande_2024_stp_3973_by_stepro_(medium_crop).jpg",
-  "wm44678672",
-  "px291595",
-  "wp:isack_hadjar_at_the_melbourne_walk_during_the_2026_australian_grand_prix_(028a8753)_(cropped).jpg",
-  "wp:kingsleonsilverstne040724_(28_of_112)_(53838006028)_(cropped).jpg",
-  "wm141632197",
-  "px107416",
-  "wp:2026_chinese_gp_-_oscar_piastri_(cropped)_(cropped).jpg",
-  "wp:prime_minister_keir_starmer_meets_sir_lewis_hamilton_(54566928382)_(cropped).jpg",
-  "wm48598830",
-  "px327855",
-  "px24166"
+  "px133206"
  ]
 }
