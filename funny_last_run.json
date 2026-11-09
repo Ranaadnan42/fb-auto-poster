@@ -1,12 +1,36 @@
 {
  "mode": "auto",
- "stock_clips": 0,
- "fallback_clips": 0,
+ "stock_clips": 5,
+ "fallback_clips": 2,
  "errors": [],
- "format": "chat",
- "long_minutes": 8.6,
- "laughs": 19,
- "time_utc": "2026-11-09 13:39",
- "title": "جب ابا نے رکشے والے سے بارگیننگ کروائی اور دیگر قہقہے",
+ "format": "people",
+ "search_phrases": [
+  "aunties at wedding"
+ ],
+ "funny_score": "3 -> 9",
+ "search": "aunties at wedding",
+ "reel_format": "har_ghar",
+ "vision_checks": 269,
+ "clips_rejected": 273,
+ "no_match": [
+  "mother scolding children",
+  "family getting ready wedding",
+  "woman biryani plate wedding",
+  "aunties watching buffet table",
+  "person struggling eating chicken fork",
+  "girl bowl dessert wedding table",
+  "girl bowl dessert wedding table",
+  "elderly women gossiping wedding event",
+  "people rushing wedding food buffet",
+  "people rushing wedding food buffet",
+  "woman eating biryani happily plate"
+ ],
+ "sources": {
+  "pixabay": 1
+ },
+ "laughs": 4,
+ "reel_minutes": 0.83,
+ "time_utc": "2026-11-09 16:06",
+ "title": "شادی کا بوفے اور امی کی خطرناک وارننگ",
  "dry_run": false
 }
