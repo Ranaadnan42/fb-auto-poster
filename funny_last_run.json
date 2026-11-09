@@ -1,36 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 11,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "people",
- "search_phrases": [
-  "remote control fight",
-  "remote car fight",
-  "remote car fight video",
-  "remote wale ki comedy",
-  "remote control comedy video",
-  "remote control comedy"
- ],
- "funny_score": "3 -> 9",
- "search": "remote control comedy video",
- "reel_format": "news",
- "vision_checks": 71,
- "sources": {
-  "commons": 2,
-  "pixabay": 4
- },
- "clips_rejected": 105,
- "no_match": [
-  "hitting tv remote",
-  "battery cells",
-  "bored siblings sitting",
-  "bored siblings sitting",
-  "silent living room"
- ],
- "laughs": 3,
- "reel_minutes": 0.73,
- "time_utc": "2026-11-09 09:39",
- "title": "ریموٹ کی جنگ اور ابّو کا سپریم کورٹ والا فیصلہ",
+ "format": "chat",
+ "long_minutes": 8.6,
+ "laughs": 19,
+ "time_utc": "2026-11-09 13:39",
+ "title": "جب ابا نے رکشے والے سے بارگیننگ کروائی اور دیگر قہقہے",
  "dry_run": false
 }
