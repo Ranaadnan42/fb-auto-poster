@@ -1,18 +1,18 @@
 {
- "updated": "2026-11-08 23:59",
+ "updated": "2026-11-09 07:10",
  "format_mult": {
   "chat": 0.7,
   "animal": 0.78,
   "story": 1.02,
-  "people": 1.22,
-  "cartoon": 0.93
+  "people": 1.23,
+  "cartoon": 0.92
  },
  "reel_format_mult": {
-  "expectation": 1.12,
+  "expectation": 1.11,
   "kya_hota_agar": 0.98,
   "latifay": 1.18,
   "har_ghar": 1.1,
-  "types": 1.23,
+  "types": 1.27,
   "dialogue": 1.14,
   "news": 1.03,
   "pov": 0.99
@@ -26,18 +26,18 @@
   "sarcastic narrator roasting the situation (gently)": 1.09,
   "a strict ammi's rules explained": 1.11,
   "a lazy student's confessions": 1.07,
-  "a motivational speaker giving terrible advice": 1.24,
+  "a motivational speaker giving terrible advice": 1.29,
   "dramatic TV-serial narration of a tiny problem": 1.05,
   "observational desi comedy - 'har kisi ke saath hota hai'": 1.07,
   "a middle-class abbu's logic": 1.03
  },
  "topic_mult": {
-  "monday morning": 1.2,
+  "monday morning": 1.19,
   "salary day": 1.06,
   "friends' group chat": 1.02,
   "teacher vs students": 0.84,
   "office / job interview": 1.03,
-  "winter mornings": 0.68,
+  "winter mornings": 0.67,
   "mobile phone addiction": 1.06,
   "school / tuition": 0.85,
   "exams and results": 1.1,
@@ -75,13 +75,13 @@
   "selfie / TikTok craze": 1.04,
   "family WhatsApp group forwards": 1.07,
   "first day at gym": 1.03,
-  "dentist visit": 1.17
+  "dentist visit": 1.23
  },
  "tips": [
-  "Prioritize human-driven content ('people' format score 1.27) over animated animals (0.76) or text chat reels (0.67), as viewers connect much more with real human reactions.",
-  "Use reel structures like 'types of people' (1.52), 'latifay' (1.52), and 'dialogue' (1.39) to drive shares and tags, while skipping 'kya hota agar' or 'POV' formats.",
-  "Focus script topics on high-performing relatable scenarios: government office delays (1.74), dentist visits (1.85), bazaar bargaining (1.47), mechanic excuses (1.43), and Monday morning blues (1.37).",
-  "Completely phase out low-performing topics like guests arriving (0.08), online shopping (0.08), cooking disasters (0.24), laundry day (0.28), and rishta aunty (0.50).",
-  "Write titles with clear, funny situation hooks combining Urud and English keywords (e.g., dentist patient drama, sarkari file ka safar, Monday morning excuses) to maintain high click-through rates."
+  "Prioritize the 'people' format (1.28 avg score) combined with 'types' (1.62) and 'latifay' (1.50) reel structures, while scaling back on the overused 'animal' dubbing format (0.76 avg score).",
+  "Target high-relatability public and daily hassle topics like 'dentist visit' (2.28 score), 'government office file' (1.72 score), 'bargaining in bazaar' (1.45 score), and 'mechanic's sirf 5 minute' (1.41 score).",
+  "Capitalize on workplace and routine struggle humor such as 'monday morning' (1.36 score) and job interview scenarios, which consistently double the page average.",
+  "Completely eliminate low-performing domestic chore and overdone topics such as 'guests arriving at home' (0.08 score), 'online shopping' (0.08 score), 'cooking disaster' (0.24 score), and 'laundry day' (0.28 score).",
+  "Structure titles around recognizable desi archetypes and clear premise hooks (e.g., 'ڈینٹسٹ کے مریض' or 'سرکاری فائل کا سفر') to trigger immediate tags and shares."
  ]
 }
