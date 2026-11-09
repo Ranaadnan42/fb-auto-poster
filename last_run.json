@@ -1,30 +1,26 @@
 {
  "lang": "en",
- "stock_clips": 10,
+ "stock_clips": 40,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "sahaba stories for kids",
-  "sahaba stories in urdu",
-  "sahaba stories arabic",
-  "sahaba stories playlist",
-  "sahaba stories animated",
-  "sahaba stories bangla",
-  "sahaba stories islamic guidance",
-  "sahaba stories in english",
-  "sahaba stories uthman"
+  "value of time islamic speech in malayalam",
+  "importance of time islam",
+  "importance of time islamic lectures",
+  "time value of money in islam"
  ],
- "search": "sahaba stories in english",
- "vision_checks": 43,
+ "search": "importance of time islam",
+ "vision_checks": 165,
  "sources": {
-  "pixabay": 9,
-  "commons": 1
+  "pixabay": 29,
+  "mixkit": 4,
+  "commons": 7
  },
- "clips_rejected": 23,
+ "clips_rejected": 86,
  "photo_clips": 1,
- "reel_minutes": 0.91,
- "time_utc": "2026-11-09 21:39",
- "title": "Sahaba stories in english: Abdullah ibn Umar and the traveler",
+ "long_minutes": 4.91,
+ "time_utc": "2026-11-09 23:29",
+ "title": "Why Every Second Matters: Importance of Time in Islam",
  "dry_run": false,
  "posted_ok": 1
 }
