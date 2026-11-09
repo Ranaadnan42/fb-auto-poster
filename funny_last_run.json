@@ -1,32 +1,36 @@
 {
- "mode": "reel",
- "stock_clips": 10,
+ "mode": "auto",
+ "stock_clips": 11,
  "fallback_clips": 0,
  "errors": [],
  "format": "people",
- "search_phrases": [],
- "funny_score": "3 -> 9",
- "reel_format": "news",
- "vision_checks": 192,
- "clips_rejected": 151,
- "sources": {
-  "commons": 1,
-  "pixabay": 1
- },
- "no_match": [
-  "woman whispering gossip window",
-  "woman hanging laundry clothes",
-  "boy eating burger fast food",
-  "mother scolding son angry",
-  "cctv security camera house",
-  "woman looking curtain window",
-  "woman balcony standing looking",
-  "woman balcony standing looking",
-  "friends laughing mobile phone screen"
+ "search_phrases": [
+  "remote control fight",
+  "remote car fight",
+  "remote car fight video",
+  "remote wale ki comedy",
+  "remote control comedy video",
+  "remote control comedy"
  ],
- "laughs": 4,
- "reel_minutes": 0.74,
- "time_utc": "2026-11-08 23:57",
- "title": "محلے کی تیز ترین لائیو نیوز آنٹی",
- "dry_run": true
+ "funny_score": "3 -> 9",
+ "search": "remote control comedy video",
+ "reel_format": "news",
+ "vision_checks": 71,
+ "sources": {
+  "commons": 2,
+  "pixabay": 4
+ },
+ "clips_rejected": 105,
+ "no_match": [
+  "hitting tv remote",
+  "battery cells",
+  "bored siblings sitting",
+  "bored siblings sitting",
+  "silent living room"
+ ],
+ "laughs": 3,
+ "reel_minutes": 0.73,
+ "time_utc": "2026-11-09 09:39",
+ "title": "ریموٹ کی جنگ اور ابّو کا سپریم کورٹ والا فیصلہ",
+ "dry_run": false
 }
