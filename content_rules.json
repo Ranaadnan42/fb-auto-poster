@@ -1,15 +1,17 @@
 {
  "islamic": {
-  "avoid": [],
-  "try": [
-   "Umm Ayman ki wafadari aur uska Nabi ﷺ ke saath rishta",
-   "Prophet Salih ki camel ka karishma aur sabr ka paigham",
-   "Companion Sa'd ibn Abi Waqqas ki sadaqah ka waqia",
-   "Nabi ﷺ ki billi Muezza ke saath mohabbat ka mazahiya waqia",
-   "Abdullah ibn Umar ki safar mein musafir ko paani pilane ki kahani",
-   "Nabi ﷺ ka maaf karna jab koi uska joota chura leta hai"
+  "avoid": [
+   "جمعہ کی فضیلت: جب صحابہ نے پوچھا ہمارا درود آپ تک کیسے پہنچے گا؟"
   ],
-  "note": "Page thodi repetitive lag rahi hai, especially Friday aur Prophet ki stories bar bar aati hain."
+  "try": [
+   "Story of Umm Ayman’s unwavering support for the Prophet (peace be upon him)",
+   "The miracle of Zamzam water and its lessons for modern life",
+   "The Prophet’s kindness to the cat Muezza and the value of compassion",
+   "Companion Sa’d ibn Abi Waqqas’s generosity during the early Caliphate",
+   "The night of Isra and Mi’raj: focusing on the spiritual benefits of Salah",
+   "The inspiring tale of the companion Abu Darda’s dedication to teaching the Qur’a"
+  ],
+  "note": "Page thodi repetitive lag rahi hai."
  },
  "funny": {
   "avoid": [
@@ -34,31 +36,34 @@
  },
  "world": {
   "avoid": [
-   "Japan",
-   "What Nobody Tells You",
-   "Retiring in"
+   "Brazil Unveiled",
+   "Retiring in Portugal"
   ],
   "try": [
-   "New Zealand: Cost of Living and Lifestyle for Expats",
-   "Sweden: Safety, Healthcare, and Work Culture",
-   "Greece: Living in the Mediterranean",
-   "South Africa: Cost of Living and Safety for Expats",
-   "Egypt: Daily Life and Culture for Expats",
-   "Philippines: Living in the Archipelago"
+   "Living in New Zealand: Cost, Culture, and Climate",
+   "Retiring in Costa Rica: Health Care and Lifestyle",
+   "Cost of Living in Singapore: A 2026 Snapshot",
+   "Moving to Mexico City: What You Need to Know",
+   "Exploring the Philippines: Islands, Culture, and Cost",
+   "Comparing Kenya vs Tanzania: Where to Live in East Africa"
   ],
-  "note": "Page ka content bohat repeat ho raha hai."
+  "note": "Page bohat repetitive hai."
  },
  "world_short": {
-  "avoid": [],
-  "try": [
-   "Cost of Living in Dublin: What Life Really Costs",
-   "Hidden Gems in Kyoto, Japan",
-   "Traditional Food of Morocco: 5 Must-Try Dishes",
-   "Berlin vs Munich: Wages vs Cost of Living Comparison",
-   "6 Surprising Facts About Brazil You Didn't Know",
-   "Would You Live in Nairobi, Kenya?"
+  "avoid": [
+   "California",
+   "Japan",
+   "South Korea",
+   "Would You Live in ..."
   ],
-  "note": "Page thoda repetitive lag raha hai."
+  "try": [
+   "Dubai, UAE",
+   "Moscow, Russia",
+   "Buenos Aires, Argentina",
+   "Cairo, Egypt",
+   "Santiago, Chile"
+  ],
+  "note": "Page bohat repetitive hai."
  },
  "frames": {
   "avoid": [

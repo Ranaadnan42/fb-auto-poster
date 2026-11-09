@@ -1,10 +1,10 @@
 {
  "islamic": {
-  "at": "2026-11-09T11:52+00:00",
+  "at": "2026-11-09T23:49+00:00",
   "done": [],
   "problems": [],
   "name": "Islamic Motivational Videos",
-  "followers": 1299,
+  "followers": 1301,
   "insights_28d": {},
   "history": [
    {
@@ -37,13 +37,13 @@
    },
    {
     "day": "2026-11-09",
-    "followers": 1299
+    "followers": 1301
    }
   ],
-  "last_post": "2026-11-09T10:24+00:00"
+  "last_post": "2026-11-09T20:43+00:00"
  },
  "funny": {
-  "at": "2026-11-09T11:52+00:00",
+  "at": "2026-11-09T23:49+00:00",
   "done": [],
   "problems": [
    "7 din se followers nahi barhe - content badalna chahiye"
@@ -85,14 +85,14 @@
     "followers": 1516
    }
   ],
-  "last_post": "2026-11-09T11:15+00:00"
+  "last_post": "2026-11-09T21:35+00:00"
  },
  "frames": {
-  "at": "2026-11-09T11:52+00:00",
+  "at": "2026-11-09T23:49+00:00",
   "done": [],
   "problems": [],
   "name": "Frames Of Life",
-  "followers": 42,
+  "followers": 43,
   "insights_28d": {},
   "history": [
    {
@@ -125,13 +125,13 @@
    },
    {
     "day": "2026-11-09",
-    "followers": 42
+    "followers": 43
    }
   ],
-  "last_post": "2026-11-09T08:55+00:00"
+  "last_post": "2026-11-09T14:19+00:00"
  },
  "webbuilder": {
-  "at": "2026-11-09T11:52+00:00",
+  "at": "2026-11-09T23:49+00:00",
   "done": [],
   "problems": [],
   "name": "web builder",
@@ -171,6 +171,6 @@
     "followers": 32
    }
   ],
-  "last_post": "2026-11-08T23:00+00:00"
+  "last_post": "2026-11-09T21:37+00:00"
  }
 }
