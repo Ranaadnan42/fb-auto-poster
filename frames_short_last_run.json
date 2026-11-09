@@ -1,15 +1,30 @@
 {
  "mode": "short",
- "clips": 17,
- "clips_rejected": 115,
- "vision_checks": 129,
+ "clips": 18,
+ "clips_rejected": 117,
+ "vision_checks": 133,
  "errors": [],
- "search_phrases": [],
- "alt_searches": 4,
+ "search_phrases": [
+  "khubsurat jagah",
+  "khubsurat jagah ki video",
+  "khubsurat jagah hai",
+  "khubsurat jagah dikhayen",
+  "khubsurat jagah dikhao",
+  "khubsurat jagah ka video",
+  "khubsurat jagah ki tasviren",
+  "khubsurat jagah ki photo",
+  "khubsurat jagah ki tasvir",
+  "khubsurat jagah ki picture"
+ ],
+ "search": "khubsurat jagah ki video",
+ "alt_searches": 3,
  "photos": 4,
- "seconds": 78.9,
- "links": [],
- "subject": "Morocco",
- "series": "pk_food",
- "title": "مراکش کے 5 مشہور ترین کھانے اور حلال غذا | Morocco Food Guide"
+ "seconds": 87.5,
+ "links": [
+  "https://beoe.gov.pk",
+  "https://oec.gov.pk"
+ ],
+ "subject": "Norway",
+ "series": "pk_hidden",
+ "title": "ناروے کی ۵ خوبصورت اور چھپی ہوئی جگہیں | Hidden Places in Norway"
 }
