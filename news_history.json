@@ -206,6 +206,26 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122107780629532804"
+  },
+  {
+   "date": "2026-11-09 23:29",
+   "lang": "en",
+   "topic": "africa",
+   "link": "https://www.bbc.co.uk/news/articles/cm93z3lp5lnpo?at_medium=RSS&at_campaign=rss",
+   "title": "Nine Zimbabweans caught allegedly trying to leave South Africa to fight in Ukraine",
+   "words": [
+    "africa",
+    "allegedly",
+    "caught",
+    "fight",
+    "leave",
+    "nine",
+    "south",
+    "trying",
+    "ukraine",
+    "zimbabweans"
+   ],
+   "post_id": "1448208791702551_122107824135532804"
   }
  ],
  "sports": [
@@ -417,6 +437,22 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122096960841548502"
+  },
+  {
+   "date": "2026-11-09 23:29",
+   "lang": "en",
+   "topic": "general",
+   "link": "https://www.skysports.com/football/news/12040/13610409/mauricio-pochettino-would-consider-manchester-united-job-if-michael-carrick-is-sacked-paper-talk",
+   "title": "Papers: Poch would consider PL return to join Man Utd",
+   "words": [
+    "consider",
+    "join",
+    "papers",
+    "poch",
+    "return",
+    "would"
+   ],
+   "post_id": "1465090056678690_122097035253548502"
   }
  ],
  "used_images": [
@@ -440,6 +476,7 @@
   2507902,
   1632441,
   3484307,
-  3240227
+  3240227,
+  4477530
  ]
 }
