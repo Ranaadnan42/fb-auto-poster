@@ -281,6 +281,21 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122107867971532804"
+  },
+  {
+   "date": "2026-11-10 13:01",
+   "lang": "en",
+   "topic": "world",
+   "link": "https://news.google.com/rss/articles/CBMivAFBVV95cUxOVXZpdWlWZEJXakpxbUdZWG1YYnRsN0RZNno0Qzhfazhfb2Q1NGxyb3hxNGItLWFhMzAzdlVhVlVsVVZaU3N2cVVCZ2JoTVZEZ0gxVmlhNXdmQmE3Y3V4RzJYXzAtT201a2Q5MDU2X1JiaHlOek9WY3Q2blJzX0tab2VNamVuQkZXa0xZOWlQcUR6dzlpUndGNEprOXBOZ0xESzB6MkNOS2NzVGdlYlRxUHc0eHlRQXBCaDMtOQ?oc=5",
+   "title": "Emirates US Russia Ukraine Talks",
+   "words": [
+    "emirates",
+    "russia",
+    "talks",
+    "ukraine"
+   ],
+   "breaking": true,
+   "post_id": "1448208791702551_122108086971532804"
   }
  ],
  "sports": [
@@ -565,6 +580,32 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122097111777548502"
+  },
+  {
+   "date": "2026-11-10 13:01",
+   "lang": "en",
+   "topic": "rugby",
+   "link": "https://news.google.com/rss/articles/CBMi-AFBVV95cUxOaHRyM3IwM0J4RUwtNzBTMnNkMkhMX1E2enBEekdack9UajN1QXJXQnMyZWx6YWIwWE9SWUVTenhsdTJFcTJfdnBkaFVMRG81SjNvR3gtSVNzRlpWSVktWG8wb1VCQlBfOFV3TmpYcFhlUEpVR1NfVnRkVW9YSnlfUE5EelRRbUJxMm9qSFlxeHFmZ2pwZTI4UXMtY2NjTmc0bzV2ZjljV2d5QktHU3ZlWG5NNC1KOS1PQXVVYUNILXNKTFZHWlRIWWpZcWFhSjFBTWVvdXNUMEpzSkxlaF9NZ3JVTE1yaFFQdk5xcFowVHo2Vk1SMTRBVw?oc=5",
+   "title": "Rugby League World Cup: England Wheelchair score record points total against home nation Australia to reach final",
+   "words": [
+    "against",
+    "australia",
+    "england",
+    "final",
+    "home",
+    "league",
+    "nation",
+    "points",
+    "reach",
+    "record",
+    "rugby",
+    "score",
+    "total",
+    "wheelchair",
+    "world"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122097585303548502"
   }
  ],
  "used_images": [
@@ -591,6 +632,8 @@
   3240227,
   4477530,
   545374,
-  68882
+  68882,
+  3414149,
+  1430061
  ]
 }
