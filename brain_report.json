@@ -1,41 +1,53 @@
 {
- "time_utc": "2026-11-09 22:41",
- "posts_checked": 19,
+ "time_utc": "2026-11-10 07:44",
+ "posts_checked": 38,
  "pages": {
   "news": {
-   "posts": 9,
-   "views": 527,
-   "engagement": 7,
+   "posts": 17,
+   "views": 848,
+   "engagement": 19,
    "by_topic": {
     "americas": [
-     0.37,
-     3
+     0.54,
+     4
     ],
     "middle_east": [
-     0.05,
-     2
+     0.41,
+     5
     ],
     "asia": [
-     0.05,
-     1
+     0.29,
+     2
     ],
     "pakistan": [
-     0.45,
+     0.29,
      2
     ],
     "science_tech": [
-     3.05,
+     2.55,
+     1
+    ],
+    "business": [
+     2.55,
+     1
+    ],
+    "africa": [
+     0.05,
+     1
+    ],
+    "world": [
+     0.52,
      1
     ]
    },
    "by_language": {
     "ur": [
-     0.28,
-     6
+     0.48,
+     9
     ],
     "en": [
-     0.2,
-     3
+     0.41,
+     8
     ]
    },
    "by_hour": {
@@ -44,7 +56,7 @@
      1
     ],
     "04:00 UTC": [
-     0.19,
+     0.21,
      2
     ],
     "06:00 UTC": [
@@ -56,96 +68,143 @@
      2
     ],
     "13:00 UTC": [
-     1.36,
+     1.69,
      1
     ],
     "14:00 UTC": [
-     3.05,
+     2.55,
      1
     ],
     "15:00 UTC": [
-     4.05,
+     1.65,
+     1
+    ],
+    "17:00 UTC": [
+     1.09,
+     1
+    ],
+    "18:00 UTC": [
+     1.65,
+     1
+    ],
+    "20:00 UTC": [
+     2.05,
+     2
+    ],
+    "23:00 UTC": [
+     0.16,
+     2
+    ],
+    "00:00 UTC": [
+     1.65,
+     1
+    ],
+    "01:00 UTC": [
+     1.65,
      1
     ]
    },
    "by_format": {
     "pic": [
-     17,
-     3
+     20,
+     5
     ],
     "reel": [
-     301,
-     2
+     243,
+     4
     ],
     "breaking": [
-     12,
-     4
+     31,
+     8
     ]
    },
    "topic_mult": {
-    "americas": 0.82,
-    "middle_east": 0.45,
-    "asia": 0.48,
-    "pakistan": 0.97,
-    "science_tech": 1.54
+    "americas": 0.75,
+    "middle_east": 0.68,
+    "asia": 0.55,
+    "pakistan": 0.7,
+    "science_tech": 1.51,
+    "business": 1.51,
+    "africa": 0.48,
+    "world": 0.85
    },
    "match_mult": {},
    "tips": [
-    "Prioritize short video Reels in Urdu focusing on major US politics and global figures (e.g., Trump news) as they generate the highest view counts.",
-    "Focus on Pakistan sports news (especially cricket match updates) in Urdu to drive higher engagement scores.",
-    "Include Science & Tech stories with strong visual hooks, as tech/nature images perform significantly above average.",
-    "Avoid text-only English breaking news posts about corporate/Middle East affairs as they receive zero views and engagement.",
-    "Schedule primary content releases between 13:00 UTC and 15:00 UTC, avoiding early morning (04:00-09:00 UTC) and late night slots."
+    "Prioritize Reels format over standard image posts or text breaking news, especially for Urdu content, as Reels deliver significantly higher reach and views (avg 243 views vs 20-31 for other formats).",
+    "Increase coverage on Science/Tech and Business news (e.g., high-profile corporate tech drama and environmental stories), which achieved peak performance scores of x2.55.",
+    "Schedule posts during peak active hours between 13:00 UTC and 20:00 UTC, or 00:00–01:00 UTC; completely avoid low-traffic slots like 04:00 UTC to 09:00 UTC and 21:00 UTC.",
+    "Focus Middle East breaking stories on high-impact infrastructure/security updates (like energy/oil attacks) rather than generic regional updates.",
+    "Avoid duplicate postings of the same headline and skip low-performing topics like general Africa news or routine sports highlights that yield zero engagement."
    ],
    "best": [
-    "[breaking/ur/pakistan] Debutants Shine as Pakistan Reach 281-5 on Day One Against Sri Lanka (views 0, eng 2, x4.00)",
-    "[pic/en/science_tech] Birds return to waterfowl park after oil vandalism (views 0, eng 2, x3.00)",
-    "[reel/ur/americas] ٹرمپ کا پریس سیکرٹری کی پیشکش پر اہم بیان (views 320, eng 3, x1.31)"
+    "[pic/en/science_tech] Birds return to waterfowl park after oil vandalism (views 0, eng 2, x2.50)",
+    "[pic/ur/business] Nvidia shares tumble over investigation into Huang's affair with alleged Chinese spy (views 0, eng 2, x2.50)",
+    "[reel/ur/americas] ٹرمپ کا پریس سیکرٹری کی پیشکش پر اہم بیان (views 323, eng 3, x1.64)"
    ],
-   "summary": "Page par Urdu Reels aur Pakistan sports updates sab se zyada views aur engagement de rahe hain. Content post karne ke liye 13:00 se 15:00 UTC ka waqt sab se behtareen sabit hua hai, jab ke English breaking news bilkul perform nahi kar rahi. Is liye hum ne Reels aur Science/Tech content ko zyada priority di hai aur low-performing topics ko kam kiya hai."
+   "summary": "Page par Reels format aur Urdu content sab se zyada views aur engagement de rahe hain, jabki standard breaking news aur pictures ki performance kam hai. Business aur Science/Tech ke topics ne sab se zyaada high score (x2.55) diya hai, jabki Africa aur general Asia ki khabron par zero views aaye. Post timing shaam 1:00 PM UTC se raat 8:00 PM UTC ke darmiyan sab se behtareen hai. Is liye hum ne Business/Tech topics ko boost kiya hai aur low-performing topics ko reduce kar diya hai."
   },
   "sports": {
-   "posts": 10,
-   "views": 198,
-   "engagement": 6,
+   "posts": 21,
+   "views": 1031,
+   "engagement": 25,
    "by_topic": {
     "football": [
-     0.05,
-     1
+     0.29,
+     2
     ],
     "formula 1": [
-     0.05,
-     1
+     0.29,
+     2
     ],
     "golf": [
      0.05,
      2
     ],
     "olympic_sports": [
-     0.25,
-     1
+     0.77,
+     2
     ],
     "big_events": [
-     0.22,
-     3
+     0.29,
+     4
     ],
     "athletics": [
-     1.85,
-     1
+     1.8,
+     2
     ],
     "hockey": [
-     3.05,
+     2.55,
+     1
+    ],
+    "esports": [
+     1.69,
+     1
+    ],
+    "general": [
+     0.29,
+     2
+    ],
+    "table_tennis": [
+     0.31,
+     1
+    ],
+    "volleyball": [
+     1.65,
+     1
+    ],
+    "american football": [
+     0.78,
      1
     ]
    },
    "by_language": {
     "ur": [
-     0.25,
-     6
+     0.47,
+     10
     ],
     "en": [
-     0.14,
-     4
+     0.41,
+     11
     ]
    },
    "by_hour": {
@@ -158,7 +217,7 @@
      2
     ],
     "05:00 UTC": [
-     0.25,
+     0.23,
      1
     ],
     "06:00 UTC": [
@@ -170,65 +229,96 @@
      2
     ],
     "13:00 UTC": [
-     1.85,
+     1.97,
      1
     ],
     "14:00 UTC": [
-     3.05,
+     2.55,
      1
     ],
     "15:00 UTC": [
-     4.05,
+     1.65,
+     1
+    ],
+    "16:00 UTC": [
+     1.68,
+     1
+    ],
+    "18:00 UTC": [
+     1.67,
+     2
+    ],
+    "20:00 UTC": [
+     2.05,
+     2
+    ],
+    "23:00 UTC": [
+     0.3,
+     3
+    ],
+    "00:00 UTC": [
+     1.13,
+     2
+    ],
+    "01:00 UTC": [
+     1.65,
      1
     ]
    },
    "by_format": {
     "pic": [
-     17,
-     3
+     20,
+     5
     ],
     "match": [
-     0,
-     1
-    ],
-    "breaking": [
-     12,
+     190,
      4
     ],
+    "breaking": [
+     31,
+     8
+    ],
     "reel": [
-     124,
-     2
+     137,
+     4
     ]
    },
    "topic_mult": {
-    "football": 0.53,
-    "formula 1": 0.48,
-    "golf": 0.45,
-    "olympic_sports": 0.71,
-    "big_events": 0.47,
-    "athletics": 1.32,
-    "hockey": 1.54
+    "football": 0.55,
+    "formula 1": 0.61,
+    "golf": 0.4,
+    "olympic_sports": 0.9,
+    "big_events": 0.49,
+    "athletics": 1.47,
+    "hockey": 1.51,
+    "esports": 1.35,
+    "general": 0.61,
+    "table_tennis": 0.75,
+    "volleyball": 1.34,
+    "american football": 0.94
    },
    "match_mult": {
-    "formula 1": 0.47
+    "formula 1": 0.61,
+    "football": 1.14,
+    "american football": 0.94
    },
    "tips": [
-    "Prioritize niche and high-performing sports like hockey and athletics which show strong multipliers, while deprioritizing struggling topics like golf and Formula 1.",
-    "Focus on video formats (Reels) as they drive significantly higher views compared to static pictures and match updates.",
-    "Use Urdu text for breaking news and big events as it performs better than English for major announcements.",
-    "Schedule posts around high-engagement windows like 13:00 to 15:00 UTC instead of low-performing morning slots.",
-    "Avoid generic match updates and repetitive breaking golf stories that yield zero engagement."
+    "Prioritize video formats like Reels and match updates, which generate significantly higher views and engagement than static pictures or breaking text posts.",
+    "Focus on high-performing niche and emerging sports such as hockey, athletics, volleyball, and esports, as they outperform mainstream topics like golf and football in relative score.",
+    "Schedule posts during peak engagement windows between 13:00 UTC and 20:00 UTC, and completely avoid posting during low-performing late night or early morning hours (04:00-09:00 UTC).",
+    "Utilize bilingual content effectively by matching Urdu with regional or high-interest action stories, and English for major match updates.",
+    "Avoid posting generic breaking news text formats (like golf or big events) that currently yield zero views and zero engagement."
    ],
    "best": [
-    "[breaking/ur/big_events] Mexico has Secured Six Medals at the Dakar 2026 Youth Olympic Games (views 0, eng 2, x4.00)",
-    "[pic/en/hockey] Photos you’ll want to see from Central New York high school fall sports 2026 (Week 10) (views 0, eng 2, x3.00)",
-    "[reel/ur/athletics] آئوی لیگ ویمنز ساکر ٹورنامنٹ کا اگلا مرحلہ (views 173, eng 2, x1.80)"
+    "[pic/en/hockey] Photos you’ll want to see from Central New York high school fall sports 2026 (Week 10) (views 0, eng 2, x2.50)",
+    "[pic/ur/olympic_sports] 2026 College Swimming League Stats: Charlotte Crush, Kaii Winkler Lead Inaugural Season Scoring (views 0, eng 2, x2.50)",
+    "[reel/ur/athletics] آئوی لیگ ویمنز ساکر ٹورنامنٹ کا اگلا مرحلہ (views 188, eng 3, x1.92)"
    ],
-   "summary": "Sports Hubs page par pichle 21 dino ke data se pata chala hai ke hockey aur athletics posts aur reels sab se behtareen chal rahi hain, khas taur par dopahar 1 se 3 baje ke darmiyan. Golf, Formula 1 aur aam match updates bilkul nahi chal rahe aur un par engagement zero hai. Isliye hum ne behtar reach aur views ke liye video formats aur high-performing sports ko zyada promote karne ka faisla kiya hai."
+   "summary": "Sports Hubs page owner ke liye performance data clear hai. Hamare Reels aur Match updates sab se ziada views aur engagement la rahe hain, jabke Golf aur Breaking news bilkul fail hain. Hum ne timing adjust ki hai aur Hockey, Athletics, aur Volleyball jaise topics ko ziada prefer karne ka faisla kiya hai jo behtareen response de rahe hain."
   }
  },
  "lang_flip": {
   "ur_to_en": 0,
-  "en_to_ur": 0.14
+  "en_to_ur": 0.04
  }
 }

@@ -1,46 +1,56 @@
 {
- "updated": "2026-11-09 22:41",
- "posts_checked": 19,
+ "updated": "2026-11-10 07:44",
+ "posts_checked": 38,
  "news": {
   "topic_mult": {
-   "americas": 0.82,
-   "middle_east": 0.45,
-   "asia": 0.48,
-   "pakistan": 0.97,
-   "science_tech": 1.54
+   "americas": 0.75,
+   "middle_east": 0.68,
+   "asia": 0.55,
+   "pakistan": 0.7,
+   "science_tech": 1.51,
+   "business": 1.51,
+   "africa": 0.48,
+   "world": 0.85
   },
   "match_mult": {},
   "tips": [
-   "Prioritize short video Reels in Urdu focusing on major US politics and global figures (e.g., Trump news) as they generate the highest view counts.",
-   "Focus on Pakistan sports news (especially cricket match updates) in Urdu to drive higher engagement scores.",
-   "Include Science & Tech stories with strong visual hooks, as tech/nature images perform significantly above average.",
-   "Avoid text-only English breaking news posts about corporate/Middle East affairs as they receive zero views and engagement.",
-   "Schedule primary content releases between 13:00 UTC and 15:00 UTC, avoiding early morning (04:00-09:00 UTC) and late night slots."
+   "Prioritize Reels format over standard image posts or text breaking news, especially for Urdu content, as Reels deliver significantly higher reach and views (avg 243 views vs 20-31 for other formats).",
+   "Increase coverage on Science/Tech and Business news (e.g., high-profile corporate tech drama and environmental stories), which achieved peak performance scores of x2.55.",
+   "Schedule posts during peak active hours between 13:00 UTC and 20:00 UTC, or 00:00–01:00 UTC; completely avoid low-traffic slots like 04:00 UTC to 09:00 UTC and 21:00 UTC.",
+   "Focus Middle East breaking stories on high-impact infrastructure/security updates (like energy/oil attacks) rather than generic regional updates.",
+   "Avoid duplicate postings of the same headline and skip low-performing topics like general Africa news or routine sports highlights that yield zero engagement."
   ]
  },
  "sports": {
   "topic_mult": {
-   "football": 0.53,
-   "formula 1": 0.48,
-   "golf": 0.45,
-   "olympic_sports": 0.71,
-   "big_events": 0.47,
-   "athletics": 1.32,
-   "hockey": 1.54
+   "football": 0.55,
+   "formula 1": 0.61,
+   "golf": 0.4,
+   "olympic_sports": 0.9,
+   "big_events": 0.49,
+   "athletics": 1.47,
+   "hockey": 1.51,
+   "esports": 1.35,
+   "general": 0.61,
+   "table_tennis": 0.75,
+   "volleyball": 1.34,
+   "american football": 0.94
   },
   "match_mult": {
-   "formula 1": 0.47
+   "formula 1": 0.61,
+   "football": 1.14,
+   "american football": 0.94
   },
   "tips": [
-   "Prioritize niche and high-performing sports like hockey and athletics which show strong multipliers, while deprioritizing struggling topics like golf and Formula 1.",
-   "Focus on video formats (Reels) as they drive significantly higher views compared to static pictures and match updates.",
-   "Use Urdu text for breaking news and big events as it performs better than English for major announcements.",
-   "Schedule posts around high-engagement windows like 13:00 to 15:00 UTC instead of low-performing morning slots.",
-   "Avoid generic match updates and repetitive breaking golf stories that yield zero engagement."
+   "Prioritize video formats like Reels and match updates, which generate significantly higher views and engagement than static pictures or breaking text posts.",
+   "Focus on high-performing niche and emerging sports such as hockey, athletics, volleyball, and esports, as they outperform mainstream topics like golf and football in relative score.",
+   "Schedule posts during peak engagement windows between 13:00 UTC and 20:00 UTC, and completely avoid posting during low-performing late night or early morning hours (04:00-09:00 UTC).",
+   "Utilize bilingual content effectively by matching Urdu with regional or high-interest action stories, and English for major match updates.",
+   "Avoid posting generic breaking news text formats (like golf or big events) that currently yield zero views and zero engagement."
   ]
  },
  "lang_flip": {
   "ur_to_en": 0,
-  "en_to_ur": 0.14
+  "en_to_ur": 0.04
  }
 }
