@@ -1,32 +1,23 @@
 {
- "lang": "en",
- "stock_clips": 28,
+ "lang": "ur",
+ "stock_clips": 9,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "islamic history story in urdu",
-  "islamic history story malayalam",
-  "islamic history story in hindi",
-  "islamic history story in tamil",
-  "islamic history story in tamil cartoon",
-  "islamic history story malayalam speech",
-  "islamic history story bangla",
-  "islamic history story telling malayalam",
-  "islamic history story malayalam cartoon"
+  "nabi ke sabr ka waqia"
  ],
- "search": "islamic history story in urdu",
- "vision_checks": 126,
- "clips_rejected": 70,
+ "search": "nabi ke sabr ka waqia",
+ "vision_checks": 45,
  "sources": {
-  "pixabay": 19,
   "commons": 4,
-  "mixkit": 4,
+  "pixabay": 4,
   "openverse": 1
  },
+ "clips_rejected": 26,
  "photo_clips": 1,
- "long_minutes": 3.76,
- "time_utc": "2026-11-10 20:31",
- "title": "Khalid ibn al-Walid Conversion and Bravery",
+ "reel_minutes": 0.99,
+ "time_utc": "2026-11-10 21:23",
+ "title": "واقعہ طائف: نبی کے صبر اور معافی کا ایمان افروز واقعہ",
  "dry_run": false,
  "posted_ok": 1
 }
