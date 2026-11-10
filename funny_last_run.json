@@ -1,35 +1,32 @@
 {
  "mode": "auto",
- "stock_clips": 9,
+ "stock_clips": 12,
  "fallback_clips": 0,
  "errors": [],
  "format": "people",
  "search_phrases": [
-  "subah ka nashta halwa puri",
-  "halwa puri breakfast recipe",
-  "halwa puri breakfast",
-  "halwa puri wale channel",
-  "halwa puri wale chane",
-  "suji ka halwa poori wala"
+  "freelancing introduction video",
+  "freelancing introduction"
  ],
- "funny_score": "3 -> 8",
- "search": "subah ka nashta halwa puri",
- "reel_format": "latifay",
- "vision_checks": 148,
- "clips_rejected": 139,
- "no_match": [
-  "man waiting breakfast",
-  "funny man speaking",
-  "family laughing dinner",
-  "family laughing dinner"
- ],
+ "funny_score": "4 -> 9",
+ "search": "freelancing introduction video",
+ "reel_format": "har_ghar",
+ "vision_checks": 112,
+ "clips_rejected": 125,
  "sources": {
-  "pixabay": 7,
-  "mixkit": 1
+  "pixabay": 6
  },
+ "no_match": [
+  "businessman confused video call",
+  "street vendor shouting megaphone",
+  "lights turning off room",
+  "man sweating exhausted desk",
+  "laptop screen message notification",
+  "young man laughing hands on head"
+ ],
  "laughs": 5,
- "reel_minutes": 0.86,
- "time_utc": "2026-11-10 16:35",
- "title": "اتوار کی صبح حلوہ پوری کا جنون",
+ "reel_minutes": 0.8,
+ "time_utc": "2026-11-10 18:39",
+ "title": "گھر کا فری لانسر اور انگریزی کا جنازہ",
  "dry_run": false
 }
