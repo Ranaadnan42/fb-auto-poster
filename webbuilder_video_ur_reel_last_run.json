@@ -1,15 +1,15 @@
 {
- "time_utc": "2026-11-08 15:55",
- "spotlight": "supermarket",
- "post_id": "1163550109393141",
+ "time_utc": "2026-11-10 21:16",
+ "spotlight": "school",
+ "post_id": "1661970312290422",
  "error": null,
  "lang": "ur",
  "kind": "reel",
- "clips": 1,
+ "clips": 0,
  "fallback": 0,
  "errors": [],
  "real_work": 4,
- "real_pos": 2,
+ "real_pos": 1,
  "mock": 3,
- "seconds": 58.1
+ "seconds": 54.5
 }
