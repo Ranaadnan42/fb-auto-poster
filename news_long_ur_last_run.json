@@ -1,11 +1,11 @@
 {
- "time_utc": "2026-11-10 11:36",
+ "time_utc": "2026-11-09 23:37",
  "kind": "long",
  "lang": "ur",
  "dry_run": false,
  "posted": {},
  "errors": [
-  "news: 'list' object has no attribute 'get'",
+  "news: Facebook jawab samajh nahi aaya: ",
   "sports: Facebook jawab samajh nahi aaya: "
  ]
 }
