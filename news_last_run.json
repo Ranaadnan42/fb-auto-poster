@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-10 13:37",
- "lang": "en",
+ "time_utc": "2026-11-10 14:44",
+ "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1448208791702551_122108104647532804",
-   "topic": "business",
-   "title": "Kim Kardashian's Skims offers refunds for $148 advent calendar after backlash"
+   "post": "1448208791702551_122108126523532804",
+   "topic": "world",
+   "title": "US calls for new Europe security at Russia-Ukraine talks"
   },
   "sports": {
-   "post": "1465090056678690_122097611451548502",
-   "topic": "formula1",
-   "title": "How good is Hamilton and how long can he stay in F1? - Q&A"
+   "post": "1465090056678690_122097651501548502",
+   "topic": "rugby",
+   "title": "Wheelchair Rugby League World Cup: Spectacular England still short of best form"
   }
  },
  "errors": []

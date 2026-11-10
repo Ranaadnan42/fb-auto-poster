@@ -299,6 +299,23 @@
     "skims"
    ],
    "post_id": "1448208791702551_122108104647532804"
+  },
+  {
+   "date": "2026-11-10 14:44",
+   "lang": "ur",
+   "topic": "world",
+   "link": "https://news.google.com/rss/articles/CBMi3gFBVV95cUxQdDUwTVB6M0diOUJtc1I1SHFKU3BCYU5SMm5FanM5LXd5V25RclZSRlNQVjBfUHdwWXFpeWVFT00yTXZEcWFCc21YMjlnclRfQ3dBNmdJYjNET1FNaFBUZ0xQaXpVdXFpNU5yV1A1bmFFb3dpclhyRW8zYzNXLVRmbXNGeVY4emViZTRpUC1MVGRXMzVxUHRQMGo1bnQzaWhhM0Y2aVh4aUp5NDNqWTdYTURYUXJFSEdoSHZUOVU3amZXeTJCMkRxdjVQRlNxMGhNRFE0dEk2RzRoeFhZSEE?oc=5",
+   "title": "US calls for new Europe security at Russia-Ukraine talks",
+   "words": [
+    "calls",
+    "europe",
+    "russia",
+    "security",
+    "talks",
+    "ukraine"
+   ],
+   "breaking": true,
+   "post_id": "1448208791702551_122108126523532804"
   }
  ],
  "sports": [
@@ -597,6 +614,27 @@
     "stay"
    ],
    "post_id": "1465090056678690_122097611451548502"
+  },
+  {
+   "date": "2026-11-10 14:44",
+   "lang": "ur",
+   "topic": "rugby",
+   "link": "https://news.google.com/rss/articles/CBMicEFVX3lxTE0zTzZXYmdvdG9vS2QyY3kwSUh5M1hKc3VEa1dGQ3JLOVl0VmNLTjdpMHRNbGxHdk1nOWQxMjdLUUZ6TUtwYnJZVTh1X2Z0WVN0WFFyNWN3dGpkLVhWaDBDNnJfNy1YaFRyU2tBSENUZEU?oc=5",
+   "title": "Wheelchair Rugby League World Cup: Spectacular England still short of best form",
+   "words": [
+    "best",
+    "england",
+    "form",
+    "league",
+    "rugby",
+    "short",
+    "spectacular",
+    "still",
+    "wheelchair",
+    "world"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122097651501548502"
   }
  ],
  "used_images": [
@@ -623,6 +661,8 @@
   3240227,
   4477530,
   545374,
-  68882
+  68882,
+  8429768,
+  62867
  ]
 }
