@@ -1,26 +1,29 @@
 {
- "lang": "en",
- "stock_clips": 40,
+ "lang": "ur",
+ "stock_clips": 9,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "value of time islamic speech in malayalam",
-  "importance of time islam",
-  "importance of time islamic lectures",
-  "time value of money in islam"
+  "quran ki ayat tarjuma ke sath",
+  "quran ki ayat kitni hai",
+  "quran ki ayat ka tarjuma",
+  "quran ki ayatul kursi",
+  "quran ki ayat urdu tarjuma ke sath",
+  "quran ki ayat with tarjuma",
+  "quran ki ayat manzil",
+  "quran ki ayat number 10",
+  "quran ki ayat 11"
  ],
- "search": "importance of time islam",
- "vision_checks": 165,
+ "search": "quran ki ayatul kursi",
+ "vision_checks": 54,
  "sources": {
-  "pixabay": 29,
-  "mixkit": 4,
-  "commons": 7
+  "pixabay": 9
  },
- "clips_rejected": 86,
- "photo_clips": 1,
- "long_minutes": 4.91,
- "time_utc": "2026-11-09 23:29",
- "title": "Why Every Second Matters: Importance of Time in Islam",
+ "clips_rejected": 38,
+ "photo_clips": 3,
+ "reel_minutes": 1.09,
+ "time_utc": "2026-11-10 08:50",
+ "title": "آیۃ الکرسی کی فضیلت: حضرت ابو ہریرہؓ اور شیطان کا ایمان افروز واقعہ",
  "dry_run": false,
  "posted_ok": 1
 }
