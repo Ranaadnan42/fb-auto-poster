@@ -281,6 +281,26 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122107867971532804"
+  },
+  {
+   "date": "2026-11-10 07:04",
+   "lang": "en",
+   "topic": "asia",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNeWZLSmVmc24zNkczOTlKaXE0eGlhQUZhYWNvNjBaanpFYk5VUlBBc21GeEI5Yl9QN25JdGpCQXEyNGxFMjVZaEdjaW9qUDM2SzdEUUZ5TVF0dDlJOVVGRWs3RXpSYUU3a1Z3bFdDTFRLUmhWU3ZUS2xJWndjMzk3cnFZdElrUHIxdzJURWJqMXNHWUxuTGFYSQ?oc=5",
+   "title": "China’s trade surplus surpasses $1 trillion for a 2nd straight year, as exports surge 35%",
+   "words": [
+    "china",
+    "exports",
+    "straight",
+    "surge",
+    "surpasses",
+    "surplus",
+    "trade",
+    "trillion",
+    "year"
+   ],
+   "breaking": true,
+   "post_id": "1448208791702551_122107952979532804"
   }
  ],
  "sports": [
@@ -565,6 +585,28 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122097111777548502"
+  },
+  {
+   "date": "2026-11-10 07:04",
+   "lang": "en",
+   "topic": "big_events",
+   "link": "https://news.google.com/rss/articles/CBMihwFBVV95cUxNWnh2M0tySHQ5cFV1d3c0MVBKOUZ2NVZsWktyYnhGcU1USkZEVzc0YVBRQVVFZmt0c05ic1B6ZjFrTjhHUzZmQzdJb2dlV0tZcG9BeVhnWERITU05Q2M0NGhubWRYTHBCZjhvTVB3SDhRZ1RtRmcxbWE5ZTlCSXcwVGxYN1YtQ1E?oc=5",
+   "title": "Rugby League World Cup 2026, Wheelchair semi-finals, official team lists, updates",
+   "words": [
+    "2026",
+    "finals",
+    "league",
+    "lists",
+    "official",
+    "rugby",
+    "semi",
+    "team",
+    "updates",
+    "wheelchair",
+    "world"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122097274365548502"
   }
  ],
  "used_images": [
@@ -591,6 +633,8 @@
   3240227,
   4477530,
   545374,
-  68882
+  68882,
+  5708691,
+  4796428
  ]
 }
