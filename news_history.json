@@ -281,6 +281,26 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122107867971532804"
+  },
+  {
+   "date": "2026-11-10 04:38",
+   "lang": "en",
+   "topic": "asia",
+   "link": "https://news.google.com/rss/articles/CBMimAFBVV95cUxNeWZLSmVmc24zNkczOTlKaXE0eGlhQUZhYWNvNjBaanpFYk5VUlBBc21GeEI5Yl9QN25JdGpCQXEyNGxFMjVZaEdjaW9qUDM2SzdEUUZ5TVF0dDlJOVVGRWs3RXpSYUU3a1Z3bFdDTFRLUmhWU3ZUS2xJWndjMzk3cnFZdElrUHIxdzJURWJqMXNHWUxuTGFYSQ?oc=5",
+   "title": "China’s trade surplus surpasses $1 trillion for a 2nd straight year, as exports surge 35%",
+   "words": [
+    "china",
+    "exports",
+    "straight",
+    "surge",
+    "surpasses",
+    "surplus",
+    "trade",
+    "trillion",
+    "year"
+   ],
+   "breaking": true,
+   "post_id": "1448208791702551_122107902933532804"
   }
  ],
  "sports": [
@@ -565,6 +585,26 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122097111777548502"
+  },
+  {
+   "date": "2026-11-10 04:38",
+   "lang": "en",
+   "topic": "big_events",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxQX2d3MENHcHZ5d0lOY2pTMG90anJRUmtZVWszVjdCaTctcFQteXdEcEZVUlk4YWJiTWVOa05qNmNja2Rfa3RUYk5HRDVQT2s2QUhSWjBRUlg3NDVkSW54S3BlWTlzZ280YVhxZHZtU1ZDTE5NcWpQMVBJYWgtSENRZ3FQU1RnNWFJRGdxZ0FteUYwdVRmMEdlZjNVendXd29FWUxuc1hRbTNXbUkxSEwyNnVhWlBFc3BEanFHTHRWT2IwVjBRbFE?oc=5",
+   "title": "Naomi Cesar delivers first medal for PH at Dakar Youth Olympic Games",
+   "words": [
+    "cesar",
+    "dakar",
+    "delivers",
+    "first",
+    "games",
+    "medal",
+    "naomi",
+    "olympic",
+    "youth"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122097177309548502"
   }
  ],
  "used_images": [
@@ -591,6 +631,8 @@
   3240227,
   4477530,
   545374,
-  68882
+  68882,
+  3021820,
+  9856638
  ]
 }
