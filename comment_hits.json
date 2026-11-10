@@ -1,34 +1,76 @@
 {
- "updated": "2026-11-10T11:48Z",
- "new": 12,
+ "updated": "2026-11-10T13:02Z",
+ "new": 7,
  "stats": {
-  "site:facebook.com \"POS software\" chahiye": "0 (auto)",
-  "site:facebook.com \"billing software\" chahiye dukan": "0 (auto)",
+  "site:facebook.com \"POS software\" chahiye": "0 (bing)",
+  "site:facebook.com \"billing software\" chahiye dukan": "0 (bing)",
   "site:facebook.com \"software chahiye\" shop": "0 (bing)",
-  "site:facebook.com/groups \"POS\" recommend shop Pakistan": "2 (bing)",
-  "site:facebook.com \"POS system\" recommend restaurant": "1 (bing)",
-  "site:facebook.com \"looking for POS\" shop": "1 (yahoo)",
-  "site:facebook.com \"inventory software\" recommend small business": "2 (yahoo)",
-  "site:facebook.com \"need a website\" for my business": "1 (yahoo)",
-  "site:facebook.com \"website banwani\" hai": "0 (auto)",
+  "site:facebook.com/groups \"POS\" recommend shop Pakistan": "0 (bing)",
+  "site:facebook.com \"POS system\" recommend restaurant": "1 (auto)",
+  "site:facebook.com \"looking for POS\" shop": "0 (auto)",
+  "site:facebook.com \"inventory software\" recommend small business": "0 (bing)",
+  "site:facebook.com \"need a website\" for my business": "0 (auto)",
+  "site:facebook.com \"website banwani\" hai": "0 (yahoo)",
   "site:facebook.com \"app banwani\" hai": "0 (auto)",
   "site:facebook.com \"looking for web developer\" small business": "0 (auto)",
-  "site:facebook.com \"need a social media manager\"": "1 (google)",
+  "site:facebook.com \"need a social media manager\"": "0 (yahoo)",
   "site:facebook.com \"faceless youtube\" automation help": "0 (auto)",
   "site:facebook.com \"برنامج كاشير\" افضل": "0 (bing)",
-  "site:facebook.com \"برنامج محاسبي\" محل": "0 (auto)",
-  "site:facebook.com \"نظام نقاط البيع\" مطعم": "0 (auto)",
+  "site:facebook.com \"برنامج محاسبي\" محل": "0 (bing)",
+  "site:facebook.com \"نظام نقاط البيع\" مطعم": "0 (bing)",
   "site:facebook.com \"ابي موقع\" لمحلي": "0 (auto)",
-  "site:facebook.com/groups \"website chahiye\"": "0 (google)",
+  "site:facebook.com/groups \"website chahiye\"": "0 (auto)",
   "site:facebook.com/groups \"koi acha software\" dukan": "0 (none)",
-  "site:facebook.com/groups \"POS\" Riyadh recommend": "0 (auto)",
-  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "3 (auto)",
+  "site:facebook.com/groups \"POS\" Riyadh recommend": "0 (bing)",
+  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "1 (auto)",
   "site:facebook.com/groups \"برنامج كاشير\" الرياض": "0 (auto)",
-  "site:facebook.com/groups \"برنامج كاشير\" دبي": "0 (bing)",
+  "site:facebook.com/groups \"برنامج كاشير\" دبي": "0 (google)",
   "site:facebook.com/groups \"who can make a website\"": "0 (none)",
-  "site:facebook.com/groups \"need an app\" for my business": "1 (bing)"
+  "site:facebook.com/groups \"need an app\" for my business": "5 (bing)"
  },
  "hits": [
+  {
+   "url": "https://www.facebook.com/groups/541108569267853",
+   "title": "Food Lovers - Des Moines - Reviews from us, the customers.",
+   "snippet": "Nov 1, 2026 · We walked in a little before 8:00 on 10/24 to a restaurant that was probably 1/3 full. We were seated promptly, and drinks arrived in a reasonable amount of time.",
+   "found": "2026-11-10T13:00Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/576100836561733",
+   "title": "DET ÄR KUL ATT DANSA | Facebook",
+   "snippet": "3 days ago · En grupp för oss som dansar. För att påverka kulturen i Sverige och för att få upp den status som den folkrörelse det är.",
+   "found": "2026-11-10T13:02Z"
+  },
+  {
+   "url": "https://business.facebook.com/groups/1076475925756638",
+   "title": "VFW Auxiliary, Department of IA, 5th District | Facebook",
+   "snippet": "4 days ago · This Facebook page is an extension of the Iowa Auxiliary's. It will be used to announce meeting dates, activities within the district and Department of...",
+   "found": "2026-11-10T13:02Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/257898730925357",
+   "title": "Iowa Small Businesses | Facebook",
+   "snippet": "Oct 21, 2026 · Whether you're running a cozy café in Des Moines, crafting unique goods in Dubuque, or providing essential services in Cedar Rapids, this group is your hub for growth and collaboration. 🤝 Stay informed about local events, business opportunities, and trends that impact our vibrant community.",
+   "found": "2026-11-10T13:02Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/339555060744117",
+   "title": "Small Business Vendors around Iowa - Facebook",
+   "snippet": "Oct 22, 2026 · It’s a chance to showcase your work, connect with other local creatives, promote your business, and potentially reach new clients! If you own a boutique or small brand and want your clothing, jewelry, or accessories featured in a shoot, I’d love to hear from you!",
+   "found": "2026-11-10T13:02Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1524661171109400",
+   "title": "DES MOINES SMALL BUSINESS LISTINGS ONLY | Facebook",
+   "snippet": "Oct 28, 2026 · Missed messages and slow responses can cost your business valuable opportunities. At Apex Studio Design, we help businesses capture leads, automate follow-ups, and turn more inquiries into customers.",
+   "found": "2026-11-10T13:02Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/dmbizmixer",
+   "title": "Des Moines Business Mixer - Facebook",
+   "snippet": "Oct 17, 2026 · Join us every FIRST Thursday for networking, learning, and a whole lot of fun with fellow local business professionals as we mix with members of the Des Moines Chamber of Commerce! 🗓️ It’s a great chance to connect, share ideas, and grow your business in good company.",
+   "found": "2026-11-10T13:02Z"
+  },
   {
    "url": "https://www.facebook.com/groups/895621335949326/posts/1539032374941549",
    "title": "Fraud Alerts In Pakistan | An Extremely Disappointing ...",
@@ -1786,48 +1828,6 @@
    "title": "Žilina - Hájik | Facebook",
    "snippet": "3 days ago · Obyvatelia najmladsieho sidliska v Ziline - sidliska Hajik.",
    "found": "2026-10-31T09:58Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1197143574375974/posts/2314167696006884",
-   "title": "Free legal advice Thailand (Visa & Lawyer) | i need the ...",
-   "snippet": "Oct 16, 2026 · For a frozen corporate bank account in Thailand, I would recommend a Thai lawyer experienced in banking disputes, financial crime and anti-money laundering (AML), rather than a general corporate lawyer. The first thing to establish is who ordered the restriction and why. A debit freeze can arise from the bank's internal compliance review, a suspicious transaction, a police investigation, an ...",
-   "found": "2026-10-31T09:58Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/184806147634747/posts/1133712192744133",
-   "title": "Costco Uncensored | This is so disrespectful to other ...",
-   "snippet": "Oct 17, 2026 · This is so disrespectful to other shoppers when someone leaves a perishable food item anywhere in a non-refrigerated area. As if that’s not bad enough, it gets worse. I informed the supervisor that...",
-   "found": "2026-10-31T09:58Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/instantdata",
-   "title": "Instant Data Scraper community | Facebook",
-   "snippet": "My job was to find the right people at those companies and, instead of focusing mainly on generic company/business emails, the priority was to find direct personal work emails of the decision-makers. It sounds simple, but there’s a big difference between finding an email and finding the right person + the right email.",
-   "found": "2026-10-31T09:59Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1903507349705616",
-   "title": "Гласът на Дряново Group | Facebook",
-   "snippet": "1 day ago · Групата към Гласът на Дряново ( Dryanovo Voice) е създадена в съгласие с принципа: Всеки има право на мнение, Всеки има право да бъде чуто ! Учредител на...",
-   "found": "2026-10-31T09:59Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/182796075211912",
-   "title": "TRAVUDSTYR SÆLGES | Facebook",
-   "snippet": "1 day ago · Kentucky kombi cooler str 140 Brugt under 2 timer til transport - er blevet vasket efter blllederne blev taget 500kr Befinder sig i Struer kan sendes.",
-   "found": "2026-10-31T09:59Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/140818172672321",
-   "title": "Koillismaan kasvatit | Facebook",
-   "snippet": "Oct 23, 2026 · 📸 Marraskuun kansikuvaäänestys Hei Koillismaan kasvatit! On aika valita Koillismaahan liittyvä ajankohtainen kansikuva ryhmäämme marraskuulle. Voit osallistua lataamalla upeimman otoksesi ja/tai antamalla äänesi suosikillesi! 🛠️ Säännöt ja ohjeet, (lue kaikki): • Teema: Kuvan tulee liittyä Koillismaahan sekä ajankohtaan. • Kuvan muoto: Kuvan tulee olla vaakakuva, jotta ...",
-   "found": "2026-10-31T09:59Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/anaparst",
-   "title": "ΑΝΑΠΛΗΡΩΤΕΣ (ΔΙΟΡΙΣΜΕΝΟΙ Κ ΑΔΙΟΡΙΣΤΟΙ) | Facebook",
-   "snippet": "17 hours ago · Η ομάδα κάνει δεκτή κάθε ανάρτηση εκπαιδευτικού περιεχομένου ακόμα και πολιτικού που αφορούν αποκλειστικά την εκπαίδευση. Άσχετες, υβριστικές αναρτήσεις...",
-   "found": "2026-10-31T09:59Z"
   }
  ]
 }
