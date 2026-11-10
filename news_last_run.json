@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-10 09:37",
- "lang": "ur",
+ "time_utc": "2026-11-09 23:29",
+ "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1448208791702551_122108007261532804",
-   "topic": "europe",
-   "title": "Abu Dhabi talks put Europe, Russia on collision course over Ukraine"
+   "post": "1448208791702551_122107824135532804",
+   "topic": "africa",
+   "title": "Nine Zimbabweans caught allegedly trying to leave South Africa to fight in Ukraine"
   },
   "sports": {
-   "post": "1465090056678690_122097451353548502",
-   "topic": "cricket",
-   "title": "'Sandpapergate': Mitchell Starc denies knowledge after Usman Khawaja claims as Cricket Australia says investigation will"
+   "post": "1465090056678690_122097035253548502",
+   "topic": "general",
+   "title": "Papers: Poch would consider PL return to join Man Utd"
   }
  },
  "errors": []
