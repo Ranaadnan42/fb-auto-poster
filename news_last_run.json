@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-10 16:24",
- "lang": "en",
+ "time_utc": "2026-11-10 17:20",
+ "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1448208791702551_122108158167532804",
-   "topic": "americas",
-   "title": "Russia, Ukraine and US officials hold talks in Abu Dhabi"
+   "post": "1448208791702551_122108178825532804",
+   "topic": "science_tech",
+   "title": "Faisal Islam: What the boss of US tech giant Nvidia told me about China and national security"
   },
   "sports": {
-   "post": "1465090056678690_122097719007548502",
-   "topic": "american_football",
-   "title": "NFL Power Rankings, Week 10: Staying Strong at No. 1"
+   "post": "1465090056678690_122097764667548502",
+   "topic": "esports",
+   "title": "4ivan Accuses Nemiga Gaming’s Carry of 322"
   }
  },
  "errors": []

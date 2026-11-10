@@ -333,6 +333,28 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122108158167532804"
+  },
+  {
+   "date": "2026-11-10 17:20",
+   "lang": "ur",
+   "topic": "science_tech",
+   "link": "https://www.bbc.co.uk/news/articles/c64g1gzy2vdzo?at_medium=RSS&at_campaign=rss",
+   "title": "Faisal Islam: What the boss of US tech giant Nvidia told me about China and national security",
+   "words": [
+    "about",
+    "boss",
+    "china",
+    "faisal",
+    "giant",
+    "islam",
+    "national",
+    "nvidia",
+    "security",
+    "tech",
+    "told",
+    "what"
+   ],
+   "post_id": "1448208791702551_122108178825532804"
   }
  ],
  "sports": [
@@ -668,6 +690,21 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122097719007548502"
+  },
+  {
+   "date": "2026-11-10 17:20",
+   "lang": "ur",
+   "topic": "esports",
+   "link": "https://news.google.com/rss/articles/CBMib0FVX3lxTE5WcmhlMU1meXlVd1hiNUs1QUdoaU1MQUljcG1mU0xaLTI2dkltenRwSFVnMUpvVUxOTW9lVFdvNEV0SFpNcFBoQWxPMEVpTVpJVXVRS2xJemlKZWphZUYtNFlOSG16bVNCNzRwTWs2SQ?oc=5",
+   "title": "4ivan Accuses Nemiga Gaming’s Carry of 322",
+   "words": [
+    "4ivan",
+    "accuses",
+    "carry",
+    "gaming",
+    "nemiga"
+   ],
+   "post_id": "1465090056678690_122097764667548502"
   }
  ],
  "used_images": [
@@ -697,6 +734,7 @@
   68882,
   8429768,
   62867,
-  2454766
+  2454766,
+  289470
  ]
 }
