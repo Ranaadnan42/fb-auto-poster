@@ -1,32 +1,35 @@
 {
  "mode": "auto",
- "stock_clips": 11,
+ "stock_clips": 9,
  "fallback_clips": 0,
  "errors": [],
  "format": "people",
  "search_phrases": [
-  "parking fight",
-  "parking lot fight",
-  "parking funny video"
+  "subah ka nashta halwa puri",
+  "halwa puri breakfast recipe",
+  "halwa puri breakfast",
+  "halwa puri wale channel",
+  "halwa puri wale chane",
+  "suji ka halwa poori wala"
  ],
- "funny_score": "3 -> 9",
- "search": "parking fight",
- "reel_format": "dialogue",
- "vision_checks": 254,
- "clips_rejected": 243,
- "sources": {
-  "pixabay": 9,
-  "commons": 2
- },
+ "funny_score": "3 -> 8",
+ "search": "subah ka nashta halwa puri",
+ "reel_format": "latifay",
+ "vision_checks": 148,
+ "clips_rejected": 139,
  "no_match": [
-  "man pointing road",
-  "man yelling furious",
-  "man pointing gate",
-  "man tapping phone follow"
+  "man waiting breakfast",
+  "funny man speaking",
+  "family laughing dinner",
+  "family laughing dinner"
  ],
+ "sources": {
+  "pixabay": 7,
+  "mixkit": 1
+ },
  "laughs": 5,
- "reel_minutes": 0.97,
- "time_utc": "2026-11-10 13:00",
- "title": "بازار کی پارکنگ فائٹ اور چچا کا دھماکے دار حل",
+ "reel_minutes": 0.86,
+ "time_utc": "2026-11-10 16:35",
+ "title": "اتوار کی صبح حلوہ پوری کا جنون",
  "dry_run": false
 }
