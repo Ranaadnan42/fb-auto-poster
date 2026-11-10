@@ -552,6 +552,18 @@
   "title": "جুলিয়ান ڈীন کا نیا سفر اور مقاصد"
  },
  {
+  "date": "2026-11-10 04:41",
+  "page": "news",
+  "id": "1691204933019188",
+  "fmt": "reel",
+  "lang": "en",
+  "topics": [
+   "europe"
+  ],
+  "sport": null,
+  "title": "Ukraine Peace Talks Resume in UAE"
+ },
+ {
   "date": "2026-11-10 04:42",
   "page": "sports",
   "id": "2573528266478851",
@@ -562,5 +574,17 @@
   ],
   "sport": "basketball",
   "title": "Indiana Pacers at Dallas Mavericks"
+ },
+ {
+  "date": "2026-11-10 04:43",
+  "page": "sports",
+  "id": "29212158658416328",
+  "fmt": "reel",
+  "lang": "en",
+  "topics": [
+   "rugby"
+  ],
+  "sport": null,
+  "title": "England Claims Impressive Rugby Victory Over Australia"
  }
 ]
