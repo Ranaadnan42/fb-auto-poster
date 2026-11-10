@@ -1,71 +1,67 @@
 {
  "islamic": {
-  "avoid": [
-   "Value of time posts"
-  ],
+  "avoid": [],
   "try": [
-   "Bilal’s first Adhan after emancipation",
-   "Khalid ibn al-Walid’s conversion and bravery",
-   "The Prophet’s pact at Hudaybiyyah and its lessons",
-   "Hadith of the Prophet’s smile and its reward",
-   "Sa’d ibn Abi Waqqas at the Battle of Badr",
-   "The Prophet’s generosity: the date palm incident"
+   "Bilal ibn Rabah’s perseverance during early Islam",
+   "Zamzam water miracle at the Battle of Badr",
+   "Prophet’s kindness to a stray cat (the cat and the milk)",
+   "Ansar’s generosity in feeding the Prophet’s companions",
+   "The forgiveness of the man who broke his fast (the dates incident)",
+   "Khadijah’s support and business acumen as a role model for Muslim women"
   ],
-  "note": "Page thoda repetitive hai"
+  "note": "Page thodi repetitive lag rahi hai"
  },
  "funny": {
   "avoid": [
    "ماموں مستانہ کا ڈائٹ ڈرامہ series",
-   "abba's middle-class logic style",
-   "strict ammi's rules explained style",
-   "family WhatsApp group forwards topic",
-   "government office file topic",
-   "Eidi collection topic",
-   "shaadi (wedding) season topic"
+   "selfie/TikTok craze incidents",
+   "government office file storyline",
+   "ہر گھر کا کوکنگ ڈسائسٹر اور نیا ماسٹر شیف",
+   "ریموٹ کی جنگ اور ابّو کا سپریم کورٹ والا فیصلہ",
+   "بازار کی پارکنگ فائٹ",
+   "دادی جان اور پوتے کی عید شاپنگ",
+   "family WhatsApp group forwards"
   ],
   "try": [
-   "POV: When the neighbor's AC is louder than your own TV",
-   "Types of people: The 'I will call you later' aunt who never calls",
-   "Expectation vs Reality: Trying to cook biryani for the first time",
-   "Kya Hota Agar: If the school bus driver had a strict deadline",
-   "Har Ghar Mein: The struggle of finding a parking spot in a narrow gali",
-   "Chat Comedy: The drama of sharing one pair of earphones with a friend"
+   "پڑوسی کے بیکری کی نئی بریڈ اور اس کا سائز پر ہلکا مزاح",
+   "پانی کے بل میں اچانک اضافہ اور انکل کا دیسی حل",
+   "پڑوس کے بچے کی پہلی اسکول ڈیوٹی اور ٹیچر کا ڈرامائی ردعمل",
+   "دکان پر نئی موبائل پروموشن اور خریدار کی ہنسی مذاق",
+   "پرانے گھر کی دیوار پر لگائی گئی پرانی پوسٹر کی یادیں",
+   "سائیکل کے ٹائر پینک اور سسٹر کی ڈائیٹ مشورہ"
   ],
-  "note": "Page is slightly repetitive with 'Ammi/Abba' logic styles and wedding/eidi topics; needs fresh everyday scenarios."
+  "note": "Page thodi repetitive lag rahi hai."
  },
  "world": {
   "avoid": [
-   "Japan",
-   "Thailand",
-   "Vietnam",
-   "Mexico",
-   "South Korea",
-   "Portugal",
-   "Spain"
+   "What Nobody Tells You",
+   "Retiring in ..."
   ],
   "try": [
-   "Living in New Zealand: Cost of Living, Safety & Nature",
-   "Morocco Country Documentary: Culture, Food & Daily Life",
-   "Switzerland vs Norway: Which is Better for Expats?",
-   "Living in Argentina: The Honest Truth for 2025",
-   "Iceland: Cost of Living, Jobs & Best Cities",
-   "Greece vs Portugal: Best European Island Life"
+   "Living in Kenya: Cost, Safety & Culture",
+   "Iceland: How to Survive the Cold and Thrive",
+   "Moving to Argentina: Realities of Daily Life",
+   "Chile's Hidden Gems: Life Outside Santiago",
+   "Exploring Malta: Small Island Living Benefits",
+   "Work Permits in Estonia: Digital Nomad Guide"
   ],
-  "note": "Page is repetitive with Asian and European expat topics; needs fresh geographic diversity."
+  "note": "Page thodi repetitive lag rahi hai."
  },
  "world_short": {
   "avoid": [
    "California",
    "Japan",
    "South Korea",
-   "Would You Live in ..."
+   "Australia",
+   "Spain"
   ],
   "try": [
-   "Dubai, UAE",
-   "Moscow, Russia",
-   "Buenos Aires, Argentina",
-   "Cairo, Egypt",
-   "Santiago, Chile"
+   "Mexico City, Mexico",
+   "Nairobi, Kenya",
+   "Brazil",
+   "Istanbul, Turkey",
+   "Singapore",
+   "Lagos, Nigeria"
   ],
   "note": "Page bohat repetitive hai."
  },
@@ -92,14 +88,14 @@
  "frames_short": {
   "avoid": [],
   "try": [
-   "Life in Lisbon, Portugal: Cost of living and visa tips for Pakistanis",
-   "Top 5 Halal Food Spots in Tokyo, Japan",
-   "Moving to Toronto, Canada: Real expenses vs expectations",
-   "5 Surprising Facts about Life in Istanbul, Turkey",
-   "Job Market in Berlin, Germany: Salary and work culture",
-   "Travel Guide to Bali, Indonesia: Best places for Muslims"
+   "10-minute guide to living in Lagos, Nigeria",
+   "Top 5 affordable cities in South America for Pakistanis",
+   "How to find remote work from Pakistan",
+   "Cultural etiquette in Ethiopia",
+   "Hidden gems in Sri Lanka",
+   "Visa process for Pakistanis to Peru"
   ],
-  "note": "Page is repetitive with Gulf cost-of-living and European visa topics; needs more variety in regions and specific city deep-dives."
+  "note": "Page thoda repetitive lag raha hai."
  },
  "_platforms": {
   "islamic": {
