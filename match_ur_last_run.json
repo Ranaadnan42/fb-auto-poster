@@ -1,16 +1,17 @@
 {
- "time_utc": "2026-11-08 23:34",
+ "time_utc": "2026-11-10 00:50",
  "lang": "ur",
- "dry_run": true,
+ "dry_run": false,
  "posted": {
   "sports": {
-   "key": "c1561255",
-   "sport": "cricket",
-   "date": "2026-11-08 23:34",
+   "key": "t401873050",
+   "sport": "american football",
+   "date": "2026-11-10 00:50",
    "lang": "ur",
-   "match": "Arabian Aces v Royal Desert Champions",
-   "result": "Arabian Aces won by 9 wickets",
-   "dur": 74
+   "match": "Tampa Bay Buccaneers at Chicago Bears",
+   "result": "Chicago Bears beat Tampa Bay Buccaneers 27-24",
+   "dur": 57,
+   "post_id": "2222596085346631"
   }
  },
  "errors": []
