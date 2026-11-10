@@ -1,53 +1,57 @@
 {
  "islamic": {
   "avoid": [
-   "جمعہ کی فضیلت: جب صحابہ نے پوچھا ہمارا درود آپ تک کیسے پہنچے گا؟"
+   "Value of time posts"
   ],
   "try": [
-   "Story of Umm Ayman’s unwavering support for the Prophet (peace be upon him)",
-   "The miracle of Zamzam water and its lessons for modern life",
-   "The Prophet’s kindness to the cat Muezza and the value of compassion",
-   "Companion Sa’d ibn Abi Waqqas’s generosity during the early Caliphate",
-   "The night of Isra and Mi’raj: focusing on the spiritual benefits of Salah",
-   "The inspiring tale of the companion Abu Darda’s dedication to teaching the Qur’a"
+   "Bilal’s first Adhan after emancipation",
+   "Khalid ibn al-Walid’s conversion and bravery",
+   "The Prophet’s pact at Hudaybiyyah and its lessons",
+   "Hadith of the Prophet’s smile and its reward",
+   "Sa’d ibn Abi Waqqas at the Battle of Badr",
+   "The Prophet’s generosity: the date palm incident"
   ],
-  "note": "Page thodi repetitive lag rahi hai."
+  "note": "Page thoda repetitive hai"
  },
  "funny": {
   "avoid": [
-   "Mehndi function",
-   "Eidi collection",
-   "Electricity bill (Bijli ka bill)",
-   "Selfie / TikTok craze",
-   "Government office file",
-   "Fake diet plans (Mamoon Mastana series)",
-   "Cricket-commentary style narration",
-   "Dramatic TV-serial narration"
+   "ماموں مستانہ کا ڈائٹ ڈرامہ series",
+   "abba's middle-class logic style",
+   "strict ammi's rules explained style",
+   "family WhatsApp group forwards topic",
+   "government office file topic",
+   "Eidi collection topic",
+   "shaadi (wedding) season topic"
   ],
   "try": [
-   "Ammi's strict rules for using the family car (har ghar mein)",
-   "The struggle of finding a parking spot in a crowded mohalla (POV)",
-   "Uncle's 'expert' advice on fixing a leaking tap (types of people)",
-   "Expectation vs Reality: Cooking biryani for a large family (latifay)",
-   "The chaos of a sudden rainstorm during a wedding procession (barish)",
-   "A lazy student's creative excuses for missing school (dialogue)"
+   "POV: When the neighbor's AC is louder than your own TV",
+   "Types of people: The 'I will call you later' aunt who never calls",
+   "Expectation vs Reality: Trying to cook biryani for the first time",
+   "Kya Hota Agar: If the school bus driver had a strict deadline",
+   "Har Ghar Mein: The struggle of finding a parking spot in a narrow gali",
+   "Chat Comedy: The drama of sharing one pair of earphones with a friend"
   ],
-  "note": "Page is slightly repetitive with electricity bills, mehndi, and specific narration styles; needs fresh everyday scenarios."
+  "note": "Page is slightly repetitive with 'Ammi/Abba' logic styles and wedding/eidi topics; needs fresh everyday scenarios."
  },
  "world": {
   "avoid": [
-   "Brazil Unveiled",
-   "Retiring in Portugal"
+   "Japan",
+   "Thailand",
+   "Vietnam",
+   "Mexico",
+   "South Korea",
+   "Portugal",
+   "Spain"
   ],
   "try": [
-   "Living in New Zealand: Cost, Culture, and Climate",
-   "Retiring in Costa Rica: Health Care and Lifestyle",
-   "Cost of Living in Singapore: A 2026 Snapshot",
-   "Moving to Mexico City: What You Need to Know",
-   "Exploring the Philippines: Islands, Culture, and Cost",
-   "Comparing Kenya vs Tanzania: Where to Live in East Africa"
+   "Living in New Zealand: Cost of Living, Safety & Nature",
+   "Morocco Country Documentary: Culture, Food & Daily Life",
+   "Switzerland vs Norway: Which is Better for Expats?",
+   "Living in Argentina: The Honest Truth for 2025",
+   "Iceland: Cost of Living, Jobs & Best Cities",
+   "Greece vs Portugal: Best European Island Life"
   ],
-  "note": "Page bohat repetitive hai."
+  "note": "Page is repetitive with Asian and European expat topics; needs fresh geographic diversity."
  },
  "world_short": {
   "avoid": [
@@ -100,9 +104,9 @@
  "_platforms": {
   "islamic": {
    "posts": 10,
-   "facebook": 7,
+   "facebook": 6,
    "youtube": 10,
-   "tiktok": 7
+   "tiktok": 6
   },
   "funny": {
    "posts": 10,
