@@ -1,53 +1,57 @@
 {
- "time_utc": "2026-11-10 07:44",
- "posts_checked": 38,
+ "time_utc": "2026-11-10 19:59",
+ "posts_checked": 61,
  "pages": {
   "news": {
-   "posts": 17,
-   "views": 848,
-   "engagement": 19,
+   "posts": 28,
+   "views": 1382,
+   "engagement": 25,
    "by_topic": {
     "americas": [
-     0.54,
-     4
+     0.55,
+     7
     ],
     "middle_east": [
-     0.41,
+     0.54,
      5
     ],
     "asia": [
-     0.29,
-     2
+     0.13,
+     4
     ],
     "pakistan": [
-     0.29,
+     0.36,
      2
     ],
     "science_tech": [
-     2.55,
+     2.38,
      1
     ],
     "business": [
-     2.55,
-     1
+     2.38,
+     2
     ],
     "africa": [
      0.05,
      1
     ],
     "world": [
-     0.52,
-     1
+     0.1,
+     4
+    ],
+    "europe": [
+     0.13,
+     2
     ]
    },
    "by_language": {
     "ur": [
-     0.48,
-     9
+     0.45,
+     13
     ],
     "en": [
-     0.41,
-     8
+     0.25,
+     15
     ]
    },
    "by_hour": {
@@ -56,8 +60,8 @@
      1
     ],
     "04:00 UTC": [
-     0.21,
-     2
+     0.25,
+     5
     ],
     "06:00 UTC": [
      0.05,
@@ -65,95 +69,104 @@
     ],
     "09:00 UTC": [
      0.05,
-     2
+     4
     ],
     "13:00 UTC": [
-     1.69,
-     1
+     0.81,
+     4
     ],
     "14:00 UTC": [
-     2.55,
+     2.38,
      1
     ],
     "15:00 UTC": [
-     1.65,
+     2.65,
      1
     ],
     "17:00 UTC": [
-     1.09,
+     1.31,
      1
     ],
     "18:00 UTC": [
-     1.65,
+     2.65,
      1
     ],
     "20:00 UTC": [
-     2.05,
+     2.51,
      2
     ],
     "23:00 UTC": [
-     0.16,
+     0.18,
      2
     ],
     "00:00 UTC": [
-     1.65,
+     2.65,
      1
     ],
     "01:00 UTC": [
-     1.65,
+     2.65,
+     1
+    ],
+    "02:00 UTC": [
+     0.06,
+     2
+    ],
+    "07:00 UTC": [
+     0.05,
      1
     ]
    },
    "by_format": {
     "pic": [
-     20,
-     5
+     21,
+     7
     ],
     "reel": [
-     243,
-     4
+     201,
+     8
     ],
     "breaking": [
-     31,
-     8
+     19,
+     13
     ]
    },
    "topic_mult": {
-    "americas": 0.75,
+    "americas": 0.57,
     "middle_east": 0.68,
-    "asia": 0.55,
-    "pakistan": 0.7,
-    "science_tech": 1.51,
-    "business": 1.51,
+    "asia": 0.49,
+    "pakistan": 0.66,
+    "science_tech": 1.49,
+    "business": 1.59,
     "africa": 0.48,
-    "world": 0.85
+    "world": 0.45,
+    "europe": 0.47
    },
    "match_mult": {},
    "tips": [
-    "Prioritize Reels format over standard image posts or text breaking news, especially for Urdu content, as Reels deliver significantly higher reach and views (avg 243 views vs 20-31 for other formats).",
-    "Increase coverage on Science/Tech and Business news (e.g., high-profile corporate tech drama and environmental stories), which achieved peak performance scores of x2.55.",
-    "Schedule posts during peak active hours between 13:00 UTC and 20:00 UTC, or 00:00–01:00 UTC; completely avoid low-traffic slots like 04:00 UTC to 09:00 UTC and 21:00 UTC.",
-    "Focus Middle East breaking stories on high-impact infrastructure/security updates (like energy/oil attacks) rather than generic regional updates.",
-    "Avoid duplicate postings of the same headline and skip low-performing topics like general Africa news or routine sports highlights that yield zero engagement."
+    "Prioritize Science/Tech and Business stories as they yield significantly higher performance multipliers than standard regional news.",
+    "Format top breaking stories into short-form Reels, which drastically outperform static images and plain breaking posts.",
+    "Prefer Urdu content over English, as Urdu posts generate nearly double the average engagement on this page.",
+    "Avoid posting niche US political drama, hyper-local cultural events, or routine match highlights that get zero engagement.",
+    "Schedule posts during peak engagement hours between 13:00-20:00 UTC and 00:00-01:00 UTC."
    ],
    "best": [
-    "[pic/en/science_tech] Birds return to waterfowl park after oil vandalism (views 0, eng 2, x2.50)",
-    "[pic/ur/business] Nvidia shares tumble over investigation into Huang's affair with alleged Chinese spy (views 0, eng 2, x2.50)",
-    "[reel/ur/americas] ٹرمپ کا پریس سیکرٹری کی پیشکش پر اہم بیان (views 323, eng 3, x1.64)"
+    "[breaking/ur/pakistan] Debutants Shine as Pakistan Reach 281-5 on Day One Against Sri Lanka (views 0, eng 2, x2.60)",
+    "[breaking/en/middle_east] Saudi Arabia Reports Attack on Major Oil Pipeline (views 0, eng 2, x2.60)",
+    "[breaking/ur/middle_east] Saudi East-West oil pipeline hit in Medina region (views 0, eng 2, x2.60)"
    ],
-   "summary": "Page par Reels format aur Urdu content sab se zyada views aur engagement de rahe hain, jabki standard breaking news aur pictures ki performance kam hai. Business aur Science/Tech ke topics ne sab se zyaada high score (x2.55) diya hai, jabki Africa aur general Asia ki khabron par zero views aaye. Post timing shaam 1:00 PM UTC se raat 8:00 PM UTC ke darmiyan sab se behtareen hai. Is liye hum ne Business/Tech topics ko boost kiya hai aur low-performing topics ko reduce kar diya hai."
+   "summary": "Science/Tech aur Business ki khabron par sab se behtareen response mil raha hai, jab ke Americas aur Africa ki siyasi khabrein bilkul nahi chal rahi hain. Urdu posts English se ziada reach le rahi hain aur Reels ka format photos aur plain text se kahin behtar perform kar raha hai. Posting ke liye shaam 1:00 PM se 8:00 PM UTC ka waqt sab se behtar hai. Humne achhi performance wale topics ka weight barha diya hai aur be-faida khabron ko kam kar diya hai."
   },
   "sports": {
-   "posts": 21,
-   "views": 1031,
-   "engagement": 25,
+   "posts": 33,
+   "views": 1308,
+   "engagement": 31,
    "by_topic": {
     "football": [
-     0.29,
+     0.32,
      2
     ],
     "formula 1": [
-     0.29,
+     0.33,
      2
     ],
     "golf": [
@@ -161,50 +174,78 @@
      2
     ],
     "olympic_sports": [
-     0.77,
+     0.81,
      2
     ],
     "big_events": [
-     0.29,
-     4
+     0.16,
+     7
     ],
     "athletics": [
-     1.8,
+     2.6,
      2
     ],
     "hockey": [
-     2.55,
+     2.38,
      1
     ],
     "esports": [
-     1.69,
+     2.11,
      1
     ],
     "general": [
-     0.29,
+     0.36,
      2
     ],
     "table_tennis": [
-     0.31,
+     0.37,
      1
     ],
     "volleyball": [
-     1.65,
+     2.65,
      1
     ],
     "american football": [
-     0.78,
+     0.92,
+     1
+    ],
+    "american_football": [
+     0.08,
+     1
+    ],
+    "cycling": [
+     0.07,
+     1
+    ],
+    "basketball": [
+     0.07,
+     1
+    ],
+    "rugby": [
+     0.06,
+     2
+    ],
+    "formula1": [
+     0.35,
+     2
+    ],
+    "cricket": [
+     0.05,
+     1
+    ],
+    "boxing": [
+     2.88,
      1
     ]
    },
    "by_language": {
     "ur": [
-     0.47,
-     10
+     0.38,
+     14
     ],
     "en": [
-     0.41,
-     11
+     0.24,
+     19
     ]
    },
    "by_hour": {
@@ -213,11 +254,11 @@
      1
     ],
     "04:00 UTC": [
-     0.05,
-     2
+     0.06,
+     6
     ],
     "05:00 UTC": [
-     0.23,
+     0.28,
      1
     ],
     "06:00 UTC": [
@@ -226,99 +267,115 @@
     ],
     "09:00 UTC": [
      0.05,
-     2
+     4
     ],
     "13:00 UTC": [
-     1.97,
-     1
+     0.97,
+     4
     ],
     "14:00 UTC": [
-     2.55,
+     2.38,
      1
     ],
     "15:00 UTC": [
-     1.65,
+     2.65,
      1
     ],
     "16:00 UTC": [
-     1.68,
+     2.2,
      1
     ],
     "18:00 UTC": [
-     1.67,
+     2.37,
      2
     ],
     "20:00 UTC": [
-     2.05,
+     2.51,
      2
     ],
     "23:00 UTC": [
-     0.3,
+     0.33,
      3
     ],
     "00:00 UTC": [
-     1.13,
+     1.57,
      2
     ],
     "01:00 UTC": [
-     1.65,
+     2.65,
+     1
+    ],
+    "02:00 UTC": [
+     0.06,
+     2
+    ],
+    "07:00 UTC": [
+     0.05,
      1
     ]
    },
    "by_format": {
     "pic": [
-     20,
-     5
+     21,
+     7
     ],
     "match": [
-     190,
-     4
+     161,
+     5
     ],
     "breaking": [
-     31,
-     8
+     19,
+     13
     ],
     "reel": [
-     137,
-     4
+     110,
+     8
     ]
    },
    "topic_mult": {
-    "football": 0.55,
-    "formula 1": 0.61,
-    "golf": 0.4,
-    "olympic_sports": 0.9,
-    "big_events": 0.49,
-    "athletics": 1.47,
-    "hockey": 1.51,
+    "football": 0.66,
+    "formula 1": 0.64,
+    "golf": 0.45,
+    "olympic_sports": 0.92,
+    "big_events": 0.45,
+    "athletics": 1.63,
+    "hockey": 1.41,
     "esports": 1.35,
-    "general": 0.61,
-    "table_tennis": 0.75,
-    "volleyball": 1.34,
-    "american football": 0.94
+    "general": 0.66,
+    "table_tennis": 0.78,
+    "volleyball": 1.52,
+    "american football": 0.98,
+    "american_football": 0.53,
+    "cycling": 0.51,
+    "basketball": 0.51,
+    "rugby": 0.45,
+    "formula1": 0.66,
+    "cricket": 0.48,
+    "boxing": 1.61
    },
    "match_mult": {
-    "formula 1": 0.61,
-    "football": 1.14,
-    "american football": 0.94
+    "formula 1": 0.64,
+    "football": 1.19,
+    "american football": 0.98,
+    "basketball": 0.51
    },
    "tips": [
-    "Prioritize video formats like Reels and match updates, which generate significantly higher views and engagement than static pictures or breaking text posts.",
-    "Focus on high-performing niche and emerging sports such as hockey, athletics, volleyball, and esports, as they outperform mainstream topics like golf and football in relative score.",
-    "Schedule posts during peak engagement windows between 13:00 UTC and 20:00 UTC, and completely avoid posting during low-performing late night or early morning hours (04:00-09:00 UTC).",
-    "Utilize bilingual content effectively by matching Urdu with regional or high-interest action stories, and English for major match updates.",
-    "Avoid posting generic breaking news text formats (like golf or big events) that currently yield zero views and zero engagement."
+    "Prioritize Reels format over static pictures (pic) and standard breaking text posts, as reels bring significantly higher view counts and engagement.",
+    "Focus content creation in Urdu language or include Urdu translations, as Urdu posts outperform English posts in overall engagement score (0.38 vs 0.24).",
+    "Increase coverage of combat sports (Boxing), Athletics, Volleyball, Esports, and Hockey, which show high performance multipliers above x2.0.",
+    "Avoid posting low-performing topics such as Golf, Cricket, Rugby, Cycling, and generic Big Events, which consistently score below x0.20.",
+    "Schedule post publishing strictly between 13:00 UTC and 20:00 UTC or 00:00-01:00 UTC to capitalize on peak audience activity hours."
    ],
    "best": [
-    "[pic/en/hockey] Photos you’ll want to see from Central New York high school fall sports 2026 (Week 10) (views 0, eng 2, x2.50)",
-    "[pic/ur/olympic_sports] 2026 College Swimming League Stats: Charlotte Crush, Kaii Winkler Lead Inaugural Season Scoring (views 0, eng 2, x2.50)",
-    "[reel/ur/athletics] آئوی لیگ ویمنز ساکر ٹورنامنٹ کا اگلا مرحلہ (views 188, eng 3, x1.92)"
+    "[reel/ur/boxing] ہیوی ویٹ بکسنگ کا بڑا مقابلہ (views 210, eng 4, x2.83)",
+    "[breaking/ur/big_events] Mexico has Secured Six Medals at the Dakar 2026 Youth Olympic Games (views 0, eng 2, x2.60)",
+    "[breaking/en/athletics] Montella Named Ivy League Defensive Player of the Week (views 0, eng 2, x2.60)"
    ],
-   "summary": "Sports Hubs page owner ke liye performance data clear hai. Hamare Reels aur Match updates sab se ziada views aur engagement la rahe hain, jabke Golf aur Breaking news bilkul fail hain. Hum ne timing adjust ki hai aur Hockey, Athletics, aur Volleyball jaise topics ko ziada prefer karne ka faisla kiya hai jo behtareen response de rahe hain."
+   "summary": "Aap ke page par Reels format aur Urdu language sab se ziada views aur engagement la rahe hain. Boxing, Athletics, Volleyball aur Hockey jaise topics bohot achha perform kar rahe hain, jabke Golf, Cricket aur Rugby par views bilkul kam hain. Posting ke liye 13:00 se 20:00 UTC ka waqt sab se behtar hai. Humne low-performing topics ki frequency kam karke Reels aur high-performing sports par focus barha diya hai."
   }
  },
  "lang_flip": {
   "ur_to_en": 0,
-  "en_to_ur": 0.04
+  "en_to_ur": 0.14
  }
 }
