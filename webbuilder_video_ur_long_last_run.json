@@ -1,15 +1,11 @@
 {
- "time_utc": "2026-11-08 20:46",
- "spotlight": "gym",
- "post_id": "4678466205745970",
- "error": null,
+ "time_utc": "2026-11-10 00:26",
+ "spotlight": "travel agency",
+ "post_id": null,
+ "error": "awaaz nahi bani",
  "lang": "ur",
  "kind": "long",
- "clips": 1,
+ "clips": 0,
  "fallback": 0,
- "errors": [],
- "real_work": 7,
- "real_pos": 3,
- "mock": 4,
- "seconds": 97.6
+ "errors": []
 }
