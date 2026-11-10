@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-10 14:44",
- "lang": "ur",
+ "time_utc": "2026-11-10 16:24",
+ "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1448208791702551_122108126523532804",
-   "topic": "world",
-   "title": "US calls for new Europe security at Russia-Ukraine talks"
+   "post": "1448208791702551_122108158167532804",
+   "topic": "americas",
+   "title": "Russia, Ukraine and US officials hold talks in Abu Dhabi"
   },
   "sports": {
-   "post": "1465090056678690_122097651501548502",
-   "topic": "rugby",
-   "title": "Wheelchair Rugby League World Cup: Spectacular England still short of best form"
+   "post": "1465090056678690_122097719007548502",
+   "topic": "american_football",
+   "title": "NFL Power Rankings, Week 10: Staying Strong at No. 1"
   }
  },
  "errors": []
