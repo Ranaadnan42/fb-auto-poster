@@ -1,7 +1,7 @@
 {
- "time_utc": "2026-11-08 22:17",
- "spotlight": "car workshop",
- "post_id": "890581834077158",
+ "time_utc": "2026-11-10 01:40",
+ "spotlight": "travel agency",
+ "post_id": "1833774924415645",
  "error": null,
  "lang": "ar",
  "kind": "reel",
@@ -9,7 +9,7 @@
  "fallback": 0,
  "errors": [],
  "real_work": 2,
- "real_pos": 4,
+ "real_pos": 6,
  "mock": 3,
- "seconds": 55.4
+ "seconds": 69.9
 }
