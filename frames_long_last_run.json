@@ -1,27 +1,33 @@
 {
  "mode": "long",
- "clips": 86,
- "clips_rejected": 426,
- "vision_checks": 496,
+ "clips": 84,
+ "clips_rejected": 604,
+ "vision_checks": 671,
  "errors": [],
  "search_phrases": [
-  "کراچی شہر کی سیر",
-  "لاہور شہر کی سیر",
-  "دمشق شہر کی سیر",
-  "ملتان شہر کی سیر",
-  "pompeii city documentary in urdu"
+  "dubai vs saudi arabia jobs",
+  "dubai vs saudi arabia vs qatar",
+  "dubai vs saudi arabia football",
+  "dubai vs saudi arabia comparison",
+  "dubai vs saudi arabia tamil",
+  "dubai vs saudi arabia malayalam",
+  "dubai vs saudi arabia war",
+  "dubai and saudi arabia",
+  "dubai and saudi arabia difference in hindi"
  ],
- "script_words": 1208,
- "alt_searches": 9,
- "photos": 8,
- "seconds": 492.4,
+ "script_words": 1632,
+ "alt_searches": 17,
+ "photos": 23,
+ "vision_groq": 9,
+ "vision_waits": 140,
+ "seconds": 636.9,
  "links": [
-  "https://www.visa.go.kr",
-  "https://oec.gov.pk",
+  "https://malaysiavisa.imi.gov.my",
+  "https://www.ica.gov.sg",
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Seoul, South Korea",
- "series": "pk_city",
- "title": "جنوبی کوریا کے شہر سیول کی سچی حقیقت | Life in Seoul South Korea"
+ "subject": "Malaysia vs Singapore",
+ "series": "pk_versus",
+ "title": "Malaysia vs Singapore: پاکستانیوں کے لیے کون سا ملک بہتر ہے؟"
 }
