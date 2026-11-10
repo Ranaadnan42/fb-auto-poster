@@ -1,24 +1,24 @@
 {
- "time_utc": "2026-11-09 23:52",
+ "time_utc": "2026-11-08 23:47",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-09 23:52",
+   "date": "2026-11-08 23:47",
    "kind": "reel",
    "lang": "en",
-   "title": "Silicon Valley Rallies Behind Nvidia CEO Amid Investigation",
-   "dur": 51,
-   "post_id": "2620885381746258"
+   "title": "Hundreds of Seagrass Shoots Found in Estuary Restoration",
+   "dur": 47,
+   "post_id": "994520940378086"
   },
   "sports": {
-   "date": "2026-11-09 23:52",
+   "date": "2026-11-08 23:47",
    "kind": "reel",
    "lang": "en",
-   "title": "Northland Para Table Tennis Inspires Next Generation",
-   "dur": 55,
-   "post_id": "987354760588223"
+   "title": "IRL Confirms Magic Round Format for RLWC30",
+   "dur": 50,
+   "post_id": "2621323758383745"
   }
  },
  "errors": []

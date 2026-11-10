@@ -1,23 +1,11 @@
 {
- "time_utc": "2026-11-08 20:56",
+ "time_utc": "2026-11-09 23:37",
  "kind": "long",
  "lang": "ur",
- "dry_run": true,
- "posted": {
-  "news": {
-   "date": "2026-11-08 20:56",
-   "kind": "long",
-   "lang": "ur",
-   "title": "دنیا کی تازہ ترین خبریں",
-   "dur": 125
-  },
-  "sports": {
-   "date": "2026-11-08 20:56",
-   "kind": "long",
-   "lang": "ur",
-   "title": "Sports Hubs عالمی اسپورٹس بُلٹن",
-   "dur": 114
-  }
- },
- "errors": []
+ "dry_run": false,
+ "posted": {},
+ "errors": [
+  "news: Facebook jawab samajh nahi aaya: ",
+  "sports: Facebook jawab samajh nahi aaya: "
+ ]
 }
