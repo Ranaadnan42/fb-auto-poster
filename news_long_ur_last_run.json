@@ -1,11 +1,19 @@
 {
- "time_utc": "2026-11-09 23:37",
+ "time_utc": "2026-11-10 21:03",
  "kind": "long",
  "lang": "ur",
  "dry_run": false,
- "posted": {},
+ "posted": {
+  "news": {
+   "date": "2026-11-10 21:03",
+   "kind": "long",
+   "lang": "ur",
+   "title": "دنیا کی تازہ خبریں اور ٹیک اپ ڈیٹس",
+   "dur": 179,
+   "post_id": "1509259724403251"
+  }
+ },
  "errors": [
-  "news: Facebook jawab samajh nahi aaya: ",
   "sports: Facebook jawab samajh nahi aaya: "
  ]
 }
