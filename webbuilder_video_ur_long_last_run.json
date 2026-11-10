@@ -1,11 +1,15 @@
 {
- "time_utc": "2026-11-10 00:26",
+ "time_utc": "2026-11-10 11:31",
  "spotlight": "travel agency",
- "post_id": null,
- "error": "awaaz nahi bani",
+ "post_id": "4422863778025298",
+ "error": null,
  "lang": "ur",
  "kind": "long",
- "clips": 0,
+ "clips": 1,
  "fallback": 0,
- "errors": []
+ "errors": [],
+ "real_work": 6,
+ "real_pos": 4,
+ "mock": 4,
+ "seconds": 98.4
 }
