@@ -1,7 +1,18 @@
 {
- "time_utc": "2026-11-10 20:48",
- "lang": "ur",
+ "time_utc": "2026-11-10 20:56",
+ "lang": "en",
  "dry_run": false,
- "posted": {},
+ "posted": {
+  "news": {
+   "post": "1448208791702551_122108252457532804",
+   "topic": "europe",
+   "title": "Is it fair to give EU students discounted university fees in the UK? | Letters"
+  },
+  "sports": {
+   "post": "1465090056678690_122097888543548502",
+   "topic": "boxing",
+   "title": "Fury v Joshua: 2. An inconvenient trilogy"
+  }
+ },
  "errors": []
 }
