@@ -1,7 +1,18 @@
 {
- "time_utc": "2026-11-10 23:12",
+ "time_utc": "2026-11-11 01:51",
  "lang": "en",
  "dry_run": false,
- "posted": {},
+ "posted": {
+  "news": {
+   "post": "1448208791702551_122108318571532804",
+   "topic": "middle_east",
+   "title": "Bronson Reed reportedly remains hospitalized in Saudi Arabia after WWE Crown Jewel"
+  },
+  "sports": {
+   "post": "1465090056678690_122098037937548502",
+   "topic": "big_events",
+   "title": "Scotland's McTominay reveals World Cup heart scare"
+  }
+ },
  "errors": []
 }
