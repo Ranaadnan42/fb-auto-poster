@@ -143,7 +143,8 @@ def fx_rates(codes):
 os.makedirs(WORK, exist_ok=True)
 REPORT = {"mode": MODE, "clips": 0, "clips_rejected": 0, "vision_checks": 0, "errors": []}
 USED = set()
-FOOD_CLIPS = []
+FOOD_CLIPS = {}      # mulk -> us mulk ke khaane ki clips
+COUNTRY_CLIPS = {}   # mulk -> us mulk ki clips (doosre mulk ki clip galti se na lage)
 LINKS = []
 SCORES = []
 _client = None
@@ -247,8 +248,17 @@ VISION_REST_S = 60     # timeout/503 ke baad model sirf 1 minute aaraam kare (pe
 VISION_KEYS = [k for k in dict.fromkeys([GEMINI_KEY, os.environ.get("GEMINI_SPARE_KEY")]) if k]
 
 
+_BUSY_N = {}           # model kitni baar lagatar busy/timeout hua - har baar aaraam dugna (60s -> 15 min tak)
+VISION_HARD_S = int(os.environ.get("VISION_HARD_MIN", "150")) * 60   # run shuru se itne minute baad Gemini vision band:
+# sirf Groq + tags wala pakka match. Pehle Gemma 504 par 6 ghante atak kar job cancel ho jati thi aur lambi video nahi jati thi.
+
+
+def _rest_for(model):
+    return min(VISION_REST_S * (2 ** max(0, _BUSY_N.get(model, 1) - 1)), 15 * 60)
+
+
 def _resting(model, ki=0):
-    return (ki, model) in _DEAD or time.time() - _SLOW.get(model, 0) < VISION_REST_S
+    return (ki, model) in _DEAD or time.time() - _SLOW.get(model, 0) < _rest_for(model)
 VISION_TIMEOUT_S = 40  # Google busy ho to jawab der se aata hai - 25s par bohat checks zaaya ho rahe the
 RUN_T0 = time.time()
 VISION_WAIT_BUDGET_S = 75 * 60   # poori run mein vision ke intezar ka zyada se zyada waqt (accuracy pehle, magar run atke nahi)
@@ -301,6 +311,13 @@ def vision_ok(jpgs, want, what, said=""):
     prompt = VISION_Q.format(n=len(datas), what=what, want=want, said=(said or what)[:400].replace('"', "'"))
     last = ""
     while True:
+        if time.time() - RUN_T0 >= VISION_HARD_S or _VWAITED[0] >= VISION_WAIT_BUDGET_S:
+            g = _groq_vision(datas, prompt)
+            if g is not None:
+                REPORT["vision_checks"] += 1
+                REPORT["vision_groq"] = REPORT.get("vision_groq", 0) + 1
+                return g
+            break
         for ki in range(len(VISION_KEYS)):
             for model in VISION_MODELS:
                 if _resting(model, ki):
@@ -311,6 +328,7 @@ def vision_ok(jpgs, want, what, said=""):
                         model=model,
                         contents=[types.Part.from_bytes(data=d, mime_type="image/jpeg") for d in datas] + [prompt],
                         config=types.GenerateContentConfig(temperature=0))
+                    _BUSY_N.pop(model, None)
                     v = _parse_match(res.text)
                     if v is None:
                         continue
@@ -324,7 +342,9 @@ def vision_ok(jpgs, want, what, said=""):
                         log(f"vision: {model} key{ki + 1} band ({last[:60]})")
                     elif time.time() - t0 >= VISION_TIMEOUT_S - 1 or any(x in last.lower() for x in ("timed out", "timeout", "503", "504", "unavailable", "deadline")):
                         _SLOW[model] = time.time()   # thori der aaraam, phir dobara
-                        log(f"vision: {model} abhi busy ({last[:50]}) - {VISION_REST_S}s baad dobara")
+                        _BUSY_N[model] = _BUSY_N.get(model, 0) + 1
+                        _VWAITED[0] += time.time() - t0   # fail call ka waqt bhi budget mein (pehle sirf sleep ginti hota tha)
+                        log(f"vision: {model} abhi busy ({last[:50]}) - {_rest_for(model)}s baad dobara")
         g = _groq_vision(datas, prompt)
         if g is not None:
             REPORT["vision_checks"] += 1
@@ -334,7 +354,7 @@ def vision_ok(jpgs, want, what, said=""):
         alive = [m for m in VISION_MODELS for ki in range(len(VISION_KEYS)) if (ki, m) not in _DEAD]
         if not alive or _VWAITED[0] >= VISION_WAIT_BUDGET_S:
             break
-        wake = min(_SLOW.get(m, 0) for m in set(alive)) + VISION_REST_S
+        wake = min(_SLOW.get(m, 0) + _rest_for(m) for m in set(alive))
         nap = max(5.0, min(VISION_REST_S, wake - time.time()))
         _VWAITED[0] += nap
         REPORT["vision_waits"] = REPORT.get("vision_waits", 0) + 1
@@ -1355,14 +1375,30 @@ def build(script, plan, out_path):
         dur = duration(os.path.join(job, f"a{n}.mp3")) + 0.45
         need = max(1, min(4, math.ceil(dur / 5.5)))
         clips = get_clips(sc, cwords, job, f"c{n}", need)
-        if not clips and is_food(sc) and FOOD_CLIPS:
-            clips = random.sample(FOOD_CLIPS, min(len(FOOD_CLIPS), need))   # pehle wala usi mulk ka khaana
+        # Har clip ko ISI scene ke mulk ke naam se rakho - "Malaysia vs Singapore" mein Singapore ki baat par
+        # Malaysia ki clip / doosre mulk ka khaana na lage (pehle koi bhi pichli clip random lag jati thi)
+        ckey = (sc.get("place") or "").split(",")[-1].strip().lower() or "_"
+        food_pool = FOOD_CLIPS.setdefault(ckey, [])
+        if not clips and is_food(sc) and food_pool:
+            clips = random.sample(food_pool, min(len(food_pool), need))   # pehle wala ISI mulk ka khaana
         elif clips and is_food(sc):
-            FOOD_CLIPS.extend(clips)
+            food_pool.extend(clips)
+        if not clips and ckey != "_":
+            # aakhri koshish: sirf isi mulk/shehar ki asli video (jagah wali)
+            country = (sc.get("place") or "").split(",")[-1].strip()
+            city = (sc.get("place") or "").split(",")[0].strip()
+            clips = get_clips({"place": sc.get("place"), "show": "", "text": sc.get("text"),
+                               "search": list(dict.fromkeys([f"{city} city", f"{country} landscape",
+                                                             f"{country} street", f"{country} aerial"]))},
+                              cwords, job, f"c{n}x", need)
+        if clips:
+            COUNTRY_CLIPS.setdefault(ckey, []).extend(clips)
         if not clips:
-            prev = [os.path.join(job, p) for p in os.listdir(job) if p.startswith("c") and p.endswith(".mp4")]
+            prev = COUNTRY_CLIPS.get(ckey) or []          # sirf ISI mulk ki pehle wali clip
+            if not prev and len(COUNTRY_CLIPS) <= 1:      # video mein ek hi mulk ho to us ki koi bhi clip theek
+                prev = [p for v in COUNTRY_CLIPS.values() for p in v]
             if prev:
-                clips = random.sample(prev, min(len(prev), need))     # usi mulk ki pehle wali clip
+                clips = random.sample(prev, min(len(prev), need))
             else:
                 raise RuntimeError(f"is jagah ki asli videos nahi milin: {sc.get('place')}")
         first_of_chap = si == 0 and LONG and ci > 0

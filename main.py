@@ -163,6 +163,8 @@ RULES = """Accuracy rules (very important):
 os.makedirs(WORK, exist_ok=True)
 REPORT = {"lang": LANG, "stock_clips": 0, "fallback_clips": 0, "errors": []}
 USED_CLIPS = set()
+OLD_CLIPS = set()     # pichle dinon mein lag chuki clips - pehle nayi clips, purani sirf majboori mein
+GOOD_CLIPS = []       # is run mein waqai video mein lagi clips (history mein save - agle din repeat na hon)
 
 
 def log(msg):
@@ -300,8 +302,87 @@ def _search_phrases(theme, occ):
         return []
 
 
+CLAIMS_FILE = "islamic_claims.json"   # jo topic kisi chalte run ne chun liya (abhi post nahi hua) - doosra run wohi na chune
+
+
+def _git(*a):
+    return subprocess.run(["git", *a], stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=60)
+
+
+def _remote_json(name):
+    """GitHub par abhi wali file (doosre runs ki nayi entries samet). Na mile to []."""
+    try:
+        _git("fetch", "-q", "origin", "main")
+        p = _git("show", f"origin/main:{name}")
+        if p.returncode == 0:
+            d = json.loads(p.stdout.decode("utf-8"))
+            return d if isinstance(d, list) else []
+    except Exception:
+        pass
+    return []
+
+
+def _norm_words(t):
+    t = re.sub(r"[^\w\s]", " ", (t or "").lower())
+    stop = {"the", "a", "an", "of", "and", "in", "to", "for", "how", "his", "her", "when", "who", "with", "on",
+            "is", "was", "story", "islam", "islamic", "prophet", "allah", "lesson", "true", "power", "about",
+            "واقعہ", "واقعات", "ایمان", "افروز", "فضیلت", "سبق", "اسلام", "نبی", "کریم", "حضرت", "عظیم",
+            "خوبصورت", "سچا", "سچی", "نبوی", "اللہ", "کیسے", "والا", "والی"}
+    return {w for w in t.split() if len(w) > 2 and w not in stop}
+
+
+def _same_story(a, b):
+    """Do waqiat ek hi hain? (alfaaz badal kar wohi qissa dobara na aaye)"""
+    wa, wb = _norm_words(a), _norm_words(b)
+    if not wa or not wb:
+        return False
+    inter = len(wa & wb)
+    return inter >= 3 and inter / min(len(wa), len(wb)) >= 0.6
+
+
+def _claim(story, title):
+    """Chuna hua topic foran GitHub par 'claim' - saath chalne wala doosra run yahi waqia na uthaye.
+    Working folder ko haath nahi lagata (alag index se seedha commit)."""
+    if DRY_RUN:
+        return
+    env = dict(os.environ, GIT_INDEX_FILE="/tmp/claim_index", GIT_AUTHOR_NAME="auto-poster",
+               GIT_AUTHOR_EMAIL="auto-poster@users.noreply.github.com", GIT_COMMITTER_NAME="auto-poster",
+               GIT_COMMITTER_EMAIL="auto-poster@users.noreply.github.com")
+
+    def g(*a, inp=None):
+        return subprocess.run(["git", *a], input=inp, stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                              timeout=60, env=env)
+    for i in range(4):
+        try:
+            claims = _remote_json(CLAIMS_FILE)
+            cut = (datetime.datetime.utcnow() - datetime.timedelta(days=3)).strftime("%Y-%m-%d %H:%M")
+            claims = [c for c in claims if str(c.get("date", "")) >= cut]
+            claims.append({"date": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), "lang": LANG,
+                           "story": story, "title": title})
+            data = json.dumps(claims, ensure_ascii=False, indent=1).encode("utf-8")
+            blob = g("hash-object", "-w", "--stdin", inp=data).stdout.decode().strip()
+            g("read-tree", "origin/main")
+            g("update-index", "--add", "--cacheinfo", f"100644,{blob},{CLAIMS_FILE}")
+            tree = g("write-tree").stdout.decode().strip()
+            com = g("commit-tree", tree, "-p", "origin/main", "-m", "Claim Islamic topic").stdout.decode().strip()
+            if com and g("push", "-q", "origin", f"{com}:refs/heads/main").returncode == 0:
+                log(f"Topic claim saved: {story}")
+                return
+        except Exception as e:
+            log(f"claim fail: {str(e)[:100]}")
+        time.sleep(5 * (i + 1))
+
+
 def pick_topic(history):
-    used = [h["title"] for h in history[-120:]]
+    # GitHub wali taaza history + abhi chal rahe runs ke chune topics (warna ek hi din do run wohi waqia utha lete the)
+    seen = {(h.get("date"), h.get("title")) for h in history}
+    history = history + [h for h in _remote_json(HISTORY_FILE) if (h.get("date"), h.get("title")) not in seen]
+    claims = _remote_json(CLAIMS_FILE)
+    for h in history[-60:]:
+        OLD_CLIPS.update(h.get("clips") or [])
+    past = [h.get("story") or h["title"] for h in history[-400:]] + [c.get("story") or c.get("title", "") for c in claims]
+    used = [h["title"] for h in history[-150:]] + [c.get("title", "") for c in claims]
+    stories = [h["story"] for h in history[-400:] if h.get("story")] + [c["story"] for c in claims if c.get("story")]
     n_lang = sum(1 for h in history if h.get("lang", "en") == LANG)
     theme = THEMES[(n_lang * 7 + (3 if LANG == "ur" else 0)) % len(THEMES)]
     occ = _occasion_today(history)
@@ -321,10 +402,13 @@ what the video says (no clickbait, no promises the video does not keep).
 IGNORE phrases that name a scholar, speaker, channel or person, or ask for a cartoon, movie,
 song, status, or another language (Pashto, Hindi...) - never put such names in the title."""
     import content_rules
-    data = ask_json(f"""You plan videos for the Facebook page "{PAGE_NAME}".{content_rules.text("islamic")}
+    prompt = f"""You plan videos for the Facebook page "{PAGE_NAME}".{content_rules.text("islamic")}
 Language of this video: {L['caption_lang']}. Theme for today: {theme}
 These titles were ALREADY posted (any language). Do NOT repeat or closely resemble them:
 {json.dumps(used, ensure_ascii=False)}
+These STORIES / incidents were ALREADY told (any language, any wording). Do NOT tell the same incident,
+the same person's same event, or the same hadith again - even with a new title or a new angle:
+{json.dumps(stories[-250:], ensure_ascii=False)}{{AVOID}}
 {search_part}
 Give ONE fresh, specific, emotionally engaging video idea inside this theme.
 IMPORTANT: prefer a REAL ISLAMIC STORY / incident (واقعہ / قصہ) that teaches this theme - an authentic
@@ -333,9 +417,24 @@ Islamic history, or an authentic hadith / sunnah - with real people and a clear 
 videos get many more viewers than plain lectures. Use only well-known authentic narrations (Quran and
 sahih hadith); never invent fake events or weak/fabricated tales.
 Return JSON: {{"topic": "one English sentence describing the idea",
+ "story": "the core incident/hadith in 4-8 plain English words, e.g. 'Prophet visits sick Jewish boy'",
  "title": "catchy title in {L['caption_lang']}, max 70 characters",
- "search_phrase": "the exact real search phrase from the list you answered, or empty"}}""")
+ "search_phrase": "the exact real search phrase from the list you answered, or empty"}}"""
+    avoid = []
+    for attempt in range(4):
+        extra = ("\nREJECTED just now because already told - pick a DIFFERENT incident: " +
+                 json.dumps(avoid, ensure_ascii=False)) if avoid else ""
+        data = ask_json(prompt.replace("{AVOID}", extra))
+        story = (data.get("story") or data.get("topic") or "").strip()
+        dup = next((p for p in past if _same_story(story, p) or _same_story(data.get("title", ""), p)), None)
+        if not dup:
+            break
+        log(f"Topic repeat tha ({story} ~ {dup}) - naya chun raha hoon")
+        avoid.append(story)
+    data["story"] = story
     PICK_EXTRA.clear()
+    PICK_EXTRA["story"] = data["story"]
+    _claim(data["story"], data["title"])
     phrase = (data.get("search_phrase") or "").strip()
     if phrase:
         PICK_EXTRA["search"] = phrase
@@ -615,6 +714,8 @@ def pixabay_clips(query, count, job, prefix):
         part = [c for c in cands if c not in full and any(w in c["text"] for w in qw)]
         random.shuffle(full)
         random.shuffle(part)
+        full.sort(key=lambda c: c["id"] in OLD_CLIPS)     # purani (pichle dinon wali) clips aakhir mein
+        part.sort(key=lambda c: c["id"] in OLD_CLIPS)
         tries = 0
         for c in full + part:
             if len(got) >= count or tries >= 8:
@@ -644,6 +745,7 @@ def pixabay_clips(query, count, job, prefix):
                 if not ok:
                     REPORT["clips_rejected"] = REPORT.get("clips_rejected", 0) + 1
                     continue
+                GOOD_CLIPS.append(c["id"])
                 got.append(path)
             except Exception as e:
                 log(f"Clip download fail: {str(e)[:150]}")
@@ -686,7 +788,7 @@ def _one_clip(term, job, name, w, h, kinds=("video", "photo")):
         cands = [c for c in cands if c["id"] not in USED_CLIPS and not _blocked_text(c["text"])
                  and footage.match_score(c["text"], qw) > 0]
         random.shuffle(cands)
-        cands.sort(key=lambda c: (-footage.match_score(c["text"], qw), c.get("vertical") != (h > w)))
+        cands.sort(key=lambda c: (c["id"] in OLD_CLIPS, -footage.match_score(c["text"], qw), c.get("vertical") != (h > w)))
         for c in cands[:12 if kind == "video" else 6]:     # pehle video ki poori koshish
             USED_CLIPS.add(c["id"])
             path = os.path.join(job, f"{name}.mp4")
@@ -717,6 +819,7 @@ def _one_clip(term, job, name, w, h, kinds=("video", "photo")):
                     REPORT["photo_clips"] = REPORT.get("photo_clips", 0) + 1
                 REPORT.setdefault("sources", {})
                 REPORT["sources"][c["src"]] = REPORT["sources"].get(c["src"], 0) + 1
+                GOOD_CLIPS.append(c["id"])
                 return path
             except Exception as e:
                 log(f"clip fail ({term}): {str(e)[:120]}")
@@ -1024,6 +1127,7 @@ def _main():
     REPORT.update({"time_utc": entry["date"], "title": title, "dry_run": DRY_RUN, "posted_ok": ok})
     write_report()
     if ok and not DRY_RUN:
+        entry["clips"] = list(dict.fromkeys(GOOD_CLIPS))[:80]   # agle dinon mein yeh clips dobara na lagen
         history.append(entry)
         save_history(history)
     if ok < need:
