@@ -1,38 +1,29 @@
 {
  "mode": "short",
- "clips": 17,
- "clips_rejected": 143,
- "vision_checks": 32,
+ "clips": 13,
+ "clips_rejected": 112,
+ "vision_checks": 120,
  "errors": [],
  "search_phrases": [
-  "dubai vs saudi arabia jobs",
-  "dubai vs saudi arabia vs qatar",
-  "dubai vs saudi arabia football",
-  "dubai vs saudi arabia comparison",
-  "dubai vs saudi arabia tamil",
-  "dubai vs saudi arabia malayalam",
-  "dubai vs saudi arabia war",
-  "dubai and saudi arabia",
-  "dubai and saudi arabia difference in hindi"
+  "visa for pakistani 2026",
+  "visa for pakistani passport",
+  "visa for pakistani in uae",
+  "spain visa for pakistani",
+  "albania visa for pakistani",
+  "kyrgyzstan visa for pakistani",
+  "azerbaijan visa for pakistani nationals",
+  "germany visa for pakistani",
+  "kazakhstan visa for pakistani"
  ],
- "vision_groq": 2,
- "vision_waits": 84,
- "vision_skipped": 126,
- "alt_searches": 5,
- "no_match": [
-  "Seoul street market",
-  "Korean barbecue dish",
-  "passport and visa documents"
- ],
- "seconds": 75.6,
+ "search": "kyrgyzstan visa for pakistani",
+ "alt_searches": 3,
+ "photos": 2,
+ "seconds": 76.5,
  "links": [
-  "https://www.pk.emb-japan.go.jp",
-  "https://www.visa.go.kr",
-  "https://oec.gov.pk",
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Japan vs South Korea",
- "series": "pk_versus_short",
- "title": "جاپان یا جنوبی کوریا: پاکستانی کے لیے کون بہتر؟ | Japan vs South Korea"
+ "subject": "Kyrgyzstan / Bishkek",
+ "series": "pk_visa_short",
+ "title": "Kyrgyzstan Visa for Pakistanis: 5 Important Tips | Life in Bishkek"
 }
