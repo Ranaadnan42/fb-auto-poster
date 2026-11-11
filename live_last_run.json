@@ -1,10 +1,11 @@
 {
- "started": "2026-11-10T07:47:13.597047+00:00",
- "loops": 1709,
+ "started": "2026-11-10T20:01:55.255457+00:00",
+ "loops": 1695,
  "replies": 0,
  "errors": [
-  "webbuilder: An unknown error occurred"
+  "webbuilder: An unknown error occurred",
+  "news: An unknown error occurred"
  ],
  "log": [],
- "last_check": "2026-11-10T13:32:07.058651+00:00"
+ "last_check": "2026-11-11T01:46:49.935592+00:00"
 }
