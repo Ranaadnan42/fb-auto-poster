@@ -1,7 +1,18 @@
 {
- "time_utc": "2026-11-10 17:44",
+ "time_utc": "2026-11-11 12:50",
  "lang": "ur",
  "dry_run": false,
- "posted": {},
+ "posted": {
+  "news": {
+   "post": "1448208791702551_122108529513532804",
+   "topic": "pakistan",
+   "title": "Centurions De Silva, Mendis foil Pakistan as Sri Lanka dig in"
+  },
+  "sports": {
+   "post": "1465090056678690_122098460913548502",
+   "topic": "boxing",
+   "title": "'Crazy' I'll get to 'knock my boss out' - Doumbe"
+  }
+ },
  "errors": []
 }
