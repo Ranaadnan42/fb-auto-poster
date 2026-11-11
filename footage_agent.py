@@ -61,7 +61,23 @@ def _prompt(n, want, said, kind):
             "Answer JSON {\"match\": true/false, \"why\": \"max 8 words\"}")
 
 
+def is_greenscreen(jpg):
+    """Hara/neela parda (chroma key) wali clip - news mein kabhi nahi."""
+    import subprocess
+    try:
+        raw = subprocess.run(["ffmpeg", "-loglevel", "error", "-i", jpg, "-vf", "scale=32:32", "-f", "rawvideo",
+                              "-pix_fmt", "rgb24", "-"], capture_output=True, timeout=30).stdout
+        px = [raw[i:i + 3] for i in range(0, len(raw) - 2, 3)]
+        key = sum(1 for r, g, b in px if (g > 150 and g > r * 1.6 and g > b * 1.6) or
+                  (b > 150 and b > r * 2 and b > g * 1.6 and g > 60))
+        return bool(px) and key / len(px) > 0.30
+    except Exception:
+        return False
+
+
 def check(jpgs, want, said="", kind="news"):
+    if any(is_greenscreen(j) for j in (jpgs if isinstance(jpgs, (list, tuple)) else [jpgs])):
+        return False
     datas = []
     for j in jpgs if isinstance(jpgs, (list, tuple)) else [jpgs]:
         try:

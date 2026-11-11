@@ -131,6 +131,9 @@ Rules:
   mentions them (a country's flag/city/landmark, parliament building, stadium, the sport being played,
   oil tanker, stock market screen, rain flood street...). Must be the SPECIFIC thing said. Never a person's
   name, never a logo or channel/page name, never military, violence, blood, weapons, dead bodies or explosions.
+  Never generic mood shots (sunset, tunnel, sky, person on phone, smiling people, like/subscribe button, green
+  screen, hands typing) - only the concrete place/thing of THIS story. For sports use the exact sport (tennis
+  match, cricket match) - never a different sport.
 
 Return JSON:
 {{"title": "video title, max 10 words",
@@ -289,7 +292,7 @@ def scene_video(i, terms, secs, used, fallback_terms, said="", kind="news"):
     shakhs/jagah ki photo -> isi khabar ki pehle wali clip. Aam 'news studio' clip ab nahi."""
     import footage_agent as fa
     terms = [t for t in terms if t][:4] or fallback_terms[:1]
-    n = max(1, min(len(terms), int(secs // 2.8)))
+    n = max(1, min(len(terms), int(secs // 4.5)))
     seg = secs / n
     parts = []
     alt = None
@@ -349,11 +352,11 @@ def chunks(text, n_words):
 def make_ass(path, kind, text, headline, secs, badge):
     P = news.PAGES[kind]
     reel = KIND == "reel"
-    sub = 66 if reel else 54
-    head = 66 if reel else 54
+    sub = 84 if reel else 64
+    head = 72 if reel else 58
     sub_mv = 330 if reel else 70
     head_mv = 640 if reel else 190
-    lines = chunks(clean_voice(text), 6 if reel else 9)
+    lines = chunks(clean_voice(text), 5 if reel else 8)
     total_w = sum(len(c.split()) for c in lines) or 1
     ev, t = [], 0.0
     for c in lines:
@@ -434,7 +437,7 @@ def build_video(kind, script, stories, used):
             i += 1
     outro = script.get("outro") or {}
     if outro.get("text"):
-        scenes.append(build_scene(i, kind, outro["text"], outro.get("visuals") or [], None, badge, used, fb))
+        scenes.append(build_scene(i, kind, outro["text"], fb[:2], None, badge, used, fb))   # outro: page ka apna mahol
     if len(scenes) < 2:
         raise RuntimeError("scenes nahi banay")
     lst = os.path.join(WORK, "all.txt")

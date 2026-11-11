@@ -213,7 +213,44 @@ def gemini_json(prompt):
     raise RuntimeError(f"Gemini fail: {last}")
 
 
+FOREIGN = re.compile(r"[\u0980-\u09FF\u0900-\u097F\u0E00-\u0E7F\u4E00-\u9FFF]+")   # Bengali/Hindi/Thai/Chinese
+
+
+def _has_foreign(o):
+    if isinstance(o, str):
+        return bool(FOREIGN.search(o))
+    if isinstance(o, dict):
+        return any(_has_foreign(v) for v in o.values())
+    if isinstance(o, list):
+        return any(_has_foreign(v) for v in o)
+    return False
+
+
+def _strip_foreign(o):
+    if isinstance(o, str):
+        return re.sub(r"\s{2,}", " ", FOREIGN.sub("", o)).strip()
+    if isinstance(o, dict):
+        return {k: _strip_foreign(v) for k, v in o.items()}
+    if isinstance(o, list):
+        return [_strip_foreign(v) for v in o]
+    return o
+
+
 def ask_json(prompt):
+    """AI se JSON - Urdu/English mein ghalti se Bengali/Hindi huroof aa jayen to dobara, phir bhi hon to hata do."""
+    j = _ask_json(prompt)
+    if _has_foreign(j):
+        log("AI jawab mein Bengali/Hindi huroof - dobara likhwa rahe hain")
+        try:
+            j2 = _ask_json(prompt + "\nIMPORTANT: use ONLY Urdu (Arabic script) or English letters. "
+                                    "No Bengali, Hindi/Devanagari or any other script.")
+            j = j2 if not _has_foreign(j2) else j
+        except Exception:
+            pass
+    return _strip_foreign(j)
+
+
+def _ask_json(prompt):
     import groq_backup
     if CURRENT_PAGE and os.environ.get(f"{CURRENT_PAGE.upper()}_GEMINI_API_KEY"):
         # page ki apni Gemini key pehle, Groq backup
@@ -254,9 +291,26 @@ def words(t):
     return set(w for w in re.findall(r"\w+", (t or "").lower()) if len(w) > 3)
 
 
+COMMON_NAMES = {"united", "states", "kingdom", "donald", "trump", "pakistan", "india", "china", "russia", "ukraine",
+                "iran", "israel", "world", "president", "minister", "prime", "saudi", "arabia", "south", "north",
+                "america", "american", "europe", "european", "british", "england", "breaking", "report", "news",
+                "says", "after", "league", "final", "match", "first", "against", "former", "official"}
+
+
+def names(t):
+    """Khabar ke khaas naam (log/team/jahaz) - title ka pehla lafz chhor kar bare harf wale."""
+    toks = re.findall(r"[A-Za-z][A-Za-z'\-]+", t or "")
+    return {w.lower() for w in toks[1:] if w[0].isupper() and len(w) >= 5 and w.lower() not in COMMON_NAMES}
+
+
 def seen(item, past):
     link = item["link"]
     ws = words(item["title"])
+    nm = names(item["title"])
+    for p in past[-80:]:
+        # ek hi shakhs/cheez ki khabar (McTominay, Hegseth...) dobara nahi - chahe source ya zubaan alag ho
+        if nm and nm & names(p.get("title")):
+            return True
     for p in past:
         if p.get("link") == link:
             return True
@@ -355,6 +409,9 @@ def fresh_items(urls, past):
         if re.search(r"\b(live|as it happened|quiz|in pictures|watch:|video:|podcast|newsletter|crossword)\b",
                      it["title"], re.I):
             continue
+        if re.search(r"\b(college|NCAA|high school|university|signing class|recruit|roster|commit(s|ted)? to|"
+                     r"freshman|sophomore|state (volleyball|gymnastics|soccer)|D-?I+\b)", it["title"], re.I):
+            continue            # chhoti American college/school khel ki khabar - hamari audience ke liye nahi
         it["age"] = age
         good.append(it)
     # nayi khabar pehle, aur jis ki tafseel (desc) ho woh behtar
