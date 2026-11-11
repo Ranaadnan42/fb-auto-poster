@@ -1,0 +1,36 @@
+name: Page Review (News Act + Sports Hubs)
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  review:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install
+        run: |
+          for i in 1 2 3 4 5; do
+            sudo apt-get update && sudo apt-get install -y --fix-missing ffmpeg && break
+            sleep 30
+          done
+          pip install requests
+      - name: Review
+        env:
+          NEWS_PAGE_TOKEN: ${{ secrets.NEWS_PAGE_TOKEN }}
+          NEWS_PAGE_ID: ${{ secrets.NEWS_PAGE_ID }}
+          SPORTS_PAGE_TOKEN: ${{ secrets.SPORTS_PAGE_TOKEN }}
+          SPORTS_PAGE_ID: ${{ secrets.SPORTS_PAGE_ID }}
+        run: python tools/page_review.py
+      - name: Save to review branch
+        run: |
+          git config user.name "auto-poster"
+          git config user.email "auto-poster@users.noreply.github.com"
+          git checkout --orphan page-review
+          git rm -rq --cached .
+          git add review_out
+          git commit -qm "page review"
+          git push -f origin page-review
