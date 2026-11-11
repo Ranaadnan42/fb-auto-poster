@@ -1,28 +1,29 @@
 {
- "time_utc": "2026-11-11 00:15",
+ "time_utc": "2026-11-11 00:48",
  "kind": "reel",
  "lang": "en",
- "dry_run": true,
+ "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-11 00:15",
+   "date": "2026-11-11 00:48",
    "kind": "reel",
    "lang": "en",
-   "title": "Ukraine Peace Talks Begin in UAE",
-   "dur": 53
+   "title": "UN Chief Pressures Cop31 Hosts on Fossil Fuels",
+   "dur": 45,
+   "post_id": "1649068176952037"
   },
   "sports": {
-   "date": "2026-11-11 00:15",
+   "date": "2026-11-11 00:48",
    "kind": "reel",
    "lang": "en",
-   "title": "Kabaddi Updates: Six New Members Join Medal Count",
-   "dur": 38
+   "title": "Kyren Wilson's Crucible Venue Pick Revealed",
+   "dur": 34,
+   "post_id": "1139682258554814"
   }
  },
  "errors": [],
  "clips_rejected": 152,
- "agent_checks": 175,
+ "agent_checks": 173,
  "agent_rejects": 152,
- "agent_skips": 0,
- "alt_searches": 1
+ "agent_skips": 0
 }
