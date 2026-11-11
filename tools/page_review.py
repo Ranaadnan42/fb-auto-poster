@@ -73,14 +73,13 @@ for key, (pid, tok) in PAGES.items():
                    "msg": (p.get("message") or "")[:700], "url": p.get("permalink_url")}
                   for p in posts.get("data", [])] or posts
     vids = get(f"{pid}/videos", tok, limit=12, fields="title,description,length,created_time,source,"
-               "permalink_url,video_insights.metric(total_video_views,total_video_avg_time_watched)")
+               "permalink_url,views")
     R["videos"] = []
     for n, v in enumerate(vids.get("data", [])):
-        ins = {i["name"]: (i.get("values") or [{}])[0].get("value")
-               for i in ((v.get("video_insights") or {}).get("data") or [])}
+        ins = {"views": v.get("views")}
         item = {"t": v.get("created_time"), "len": v.get("length"), "title": v.get("title"),
                 "desc": (v.get("description") or "")[:500], "url": v.get("permalink_url"), "insights": ins}
-        if n < 6 and v.get("source"):
+        if n < 8 and v.get("source"):
             img = f"{OUT}/{key}_v{n}.jpg"
             item["sheet"] = img
             item["sheet_dur"] = sheet(v["source"], img)
