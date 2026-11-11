@@ -1,34 +1,142 @@
 {
- "updated": "2026-11-11T11:28Z",
- "new": 16,
+ "updated": "2026-11-11T19:51Z",
+ "new": 18,
  "stats": {
-  "site:facebook.com \"POS software\" chahiye": "0 (auto)",
-  "site:facebook.com \"billing software\" chahiye dukan": "0 (bing)",
-  "site:facebook.com \"software chahiye\" shop": "0 (auto)",
+  "site:facebook.com \"POS software\" chahiye": "0 (bing)",
+  "site:facebook.com \"billing software\" chahiye dukan": "0 (auto)",
+  "site:facebook.com \"software chahiye\" shop": "1 (auto)",
   "site:facebook.com/groups \"POS\" recommend shop Pakistan": "2 (auto)",
-  "site:facebook.com \"POS system\" recommend restaurant": "0 (none)",
-  "site:facebook.com \"looking for POS\" shop": "1 (bing)",
+  "site:facebook.com \"POS system\" recommend restaurant": "2 (bing)",
+  "site:facebook.com \"looking for POS\" shop": "1 (auto)",
   "site:facebook.com \"inventory software\" recommend small business": "0 (auto)",
-  "site:facebook.com \"need a website\" for my business": "0 (auto)",
-  "site:facebook.com \"website banwani\" hai": "1 (bing)",
+  "site:facebook.com \"need a website\" for my business": "1 (auto)",
+  "site:facebook.com \"website banwani\" hai": "0 (auto)",
   "site:facebook.com \"app banwani\" hai": "0 (auto)",
-  "site:facebook.com \"looking for web developer\" small business": "1 (auto)",
-  "site:facebook.com \"need a social media manager\"": "0 (auto)",
-  "site:facebook.com \"faceless youtube\" automation help": "1 (auto)",
+  "site:facebook.com \"looking for web developer\" small business": "0 (auto)",
+  "site:facebook.com \"need a social media manager\"": "2 (auto)",
+  "site:facebook.com \"faceless youtube\" automation help": "0 (auto)",
   "site:facebook.com \"برنامج كاشير\" افضل": "0 (auto)",
   "site:facebook.com \"برنامج محاسبي\" محل": "0 (auto)",
   "site:facebook.com \"نظام نقاط البيع\" مطعم": "0 (auto)",
-  "site:facebook.com \"ابي موقع\" لمحلي": "1 (bing)",
-  "site:facebook.com/groups \"website chahiye\"": "0 (bing)",
+  "site:facebook.com \"ابي موقع\" لمحلي": "0 (auto)",
+  "site:facebook.com/groups \"website chahiye\"": "0 (auto)",
   "site:facebook.com/groups \"koi acha software\" dukan": "0 (none)",
-  "site:facebook.com/groups \"POS\" Riyadh recommend": "2 (auto)",
-  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "2 (yahoo)",
-  "site:facebook.com/groups \"برنامج كاشير\" الرياض": "1 (yahoo)",
+  "site:facebook.com/groups \"POS\" Riyadh recommend": "0 (auto)",
+  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "4 (auto)",
+  "site:facebook.com/groups \"برنامج كاشير\" الرياض": "0 (bing)",
   "site:facebook.com/groups \"برنامج كاشير\" دبي": "0 (auto)",
   "site:facebook.com/groups \"who can make a website\"": "0 (none)",
-  "site:facebook.com/groups \"need an app\" for my business": "4 (bing)"
+  "site:facebook.com/groups \"need an app\" for my business": "5 (auto)"
  },
  "hits": [
+  {
+   "url": "https://www.facebook.com/groups/1722662108886675/posts/1803206870832198",
+   "title": "Kon sa software ho ga | Facebook",
+   "snippet": "Oct 15, 2026 · Author Kon sa software ho ga 3w Shah Nawaz Chachar Iss ka software chahiye 3w Zafar Iqbal Yeh racivar software nahi ho ga 3w ارشد ڈھلوں Is par ptv sports ...",
+   "found": "2026-11-11T19:50Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1371381124945627/posts/1447838347299904",
+   "title": "Shopify Store Owners Community | I want to change my Shopify ...",
+   "snippet": "Oct 25, 2026 · I want to change my Shopify store name from nexora shopping hub to another because they're more online shopping store. Plz any one help me what should I have my unique Shopify store name. Thanks ...",
+   "found": "2026-11-11T19:50Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/707279679324280",
+   "title": "Sei di Loreto se... | Facebook",
+   "snippet": "2 days ago · 🐾 ADOZIONE DEL CUORE PER HELA E THOR 🐾 Rinunciati da chi avrebbe dovuto proteggerli e amarli… Ora cercano una famiglia vera, capace di donare sicurezza, rispetto e tanto amore. ️ Hela – 4 anni, sterilizzata Thor – 2 anni Sono due cani meravigliosi, tranquilli e molto docili. Hanno solo un piccolo “vizio”: chiedono cibo come se non avessero mai mangiato… 🫣 Meritano ...",
+   "found": "2026-11-11T19:50Z"
+  },
+  {
+   "url": "https://business.facebook.com/groups/azsbcon",
+   "title": "Arizona Construction Group & Home Professionals | Facebook",
+   "snippet": "1 day ago · • Find contractors and subcontractors • Post projects and request bids • Find construction jobs, crews, and opportunities • Share your trade, services, and availability • Source materials, vendors, and suppliers • Ask construction-related questions • Recommend contractors and other construction professionals • Connect with others working in the local construction industry",
+   "found": "2026-11-11T19:50Z"
+  },
+  {
+   "url": "https://business.facebook.com/groups/whatsupsantanvalley",
+   "title": "What's Up! San Tan Valley - Facebook",
+   "snippet": "2 days ago · About this group 🎉 Welcome to \"What's up! San Tan Valley\" 🏡 – your one-stop community Facebook page for all things San",
+   "found": "2026-11-11T19:50Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1465972890410384",
+   "title": "MURANG POINT OF SALE (POS) | Facebook",
+   "snippet": "Oct 28, 2026 · LF: BIR-Compliant POS System for a Clothing Boutique 📍 Location: Quezon City / Manila We are looking for an affordable, reliable, and BIR- compliant Point-of-Sale (POS) system for our clothing boutique, with approximately 500–1,000 SKUs. Our requirements: * Affordable setup and reasonable monthly fees * Inventory management with barcode scanning * Offline transaction processing (without ...",
+   "found": "2026-11-11T19:50Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/807226382339543",
+   "title": "I need a Website | Facebook",
+   "snippet": "Oct 28, 2026 · Your business doesn't need more tools. It needs a better system. Spreadsheets for customer data. WhatsApp for enquiries. Manual follow-ups. Reports prepared from multiple sources. Sound familiar? The problem isn't necessarily the tools. It's the friction between them.",
+   "found": "2026-11-11T19:50Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/721203829963826",
+   "title": "Social Media Manager Jobs | Facebook",
+   "snippet": "Oct 21, 2026 · 📢 We’re Hiring! Facebook Manager Wanted ShopVerse is looking for a motivated and creative Facebook Manager! Are you passionate about social media, content creation, and growing Facebook audiences? This is an opportunity to develop your digital marketing skills and gain practical experience. 💼 Position Details - Position: Facebook Manager - Company: ShopVerse - Work Type: Online ...",
+   "found": "2026-11-11T19:50Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/socialmediajobopportunitiesph",
+   "title": "Social Media Job Opportunities PH - Facebook",
+   "snippet": "4 days ago · Welcome! This group is open to anyone under these categories: **aspiring social media managers/marketers **clients looking for qualified freelancers...",
+   "found": "2026-11-11T19:50Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/puskaradioaki",
+   "title": "Ilmoitustaulu Äänekoski | Facebook",
+   "snippet": "1 day ago · Yleishyödyllinen ryhmä! - Jokainen hakee itse ryhmään, älä siis kutsu kavereitasi. -Paikalliset ja...",
+   "found": "2026-11-11T19:51Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/nedervetil",
+   "title": "Nedervetil Idag - Facebook",
+   "snippet": "3 days ago · Nedervetil Idag är en grupp vars syfte är att fungera som en informations tavla för Nedervetil. Alla medlemmar kan dela med sig av olika evenemang,...",
+   "found": "2026-11-11T19:51Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/195931344329387",
+   "title": "Weener - mein Städtchen - mijn stadje | Facebook",
+   "snippet": "3 days ago · Liebe Mitglieder, herzlich willkommen in der Gruppe! Schön, dass Ihr hier seid. In dieser Gruppe sind alle herzlich willkommen, die eine Verbindung zu Weener haben oder sich für unser Städtchen interessieren. „Weener – mein Städtchen – mijn stadje“ ist die größte und vor allem lebendigste Info- und Diskussionsplattform im Rheiderland, aber vor allem im beschaulichen Weener. Hier ...",
+   "found": "2026-11-11T19:51Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/151531881704004",
+   "title": "Puskaradio Savonlinna - Facebook",
+   "snippet": "13 hours ago · Minne mennä? Mitä tehdä? Missä oli? Mihin meni? Pistetään puskaradio soimaan! FB on pullollaan kaikenlaisia kierrätykseen, ostamiseen, myymiseen ja...",
+   "found": "2026-11-11T19:51Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/862223796338871",
+   "title": "Phoenix Small Business Owners - Free Advertising | Facebook",
+   "snippet": "3 days ago · Welcome to Phoenix Small Business Owners – Free Advertising! The ultimate community for entrepreneurs, creators, and local businesses across Phoenix, Scottsdale, Mesa, Glendale, and the surrounding areas. This group was built to give small business owners something most platforms don’t offer anymore: a place to freely promote, advertise, and grow without restrictions. Inside this group ...",
+   "found": "2026-11-11T19:51Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/101478893667295",
+   "title": "PHOENIX AREA VENDOR OPPORTUNITIES | Facebook",
+   "snippet": "Oct 26, 2026 · Less than one hour in—and already 44 comments and 226 views! Today’s Showcase Your Business Sunday is taking off in the North Phoenix Business Owners group! Promote your business, connect with other local owners, and discover new referral opportunities.",
+   "found": "2026-11-11T19:51Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/NvstStudio",
+   "title": "Phoenix Local Small Businesses | Facebook",
+   "snippet": "Oct 23, 2026 · A platform where Phoenix Local Entrepreneurs can broadcast their business, motivate and connect with other like-minded entrepreneurs. For Consumers, I...",
+   "found": "2026-11-11T19:51Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/68317537607",
+   "title": "Phoenix Business Owners - Facebook",
+   "snippet": "Oct 19, 2026 · Phoenix business owners: quick question. If someone found your business on Instagram or Facebook today, would they buy from you… or scroll past? Most local businesses I look at have the same three problems: 1. Posting without a clear reason anyone should care 2. A profile that doesn't tell people what to do next 3.",
+   "found": "2026-11-11T19:51Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1219024031557960",
+   "title": "IT jobs in USA | Facebook",
+   "snippet": "Oct 23, 2026 · My Business Analyst & Product Owner Paid Bootcamp focuses on practical, interview-relevant skills: Requirements gathering, stakeholder management & gap analysis Process mapping, user stories & acceptance criteria Agile, Scrum & product backlog management APIs, integrations, system analysis & SQL Test cases, UAT & defect management 🎯 Build 3 ...",
+   "found": "2026-11-11T19:51Z"
+  },
   {
    "url": "https://www.facebook.com/groups/1489217264718009/permalink/4110077479298628",
    "title": "Pubg Mobile Card EXCHANGE COMMUNITY (MIDLE EAST) | Karambit ...",
@@ -1720,114 +1828,6 @@
    "title": "Sei di Samarate se... | Facebook",
    "snippet": "1 day ago · Buona sera Cerco un pediatra bravo e disponibile in zona per un nuovo assistito; se avete nominativi da consigliare, vi ringrazio di cuore per l'aiuto! Buona sera Cerco un pediatra bravo e disponibile in zona; se avete nominativi da consigliare, vi ringrazio di cuore per l'aiuto!",
    "found": "2026-11-01T10:48Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1965703000411582",
-   "title": "SEI di TOLENTINO se.. | Facebook",
-   "snippet": "2 days ago · Buongiorno a tutti volevo avvisare che stamattina a Tolentino in zona San Giuseppe o vIsto con i miei occhi due lupi nn o fatto in tempo a fare la foto",
-   "found": "2026-11-01T10:48Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/307848861095557/posts/1573042297909534",
-   "title": "POS agent group. | Looking for a manual POS (Point of Sale ...",
-   "snippet": "Oct 18, 2026 · Calling on retail experts and business owners: I am seeking to purchase a point of sales system. Which POS system do you recommend and why? Jassy Duran and Humberto Alvarez-Luna 2 reactions · 6 comments",
-   "found": "2026-11-01T10:48Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/2045714238815121/permalink/28669506769342506",
-   "title": "Web Design and Development | “I need a website for my ...",
-   "snippet": "6 days ago · I create modern, responsive, and professional websites for businesses and individuals. WordPress Website Development Business Websites Landing Pages & Website Redesign 📩 Need a website?",
-   "found": "2026-11-01T10:48Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/933679137584445",
-   "title": "محاسبين ومحاسبات Access و Excel وبرامج حسابات ERP وو ظائف ...",
-   "snippet": "Oct 22, 2026 · 0 reactions Abd El Hamid 1h · Public محل استلام فوري في الشيخ زايد Photos from Abd El Hamid's post 0 reactions Anonymous participant",
-   "found": "2026-11-01T10:48Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/3154819931262737",
-   "title": "PAKISTAN SOLAR GROUP | Facebook",
-   "snippet": "Oct 22, 2026 · Kisi Solar Business ko grow karne ke liye professional website chahiye to DM karein. Aapke business ke mutabiq demo diya jayega. Maqsood Devolper and 3 others 4 reactions · 2 comments",
-   "found": "2026-11-01T10:48Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/402368530245490",
-   "title": "Puszcza Mariańska i okolice- forum | Facebook",
-   "snippet": "4 days ago · Grupa stworzona z myślą o mieszkańcach gminy Puszcza Mariańska. Celem grupy jest wzajemna pomoc sąsiedzka, zamieszczanie informacji o bieżących...",
-   "found": "2026-11-01T10:49Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/pidsluhanoKorec",
-   "title": "Підслухано Корець ФБ | Facebook",
-   "snippet": "3 days ago · Новини міста Корець, Корецького району, області та Україні в цілому. Куплю\\\\продам теж вітається. У звязку з подіями в Україні, політика теж присутня.",
-   "found": "2026-11-01T10:49Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/320422511375083",
-   "title": "鳥見（鳥情報交換） | Facebook",
-   "snippet": "1 day ago · 鳥見情報や鳥について気になったこと、観察した鳥 の識別相談など、鳥に関して皆さんで仲良く意見交換 ができれば良いかと思います。 教えて教えてというのはやめましょう！識別などでは 、自分の見解を示してそれについて意見を貰うという スタンスでお願いします。 問い合わせや質問の ...",
-   "found": "2026-11-01T10:49Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/419672818081558",
-   "title": "CronacaTimeout - Facebook",
-   "snippet": "1 day ago · Li arresteranno tutti? Giorgia #Meloni si è rintanata nel bunker di Palazzo Chigi a registrare i suoi soliti video intrisi di ipocrisia e falsità, mentre oltre un milione di italiani scendeva in #piazza a sputare rabbia. Oltre a non rispondere ai giornalisti, non risponde nemmeno ai cittadini. La propaganda da salotto di questa destra si è scontrata con il Paese reale rappresentato da un ...",
-   "found": "2026-11-01T10:49Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1308421971277065/posts/1397363119049616",
-   "title": "Onslow County hair, skin, and nails | I have a question for ...",
-   "snippet": "Oct 20, 2026 · square; all in one for me (website, booking, pos system). the subscription allows me to have different forms of marketing (text & email), can hold a card on file, have a loyalty program. i’m able to...",
-   "found": "2026-11-01T10:49Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/vabiz",
-   "title": "Business Owners of Virginia - Facebook",
-   "snippet": "Oct 23, 2026 · On this page, you are permitted to network, share ideas about marketing, discuss business growth, business management, share upcoming business-related networking events, and more.",
-   "found": "2026-11-01T10:49Z"
-  },
-  {
-   "url": "https://business.facebook.com/groups/7701061191",
-   "title": "gouvieux | Facebook - Meta Business Suite",
-   "snippet": "1 day ago · 💥 T’inquiète bébé je gère ! part en tournée avec deux rendez-vous à ne pas manquer. 📍 31 oct. 2026 — Chantilly — Espace Bouteiller 📍 13 fév. 2027 — Cerny — Théâtre Thoris 🎟️ Réservations Weezevent : • Chantilly : https://my.weezevent.com/tinquiete- bebe-je-gere-chantilly-31-octobre-2026-a-20h30 • Cerny : https://my.weezevent.com/tinquiete-bebe- je-gere-cerny-13-fevrier-2027-a-20h30 #TinquièteBébéJeGère #ComedyChantilly #Comédie #Tournée2026",
-   "found": "2026-11-01T10:49Z"
-  },
-  {
-   "url": "https://business.facebook.com/groups/puacdc",
-   "title": "민주평화통일자문회의 워싱턴협의회 (PUAC Washington) | Facebook",
-   "snippet": "4 days ago · 환영합니다! 민주평화통일자문회의 워싱턴협의회의 공식 페이스북 그룹 사이트입니다. 보다 나은 소통을 위해 더욱 열심히 노력하겠습니다. 우리의 염원인 조국의 통일을 위해 여러분의 보다 많은 참여 부탁드립니다. | Welcome! This is an official...",
-   "found": "2026-11-01T10:49Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1938026186427837",
-   "title": "Fairfax County, VA Community Information | Tysons - Great ...",
-   "snippet": "Oct 22, 2026 · Let Complete Lawn Service of Northern Virginia do all of your fall cleanup. From leaf and branch removal, to weeding and mulching your beds, we'll have your property looking great and ready for the next season.",
-   "found": "2026-11-01T10:49Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/245725663836327",
-   "title": "Desi community In Maryland,Virginia,DC (Updates,Events ...",
-   "snippet": "Oct 21, 2026 · The point of creating this group is to connect Desi people who belongs to the states mentioned above in the name,From promoting your business, exchanging useful information, selling products to organizing events, hangouts, meetups etc.",
-   "found": "2026-11-01T10:49Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1676526616557770",
-   "title": "DMV Wedding Vendors & Planning | Virginia • Maryland • DC",
-   "snippet": "Oct 23, 2026 · My packages also includes free consultations prior to hiring me, timeline assistance, engagement sessions perfect for save the dates and invitations, bridal portraits, newlywed, and even anniversary sessions to savor those fun moments even after your wedding and more.",
-   "found": "2026-11-01T10:49Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/WebDBD",
-   "title": "Web Developer Bangladesh - Facebook",
-   "snippet": "🚀 DEVELOPER REQUIRED | POS & MULTI-STORE ORDER MANAGEMENT SYSTEM আমরা একটি আধুনিক POS ও Multi-Store Order Management System তৈরি করতে চাই। এজন্য একজন অভিজ্ঞ ডেভেলপার অথবা রেডিমেড স্ক্রিপ্ট ...",
-   "found": "2026-10-31T17:21Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1392955697632266",
-   "title": "Sei della Valganna se...... | Facebook",
-   "snippet": "4 days ago · Ci sono parole che raccontano da dove veniamo. Parole che abbiamo sentito pronunciare dai nostri nonni, espressioni che ci fanno sorridere e modi di dire che custodiscono un pezzo della nostra storia. Nella Biblioteca Comunale di Valganna abbiamo dedicato uno spazio ai dialetti locali, un patrimonio fatto di lingua, tradizioni e memoria collettiva. Tra gli scaffali si possono trovare dizionari ...",
-   "found": "2026-10-31T17:22Z"
   }
  ]
 }
