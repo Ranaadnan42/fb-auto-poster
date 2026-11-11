@@ -1,32 +1,38 @@
 {
  "mode": "auto",
- "stock_clips": 12,
+ "stock_clips": 11,
  "fallback_clips": 0,
  "errors": [],
  "format": "people",
  "search_phrases": [
-  "freelancing introduction video",
-  "freelancing introduction"
+  "chai addiction funny video",
+  "chai addiction",
+  "chai is tea",
+  "comedy on chai",
+  "chai tea stand up comedy"
  ],
- "funny_score": "4 -> 9",
- "search": "freelancing introduction video",
- "reel_format": "har_ghar",
- "vision_checks": 112,
- "clips_rejected": 125,
+ "funny_score": "3 -> 9",
+ "search": "chai addiction funny video",
+ "reel_format": "kya_hota_agar",
+ "vision_checks": 118,
+ "clips_rejected": 101,
  "sources": {
-  "pixabay": 6
+  "pixabay": 2
  },
  "no_match": [
-  "businessman confused video call",
-  "street vendor shouting megaphone",
-  "lights turning off room",
-  "man sweating exhausted desk",
-  "laptop screen message notification",
-  "young man laughing hands on head"
+  "student sleeping on books",
+  "happy student celebrating",
+  "mother waking son",
+  "pouring hot milk tea",
+  "strict teacher classroom",
+  "desi roadside tea stall",
+  "sad student exam paper",
+  "sad student exam paper",
+  "angry mother slipper"
  ],
- "laughs": 5,
+ "laughs": 4,
  "reel_minutes": 0.8,
- "time_utc": "2026-11-10 18:39",
- "title": "گھر کا فری لانسر اور انگریزی کا جنازہ",
+ "time_utc": "2026-11-11 07:30",
+ "title": "اگر میٹرک میں چائے کا پرچہ ہوتا",
  "dry_run": false
 }
