@@ -1,29 +1,38 @@
 {
  "mode": "short",
- "clips": 13,
- "clips_rejected": 132,
- "vision_checks": 140,
+ "clips": 17,
+ "clips_rejected": 143,
+ "vision_checks": 32,
  "errors": [],
  "search_phrases": [
-  "talaq ke bare mein maloomat",
-  "din ke bare mein maloomat",
-  "hajj ke bare mein maloomat",
-  "quran ke bare mein maloomat",
-  "islam ke bare mein maloomat",
-  "mausam ke bare mein maloomat",
-  "duniya ke bare mein maloomat",
-  "jinnat ke bare mein maloomat",
-  "pakistan ke bare mein maloomat"
+  "dubai vs saudi arabia jobs",
+  "dubai vs saudi arabia vs qatar",
+  "dubai vs saudi arabia football",
+  "dubai vs saudi arabia comparison",
+  "dubai vs saudi arabia tamil",
+  "dubai vs saudi arabia malayalam",
+  "dubai vs saudi arabia war",
+  "dubai and saudi arabia",
+  "dubai and saudi arabia difference in hindi"
  ],
- "alt_searches": 3,
- "photos": 5,
  "vision_groq": 2,
- "seconds": 73.1,
+ "vision_waits": 84,
+ "vision_skipped": 126,
+ "alt_searches": 5,
+ "no_match": [
+  "Seoul street market",
+  "Korean barbecue dish",
+  "passport and visa documents"
+ ],
+ "seconds": 75.6,
  "links": [
+  "https://www.pk.emb-japan.go.jp",
+  "https://www.visa.go.kr",
+  "https://oec.gov.pk",
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Georgia / Tbilisi",
- "series": "pk_city_facts",
- "title": "تبلیسی 60 سیکنڈ میں | Tbilisi Georgia in 60 Seconds"
+ "subject": "Japan vs South Korea",
+ "series": "pk_versus_short",
+ "title": "جاپان یا جنوبی کوریا: پاکستانی کے لیے کون بہتر؟ | Japan vs South Korea"
 }
