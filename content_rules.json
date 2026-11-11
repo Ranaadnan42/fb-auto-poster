@@ -1,31 +1,35 @@
 {
  "islamic": {
-  "avoid": [],
-  "try": [
-   "Bilal ibn Rabah’s journey from slavery to becoming the first muezzin",
-   "The miracle of the camel of Prophet Salih and its lesson on patience",
-   "Prophet’s Isra to Jerusalem and the trust it teaches",
-   "Sa'd ibn Mu'adh’s leadership in the Battle of the Trench",
-   "The ant‑teamwork story from Surah An‑Naml and its motivational message",
-   "Imam Al‑Ghazali’s spiritual crisis and return to faith"
+  "avoid": [
+   "Hazrat Umar incidents"
   ],
-  "note": "Page thodi repetitive lag rahi hai, especially Abdullah ibn Umar ki kahani do dafa aayi hai."
+  "try": [
+   "Bilal ibn Rabah ki sabr aur azm ki kahani",
+   "Hijrat-e-Nabi ﷺ ka safar aur tawakkul ka paigham",
+   "Qamar ka split hona: Shams al-Qamar ka karishma",
+   "Umm Ayman (Barakah) ki wafadari aur khidmat",
+   "Rasool ﷺ ki Khutbah-e-Wida ke aham nuqtay",
+   "Khadijah bint Khuwaylid ki sadqa aur himayat ki kahani"
+  ],
+  "note": "Page bohat repetitive lag rahi hai"
  },
  "funny": {
   "avoid": [
    "ماموں مستانہ کا ڈائٹ ڈرامہ | قسط 1",
    "ماموں مستانہ کا ڈائٹ ڈرامہ | قسط 2",
-   "ماموں مستانہ کا ڈائٹ ڈرامہ | آخری قسط"
+   "ماموں مستانہ کا ڈائٹ ڈرامہ | آخری قسط",
+   "یاروں کی گروپ چیٹ اور شمالی علاقہ جات | قسط 1",
+   "یاروں کی گروپ چیٹ اور شمالی علاقہ جات | قسط 2"
   ],
   "try": [
-   "پڑوسی کے بچے کا پہلی بار اسکول میں ٹریننگ",
-   "نیا موبائل فون خریدنے کا تجربہ اور والدین کی ہدایات",
-   "پیر کے دن کی مارکیٹ کا ٹرینڈ اور بیکری کی بیکری",
-   "گھر کے اندر چھوٹے چھوٹے راز: چھپے ہوئے کھانے",
-   "بچوں کا کرکٹ ٹریننگ اور والدین کا ہنسی کا ٹائم",
-   "سینئر سٹاف کے ساتھ کام کا تجربہ اور ان کی کہانیاں"
+   "ٹیکنالوجی کا ٹرینڈ: سمارٹ فون کے بغیر روزانہ کا کام",
+   "دکاندار کی چالاکی: سوپ کے ڈبے میں چھپے ہوئے ٹیکسٹ میسجز",
+   "پڑھائی کے دوران ٹیچر کا ڈرائیو: کلاس روم میں ڈانس موڈ",
+   "بچوں کا ہوم ورک: گیمز کے ذریعے سیکھنا",
+   "گھر کے اندر کی سڑک: ٹرک کے بغیر ٹریفک",
+   "پاکستانی ریسٹورنٹ کا ڈرائیو: سٹیک vs چکن"
   ],
-  "note": "Page thoda repetitive lag raha hai, khaas taur par series episodes."
+  "note": "Page repetitive hai, thodi variation chahiye."
  },
  "world": {
   "avoid": [

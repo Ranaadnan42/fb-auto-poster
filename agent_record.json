@@ -1,11 +1,13 @@
 {
  "open_fixes": [],
- "time_utc": "2026-11-11 11:14",
- "summary": "Gemini quota ke wajah se fail hua, ab rerun kiya, ab sab theek.",
- "notes": [],
+ "time_utc": "2026-11-11 22:04",
+ "summary": "",
+ "notes": [
+  "dimagh na chala: koi AI model na chala: 401 Client Error: Unauthorized for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key=AQ.Ab8RN6Inui1CqX6mQigIMlSYFvkTFoTitDS8jZx79k147ZWasQ"
+ ],
  "actions": [
-  "run 42901080977 (News Act + Sports Hubs [46 14 * * *]) dobara chalaya",
-  "run 42895205582 (News Act + Sports Hubs [16 20 * * *]) dobara chalaya"
+  "run 43050387846 (Cinematic AI Stories (YouTube) [47 9 * * *]) dobara chalaya",
+  "run 43050377457 (Frames of Life (Urdu World Documentaries) [7 10 * * *]) dobara chalaya"
  ],
  "edits": [],
  "needs_owner": []
