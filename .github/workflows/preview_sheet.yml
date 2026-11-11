@@ -1,0 +1,41 @@
+name: Preview Sheet (kisi run ki video ke frames)
+on:
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: 'Run ID jiski video dekhni hai'
+        required: true
+
+permissions:
+  contents: write
+  actions: read
+
+jobs:
+  sheet:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Download + frames
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          for i in 1 2 3 4 5; do sudo apt-get update && sudo apt-get install -y --fix-missing ffmpeg && break; sleep 30; done
+          mkdir -p dl review_out
+          gh run download ${{ inputs.run_id }} -R ${{ github.repository }} -D dl || true
+          n=0
+          for f in $(find dl -name "*.mp4"); do
+            d=$(ffprobe -v error -show_entries format=duration -of csv=p=0 "$f")
+            ffmpeg -y -loglevel error -i "$f" -vf "fps=12/$d,scale=360:-2,tile=4x3" -frames:v 1 -q:v 4 review_out/test_$n.jpg
+            echo "$f $d" >> review_out/list.txt; n=$((n+1))
+          done
+          ls review_out
+      - name: Save
+        run: |
+          git config user.name "auto-poster"
+          git config user.email "auto-poster@users.noreply.github.com"
+          git checkout --orphan preview-sheet
+          git rm -rq --cached .
+          git add review_out
+          git commit -qm "preview"
+          git push -f origin preview-sheet
