@@ -1388,5 +1388,17 @@
   ],
   "sport": null,
   "title": "Global Sports Hub Bulletin: Snooker, Cricket, Football Updates"
+ },
+ {
+  "date": "2026-11-11 23:52",
+  "page": "sports",
+  "id": "2163961587540104",
+  "fmt": "match",
+  "lang": "ur",
+  "topics": [
+   "football"
+  ],
+  "sport": "football",
+  "title": "Vietnam vs Chinese Taipei"
  }
 ]

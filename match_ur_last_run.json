@@ -1,18 +1,20 @@
 {
- "time_utc": "2026-11-10 00:50",
+ "time_utc": "2026-11-11 23:38",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "sports": {
-   "key": "t401873050",
-   "sport": "american football",
-   "date": "2026-11-10 00:50",
+   "key": "f401930244",
+   "sport": "football",
+   "date": "2026-11-11 23:38",
    "lang": "ur",
-   "match": "Tampa Bay Buccaneers at Chicago Bears",
-   "result": "Chicago Bears beat Tampa Bay Buccaneers 27-24",
-   "dur": 57,
-   "post_id": "2222596085346631"
+   "match": "Vietnam vs Chinese Taipei",
+   "result": "Vietnam beat Chinese Taipei 2-0",
+   "dur": 55,
+   "post_id": "2163961587540104"
   }
  },
- "errors": []
+ "errors": [
+  "Arabian Aces v Yas Lions: 'list' object has no attribute 'get'"
+ ]
 }
