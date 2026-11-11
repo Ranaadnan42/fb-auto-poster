@@ -189,46 +189,73 @@ def color_clip(out, secs):
          "-t", f"{secs:.2f}", "-pix_fmt", "yuv420p", "-c:v", "libx264", "-preset", "veryfast", out])
 
 
-def get_clip(term, secs, out, used):
+def _render_clip(raw, secs, out):
+    d = duration(raw) or 10
+    start = max(0.0, random.uniform(0, max(0.0, d - secs - 0.5))) if d > secs + 1 else 0
+    loop = ["-stream_loop", "-1"] if d < secs else []
+    run(["ffmpeg", "-y", "-loglevel", "error", *loop, "-ss", f"{start:.2f}", "-i", raw, "-t", f"{secs:.2f}",
+         "-vf", f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},"
+                f"eq=contrast=1.04:saturation=1.06,format=yuv420p",
+         "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", out])
+
+
+def get_clip(term, secs, out, used, said="", kind="news"):
+    """AGENT: har clip ke frames AI dekhta hai - sirf wohi lagti hai jo waqai boli ja rahi cheez dikhaye.
+    Pehle video (dunya bhar ki free sites), na mile to asli photo. Be-taalluq clip kabhi nahi."""
+    import footage_agent as fa
     want = footage.words(term)
     vertical = H > W
-    cands = [c for c in footage.videos(term, vertical) if c["id"] not in used]
+    cands = [c for c in footage.videos(term, vertical) if c["id"] not in used
+             and footage.match_score(c.get("text"), want) > 0]          # zero match ab kabhi nahi
     cands.sort(key=lambda c: (-footage.match_score(c.get("text"), want), c.get("vertical") != vertical,
                               random.random()))
-    for c in cands[:4]:
-        if want and footage.match_score(c.get("text"), want) == 0 and c.get("src") != "pixabay":
-            continue
+    for c in cands[:6]:
         raw = out + ".src"
         try:
             if not footage.download(c["url"], raw, 100000):
                 continue
             d = duration(raw) or c.get("dur", 10)
-            start = max(0.0, random.uniform(0, max(0.0, d - secs - 0.5))) if d > secs + 1 else 0
-            loop = ["-stream_loop", "-1"] if d < secs else []
-            run(["ffmpeg", "-y", "-loglevel", "error", *loop, "-ss", f"{start:.2f}", "-i", raw, "-t", f"{secs:.2f}",
-                 "-vf", f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},"
-                        f"eq=contrast=1.04:saturation=1.06,format=yuv420p",
-                 "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", out])
+            jpgs = []
+            for k, at in enumerate((min(d * 0.25, 2), max(min(d * 0.75, 9), 1))):
+                jpg = f"{out}.chk{k}.jpg"
+                if footage.frame(raw, jpg, at):
+                    jpgs.append(jpg)
+            full = footage.match_score(c.get("text"), want) >= len(want)
+            v = fa.check(jpgs, term, said, kind) if jpgs else None
             used.append(c["id"])
-            log(f"  clip '{term}': {c['src']} {c['id']}")
+            if v is False or (v is None and not full):
+                REPORT["clips_rejected"] = REPORT.get("clips_rejected", 0) + 1
+                log(f"  agent ne clip rad ki '{term}': {c['src']} {c['id']}")
+                continue
+            _render_clip(raw, secs, out)
+            log(f"  clip '{term}': {c['src']} {c['id']} (agent: {v})")
             return True
         except Exception as e:
             log(f"  clip fail {c['id']}: {str(e)[:100]}")
         finally:
-            if os.path.exists(raw):
-                os.remove(raw)
-    pics = [p for p in footage.photos(term) if p["id"] not in used]
+            for f in [raw] + [f"{out}.chk{k}.jpg" for k in range(2)]:
+                if os.path.exists(f):
+                    os.remove(f)
+    pics = [p for p in footage.photos(term) if p["id"] not in used and footage.match_score(p.get("text"), want) > 0]
     pics.sort(key=lambda p: -footage.match_score(p.get("text"), want))
-    for p in pics[:3]:
+    for p in pics[:4]:
         img = out + ".jpg"
         try:
             if footage.download(p["url"], img, 40000):
-                footage.photo_to_clip(img, out, W, H, secs=secs, fps=FPS)
                 used.append(p["id"])
-                log(f"  photo-clip '{term}': {p['src']} {p['id']}")
+                v = fa.check([img], term, said, kind)
+                full = footage.match_score(p.get("text"), want) >= len(want)
+                if v is False or (v is None and not full):
+                    REPORT["clips_rejected"] = REPORT.get("clips_rejected", 0) + 1
+                    continue
+                footage.photo_to_clip(img, out, W, H, secs=secs, fps=FPS)
+                log(f"  photo-clip '{term}': {p['src']} {p['id']} (agent: {v})")
                 return True
         except Exception as e:
             log(f"  photo fail: {str(e)[:100]}")
+        finally:
+            if os.path.exists(img):
+                os.remove(img)
     return False
 
 
@@ -251,21 +278,45 @@ def subject_clip(name, secs, out, used):
     return False
 
 
-def scene_video(i, terms, secs, used, fallback_terms):
+def _try(t, secs, out, used, said, kind):
+    if t.startswith("@"):
+        return subject_clip(t[1:], secs, out, used)
+    return get_clip(t, secs, out, used, said, kind)
+
+
+def scene_video(i, terms, secs, used, fallback_terms, said="", kind="news"):
+    """Har hissa: boli gayi cheez -> scene ki doosri cheez -> agent ke naye alfaaz -> khabar ke asli
+    shakhs/jagah ki photo -> isi khabar ki pehle wali clip. Aam 'news studio' clip ab nahi."""
+    import footage_agent as fa
     terms = [t for t in terms if t][:4] or fallback_terms[:1]
     n = max(1, min(len(terms), int(secs // 2.8)))
     seg = secs / n
     parts = []
+    alt = None
     for k, t in enumerate(terms[:n]):
         out = os.path.join(WORK, f"s{i}_{k}.mp4")
-        if t.startswith("@"):
-            if subject_clip(t[1:], seg + 0.1, out, used):
-                parts.append(out)
-                continue
-            t = next((x for x in terms[n:] if not x.startswith("@")), fallback_terms[0])
-        if not (get_clip(t, seg + 0.1, out, used) or
-                any(get_clip(f, seg + 0.1, out, used) for f in fallback_terms)):
+        ok = _try(t, seg + 0.1, out, used, said, kind)
+        if not ok:
+            ok = any(_try(x, seg + 0.1, out, used, said, kind) for x in terms if x != t and not x.startswith("@"))
+        if not ok:
+            if alt is None:
+                alt = fa.alt_terms(t.lstrip("@"), said, news.ask_json, kind)
+                REPORT["alt_searches"] = REPORT.get("alt_searches", 0) + 1
+                log(f"  agent ke naye alfaaz: {alt}")
+            ok = any(_try(x, seg + 0.1, out, used, said, kind) for x in alt[:4])
+        if not ok:
+            ok = any(_try(f, seg + 0.1, out, used, said, kind) for f in fallback_terms)
+        if not ok and STORY_CLIPS:
+            try:
+                _render_clip(random.choice(STORY_CLIPS), seg + 0.1, out)   # isi khabar ki pehle wali (agent-pass) clip
+                ok = True
+            except Exception:
+                ok = False
+        if not ok:
+            REPORT.setdefault("no_match", []).append(t)
             color_clip(out, seg + 0.1)
+        else:
+            STORY_CLIPS.append(out)
         parts.append(out)
     if len(parts) == 1:
         return parts[0]
@@ -275,6 +326,9 @@ def scene_video(i, terms, secs, used, fallback_terms):
     out = os.path.join(WORK, f"s{i}_v.mp4")
     run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", out])
     return out
+
+
+STORY_CLIPS = []      # mojooda khabar ki agent-pass clips (nayi khabar par khali)
 
 
 # ---------------------------------------------------------------- text on screen
@@ -336,7 +390,10 @@ def build_scene(i, kind, text, terms, headline, badge, used, fallback_terms):
     voice = os.path.join(WORK, f"v{i}.mp3")
     tts(text, voice)
     secs = duration(voice) + 0.35
-    vid = scene_video(i, terms, secs, used, fallback_terms)
+    os.environ["AGENT_PAGE"] = kind
+    vid = scene_video(i, terms, secs, used, fallback_terms, text, kind)
+    import footage_agent as fa
+    REPORT.update(fa.STATS)
     ass = os.path.join(WORK, f"s{i}.ass")
     make_ass(ass, kind, text, headline, secs, badge)
     fonts = news.FONTS_DIR.replace("\\", "/").replace(":", "\\:")
@@ -366,6 +423,8 @@ def build_video(kind, script, stories, used):
         topic = stories[n]["topic"] if n < len(stories) else ""
         sfb = ([news.SPORT_IMG.get(topic, "sports stadium")] if kind == "sports" else []) + fb
         subj = [x.strip() for x in (st.get("subjects") or []) if isinstance(x, str) and x.strip()][:3]
+        STORY_CLIPS.clear()                                  # nayi khabar - pichli khabar ki clip na lage
+        sfb = [f"@{x}" for x in subj] + sfb                  # aam clip se pehle khabar ke asli shakhs/jagah ki photo
         for k, sc in enumerate((st.get("scenes") or [])[:4]):
             if not str(sc.get("text") or "").strip():
                 continue
@@ -425,12 +484,34 @@ def post_reel(P, path, desc):
 
 
 def post_long(P, path, title, desc):
+    """Resumable (tukron mein) upload - pehle poori file ek dafa jati thi aur FB khaali jawab deta tha."""
+    url = f"https://graph-video.facebook.com/{GRAPH_VER}/{P['id']}/videos"
+    size = os.path.getsize(path)
+    start = fb_json(requests.post(url, timeout=120, data={
+        "access_token": P["token"], "upload_phase": "start", "file_size": str(size)}))
+    session, vid = start["upload_session_id"], start.get("video_id")
+    s_off, e_off = int(start["start_offset"]), int(start["end_offset"])
     with open(path, "rb") as f:
-        j = fb_json(requests.post(f"https://graph-video.facebook.com/{GRAPH_VER}/{P['id']}/videos",
-                                  timeout=1800, data={"access_token": P["token"], "title": title,
-                                                      "description": desc, "published": "true"},
-                                  files={"source": ("video.mp4", f, "video/mp4")}))
-    return j.get("id")
+        while s_off < e_off:
+            f.seek(s_off)
+            chunk = f.read(e_off - s_off)
+            for attempt in range(4):
+                try:
+                    j = fb_json(requests.post(url, timeout=600, data={
+                        "access_token": P["token"], "upload_phase": "transfer",
+                        "upload_session_id": session, "start_offset": str(s_off)},
+                        files={"video_file_chunk": ("chunk", chunk, "application/octet-stream")}))
+                    break
+                except Exception as e:
+                    log(f"Chunk retry {attempt + 1}: {str(e)[:150]}")
+                    if attempt == 3:
+                        raise
+                    time.sleep(5)
+            s_off, e_off = int(j["start_offset"]), int(j["end_offset"])
+    fb_json(requests.post(url, timeout=300, data={
+        "access_token": P["token"], "upload_phase": "finish", "upload_session_id": session,
+        "title": title, "description": desc, "published": "true"}))
+    return vid
 
 
 def description(kind, script, stories):
