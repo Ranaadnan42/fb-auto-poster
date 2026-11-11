@@ -12,7 +12,7 @@ on:
     inputs:
       count:
         description: 'Kitni demos'
-        default: '15'
+        default: '25'
       test:
         description: '1 = email business ko nahi, sirf Adnan ko (test)'
         default: '0'
@@ -38,7 +38,7 @@ jobs:
       - name: Agent
         env:
           AP_AGENT: '1'
-          AP_COUNT: ${{ github.event.inputs.count || '15' }}
+          AP_COUNT: ${{ github.event.inputs.count || '25' }}
           AP_TEST: ${{ github.event.inputs.test || '0' }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
