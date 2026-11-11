@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-10 15:08",
+ "time_utc": "2026-11-11 01:50",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "sports": {
-   "key": "t401909956",
-   "sport": "basketball",
-   "date": "2026-11-10 15:08",
+   "key": "f401928514",
+   "sport": "football",
+   "date": "2026-11-11 01:50",
    "lang": "en",
-   "match": "Indiana Pacers at Dallas Mavericks",
-   "result": "Dallas Mavericks beat Indiana Pacers 125-122",
-   "dur": 50,
-   "post_id": "1665410671963650"
+   "match": "Anaitasuna vs Alavés",
+   "result": "Alavés beat Anaitasuna 6-1",
+   "dur": 76,
+   "post_id": "1694315965392659"
   }
  },
  "errors": []
