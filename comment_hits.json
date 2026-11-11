@@ -1,34 +1,130 @@
 {
- "updated": "2026-11-10T20:00Z",
- "new": 1,
+ "updated": "2026-11-11T11:28Z",
+ "new": 16,
  "stats": {
-  "site:facebook.com \"POS software\" chahiye": "0 (google)",
-  "site:facebook.com \"billing software\" chahiye dukan": "0 (auto)",
+  "site:facebook.com \"POS software\" chahiye": "0 (auto)",
+  "site:facebook.com \"billing software\" chahiye dukan": "0 (bing)",
   "site:facebook.com \"software chahiye\" shop": "0 (auto)",
-  "site:facebook.com/groups \"POS\" recommend shop Pakistan": "0 (none)",
-  "site:facebook.com \"POS system\" recommend restaurant": "0 (bing)",
-  "site:facebook.com \"looking for POS\" shop": "0 (auto)",
+  "site:facebook.com/groups \"POS\" recommend shop Pakistan": "2 (auto)",
+  "site:facebook.com \"POS system\" recommend restaurant": "0 (none)",
+  "site:facebook.com \"looking for POS\" shop": "1 (bing)",
   "site:facebook.com \"inventory software\" recommend small business": "0 (auto)",
   "site:facebook.com \"need a website\" for my business": "0 (auto)",
-  "site:facebook.com \"website banwani\" hai": "0 (auto)",
-  "site:facebook.com \"app banwani\" hai": "0 (bing)",
-  "site:facebook.com \"looking for web developer\" small business": "0 (yahoo)",
+  "site:facebook.com \"website banwani\" hai": "1 (bing)",
+  "site:facebook.com \"app banwani\" hai": "0 (auto)",
+  "site:facebook.com \"looking for web developer\" small business": "1 (auto)",
   "site:facebook.com \"need a social media manager\"": "0 (auto)",
-  "site:facebook.com \"faceless youtube\" automation help": "0 (auto)",
+  "site:facebook.com \"faceless youtube\" automation help": "1 (auto)",
   "site:facebook.com \"برنامج كاشير\" افضل": "0 (auto)",
   "site:facebook.com \"برنامج محاسبي\" محل": "0 (auto)",
-  "site:facebook.com \"نظام نقاط البيع\" مطعم": "0 (yahoo)",
-  "site:facebook.com \"ابي موقع\" لمحلي": "0 (bing)",
-  "site:facebook.com/groups \"website chahiye\"": "0 (yahoo)",
+  "site:facebook.com \"نظام نقاط البيع\" مطعم": "0 (auto)",
+  "site:facebook.com \"ابي موقع\" لمحلي": "1 (bing)",
+  "site:facebook.com/groups \"website chahiye\"": "0 (bing)",
   "site:facebook.com/groups \"koi acha software\" dukan": "0 (none)",
-  "site:facebook.com/groups \"POS\" Riyadh recommend": "0 (none)",
-  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "0 (auto)",
-  "site:facebook.com/groups \"برنامج كاشير\" الرياض": "0 (auto)",
-  "site:facebook.com/groups \"برنامج كاشير\" دبي": "0 (yahoo)",
+  "site:facebook.com/groups \"POS\" Riyadh recommend": "2 (auto)",
+  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "2 (yahoo)",
+  "site:facebook.com/groups \"برنامج كاشير\" الرياض": "1 (yahoo)",
+  "site:facebook.com/groups \"برنامج كاشير\" دبي": "0 (auto)",
   "site:facebook.com/groups \"who can make a website\"": "0 (none)",
-  "site:facebook.com/groups \"need an app\" for my business": "1 (bing)"
+  "site:facebook.com/groups \"need an app\" for my business": "4 (bing)"
  },
  "hits": [
+  {
+   "url": "https://www.facebook.com/groups/1489217264718009/permalink/4110077479298628",
+   "title": "Pubg Mobile Card EXCHANGE COMMUNITY (MIDLE EAST) | Karambit ...",
+   "snippet": "Oct 27, 2026 · Where to buy uc at a cheap price? Syed Mustafa Shah PUBG MOBILE PAKISTAN CHAMPION (BUY AND SELL) 42w · Public",
+   "found": "2026-11-11T11:27Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/lainate",
+   "title": "Sei di Lainate Se ... | Facebook",
+   "snippet": "2 days ago · Benvenuti su gruppon di Lainate! Lainate: da non confondere con Linate (anche se, ahimè, questa è una croce che noi abitanti di questa bella cittadina...",
+   "found": "2026-11-11T11:27Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/pointofsaleph/posts/1997776320912575",
+   "title": "Point of Sale (POS) Philippines ️ | Lf a full package POS ...",
+   "snippet": "Oct 16, 2026 · looking for POS system. POS system lang po with inventory management. 🙂 Louispos Software Development Services-Bacolod Cit...",
+   "found": "2026-11-11T11:27Z"
+  },
+  {
+   "url": "https://www.facebook.com/Ajaymauryalcti/posts/कम्प्यूटर-training-institute-open-कर-रहा-हूं-ccc-form-अपने-institute-से-कैसे-भरे/4538820669709923",
+   "title": "Ajay Maurya - कम्प्यूटर Training Institute Open कर रहा हूं ...",
+   "snippet": "2 days ago · Hello Sir, mujhe pata chala ki aapko apne Computer Institute ke liye website banwani hai. Main website development ka kaam karta hoon. Agar aap interested hain, to hum details discuss kar sakte hain.",
+   "found": "2026-11-11T11:27Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/699051796861691",
+   "title": "Freelance Web Designers/ Developers/SEO Experts - Facebook",
+   "snippet": "4 days ago · The idea is to create a platform where businesses and individuals can find the right people to help them build tech products, create websites, develop apps, automate repetitive tasks, manage their technology, solve IT problems, and handle other tech-related projects.",
+   "found": "2026-11-11T11:27Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/663934348891857",
+   "title": "YouTube Automation Pakistan - Saad Rashid | Facebook",
+   "snippet": "4 days ago · Welcome to the Pakistan's First YouTube Automation Community! This group is designed to bring together creators who wish to connect, learn, and share experiences about faceless content creation.",
+   "found": "2026-11-11T11:27Z"
+  },
+  {
+   "url": "https://www.facebook.com/omeralfarouqhusain.khawaja/videos/شرح-الإبانة-الصغرى-لإبن-بطةشرح-الدكتورمحمد_بن_هادي_المدخليالدرس_الثاني_عشر/994218637031239",
+   "title": "شرح الإبانة الصغرى لإبن بطة شرح الدكتور #محمد_بن_هادي_المدخلي ...",
+   "snippet": "Oct 25, 2026 · بسم الله الرحمن الرحيم. يسر موقع ميراث الانبياء ان يقدم لكم تسجيلا في درس في شرح كتاب الشرح والابانة على اصول السنة والديانة. للامام ابن بطة العكبري رحمه الله. القاه فضيلة الشيخ الدكتور محمد ابن هادي المدخلي حفظه الله ...",
+   "found": "2026-11-11T11:27Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/141636133139682",
+   "title": "Забелязано в Етрополе | Facebook",
+   "snippet": "Nov 4, 2026 · Показвайте всякакви неща които са свързани с гр.Етрополе Правила за качване: 1. В \"Забелязано в Етрополе\" се качват снимки и видеа на интересни, забавни...",
+   "found": "2026-11-11T11:28Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1420393838221851",
+   "title": "Kojetínské novoty | Facebook",
+   "snippet": "1 day ago · Rychlé, neformální, seriozní zpravodajství o tom co se událo, DĚJE a BUDE dít v KOJETÍNĚ ve všech možných oblastech, pohotová pohodová beseda o aktuálním...",
+   "found": "2026-11-11T11:28Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/662009943863900",
+   "title": "\"Sei di Cogne se.. \" | Facebook",
+   "snippet": "2 days ago · Qui si condivide la passione per Cogne, la montagna ed il suo territorio, indipendentemente dal fatto che si sia residente, turista abituale o semplice appassionato. L’obiettivo è lo scambio di foto, pensieri o esperienze ed il confronto con chi le ha già vissute. C’è piena e assoluta libertà, sempre che rimangano nei limiti dell’educazione. È ben accetta anche l’ironia, l ...",
+   "found": "2026-11-11T11:28Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/kauzarazgrad",
+   "title": "КАУЗА РАЗГРАД | Facebook",
+   "snippet": "4 days ago · Депутатът Джипо Джипов с въпрос към земеделския министър: Включена ли е област Разград в кризисните плащания за животновъди? – Вестник \"",
+   "found": "2026-11-11T11:28Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1009266454720314",
+   "title": "Pos software and hardware (أنظمة كاشير ) | Facebook",
+   "snippet": "Nov 1, 2026 · ( ( كاشير للبيع بأقل سعر )) _ تسليم وتركيب في نفس اليوم _ شاشة تاتش + جهاز كمبيوتر _ برانتر فواتير + اسكانر + درج معدن _ برنامج كاشير مفتوح مدى الحياة بدون اشتراكات _متابعة المبيعات من الموبايل ...",
+   "found": "2026-11-11T11:28Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/209755799197695",
+   "title": "Indian business in Bay Area - Facebook",
+   "snippet": "Oct 25, 2026 · Who have you talked to in past couple days that might be thinking about buying/selling in Silicon Valley or anywhere in the US/Canada (I am blessed to be a part of a huge network that I meet/talk-to on regular basis which is the backbone of my business that my clients benefit from).",
+   "found": "2026-11-11T11:28Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/BayAreaDesiGroup",
+   "title": "Bay Area Desi Group - Facebook",
+   "snippet": "2 days ago · Who have you talked to in past couple days that might be thinking about buying/selling in Silicon Valley or anywhere in the US/Canada (I am blessed to be a part of a huge network that I meet/talk-to on regular basis which is the backbone of my business that my clients benefit from).",
+   "found": "2026-11-11T11:28Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/327379417703048",
+   "title": "Pediatric Physical & Occupational Therapists | Facebook",
+   "snippet": "Oct 22, 2026 · At Stepping Stones, your child’s safety, comfort, and happiness always come first. We make space for little ones to explore, play, and enjoy activities at their own pace, in a way that feels safe and comfortable for them. 🛝 Curious if we could support your little one?",
+   "found": "2026-11-11T11:28Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/175194527982532",
+   "title": "SAN JOSE BATANGAS COMMUNITY | Facebook",
+   "snippet": "1 day ago · Sample Bakeshop in San Jose, Batangas creates customized cakes that tell your story! From birthdays to weddings, every bite is sarap na babalik-balikan – crafted with love and premium ingredients. Price starts at ₱999! 🚚 We deliver straight to your doorstep – hassle-free!",
+   "found": "2026-11-11T11:28Z"
+  },
   {
    "url": "https://www.facebook.com/groups/140818172672321",
    "title": "Koillismaan kasvatit | Facebook",
@@ -1732,102 +1828,6 @@
    "title": "Sei della Valganna se...... | Facebook",
    "snippet": "4 days ago · Ci sono parole che raccontano da dove veniamo. Parole che abbiamo sentito pronunciare dai nostri nonni, espressioni che ci fanno sorridere e modi di dire che custodiscono un pezzo della nostra storia. Nella Biblioteca Comunale di Valganna abbiamo dedicato uno spazio ai dialetti locali, un patrimonio fatto di lingua, tradizioni e memoria collettiva. Tra gli scaffali si possono trovare dizionari ...",
    "found": "2026-10-31T17:22Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/slivnitsa",
-   "title": "Сливница | Facebook",
-   "snippet": "1 day ago · Сливница е град в Западна България. Той се намира в Софийска област на 22 километра от столицата и в близост до градовете Брезник, Костинброд, Драгоман и...",
-   "found": "2026-10-31T17:22Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/Soinistapaivaa",
-   "title": "Soinista päivää! | Facebook",
-   "snippet": "2 days ago · Ryhmä kaikille Soinissa asuville, kesäsoinilaisille ja heille, jotka muuten vain ovat het sitte ihastuneet tähän pieneen pitäjään Etelä-Pohjanmaalla.",
-   "found": "2026-10-31T17:22Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/657420681011404/posts/28878017958524965",
-   "title": "WELCOME TO THE BUSINESS RAINBOW! | Facebook",
-   "snippet": "2 days ago · Our digital POS system allows you to manage telephone orders, curbside collection orders, set employee roles, and track inventory with shop supplies and purchase orders. 🚀 Marketing Suite: Boost your sales with our full marketing suite, including newsletters designer, email marketing, and segmentation.",
-   "found": "2026-10-31T17:22Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/738117212886781",
-   "title": "Mowinckelseilerne - Facebook",
-   "snippet": "Denne siden er beregnet for dere som seilte i Johan Ludw. Mowinckels Rederi, og familiemedlemmer til dem som seilte i rederiet. Og alle som har interesse for Bergens rederi historie. Mobbing og sjikane holder vi oss for gode til. (Forekommer det er man ute) Religion, og politikk drøfter vi ikke på denne siden. Pornografi skal ikke legges inn her ! Bilder legges i mappene under Photos øverst ...",
-   "found": "2026-10-31T17:22Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/77136831160",
-   "title": "Anttola, satamasi Saimaalla | Facebook",
-   "snippet": "17 hours ago · Yrittäjyyttä miettivät hoi! 💡 Onko yritysideasi jo olemassa, mutta kaipaat apua sen viemisessä käytäntöön? Silloin tämä maksuton työpaja -kokonaisuus on sinua varten. Seuraava alkaa jo maanantaina 2.11.2026 ja kun pikaisesti ilmoittautuu, ehtii vielä mukaan! Et ehdi? Joulukuussa on vielä yksi työpajakokonaisuus. Löydät lisätiedot julkaisusta alta / sivustoltamme ...",
-   "found": "2026-10-31T17:22Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/601552506577563",
-   "title": "Susivaroitukset - Facebook",
-   "snippet": "3 days ago · Ryhmän säännöt: Hakiessasi ryhmään sinulle esitetään kysymyksiä kun julkaiset tai kommentoit ensimmäistä kertaa. Jos et vastaa näihin kysymyksiin, niin...",
-   "found": "2026-10-31T17:22Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/273774326042142",
-   "title": "Аз съм от Пазарджик | Facebook",
-   "snippet": "23 hours ago · Здравейте приятели! Тази група е предназначена за споделяне на информация, новини, снимки, събития и идеи, свързани само с гр.Пазарджик и област...",
-   "found": "2026-10-31T17:22Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/112284608874441",
-   "title": "Norrbovänner - Facebook",
-   "snippet": "1 day ago · Norrbovänner är en grupp för alla som har anknytning till Norrbo i Hudiksvalls kommun. Syftet med gruppen är att medlemmar ska kunna meddela sig med...",
-   "found": "2026-10-31T17:22Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/282712856392539/posts/1675248927138918",
-   "title": "The Political Debate | ... - Facebook",
-   "snippet": "19 hours ago · Same day I went and got 3 burger meals and I was very satisfied and highly recommend…. #damnkamgaming #stlgaming #stlfood #stlfoodie Danielle Carter and 10 others",
-   "found": "2026-10-31T09:57Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1410927833824060/posts/1594952215421620",
-   "title": "Yango Drivers Namibia | Good morning to my brothers who are ...",
-   "snippet": "Oct 6, 2026 · Good morning to my brothers who are driving yango am advising you to be very careful, with the late request from customers,last night my son went to pick up customers around 8 not knowing they are criminals, robers they ask him to drive the side of golgota where they almost killed him, on a gun point with a knife.,they took his iPhone, wallet, plus cash,n in the wallet the was cash as plus his ...",
-   "found": "2026-10-31T09:57Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1465972890410384",
-   "title": "MURANG POINT OF SALE (POS) | Facebook",
-   "snippet": "3 days ago · LF: BIR-Compliant POS System for a Clothing Boutique 📍 Location: Quezon City / Manila We are looking for an affordable, reliable, and BIR- compliant Point-of-Sale (POS) system for our clothing boutique, with approximately 500–1,000 SKUs. Our requirements: * Affordable setup and reasonable monthly fees * Inventory management with barcode scanning * Offline transaction processing (without ...",
-   "found": "2026-10-31T09:57Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/131137457391427/posts/2564833064021842",
-   "title": "Cowichan B.C. Connected | Anyone have recommendations for a ...",
-   "snippet": "Oct 14, 2026 · Here’s how your business will benefit from moving away from the use of a bar inventory spreadsheet, to the use of technology instead: Bar inventory management software and apps have formulas preprogrammed into the system.",
-   "found": "2026-10-31T09:57Z"
-  },
-  {
-   "url": "https://www.facebook.com/fitah2020/videos/افضل-برنامج-محاسبي-للمطاعم/1820503575810485",
-   "title": "افضل برنامج محاسبي للمطاعم #صنايعي_حسابات #erp #مطاعم # ...",
-   "snippet": "Oct 8, 2026 · افضل برنامج محاسبي للمطاعم افضل برنامج محاسبي للمطاعم #صنايعي_حسابات #erp #مطاعم #السعودية #محاسبين #الرياض - in Riyadh.",
-   "found": "2026-10-31T09:58Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1455597967988530",
-   "title": "Sei di Leno se... | Facebook",
-   "snippet": "1 day ago · Gruppo aperto a tutti coloro che abitano o hanno abitato a Leno.",
-   "found": "2026-10-31T09:58Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/115093555772241/posts/2119076745373902",
-   "title": "Tacurong-Isulan Job Hiring | 𝐍𝐎𝐖 𝐇𝐈𝐑𝐈𝐍𝐆 | Facebook",
-   "snippet": "Oct 22, 2026 · This role is ideal for candidates with prior experience in clinic operations, patient handling, or healthcare administration who are looking for stability, growth, and a structured working environment. 🧩 Key Responsibilities Manage patient registration, billing, appointments, and clinic systems accurately Provide professional front-line ...",
-   "found": "2026-10-31T09:58Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/489819372565651/posts/1731787828368793",
-   "title": "Please Be Careful Who You Trust! | Facebook",
-   "snippet": "Oct 16, 2026 · Start by vetting partners through personal meetings, NDAs, and small trial projects before committing money, and always check for aligned skills, funds, and chemistry. Look for people who are transparent about capital, experience, and roles rather than rushing into a deal.",
-   "found": "2026-10-31T09:58Z"
   }
  ]
 }
