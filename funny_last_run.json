@@ -1,38 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 11,
+ "stock_clips": 48,
  "fallback_clips": 0,
  "errors": [],
- "format": "people",
- "search_phrases": [
-  "chai addiction funny video",
-  "chai addiction",
-  "chai is tea",
-  "comedy on chai",
-  "chai tea stand up comedy"
- ],
- "funny_score": "3 -> 9",
- "search": "chai addiction funny video",
- "reel_format": "kya_hota_agar",
- "vision_checks": 118,
- "clips_rejected": 101,
- "sources": {
-  "pixabay": 2
- },
- "no_match": [
-  "student sleeping on books",
-  "happy student celebrating",
-  "mother waking son",
-  "pouring hot milk tea",
-  "strict teacher classroom",
-  "desi roadside tea stall",
-  "sad student exam paper",
-  "sad student exam paper",
-  "angry mother slipper"
- ],
- "laughs": 4,
- "reel_minutes": 0.8,
- "time_utc": "2026-11-11 07:30",
- "title": "اگر میٹرک میں چائے کا پرچہ ہوتا",
+ "format": "story",
+ "long_minutes": 5.37,
+ "series": "یاروں کی گروپ چیٹ اور شمالی علاقہ جات part 2 (cartoon)",
+ "laughs": 9,
+ "time_utc": "2026-11-11 18:39",
+ "title": "یاروں کی گروپ چیٹ اور شمالی علاقہ جات | قسط 2",
  "dry_run": false
 }
