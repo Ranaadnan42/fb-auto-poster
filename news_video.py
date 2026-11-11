@@ -458,7 +458,7 @@ def fb_json(r):
     try:
         j = r.json()
     except Exception:
-        raise RuntimeError(f"Facebook jawab samajh nahi aaya: {r.text[:300]}")
+        raise RuntimeError(f"Facebook jawab samajh nahi aaya (HTTP {r.status_code}): {r.text[:300]}")
     if "error" in j:
         raise RuntimeError(f"Facebook error: {j['error'].get('message', j)}")
     return j
@@ -487,8 +487,20 @@ def post_long(P, path, title, desc):
     """Resumable (tukron mein) upload - pehle poori file ek dafa jati thi aur FB khaali jawab deta tha."""
     url = f"https://graph-video.facebook.com/{GRAPH_VER}/{P['id']}/videos"
     size = os.path.getsize(path)
-    start = fb_json(requests.post(url, timeout=120, data={
-        "access_token": P["token"], "upload_phase": "start", "file_size": str(size)}))
+
+    def phase(name, data, timeout):
+        # FB kabhi khaali jawab deta hai - status ke saath log aur 3 dafa koshish
+        for attempt in range(3):
+            r = requests.post(url, timeout=timeout, data=data)
+            if r.text.strip():
+                return fb_json(r)
+            log(f"FB {name}: khaali jawab (HTTP {r.status_code}) - koshish {attempt + 1}")
+            time.sleep(10 * (attempt + 1))
+        if name == "finish" and r.status_code < 400:
+            return {}                     # upload ho chuki, finish ka jawab khaali aaya
+        raise RuntimeError(f"Facebook {name}: khaali jawab (HTTP {r.status_code})")
+
+    start = phase("start", {"access_token": P["token"], "upload_phase": "start", "file_size": str(size)}, 120)
     session, vid = start["upload_session_id"], start.get("video_id")
     s_off, e_off = int(start["start_offset"]), int(start["end_offset"])
     with open(path, "rb") as f:
@@ -508,9 +520,8 @@ def post_long(P, path, title, desc):
                         raise
                     time.sleep(5)
             s_off, e_off = int(j["start_offset"]), int(j["end_offset"])
-    fb_json(requests.post(url, timeout=300, data={
-        "access_token": P["token"], "upload_phase": "finish", "upload_session_id": session,
-        "title": title, "description": desc, "published": "true"}))
+    phase("finish", {"access_token": P["token"], "upload_phase": "finish", "upload_session_id": session,
+                     "title": title[:250], "description": desc}, 300)
     return vid
 
 

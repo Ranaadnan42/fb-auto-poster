@@ -31,7 +31,8 @@ def out(go, why):
 def earlier_run(slot, p):
     since = p - datetime.timedelta(hours=slots.WINDOW_H)
     for r in ghapi.slot_runs(slot, since, exclude_id=RUN_ID):
-        if r["id"] < RUN_ID and r.get("conclusion") not in ("cancelled", "skipped"):
+        # sirf woh run roke jo abhi chal raha hai ya kamyab hua - fail/cancel run ki wajah se post na chhoote
+        if r["id"] < RUN_ID and (r.get("status") != "completed" or r.get("conclusion") == "success"):
             return r
     return None
 

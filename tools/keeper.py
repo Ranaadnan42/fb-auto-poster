@@ -39,7 +39,7 @@ for s in slots.SLOTS:
     try:
         since = p - datetime.timedelta(hours=slots.WINDOW_H)
         existing = [r for r in ghapi.slot_runs(s, since)
-                    if r.get("conclusion") not in ("cancelled", "skipped")]
+                    if r.get("status") != "completed" or r.get("conclusion") == "success"]
         if existing:
             continue                      # pehle se run hai - kuch na karo
         dispatch(s["file"], {"sched": s["crons"][0]})

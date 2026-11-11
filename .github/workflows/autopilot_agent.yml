@@ -32,8 +32,12 @@ jobs:
           python-version: '3.11'
       - name: Install
         run: |
-          sudo apt-get update
-          sudo apt-get install -y ffmpeg
+          # Ubuntu server kabhi band hota hai - 5 dafa koshish (pehle yahin fail ho kar post chhoot jati thi)
+          for i in 1 2 3 4 5; do
+            sudo apt-get update && sudo apt-get install -y --fix-missing ffmpeg && break
+            echo "apt koshish $i fail - 30s baad dobara"; sleep 30
+          done
+          command -v ffmpeg
           pip install requests pillow google-genai "edge-tts>=7.3.0"
       - name: Agent
         env:
