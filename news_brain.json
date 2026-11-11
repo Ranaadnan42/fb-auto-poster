@@ -1,65 +1,69 @@
 {
- "updated": "2026-11-10 19:59",
- "posts_checked": 61,
+ "updated": "2026-11-11 07:07",
+ "posts_checked": 81,
  "news": {
   "topic_mult": {
-   "americas": 0.57,
-   "middle_east": 0.68,
-   "asia": 0.49,
-   "pakistan": 0.66,
-   "science_tech": 1.49,
-   "business": 1.59,
-   "africa": 0.48,
+   "americas": 0.72,
+   "middle_east": 0.69,
+   "asia": 0.45,
+   "pakistan": 1.02,
+   "science_tech": 1.52,
+   "business": 1.36,
+   "africa": 0.53,
    "world": 0.45,
-   "europe": 0.47
+   "europe": 0.62
   },
   "match_mult": {},
   "tips": [
-   "Prioritize Science/Tech and Business stories as they yield significantly higher performance multipliers than standard regional news.",
-   "Format top breaking stories into short-form Reels, which drastically outperform static images and plain breaking posts.",
-   "Prefer Urdu content over English, as Urdu posts generate nearly double the average engagement on this page.",
-   "Avoid posting niche US political drama, hyper-local cultural events, or routine match highlights that get zero engagement.",
-   "Schedule posts during peak engagement hours between 13:00-20:00 UTC and 00:00-01:00 UTC."
+   "Prioritize Reels as the primary content format, as they perform dramatically better (avg score 225) compared to static picture posts (28) and text breaking news (22).",
+   "Publish more content in Urdu ('ur'), which outperforms English ('en') content with nearly double the average engagement score (0.61 vs 0.31).",
+   "Focus coverage on High-performing topics like Science/Tech (1.85 score) and Business (1.53 score), alongside high-interest Pakistan news.",
+   "Schedule posts strictly between 14:00 UTC and 20:00 UTC to capture peak audience activity, avoiding late night/early morning slots (02:00-09:00 UTC).",
+   "Avoid posting low-engagement image posts ('pic') on general world/asia/africa topics, and refrain from duplicating identical breaking news posts."
   ]
  },
  "sports": {
   "topic_mult": {
-   "football": 0.66,
-   "formula 1": 0.64,
+   "football": 0.6,
+   "formula 1": 0.63,
    "golf": 0.45,
-   "olympic_sports": 0.92,
+   "olympic_sports": 0.85,
    "big_events": 0.45,
-   "athletics": 1.63,
-   "hockey": 1.41,
-   "esports": 1.35,
-   "general": 0.66,
-   "table_tennis": 0.78,
-   "volleyball": 1.52,
-   "american football": 0.98,
-   "american_football": 0.53,
+   "athletics": 1.62,
+   "hockey": 1.37,
+   "esports": 1.47,
+   "general": 0.65,
+   "table_tennis": 0.75,
+   "volleyball": 1.57,
+   "american football": 0.95,
+   "american_football": 0.71,
    "cycling": 0.51,
-   "basketball": 0.51,
-   "rugby": 0.45,
-   "formula1": 0.66,
-   "cricket": 0.48,
-   "boxing": 1.61
+   "basketball": 0.6,
+   "rugby": 0.47,
+   "formula1": 0.62,
+   "cricket": 0.6,
+   "boxing": 1.56,
+   "motogp": 1.03,
+   "snooker": 1.03,
+   "wrestling": 1.48
   },
   "match_mult": {
-   "formula 1": 0.64,
-   "football": 1.19,
-   "american football": 0.98,
-   "basketball": 0.51
+   "formula 1": 0.63,
+   "football": 1.15,
+   "american football": 0.95,
+   "basketball": 0.6,
+   "cricket": 1.14
   },
   "tips": [
-   "Prioritize Reels format over static pictures (pic) and standard breaking text posts, as reels bring significantly higher view counts and engagement.",
-   "Focus content creation in Urdu language or include Urdu translations, as Urdu posts outperform English posts in overall engagement score (0.38 vs 0.24).",
-   "Increase coverage of combat sports (Boxing), Athletics, Volleyball, Esports, and Hockey, which show high performance multipliers above x2.0.",
-   "Avoid posting low-performing topics such as Golf, Cricket, Rugby, Cycling, and generic Big Events, which consistently score below x0.20.",
-   "Schedule post publishing strictly between 13:00 UTC and 20:00 UTC or 00:00-01:00 UTC to capitalize on peak audience activity hours."
+   "Prioritize Urdu language content and Video/Reel or Match update formats over static English breaking text.",
+   "Focus heavily on high-engagement sports: Boxing, Volleyball, Athletics, Wrestling, Hockey, and Esports.",
+   "Reduce standard, low-performing posts on Golf, Rugby, and generic Premier League/Football picture recaps.",
+   "Highlight specific player award accomplishments and youth championship milestones using strong headline hooks.",
+   "Schedule primary posts during high-performing time slots between 13:00 UTC and 22:00 UTC."
   ]
  },
  "lang_flip": {
   "ur_to_en": 0,
-  "en_to_ur": 0.14
+  "en_to_ur": 0.17
  }
 }
