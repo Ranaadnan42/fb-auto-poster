@@ -127,8 +127,10 @@ Rules:
 - Neutral, professional, easy to understand. Mention the source naturally ("according to BBC").
 {news.brain_tips(kind)}- Start with a strong one-sentence hook. End with: ask viewers to follow {P['name']}, like and share.
 - Each story gets {per}.
-- For every scene give "visuals": 1-3 short ENGLISH stock-footage search terms IN THE ORDER the narration
-  mentions them (a country's flag/city/landmark, parliament building, stadium, the sport being played,
+- For every scene give "visuals": 1-3 short ENGLISH search terms IN THE ORDER the narration mentions them.
+  The FIRST term must name the SPECIFIC thing of the story (e.g. "Poundland store", "Barcelona general strike",
+  "US Capitol building", "Holger Rune tennis") - never generic words like "office building", "shopping street",
+  "city skyline" alone (a country's flag/city/landmark, parliament building, stadium, the sport being played,
   oil tanker, stock market screen, rain flood street...). Must be the SPECIFIC thing said. Never a person's
   name, never a logo or channel/page name, never military, violence, blood, weapons, dead bodies or explosions.
   Never generic mood shots (sunset, tunnel, sky, person on phone, smiling people, like/subscribe button, green
@@ -139,7 +141,7 @@ Return JSON:
 {{"title": "video title, max 10 words",
   "intro": {{"text": "hook sentence", "visuals": ["..."]}},
   "stories": [{{"headline": "short on-screen headline max 8 words",
-    "subjects": ["1-3 REAL names written in that story above: the main person, team, player, city/country or building, as their English Wikipedia title (e.g. 'Pete Hegseth', 'Real Madrid CF', 'Gaza City'). [] if none"],
+    "subjects": ["1-3 REAL names written in that story above: the main company/brand/shop, person, team, player, ship, city/country or building, as their English Wikipedia title (e.g. 'Pete Hegseth', 'Real Madrid CF', 'Gaza City'). [] if none"],
     "scenes": [{{"text": "...", "visuals": ["..."]}}]}}],
   "outro": {{"text": "follow / like / share line", "visuals": ["..."]}},
   "caption": "2-3 sentence post description in the same language",
@@ -315,11 +317,18 @@ def scene_video(i, terms, secs, used, fallback_terms, said="", kind="news"):
                 ok = True
             except Exception:
                 ok = False
+        if not ok and ALL_CLIPS:
+            try:
+                _render_clip(random.choice(ALL_CLIPS), seg + 0.1, out)   # kala screen kabhi nahi
+                ok = "reuse"
+            except Exception:
+                ok = False
         if not ok:
             REPORT.setdefault("no_match", []).append(t)
             color_clip(out, seg + 0.1)
-        else:
+        elif ok is True:
             STORY_CLIPS.append(out)
+            ALL_CLIPS.append(out)
         parts.append(out)
     if len(parts) == 1:
         return parts[0]
@@ -331,6 +340,7 @@ def scene_video(i, terms, secs, used, fallback_terms, said="", kind="news"):
     return out
 
 
+ALL_CLIPS = []        # poori video ki agent-pass clips (kala screen ki jagah)
 STORY_CLIPS = []      # mojooda khabar ki agent-pass clips (nayi khabar par khali)
 
 
