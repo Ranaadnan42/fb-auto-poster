@@ -1,16 +1,16 @@
 {
- "time": "2026-11-10T20:01:31Z",
+ "time": "2026-11-11T19:52:51Z",
  "mode": "post",
- "posts": 14,
+ "posts": 15,
  "new": [
-  "https://ranaadnan42.github.io/fb-auto-poster/blog/ai-chatbot-lead-generation/"
+  "https://ranaadnan42.github.io/fb-auto-poster/blog/best-app-small-business-receipts-reddit/"
  ],
  "log": [
-  "Category: ai-tools",
-  "Keyword ideas (ai-tools): 104",
+  "Category: mobile-apps",
+  "Keyword ideas (mobile-apps): 80",
   "Groq live models: openai/gpt-oss-120b, openai/gpt-oss-20b, allam-2-7b, qwen/qwen3.8-27b",
   "Groq model: openai/gpt-oss-120b",
-  "Outline: 'AI Chatbot for Lead Generation: Step‑by‑Step Guide' [ai chatbot for lead generation] - 8 sections",
+  "Outline: 'Best App for Small Business Receipts – Reddit Picks & Review' [best app for small business receipts reddit] - 8 sections",
   "Groq model: openai/gpt-oss-120b",
   "Groq model: openai/gpt-oss-120b",
   "Groq model: openai/gpt-oss-120b",
@@ -19,14 +19,14 @@
   "Groq model: openai/gpt-oss-120b",
   "Groq model: openai/gpt-oss-120b",
   "Groq model: openai/gpt-oss-120b",
-  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3864",
-  "groq openai/gpt-oss-120b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3451",
+  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3493",
+  "groq openai/gpt-oss-120b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3062",
   "Groq model: openai/gpt-oss-20b",
-  "Editor review: score 8, 3 fixes applied",
-  "Article try 1: 2871 words",
-  "Pixabay 'chatbot lead generation': 200, 20 photos",
-  "NEW: AI Chatbot for Lead Generation: Step‑by‑Step Guide -> https://ranaadnan42.github.io/fb-auto-poster/blog/ai-chatbot-lead-generation/",
-  "Health: 14 posts, 0 issues",
+  "Editor review: score 7, 1 fixes applied",
+  "Article try 1: 2683 words",
+  "Pixabay 'small business receipt app': 200, 20 photos",
+  "NEW: Best App for Small Business Receipts – Reddit Picks & Review -> https://ranaadnan42.github.io/fb-auto-poster/blog/best-app-small-business-receipts-reddit/",
+  "Health: 15 posts, 0 issues",
   "IndexNow skip (github.io par key root par nahi rakh sakte) - custom/vercel domain par chalega"
  ]
 }
