@@ -1,45 +1,12 @@
 {
- "mode": "reel",
- "stock_clips": 10,
+ "mode": "long",
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "people",
- "search_phrases": [
-  "monday morning funny motivation",
-  "monday morning funny videos",
-  "monday morning fun with prasad",
-  "monday morning misery funny moments",
-  "funny monday morning skit",
-  "monday morning episode",
-  "monday morning wishes",
-  "morning funny videos",
-  "monday morning funny",
-  "monday morning humor",
-  "monday morning film",
-  "morning comedy"
- ],
- "funny_score": "3 -> 9",
- "search": "monday morning funny videos",
- "reel_format": "dialogue",
- "vision_checks": 95,
- "clips_rejected": 89,
- "sources": {
-  "pixabay": 3,
-  "mixkit": 1
- },
- "no_match": [
-  "young man pillow over head",
-  "father lecturing son",
-  "confused young man face",
-  "confused young man face",
-  "desi plate of spicy biryani",
-  "man putting on shoes quickly",
-  "man putting on shoes quickly",
-  "father laughing chair"
- ],
- "laughs": 4,
- "reel_minutes": 0.76,
- "time_utc": "2026-11-11 22:05",
- "title": "پیر کی صبح اور ابّا جی کا کلہاڑی فارمولا",
+ "format": "chat",
+ "long_minutes": 7.01,
+ "laughs": 15,
+ "time_utc": "2026-11-11 22:52",
+ "title": "دیسی گھرانوں کے 5 شاہکار واٹس ایپ کارنامے",
  "dry_run": false
 }
