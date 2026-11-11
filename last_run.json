@@ -1,32 +1,32 @@
 {
  "lang": "en",
- "stock_clips": 14,
+ "stock_clips": 41,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "allah forgives all sins",
-  "allah forgives all sins dua",
-  "allah forgives all sins mufti menk",
-  "allah forgives everything",
-  "allah forgives major sins",
-  "allah forgives me",
-  "allah forgives zina",
-  "allah forgives you",
-  "allah forgives all sins mohamed hoblos"
+  "life after death islamic lecture",
+  "life after death islamic movie",
+  "life after death islamic video",
+  "life after death islamic short film",
+  "life after death islam gcse",
+  "life after death islam ai",
+  "life after death islam mufti menk",
+  "life after death muslim",
+  "life after death muslim belief"
  ],
- "story": "Wahshi repents after killing Hamza in battle",
- "search": "allah forgives major sins",
- "vision_checks": 83,
+ "story": "Prophet describes three things following deceased to grave",
+ "search": "life after death islamic video",
+ "vision_checks": 213,
  "sources": {
-  "pixabay": 7,
-  "commons": 6,
-  "mixkit": 1
+  "pixabay": 32,
+  "commons": 5,
+  "mixkit": 4
  },
- "clips_rejected": 54,
- "photo_clips": 2,
- "reel_minutes": 1.17,
- "time_utc": "2026-11-11 18:52",
- "title": "Allah Forgives Major Sins: The Story of Wahshi's Repentance",
+ "clips_rejected": 128,
+ "photo_clips": 3,
+ "long_minutes": 5.4,
+ "time_utc": "2026-11-11 21:29",
+ "title": "Life After Death Islamic Video: What Follows You to the Grave?",
  "dry_run": false,
  "posted_ok": 1
 }
