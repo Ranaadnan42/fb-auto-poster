@@ -1,25 +1,30 @@
 {
- "time_utc": "2026-11-10 15:49",
+ "time_utc": "2026-11-11 19:44",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-10 15:49",
+   "date": "2026-11-11 19:44",
    "kind": "reel",
    "lang": "ur",
-   "title": "سیاست کا نیا آغاز",
-   "dur": 37,
-   "post_id": "1868710147911715"
+   "title": "ماحولیاتی بحران پر عالمی رہنماؤں کی سخت وارننگ",
+   "dur": 48,
+   "post_id": "2384225295683034"
   },
   "sports": {
-   "date": "2026-11-10 15:49",
+   "date": "2026-11-11 19:44",
    "kind": "reel",
    "lang": "ur",
-   "title": "مارکو بیزکی کی موٹوجی پی فارم کی بحالی",
-   "dur": 32,
-   "post_id": "2971984889825194"
+   "title": "Ilia Malinin Prepares For Next Winter Games",
+   "dur": 50,
+   "post_id": "2521560608368204"
   }
  },
- "errors": []
+ "errors": [],
+ "agent_checks": 238,
+ "agent_rejects": 216,
+ "agent_skips": 10,
+ "clips_rejected": 223,
+ "alt_searches": 1
 }
