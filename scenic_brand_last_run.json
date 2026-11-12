@@ -1,11 +1,13 @@
 {
- "started": "2026-11-12T01:26",
+ "started": "2026-11-12T01:28",
  "steps": [
   "photo wmi124056624 1920x1080: ok=True beauty=7 - Iconic Lofoten bridge with dramatic mountain backdrop.",
-  "photo wmi86842431 1920x1440: ok=True beauty=7 - Stunning Norwegian peaks and calm mountain lake.",
-  "brand: koi 8+/10 tasveer nahi mili"
+  "photo wmi86842431 1920x1440: ok=True beauty=8 - Stunning, vast Norwegian mountain landscape.",
+  "brand: wmi86842431 beauty 8/10",
+  "profile picture: 403 {\"error\":{\"message\":\"(#210) A page access token is required to request this resource.\",\"type\":\"OAuthException\",\"code\":210,\"fbtrace_id\":\"AnHTIY4Xv9JVx9kBMN5ACss\"}}",
+  "cover fail: Facebook: (#200) The permission(s) publish_actions are not available. It has been deprecated. If you want to provide a way for your app users to share content to Facebook, we encourage you to use our Sharing products instead."
  ],
  "errors": [],
  "mode": "brand",
- "finished": "2026-11-12T01:27"
+ "finished": "2026-11-12T01:29"
 }
