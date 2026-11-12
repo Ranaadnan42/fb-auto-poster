@@ -427,7 +427,7 @@ def render_multi(shots, plan, music, mus_dur, job):
               "shadowcolor=black@0.7:shadowx=3:shadowy=3:enable='lt(t,3.6)':alpha='if(lt(t,0.3),t/0.3,if(gt(t,3.2),(3.6-t)/0.4,1))',"
               f"drawtext=fontfile={FONT}:textfile={place}:fontcolor=white@0.92:fontsize=40:x=(w-text_w)/2:y=h*0.83:"
               "shadowcolor=black@0.7:shadowx=2:shadowy=2:alpha='if(lt(t,0.8),t/0.8,1)',"
-              f"fade=t=in:st=0:d=0.4,fade=t=out:st={max(length - 0.9, 0):.2f}:d=0.9,format=yuv420p[v]")
+              f"fade=t=out:st={max(length - 0.9, 0):.2f}:d=0.9,format=yuv420p[v]")
     n = len(segs)
     m_off = random.uniform(0, max(0.0, min(25.0, mus_dur - length - 5))) if mus_dur else 0
     fc.append(f"[{n}:a]atrim=0:{length:.2f},afade=t=in:st=0:d=1,afade=t=out:st={max(length - 2.5, 0):.2f}:d=2.5,loudnorm=I=-15[a]")
@@ -564,7 +564,7 @@ def long_film(plan, h, job):
              f"fps={FPS},eq=contrast=1.06:saturation=1.12:gamma=0.98,unsharp=5:5:0.35,vignette=PI/7,"
              f"drawtext=fontfile={FONT}:textfile={lab}:fontcolor=white@0.9:fontsize=40:x=80:y=h-130:"
              f"shadowcolor=black@0.7:shadowx=2:shadowy=2:enable='between(t,1,6)':alpha='if(lt(t,1.6),(t-1)/0.6,if(gt(t,5.4),(6-t)/0.6,1))',"
-             f"fade=t=in:st=0:d=0.8,fade=t=out:st={dur - 0.8:.2f}:d=0.8,format=yuv420p",
+             (f"fade=t=in:st=0:d=0.8," if i else "") + f"fade=t=out:st={dur - 0.8:.2f}:d=0.8,format=yuv420p",
              "-c:v", "libx264", "-preset", "medium", "-crf", "18", out])
         segs.append(out)
     # title card pehle 4 sec pehli clip par
