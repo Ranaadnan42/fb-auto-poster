@@ -1,20 +1,26 @@
 {
  "mode": "short",
- "clips": 15,
- "clips_rejected": 138,
- "vision_checks": 148,
+ "clips": 22,
+ "clips_rejected": 96,
+ "vision_checks": 109,
  "errors": [],
- "search_phrases": [],
- "alt_searches": 7,
- "vision_groq": 3,
- "vision_waits": 8,
- "photos": 1,
- "seconds": 91.5,
- "links": [
-  "https://beoe.gov.pk",
-  "https://oec.gov.pk"
+ "search_phrases": [
+  "khubsurat jagah",
+  "khubsurat jagah ki video",
+  "khubsurat jagah hai",
+  "khubsurat jagah dikhayen",
+  "khubsurat jagah dikhao",
+  "khubsurat jagah ka video",
+  "khubsurat jagah ki tasviren",
+  "khubsurat jagah ki photo",
+  "khubsurat jagah ki tasvir",
+  "khubsurat jagah ki picture"
  ],
- "subject": "Jordan / Amman",
- "series": "pk_food",
- "title": "اردن کے مشہور 5 کھانے اور حلال ٹپس | Frames of Life"
+ "search": "khubsurat jagah ki video",
+ "alt_searches": 2,
+ "seconds": 106.0,
+ "links": [],
+ "subject": "United Kingdom / Scotland",
+ "series": "pk_hidden",
+ "title": "اسکاٹ لینڈ کی 5 خوبصورت جگہیں | Scotland Hidden Places"
 }
