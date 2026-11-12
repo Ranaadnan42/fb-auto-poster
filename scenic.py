@@ -546,6 +546,56 @@ def post_reel(desc):
     return vid
 
 
+def brand(job):
+    """Ek baar: page ki profile picture + cover - sab se khoobsurat ultra-HD tasveer se."""
+    from PIL import Image
+    h = {"clips": []}
+    best = None
+    for plan in ({"place": "Moraine Lake", "country": "Canada",
+                  "queries": ["moraine lake canada", "moraine lake sunrise", "banff lake mountains"]},
+                 {"place": "Lofoten Islands", "country": "Norway",
+                  "queries": ["lofoten norway", "reine lofoten", "lofoten mountains"]}):
+        best = find_photo(plan, h, job)
+        if best:
+            break
+    if not best:
+        log("brand: koi 8+/10 tasveer nahi mili")
+        return
+    im = Image.open(best["path"]).convert("RGB")
+    w, ht = im.size
+    s = min(w, ht)
+    prof = os.path.join(job, "profile.jpg")
+    im.crop(((w - s) // 2, (ht - s) // 2, (w + s) // 2, (ht + s) // 2)).resize((1080, 1080)).save(prof, quality=95)
+    cw, ch = (w, int(w / 1.777)) if w / ht < 1.777 else (int(ht * 1.777), ht)
+    cov = os.path.join(job, "cover.jpg")
+    im.crop(((w - cw) // 2, (ht - ch) // 2, (w + cw) // 2, (ht + ch) // 2)).resize((1920, 1080)).save(cov, quality=95)
+    shutil.copy(prof, "final_scenic.jpg")
+    log(f"brand: {best['id']} beauty {best['beauty']}/10")
+    if DRY_RUN:
+        return
+
+    def up(path):
+        with open(path, "rb") as f:
+            return fb(requests.post(f"{GRAPH}/{PAGE_ID}/photos", timeout=300, files={"source": f},
+                                    data={"published": "false", "access_token": TOKEN}))["id"]
+    try:
+        pid = up(prof)
+        img = requests.get(f"{GRAPH}/{pid}", params={"fields": "images", "access_token": TOKEN},
+                           timeout=60).json()["images"][0]["source"]
+        r = requests.post(f"{GRAPH}/{PAGE_ID}/picture", timeout=120,
+                          data={"picture": img, "access_token": TOKEN})
+        log(f"profile picture: {r.status_code} {r.text[:200]}")
+    except Exception as e:
+        log(f"profile picture fail: {e}")
+    try:
+        cid = up(cov)
+        r = requests.post(f"{GRAPH}/{PAGE_ID}", timeout=120,
+                          data={"cover": cid, "no_feed_story": "true", "access_token": TOKEN})
+        log(f"cover: {r.status_code} {r.text[:200]}")
+    except Exception as e:
+        log(f"cover fail: {e}")
+
+
 def main():
     if not DRY_RUN and not (PAGE_ID and TOKEN):
         log("SCENIC_PAGE_ID / SCENIC_PAGE_TOKEN abhi set nahi - page jurne tak kuch nahi")
@@ -555,6 +605,8 @@ def main():
     h = load_hist()
     refresh_views(h)
     REPORT["mode"] = MODE
+    if MODE == "brand":
+        return brand(WORK)
     if MODE == "long":
         plan, clips, avoid = None, None, []
         for _ in range(2):

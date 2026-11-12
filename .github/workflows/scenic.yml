@@ -22,7 +22,7 @@ on:
       mode:
         description: 'Kya banaye'
         type: choice
-        options: [reel, pic, long]
+        options: [reel, pic, long, brand]
         default: reel
       dry_run:
         description: 'Sirf video banaye, post na kare'
