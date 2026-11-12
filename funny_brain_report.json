@@ -1,13 +1,9 @@
 {
- "time_utc": "2026-11-11 19:52",
+ "time_utc": "2026-11-12 02:12",
  "videos": 84,
- "views": 14771,
- "engagement": 170,
+ "views": 14761,
+ "engagement": 171,
  "by_format": {
-  "story": [
-   1.04,
-   16
-  ],
   "chat": [
    0.61,
    19
@@ -15,6 +11,10 @@
   "animal": [
    0.75,
    22
+  ],
+  "story": [
+   1.04,
+   16
   ],
   "people": [
    1.14,
@@ -60,10 +60,6 @@
   ]
  },
  "by_topic": {
-  "mobile phone addiction": [
-   1.12,
-   3
-  ],
   "teacher vs students": [
    0.57,
    4
@@ -71,6 +67,10 @@
   "office / job interview": [
    1.23,
    3
+  ],
+  "mobile phone addiction": [
+   1.11,
+   2
   ],
   "diet and gym": [
    1.48,
@@ -113,7 +113,7 @@
    3
   ],
   "summer heat": [
-   0.61,
+   0.62,
    2
   ],
   "street food": [
@@ -129,7 +129,7 @@
    2
   ],
   "exams and results": [
-   1.26,
+   1.25,
    3
   ],
   "ammi ki daant (mother's scolding)": [
@@ -225,7 +225,7 @@
    1
   ],
   "first day at gym": [
-   1.14,
+   1.13,
    1
   ],
   "dentist visit": [
@@ -245,8 +245,8 @@
    1
   ],
   "friends' group chat": [
-   1.23,
-   1
+   1.21,
+   2
   ],
   "parking fight": [
    0.49,
@@ -266,10 +266,6 @@
   ]
  },
  "by_hour": {
-  "20": [
-   0.74,
-   2
-  ],
   "8": [
    1.13,
    7
@@ -303,7 +299,7 @@
    1
   ],
   "14": [
-   1.17,
+   1.16,
    7
   ],
   "16": [
@@ -315,11 +311,15 @@
    7
   ],
   "18": [
-   1.38,
-   5
+   1.35,
+   6
+  ],
+  "20": [
+   0.48,
+   1
   ],
   "21": [
-   1.23,
+   1.22,
    1
   ]
  },
@@ -328,13 +328,13 @@
   "[reel/chat/-] باس کا عذاب اور پیر کی صبح کا بہانہ (topic monday morning, views 413, eng 2, x2.02)",
   "[long/story/-] چাচا بشیر اور محلے کا سپر کپ | قسط 1 (topic cricket match, views 275, eng 4, x1.72)"
  ],
- "summary": "Page par 'people' format aur 'types' wale reels (jaise dentist visit, government office, aur Monday morning) sab se behtareen perform kar rahe hain. Dusri taraf 'animal' videos aur ghareelu kahania (jaise laundry day, online shopping, ya rishta aunty) bilkul flop ho rahi hain. Ab humein apna poora focus real-life desi situations aur solid character comedy par shift karna hoga taake engagement barhe.",
+ "summary": "Page par real-life human skits ('people' format) aur 'types' wale reel structures sab se zaroori hit ثابت ho rahe hain, jabki dentist visit, sarkari office, aur Monday morning jaise topics sab se ziada dekhe ja rahe hain. Doosri taraf 'animal' videos, 'chat' format, aur mehmanon ya rishta aunty wale purane topics bilkul flop ho rahe hain. Ab se humein low-performing formats ko chor kar human actors aur everyday relatable family situations par poora focus karna hai.",
  "plan": {
-  "updated": "2026-11-11 19:52",
+  "updated": "2026-11-12 02:12",
   "format_mult": {
-   "story": 1.03,
    "chat": 0.65,
    "animal": 0.78,
+   "story": 1.03,
    "people": 1.12,
    "cartoon": 0.97
   },
@@ -349,8 +349,8 @@
    "pov": 0.99
   },
   "style_mult": {
+   "cartoon": 0.9,
    "ai": 1.2,
-   "cartoon": 0.89,
    "cricket-commentary style narration of an everyday moment": 1.13,
    "a desi aunty's commentary": 0.92,
    "over-the-top breaking-news style": 1.13,
@@ -364,9 +364,9 @@
    "nature-documentary narrator describing desi people": 1.04
   },
   "topic_mult": {
-   "mobile phone addiction": 1.06,
    "teacher vs students": 0.73,
    "office / job interview": 1.11,
+   "mobile phone addiction": 1.04,
    "diet and gym": 1.1,
    "bijli ka bill": 0.91,
    "guests arriving at home": 0.53,
@@ -377,7 +377,7 @@
    "cricket match": 1.18,
    "sleeping late and waking late": 1.04,
    "school / tuition": 0.87,
-   "summer heat": 0.82,
+   "summer heat": 0.83,
    "street food": 1.08,
    "shaadi (wedding) season": 0.78,
    "Eid shopping": 0.9,
@@ -410,18 +410,18 @@
    "remote control fight": 0.73,
    "rickshaw / Careem bargaining, buying a new phone, selfie / TikTok craze, bank queue, Eidi collection": 0.74,
    "aunties at a wedding judging food": 1.06,
-   "friends' group chat": 1.05,
+   "friends' group chat": 1.08,
    "parking fight": 0.84,
    "Sunday breakfast halwa puri": 1.03,
    "freelancing client": 1.06,
    "chai addiction": 1.06
   },
   "tips": [
-   "Prioritize the 'people' format using 'types' and 'latifay' reel structures, as seen in top hits like dentist patients (x2.84) and government office files (x1.65).",
-   "Focus script concepts on specific relatable hassles such as office/Monday mornings, salary day, mechanic delays, bargaining in bazaar, and dentist visits.",
-   "Completely stop producing 'animal' format reels and avoid low-performing domestic topics like laundry day, cooking disasters, guests arriving, and online shopping fails.",
-   "Drop the 'news' reel structure and move away from overdone tropes like 'rishta aunty' and 'teacher vs students' which continuously underperform.",
-   "Use grounded, clean family humor centered around relatable desi dialogue (e.g., Abba's moving advice, boss vs employee banter) to drive shares and tags."
+   "Focus heavily on the 'people' format (1.14x) using top-performing structures like 'types' (1.74x), 'latifay' (1.36x), and 'har_ghar' (1.22x).",
+   "Prioritize highly relatable desi scenarios such as dentist visits (2.89x), government office files (1.70x), moving house (1.54x), bazaar bargaining (1.44x), and Monday morning excuses (1.42x).",
+   "Completely stop using the 'animal' format (0.75x) for human comedy skits, and phase out the low-performing 'chat' format (0.61x) and 'news' structure (0.56x).",
+   "Drop underperforming topics that no longer resonate, including guests arriving at home (0.08x), online shopping (0.08x), laundry day (0.28x), remote control fights (0.28x), and rishta aunties (0.52x).",
+   "Build hooks around clear character tropes and real-life desi situations (e.g., Abba's unsolicited advice, mechanic's 'sirf 5 minute', office boss vs employee) using clean family-friendly Urdu humor."
   ]
  }
 }
