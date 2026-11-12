@@ -1,26 +1,26 @@
 {
- "started": "2026-11-12T19:03",
+ "started": "2026-11-12T20:21",
  "steps": [
   "token: user token expires_at=0 data_access_expires_at=1801949831",
   "token: user token tha - page token bana kar istemal kiya",
+  "agent ka faisla: Lake Kawaguchiko, Mount Fuji, Japan - misty sunrise (Iconic global wonder with mesmerizing misty water reflections.)",
+  "42 clips mili - top 10 AI se dekhi jayengi",
+  "clip px164906 (pixabay): ok=True beauty=10 - Stunning, serene reflection of Mount Fuji.",
   "brain gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeo",
-  "agent ka faisla: Lago di Braies, Dolomites, Italy - misty sunrise (Iconic alpine lake reflection with proven viral visual appeal on stock sites.)",
-  "40 clips mili - top 10 AI se dekhi jayengi",
-  "clip px224004 (pixabay): ok=True beauty=9 - Stunning autumn colors and perfect mountain reflection.",
-  "brain gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeo",
-  "music: File:Nocturne in E flat major, Op. 9 no. 2.mp3 (public domain)",
-  "video 9.8s ban gayi (beauty 9/10, pixabay)",
-  "Post waqt 18:33 UTC guzar chuka - foran post",
-  "Story posted: 1141938838807364",
-  "reel posted: 28696714493340860"
+  "brain gemini-3.6-flash: 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand",
+  "music: File:Gymnopedie No. 3 (ISRC USUAN1100785).mp3 (cc by 3.0)",
+  "video 9.8s ban gayi (beauty 10/10, pixabay)",
+  "Post waqt 13:33 UTC guzar chuka - foran post",
+  "Story posted: 2604467246633155",
+  "reel posted: 1807723023711430"
  ],
  "errors": [],
  "mode": "reel",
- "place": "Lago di Braies, Dolomites",
- "country": "Italy",
- "caption": "Silent reflections on emerald waters as the morning fog gently lifts.\n\n📍 Lago di Braies, Italy 🇮🇹\n\nPure silence as the morning fog gently lifts over Lago di Braies. 🌫️✨\n\nExperience a tranquil lake braies sunrise surrounded by the majestic Dolomites mountains Italy. This misty lake and emerald Italy alps lake reflection feel like a dream.\n\nWho would you love to share this peaceful morning with? Tag them below! 🛶\n\nFollow for the most beautiful places on Earth in Ultra HD 🌍\n\n#WanderEarth #lagodibraies #dolomitesitaly #lakebraiessunrise #italynaturecinematic #italyalps #mistylake #nature #travel #landscape",
- "clip": "px224004",
- "beauty": 9,
- "posted": "28696714493340860",
- "finished": "2026-11-12T19:07"
+ "place": "Lake Kawaguchiko, Mount Fuji",
+ "country": "Japan",
+ "caption": "Where morning mist parts and the world falls completely still.\n\n📍 Lake Kawaguchiko, Japan 🇯🇵\n\nWaking up to a dream at the foot of Mount Fuji. 🏔️✨\n\nExperience the magic of a Mount Fuji sunrise as the Fuji mountain mist dances over the water. There is nothing quite like the peace of a Lake Kawaguchiko morning. 🇯🇵☁️\n\nWho is the first person you would take to this peaceful paradise? ☁️\n\nFollow for the most beautiful places on Earth in Ultra HD 🌍\n\n#WanderEarth #mountfuji #lakekawaguchiko #japantravel #fujisan #naturelovers #mistymorning #nature #travel #landscape",
+ "clip": "px164906",
+ "beauty": 10,
+ "posted": "1807723023711430",
+ "finished": "2026-11-12T20:24"
 }
