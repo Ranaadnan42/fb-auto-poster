@@ -1,13 +1,16 @@
 {
  "open_fixes": [],
- "time_utc": "2026-11-11 22:04",
- "summary": "",
- "notes": [
-  "dimagh na chala: koi AI model na chala: 401 Client Error: Unauthorized for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent?key=AQ.Ab8RN6Inui1CqX6mQigIMlSYFvkTFoTitDS8jZx79k147ZWasQ"
- ],
+ "time_utc": "2026-11-12 11:30",
+ "summary": "Zyadatar bots temporary network (APT) aur AI quota limits ki wajah se fail hue thay. Maine saare failed runs dobara chala diye hain, koi code change ki zaroorat nahi thi.",
+ "notes": [],
  "actions": [
-  "run 43050387846 (Cinematic AI Stories (YouTube) [47 9 * * *]) dobara chalaya",
-  "run 43050377457 (Frames of Life (Urdu World Documentaries) [7 10 * * *]) dobara chalaya"
+  "run 43041305745 (Frames of Life (Urdu World Documentaries) [47 6 * * *]) dobara chalaya",
+  "run 43050371587 (Funny Videos Poster [38 8 * * *]) dobara chalaya",
+  "run 43050365082 (Daily Auto Poster [17 9 * * *]) dobara chalaya",
+  "run 43046655681 (Daily Photo Posts [17 7 * * *]) dobara chalaya",
+  "run 43050383181 (Atlas Untold (World Documentaries) [17 8 * * *]) dobara chalaya",
+  "run 43115239640 (News Act + Sports Hubs [manual]) dobara chalaya",
+  "database wala hissa (leads/demo/cron) theek karwaya"
  ],
  "edits": [],
  "needs_owner": []

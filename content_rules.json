@@ -1,100 +1,96 @@
 {
  "islamic": {
   "avoid": [
-   "Hazrat Umar incidents"
+   "Abdullah ibn Umar",
+   "Abu Hurairah"
   ],
   "try": [
-   "Bilal ibn Rabah ki sabr aur azm ki kahani",
-   "Hijrat-e-Nabi ﷺ ka safar aur tawakkul ka paigham",
-   "Qamar ka split hona: Shams al-Qamar ka karishma",
-   "Umm Ayman (Barakah) ki wafadari aur khidmat",
-   "Rasool ﷺ ki Khutbah-e-Wida ke aham nuqtay",
-   "Khadijah bint Khuwaylid ki sadqa aur himayat ki kahani"
+   "Story of Bilal ibn Rabah’s perseverance and early call to prayer",
+   "Hadith about the Prophet’s smile and its reward",
+   "Quranic lesson from Surah Yunus on patience and trust",
+   "Incident of the Prophet’s Isra focusing on the Black Stone significance",
+   "Narrative of Sa’d ibn Mu’adh’s leadership in the Battle of the Trench",
+   "Umm Ayman’s dedication and support to the Prophet as a role model for mothers"
   ],
-  "note": "Page bohat repetitive lag rahi hai"
+  "note": "Page thodi repetitive lag rahi hai"
  },
  "funny": {
   "avoid": [
-   "ماموں مستانہ کا ڈائٹ ڈرامہ | قسط 1",
-   "ماموں مستانہ کا ڈائٹ ڈرامہ | قسط 2",
-   "ماموں مستانہ کا ڈائٹ ڈرامہ | آخری قسط",
-   "یاروں کی گروپ چیٹ اور شمالی علاقہ جات | قسط 1",
-   "یاروں کی گروپ چیٹ اور شمالی علاقہ جات | قسط 2"
+   "ماموں مستانہ کا ڈائٹ ڈرامہ",
+   "strict ammi's rules",
+   "middle‑class abbu's logic",
+   "family WhatsApp group forwards",
+   "expectation vs reality sketches"
   ],
   "try": [
-   "ٹیکنالوجی کا ٹرینڈ: سمارٹ فون کے بغیر روزانہ کا کام",
-   "دکاندار کی چالاکی: سوپ کے ڈبے میں چھپے ہوئے ٹیکسٹ میسجز",
-   "پڑھائی کے دوران ٹیچر کا ڈرائیو: کلاس روم میں ڈانس موڈ",
-   "بچوں کا ہوم ورک: گیمز کے ذریعے سیکھنا",
-   "گھر کے اندر کی سڑک: ٹرک کے بغیر ٹریفک",
-   "پاکستانی ریسٹورنٹ کا ڈرائیو: سٹیک vs چکن"
+   "online grocery delivery mishap with neighbor",
+   "school PTA meeting chaos with parents",
+   "power outage during TV drama marathon",
+   "Ramadan office fasting struggles",
+   "bicycle ride with uncle over potholes",
+   "local train overcrowding comedy"
   ],
-  "note": "Page repetitive hai, thodi variation chahiye."
+  "note": "Page thora repetitive lag raha hai."
  },
  "world": {
   "avoid": [
-   "What Nobody Tells You",
-   "Retiring in ..."
+   "What Nobody Tells You About Retiring in Mexico"
   ],
   "try": [
-   "Living in Kenya: Cost, Safety & Culture",
-   "Iceland: How to Survive the Cold and Thrive",
-   "Moving to Argentina: Realities of Daily Life",
-   "Chile's Hidden Gems: Life Outside Santiago",
-   "Exploring Malta: Small Island Living Benefits",
-   "Work Permits in Estonia: Digital Nomad Guide"
+   "Living in Norway: Cost, Safety & Quality of Life",
+   "Kenya Uncovered: Everyday Life and Opportunities for Expats",
+   "Argentina: What It's Really Like for Expats in 2025",
+   "Philippines: Cost of Living, Jobs & Island Life Guide",
+   "Greece: Affordable Living and Hidden Gems",
+   "South Africa: Safety, Culture & Cost of Living Guide"
   ],
   "note": "Page thodi repetitive lag rahi hai."
  },
  "world_short": {
   "avoid": [
-   "California",
    "Japan",
-   "South Korea",
-   "Australia",
-   "Spain"
+   "South Korea"
   ],
   "try": [
-   "Mexico City, Mexico",
-   "Nairobi, Kenya",
-   "Brazil",
-   "Istanbul, Turkey",
-   "Singapore",
-   "Lagos, Nigeria"
+   "6 Surprising Facts About Iceland You Didn't Know",
+   "Would You Live in Dubai? The Untold Truth",
+   "Traditional Food of Thailand: 5 Must-Try Dishes",
+   "Hidden Gems in Mexico City You Never Knew Existed",
+   "What Nobody Tells You About Visiting Cairo",
+   "5 Secret Places in Canada You Never Knew Existed"
   ],
-  "note": "Page bohat repetitive hai."
+  "note": "Page is repetitive with Japan, South Korea, and specific cost-of-living comparisons."
  },
  "frames": {
   "avoid": [
+   "Dubai",
    "Japan",
-   "United Kingdom",
-   "Istanbul, Turkey",
    "Canada",
    "Germany",
-   "Dubai",
-   "Saudi Arabia",
-   "Australia"
+   "Australia",
+   "Italy"
   ],
   "try": [
-   "South Korea: Job Visa and Life in Seoul for Pakistanis",
-   "New Zealand: Permanent Residency Pathways and Cost of Living",
-   "Norway: Winter Life and High-Skill Job Opportunities",
-   "Portugal: Digital Nomad Visa and Affordable Housing Guide",
-   "Singapore: Career Growth and Tax Benefits for Skilled Workers"
+   "Life in New Zealand: Nature, Jobs, and Cost of Living for Pakistanis",
+   "Norway vs Finland: Which Nordic Country is Better for Pakistani Workers?",
+   "Life in Qatar: Real Salary, Housing, and Daily Expenses",
+   "Poland Work Visa Guide: How to Get a Job in Europe",
+   "Life in Portugal: Affordable Living and Visa Options for Pakistanis",
+   "Switzerland: High Salaries vs High Cost of Living Reality"
   ],
-  "note": "Page is highly repetitive with visa guides and life-in-country formats for similar European/Asian destinations."
+  "note": "Page is repetitive with visa guides and major Western countries; needs fresh European and Gulf options."
  },
  "frames_short": {
   "avoid": [],
   "try": [
-   "10-minute guide to living in Lagos, Nigeria",
-   "Top 5 affordable cities in South America for Pakistanis",
-   "How to find remote work from Pakistan",
-   "Cultural etiquette in Ethiopia",
-   "Hidden gems in Sri Lanka",
-   "Visa process for Pakistanis to Peru"
+   "Life in Dubai: Real rent vs salary for Pakistani workers",
+   "Turkey (Istanbul) Cost of Living & Visa update for Pakistanis",
+   "Malaysia: 5 Best Halal Food spots in Kuala Lumpur",
+   "Spain (Madrid) vs Portugal: Which is cheaper for students?",
+   "UAE: How to open a bank account as a fresh graduate",
+   "Jordan (Amman) Travel Guide: 5 Hidden Gems & Food"
   ],
-  "note": "Page thoda repetitive lag raha hai."
+  "note": "Page is repetitive with Gulf cost-of-living and Central Asian visa topics; needs fresh European and Asian destinations."
  },
  "_platforms": {
   "islamic": {
