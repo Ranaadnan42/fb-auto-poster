@@ -559,7 +559,13 @@ def brand(job):
     for plan in ({"place": "Moraine Lake", "country": "Canada",
                   "queries": ["moraine lake canada", "moraine lake sunrise", "banff lake mountains"]},
                  {"place": "Lofoten Islands", "country": "Norway",
-                  "queries": ["lofoten norway", "reine lofoten", "lofoten mountains"]}):
+                  "queries": ["lofoten norway", "reine lofoten", "lofoten mountains"]},
+                 {"place": "Dolomites", "country": "Italy",
+                  "queries": ["tre cime di lavaredo", "dolomites sunrise", "seceda dolomites"]},
+                 {"place": "Lauterbrunnen Valley", "country": "Switzerland",
+                  "queries": ["lauterbrunnen valley", "swiss alps valley", "matterhorn"]},
+                 {"place": "Torres del Paine", "country": "Chile",
+                  "queries": ["torres del paine", "patagonia mountains", "fitz roy patagonia"]}):
         best = find_photo(plan, h, job)
         if best:
             break
