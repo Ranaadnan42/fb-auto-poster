@@ -444,6 +444,25 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122108706369532804"
+  },
+  {
+   "date": "2026-11-12 13:51",
+   "lang": "en",
+   "topic": "europe",
+   "link": "https://www.theguardian.com/commentisfree/2026/nov/12/donald-trump-ukraine-marine-le-pen-europe-france",
+   "title": "Trump won't save Ukraine. But Marine Le Pen's betrayal could be worse | Mujtaba Rahman",
+   "words": [
+    "betrayal",
+    "could",
+    "marine",
+    "mujtaba",
+    "rahman",
+    "save",
+    "trump",
+    "ukraine",
+    "worse"
+   ],
+   "post_id": "1448208791702551_122109000411532804"
   }
  ],
  "sports": [
@@ -877,6 +896,26 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122098809903548502"
+  },
+  {
+   "date": "2026-11-12 13:51",
+   "lang": "en",
+   "topic": "winter_sports",
+   "link": "https://news.google.com/rss/articles/CBMiigJBVV95cUxOQkV2eUFvQml0MkROUm9CVjdJczFlNWZxNE1xZmo2ZTM2LUdnU1h6Y19UVXJUUThwNmtQMmpORWRYa2NDRWJWaUx3SlJvXzJsUEJ0S1B6Y29JaUhoVjFteEtVNXM5NHd2VzBiekxKamJBNmhYYU1KUTUyaHlPTXBkVXV0Zlc0M0QxRGlMNTlEdS13RmhlNkFkcUdDd3dBRnFrR0RiMkpwR2NiZTJLU1FzdXE3dFFYaWFRT2Fxend5U3NzODBXUVR4dTgtdWVCa1ROTHpVa0RvM0V5NW54SUx0ZUlFY0s5b3JSZEVXdkFKbW5INjl0ZGxGRGFDM0dON3BseFgzRU9aTnhEQQ?oc=5",
+   "title": "The US pairs team of Efimova and Mitrofanov is ready for their season debut at Skate America",
+   "words": [
+    "america",
+    "debut",
+    "efimova",
+    "mitrofanov",
+    "pairs",
+    "ready",
+    "season",
+    "skate",
+    "team",
+    "their"
+   ],
+   "post_id": "1465090056678690_122099435727548502"
   }
  ],
  "used_images": [
@@ -911,6 +950,7 @@
   8444899,
   1839031,
   1559924,
-  2755046
+  2755046,
+  466225
  ]
 }
