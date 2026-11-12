@@ -20,7 +20,7 @@ import requests
 T0 = time.time()
 BUDGET_S = int(os.environ.get("AGENT_VISION_MIN", "40")) * 60
 MODELS = ["gemini-3.1-flash-lite", "gemini-flash-lite-latest", "gemini-3.5-flash-lite", "gemini-3-flash-preview",
-          "gemini-3.5-flash", "gemini-flash-latest", "gemma-4-26b-a4b-it"]
+          "gemini-flash-latest", "gemma-4-31b-it", "gemma-4-26b-a4b-it"]
 _DEAD = set()
 _REST = {}
 STATS = {"agent_checks": 0, "agent_rejects": 0, "agent_skips": 0}

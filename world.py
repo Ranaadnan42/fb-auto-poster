@@ -41,7 +41,7 @@ WORK = f"work_{PFX}"
 HISTORY_FILE = f"{PFX}_{MODE}_history.json"
 REPORT_FILE = f"{PFX}_{MODE}_last_run.json"
 OUT_FILE = f"final_{PFX}.mp4"
-MODELS = ["gemini-3.5-flash", "gemini-3.8-flash", "gemini-3.5-flash-lite"]
+MODELS = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-2.5-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]
 UA = {"User-Agent": "AtlasUntoldBot/1.0 (youtube documentary; contact ranaadnan320@gmail.com)"}
 GEO_URL = ("https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/"
            "ne_50m_admin_0_countries.geojson")
@@ -237,7 +237,7 @@ GROQ_VISION = ["qwen/qwen3.8-27b", "meta-llama/llama-4-scout-17b-16e-instruct"]
 # Har model ka apna free quota hai - ek khatam ho to agla. Gemma ka free quota sab se bara.
 # Tez (lite) models pehle; Gemma bara free quota magar dheera - aakhir mein.
 VISION_MODELS = ["gemini-3.1-flash-lite", "gemini-flash-lite-latest", "gemini-3.5-flash-lite",
-                 "gemini-3-flash-preview", "gemini-3.6-flash", "gemini-3.7-flash", "gemini-3.5-flash",
+                 "gemini-3-flash-preview", "gemini-3.6-flash", "gemini-3.7-flash",
                  "gemini-3.8-flash", "gemini-flash-latest", "gemma-4-26b-a4b-it", "gemma-4-31b-it"]
 _DEAD = set()          # jin models ka quota is run mein khatam / jo chalte nahi / bahut dheere
 _SLOW = {}             # timeout/503 wale models: 3 minute baad dobara try (Google ka load aata jaata hai)

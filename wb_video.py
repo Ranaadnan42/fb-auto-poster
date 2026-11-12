@@ -48,7 +48,7 @@ WORK = os.path.abspath(f"work_wbv_{LANG}_{'long' if LONG else 'reel'}")
 FONTS_DIR = os.path.abspath("fonts")
 FONT = "Noto Sans"
 W, H = (1920, 1080) if LONG else (1080, 1920)
-MODELS = ["gemini-3.5-flash", "gemini-2.5-flash", "gemini-3.5-flash-lite"]
+MODELS = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-2.5-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]
 VOICE = {"en": ("en-US-GuyNeural", "+0%"), "ur": ("ur-PK-AsadNeural", "-2%"),
          "ar": ("ar-SA-HamedNeural", "+0%")}[LANG]
 SUB_FONT = "Noto Naskh Arabic" if LANG == "ar" else FONT

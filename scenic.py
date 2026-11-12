@@ -45,9 +45,9 @@ OUT = "final_scenic.mp4"
 HIST_FILE = "scenic_history.json"
 REPORT_FILE = f"scenic_{MODE}_last_run.json"
 FONT = os.path.abspath("fonts/NotoSans-Bold.ttf")
-TEXT_MODELS = ["gemini-3.5-flash", "gemini-3.8-flash", "gemini-3.5-flash-lite", "gemini-flash-latest"]
-VIS_MODELS = ["gemini-3.5-flash", "gemini-3.1-flash-lite", "gemini-flash-lite-latest", "gemini-3.5-flash-lite",
-              "gemini-flash-latest", "gemma-4-26b-a4b-it"]
+TEXT_MODELS = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-2.5-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]
+VIS_MODELS = ["gemini-3.1-flash-lite", "gemini-flash-lite-latest", "gemini-3.5-flash-lite",
+              "gemini-flash-latest", "gemma-4-31b-it", "gemma-4-26b-a4b-it"]
 UA = {"User-Agent": "WanderEarthBot/1.0 (https://github.com/Ranaadnan42/fb-auto-poster)"}
 REPORT = {"started": datetime.datetime.utcnow().isoformat(timespec="minutes"), "steps": [], "errors": []}
 _DEAD = set()

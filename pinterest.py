@@ -35,7 +35,7 @@ DRY_RUN = os.environ.get("DRY_RUN") == "1"
 PINS_PER_RUN = int(os.environ.get("PINS_PER_RUN") or 2)
 MIN_AGE_HOURS = 1
 FONT = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts", "NotoSans-Bold.ttf")
-MODEL_CANDIDATES = ["gemini-3.5-flash", "gemini-2.5-flash", "gemini-3.5-flash-lite"]
+MODEL_CANDIDATES = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-2.5-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]
 
 ACCOUNTS = {
     "islamic": {

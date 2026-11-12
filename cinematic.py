@@ -88,7 +88,7 @@ if MOVIE and not LONG:
     SCENES = 10                 # Short 3 minute se kam rahe (YouTube Shorts ki had)
 # Shorts ab poori motion (30 clips ~2.6h) -> 7 Shorts ~18h + 3 lambi videos ~9h = hafte ke 30h ke andar
 KAGGLE_LONG_DAYS = (0, 2, 4)          # Mon Wed Fri
-MODELS = ["gemini-3.5-flash", "gemini-3.8-flash", "gemini-3.5-flash-lite"]
+MODELS = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-2.5-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]
 GRAPH_VER = "v23.0"
 
 WORLDS = [

@@ -35,7 +35,7 @@ FONTS_DIR = os.path.abspath("fonts")
 UR_FONT = "Noto Naskh Arabic"
 EN_FONT = "Noto Sans"
 W, H = 1080, 1350            # 4:5 - Facebook feed mein sab se bari jagah leta hai
-MODEL_CANDIDATES = ["gemini-3.5-flash", "gemini-2.5-flash", "gemini-3.5-flash-lite"]
+MODEL_CANDIDATES = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-2.5-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]
 
 PAGES = {
     "islamic": {"name": "Islamic Motivational Videos",
