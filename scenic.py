@@ -115,7 +115,9 @@ def think(prompt, temp=0.9):
                 if j:
                     return j
             except Exception as e:
-                if any(c in str(e)[:4] for c in ("400", "403", "404", "429")):
+                if "not valid" in str(e) or str(e)[:3] == "401":
+                    _DEAD.update((key, x) for x in TEXT_MODELS + VIS_MODELS)     # key hi ghalat - is key ke sab model band
+                elif any(c in str(e)[:4] for c in ("400", "403", "404", "429")):
                     _DEAD.add((key, m))
                 log(f"brain {m}: {str(e)[:100]}")
     import groq_backup
@@ -153,7 +155,9 @@ def look(jpgs, want, country):
                 if j and "beauty" in j:
                     return j
             except Exception as e:
-                if any(c in str(e)[:4] for c in ("400", "403", "404", "429")):
+                if "not valid" in str(e) or str(e)[:3] == "401":
+                    _DEAD.update((key, x) for x in TEXT_MODELS + VIS_MODELS)     # key hi ghalat - is key ke sab model band
+                elif any(c in str(e)[:4] for c in ("400", "403", "404", "429")):
                     _DEAD.add((key, m))
     try:
         import groq_vision
