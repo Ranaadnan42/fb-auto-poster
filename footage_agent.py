@@ -57,7 +57,11 @@ def _prompt(n, want, said, kind):
             f"Does this clip really show {want} (real camera footage or real photo, not cartoon/CGI/AI art) so it "
             "matches what is being said? Say false if ANY frame shows something unrelated: a different country, "
             "city or landmark than the one being talked about, a different sport, a generic office/laptop/people "
-            "shot, a random nature scene, or text/logos of another channel. " + sport +
+            "shot, a random nature scene, or text/logos of another channel. "
+            "Judge against WHAT THE ANCHOR IS SAYING, not only the search words: if the anchor talks about a "
+            "specific company, shop, ship, building, event, team or country, a generic street/skyline/building/"
+            "crowd that is not clearly that thing is false. Mood shots (sunset, tunnel, sky, phone, smiling "
+            "person, old black-and-white archive) are false. " + sport +
             "Answer JSON {\"match\": true/false, \"why\": \"max 8 words\"}")
 
 

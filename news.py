@@ -483,6 +483,24 @@ Return JSON:
 
 
 # ---------------------------------------------------------------- image
+def checked_photo(queries, path, used, said, kind):
+    """Khabar wali tasveer jo AI agent ne dekh kar pakki ki ho (sirf naam milne par nahi)."""
+    import footage
+    import footage_agent as fa
+    for q in [x for x in queries if x]:
+        want = footage.words(q)
+        pics = [p for p in footage.photos(q) if p["id"] not in used and footage.match_score(p.get("text"), want) > 0]
+        for p in pics[:4]:
+            try:
+                if footage.download(p["url"], path, 40000) and fa.check([path], q, said, kind) is True:
+                    used.append(p["id"])
+                    log(f"agent-pass photo '{q}': {p['src']} {p['id']}")
+                    return True
+            except Exception as e:
+                log(f"photo check fail: {str(e)[:100]}")
+    return False
+
+
 def pixabay_image(queries, path, used):
     if not PIXABAY_KEY:
         return False
@@ -675,6 +693,8 @@ def make_post(kind, hist, avoid_links):
         import footage
         if footage.real_photo(j.get("subject"), bg, None, min_w=800):      # khabar wale ki ASLI photo pehle
             log(f"asli photo: {j.get('subject')}")
+        elif checked_photo(q[:1], bg, hist["used_images"], j["headline"], kind):   # AI ne dekh kar haan kaha
+            pass
         elif not pixabay_image(q, bg, hist["used_images"]):
             gradient_bg(bg, kind)
         out = os.path.join(WORK, f"{kind}_{LANG}.jpg")

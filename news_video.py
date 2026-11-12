@@ -231,7 +231,7 @@ def get_clip(term, secs, out, used, said="", kind="news"):
             full = footage.match_score(c.get("text"), want) >= len(want)
             v = fa.check(jpgs, term, said, kind) if jpgs else None
             used.append(c["id"])
-            if v is False or (v is None and not full):
+            if v is not True:          # sirf AI ne dekh kar haan kaha ho - andaze se clip nahi
                 REPORT["clips_rejected"] = REPORT.get("clips_rejected", 0) + 1
                 log(f"  agent ne clip rad ki '{term}': {c['src']} {c['id']}")
                 continue
@@ -253,7 +253,7 @@ def get_clip(term, secs, out, used, said="", kind="news"):
                 used.append(p["id"])
                 v = fa.check([img], term, said, kind)
                 full = footage.match_score(p.get("text"), want) >= len(want)
-                if v is False or (v is None and not full):
+                if v is not True:          # sirf AI ne dekh kar haan kaha ho - andaze se clip nahi
                     REPORT["clips_rejected"] = REPORT.get("clips_rejected", 0) + 1
                     continue
                 footage.photo_to_clip(img, out, W, H, secs=secs, fps=FPS)
