@@ -480,6 +480,23 @@
     "speed"
    ],
    "post_id": "1448208791702551_122109078951532804"
+  },
+  {
+   "date": "2026-11-12 19:03",
+   "lang": "en",
+   "topic": "science_tech",
+   "link": "https://www.bbc.co.uk/news/articles/cmg46y7wev42o?at_medium=RSS&at_campaign=rss",
+   "title": "Burnham says climate consensus 'gone' but pledges 'new era of leadership'",
+   "words": [
+    "burnham",
+    "climate",
+    "consensus",
+    "gone",
+    "leadership",
+    "pledges",
+    "says"
+   ],
+   "post_id": "1448208791702551_122109113433532804"
   }
  ],
  "sports": [
@@ -953,6 +970,24 @@
     "time"
    ],
    "post_id": "1465090056678690_122099596515548502"
+  },
+  {
+   "date": "2026-11-12 19:03",
+   "lang": "en",
+   "topic": "badminton",
+   "link": "https://news.google.com/rss/articles/CBMirgFBVV95cUxPVm84RVZyMEVYOGx3OTBMSGwzVGw5RkZKalM5Z0ZRZmt6WnRaRklud2NMV014QVd2bDZYa1hIVlhVM2JMcGdYQWRud0cwQnRsSVB6LTlkZ19Cd2VwbWVPWmg4ZW5RV0pMNW9PMlEzcndtQW9FU1BGczhkQWtIOHJWQVdyMkNXTklwZFZDTnRYNWgyMzZvZEJMWHZJYXpDMTNqMGxKY1NJc2JhZzlpbFE?oc=5",
+   "title": "Prize distribution for DU inter-hall badminton able tennis competitions",
+   "words": [
+    "able",
+    "badminton",
+    "competitions",
+    "distribution",
+    "hall",
+    "inter",
+    "prize",
+    "tennis"
+   ],
+   "post_id": "1465090056678690_122099658711548502"
   }
  ],
  "used_images": [
@@ -989,6 +1024,7 @@
   1559924,
   2755046,
   466225,
-  4978824
+  4978824,
+  "pxi1428046"
  ]
 }
