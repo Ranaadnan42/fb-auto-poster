@@ -1,31 +1,33 @@
 {
  "lang": "ur",
- "stock_clips": 40,
+ "stock_clips": 18,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "نبی کریم صلی اللہ علیہ وسلم کا واقعہ",
-  "nabi ka waqia in urdu",
-  "nabi ka waqia pashto",
-  "nabi ka waqia ajmal raza qadri",
-  "nabi ka waqia cartoon",
-  "nabi ka waqia naat",
-  "nabi ka waqia bachpan ka",
-  "nabi ka waqia short video",
-  "nabi ka waqia tariq jameel",
-  "nabi ka waqia short"
+  "نبی کریم کی سنتیں",
+  "nabi ki sunnatein",
+  "nabi ki sunnat hai",
+  "nabi ki sunnat nabi ki seerat",
+  "nabi ki sunnat naat",
+  "nabi ki sunnat kya hai",
+  "nabi ki sunnat ka bayan",
+  "nabi ki sunnat par bayan",
+  "nabi ki sunnat sama ke rakhna",
+  "nabi ki sunnat kaun kaun si hai"
  ],
- "story": "Prophet resolves Black Stone dispute among Makkan tribes",
- "search": "نبی کریم صلی اللہ علیہ وسلم کا واقعہ",
- "vision_checks": 99,
+ "story": "Prophet teaches Fatimah bedtime Dhikr Sunnah",
+ "search": "نبی کریم کی سنتیں",
+ "vision_checks": 156,
+ "clips_rejected": 122,
  "sources": {
-  "commons": 9,
-  "pixabay": 31
+  "pixabay": 14,
+  "commons": 3,
+  "openverse": 1
  },
- "clips_rejected": 95,
- "long_minutes": 5.38,
- "time_utc": "2026-11-12 11:38",
- "title": "نبی کریم صلی اللہ علیہ وسلم کا واقعہ: حجرِ اسود اور حکمتِ نبوی کا سبق",
+ "photo_clips": 3,
+ "reel_minutes": 1.28,
+ "time_utc": "2026-11-12 09:05",
+ "title": "نبی کریم کی سنتیں: سونے سے پہلے کا وہ عظیم نبوی تحفہ",
  "dry_run": false,
  "posted_ok": 1
 }
