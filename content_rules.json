@@ -1,103 +1,108 @@
 {
  "islamic": {
   "avoid": [
-   "Abdullah ibn Umar",
-   "Abu Hurairah"
+   "Repeated \"Nabi Kareem ka waqia\" titles"
   ],
   "try": [
-   "Story of Bilal ibn Rabah’s perseverance and early call to prayer",
-   "Hadith about the Prophet’s smile and its reward",
-   "Quranic lesson from Surah Yunus on patience and trust",
-   "Incident of the Prophet’s Isra focusing on the Black Stone significance",
-   "Narrative of Sa’d ibn Mu’adh’s leadership in the Battle of the Trench",
-   "Umm Ayman’s dedication and support to the Prophet as a role model for mothers"
+   "Bilal ibn Rabah ki pehli azaan ka waqia",
+   "Qamar ka split hone ka karishma (Shamsi hijrat)",
+   "Nabi ﷺ ka camel jo paani se inkaar karta tha ka waqia",
+   "Umm Sulaym ki jang mein bahaduri ka kissa",
+   "Isra aur Mi'raj ki raat Buraq ke safar par focus",
+   "Nabi ﷺ ki ek ghair-Muslim padosi ke liye meharbani ka waqia"
   ],
-  "note": "Page thodi repetitive lag rahi hai"
+  "note": "Page thodi repetitive lag rahi hai, especially Nabi aur Sahaba ki kahaniyon ka bar bar istemal."
  },
  "funny": {
   "avoid": [
-   "ماموں مستانہ کا ڈائٹ ڈرامہ",
-   "strict ammi's rules",
-   "middle‑class abbu's logic",
-   "family WhatsApp group forwards",
-   "expectation vs reality sketches"
+   "ماموں مستانہ کا ڈائٹ ڈرامہ series",
+   "یاروں کی گروپ چیٹ اور شمالی علاقہ جات series",
+   "a middle-class abbu's logic style",
+   "over-the-top breaking-news style",
+   "sarcastic narrator roasting the situation (gently) style",
+   "a motivational speaker giving terrible advice style",
+   "cricket-commentary style narration"
   ],
   "try": [
-   "online grocery delivery mishap with neighbor",
-   "school PTA meeting chaos with parents",
-   "power outage during TV drama marathon",
-   "Ramadan office fasting struggles",
-   "bicycle ride with uncle over potholes",
-   "local train overcrowding comedy"
+   "online grocery delivery mix‑up comedy",
+   "school PTA meeting drama with desi parents",
+   "mobile data recharge scam prank",
+   "birthday surprise gone wrong in a joint family",
+   "home renovation DIY fail with neighbor’s help",
+   "load shedding during a TV drama night"
   ],
   "note": "Page thora repetitive lag raha hai."
  },
  "world": {
   "avoid": [
-   "What Nobody Tells You About Retiring in Mexico"
+   "What Nobody Tells You"
   ],
   "try": [
-   "Living in Norway: Cost, Safety & Quality of Life",
-   "Kenya Uncovered: Everyday Life and Opportunities for Expats",
-   "Argentina: What It's Really Like for Expats in 2025",
-   "Philippines: Cost of Living, Jobs & Island Life Guide",
-   "Greece: Affordable Living and Hidden Gems",
-   "South Africa: Safety, Culture & Cost of Living Guide"
+   "Living in Greece: Cost of Living, Safety & Daily Life",
+   "Kenya Country Documentary: Culture, Wildlife & Everyday Life",
+   "Moving to Estonia: Digital Nomad Lifestyle & Costs",
+   "South Africa vs Morocco: Cost, Culture & Safety Comparison",
+   "What Nobody Tells You About Living in Reykjavik, Iceland",
+   "Living in Norway: Fjords, Cost & Lifestyle"
   ],
-  "note": "Page thodi repetitive lag rahi hai."
+  "note": "Page ka content thoda repeat ho raha hai."
  },
  "world_short": {
   "avoid": [
-   "Japan",
-   "South Korea"
+   "Would You Live in ...",
+   "What Nobody Tells You About ...",
+   "5 Secret Places in ..."
   ],
   "try": [
-   "6 Surprising Facts About Iceland You Didn't Know",
-   "Would You Live in Dubai? The Untold Truth",
-   "Traditional Food of Thailand: 5 Must-Try Dishes",
-   "Hidden Gems in Mexico City You Never Knew Existed",
-   "What Nobody Tells You About Visiting Cairo",
-   "5 Secret Places in Canada You Never Knew Existed"
+   "Living in Oslo: Cost & Lifestyle",
+   "Hidden Gems in Kyoto, Japan",
+   "Traditional Food of Morocco: 5 Must-Try Dishes",
+   "What Life Really Costs in Singapore",
+   "Would You Live in Dublin? Pros & Cons",
+   "Paris vs Madrid: Wages & Cost of Living"
   ],
-  "note": "Page is repetitive with Japan, South Korea, and specific cost-of-living comparisons."
+  "note": "Page thodi repetitive lag rahi hai."
  },
  "frames": {
   "avoid": [
-   "Dubai",
-   "Japan",
-   "Canada",
-   "Germany",
-   "Australia",
-   "Italy"
+   "Dubai"
   ],
   "try": [
-   "Life in New Zealand: Nature, Jobs, and Cost of Living for Pakistanis",
-   "Norway vs Finland: Which Nordic Country is Better for Pakistani Workers?",
-   "Life in Qatar: Real Salary, Housing, and Daily Expenses",
-   "Poland Work Visa Guide: How to Get a Job in Europe",
-   "Life in Portugal: Affordable Living and Visa Options for Pakistanis",
-   "Switzerland: High Salaries vs High Cost of Living Reality"
+   "Life in Japan",
+   "Visa Guide for Pakistanis to New Zealand",
+   "Cheapest Countries for Pakistani Students",
+   "Best Asian Countries for Pakistani Students",
+   "Life in South Africa",
+   "Life in Brazil"
   ],
-  "note": "Page is repetitive with visa guides and major Western countries; needs fresh European and Gulf options."
+  "note": "Page thodi repetitive lag rahi hai."
  },
  "frames_short": {
-  "avoid": [],
-  "try": [
-   "Life in Dubai: Real rent vs salary for Pakistani workers",
-   "Turkey (Istanbul) Cost of Living & Visa update for Pakistanis",
-   "Malaysia: 5 Best Halal Food spots in Kuala Lumpur",
-   "Spain (Madrid) vs Portugal: Which is cheaper for students?",
-   "UAE: How to open a bank account as a fresh graduate",
-   "Jordan (Amman) Travel Guide: 5 Hidden Gems & Food"
+  "avoid": [
+   "New Zealand",
+   "5 Important Tips",
+   "Jordan",
+   "Sri Lanka",
+   "Budapest",
+   "Greece",
+   "Kyrgyzstan"
   ],
-  "note": "Page is repetitive with Gulf cost-of-living and Central Asian visa topics; needs fresh European and Asian destinations."
+  "try": [
+   "Turkey / Istanbul: Visa and Life for Pakistanis",
+   "Malaysia / Kuala Lumpur: Salary and Jobs guide",
+   "Qatar / Doha: Cost of living 2026",
+   "Switzerland / Zurich: 5 Hidden beautiful places",
+   "UK / London: Life and expenses in 60 seconds",
+   "Thailand / Bangkok: Best food and travel tips"
+  ],
+  "note": "Page repetitive nahi hai, har video mein naya destination aur useful information hai jo audience ke liye behtar hai."
  },
  "_platforms": {
   "islamic": {
    "posts": 10,
-   "facebook": 6,
+   "facebook": 7,
    "youtube": 10,
-   "tiktok": 6
+   "tiktok": 7
   },
   "funny": {
    "posts": 10,
