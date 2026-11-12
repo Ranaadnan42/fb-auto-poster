@@ -432,11 +432,16 @@ def post_photo(path, caption):
         j = fb(requests.post(f"{GRAPH}/{PAGE_ID}/photos", timeout=300, files={"source": f},
                              data={"caption": caption, "access_token": TOKEN}))
     try:                                        # wohi tasveer page story par bhi
-        with open(path, "rb") as f:
-            ph = fb(requests.post(f"{GRAPH}/{PAGE_ID}/photos", timeout=300, files={"source": f},
-                                  data={"published": "false", "access_token": TOKEN}))
+        try:
+            with open(path, "rb") as f:
+                pid = fb(requests.post(f"{GRAPH}/{PAGE_ID}/photos", timeout=300, files={"source": f},
+                                       data={"published": "false", "temporary": "true",
+                                             "access_token": TOKEN}))["id"]
+        except Exception as e:                  # unpublished mana ho to wohi post wali photo
+            log(f"unpublished photo nahi bani ({str(e)[:80]}) - post wali photo se story")
+            pid = j["id"]
         fb(requests.post(f"{GRAPH}/{PAGE_ID}/photo_stories", timeout=60,
-                         data={"photo_id": ph["id"], "access_token": TOKEN}))
+                         data={"photo_id": pid, "access_token": TOKEN}))
         log("photo story lagi")
     except Exception as e:
         log(f"photo story skip: {str(e)[:100]}")
@@ -574,21 +579,20 @@ def brand(job):
     if DRY_RUN:
         return
 
-    def up(path):
-        with open(path, "rb") as f:
-            return fb(requests.post(f"{GRAPH}/{PAGE_ID}/photos", timeout=300, files={"source": f},
-                                    data={"published": "false", "access_token": TOKEN}))["id"]
-    try:
-        pid = up(prof)
-        img = requests.get(f"{GRAPH}/{pid}", params={"fields": "images", "access_token": TOKEN},
-                           timeout=60).json()["images"][0]["source"]
+    try:                                        # seedha URL - FB khud square kaat leta hai
         r = requests.post(f"{GRAPH}/{PAGE_ID}/picture", timeout=120,
-                          data={"picture": img, "access_token": TOKEN})
+                          data={"picture": best["url"], "access_token": TOKEN})
         log(f"profile picture: {r.status_code} {r.text[:200]}")
     except Exception as e:
         log(f"profile picture fail: {e}")
-    try:
-        cid = up(cov)
+    try:                                        # cover ke liye published photo (welcome post) chahiye
+        with open(cov, "rb") as f:
+            cid = fb(requests.post(f"{GRAPH}/{PAGE_ID}/photos", timeout=300, files={"source": f},
+                                   data={"caption": "Welcome to Wander Earth 🌍 Ultra-HD landscapes, nature and "
+                                                    "outdoor beauty from every country on Earth. Follow for daily 4K "
+                                                    "escapes. 🌄🌿🏞️📸\n\n"
+                                                    "#WanderEarth #Nature #Landscape #Travel #4K",
+                                         "access_token": TOKEN}))["id"]
         r = requests.post(f"{GRAPH}/{PAGE_ID}", timeout=120,
                           data={"cover": cid, "no_feed_story": "true", "access_token": TOKEN})
         log(f"cover: {r.status_code} {r.text[:200]}")
