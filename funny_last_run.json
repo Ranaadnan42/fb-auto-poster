@@ -1,13 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 48,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "story",
- "long_minutes": 6.05,
- "series": "یاروں کی گروپ چیٹ اور شمالی علاقہ جات part 2 (cartoon)",
- "laughs": 7,
- "time_utc": "2026-11-12 11:34",
- "title": "یاروں کی گروپ چیٹ اور شمالی علاقہ جات | قسط 2",
+ "format": "cartoon",
+ "reel_minutes": 0.81,
+ "laughs": 4,
+ "time_utc": "2026-11-12 17:02",
+ "title": "منظور انکل کا موٹروے روڈ ٹرپ اور پولیس کا سرپرائز",
  "dry_run": false
 }
