@@ -1,27 +1,29 @@
 {
  "mode": "short",
- "clips": 15,
- "clips_rejected": 39,
- "vision_checks": 54,
+ "clips": 13,
+ "clips_rejected": 112,
+ "vision_checks": 120,
  "errors": [],
  "search_phrases": [
-  "ki sair kar duniya ki gafil",
-  "ki sair kara de",
-  "ki sirf",
-  "ki seerat",
-  "ki siren ki awaaz",
-  "li siri",
-  "ka siren",
-  "kya siren head",
-  "ki sir"
+  "visa for pakistani 2026",
+  "visa for pakistani passport",
+  "visa for pakistani in uae",
+  "spain visa for pakistani",
+  "albania visa for pakistani",
+  "kyrgyzstan visa for pakistani",
+  "azerbaijan visa for pakistani nationals",
+  "germany visa for pakistani",
+  "kazakhstan visa for pakistani"
  ],
- "search": "ki sair kara de",
- "seconds": 76.3,
+ "search": "kyrgyzstan visa for pakistani",
+ "alt_searches": 3,
+ "photos": 2,
+ "seconds": 76.5,
  "links": [
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Czech Republic / Prague",
- "series": "pk_tour_short",
- "title": "60 Second Mein Prague Ki Sair | Life in Czech Republic"
+ "subject": "Kyrgyzstan / Bishkek",
+ "series": "pk_visa_short",
+ "title": "Kyrgyzstan Visa for Pakistanis: 5 Important Tips | Life in Bishkek"
 }

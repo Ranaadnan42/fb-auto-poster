@@ -1,33 +1,39 @@
 {
  "mode": "long",
- "clips": 84,
- "clips_rejected": 604,
- "vision_checks": 671,
+ "clips": 76,
+ "clips_rejected": 573,
+ "vision_checks": 573,
  "errors": [],
  "search_phrases": [
-  "dubai vs saudi arabia jobs",
-  "dubai vs saudi arabia vs qatar",
-  "dubai vs saudi arabia football",
-  "dubai vs saudi arabia comparison",
-  "dubai vs saudi arabia tamil",
-  "dubai vs saudi arabia malayalam",
-  "dubai vs saudi arabia war",
-  "dubai and saudi arabia",
-  "dubai and saudi arabia difference in hindi"
+  "jane se pehle itna bata do",
+  "jane se pehle soch lo itna song",
+  "jane se pehle ek aakhri baar milna",
+  "jane se pehle jeena sikha de",
+  "jane se pehle kon mare",
+  "jaane se pehle wada karo tum",
+  "jaane se pehle awaaz to di hogi",
+  "jaane se pehle",
+  "jane se pahle aaye bahar",
+  "moving abroad from pakistan vlog",
+  "moving from pakistan to usa"
  ],
- "script_words": 1632,
- "alt_searches": 17,
- "photos": 23,
- "vision_groq": 9,
- "vision_waits": 140,
- "seconds": 636.9,
+ "search": "moving from pakistan to usa",
+ "script_words": 1056,
+ "alt_searches": 13,
+ "photos": 12,
+ "no_match": [
+  "immigration official stamping document rejected"
+ ],
+ "vision_waits": 48,
+ "vision_skipped": 40,
+ "seconds": 422.6,
  "links": [
-  "https://malaysiavisa.imi.gov.my",
-  "https://www.ica.gov.sg",
+  "https://travel.state.gov/content/travel/en/us-visas.html",
+  "https://pk.usembassy.gov/visas/",
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Malaysia vs Singapore",
- "series": "pk_versus",
- "title": "Malaysia vs Singapore: پاکستانیوں کے لیے کون سا ملک بہتر ہے؟"
+ "subject": "USA",
+ "series": "pk_moving",
+ "title": "امریکہ جانے سے پہلے یہ باتیں ضرور جان لیں | Moving to USA Guide"
 }
