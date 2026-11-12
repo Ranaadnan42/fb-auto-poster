@@ -1,11 +1,11 @@
 {
- "updated": "2026-11-12 02:12",
+ "updated": "2026-11-12 07:46",
  "format_mult": {
   "chat": 0.65,
   "animal": 0.78,
-  "story": 1.03,
+  "story": 1.05,
   "people": 1.12,
-  "cartoon": 0.97
+  "cartoon": 0.98
  },
  "reel_format_mult": {
   "expectation": 1.12,
@@ -13,13 +13,13 @@
   "latifay": 1.17,
   "har_ghar": 1.13,
   "types": 1.32,
-  "dialogue": 0.98,
+  "dialogue": 1.0,
   "news": 0.79,
   "pov": 0.99
  },
  "style_mult": {
-  "cartoon": 0.9,
-  "ai": 1.2,
+  "cartoon": 0.91,
+  "ai": 1.21,
   "cricket-commentary style narration of an everyday moment": 1.13,
   "a desi aunty's commentary": 0.92,
   "over-the-top breaking-news style": 1.13,
@@ -29,7 +29,7 @@
   "a motivational speaker giving terrible advice": 1.31,
   "dramatic TV-serial narration of a tiny problem": 1.05,
   "observational desi comedy - 'har kisi ke saath hota hai'": 1.06,
-  "a middle-class abbu's logic": 0.79,
+  "a middle-class abbu's logic": 0.84,
   "nature-documentary narrator describing desi people": 1.04
  },
  "topic_mult": {
@@ -41,16 +41,16 @@
   "guests arriving at home": 0.53,
   "rishta aunty": 0.69,
   "online shopping": 0.53,
-  "monday morning": 1.19,
+  "monday morning": 1.18,
   "cooking disaster": 0.56,
-  "cricket match": 1.18,
+  "cricket match": 1.19,
   "sleeping late and waking late": 1.04,
   "school / tuition": 0.87,
   "summer heat": 0.83,
   "street food": 1.08,
   "shaadi (wedding) season": 0.78,
   "Eid shopping": 0.9,
-  "exams and results": 1.12,
+  "exams and results": 1.13,
   "ammi ki daant (mother's scolding)": 1.05,
   "load of homework": 0.99,
   "road trip": 1.04,
@@ -67,8 +67,8 @@
   "laundry day": 0.73,
   "moving to a new house": 1.11,
   "ice cream truck": 1.07,
-  "fake diet plans": 1.15,
-  "bargaining in bazaar": 1.1,
+  "fake diet plans": 1.16,
+  "bargaining in bazaar": 1.09,
   "AC vs electricity bill": 1.06,
   "government office file": 1.14,
   "government office file, mehndi function, gaming addiction (PUBG / Ludo), grandma's home remedies, shaadi (wedding) season": 0.76,
@@ -77,19 +77,20 @@
   "first day at gym": 1.03,
   "dentist visit": 1.3,
   "remote control fight": 0.73,
-  "rickshaw / Careem bargaining, buying a new phone, selfie / TikTok craze, bank queue, Eidi collection": 0.74,
+  "rickshaw / Careem bargaining, buying a new phone, selfie / TikTok craze, bank queue, Eidi collection": 0.75,
   "aunties at a wedding judging food": 1.06,
-  "friends' group chat": 1.08,
+  "friends' group chat": 1.09,
   "parking fight": 0.84,
   "Sunday breakfast halwa puri": 1.03,
   "freelancing client": 1.06,
-  "chai addiction": 1.06
+  "chai addiction": 1.06,
+  "lost TV remote, Eid shopping, online shopping, salary day, petrol price and bike": 0.89
  },
  "tips": [
-  "Focus heavily on the 'people' format (1.14x) using top-performing structures like 'types' (1.74x), 'latifay' (1.36x), and 'har_ghar' (1.22x).",
-  "Prioritize highly relatable desi scenarios such as dentist visits (2.89x), government office files (1.70x), moving house (1.54x), bazaar bargaining (1.44x), and Monday morning excuses (1.42x).",
-  "Completely stop using the 'animal' format (0.75x) for human comedy skits, and phase out the low-performing 'chat' format (0.61x) and 'news' structure (0.56x).",
-  "Drop underperforming topics that no longer resonate, including guests arriving at home (0.08x), online shopping (0.08x), laundry day (0.28x), remote control fights (0.28x), and rishta aunties (0.52x).",
-  "Build hooks around clear character tropes and real-life desi situations (e.g., Abba's unsolicited advice, mechanic's 'sirf 5 minute', office boss vs employee) using clean family-friendly Urdu humor."
+  "Focus on writing scripts for the 'people' format (1.14 score) using reel structures like 'types' (1.74) and 'latifay' (1.36), while eliminating 'animal' format videos (0.75) completely.",
+  "Write scripts around top adult/civic relatable hassles such as dentist visits (2.89), government office delays (1.70), fake diet plans/gym (1.48), mechanic '5 minute' delays (1.39), and Monday morning/job interview strug",
+  "Continue developing multi-episode long stories (1.06 score) focused on specific comedic desi characters like 'Chacha Bashir' (cricket matches) and 'Mamoo Mastana' (fake diets).",
+  "Avoid script topics that failed dramatically, specifically 'guests arriving at home' (0.08), 'online shopping disasters' (0.08), 'cooking disasters' (0.23), 'laundry day' (0.28), and 'remote control fights' (0.28).",
+  "Hook viewers using titles highlighting clear everyday character archetypes ('Dentist ke Mareez', 'Government Office File Ka Safar') instead of 'news' structure (0.56) or animal parodies."
  ]
 }
