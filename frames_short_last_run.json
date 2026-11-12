@@ -1,30 +1,20 @@
 {
  "mode": "short",
- "clips": 13,
- "clips_rejected": 104,
- "vision_checks": 115,
+ "clips": 15,
+ "clips_rejected": 138,
+ "vision_checks": 148,
  "errors": [],
- "search_phrases": [
-  "ki sair kar duniya ki gafil",
-  "ki sair kara de",
-  "ki sirf",
-  "ki seerat",
-  "ki siren ki awaaz",
-  "li siri",
-  "ka siren",
-  "kya siren head",
-  "ki sir"
- ],
- "search": "ki sair kara de",
- "vision_waits": 2,
- "alt_searches": 4,
- "photos": 7,
- "seconds": 69.8,
+ "search_phrases": [],
+ "alt_searches": 7,
+ "vision_groq": 3,
+ "vision_waits": 8,
+ "photos": 1,
+ "seconds": 91.5,
  "links": [
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Sri Lanka / Colombo",
- "series": "pk_tour_short",
- "title": "60 Second Mein Colombo Ki Sair | Sri Lanka Tourist Places | Frames of Life"
+ "subject": "Jordan / Amman",
+ "series": "pk_food",
+ "title": "اردن کے مشہور 5 کھانے اور حلال ٹپس | Frames of Life"
 }
