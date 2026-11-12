@@ -1,24 +1,11 @@
 {
- "time_utc": "2026-11-11 22:52",
+ "time_utc": "2026-11-11 11:15",
  "kind": "long",
  "lang": "en",
  "dry_run": false,
- "posted": {
-  "sports": {
-   "date": "2026-11-11 22:52",
-   "kind": "long",
-   "lang": "en",
-   "title": "Global Sports Hub Bulletin: Snooker, Cricket, Football Updates",
-   "dur": 164,
-   "post_id": "1108554075349763"
-  }
- },
+ "posted": {},
  "errors": [
-  "news: 'list' object has no attribute 'get'"
- ],
- "clips_rejected": 542,
- "alt_searches": 4,
- "agent_checks": 229,
- "agent_rejects": 219,
- "agent_skips": 360
+  "news: Facebook jawab samajh nahi aaya: ",
+  "sports: Facebook jawab samajh nahi aaya: "
+ ]
 }

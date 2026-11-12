@@ -1,27 +1,30 @@
 {
- "time_utc": "2026-11-11 23:51",
+ "time_utc": "2026-11-11 22:18",
  "kind": "reel",
  "lang": "en",
- "dry_run": true,
+ "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-11 23:51",
+   "date": "2026-11-11 22:18",
    "kind": "reel",
    "lang": "en",
-   "title": "Millions Join Spain General Strike Over Housing Costs",
-   "dur": 46
+   "title": "Spain General Strike Clashes Over Housing Crisis",
+   "dur": 45,
+   "post_id": "1077570211995569"
   },
   "sports": {
-   "date": "2026-11-11 23:51",
+   "date": "2026-11-11 22:18",
    "kind": "reel",
    "lang": "en",
-   "title": "Badminton Focus: Going Low and Aiming High",
-   "dur": 52
+   "title": "PKL 13 Retained Players List Updates",
+   "dur": 39,
+   "post_id": "1172971508749989"
   }
  },
  "errors": [],
- "clips_rejected": 92,
- "agent_checks": 73,
- "agent_rejects": 64,
- "agent_skips": 30
+ "clips_rejected": 152,
+ "agent_checks": 175,
+ "agent_rejects": 152,
+ "agent_skips": 0,
+ "alt_searches": 1
 }

@@ -1390,6 +1390,23 @@
   "title": "Global Sports Hub Bulletin: Snooker, Cricket, Football Updates"
  },
  {
+  "date": "2026-11-11 23:51",
+  "page": "news",
+  "id": "1445741383711529",
+  "fmt": "long",
+  "lang": "ur",
+  "topics": [
+   "middle_east",
+   "business",
+   "europe",
+   "pakistan",
+   "asia",
+   "science_tech"
+  ],
+  "sport": null,
+  "title": "عالمی خبریں اور اہم ترین اپ ڈیٹس - نیوز ایکٹ"
+ },
+ {
   "date": "2026-11-11 23:52",
   "page": "sports",
   "id": "2163961587540104",
@@ -1400,5 +1417,22 @@
   ],
   "sport": "football",
   "title": "Vietnam vs Chinese Taipei"
+ },
+ {
+  "date": "2026-11-12 00:14",
+  "page": "sports",
+  "id": "1696831795498206",
+  "fmt": "long",
+  "lang": "ur",
+  "topics": [
+   "squash",
+   "table_tennis",
+   "mma",
+   "snooker",
+   "cycling",
+   "cricket"
+  ],
+  "sport": null,
+  "title": "اسپورٹس ہبز نیوز بلٹن: دنیا بھر کی تازہ ترین کھیلوں کی خبریں"
  }
 ]
