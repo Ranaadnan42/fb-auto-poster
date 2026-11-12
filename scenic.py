@@ -479,11 +479,13 @@ def long_film(plan, h, job):
             break
     if len(clips) < 8:
         raise RuntimeError(f"long video ke liye sirf {len(clips)} achi clips mili")
-    segs, seg_len = [], 16.0
+    segs, seg_len = [], max(16.0, 205.0 / len(clips))     # FB in-stream ads: film 3+ min honi chahiye
     for i, c in enumerate(clips):
         out = os.path.join(job, f"seg{i}.mp4")
         info = c["info"]
         slow = 1.25 if info["fps"] >= 29 else 1.0
+        if info["dur"] - 0.2 < seg_len / slow:                # chhoti clip: thora aur slow-motion
+            slow = max(slow, min(2.0 if info["fps"] >= 29 else 1.3, seg_len / max(info["dur"] - 0.2, 1)))
         src = min(seg_len / slow, info["dur"] - 0.2)
         st = max(0.0, (info["dur"] - src) * 0.3)
         lab = os.path.join(job, f"lab{i}.txt")
