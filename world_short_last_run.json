@@ -1,26 +1,24 @@
 {
  "mode": "short",
- "clips": 12,
- "clips_rejected": 144,
- "vision_checks": 146,
+ "clips": 15,
+ "clips_rejected": 103,
+ "vision_checks": 109,
  "errors": [],
  "search_phrases": [
-  "living in thailand",
-  "living in japan",
-  "living in alaska",
-  "living in a car",
-  "living in america james brown",
-  "living in a van",
-  "living in the sunlight",
-  "living in nyc",
-  "living in america",
-  "living in china"
+  "wages vs cost of living",
+  "inflation and cost of living",
+  "prices and cost of living class 9",
+  "cost of living protest",
+  "cost of living edmonton",
+  "cost of living worldwide"
  ],
- "alt_searches": 6,
- "photos": 3,
- "seconds": 75.4,
+ "search": "cost of living edmonton",
+ "alt_searches": 3,
+ "photos": 4,
+ "vision_groq": 1,
+ "seconds": 62.7,
  "links": [],
- "subject": "Mexico City, Mexico",
- "series": "living_short",
- "title": "Would You Live in Mexico City? Pros, Cons & Cost"
+ "subject": "London vs Vancouver",
+ "series": "versus_short",
+ "title": "London vs Vancouver: Which City Should You Choose?"
 }
