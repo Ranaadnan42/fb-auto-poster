@@ -144,6 +144,7 @@ Return JSON:
 {{"title": "video title, max 10 words",
   "intro": {{"text": "hook sentence", "visuals": ["..."]}},
   "stories": [{{"headline": "short on-screen headline max 8 words",
+    "country": "the main country of this story in English (e.g. 'United Kingdom', 'Pakistan'), or '' if none",
     "subjects": ["1-3 REAL names written in that story above: the main company/brand/shop, person, team, player, ship, city/country or building, as their English Wikipedia title (e.g. 'Pete Hegseth', 'Real Madrid CF', 'Gaza City'). [] if none"],
     "scenes": [{{"text": "...", "visuals": ["..."]}}]}}],
   "outro": {{"text": "follow / like / share line", "visuals": ["..."]}},
@@ -286,7 +287,33 @@ def subject_clip(name, secs, out, used):
     return False
 
 
+def flag_clip(country, secs, out):
+    """Khabar wale mulk ka asli jhanda (Wikimedia Commons, public domain) - hamesha khabar se milta hai."""
+    c = (country or "").strip().replace(" ", "_")
+    if len(c) < 3:
+        return False
+    img = out + ".png"
+    for name in (f"Flag_of_the_{c}.svg", f"Flag_of_{c}.svg"):
+        try:
+            r = requests.get(f"https://commons.wikimedia.org/wiki/Special:FilePath/{name}", params={"width": 1600},
+                             headers={"User-Agent": "NewsActBot/1.0 (fb-auto-poster)"}, timeout=40)
+            if r.ok and r.headers.get("content-type", "").startswith("image/") and len(r.content) > 3000:
+                with open(img, "wb") as f:
+                    f.write(r.content)
+                footage.photo_to_clip(img, out, W, H, secs=secs, fps=FPS)
+                log(f"  jhanda '{country}'")
+                return True
+        except Exception as e:
+            log(f"  jhanda fail '{country}': {str(e)[:80]}")
+        finally:
+            if os.path.exists(img):
+                os.remove(img)
+    return False
+
+
 def _try(t, secs, out, used, said, kind):
+    if t.startswith("#flag:"):
+        return flag_clip(t[6:], secs, out)
     if t.startswith("@"):
         return subject_clip(t[1:], secs, out, used)
     return get_clip(t, secs, out, used, said, kind)
@@ -440,7 +467,8 @@ def build_video(kind, script, stories, used):
         sfb = ([news.SPORT_IMG.get(topic, "sports stadium")] if kind == "sports" else []) + fb
         subj = [x.strip() for x in (st.get("subjects") or []) if isinstance(x, str) and x.strip()][:3]
         STORY_CLIPS.clear()                                  # nayi khabar - pichli khabar ki clip na lage
-        sfb = [f"@{x}" for x in subj] + sfb                  # aam clip se pehle khabar ke asli shakhs/jagah ki photo
+        flag = [f"#flag:{st['country'].strip()}"] if str(st.get("country") or "").strip() else []
+        sfb = [f"@{x}" for x in subj] + flag + sfb          # asli shakhs/jagah ki photo, phir mulk ka jhanda
         for k, sc in enumerate((st.get("scenes") or [])[:4]):
             if not str(sc.get("text") or "").strip():
                 continue
@@ -450,7 +478,10 @@ def build_video(kind, script, stories, used):
             i += 1
     outro = script.get("outro") or {}
     if outro.get("text"):
-        scenes.append(build_scene(i, kind, outro["text"], fb[:2], None, badge, used, fb))   # outro: page ka apna mahol
+        st0 = script["stories"][0] if script.get("stories") else {}
+        o_terms = [f"@{x}" for x in (st0.get("subjects") or [])[:1] if isinstance(x, str) and x.strip()]
+        o_terms += [f"#flag:{st0['country']}"] if str(st0.get("country") or "").strip() else []
+        scenes.append(build_scene(i, kind, outro["text"], o_terms or fb[:1], None, badge, used, o_terms + fb))
     if len(scenes) < 2:
         raise RuntimeError("scenes nahi banay")
     lst = os.path.join(WORK, "all.txt")
