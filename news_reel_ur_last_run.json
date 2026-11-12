@@ -1,30 +1,39 @@
 {
- "time_utc": "2026-11-11 19:44",
+ "time_utc": "2026-11-12 16:20",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-11 19:44",
+   "date": "2026-11-12 16:20",
    "kind": "reel",
    "lang": "ur",
-   "title": "ماحولیاتی بحران پر عالمی رہنماؤں کی سخت وارننگ",
-   "dur": 48,
-   "post_id": "2384225295683034"
+   "title": "برطانیہ میں امریکی فضائی اڈے پر حملے کی سازش",
+   "dur": 67,
+   "post_id": "1019210787909148"
   },
   "sports": {
-   "date": "2026-11-11 19:44",
+   "date": "2026-11-12 16:20",
    "kind": "reel",
    "lang": "ur",
-   "title": "Ilia Malinin Prepares For Next Winter Games",
-   "dur": 50,
-   "post_id": "2521560608368204"
+   "title": "Yaroslav Amosov dismisses Ian Machado Garry comments",
+   "dur": 61,
+   "post_id": "2539061859893951"
   }
  },
  "errors": [],
- "agent_checks": 238,
- "agent_rejects": 216,
- "agent_skips": 10,
- "clips_rejected": 223,
- "alt_searches": 1
+ "agent_checks": 115,
+ "agent_rejects": 107,
+ "agent_skips": 591,
+ "clips_rejected": 702,
+ "alt_searches": 7,
+ "no_match": [
+  "mixed martial arts match",
+  "@Yaroslav Amosov",
+  "mixed martial arts ring",
+  "@Ian Machado Garry",
+  "MMA training gym",
+  "sports stadium lighting",
+  "mixed martial arts arena"
+ ]
 }
