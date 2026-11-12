@@ -606,10 +606,32 @@ def brand(job):
         log(f"cover fail: {e}")
 
 
+def fix_token():
+    """Agar secret mein user token ho to us se page ka (never-expiring) token nikal lo."""
+    global TOKEN
+    if not (TOKEN and PAGE_ID):
+        return
+    try:
+        me = requests.get(f"{GRAPH}/me", params={"fields": "id", "access_token": TOKEN}, timeout=30).json()
+        if me.get("id") == PAGE_ID:
+            log("token: page token theek hai")
+            return
+        pt = requests.get(f"{GRAPH}/{PAGE_ID}", params={"fields": "access_token", "access_token": TOKEN},
+                          timeout=30).json().get("access_token")
+        if pt:
+            TOKEN = pt
+            log("token: user token tha - page token bana kar istemal kiya")
+        else:
+            log(f"token: page token nahi mila - me={str(me)[:150]}")
+    except Exception as e:
+        log(f"token check fail: {e}")
+
+
 def main():
     if not DRY_RUN and not (PAGE_ID and TOKEN):
         log("SCENIC_PAGE_ID / SCENIC_PAGE_TOKEN abhi set nahi - page jurne tak kuch nahi")
         return
+    fix_token()
     shutil.rmtree(WORK, ignore_errors=True)
     os.makedirs(WORK)
     h = load_hist()
