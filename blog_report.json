@@ -1,13 +1,13 @@
 {
- "checked": "2026-11-11T19:52:51Z",
+ "checked": "2026-11-12T20:27:32Z",
  "site": "https://ranaadnan42.github.io/fb-auto-poster/blog",
- "posts": 15,
+ "posts": 16,
  "tools": 4,
  "posts_per_category": {
   "pos-systems": 3,
   "websites": 3,
   "mobile-apps": 3,
-  "ai-tools": 3,
+  "ai-tools": 4,
   "business-growth": 3
  },
  "issues": [],
@@ -21,6 +21,6 @@
  },
  "next_steps_for_owner": [
   "Buy a domain (~$10/yr) and add it in Vercel -> then set SITE_URL",
-  "Nothing - agent is writing articles (15/30 before AdSense)"
+  "Nothing - agent is writing articles (16/30 before AdSense)"
  ]
 }

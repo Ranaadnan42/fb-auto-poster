@@ -1,16 +1,16 @@
 {
- "time": "2026-11-11T19:52:51Z",
+ "time": "2026-11-12T20:27:32Z",
  "mode": "post",
- "posts": 15,
+ "posts": 16,
  "new": [
-  "https://ranaadnan42.github.io/fb-auto-poster/blog/best-app-small-business-receipts-reddit/"
+  "https://ranaadnan42.github.io/fb-auto-poster/blog/whatsapp-chatbot-appointment-booking/"
  ],
  "log": [
-  "Category: mobile-apps",
-  "Keyword ideas (mobile-apps): 80",
+  "Category: ai-tools",
+  "Keyword ideas (ai-tools): 107",
   "Groq live models: openai/gpt-oss-120b, openai/gpt-oss-20b, allam-2-7b, qwen/qwen3.8-27b",
   "Groq model: openai/gpt-oss-120b",
-  "Outline: 'Best App for Small Business Receipts – Reddit Picks & Review' [best app for small business receipts reddit] - 8 sections",
+  "Outline: 'WhatsApp Chatbot for Appointment Booking: Step‑by‑Step Guide' [whatsapp chatbot for appointment booking] - 8 sections",
   "Groq model: openai/gpt-oss-120b",
   "Groq model: openai/gpt-oss-120b",
   "Groq model: openai/gpt-oss-120b",
@@ -19,14 +19,14 @@
   "Groq model: openai/gpt-oss-120b",
   "Groq model: openai/gpt-oss-120b",
   "Groq model: openai/gpt-oss-120b",
-  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3493",
-  "groq openai/gpt-oss-120b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3062",
+  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3866",
+  "groq openai/gpt-oss-120b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per minute (TPM): Limit 8000, Used 3459",
   "Groq model: openai/gpt-oss-20b",
-  "Editor review: score 7, 1 fixes applied",
-  "Article try 1: 2683 words",
-  "Pixabay 'small business receipt app': 200, 20 photos",
-  "NEW: Best App for Small Business Receipts – Reddit Picks & Review -> https://ranaadnan42.github.io/fb-auto-poster/blog/best-app-small-business-receipts-reddit/",
-  "Health: 15 posts, 0 issues",
+  "Editor review: score 8, 9 fixes applied",
+  "Article try 1: 2886 words",
+  "Pixabay 'WhatsApp chatbot booking screen': 200, 20 photos",
+  "NEW: WhatsApp Chatbot for Appointment Booking: Step‑by‑Step Guide -> https://ranaadnan42.github.io/fb-auto-poster/blog/whatsapp-chatbot-appointment-booking/",
+  "Health: 16 posts, 0 issues",
   "IndexNow skip (github.io par key root par nahi rakh sakte) - custom/vercel domain par chalega"
  ]
 }
