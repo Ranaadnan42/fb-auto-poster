@@ -25,7 +25,7 @@ jobs:
           SPORTS_PAGE_TOKEN: ${{ secrets.SPORTS_PAGE_TOKEN }}
           SPORTS_PAGE_ID: ${{ secrets.SPORTS_PAGE_ID }}
         run: |
-          python tools/page_settings.py || true
+          python tools/page_category.py || true
           python tools/page_review.py
       - name: Save to review branch
         run: |
