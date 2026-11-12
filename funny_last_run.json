@@ -1,45 +1,36 @@
 {
  "mode": "auto",
- "stock_clips": 11,
+ "stock_clips": 12,
  "fallback_clips": 0,
  "errors": [],
  "format": "people",
  "search_phrases": [
-  "wedding food funny video",
-  "wedding food funny moments",
-  "marriage food funny videos",
-  "wedding menu funny video",
-  "wedding food humor",
-  "pakistani wedding food funny",
-  "indian wedding food eating funny",
-  "funny wedding food skits",
-  "funny wedding food serving",
-  "wedding food comedy shorts",
-  "marriage food comedy",
-  "marriage food comedy tamil",
-  "wedding food fails comedy",
-  "raju srivastav wedding food comedy",
-  "wedding food funny"
+  "winter mornings",
+  "winter vine",
+  "winter morning comedy",
+  "winter good morning",
+  "winter vines",
+  "winter comedy"
  ],
  "funny_score": "3 -> 9",
- "search": "pakistani wedding food funny",
- "reel_format": "har_ghar",
- "vision_checks": 137,
- "clips_rejected": 109,
+ "search": "winter morning comedy",
+ "reel_format": "kya_hota_agar",
+ "vision_checks": 154,
+ "clips_rejected": 135,
  "sources": {
-  "pixabay": 4,
-  "commons": 2
+  "pixabay": 6,
+  "commons": 1
  },
  "no_match": [
-  "man running fast indoors",
-  "men arguing table",
-  "empty clean plate",
-  "empty clean plate",
-  "man laughing full stomach"
+  "man shivering wrapping blanket",
+  "electric room heater glowing",
+  "cozy person wrapped in shawl",
+  "cozy person wrapped in shawl",
+  "person holding hot tea smiling"
  ],
- "laughs": 5,
- "reel_minutes": 0.77,
- "time_utc": "2026-11-12 09:43",
- "title": "شادی کا کھانا اور سلامی کا بدلہ",
+ "laughs": 4,
+ "reel_minutes": 0.8,
+ "time_utc": "2026-11-12 18:52",
+ "title": "سردی میں بستر سے اٹھنا اب قانونی جرم ہے",
  "dry_run": false
 }
