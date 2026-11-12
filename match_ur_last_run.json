@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-10 00:50",
+ "time_utc": "2026-11-12 19:03",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "sports": {
-   "key": "t401873050",
-   "sport": "american football",
-   "date": "2026-11-10 00:50",
+   "key": "f401906458",
+   "sport": "football",
+   "date": "2026-11-12 19:03",
    "lang": "ur",
-   "match": "Tampa Bay Buccaneers at Chicago Bears",
-   "result": "Chicago Bears beat Tampa Bay Buccaneers 27-24",
-   "dur": 57,
-   "post_id": "2222596085346631"
+   "match": "New Zealand vs India",
+   "result": "New Zealand beat India 5-0",
+   "dur": 71,
+   "post_id": "1637852404742825"
   }
  },
  "errors": []

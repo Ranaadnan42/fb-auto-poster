@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-12 19:03",
- "lang": "en",
+ "time_utc": "2026-11-12 17:46",
+ "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1448208791702551_122109113433532804",
-   "topic": "science_tech",
-   "title": "Burnham says climate consensus 'gone' but pledges 'new era of leadership'"
+   "post": "1448208791702551_122109078951532804",
+   "topic": "pakistan",
+   "title": "High-speed diesel price dips by Rs4 per litre, petrol by Rs3"
   },
   "sports": {
-   "post": "1465090056678690_122099658711548502",
-   "topic": "badminton",
-   "title": "Prize distribution for DU inter-hall badminton able tennis competitions"
+   "post": "1465090056678690_122099596515548502",
+   "topic": "motogp",
+   "title": "Honda rider Jake Dixon admits: “I thought this might be the last time”"
   }
  },
  "errors": []
