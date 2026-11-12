@@ -130,7 +130,8 @@ LOOK_Q = """You are the footage-picking agent of "{page}", a Facebook page of 30
 from every country. TARGET LOOK (copy the viral pages Swissaround / Patchara Photography / syifa_in_switzerland, 10M-50M views):
 BRIGHT sunny daytime, VIVID saturated green meadows and hills, deep blue sky with white clouds, turquoise rivers and
 lakes, waterfalls, snowy peaks above green valleys, small wooden villages on green hills, a red train through green
-valleys, cows/goats/sheep grazing on alpine pastures, flower fields. Crisp, colourful, happy, postcard-like.
+valleys, cows/goats/sheep grazing on alpine pastures, flower fields - and equally snowy mountains/villages under blue
+sky, glaciers, turquoise lakes, beaches, deserts, autumn colours. Crisp, colourful, happy, postcard-like.
 Dark, grey, foggy, night, dull/brownish, flat-light or gloomy shots score LOW (max 5) even if technically good.
 These {n} frames are from ONE stock clip found for: {want} ({country}).
 Judge strictly and answer JSON:
@@ -206,10 +207,14 @@ EVERY country of the world. Page theme: Landscape, Nature, Outdoor, Photography 
 stop scrolling and stare. The owner wants EXACTLY the look of Swissaround / Patchara Photography /
 syifa_in_switzerland (10M-50M views): BRIGHT SUNNY DAYTIME, vivid green alpine meadows and valleys, blue sky with white
 clouds, turquoise rivers/lakes, waterfalls over green cliffs, snowy peaks above green pastures, wooden villages on green
-hills, a train through green valleys, cows/goats grazing, flower meadows. At least 4 of 5 reels must be this bright
-green summer look (any green country: Switzerland, Austria, Norway, New Zealand, Slovenia, Italy Dolomites, Scotland,
+hills, a train through green valleys, cows/goats grazing, flower meadows. ROTATE through EVERY kind of scenery so the
+page never feels the same: green alpine meadows & valleys, snowy mountains & peaks under blue sky, snow-covered villages
+on sunny winter days, glaciers & ice caves, turquoise lakes, waterfalls, rivers & canyons, tropical beaches & islands,
+cliffs & coastlines, deserts & dunes, rice terraces, flower/lavender/tulip fields, autumn forests, volcanoes, fjords.
+Whatever the scene, it must be BRIGHT, sunny/clear and vivid (any country, e.g. Switzerland, Austria, Norway, New Zealand, Slovenia, Italy Dolomites, Scotland,
 Ireland, Iceland in summer, Faroe Islands, Canada, Japan countryside, Georgia, Kyrgyzstan, Pakistan's Hunza/Swat/Neelum,
-Kashmir, Bali rice terraces, Madeira, Azores...). Avoid night, fog, rain, dark or gloomy moods. Viral reference pages get 10M-67M views.
+Kashmir, Bali, Maldives, Madeira, Azores, Patagonia, Namibia, Utah...). Don't repeat the same scene type two reels in a row.
+Avoid night, fog, rain, dark or gloomy moods. Viral reference pages get 10M-67M views.
 Short text hook + place name + emotional music + short poetic caption.
 
 Our past reels and their REAL plays (learn: do more of what worked, less of what didn't):
