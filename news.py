@@ -463,6 +463,8 @@ Rules:
   (who was appointed, numbers, scores, dates, causes, results, quotes), do NOT state it - not even as a guess.
   With thin details, keep the summary short and say only what is known.
 - Neutral, factual tone like a professional news agency. No opinions, no clickbait lies.
+- Add one short line of your own explanation: why this matters for readers (Pakistan/Gulf/world) - as context,
+  not as new facts. This makes the post original, which Facebook needs for monetization.
 - If the story is only rumour/opinion, say "reportedly" / "according to {item['source']}".
 {brain_tips(kind)}
 Return JSON:

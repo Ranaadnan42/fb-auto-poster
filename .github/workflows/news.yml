@@ -17,18 +17,10 @@ on:
     - cron: '21 19 * * *'    # reel_en  - post ~19:51 UTC = 2:51 dopehar New York
     - cron: '21 23 * * *'    # reel_en  - post ~23:51 UTC = 6:51 shaam New York
     # Breaking: har 2 ghante check - bari taaza khabar (kai sources par) ho to foran pic, warna kuch nahi
-    - cron: '7 0 * * *'
     - cron: '7 2 * * *'
-    - cron: '7 4 * * *'
-    - cron: '7 6 * * *'
     - cron: '7 8 * * *'
-    - cron: '7 10 * * *'
-    - cron: '7 12 * * *'
     - cron: '7 14 * * *'
-    - cron: '7 16 * * *'
-    - cron: '7 18 * * *'
     - cron: '7 20 * * *'
-    - cron: '7 22 * * *'
     # Match recap reel (asli scorecard, duniya ke sab khel - har dafa alag khel): 4 rozana - naya bara match na ho to kuch nahi
     - cron: '33 6 * * *'    # match_en - post ~07:03 UTC - raat ke matches (America/Asia) ka recap
     - cron: '33 17 * * *'    # match_ur - post ~18:03 UTC = 11:03 raat Pakistan - cricket recap
@@ -110,18 +102,10 @@ jobs:
             '21 12 * * *') M=reel_ur ;;
             '21 19 * * *') M=reel_en ;;
             '21 23 * * *') M=reel_en ;;
-            '7 0 * * *') M=breaking_en ;;
             '7 2 * * *') M=breaking_ur ;;
-            '7 4 * * *') M=breaking_en ;;
-            '7 6 * * *') M=breaking_ur ;;
             '7 8 * * *') M=breaking_en ;;
-            '7 10 * * *') M=breaking_ur ;;
-            '7 12 * * *') M=breaking_en ;;
             '7 14 * * *') M=breaking_ur ;;
-            '7 16 * * *') M=breaking_en ;;
-            '7 18 * * *') M=breaking_en ;;
             '7 20 * * *') M=breaking_en ;;
-            '7 22 * * *') M=breaking_en ;;
             '33 6 * * *') M=match_en ;;
             '33 17 * * *') M=match_ur ;;
             '3 22 * * *') M=match_en ;;
