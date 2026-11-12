@@ -126,15 +126,18 @@ def think(prompt, temp=0.9):
     raise RuntimeError("Koi AI brain nahi chala (Gemini + Groq)")
 
 
-LOOK_Q = """You are the footage-picking agent of "{page}", a Facebook page of 10-second ultra-beautiful cinematic reels
-from every country (style of the best travel pages: one stunning, calm, atmospheric shot - rainy old-town streets with
-warm shop lights, train-window views of mountains, misty lakes at sunrise, snowy villages, golden-hour skylines).
+LOOK_Q = """You are the footage-picking agent of "{page}", a Facebook page of 30-40 second ultra-beautiful nature reels
+from every country. TARGET LOOK (copy the viral pages Swissaround / Patchara Photography / syifa_in_switzerland, 10M-50M views):
+BRIGHT sunny daytime, VIVID saturated green meadows and hills, deep blue sky with white clouds, turquoise rivers and
+lakes, waterfalls, snowy peaks above green valleys, small wooden villages on green hills, a red train through green
+valleys, cows/goats/sheep grazing on alpine pastures, flower fields. Crisp, colourful, happy, postcard-like.
+Dark, grey, foggy, night, dull/brownish, flat-light or gloomy shots score LOW (max 5) even if technically good.
 These {n} frames are from ONE stock clip found for: {want} ({country}).
 Judge strictly and answer JSON:
 {{"place_ok": true/false,   // really {country} / the kind of place wanted (false if clearly another country/landmark)
   "real": true/false,       // real camera footage (false for CGI, animation, AI art, slideshow, screen recording)
   "clean": true/false,      // false if a watermark, logo, burned-in text/subtitles, black bars or split screen
-  "beauty": 1-10,           // how scroll-stopping & cinematic (10 = jaw-dropping; boring/ugly/shaky/dark/plain = 1-4)
+  "beauty": 1-10,           // how close to the TARGET LOOK & scroll-stopping (10 = bright vivid green/blue jaw-dropper; dark/grey/dull/shaky/plain = 1-4)
   "why": "max 8 words"}}"""
 
 
@@ -200,10 +203,13 @@ def plan_next(h, avoid):
     countries_recent = [p["country"] for p in posts[-12:]]
     return think(f"""You run the Facebook page "{PAGE_NAME}": 30-40 second (5-7 shots of one place), ultra-beautiful, calm cinematic reels from
 EVERY country of the world. Page theme: Landscape, Nature, Outdoor, Photography - ultra-HD shots so beautiful people
-stop scrolling and stare. Mostly NATURE (about 3 of 4 reels): mountains, glaciers, turquoise lakes, waterfalls, fjords,
-misty forests, coastlines and cliffs, beaches, deserts at sunset, rice terraces, lavender/tulip fields, volcanoes,
-northern lights, starry skies, wildlife-free scenery; the rest are scenic places in nature (alpine/snowy villages,
-train-window POV through mountains, rainy old towns with warm lights). Viral reference pages get 10M-67M views.
+stop scrolling and stare. The owner wants EXACTLY the look of Swissaround / Patchara Photography /
+syifa_in_switzerland (10M-50M views): BRIGHT SUNNY DAYTIME, vivid green alpine meadows and valleys, blue sky with white
+clouds, turquoise rivers/lakes, waterfalls over green cliffs, snowy peaks above green pastures, wooden villages on green
+hills, a train through green valleys, cows/goats grazing, flower meadows. At least 4 of 5 reels must be this bright
+green summer look (any green country: Switzerland, Austria, Norway, New Zealand, Slovenia, Italy Dolomites, Scotland,
+Ireland, Iceland in summer, Faroe Islands, Canada, Japan countryside, Georgia, Kyrgyzstan, Pakistan's Hunza/Swat/Neelum,
+Kashmir, Bali rice terraces, Madeira, Azores...). Avoid night, fog, rain, dark or gloomy moods. Viral reference pages get 10M-67M views.
 Short text hook + place name + emotional music + short poetic caption.
 
 Our past reels and their REAL plays (learn: do more of what worked, less of what didn't):
@@ -216,8 +222,8 @@ sites (Pixabay, Pexels, Wikimedia) will really have clean footage of.
 
 Pick the NEXT reel. JSON:
 {{"country": "...", "flag": "emoji flag", "place": "city/village/landmark",
- "mood": "e.g. rainy evening / snowy morning / golden hour / misty sunrise / night lights / train window",
- "queries": ["6-8 short English stock-footage search terms, most specific first, e.g. 'hallstatt austria', 'hallstatt lake', 'austria alps village', 'austria'"],
+ "mood": "e.g. sunny summer morning / bright green afternoon / blue-sky meadow / train through green valley",
+ "queries": ["6-8 short English stock-footage search terms, most specific first, always with green/summer words, e.g. 'lauterbrunnen valley summer', 'swiss alps green meadow', 'switzerland cows pasture', 'alpine village green hills'"],
  "hook": "max 6 words, shown on screen first 3 sec, curiosity/emotion, e.g. 'POV: 6AM in Austria' or 'Is this place even real?' (no emoji)",
  "time_label": "local-feeling time like '17:10' or '06:40' that fits the mood",
  "caption": "1-2 short poetic lines (max 25 words) about the feeling of this place, then a blank line, then '📍 Place, Country FLAG'",
@@ -399,8 +405,8 @@ def render_multi(shots, plan, music, mus_dur, job):
         out = os.path.join(job, f"rs{i}.mp4")
         run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{st:.2f}", "-t", f"{src:.2f}", "-i", sh["path"], "-an", "-vf",
              f"setpts={slow}*PTS,scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H},fps={FPS},"
-             "eq=contrast=1.07:saturation=1.15:brightness=0.005:gamma=0.98,"
-             "colorbalance=rs=0.02:bs=-0.02:rh=0.03:bh=-0.03,unsharp=5:5:0.4,vignette=PI/6,format=yuv420p",
+             "eq=contrast=1.06:saturation=1.32:brightness=0.035:gamma=1.04,"
+             "vibrance=intensity=0.25,unsharp=5:5:0.5,format=yuv420p",
              "-c:v", "libx264", "-preset", "medium", "-crf", "15", out])
         d = probe(out)
         if d and d["dur"] > 2.5:
@@ -521,7 +527,9 @@ def plan_long(h, avoid):
     done = [p["country"] for p in h["posts"] if p.get("kind") == "long" and time.time() - p.get("ts", 0) < 120 * 86400]
     return think(f"""You run "{PAGE_NAME}" (Landscape, Nature, Outdoor, Photography; ultra-HD). Plan today's LONG video:
 a calm ~4 minute cinematic nature film of ONE country ("Norway in 4K - Relaxing Nature Film" style) - 14 different
-breathtaking natural places of that country, no narration, only music.
+breathtaking natural places of that country, no narration, only music. LOOK: bright sunny summer, vivid green
+valleys and meadows, blue sky, turquoise water, waterfalls, green villages (like Swissaround) - no night/fog/gloom;
+put green/summer words in every search query.
 Countries already done (avoid): {json.dumps(done + avoid, ensure_ascii=False)}
 Choose a country famous for nature that free stock sites (Pixabay/Pexels/Wikimedia) have lots of clean footage of.
 JSON: {{"country": "...", "flag": "emoji",
@@ -561,7 +569,7 @@ def long_film(plan, h, job):
         dur = src * slow
         run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{st:.2f}", "-t", f"{src:.2f}", "-i", c["path"], "-an", "-vf",
              f"setpts={slow}*PTS,scale=1920:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=1920:1080,"
-             f"fps={FPS},eq=contrast=1.06:saturation=1.12:gamma=0.98,unsharp=5:5:0.35,vignette=PI/7,"
+             f"fps={FPS},eq=contrast=1.05:saturation=1.28:brightness=0.03:gamma=1.03,vibrance=intensity=0.2,unsharp=5:5:0.4,"
              f"drawtext=fontfile={FONT}:textfile={lab}:fontcolor=white@0.9:fontsize=40:x=80:y=h-130:"
              f"shadowcolor=black@0.7:shadowx=2:shadowy=2:enable='between(t,1,6)':alpha='if(lt(t,1.6),(t-1)/0.6,if(gt(t,5.4),(6-t)/0.6,1))',"
              + (f"fade=t=in:st=0:d=0.8," if i else "") + f"fade=t=out:st={dur - 0.8:.2f}:d=0.8,format=yuv420p",
