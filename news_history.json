@@ -500,6 +500,23 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122109162939532804"
+  },
+  {
+   "date": "2026-11-12 21:31",
+   "lang": "ur",
+   "topic": "science_tech",
+   "link": "https://www.bbc.co.uk/news/articles/cmpw48zwnevlo?at_medium=RSS&at_campaign=rss",
+   "title": "Campaigners want more land protected from housing",
+   "words": [
+    "campaigners",
+    "from",
+    "housing",
+    "land",
+    "more",
+    "protected",
+    "want"
+   ],
+   "post_id": "1448208791702551_122109163683532804"
   }
  ],
  "sports": [
@@ -990,6 +1007,24 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122099760327548502"
+  },
+  {
+   "date": "2026-11-12 21:31",
+   "lang": "ur",
+   "topic": "cricket",
+   "link": "https://www.cricinfo.com/ci/content/story/1562296.html?ex_cid=OTC-RSS",
+   "title": "Konstas presses Test case with third century of the summer",
+   "words": [
+    "case",
+    "century",
+    "konstas",
+    "presses",
+    "summer",
+    "test",
+    "third",
+    "with"
+   ],
+   "post_id": "1465090056678690_122099762349548502"
   }
  ],
  "used_images": [
@@ -1027,6 +1062,7 @@
   2755046,
   466225,
   4978824,
-  "pxi1284011"
+  "pxi1284011",
+  4013428
  ]
 }
