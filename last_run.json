@@ -1,6 +1,6 @@
 {
  "lang": "ur",
- "stock_clips": 10,
+ "stock_clips": 41,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
@@ -22,22 +22,21 @@
   "mayoosi by qasim ali shah",
   "mayoosi in islam"
  ],
- "story": "Umm Ayman supports Prophet after Khadijah's passing",
+ "story": "Prophet Yaqub maintains hope despite deep grief",
  "search": "mayoosi ka ilaj",
- "vision_checks": 51,
+ "vision_checks": 232,
  "sources": {
-  "pixabay": 7,
-  "commons": 3
+  "pixabay": 30,
+  "commons": 7,
+  "mixkit": 2,
+  "nasa": 1,
+  "openverse": 1
  },
- "clips_rejected": 74,
- "photo_clips": 1,
- "no_match": [
-  "open quran",
-  "mosque sunset sky"
- ],
- "reel_minutes": 0.97,
- "time_utc": "2026-11-12 17:33",
- "title": "جب غم حد سے بڑھ جائے: ام ایمن کی وفاداری سے دل کو سکون دیں",
+ "clips_rejected": 148,
+ "photo_clips": 3,
+ "long_minutes": 5.48,
+ "time_utc": "2026-11-12 17:47",
+ "title": "مایوسی کا علاج: حضرت یعقوبؑ کے صبر اور امید کا سبق",
  "dry_run": false,
  "posted_ok": 1
 }
