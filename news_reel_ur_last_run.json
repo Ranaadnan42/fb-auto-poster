@@ -1,21 +1,24 @@
 {
- "time_utc": "2026-11-12 00:27",
+ "time_utc": "2026-11-12 00:42",
  "kind": "reel",
  "lang": "ur",
  "dry_run": true,
  "posted": {
   "news": {
-   "date": "2026-11-12 00:27",
+   "date": "2026-11-12 00:42",
    "kind": "reel",
    "lang": "ur",
-   "title": "نو جوانوں کے فلاحی فوائد میں بڑی تبدیلی کا امکان",
-   "dur": 51
+   "title": "مصر میں میڈیا کی آزادی پر شدید وار",
+   "dur": 52
   }
  },
  "errors": [],
- "clips_rejected": 98,
- "agent_checks": 95,
- "agent_rejects": 87,
- "agent_skips": 5,
- "alt_searches": 1
+ "clips_rejected": 489,
+ "alt_searches": 5,
+ "no_match": [
+  "@Mada Masr"
+ ],
+ "agent_checks": 72,
+ "agent_rejects": 70,
+ "agent_skips": 408
 }
