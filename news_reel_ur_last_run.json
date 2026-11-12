@@ -1,29 +1,30 @@
 {
- "time_utc": "2026-11-12 11:54",
+ "time_utc": "2026-11-11 19:44",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-12 11:54",
+   "date": "2026-11-11 19:44",
    "kind": "reel",
    "lang": "ur",
-   "title": "Uganda School Poisoning Leaves Four Dead",
-   "dur": 56,
-   "post_id": "1149113950990543"
+   "title": "ماحولیاتی بحران پر عالمی رہنماؤں کی سخت وارننگ",
+   "dur": 48,
+   "post_id": "2384225295683034"
   },
   "sports": {
-   "date": "2026-11-12 11:54",
+   "date": "2026-11-11 19:44",
    "kind": "reel",
    "lang": "ur",
-   "title": "مائیکل کیرک کے مانچسٹر یونائیٹڈ میں یادگار لمحات",
-   "dur": 57,
-   "post_id": "1460273026251256"
+   "title": "Ilia Malinin Prepares For Next Winter Games",
+   "dur": 50,
+   "post_id": "2521560608368204"
   }
  },
  "errors": [],
- "clips_rejected": 90,
- "agent_checks": 102,
- "agent_rejects": 88,
- "agent_skips": 0
+ "agent_checks": 238,
+ "agent_rejects": 216,
+ "agent_skips": 10,
+ "clips_rejected": 223,
+ "alt_searches": 1
 }

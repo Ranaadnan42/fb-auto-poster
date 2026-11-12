@@ -1,30 +1,30 @@
 {
- "time_utc": "2026-11-12 03:50",
+ "time_utc": "2026-11-11 22:18",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-12 03:50",
+   "date": "2026-11-11 22:18",
    "kind": "reel",
    "lang": "en",
-   "title": "Poundland Rescue Deal Delayed",
-   "dur": 36,
-   "post_id": "1617042579426157"
+   "title": "Spain General Strike Clashes Over Housing Crisis",
+   "dur": 45,
+   "post_id": "1077570211995569"
   },
   "sports": {
-   "date": "2026-11-12 03:50",
+   "date": "2026-11-11 22:18",
    "kind": "reel",
    "lang": "en",
-   "title": "Badminton Strategy Going Low Aiming High",
-   "dur": 55,
-   "post_id": "3094360820898490"
+   "title": "PKL 13 Retained Players List Updates",
+   "dur": 39,
+   "post_id": "1172971508749989"
   }
  },
  "errors": [],
- "clips_rejected": 142,
- "agent_checks": 153,
- "agent_rejects": 140,
+ "clips_rejected": 152,
+ "agent_checks": 175,
+ "agent_rejects": 152,
  "agent_skips": 0,
  "alt_searches": 1
 }
