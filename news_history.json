@@ -480,6 +480,26 @@
     "speed"
    ],
    "post_id": "1448208791702551_122109078951532804"
+  },
+  {
+   "date": "2026-11-12 21:27",
+   "lang": "ur",
+   "topic": "americas",
+   "link": "https://news.google.com/rss/articles/CBMiugFBVV95cUxPc1hxc2dobmxEcjFzVkRmVWlSZEFnZ1Y5WXlTQ2RhQmN5WE1RWTRjMkFYdnEzOXhqQ1h1ZlYtVHNJLTBhTExhdGNZT0JXdFNxTXIxYnhPNXNoUXRjc3pMei1VUTJLaGdWb0JuWkprdG1UMzlENVQ2RVVKRUJqQk1XQ08xUEJxbFJHS0M4VFlvNnF6SXpvVjBUbFBCQU0tSnh5UWlyVW1SSnFLZGRMbEdxS3l1bGlnTHhHbXc?oc=5",
+   "title": "SS United States may form largest artificial reef but NC still has 'Graveyard of the Atlantic'",
+   "words": [
+    "artificial",
+    "atlantic",
+    "form",
+    "graveyard",
+    "largest",
+    "reef",
+    "states",
+    "still",
+    "united"
+   ],
+   "breaking": true,
+   "post_id": "1448208791702551_122109162939532804"
   }
  ],
  "sports": [
@@ -953,6 +973,23 @@
     "time"
    ],
    "post_id": "1465090056678690_122099596515548502"
+  },
+  {
+   "date": "2026-11-12 21:27",
+   "lang": "ur",
+   "topic": "golf",
+   "link": "https://news.google.com/rss/articles/CBMitAFBVV95cUxNbVFsYXlVbEdQVWdjSlhpWTM4WndmQmNPLUJCa1NaOVBGTGJDcmhXbk5MREFuTGNRV1RPMFUwVURzSERNS1BHX2I2MUJRZ2thU2E1M3l2ZjFza3I2a2RaSGV4NEpsXzVyRXJoR1JEVFJ6ZklQYW5kSVowekEyRUZhLWNQZ0NmdFBMRUlWMlRBSmdVbzR2VGpTY3lTbEcxZU1mQThTd0F0OGlORFRqNldtRFd0QUQ?oc=5",
+   "title": "Dan Hicks, NBC Sports' lead golf voice, dies at 64",
+   "words": [
+    "dies",
+    "golf",
+    "hicks",
+    "lead",
+    "sports",
+    "voice"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122099760327548502"
   }
  ],
  "used_images": [
@@ -989,6 +1026,7 @@
   1559924,
   2755046,
   466225,
-  4978824
+  4978824,
+  "pxi1284011"
  ]
 }
