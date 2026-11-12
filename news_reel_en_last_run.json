@@ -1,33 +1,30 @@
 {
- "time_utc": "2026-11-12 01:33",
+ "time_utc": "2026-11-11 22:18",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-12 01:33",
+   "date": "2026-11-11 22:18",
    "kind": "reel",
    "lang": "en",
-   "title": "Toby Jones Stars In New UK Mars Mission Film",
-   "dur": 31,
-   "post_id": "1003891432207852"
+   "title": "Spain General Strike Clashes Over Housing Crisis",
+   "dur": 45,
+   "post_id": "1077570211995569"
   },
   "sports": {
-   "date": "2026-11-12 01:33",
+   "date": "2026-11-11 22:18",
    "kind": "reel",
    "lang": "en",
-   "title": "Unanimous Cy Young Winners Revealed",
-   "dur": 29,
-   "post_id": "1135150155729745"
+   "title": "PKL 13 Retained Players List Updates",
+   "dur": 39,
+   "post_id": "1172971508749989"
   }
  },
  "errors": [],
- "agent_checks": 61,
- "agent_rejects": 60,
- "agent_skips": 343,
- "clips_rejected": 413,
- "alt_searches": 7,
- "no_match": [
-  "@MLB.com"
- ]
+ "clips_rejected": 152,
+ "agent_checks": 175,
+ "agent_rejects": 152,
+ "agent_skips": 0,
+ "alt_searches": 1
 }
