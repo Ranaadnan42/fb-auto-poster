@@ -1,24 +1,29 @@
 {
- "time_utc": "2026-11-12 00:42",
+ "time_utc": "2026-11-12 11:54",
  "kind": "reel",
  "lang": "ur",
- "dry_run": true,
+ "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-12 00:42",
+   "date": "2026-11-12 11:54",
    "kind": "reel",
    "lang": "ur",
-   "title": "مصر میں میڈیا کی آزادی پر شدید وار",
-   "dur": 52
+   "title": "Uganda School Poisoning Leaves Four Dead",
+   "dur": 56,
+   "post_id": "1149113950990543"
+  },
+  "sports": {
+   "date": "2026-11-12 11:54",
+   "kind": "reel",
+   "lang": "ur",
+   "title": "مائیکل کیرک کے مانچسٹر یونائیٹڈ میں یادگار لمحات",
+   "dur": 57,
+   "post_id": "1460273026251256"
   }
  },
  "errors": [],
- "clips_rejected": 489,
- "alt_searches": 5,
- "no_match": [
-  "@Mada Masr"
- ],
- "agent_checks": 72,
- "agent_rejects": 70,
- "agent_skips": 408
+ "clips_rejected": 90,
+ "agent_checks": 102,
+ "agent_rejects": 88,
+ "agent_skips": 0
 }
