@@ -1,0 +1,39 @@
+{
+ "started": "2026-11-12T01:03",
+ "steps": [
+  "brain gemini-3.5-flash: 401 {\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"API key not valid. Please pass a valid API key.\"",
+  "brain gemini-3.8-flash: 401 {\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"API key not valid. Please pass a valid API key.\"",
+  "brain gemini-3.5-flash-lite: 401 {\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"API key not valid. Please pass a valid API key.\"",
+  "brain gemini-flash-latest: 401 {\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"API key not valid. Please pass a valid API key.\"",
+  "Groq live models: openai/gpt-oss-120b, openai/gpt-oss-20b, allam-2-7b, qwen/qwen3.8-27b",
+  "Groq model: openai/gpt-oss-120b",
+  "agent ka faisla: Milford Sound, New Zealand - misty sunrise (Iconic fjord, stunning light, high stock footage demand)",
+  "is jagah ki koi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "brain gemini-3.5-flash: 401 {\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"API key not valid. Please pass a valid API key.\"",
+  "brain gemini-3.8-flash: 401 {\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"API key not valid. Please pass a valid API key.\"",
+  "brain gemini-3.5-flash-lite: 401 {\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"API key not valid. Please pass a valid API key.\"",
+  "brain gemini-flash-latest: 401 {\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"API key not valid. Please pass a valid API key.\"",
+  "Groq model: openai/gpt-oss-120b",
+  "agent ka faisla: Jökulsárlón Glacier Lagoon, Iceland - golden hour (Stunning colors, rare footage, high engagement)",
+  "is jagah ki koi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "brain gemini-3.5-flash: 401 {\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"API key not valid. Please pass a valid API key.\"",
+  "brain gemini-3.8-flash: 401 {\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"API key not valid. Please pass a valid API key.\"",
+  "brain gemini-3.5-flash-lite: 401 {\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"API key not valid. Please pass a valid API key.\"",
+  "brain gemini-flash-latest: 401 {\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"API key not valid. Please pass a valid API key.\"",
+  "Groq model: openai/gpt-oss-120b",
+  "agent ka faisla: Banff National Park, Canada - golden hour (Iconic scenery, high engagement, abundant stock footage)",
+  "is jagah ki koi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "brain gemini-3.5-flash: 401 {\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"API key not valid. Please pass a valid API key.\"",
+  "brain gemini-3.8-flash: 401 {\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"API key not valid. Please pass a valid API key.\"",
+  "brain gemini-3.5-flash-lite: 401 {\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"API key not valid. Please pass a valid API key.\"",
+  "brain gemini-flash-latest: 401 {\n  \"error\": {\n    \"code\": 401,\n    \"message\": \"API key not valid. Please pass a valid API key.\"",
+  "Groq model: openai/gpt-oss-120b",
+  "agent ka faisla: Zermatt, Switzerland - golden hour (Iconic peak, stunning light, high engagement)",
+  "is jagah ki koi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai"
+ ],
+ "errors": [
+  "fatal: 4 jagahon par bhi achi footage nahi mili"
+ ],
+ "mode": "pic",
+ "finished": "2026-11-12T01:04"
+}
