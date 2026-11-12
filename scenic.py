@@ -619,6 +619,13 @@ def fix_token():
         pt = requests.get(f"{GRAPH}/{PAGE_ID}", params={"fields": "access_token", "access_token": TOKEN},
                           timeout=30).json().get("access_token")
         if pt:
+            try:
+                d = requests.get(f"{GRAPH}/debug_token", params={"input_token": TOKEN, "access_token": pt},
+                                 timeout=30).json().get("data", {})
+                log(f"token: user token expires_at={d.get('expires_at')} "
+                    f"data_access_expires_at={d.get('data_access_expires_at')}")
+            except Exception:
+                pass
             TOKEN = pt
             log("token: user token tha - page token bana kar istemal kiya")
         else:
