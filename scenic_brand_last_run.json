@@ -1,13 +1,11 @@
 {
- "started": "2026-11-12T01:22",
+ "started": "2026-11-12T01:26",
  "steps": [
   "photo wmi124056624 1920x1080: ok=True beauty=7 - Iconic Lofoten bridge with dramatic mountain backdrop.",
-  "photo wmi86842431 1920x1440: ok=True beauty=8 - Stunning, vast Norwegian mountain landscape.",
-  "brand: wmi86842431 beauty 8/10",
-  "profile picture fail: Facebook: (#200) Unpublished posts must be posted to a page as the page itself.",
-  "cover fail: Facebook: (#200) Unpublished posts must be posted to a page as the page itself."
+  "photo wmi86842431 1920x1440: ok=True beauty=7 - Stunning Norwegian peaks and calm mountain lake.",
+  "brand: koi 8+/10 tasveer nahi mili"
  ],
  "errors": [],
  "mode": "brand",
- "finished": "2026-11-12T01:22"
+ "finished": "2026-11-12T01:27"
 }
