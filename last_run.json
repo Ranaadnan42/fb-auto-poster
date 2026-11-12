@@ -1,6 +1,6 @@
 {
  "lang": "ur",
- "stock_clips": 14,
+ "stock_clips": 40,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
@@ -15,18 +15,17 @@
   "nabi ka waqia tariq jameel",
   "nabi ka waqia short"
  ],
- "story": "Prophet forgives enemy holding sword above him",
+ "story": "Prophet resolves Black Stone dispute among Makkan tribes",
  "search": "نبی کریم صلی اللہ علیہ وسلم کا واقعہ",
- "vision_checks": 55,
+ "vision_checks": 99,
  "sources": {
-  "pixabay": 10,
-  "mixkit": 2,
-  "commons": 2
+  "commons": 9,
+  "pixabay": 31
  },
- "clips_rejected": 49,
- "reel_minutes": 1.26,
- "time_utc": "2026-11-12 11:53",
- "title": "نبی کریم صلی اللہ علیہ وسلم کا واقعہ: جب تلوار گردن پر تھی",
+ "clips_rejected": 95,
+ "long_minutes": 5.38,
+ "time_utc": "2026-11-12 11:38",
+ "title": "نبی کریم صلی اللہ علیہ وسلم کا واقعہ: حجرِ اسود اور حکمتِ نبوی کا سبق",
  "dry_run": false,
  "posted_ok": 1
 }
