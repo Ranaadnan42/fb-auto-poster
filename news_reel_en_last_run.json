@@ -1,30 +1,30 @@
 {
- "time_utc": "2026-11-11 22:18",
+ "time_utc": "2026-11-12 21:56",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-11 22:18",
+   "date": "2026-11-12 21:56",
    "kind": "reel",
    "lang": "en",
-   "title": "Spain General Strike Clashes Over Housing Crisis",
+   "title": "Poundland Rescue Deal: Extra 10 Days Granted",
    "dur": 45,
-   "post_id": "1077570211995569"
+   "post_id": "1686471693081715"
   },
   "sports": {
-   "date": "2026-11-11 22:18",
+   "date": "2026-11-12 21:56",
    "kind": "reel",
    "lang": "en",
-   "title": "PKL 13 Retained Players List Updates",
-   "dur": 39,
-   "post_id": "1172971508749989"
+   "title": "FEU Women Claim UAAP Table Tennis Championship",
+   "dur": 70,
+   "post_id": "1453200663579808"
   }
  },
  "errors": [],
- "clips_rejected": 152,
- "agent_checks": 175,
- "agent_rejects": 152,
- "agent_skips": 0,
- "alt_searches": 1
+ "clips_rejected": 424,
+ "agent_checks": 260,
+ "agent_rejects": 249,
+ "agent_skips": 166,
+ "alt_searches": 6
 }
