@@ -1,5 +1,5 @@
 """
-Wander Earth - AGENT (sirf bot nahi). Duniya ke har mulk ki 8-12 second ki khoobsurat cinematic reels.
+Wander Earth - AGENT (sirf bot nahi). Duniya ke har mulk ki 30-40 second ki multi-shot cinematic reels + rozana lambi 4K film + pics.
 
 Ian G Black / Swissaround / Patchara ka formula (audit, Nov 2026): bohat chhoti loop video, ek hi khoobsurat
 shot, mood wala music, chhota sha'irana caption + jagah ka naam. Hum woh poori duniya ke liye karte hain.
@@ -198,7 +198,7 @@ def plan_next(h, avoid):
              "views": p.get("views")} for p in posts[-40:] if p.get("views") is not None]
     perf.sort(key=lambda x: -x["views"])
     countries_recent = [p["country"] for p in posts[-12:]]
-    return think(f"""You run the Facebook page "{PAGE_NAME}": 8-12 second, ultra-beautiful, calm cinematic reels from
+    return think(f"""You run the Facebook page "{PAGE_NAME}": 30-40 second (5-7 shots of one place), ultra-beautiful, calm cinematic reels from
 EVERY country of the world. Page theme: Landscape, Nature, Outdoor, Photography - ultra-HD shots so beautiful people
 stop scrolling and stare. Mostly NATURE (about 3 of 4 reels): mountains, glaciers, turquoise lakes, waterfalls, fjords,
 misty forests, coastlines and cliffs, beaches, deserts at sunset, rice terraces, lavender/tulip fields, volcanoes,
@@ -227,7 +227,7 @@ Pick the NEXT reel. JSON:
 
 
 # ---------------------------------------------------------------- 2-3) footage dhoondna + dekhna
-def find_shot(plan, h, job, need=8):
+def find_shots(plan, h, job, need=8, want_n=1, look_n=10, tag=""):
     want = f"{plan['place']} ({plan.get('mood', '')})"
     used = set(h.get("clips", []))
     seen, cands = set(), []
@@ -243,9 +243,9 @@ def find_shot(plan, h, job, need=8):
             break
     cands.sort(key=lambda c: -c["score"])
     log(f"{len(cands)} clips mili - top {min(10, len(cands))} AI se dekhi jayengi")
-    best = None
-    for i, c in enumerate(cands[:10 if need >= 8 else 6]):
-        raw = os.path.join(job, f"c{i}.mp4")
+    good = []
+    for i, c in enumerate(cands[:look_n]):
+        raw = os.path.join(job, f"c{tag}{i}.mp4")
         try:
             if not footage.download(c["url"], raw, 200000):
                 continue
@@ -256,7 +256,7 @@ def find_shot(plan, h, job, need=8):
             continue
         jpgs = []
         for k, at in enumerate((0.2, 0.5, 0.8)):
-            jp = os.path.join(job, f"c{i}_{k}.jpg")
+            jp = os.path.join(job, f"c{tag}{i}_{k}.jpg")
             if footage.frame(raw, jp, info["dur"] * at):
                 jpgs.append(jp)
         v = look(jpgs, want, plan["country"])
@@ -268,13 +268,31 @@ def find_shot(plan, h, job, need=8):
             ok = v.get("place_ok") and v.get("real") and v.get("clean")
             beauty = int(v.get("beauty") or 0) + (1 if max(info["w"], info["h"]) >= 3800 and int(v.get("beauty") or 0) >= 8 else 0)   # 4K ko tarjeeh
         log(f"clip {c['id']} ({c.get('src')}): ok={bool(ok)} beauty={beauty} - {v.get('why', '')}")
-        if ok and (best is None or beauty > best["beauty"]):
-            best = {**c, "path": raw, "info": info, "beauty": beauty}
-            if beauty >= 9:
+        if ok and beauty >= need:
+            good.append({**c, "path": raw, "info": info, "beauty": beauty})
+            if want_n == 1 and beauty >= 9:
                 break
-    if best and best["beauty"] >= need:
-        return best
-    return None
+            if len(good) >= want_n + 2:
+                break
+    good.sort(key=lambda x: -x["beauty"])
+    return good[:want_n]
+
+
+def find_shot(plan, h, job, need=8):
+    got = find_shots(plan, h, job, need=need, want_n=1, look_n=10 if need >= 8 else 6)
+    return got[0] if got else None
+
+
+def find_reel_shots(plan, h, job):
+    """Reel ke liye 5-7 khoobsurat shots: pehle wohi jagah, kam hon to usi mulk ke aur manzar."""
+    shots = find_shots(plan, h, job, need=8, want_n=7, look_n=16, tag="a")
+    if len(shots) < 5:
+        used = {"clips": list(h.get("clips", [])) + [x["id"] for x in shots]}
+        extra_q = [f"{plan['country']} {w}" for w in ("nature", "landscape", "aerial", "mountains", "lake", "4k")]
+        sub = {**plan, "place": plan["country"], "queries": extra_q}
+        shots += find_shots(sub, used, job, need=8, want_n=7 - len(shots), look_n=14, tag="b")
+        plan["_mixed"] = True
+    return shots
 
 
 # ---------------------------------------------------------------- 4) music (public domain, Wikimedia)
@@ -368,6 +386,56 @@ def render(shot, plan, music, mus_dur, job):
          "-profile:v", "high", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", OUT])
     return length
 
+
+def render_multi(shots, plan, music, mus_dur, job):
+    """5-7 shots ki 30-40 sec ki cinematic reel: har shot ~5.5 sec, slow-motion, color grade, soft crossfade."""
+    seg_len, xf = 5.8, 0.7
+    segs = []
+    for i, sh in enumerate(shots):
+        info = sh["info"]
+        slow = 1.3 if info["fps"] >= 29 else 1.0
+        src = min(seg_len / slow, info["dur"] - 0.2)
+        st = max(0.0, (info["dur"] - src) * random.uniform(0.2, 0.5))
+        out = os.path.join(job, f"rs{i}.mp4")
+        run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{st:.2f}", "-t", f"{src:.2f}", "-i", sh["path"], "-an", "-vf",
+             f"setpts={slow}*PTS,scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H},fps={FPS},"
+             "eq=contrast=1.07:saturation=1.15:brightness=0.005:gamma=0.98,"
+             "colorbalance=rs=0.02:bs=-0.02:rh=0.03:bh=-0.03,unsharp=5:5:0.4,vignette=PI/6,format=yuv420p",
+             "-c:v", "libx264", "-preset", "medium", "-crf", "15", out])
+        d = probe(out)
+        if d and d["dur"] > 2.5:
+            segs.append((out, d["dur"]))
+    if len(segs) < 3:
+        raise RuntimeError("reel ke liye kam shots")
+    # crossfade chain
+    inputs, fc, prev, off = [], [], "0:v", 0.0
+    for i, (p, d) in enumerate(segs):
+        inputs += ["-i", p]
+    off = segs[0][1]
+    for i in range(1, len(segs)):
+        off -= xf
+        lbl = f"x{i}"
+        fc.append(f"[{prev}][{i}:v]xfade=transition=fade:duration={xf}:offset={off:.2f}[{lbl}]")
+        prev, off = lbl, off + segs[i][1]
+    length = off
+    hook = os.path.join(job, "hook.txt")
+    place = os.path.join(job, "place.txt")
+    open(hook, "w").write(_plain(plan.get("hook")) or _plain(plan["place"]))
+    lab = plan["country"] if plan.get("_mixed") else f"{plan['place']}, {plan['country']}"
+    open(place, "w").write(_plain(lab).upper())
+    fc.append(f"[{prev}]drawtext=fontfile={FONT}:textfile={hook}:fontcolor=white:fontsize=70:x=(w-text_w)/2:y=h*0.16:"
+              "shadowcolor=black@0.7:shadowx=3:shadowy=3:enable='lt(t,3.6)':alpha='if(lt(t,0.3),t/0.3,if(gt(t,3.2),(3.6-t)/0.4,1))',"
+              f"drawtext=fontfile={FONT}:textfile={place}:fontcolor=white@0.92:fontsize=40:x=(w-text_w)/2:y=h*0.83:"
+              "shadowcolor=black@0.7:shadowx=2:shadowy=2:alpha='if(lt(t,0.8),t/0.8,1)',"
+              f"fade=t=in:st=0:d=0.4,fade=t=out:st={max(length - 0.9, 0):.2f}:d=0.9,format=yuv420p[v]")
+    n = len(segs)
+    m_off = random.uniform(0, max(0.0, min(25.0, mus_dur - length - 5))) if mus_dur else 0
+    fc.append(f"[{n}:a]atrim=0:{length:.2f},afade=t=in:st=0:d=1,afade=t=out:st={max(length - 2.5, 0):.2f}:d=2.5,loudnorm=I=-15[a]")
+    run(["ffmpeg", "-y", "-loglevel", "error"] + inputs + ["-ss", f"{m_off:.2f}", "-stream_loop", "-1", "-i", music,
+         "-filter_complex", ";".join(fc), "-map", "[v]", "-map", "[a]", "-t", f"{length:.2f}",
+         "-c:v", "libx264", "-preset", "slow", "-crf", "17", "-maxrate", "14M", "-bufsize", "20M", "-profile:v", "high",
+         "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", OUT])
+    return length
 
 
 # ---------------------------------------------------------------- SEO caption
@@ -515,22 +583,46 @@ def long_film(plan, h, job):
          f"[0:v]drawtext=fontfile={FONT}:textfile={title}:fontcolor=white:fontsize=96:x=(w-text_w)/2:y=(h-text_h)/2:"
          f"shadowcolor=black@0.6:shadowx=4:shadowy=4:enable='lt(t,4.5)':alpha='if(lt(t,0.8),t/0.8,if(gt(t,3.7),(4.5-t)/0.8,1))'[v];"
          f"[1:a]atrim=0:{total:.2f},afade=t=in:st=0:d=2,afade=t=out:st={total - 3:.2f}:d=3,loudnorm=I=-16[a]",
-         "-map", "[v]", "-map", "[a]", "-c:v", "copy" if False else "libx264", "-preset", "medium", "-crf", "19",
+         "-map", "[v]", "-map", "[a]", "-c:v", "copy" if False else "libx264", "-preset", "medium", "-crf", "19", "-maxrate", "12M", "-bufsize", "18M",
          "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", "-t", f"{total:.2f}", OUT])
     return clips, mtitle, total
 
 
 def post_long(title, desc):
+    """Resumable chunked upload (bari file ek jhatke mein fail ho jati thi)."""
+    url = f"https://graph-video.facebook.com/v23.0/{PAGE_ID}/videos"
+    size = os.path.getsize(OUT)
+    log(f"long upload: {size / 1e6:.0f} MB")
+    st = fb(requests.post(url, timeout=120, data={"upload_phase": "start", "file_size": size, "access_token": TOKEN}))
+    sess, vid = st["upload_session_id"], st.get("video_id")
+    start, end = int(st["start_offset"]), int(st["end_offset"])
     with open(OUT, "rb") as f:
-        j = fb(requests.post(f"https://graph-video.facebook.com/v23.0/{PAGE_ID}/videos", timeout=3600,
-                             files={"source": f}, data={"title": title[:250], "description": desc,
-                                                        "access_token": TOKEN}))
-    return j.get("id")
+        while start < end:
+            f.seek(start)
+            chunk = f.read(end - start)
+            for t in range(5):
+                try:
+                    j = fb(requests.post(url, timeout=600, data={"upload_phase": "transfer", "upload_session_id": sess,
+                                                                  "start_offset": start, "access_token": TOKEN},
+                                         files={"video_file_chunk": ("chunk", chunk)}))
+                    break
+                except Exception as e:
+                    log(f"chunk retry {t + 1}: {str(e)[:120]}")
+                    time.sleep(10 * (t + 1))
+            else:
+                raise RuntimeError("long upload chunk 5 baar fail")
+            start, end = int(j["start_offset"]), int(j["end_offset"])
+    fb(requests.post(url, timeout=300, data={"upload_phase": "finish", "upload_session_id": sess,
+                                             "title": title[:250], "description": desc, "access_token": TOKEN}))
+    return vid
 
 
 # ---------------------------------------------------------------- 6) post
 def fb(r):
-    j = r.json()
+    try:
+        j = r.json()
+    except ValueError:
+        raise RuntimeError(f"Facebook {r.status_code}: {r.text[:200]}")
     if "error" in j:
         raise RuntimeError(f"Facebook: {j['error'].get('message')}")
     return j
@@ -683,10 +775,15 @@ def main():
     for attempt in range(4):
         plan = plan_next(h, avoid)
         log(f"agent ka faisla: {plan.get('place')}, {plan.get('country')} - {plan.get('mood')} ({plan.get('why')})")
-        shot = find_photo(plan, h, WORK) if MODE == "pic" else find_shot(plan, h, WORK)
+        if MODE == "pic":
+            shot = find_photo(plan, h, WORK)
+            shots = [shot] if shot else []
+        else:
+            shots = find_reel_shots(plan, h, WORK)
+            shot = shots[0] if len(shots) >= 4 else None
         if shot:
             break
-        log("is jagah ki koi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai")
+        log("is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai")
         avoid.append(f"{plan.get('place')}, {plan.get('country')}")
     if not shot:
         raise SystemExit("4 jagahon par bhi achi footage nahi mili")
@@ -698,9 +795,9 @@ def main():
         music, mtitle, mdur = find_music(plan.get("music_mood"), h, WORK)
         if not music:
             music, mtitle, mdur = os.path.join(WORK, "pad.m4a"), "synth pad", 0
-            synth_music(music, 14)
-        secs = render(shot, plan, music, mdur, WORK)
-        log(f"video {secs:.1f}s ban gayi (beauty {shot['beauty']}/10, {shot.get('src')})")
+            synth_music(music, 50)
+        secs = render_multi(shots, plan, music, mdur, WORK)
+        log(f"reel {secs:.1f}s ban gayi - {len(shots)} shots (beauty {[x['beauty'] for x in shots]})")
     else:
         shutil.copy(shot["path"], "final_scenic.jpg")
     if DRY_RUN:
@@ -714,7 +811,7 @@ def main():
     h["posts"].append({"ts": time.time(), "vid": vid if MODE == "reel" else None, "post": vid, "kind": MODE,
                        "place": plan.get("place"), "country": plan.get("country"), "mood": plan.get("mood"),
                        "hook": plan.get("hook"), "clip": shot["id"], "beauty": shot["beauty"]})
-    h["clips"] = (h.get("clips", []) + [shot["id"]])[-3000:]
+    h["clips"] = (h.get("clips", []) + [x["id"] for x in shots])[-3000:]
     if mtitle and mtitle != "synth pad":
         h["music"] = (h.get("music", []) + [mtitle])[-200:]
     save_hist(h)
