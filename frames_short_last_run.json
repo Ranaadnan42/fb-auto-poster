@@ -1,29 +1,31 @@
 {
  "mode": "short",
- "clips": 13,
- "clips_rejected": 112,
- "vision_checks": 120,
+ "clips": 14,
+ "clips_rejected": 86,
+ "vision_checks": 96,
  "errors": [],
  "search_phrases": [
-  "visa for pakistani 2026",
-  "visa for pakistani passport",
-  "visa for pakistani in uae",
-  "spain visa for pakistani",
-  "albania visa for pakistani",
-  "kyrgyzstan visa for pakistani",
-  "azerbaijan visa for pakistani nationals",
-  "germany visa for pakistani",
-  "kazakhstan visa for pakistani"
+  "harat angaze malomat",
+  "haqaiq",
+  "khalai makhlooq ki haqiqat",
+  "معلوماتی ویڈیو",
+  "معلومات کی دنیا",
+  "معلومات عامہ",
+  "معلومات پاکستان",
+  "معلوماتی ویڈیوز",
+  "معلوماتی رپورٹ",
+  "معلومات قرآن",
+  "معلومات اسلامی",
+  "معلوماتی اشارے"
  ],
- "search": "kyrgyzstan visa for pakistani",
- "alt_searches": 3,
- "photos": 2,
- "seconds": 76.5,
+ "search": "haqaiq",
+ "alt_searches": 1,
+ "seconds": 73.1,
  "links": [
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Kyrgyzstan / Bishkek",
- "series": "pk_visa_short",
- "title": "Kyrgyzstan Visa for Pakistanis: 5 Important Tips | Life in Bishkek"
+ "subject": "Greece",
+ "series": "pk_facts",
+ "title": "یونان کے 6 حیران کن حقائق | Life in Greece"
 }
