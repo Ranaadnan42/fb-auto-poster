@@ -1,39 +1,30 @@
 {
- "time_utc": "2026-11-12 16:20",
+ "time_utc": "2026-11-12 20:09",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-12 16:20",
+   "date": "2026-11-12 20:09",
    "kind": "reel",
    "lang": "ur",
-   "title": "برطانیہ میں امریکی فضائی اڈے پر حملے کی سازش",
-   "dur": 67,
-   "post_id": "1019210787909148"
+   "title": "سمندر میں مائیکرو پلاسٹک کے اثرات پر نئی تحقیق",
+   "dur": 58,
+   "post_id": "1129843189906477"
   },
   "sports": {
-   "date": "2026-11-12 16:20",
+   "date": "2026-11-12 20:09",
    "kind": "reel",
    "lang": "ur",
-   "title": "Yaroslav Amosov dismisses Ian Machado Garry comments",
-   "dur": 61,
-   "post_id": "2539061859893951"
+   "title": "امریکن کینسر سوسائٹی کی پی ایس اے ٹیسٹ پر ہدایت",
+   "dur": 59,
+   "post_id": "996022952965935"
   }
  },
  "errors": [],
- "agent_checks": 115,
- "agent_rejects": 107,
- "agent_skips": 591,
- "clips_rejected": 702,
- "alt_searches": 7,
- "no_match": [
-  "mixed martial arts match",
-  "@Yaroslav Amosov",
-  "mixed martial arts ring",
-  "@Ian Machado Garry",
-  "MMA training gym",
-  "sports stadium lighting",
-  "mixed martial arts arena"
- ]
+ "agent_checks": 110,
+ "agent_rejects": 91,
+ "agent_skips": 0,
+ "clips_rejected": 91,
+ "alt_searches": 1
 }
