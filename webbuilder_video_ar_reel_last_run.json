@@ -1,15 +1,15 @@
 {
- "time_utc": "2026-11-10 23:34",
- "spotlight": "mobile phone shop",
- "post_id": "980721551289460",
+ "time_utc": "2026-11-12 11:38",
+ "spotlight": "hardware store",
+ "post_id": "2489458208260182",
  "error": null,
  "lang": "ar",
  "kind": "reel",
- "clips": 0,
+ "clips": 1,
  "fallback": 0,
  "errors": [],
- "real_work": 3,
- "real_pos": 4,
- "mock": 4,
- "seconds": 66.0
+ "real_work": 2,
+ "real_pos": 6,
+ "mock": 3,
+ "seconds": 60.7
 }
