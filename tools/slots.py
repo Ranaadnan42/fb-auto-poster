@@ -83,6 +83,9 @@ SLOTS = [
     dict(file="scenic.yml", crons=["33 12 * * *"], post="13:33", lead=60),
     dict(file="scenic.yml", crons=["33 17 * * *"], post="18:33", lead=60),
     dict(file="scenic.yml", crons=["33 22 * * *"], post="23:33", lead=60),
+    dict(file="scenic.yml", crons=["48 10 * * *"], post="11:03", lead=15),
+    dict(file="scenic.yml", crons=["48 19 * * *"], post="20:03", lead=15),
+    dict(file="scenic.yml", crons=["33 13 * * *"], post="16:03", lead=150),
     # Comment Helper search (Facebook posts dhoondta hai -> comment_hits.json; Supabase 04:15/13:15 email)
     dict(file="comment_search.yml", crons=["41 3 * * *"], post="03:41", lead=10),
     dict(file="comment_search.yml", crons=["41 12 * * *"], post="12:41", lead=10),

@@ -42,6 +42,9 @@ PAGES = {
     "webbuilder": dict(id="WB_PAGE_ID", tok="WB_PAGE_TOKEN", daily_photos=3, daily_reels=3,
                        photo=[("webbuilder.yml", {"mode": m}) for m in ("pic_ar", "pic_en", "pic_ur")],
                        reel=[("webbuilder.yml", {"mode": m}) for m in ("reel_ar", "reel_en", "reel_ur")]),
+    "scenic": dict(id="SCENIC_PAGE_ID", tok="SCENIC_PAGE_TOKEN", daily_photos=2, daily_reels=4,
+                   photo=[("scenic.yml", {"mode": "pic", "dry_run": "false"})],
+                   reel=[("scenic.yml", {"mode": "reel", "dry_run": "false"})]),
 }
 DEFAULT_TARGETS = {"reels": 0, "photos": 0}   # "stories" na ho to = reels
 MIN_STORIES = 7      # task na ho tab bhi har page par roz kam az kam 1 story (hafte ki 7)

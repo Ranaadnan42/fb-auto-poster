@@ -54,6 +54,8 @@ jobs:
           FRAMES_PAGE_TOKEN: ${{ secrets.FRAMES_PAGE_TOKEN }}
           WB_PAGE_ID: ${{ secrets.WB_PAGE_ID }}
           WB_PAGE_TOKEN: ${{ secrets.WB_PAGE_TOKEN }}
+          SCENIC_PAGE_ID: ${{ secrets.SCENIC_PAGE_ID }}
+          SCENIC_PAGE_TOKEN: ${{ secrets.SCENIC_PAGE_TOKEN }}
         run: |
           pip install -q requests >/dev/null 2>&1 || true
           python3 tools/page_manager.py || true

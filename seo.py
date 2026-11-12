@@ -10,6 +10,16 @@ import json
 import re
 
 PAGES = {
+    "scenic": {
+        "name": "Wander Earth",
+        "brand_tags": ["#WanderEarth"],
+        "base_tags": ["#nature", "#travel", "#landscape", "#4k", "#reels", "#beautifulplaces", "#earthpix"],
+        "audience": "nature and travel lovers worldwide (USA, UK, Europe, Canada, Australia) who love calm, "
+                    "breathtaking ultra-HD landscapes and dream destinations",
+        "cta": "Follow for the most beautiful places on Earth in Ultra HD 🌍",
+        "cta_en": "Follow for the most beautiful places on Earth in Ultra HD 🌍",
+        "rules": "English only; calm, poetic, wonder-filled; no fake facts; no clickbait lies; max 2 emojis per line.",
+    },
     "funny": {
         "name": "Hansi Ka Adda",
         "brand_tags": ["#HansiKaAdda"],

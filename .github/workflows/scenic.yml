@@ -8,12 +8,22 @@ on:
     - cron: '33 12 * * *'   # post 13:33 UTC = 8:33 subah New York / Europe dopehar
     - cron: '33 17 * * *'   # post 18:33 UTC = 1:33 dopehar New York / Europe shaam
     - cron: '33 22 * * *'   # post 23:33 UTC = 6:33 shaam New York
+    # 2 ultra-HD pics (+ photo story) rozana
+    - cron: '48 10 * * *'   # pic  - post 11:03 UTC = 4:03 shaam Pakistan / Europe dopehar
+    - cron: '48 19 * * *'   # pic  - post 20:03 UTC = 3:03 dopehar New York
+    # 1 lambi ~4 min nature film rozana (FB in-stream ads 3+ min videos par)
+    - cron: '33 13 * * *'   # long - post 16:03 UTC = 11:03 subah New York / Europe shaam
   workflow_dispatch:
     inputs:
       sched:
         description: 'Scheduler ke liye - khali chhor dein'
         type: string
         default: ''
+      mode:
+        description: 'Kya banaye'
+        type: choice
+        options: [reel, pic, long]
+        default: reel
       dry_run:
         description: 'Sirf video banaye, post na kare'
         type: boolean
@@ -65,7 +75,7 @@ jobs:
             sudo apt-get update && sudo apt-get install -y --fix-missing ffmpeg && break
             echo "apt koshish $i fail - 30s baad dobara"; sleep 30
           done
-          pip install requests pillow
+          pip install requests pillow google-genai
       - name: Run scenic agent
         env:
           SCENIC_PAGE_ID: ${{ secrets.SCENIC_PAGE_ID }}
@@ -75,7 +85,8 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-          POST_AT: ${{ env.S == '33 7 * * *' && '08:33' || env.S == '33 12 * * *' && '13:33' || env.S == '33 17 * * *' && '18:33' || env.S == '33 22 * * *' && '23:33' || '' }}
+          MODE: ${{ env.S && (env.S == '33 13 * * *' && 'long' || (env.S == '48 10 * * *' || env.S == '48 19 * * *') && 'pic' || 'reel') || inputs.mode || 'reel' }}
+          POST_AT: ${{ env.S == '33 7 * * *' && '08:33' || env.S == '33 12 * * *' && '13:33' || env.S == '33 17 * * *' && '18:33' || env.S == '33 22 * * *' && '23:33' || env.S == '48 10 * * *' && '11:03' || env.S == '48 19 * * *' && '20:03' || env.S == '33 13 * * *' && '16:03' || '' }}
           DRY_RUN: ${{ (!env.S && github.event_name == 'workflow_dispatch' && inputs.dry_run) && '1' || '0' }}
         run: python scenic.py || { echo "Pehli koshish fail - 3 minute baad dobara"; sleep 180; python scenic.py; }
       - name: Keep video (dry run)
@@ -83,12 +94,15 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: scenic-video
-          path: final_scenic.mp4
+          path: |
+            final_scenic.mp4
+            final_scenic.jpg
+          if-no-files-found: ignore
           retention-days: 5
       - name: Save history
         if: always()
         run: |
-          FILES=$(ls scenic_history.json scenic_last_run.json 2>/dev/null || true)
+          FILES=$(ls scenic_history.json scenic_*_last_run.json 2>/dev/null || true)
           [ -z "$FILES" ] && exit 0
           mkdir -p /tmp/keep
           for f in $FILES; do cp "$f" /tmp/keep/; done

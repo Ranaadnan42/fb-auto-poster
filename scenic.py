@@ -37,12 +37,13 @@ PAGE_ID = os.environ.get("SCENIC_PAGE_ID")
 TOKEN = os.environ.get("SCENIC_PAGE_TOKEN")
 KEYS = [k for k in dict.fromkeys([os.environ.get("SCENIC_GEMINI_API_KEY"), os.environ.get("GEMINI_API_KEY")]) if k]
 DRY_RUN = os.environ.get("DRY_RUN") == "1"
+MODE = (os.environ.get("MODE") or "reel").strip().lower()          # reel | pic | long
 GRAPH = "https://graph.facebook.com/v23.0"
 W, H, FPS = 1080, 1920, 30
 WORK = "work_scenic"
 OUT = "final_scenic.mp4"
 HIST_FILE = "scenic_history.json"
-REPORT_FILE = "scenic_last_run.json"
+REPORT_FILE = f"scenic_{MODE}_last_run.json"
 FONT = os.path.abspath("fonts/NotoSans-Bold.ttf")
 TEXT_MODELS = ["gemini-3.5-flash", "gemini-3.8-flash", "gemini-3.5-flash-lite", "gemini-flash-latest"]
 VIS_MODELS = ["gemini-3.5-flash", "gemini-3.1-flash-lite", "gemini-flash-lite-latest", "gemini-3.5-flash-lite",
@@ -222,7 +223,7 @@ Pick the NEXT reel. JSON:
 
 
 # ---------------------------------------------------------------- 2-3) footage dhoondna + dekhna
-def find_shot(plan, h, job):
+def find_shot(plan, h, job, need=8):
     want = f"{plan['place']} ({plan.get('mood', '')})"
     used = set(h.get("clips", []))
     seen, cands = set(), []
@@ -239,7 +240,7 @@ def find_shot(plan, h, job):
     cands.sort(key=lambda c: -c["score"])
     log(f"{len(cands)} clips mili - top {min(10, len(cands))} AI se dekhi jayengi")
     best = None
-    for i, c in enumerate(cands[:10]):
+    for i, c in enumerate(cands[:10 if need >= 8 else 6]):
         raw = os.path.join(job, f"c{i}.mp4")
         try:
             if not footage.download(c["url"], raw, 200000):
@@ -267,7 +268,7 @@ def find_shot(plan, h, job):
             best = {**c, "path": raw, "info": info, "beauty": beauty}
             if beauty >= 9:
                 break
-    if best and best["beauty"] >= 8:
+    if best and best["beauty"] >= need:
         return best
     return None
 
@@ -364,6 +365,158 @@ def render(shot, plan, music, mus_dur, job):
     return length
 
 
+
+# ---------------------------------------------------------------- SEO caption
+def seo_caption(plan, kind="reel"):
+    """Caption = sha'irana lines + jagah + log jo search karte hain woh alfaaz + sawal + hashtags (seo.py)."""
+    try:
+        import seo
+        title = plan.get("title") or f"{plan.get('place')}, {plan.get('country')}"
+        text = f"{plan.get('caption', '')}\nMood: {plan.get('mood', '')}. Place: {plan.get('place')}, {plan.get('country')}"
+        body = seo.build(lambda pr, temp=0.8: think(pr, temp), "scenic", title, text, lang="en",
+                         is_reel=(kind == "reel"), search_terms=plan.get("queries"))
+        poem = (plan.get("caption") or "").strip()
+        return f"{poem}\n\n{body}".strip() if poem else body
+    except Exception as e:
+        log(f"seo fallback: {str(e)[:100]}")
+        tags = " ".join(t if t.startswith("#") else f"#{t}" for t in (plan.get("hashtags") or [])[:5])
+        return f"{(plan.get('caption') or '').strip()}\n\n{tags}".strip()
+
+
+# ---------------------------------------------------------------- PIC (ultra-HD photo + photo story)
+def find_photo(plan, h, job):
+    used = set(h.get("clips", []))
+    pwords = set(footage.words(f"{plan['place']} {plan['country']}"))
+    cands, seen = [], set()
+    for q in (plan.get("queries") or [])[:6] + [plan["place"]]:
+        for c in footage.photos(q):
+            if c["id"] in used or c["id"] in seen:
+                continue
+            seen.add(c["id"])
+            c["score"] = footage.match_score(c.get("text", ""), pwords)
+            cands.append(c)
+        if len(cands) >= 40:
+            break
+    cands.sort(key=lambda c: -c["score"])
+    best = None
+    for i, c in enumerate(cands[:10]):
+        jp = os.path.join(job, f"p{i}.jpg")
+        try:
+            if not footage.download(c["url"], jp, 150000):
+                continue
+            from PIL import Image
+            wd, ht = Image.open(jp).size
+        except Exception:
+            continue
+        if max(wd, ht) < 1900:
+            continue
+        small = os.path.join(job, f"p{i}_s.jpg")
+        Image.open(jp).convert("RGB").resize((640, int(640 * ht / wd))).save(small, quality=85)
+        v = look([small], plan["place"], plan["country"]) or {}
+        ok = v.get("place_ok") and v.get("real") and v.get("clean")
+        beauty = int(v.get("beauty") or 0)
+        log(f"photo {c['id']} {wd}x{ht}: ok={bool(ok)} beauty={beauty} - {v.get('why', '')}")
+        if ok and (best is None or beauty > best["beauty"]):
+            best = {**c, "path": jp, "beauty": beauty}
+            if beauty >= 9:
+                break
+    return best if best and best["beauty"] >= 8 else None
+
+
+def post_photo(path, caption):
+    with open(path, "rb") as f:
+        j = fb(requests.post(f"{GRAPH}/{PAGE_ID}/photos", timeout=300, files={"source": f},
+                             data={"caption": caption, "access_token": TOKEN}))
+    try:                                        # wohi tasveer page story par bhi
+        with open(path, "rb") as f:
+            ph = fb(requests.post(f"{GRAPH}/{PAGE_ID}/photos", timeout=300, files={"source": f},
+                                  data={"published": "false", "access_token": TOKEN}))
+        fb(requests.post(f"{GRAPH}/{PAGE_ID}/photo_stories", timeout=60,
+                         data={"photo_id": ph["id"], "access_token": TOKEN}))
+        log("photo story lagi")
+    except Exception as e:
+        log(f"photo story skip: {str(e)[:100]}")
+    return j.get("post_id") or j.get("id")
+
+
+# ---------------------------------------------------------------- LONG (3.5-4 min 4K-feel nature film)
+def plan_long(h, avoid):
+    done = [p["country"] for p in h["posts"] if p.get("kind") == "long" and time.time() - p.get("ts", 0) < 120 * 86400]
+    return think(f"""You run "{PAGE_NAME}" (Landscape, Nature, Outdoor, Photography; ultra-HD). Plan today's LONG video:
+a calm ~4 minute cinematic nature film of ONE country ("Norway in 4K - Relaxing Nature Film" style) - 14 different
+breathtaking natural places of that country, no narration, only music.
+Countries already done (avoid): {json.dumps(done + avoid, ensure_ascii=False)}
+Choose a country famous for nature that free stock sites (Pixabay/Pexels/Wikimedia) have lots of clean footage of.
+JSON: {{"country": "...", "flag": "emoji",
+ "title": "SEO title max 70 chars, e.g. 'Norway 4K - Fjords, Northern Lights & Mountains | Relaxing Nature Film'",
+ "shots": [{{"place": "place name", "queries": ["3 short search terms, specific first"]}}  x 14],
+ "caption": "2 short poetic lines about this country's nature",
+ "music_mood": "calm piano / dreamy / uplifting strings / romantic / melancholic",
+ "queries": ["5 phrases people search for this kind of video"]}}""")
+
+
+def long_film(plan, h, job):
+    clips = []
+    for k, sh in enumerate(plan.get("shots", [])[:16]):
+        sub = {"place": sh.get("place", plan["country"]), "country": plan["country"],
+               "queries": sh.get("queries") or [sh.get("place", "")], "mood": ""}
+        d = os.path.join(job, f"s{k}")
+        os.makedirs(d, exist_ok=True)
+        got = find_shot(sub, {"clips": list(h.get("clips", [])) + [c["id"] for c in clips]}, d, need=7)
+        if got:
+            got["label"] = sub["place"]
+            clips.append(got)
+        if len(clips) >= 14:
+            break
+    if len(clips) < 8:
+        raise RuntimeError(f"long video ke liye sirf {len(clips)} achi clips mili")
+    segs, seg_len = [], 16.0
+    for i, c in enumerate(clips):
+        out = os.path.join(job, f"seg{i}.mp4")
+        info = c["info"]
+        slow = 1.25 if info["fps"] >= 29 else 1.0
+        src = min(seg_len / slow, info["dur"] - 0.2)
+        st = max(0.0, (info["dur"] - src) * 0.3)
+        lab = os.path.join(job, f"lab{i}.txt")
+        open(lab, "w").write(_plain(c["label"]).upper())
+        dur = src * slow
+        run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{st:.2f}", "-t", f"{src:.2f}", "-i", c["path"], "-an", "-vf",
+             f"setpts={slow}*PTS,scale=1920:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=1920:1080,"
+             f"fps={FPS},eq=contrast=1.06:saturation=1.12:gamma=0.98,unsharp=5:5:0.35,vignette=PI/7,"
+             f"drawtext=fontfile={FONT}:textfile={lab}:fontcolor=white@0.9:fontsize=40:x=80:y=h-130:"
+             f"shadowcolor=black@0.7:shadowx=2:shadowy=2:enable='between(t,1,6)':alpha='if(lt(t,1.6),(t-1)/0.6,if(gt(t,5.4),(6-t)/0.6,1))',"
+             f"fade=t=in:st=0:d=0.8,fade=t=out:st={dur - 0.8:.2f}:d=0.8,format=yuv420p",
+             "-c:v", "libx264", "-preset", "medium", "-crf", "18", out])
+        segs.append(out)
+    # title card pehle 4 sec pehli clip par
+    lst = os.path.join(job, "list.txt")
+    open(lst, "w").write("".join(f"file '{os.path.abspath(x)}'\n" for x in segs))
+    joined = os.path.join(job, "joined.mp4")
+    run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", joined])
+    total = probe(joined)["dur"]
+    title = os.path.join(job, "title.txt")
+    open(title, "w").write(_plain(plan["country"]).upper() + "  -  4K")
+    music, mtitle, _ = find_music(plan.get("music_mood"), h, job)
+    if not music:
+        music, mtitle = os.path.join(job, "pad.m4a"), "synth pad"
+        synth_music(music, total + 2)
+    run(["ffmpeg", "-y", "-loglevel", "error", "-i", joined, "-stream_loop", "-1", "-i", music, "-filter_complex",
+         f"[0:v]drawtext=fontfile={FONT}:textfile={title}:fontcolor=white:fontsize=96:x=(w-text_w)/2:y=(h-text_h)/2:"
+         f"shadowcolor=black@0.6:shadowx=4:shadowy=4:enable='lt(t,4.5)':alpha='if(lt(t,0.8),t/0.8,if(gt(t,3.7),(4.5-t)/0.8,1))'[v];"
+         f"[1:a]atrim=0:{total:.2f},afade=t=in:st=0:d=2,afade=t=out:st={total - 3:.2f}:d=3,loudnorm=I=-16[a]",
+         "-map", "[v]", "-map", "[a]", "-c:v", "copy" if False else "libx264", "-preset", "medium", "-crf", "19",
+         "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", "-t", f"{total:.2f}", OUT])
+    return clips, mtitle, total
+
+
+def post_long(title, desc):
+    with open(OUT, "rb") as f:
+        j = fb(requests.post(f"https://graph-video.facebook.com/v23.0/{PAGE_ID}/videos", timeout=3600,
+                             files={"source": f}, data={"title": title[:250], "description": desc,
+                                                        "access_token": TOKEN}))
+    return j.get("id")
+
+
 # ---------------------------------------------------------------- 6) post
 def fb(r):
     j = r.json()
@@ -397,38 +550,73 @@ def main():
     os.makedirs(WORK)
     h = load_hist()
     refresh_views(h)
+    REPORT["mode"] = MODE
+    if MODE == "long":
+        plan, clips, avoid = None, None, []
+        for _ in range(2):
+            plan = plan_long(h, avoid)
+            log(f"long film: {plan.get('country')} - {plan.get('title')}")
+            try:
+                clips, mtitle, secs = long_film(plan, h, WORK)
+                break
+            except RuntimeError as e:
+                log(str(e))
+                avoid.append(plan.get("country"))
+        if not clips:
+            raise SystemExit("long video ke liye footage kam")
+        plan.setdefault("place", plan["country"])
+        desc = seo_caption(plan, "long")
+        chapters = "\n".join(f"{int(k * 16 // 60)}:{int(k * 16 % 60):02d} {c['label']}" for k, c in enumerate(clips))
+        desc = f"{desc}\n\n{chapters}"
+        log(f"long video {secs / 60:.1f} min ({len(clips)} jagahen)")
+        REPORT.update(country=plan["country"], title=plan.get("title"), caption=desc)
+        if DRY_RUN:
+            return
+        import slot_wait
+        slot_wait.wait(log)
+        vid = post_long(plan.get("title") or plan["country"], desc)
+        log(f"Long video posted: {vid}")
+        h["posts"].append({"ts": time.time(), "vid": vid, "kind": "long", "place": plan["country"],
+                           "country": plan["country"], "mood": "long film", "hook": plan.get("title")})
+        h["clips"] = (h.get("clips", []) + [c["id"] for c in clips])[-3000:]
+        save_hist(h)
+        return
+
     shot, plan, avoid = None, None, []
     for attempt in range(4):
         plan = plan_next(h, avoid)
         log(f"agent ka faisla: {plan.get('place')}, {plan.get('country')} - {plan.get('mood')} ({plan.get('why')})")
-        shot = find_shot(plan, h, WORK)
+        shot = find_photo(plan, h, WORK) if MODE == "pic" else find_shot(plan, h, WORK)
         if shot:
             break
-        log("is jagah ki koi 8+/10 khoobsurat saaf clip nahi mili - agent doosri jagah sochta hai")
+        log("is jagah ki koi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai")
         avoid.append(f"{plan.get('place')}, {plan.get('country')}")
     if not shot:
         raise SystemExit("4 jagahon par bhi achi footage nahi mili")
-    music, mtitle, mdur = find_music(plan.get("music_mood"), h, WORK)
-    if not music:
-        music, mtitle, mdur = os.path.join(WORK, "pad.m4a"), "synth pad", 0
-        synth_music(music, 14)
-    secs = render(shot, plan, music, mdur, WORK)
-    tags = " ".join(t if t.startswith("#") else f"#{t}" for t in (plan.get("hashtags") or [])[:5])
-    desc = f"{(plan.get('caption') or '').strip()}\n\n{tags}".strip()
-    log(f"video {secs:.1f}s ban gayi (beauty {shot['beauty']}/10, {shot.get('src')})")
+    desc = seo_caption(plan, MODE)
     REPORT.update(place=plan.get("place"), country=plan.get("country"), caption=desc, clip=shot["id"],
-                  beauty=shot["beauty"], music=mtitle)
+                  beauty=shot["beauty"])
+    mtitle = None
+    if MODE == "reel":
+        music, mtitle, mdur = find_music(plan.get("music_mood"), h, WORK)
+        if not music:
+            music, mtitle, mdur = os.path.join(WORK, "pad.m4a"), "synth pad", 0
+            synth_music(music, 14)
+        secs = render(shot, plan, music, mdur, WORK)
+        log(f"video {secs:.1f}s ban gayi (beauty {shot['beauty']}/10, {shot.get('src')})")
+    else:
+        shutil.copy(shot["path"], "final_scenic.jpg")
     if DRY_RUN:
         log("DRY RUN - post nahi kiya")
         return
     import slot_wait
     slot_wait.wait(log)
-    vid = post_reel(desc)
-    log(f"Reel posted: {vid}")
+    vid = post_photo(shot["path"], desc) if MODE == "pic" else post_reel(desc)
+    log(f"{MODE} posted: {vid}")
     REPORT["posted"] = vid
-    h["posts"].append({"ts": time.time(), "vid": vid, "place": plan.get("place"), "country": plan.get("country"),
-                       "mood": plan.get("mood"), "hook": plan.get("hook"), "clip": shot["id"],
-                       "beauty": shot["beauty"]})
+    h["posts"].append({"ts": time.time(), "vid": vid if MODE == "reel" else None, "post": vid, "kind": MODE,
+                       "place": plan.get("place"), "country": plan.get("country"), "mood": plan.get("mood"),
+                       "hook": plan.get("hook"), "clip": shot["id"], "beauty": shot["beauty"]})
     h["clips"] = (h.get("clips", []) + [shot["id"]])[-3000:]
     if mtitle and mtitle != "synth pad":
         h["music"] = (h.get("music", []) + [mtitle])[-200:]
