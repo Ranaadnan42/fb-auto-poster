@@ -1643,5 +1643,29 @@
   ],
   "sport": "ice hockey",
   "title": "New York Rangers at Calgary Flames"
+ },
+ {
+  "date": "2026-11-12 16:49",
+  "page": "news",
+  "id": "1448208791702551_122109061641532804",
+  "fmt": "breaking",
+  "lang": "en",
+  "topics": [
+   "americas"
+  ],
+  "sport": null,
+  "title": "How did the SS United States go from Philly landmark to reef?"
+ },
+ {
+  "date": "2026-11-12 16:52",
+  "page": "sports",
+  "id": "1465090056678690_122099548911548502",
+  "fmt": "breaking",
+  "lang": "en",
+  "topics": [
+   "golf"
+  ],
+  "sport": null,
+  "title": "Dan Hicks, NBC Sports' lead golf voice, dies at 64"
  }
 ]
