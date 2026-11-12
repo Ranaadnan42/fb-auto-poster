@@ -1,27 +1,22 @@
 {
- "started": "2026-11-12T11:27",
+ "started": "2026-11-12T21:53",
  "steps": [
-  "token: user token expires_at=0 data_access_expires_at=1801949831",
-  "token: user token tha - page token bana kar istemal kiya",
+  "brain gemini-3.5-flash: 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand",
   "brain gemini-3.8-flash: 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand",
-  "brain gemini-3.6-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeo",
-  "agent ka faisla: Lauterbrunnen, Switzerland - misty morning (Switzerland landscapes are the gold standard for viral travel content engagement.)",
+  "agent ka faisla: Lauterbrunnen, Switzerland - misty sunrise (Classic visual powerhouse; misty alpine valleys consistently stop the scroll.)",
   "is jagah ki koi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "brain gemini-3.8-flash: 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand",
-  "agent ka faisla: Reine, Lofoten Islands, Norway - golden hour (Lofoten's dramatic peaks and tranquil waters perform exceptionally well on reels.)",
-  "photo wmi77659026 1920x1272: ok=True beauty=8 - Stunning golden hour light on iconic mountains.",
-  "brain gemini-3.8-flash: 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand",
-  "Post waqt 11:03 UTC guzar chuka - foran post",
-  "photo story lagi",
-  "pic posted: 1345688241970452_122099338695547841"
+  "brain gemini-3.5-flash: 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand",
+  "brain gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeo",
+  "agent ka faisla: Reine, Lofoten Islands, Norway - misty sunrise (Epic fjords and misty peaks drive massive scroll-stopping engagement.)",
+  "photo wmi71701790 1920x1207: ok=True beauty=9 - Stunning atmospheric snowy Lofoten mountain view",
+  "DRY RUN - post nahi kiya"
  ],
  "errors": [],
  "mode": "pic",
  "place": "Reine, Lofoten Islands",
  "country": "Norway",
- "caption": "Where mountains meet the quiet sea and time completely stops.\n\n📍 Reine, Lofoten Islands, Norway 🇳🇴\n\nWhere mountains meet the quiet sea and time completely stops. 🌅🇳🇴\n\nGolden hour brings pure magic to this peaceful lofoten fishing village. Experience the most breathtaking norway scenery as a quiet norway nature sunset lights up Reine.\n\nWho would you love to sit here with and watch the world slow down?\n\nFollow for the most beautiful places on Earth in Ultra HD 🌍\n\n#WanderEarth #ReineLofotenNorway #LofotenIslands #NorwayScenery #NorwayNatureSunset #LofotenFishingVillage #NorwayTravel #nature #travel #landscape",
- "clip": "wmi77659026",
- "beauty": 8,
- "posted": "1345688241970452_122099338695547841",
- "finished": "2026-11-12T11:31"
+ "caption": "Where ancient peaks rise directly from glassy waters, wrapped in a blanket of silent morning mist.\n\n📍 Reine, Lofoten Islands 🇳🇴\n\nWhere ancient peaks meet glassy waters in complete silence... 🏔️✨\n\nExperience the quiet magic of an iconic Lofoten fishing village wrapped in Norway fjord sunrise mist. A breathtaking Norway arctic landscape showcasing the best of Lofoten Islands mountains and fjords.\n\nWho would you love to watch this peaceful misty sunrise with?\n\nFollow for the most beautiful places on Earth in Ultra HD 🌍\n\n#WanderEarth #reinelofoten #lofotenislands #norwaynature #norwayfjords #arcticlandscape #travelnorway #nature #travel #landscape",
+ "clip": "wmi71701790",
+ "beauty": 9,
+ "finished": "2026-11-12T21:57"
 }
