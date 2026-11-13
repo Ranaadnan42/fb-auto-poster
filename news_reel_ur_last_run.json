@@ -1,30 +1,30 @@
 {
- "time_utc": "2026-11-13 15:43",
+ "time_utc": "2026-11-12 20:09",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-13 15:43",
+   "date": "2026-11-12 20:09",
    "kind": "reel",
    "lang": "ur",
-   "title": "پاکستان میں معدنیات کے شعبے میں بڑی سرمایہ کاری کا امکان",
-   "dur": 71,
-   "post_id": "1708569150690227"
+   "title": "سمندر میں مائیکرو پلاسٹک کے اثرات پر نئی تحقیق",
+   "dur": 58,
+   "post_id": "1129843189906477"
   },
   "sports": {
-   "date": "2026-11-13 15:43",
+   "date": "2026-11-12 20:09",
    "kind": "reel",
    "lang": "ur",
-   "title": "این ایچ ایل: نیش وِل پریڈیٹرز بمقابلہ ویگاس گولڈن نائٹس",
-   "dur": 55,
-   "post_id": "2300513127394158"
+   "title": "امریکن کینسر سوسائٹی کی پی ایس اے ٹیسٹ پر ہدایت",
+   "dur": 59,
+   "post_id": "996022952965935"
   }
  },
  "errors": [],
- "clips_rejected": 430,
- "alt_searches": 7,
- "agent_checks": 199,
- "agent_rejects": 190,
- "agent_skips": 236
+ "agent_checks": 110,
+ "agent_rejects": 91,
+ "agent_skips": 0,
+ "clips_rejected": 91,
+ "alt_searches": 1
 }
