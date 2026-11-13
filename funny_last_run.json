@@ -1,13 +1,34 @@
 {
  "mode": "auto",
- "stock_clips": 48,
+ "stock_clips": 9,
  "fallback_clips": 0,
  "errors": [],
- "format": "cartoon",
- "long_minutes": 5.57,
- "series": "یاروں کی گروپ چیٹ اور شمالی علاقہ جات part 3 (cartoon)",
- "laughs": 8,
- "time_utc": "2026-11-13 15:24",
- "title": "یاروں کی گروپ چیٹ اور شمالی علاقہ جات | آخری قسط",
+ "format": "people",
+ "search_phrases": [
+  "grandmother funny video",
+  "grandmother funny",
+  "grandma comedy",
+  "grandmother comedy",
+  "grandma home remedies"
+ ],
+ "funny_score": "3 -> 9",
+ "search": "grandma home remedies",
+ "reel_format": "har_ghar",
+ "vision_checks": 178,
+ "clips_rejected": 167,
+ "no_match": [
+  "pakistani grandmother",
+  "man holding head",
+  "sad young man",
+  "happy pakistani family"
+ ],
+ "sources": {
+  "pixabay": 7,
+  "commons": 1
+ },
+ "laughs": 5,
+ "reel_minutes": 0.81,
+ "time_utc": "2026-11-13 18:30",
+ "title": "دادی اماں کا وکس شفا خانہ اور ہر بیماری کی آخری چھٹی",
  "dry_run": false
 }
