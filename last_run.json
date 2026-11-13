@@ -1,36 +1,38 @@
 {
  "lang": "ur",
- "stock_clips": 13,
+ "stock_clips": 14,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "صحابہ کرام کے واقعات",
-  "صحابہ کرام کے واقعات پشتو",
-  "sahaba ka waqia tariq jameel",
-  "sahaba ka waqia maulana tariq jameel",
-  "sahaba ka waqia engineer muhammad ali mirza",
-  "sahaba ka waqia tariq masood",
-  "sahaba ke waqiat",
-  "sahaba ka waqia bayan",
-  "sahaba ka waqia by peer ajmal raza qadri",
-  "sahaba ka waqia by saqib raza",
-  "sahaba ka waqia qawwali"
+  "وقت کی قدر و قیمت",
+  "وقت کی قدر بیان",
+  "وقت کی قدر کریں",
+  "وقت کی قدر پر بیان",
+  "وقت کی قدر و قیمت پر مضمون",
+  "مضمون وقت کی قدر",
+  "waqt ki qadar speech in urdu",
+  "waqt ki qadar essay in urdu",
+  "waqt ki qadar bayan",
+  "waqt ki qadar drama",
+  "waqt ki qadar karo",
+  "waqt ki qadar mazmoon",
+  "waqt ki qadar qasim ali shah",
+  "waqt ki qadar par mazmoon",
+  "waqt ki qadar speech"
  ],
- "story": "Umm Sulaym defends Prophet in Hunayn",
- "search": "صحابہ کرام کے واقعات",
- "vision_checks": 25,
- "clips_rejected": 50,
+ "story": "Umar ibn Abd al-Aziz advised by son on time",
+ "search": "وقت کی قدر و قیمت",
+ "vision_checks": 101,
+ "clips_rejected": 70,
  "sources": {
-  "mixkit": 1,
-  "pixabay": 10,
-  "commons": 2
+  "pixabay": 11,
+  "mixkit": 2,
+  "commons": 1
  },
- "no_match": [
-  "mosque sunset sky"
- ],
- "reel_minutes": 1.02,
- "time_utc": "2026-11-13 07:18",
- "title": "ام سلیمؓ کی شجاعت: غزوہ حنین میں ایمان افروز صحابہ کے واقعات",
+ "photo_clips": 1,
+ "reel_minutes": 1.22,
+ "time_utc": "2026-11-13 11:45",
+ "title": "وقت کی قدر و قیمت: عمر بن عبدالعزیز اور ان کے بیٹے کا سچا واقعہ",
  "dry_run": false,
  "posted_ok": 1
 }
