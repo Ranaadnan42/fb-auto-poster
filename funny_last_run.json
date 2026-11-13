@@ -1,32 +1,39 @@
 {
- "mode": "reel",
- "stock_clips": 9,
- "fallback_clips": 0,
+ "mode": "auto",
+ "stock_clips": 3,
+ "fallback_clips": 2,
  "errors": [],
  "format": "people",
  "search_phrases": [
-  "fridge off all night"
+  "eid ul adha bakra mandi",
+  "eid al-adha bakra mandi",
+  "eid ul adha bakra eid",
+  "eid ul adha bakra"
  ],
  "funny_score": "3 -> 9",
- "search": "fridge off all night",
- "reel_format": "dialogue",
- "vision_checks": 181,
- "sources": {
-  "pixabay": 4,
-  "mixkit": 1
- },
- "clips_rejected": 188,
+ "search": "eid ul adha bakra mandi",
+ "reel_format": "latifay",
+ "vision_checks": 281,
+ "clips_rejected": 278,
  "no_match": [
-  "curry pot fridge",
-  "angry mom standing",
-  "man holding food bowl",
-  "spoiled food pot",
-  "mom holding slipper",
-  "man shocked face"
+  "pakistani father walking market",
+  "goat market crowd",
+  "man bargaining goat market",
+  "young man confused face",
+  "man inspecting sheep mandi",
+  "man inspecting sheep mandi",
+  "man holding goat horn",
+  "small goat standing market",
+  "man carrying small goat street",
+  "friends laughing street phone",
+  "friends laughing street phone"
  ],
+ "sources": {
+  "pixabay": 2
+ },
  "laughs": 4,
- "reel_minutes": 0.76,
- "time_utc": "2026-11-13 11:25",
- "title": "رات کے دو بجے فریج پر ڈاکہ اور امی کا اچانک حملہ",
+ "reel_minutes": 0.8,
+ "time_utc": "2026-11-13 14:29",
+ "title": "منڈی میں ابّا کی بارگیننگ اور بیپاری کا ہارٹ اٹیک",
  "dry_run": false
 }
