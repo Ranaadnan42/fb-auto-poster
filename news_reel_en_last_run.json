@@ -1,30 +1,30 @@
 {
- "time_utc": "2026-11-11 22:18",
+ "time_utc": "2026-11-13 00:30",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-11 22:18",
+   "date": "2026-11-13 00:30",
    "kind": "reel",
    "lang": "en",
-   "title": "Spain General Strike Clashes Over Housing Crisis",
-   "dur": 45,
-   "post_id": "1077570211995569"
+   "title": "Indonesia Vice-President Resigns Amid Political Tensions",
+   "dur": 40,
+   "post_id": "1123986640610948"
   },
   "sports": {
-   "date": "2026-11-11 22:18",
+   "date": "2026-11-13 00:30",
    "kind": "reel",
    "lang": "en",
-   "title": "PKL 13 Retained Players List Updates",
-   "dur": 39,
-   "post_id": "1172971508749989"
+   "title": "Table Tennis Star Survives Wild Weekend Chaos",
+   "dur": 36,
+   "post_id": "2298855040904986"
   }
  },
  "errors": [],
- "clips_rejected": 152,
- "agent_checks": 175,
- "agent_rejects": 152,
+ "agent_checks": 163,
+ "agent_rejects": 155,
  "agent_skips": 0,
- "alt_searches": 1
+ "clips_rejected": 158,
+ "alt_searches": 2
 }
