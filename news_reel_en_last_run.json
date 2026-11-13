@@ -1,30 +1,30 @@
 {
- "time_utc": "2026-11-13 00:30",
+ "time_utc": "2026-11-13 00:24",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-13 00:30",
+   "date": "2026-11-13 00:24",
    "kind": "reel",
    "lang": "en",
-   "title": "Indonesia Vice-President Resigns Amid Political Tensions",
-   "dur": 40,
-   "post_id": "1123986640610948"
+   "title": "Major Welfare System Overhaul Proposed For Young People",
+   "dur": 47,
+   "post_id": "2130838487794470"
   },
   "sports": {
-   "date": "2026-11-13 00:30",
+   "date": "2026-11-13 00:24",
    "kind": "reel",
    "lang": "en",
-   "title": "Table Tennis Star Survives Wild Weekend Chaos",
-   "dur": 36,
-   "post_id": "2298855040904986"
+   "title": "Table Tennis Veteran Leads From The Front",
+   "dur": 42,
+   "post_id": "1602575161899908"
   }
  },
  "errors": [],
- "agent_checks": 163,
- "agent_rejects": 155,
+ "agent_checks": 133,
+ "agent_rejects": 123,
  "agent_skips": 0,
- "clips_rejected": 158,
+ "clips_rejected": 127,
  "alt_searches": 2
 }
