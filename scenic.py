@@ -602,7 +602,7 @@ def long_film(plan, h, job):
          f"[1:a]atrim=0:{total:.2f},afade=t=in:st=0:d=2,afade=t=out:st={total - 3:.2f}:d=3,loudnorm=I=-16[a]",
          "-map", "[v]", "-map", "[a]", "-c:v", "copy" if False else "libx264", "-preset", "medium", "-crf", "19", "-maxrate", "12M", "-bufsize", "18M",
          "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", "-t", f"{total:.2f}", OUT])
-    return clips, mtitle, total
+    return clips, mtitle, float(total)
 
 
 def post_long(title, desc):
