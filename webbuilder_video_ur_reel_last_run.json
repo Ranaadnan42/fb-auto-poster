@@ -1,7 +1,7 @@
 {
- "time_utc": "2026-11-12 21:50",
- "spotlight": "real estate agency",
- "post_id": "3380856915635849",
+ "time_utc": "2026-11-13 15:24",
+ "spotlight": "furniture store",
+ "post_id": "1433592308397806",
  "error": null,
  "lang": "ur",
  "kind": "reel",
@@ -9,7 +9,7 @@
  "fallback": 0,
  "errors": [],
  "real_work": 4,
+ "mock": 3,
  "real_pos": 1,
- "mock": 2,
- "seconds": 49.7
+ "seconds": 57.7
 }
