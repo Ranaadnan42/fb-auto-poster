@@ -536,7 +536,7 @@ def plan_long(h, avoid):
     done = [p["country"] for p in h["posts"] if p.get("kind") == "long"]
     return think(f"""You run "{PAGE_NAME}" (Landscape, Nature, Outdoor, Photography; ultra-HD). Plan today's LONG video:
 a calm ~4 minute cinematic nature film of ONE country ("Norway in 4K - Relaxing Nature Film" style) - 14 different
-breathtaking natural places of that country, no narration, only music. LOOK: bright sunny summer, vivid green
+breathtaking natural places of that country (each place gets 2 different clips, every clip shows ~7 seconds), no narration, only music. LOOK: bright sunny summer, vivid green
 valleys and meadows, blue sky, turquoise water, waterfalls, green villages (like Swissaround) - no night/fog/gloom;
 put green/summer words in every search query.
 Countries already done (avoid): {json.dumps(done + avoid, ensure_ascii=False)}
@@ -549,6 +549,11 @@ JSON: {{"country": "...", "flag": "emoji",
  "queries": ["5 phrases people search for this kind of video"]}}""")
 
 
+def LONG_SEG_SEC(n):
+    """Har clip 6-8 sec chale (user ko nayi screen jaldi chahiye); total ~205 sec ki koshish."""
+    return max(6.0, min(8.0, 205.0 / max(n, 1)))
+
+
 def long_film(plan, h, job):
     clips = []
     for k, sh in enumerate(plan.get("shots", [])[:16]):
@@ -556,15 +561,18 @@ def long_film(plan, h, job):
                "queries": sh.get("queries") or [sh.get("place", "")], "mood": ""}
         d = os.path.join(job, f"s{k}")
         os.makedirs(d, exist_ok=True)
-        got = find_shot(sub, {"clips": list(h.get("clips", [])) + [c["id"] for c in clips]}, d, need=7)
-        if got:
-            got["label"] = sub["place"]
-            clips.append(got)
-        if len(clips) >= 14:
+        for rep in range(2):                              # har jagah ki 2 alag clips: nayi screen har ~7 sec
+            d2 = os.path.join(d, f"r{rep}")
+            os.makedirs(d2, exist_ok=True)
+            got = find_shot(sub, {"clips": list(h.get("clips", [])) + [c["id"] for c in clips]}, d2, need=7)
+            if got:
+                got["label"] = sub["place"]
+                clips.append(got)
+        if len(clips) >= 30:
             break
-    if len(clips) < 8:
+    if len(clips) < 16:
         raise RuntimeError(f"long video ke liye sirf {len(clips)} achi clips mili")
-    segs, seg_len = [], max(16.0, 205.0 / len(clips))     # FB in-stream ads: film 3+ min honi chahiye
+    segs, seg_len = [], LONG_SEG_SEC(len(clips))          # har clip 6-8 sec; FB in-stream ads: film 3+ min honi chahiye
     for i, c in enumerate(clips):
         out = os.path.join(job, f"seg{i}.mp4")
         info = c["info"]
@@ -772,7 +780,12 @@ def main():
             raise SystemExit("long video ke liye footage kam")
         plan.setdefault("place", plan["country"])
         desc = seo_caption(plan, "long")
-        chapters = "\n".join(f"{int(k * 16 // 60)}:{int(k * 16 % 60):02d} {c['label']}" for k, c in enumerate(clips))
+        sl, seen_l, rows = LONG_SEG_SEC(len(clips)), set(), []
+        for k, c in enumerate(clips):                    # chapter har jagah ki pehli clip par
+            if c["label"] not in seen_l:
+                seen_l.add(c["label"])
+                rows.append(f"{int(k * sl // 60)}:{int(k * sl % 60):02d} {c['label']}")
+        chapters = "\n".join(rows)
         desc = f"{desc}\n\n{chapters}"
         log(f"long video {secs / 60:.1f} min ({len(clips)} jagahen)")
         REPORT.update(country=plan["country"], title=plan.get("title"), caption=desc)
