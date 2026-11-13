@@ -4,7 +4,7 @@ Atlas Untold - duniya ke mulkon/sheharon ki asli documentary (YouTube, English).
 - Sirf ASLI camera footage (Pixabay "film" + Pexels agar PEXELS_API_KEY ho). AI/animation nahi.
 - Har clip us mulk/shehar ki: tags mein jagah ka naam + Gemini vision se check. Ghalat mulk = reject.
 - Pakke numbers: World Bank (abadi) + Wikipedia (taaruf). AI andaza nahi lagata.
-- Lambi (~11 min, chapters) ya Short (~55 sec, vertical). MODE=long / short
+- Lambi (~11 min, chapters) ya Short (~80 sec, vertical). MODE=long / short
 Secrets: GEMINI_API_KEY, PIXABAY_API_KEY, (PEXELS_API_KEY), YT_WORLD_CLIENT_ID/SECRET/REFRESH_TOKEN
 WORLD_LANG=ur -> "Frames of Life": wahi bot Urdu mein, Pakistanion ke liye bahar ki zindagi,
 kharcha us mulk ki currency + Pakistani rupay dono mein. Secrets: YT_FRAMES_*
@@ -70,7 +70,7 @@ SERIES_HINT = {
                  "'Safest countries in <continent>' - each entry a short chapter with real footage",
     "cost_short": "'What life really costs in <city or country>' quick honest overview",
     "facts": "'Amazing facts about <country>' - 6 short surprising true facts",
-    "city_facts": "'<city> in 60 seconds' - the most striking things about one city",
+    "city_facts": "'<city>: what nobody shows you' - the most striking things about one city",
     "food": "'Must-try foods of <country>' - 5 famous dishes",
     "hidden": "'Hidden places in <country>' - 5 beautiful lesser known real places",
     "versus_short": "'<A> vs <B>' quick comparison of two countries",
@@ -97,7 +97,7 @@ SERIES_HINT = {
     "pk_facts": "'<country> ke hairan kun haqaiq' - 6 short surprising true facts",
     "pk_versus_short": "'<A> ya <B>: Pakistani ke liye kaun behtar?' quick comparison",
     "pk_food": "'<country> ke mashhoor khane' - 5 famous dishes, halal tips",
-    "pk_city_facts": "'<city> 60 second mein' - the most striking things about one city",
+    "pk_city_facts": "'<city> ki hairan kun baatein' - the most striking things about one city",
     "pk_hidden": "'<country> ki khoobsurat chhupi jagahein' - 5 beautiful lesser known real places",
     "pk_visa": "'<country> ka visa kaise lagta hai' - step by step for a Pakistani: visa types (visit, work, "
                "study, family) in general terms, the usual documents, where to apply (official embassy / "
@@ -112,7 +112,7 @@ SERIES_HINT = {
                "streets, markets, food spots, nature, mosques, transport - like the viewer is visiting it",
     "pk_visa_short": "'<country> visa: 5 baatein jo pata honi chahiye' quick tips (official sources, no fake fees)",
     "pk_jobtip": "'<country> mein job dhoondne ke 5 asaan tareeqe' quick practical tips",
-    "pk_tour_short": "'60 second mein <city> ki sair' - quick virtual tour of the best sights",
+    "pk_tour_short": "'<city> ki sair' - quick virtual tour of the best sights",
 }
 if URDU:
     # ilm + kaam ki baat (visa, job) + sair/maza - poori duniya
@@ -553,8 +553,13 @@ viewer will know by the end, so they keep watching and the LAST chapter is a sho
 viewers which place they would choose and to subscribe to Atlas Untold."""
     else:
         shape = """"chapters": [{"name": "main", "scenes": [scene, ...]}]
-8-10 scenes, 120-140 words in total (about 55 seconds). Scene 1 is a strong hook. Last scene: a question
-for the comments and 'Subscribe to Atlas Untold'."""
+15-18 scenes, 165-190 words in total (about 75-85 seconds - a little over a minute, never shorter than 70 seconds).
+HOOK RULES (viewers decide in 2 seconds): scene 1 is ONE short sentence (max 12 words) that makes people NEED to
+keep watching - a shocking true fact, a surprising number from VERIFIED FACTS, or a direct question - never a title,
+never "Welcome", never "In this video". Open a curiosity gap in scene 1 or 2 and pay it off near the end so people
+stay to the last second. Every scene after that is 1 short sentence (8-14 words), one concrete visible thing, so the
+picture changes with every sentence and the pace never drops. The LAST scene: a question for the comments and
+'Subscribe to Atlas Untold'."""
     return ask_json(f"""You write a premium documentary in the style of National Geographic / BBC travel films for
 the YouTube channel "{CHANNEL}". Type: {SERIES_HINT[plan['series']]}. Subject: {plan['subject']}.
 
@@ -655,8 +660,12 @@ ya "aaj hum" se nahi), scene 2 bataye ke video ke aakhir tak dekhne wale ko kya 
 would like to live, and to subscribe to Frames of Life."""
     else:
         shape = """"chapters": [{"name": "main", "scenes": [scene, ...]}]
-8-10 scenes, 120-140 Urdu words in total (about 55 seconds). Scene 1 is a strong hook. Last scene: a question
-for the comments and 'Frames of Life ko subscribe karein'."""
+15-18 scenes, 165-190 Urdu words in total (about 75-85 seconds - 1 minute se thori zyada, 70 second se kam kabhi nahi).
+HOOK: scene 1 sirf EK chhota jumla (max 12 lafz) jo dekhne wale ko rok le - hairan-kun sach, VERIFIED FACTS ka koi
+chonkane wala number, ya seedha sawal - kabhi title, "assalam o alaikum" ya "is video mein" nahi. Scene 1 ya 2 mein
+tajassus (curiosity) kholein aur video ke aakhir mein uska jawab dein taake log aakhri second tak dekhein. Baqi har scene
+1 chhota jumla (8-14 lafz), ek hi nazar aane wali cheez, taake har jumle ke saath manzar badle. Last scene: comments
+mein sawal aur 'Frames of Life ko subscribe karein'."""
     return ask_json(f"""You write a premium Urdu documentary (style of BBC Urdu / National Geographic) for the
 YouTube channel "{CHANNEL}" for Pakistani viewers. Type: {SERIES_HINT[plan['series']]}. Subject: {plan['subject']}.
 
@@ -1373,7 +1382,7 @@ def build(script, plan, out_path):
             spoken = text
         tts(spoken, os.path.join(job, f"a{n}.mp3"))
         dur = duration(os.path.join(job, f"a{n}.mp3")) + 0.45
-        need = max(1, min(4, math.ceil(dur / 5.5)))
+        need = max(1, min(4, math.ceil(dur / 5.5))) if LONG else max(1, min(3, math.ceil(dur / 2.8)))   # Short: har 2-3 second par naya manzar
         clips = get_clips(sc, cwords, job, f"c{n}", need)
         # Har clip ko ISI scene ke mulk ke naam se rakho - "Malaysia vs Singapore" mein Singapore ki baat par
         # Malaysia ki clip / doosre mulk ka khaana na lage (pehle koi bhi pichli clip random lag jati thi)
