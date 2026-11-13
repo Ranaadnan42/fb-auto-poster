@@ -135,6 +135,18 @@
    "hook": "Is this the ultimate train ride?",
    "clip": "wmi142126908",
    "beauty": 10
+  },
+  {
+   "ts": 1794600347.4787889,
+   "vid": "1522068679757603",
+   "post": "1522068679757603",
+   "kind": "reel",
+   "place": "Val di Funes, South Tyrol",
+   "country": "Italy",
+   "mood": "sunny summer afternoon in lush green valley",
+   "hook": "POV: Finding absolute peace in Italy",
+   "clip": "px137822",
+   "beauty": 10
   }
  ],
  "clips": [
@@ -188,7 +200,13 @@
   "px334302",
   "px37079",
   "wmi156683598",
-  "wmi142126908"
+  "wmi142126908",
+  "px137822",
+  "px28394",
+  "px211231",
+  "px305657",
+  "px67201",
+  "px48483"
  ],
  "music": [
   "File:Clair de Lune by Claude Debussy (1905, piano solo).opus",
@@ -196,6 +214,7 @@
   "File:Gymnopedie No. 3 (ISRC USUAN1100785).mp3",
   "File:Purcell Henry - Abdelazer Suite.ogg",
   "File:Gnossienne 7 (Satie).ogg",
-  "File:Satie Gymnopedie No 2 performed by Michael Laucke.flac"
+  "File:Satie Gymnopedie No 2 performed by Michael Laucke.flac",
+  "File:Gymnopedie No. 2 (ISRC USUAN1100786).mp3"
  ]
 }
