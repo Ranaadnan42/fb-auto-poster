@@ -273,6 +273,17 @@ def _vgem(ki=0):
     return _vclients[ki]
 
 
+VISION_STRICT = ("\nSTRICT MODE (the viewer must SEE exactly what the narrator says, in the right country): "
+                 "Say true ONLY if the thing named in the narration is clearly visible and fills the frame, AND the clip is "
+                 "really from that country/city. Country proof = a famous landmark, local architecture, signs/script, "
+                 "typical street or vehicles, people's clothing, or stock-site tags that name that country: {tags!r}. "
+                 "Say false if: the thing is not clearly visible; it could be any country but the narration is about a specific "
+                 "place or landmark; it is another city or country (even a similar looking one); it is a dish and you only see a "
+                 "shopfront, building, menu, sign or people without the dish itself on screen; it is a generic aerial/skyline "
+                 "that cannot be told apart from other cities; it is animation, a map, a text slide, a logo or AI art. "
+                 "If you are unsure, say false.")
+
+
 def _parse_match(txt):
     m = re.search(r"\{[\s\S]*?\}", txt or "")
     if not m:
@@ -294,7 +305,7 @@ def _groq_vision(datas, prompt):
     return _parse_match(t) if t else None
 
 
-def vision_ok(jpgs, want, what, said=""):
+def vision_ok(jpgs, want, what, said="", strict=False, tags=""):
     """Agent: kya clip waqai WAHI dikha rahi hai jo narration keh rahi hai (usi mulk ki)?
     Kai frames ek saath dekhta hai. Models bari bari (quota khatam -> agla). Sab fail -> None."""
     from google.genai import types
@@ -309,6 +320,9 @@ def vision_ok(jpgs, want, what, said=""):
     if not datas:
         return None
     prompt = VISION_Q.format(n=len(datas), what=what, want=want, said=(said or what)[:400].replace('"', "'"))
+    if strict:
+        prompt = prompt.replace("For a dish, say false only if it is clearly a different dish or obviously another country's cuisine. ", "")
+        prompt += VISION_STRICT.format(tags=(tags or "")[:200])
     last = ""
     while True:
         if time.time() - RUN_T0 >= VISION_HARD_S or _VWAITED[0] >= VISION_WAIT_BUDGET_S:
@@ -1146,7 +1160,7 @@ def get_clips(scene, country_words, job, prefix, need):
                         continue
                 except Exception:
                     pass
-                ok = vision_ok(jpgs, want_r, q, said)
+                ok = vision_ok(jpgs, want_r, q, said, strict=bool(show) and key != "place", tags=c.get("text", ""))
                 # agent check na ho sake to sirf tab chalao jab clip ke tags mein usi mulk/jagah aur usi cheez ka naam ho
                 # (free AI quota khatam ho to bhi be-taalluq clip na aaye: jis cheez ki baat ho rahi hai uska
                 #  lafz clip ke tags mein lazmi ho - sirf mulk ka naam kaafi nahi, warna "Spain visa" par ghaas aa jati hai)
