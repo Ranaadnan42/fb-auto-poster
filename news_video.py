@@ -46,6 +46,22 @@ REPORT = {"time_utc": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), "ki
 os.makedirs(WORK, exist_ok=True)
 log = news.log
 
+# Waqt ki hadd: job 120 min par cancel ho jati thi aur slot khali reh jata tha. Itne minute baad
+# nayi clips dhoondna band - pehle se pass hui clips / asli photo / jhanda dobara laga kar video poori karo.
+T0 = time.time()
+BUDGET_MIN = float(os.environ.get("NEWS_BUDGET_MIN") or (70 if KIND == "long" else 45))
+_LATE = []
+
+
+def late():
+    if time.time() - T0 < BUDGET_MIN * 60:
+        return False
+    if not _LATE:
+        _LATE.append(1)
+        REPORT["time_budget_hit"] = True
+        log(f"  waqt ki hadd ({BUDGET_MIN:.0f} min) - ab nayi clips nahi dhoondi jayengi, video jaldi poori hogi")
+    return True
+
 
 def run(cmd):
     r = subprocess.run(cmd, capture_output=True, text=True)
@@ -211,6 +227,8 @@ def _render_clip(raw, secs, out):
 def get_clip(term, secs, out, used, said="", kind="news"):
     """AGENT: har clip ke frames AI dekhta hai - sirf wohi lagti hai jo waqai boli ja rahi cheez dikhaye.
     Pehle video (dunya bhar ki free sites), na mile to asli photo. Be-taalluq clip kabhi nahi."""
+    if late():
+        return False
     import footage_agent as fa
     want = footage.words(term)
     vertical = H > W
@@ -219,6 +237,8 @@ def get_clip(term, secs, out, used, said="", kind="news"):
     cands.sort(key=lambda c: (-footage.match_score(c.get("text"), want), c.get("vertical") != vertical,
                               random.random()))
     for c in cands[:6]:
+        if late():
+            return False
         raw = out + ".src"
         try:
             if not footage.download(c["url"], raw, 100000):
@@ -248,6 +268,8 @@ def get_clip(term, secs, out, used, said="", kind="news"):
     pics = [p for p in footage.photos(term) if p["id"] not in used and footage.match_score(p.get("text"), want) > 0]
     pics.sort(key=lambda p: -footage.match_score(p.get("text"), want))
     for p in pics[:4]:
+        if late():
+            return False
         img = out + ".jpg"
         try:
             if footage.download(p["url"], img, 40000):
@@ -312,6 +334,8 @@ def flag_clip(country, secs, out):
 
 
 def _try(t, secs, out, used, said, kind):
+    if late() and ALL_CLIPS and not t.startswith(("#flag:", "@")):
+        return False                  # waqt khatam - lambi talaash nahi, neeche pehle wali clip lagegi
     if t.startswith("#flag:"):
         return flag_clip(t[6:], secs, out)
     if t.startswith("@"):
@@ -333,7 +357,7 @@ def scene_video(i, terms, secs, used, fallback_terms, said="", kind="news"):
         ok = _try(t, seg + 0.1, out, used, said, kind)
         if not ok:
             ok = any(_try(x, seg + 0.1, out, used, said, kind) for x in terms if x != t and not x.startswith("@"))
-        if not ok:
+        if not ok and not late():
             if alt is None:
                 alt = fa.alt_terms(t.lstrip("@"), said, news.ask_json, kind)
                 REPORT["alt_searches"] = REPORT.get("alt_searches", 0) + 1
