@@ -645,6 +645,25 @@
     "schools"
    ],
    "post_id": "1448208791702551_122109502659532804"
+  },
+  {
+   "date": "2026-11-13 16:15",
+   "lang": "en",
+   "topic": "world",
+   "link": "https://news.google.com/rss/articles/CBMingFBVV95cUxOWU1OT3dZX3F5SkxLYXhxTnd2OGpBZ3ZTUG8tejZRQWNYdjJzTmtwWk1oUzdpSzBLWU0zaXAwRTB4dTlkVnNkTWNhczAwX24xSTQ5SDFLU09aaXB5ZnNmdVB2SU1pZ2tHUDY3OEtmQm1qRUJSb19NU1JOZWJ2bXBuV20xcEk3bkFzaVJhQzlHRHYtUG1PNm9SeEVLcjFtUdIBowFBVV95cUxNd0lnS2lRRVZmNThXSXJYMWtUSlBmTjhYMmdUWjZlYmtLeVBpY19jb1BZcWVNd2lFOUVjMERzbnJtXzVzYWJXUDdSd2VwVE8yQ0ZhOFpkMk5XQzhXbTdxdUtHZElQMnlJV2pWeGpmVjFxSFA4bmdXYTM2NkJ0MFF3V1F1bU1oQWNwa0ZWQ1VqVWZ1UkIxc2xseU5hVGNkQXJyb1c0?oc=5",
+   "title": "U.S., Ukraine herald European involvement in peace talks with Russia",
+   "words": [
+    "european",
+    "herald",
+    "involvement",
+    "peace",
+    "russia",
+    "talks",
+    "ukraine",
+    "with"
+   ],
+   "breaking": true,
+   "post_id": "1448208791702551_122109514833532804"
   }
  ],
  "sports": [
@@ -1285,6 +1304,23 @@
     "wales"
    ],
    "post_id": "1465090056678690_122100476829548502"
+  },
+  {
+   "date": "2026-11-13 16:15",
+   "lang": "en",
+   "topic": "big_events",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxOU3JnUHcwVGVSZVVwcmdGdFdFenVialJNYWw3ckp5SkxzRTNhS0s5MHlUeEVWV3FseFd5V3MyY253cmNib1dRQTlLT3k1dFN3cDdKdHo5YV9aSDhrR3lGeWlWQS1obkFDMGpJcmtscXY5OWtFVWZWMWVnVXVIMVVkQmQ2SnAzVmROM1hxYnlndHV6UHVQRTgzMFRGQmh6aDA?oc=5",
+   "title": "Mauricio Pochettino confirmed as new Manchester United manager",
+   "words": [
+    "confirmed",
+    "manager",
+    "manchester",
+    "mauricio",
+    "pochettino",
+    "united"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122100507861548502"
   }
  ],
  "used_images": [
@@ -1327,6 +1363,7 @@
   7202373,
   1284225,
   802303,
-  "pxi1043636"
+  "pxi1043636",
+  "pxi1615129"
  ]
 }
