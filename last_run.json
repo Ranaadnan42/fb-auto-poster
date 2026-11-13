@@ -1,43 +1,30 @@
 {
  "lang": "ur",
- "stock_clips": 15,
+ "stock_clips": 39,
  "fallback_clips": 0,
  "errors": [
-  "tiktok: TikTok: spam_risk_too_many_pending_share - spam_risk_too_many_pending_share"
+  "tiktok_long: TikTok: spam_risk_too_many_pending_share - spam_risk_too_many_pending_share"
  ],
  "search_phrases": [
-  "جنت کے پتے ناول",
-  "جنت ڈرامہ",
-  "جنت علی دی",
-  "جنت کا منظر",
-  "جنت کے پتے ڈرامہ",
-  "جنت براستہ جہنم",
-  "جنتری 2026",
-  "جنت البقیع",
-  "جنت ڈرامہ 61",
-  "jannat mirza vlog",
-  "jannat movie",
-  "jannat drama",
-  "jannat song",
-  "jannat zubair",
-  "jannat mirza",
-  "jannat ali di",
-  "jannat sajai maine tere liye",
-  "jannat 2 movie"
+  "islami tareekh ka waqia",
+  "islami tareekh"
  ],
- "story": "Rabiah asks Prophet for companionship in Jannah",
- "search": "جنت کا منظر",
- "vision_checks": 153,
- "clips_rejected": 126,
+ "story": "Zayd ibn Harithah loyalty at Battle Mu'tah",
+ "search": "islami tareekh ka waqia",
+ "vision_checks": 178,
  "sources": {
-  "mixkit": 1,
-  "pixabay": 11,
-  "commons": 3
+  "pixabay": 31,
+  "commons": 7,
+  "nasa": 1
  },
- "photo_clips": 4,
- "reel_minutes": 1.3,
- "time_utc": "2026-11-13 14:31",
- "title": "جنت کا منظر اور رسولؐ کی صحبت: ربیعہ بن کعبؓ کا واقعہ",
+ "clips_rejected": 137,
+ "photo_clips": 1,
+ "no_match": [
+  "mosque sunset sky"
+ ],
+ "long_minutes": 5.43,
+ "time_utc": "2026-11-13 15:27",
+ "title": "اسلامی تاریخ کا واقعہ: حضرت زید بن حارثہؓ کی بے مثال وفاداری",
  "dry_run": false,
  "posted_ok": 1
 }
