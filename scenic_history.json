@@ -90,6 +90,15 @@
    "hook": "POV: You found a fairytale",
    "clip": "px306680",
    "beauty": 10
+  },
+  {
+   "ts": 1794585818.9172337,
+   "vid": "1133427719096047",
+   "kind": "long",
+   "place": "Norway",
+   "country": "Norway",
+   "mood": "long film",
+   "hook": "Norway 4K - Bright Summer Fjords & Green Valleys | Relaxing Nature Film"
   }
  ],
  "clips": [
@@ -126,7 +135,15 @@
   "px306683",
   "px385162",
   "px386376",
-  "px205153"
+  "px205153",
+  "px119129",
+  "px36786",
+  "px52849",
+  "px14205",
+  "px25909",
+  "px76681",
+  "px215072",
+  "px215173"
  ],
  "music": [
   "File:Clair de Lune by Claude Debussy (1905, piano solo).opus",
