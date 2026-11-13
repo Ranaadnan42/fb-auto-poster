@@ -1,30 +1,31 @@
 {
- "lang": "ur",
- "stock_clips": 39,
+ "lang": "en",
+ "stock_clips": 15,
  "fallback_clips": 0,
- "errors": [
-  "tiktok_long: TikTok: spam_risk_too_many_pending_share - spam_risk_too_many_pending_share"
- ],
+ "errors": [],
  "search_phrases": [
-  "islami tareekh ka waqia",
-  "islami tareekh"
+  "hadith explained in urdu",
+  "islam explained",
+  "islam explained simply",
+  "islam explained for beginners",
+  "islam explained for christians",
+  "islam explained in hindi",
+  "islam explained.8",
+  "islam explained in spanish",
+  "islam explained for students"
  ],
- "story": "Zayd ibn Harithah loyalty at Battle Mu'tah",
- "search": "islami tareekh ka waqia",
- "vision_checks": 178,
+ "story": "Prophet tells story of man watering thirsty dog",
+ "search": "islam explained simply",
+ "vision_checks": 99,
+ "clips_rejected": 70,
  "sources": {
-  "pixabay": 31,
-  "commons": 7,
-  "nasa": 1
+  "commons": 5,
+  "pixabay": 10
  },
- "clips_rejected": 137,
- "photo_clips": 1,
- "no_match": [
-  "mosque sunset sky"
- ],
- "long_minutes": 5.43,
- "time_utc": "2026-11-13 15:27",
- "title": "اسلامی تاریخ کا واقعہ: حضرت زید بن حارثہؓ کی بے مثال وفاداری",
+ "photo_clips": 2,
+ "reel_minutes": 1.06,
+ "time_utc": "2026-11-13 18:45",
+ "title": "Islam Explained Simply: The Hadith of the Thirsty Dog",
  "dry_run": false,
  "posted_ok": 1
 }
