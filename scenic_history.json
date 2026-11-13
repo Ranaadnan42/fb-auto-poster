@@ -99,6 +99,18 @@
    "country": "Norway",
    "mood": "long film",
    "hook": "Norway 4K - Bright Summer Fjords & Green Valleys | Relaxing Nature Film"
+  },
+  {
+   "ts": 1794586122.8450735,
+   "vid": "1525447036088486",
+   "post": "1525447036088486",
+   "kind": "reel",
+   "place": "Tegalalang Rice Terrace, Bali",
+   "country": "Indonesia",
+   "mood": "sunny tropical morning / bright emerald green",
+   "hook": "A piece of tropical heaven",
+   "clip": "px37664",
+   "beauty": 10
   }
  ],
  "clips": [
@@ -143,13 +155,21 @@
   "px25909",
   "px76681",
   "px215072",
-  "px215173"
+  "px215173",
+  "px37664",
+  "px37663",
+  "px179221",
+  "px179218",
+  "px142199",
+  "px334302",
+  "px37079"
  ],
  "music": [
   "File:Clair de Lune by Claude Debussy (1905, piano solo).opus",
   "File:Nocturne in E flat major, Op. 9 no. 2.mp3",
   "File:Gymnopedie No. 3 (ISRC USUAN1100785).mp3",
   "File:Purcell Henry - Abdelazer Suite.ogg",
-  "File:Gnossienne 7 (Satie).ogg"
+  "File:Gnossienne 7 (Satie).ogg",
+  "File:Satie Gymnopedie No 2 performed by Michael Laucke.flac"
  ]
 }
