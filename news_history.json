@@ -593,6 +593,24 @@
     "target"
    ],
    "post_id": "1448208791702551_122109367815532804"
+  },
+  {
+   "date": "2026-11-13 09:25",
+   "lang": "ur",
+   "topic": "world",
+   "link": "https://www.theguardian.com/technology/2026/nov/13/microsoft-outage-outlook-teams-word-excel-reports",
+   "title": "Microsoft scrambles to fix global outage affecting Teams and Outlook",
+   "words": [
+    "affecting",
+    "global",
+    "microsoft",
+    "outage",
+    "outlook",
+    "scrambles",
+    "teams"
+   ],
+   "breaking": true,
+   "post_id": "1448208791702551_122109375147532804"
   }
  ],
  "sports": [
@@ -1173,6 +1191,33 @@
     "vats"
    ],
    "post_id": "1465090056678690_122100205401548502"
+  },
+  {
+   "date": "2026-11-13 09:25",
+   "lang": "ur",
+   "topic": "tennis",
+   "link": "https://news.google.com/rss/articles/CBMijAJBVV95cUxPTmJJbXFQRS1tOUpQZkJlNmdjY2JDTEc3a0p1U3d0ZEl5eFd3S05jbm1PUkVtNGYwZUk1elNwS2Y1Z29BMjhrenRxa3FJQjVvay1udlYxQkhhZG5sSHFRYlIzQjMxTm1jalM3WU9vQW1hQ2NPNy1kSUYwcnRGaGpJaTE0NXEzX01maS1mX09jUUJmQXBhWGVFcEdwbm16YURVbkZtU3oxekt0aVMzOUE4cDJSbXdoc01jRGNrdmVjS1kyS2pZUUdrb1QtcEJkdXdjakhWU0J4dFN2NU9GOEdUTExpVml1US0xNk5YUHFROTFsMk9ZUFZtM0N1M1NNYzFZMTZtdElaVHdTZENw?oc=5",
+   "title": "WTA Finals: Jessica Pegula saves match ‌point in stunning win over Linda Noskova to send Coco Gauff out and set up Mirra Andreeva clash",
+   "words": [
+    "andreeva",
+    "clash",
+    "coco",
+    "finals",
+    "gauff",
+    "jessica",
+    "linda",
+    "match",
+    "mirra",
+    "noskova",
+    "over",
+    "pegula",
+    "point",
+    "saves",
+    "send",
+    "stunning"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122100217101548502"
   }
  ],
  "used_images": [
