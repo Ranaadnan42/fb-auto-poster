@@ -1,33 +1,30 @@
 {
- "time_utc": "2026-11-13 11:37",
+ "time_utc": "2026-11-12 20:09",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-13 11:37",
+   "date": "2026-11-12 20:09",
    "kind": "reel",
    "lang": "ur",
-   "title": "چینی محققین کا برقی کنگھی سے گنج پن کے علاج کا دعویٰ",
-   "dur": 48,
-   "post_id": "1610040870811442"
+   "title": "سمندر میں مائیکرو پلاسٹک کے اثرات پر نئی تحقیق",
+   "dur": 58,
+   "post_id": "1129843189906477"
   },
   "sports": {
-   "date": "2026-11-13 11:37",
+   "date": "2026-11-12 20:09",
    "kind": "reel",
    "lang": "ur",
-   "title": "Rosa De Marco Para Badminton Dream in Italy",
-   "dur": 57,
-   "post_id": "1845574696476743"
+   "title": "امریکن کینسر سوسائٹی کی پی ایس اے ٹیسٹ پر ہدایت",
+   "dur": 59,
+   "post_id": "996022952965935"
   }
  },
  "errors": [],
- "clips_rejected": 780,
- "agent_checks": 258,
- "agent_rejects": 255,
- "agent_skips": 514,
- "alt_searches": 8,
- "no_match": [
-  "@Rosa De Marco"
- ]
+ "agent_checks": 110,
+ "agent_rejects": 91,
+ "agent_skips": 0,
+ "clips_rejected": 91,
+ "alt_searches": 1
 }
