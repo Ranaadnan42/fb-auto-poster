@@ -26,6 +26,33 @@ def merge(remote, local):
     return out
 
 
+def _id(e):
+    if isinstance(e, dict) and "ts" in e:
+        return "ts:" + str(e["ts"])
+    return _key(e)
+
+
+def merge_any(remote, local):
+    """Dict history (jaise scenic_history.json) bhi merge: list keys jor do, dict keys andar tak, baaqi local."""
+    if isinstance(remote, dict) and isinstance(local, dict):
+        out = dict(remote)
+        for k, v in local.items():
+            out[k] = merge_any(remote[k], v) if k in remote else v
+        return out
+    if isinstance(remote, list) and isinstance(local, list):
+        lid = {_id(e): e for e in local}
+        out, seen = [], set()
+        for e in remote:                      # remote order, lekin local wala naya version (views waghera)
+            i = _id(e)
+            out.append(lid.get(i, e))
+            seen.add(i)
+        out += [e for e in local if _id(e) not in seen and not seen.add(_id(e))]
+        if out and all(isinstance(e, dict) and "ts" in e for e in out):
+            out.sort(key=lambda e: float(e.get("ts") or 0))
+        return out
+    return local
+
+
 def main():
     keep, files = sys.argv[1], sys.argv[2:]
     for f in files:
@@ -36,6 +63,11 @@ def main():
             try:
                 with open(src, encoding="utf-8") as a, open(f, encoding="utf-8") as b:
                     local, remote = json.load(a), json.load(b)
+                if isinstance(local, dict) and isinstance(remote, dict):
+                    with open(f, "w", encoding="utf-8") as o:
+                        json.dump(merge_any(remote, local), o, ensure_ascii=False, indent=1)
+                    print(f"merged dict {f}")
+                    continue
                 if isinstance(local, list) and isinstance(remote, list):
                     with open(f, "w", encoding="utf-8") as o:
                         json.dump(merge(remote, local), o, ensure_ascii=False, indent=1)

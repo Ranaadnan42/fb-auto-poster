@@ -196,8 +196,7 @@ def refresh_views(h):
 
 def plan_next(h, avoid):
     posts = h["posts"]
-    recent = [p for p in posts if time.time() - p.get("ts", 0) < 60 * 86400]
-    used = sorted({f"{p['place']}, {p['country']}" for p in recent} | set(avoid))
+    used = sorted({f"{p['place']}, {p['country']}" for p in posts if p.get("kind") != "long"} | set(avoid))
     perf = [{"place": f"{p['place']}, {p['country']}", "mood": p.get("mood"), "hook": p.get("hook"),
              "views": p.get("views")} for p in posts[-40:] if p.get("views") is not None]
     perf.sort(key=lambda x: -x["views"])
@@ -220,7 +219,7 @@ Short text hook + place name + emotional music + short poetic caption.
 Our past reels and their REAL plays (learn: do more of what worked, less of what didn't):
 {json.dumps(perf[:25], ensure_ascii=False) if perf else "no data yet - start with the proven winners (Switzerland, Japan, Italy, Norway, Scotland, Austria) mixed with variety"}
 
-Do NOT pick any of these places again: {json.dumps(used[-150:], ensure_ascii=False)}
+NEVER repeat a place already posted (also not a near-identical spot, e.g. another viewpoint of the same lake/village) - already done: {json.dumps(used[-400:], ensure_ascii=False)}
 Avoid the same country as the last few reels: {json.dumps(countries_recent[-4:], ensure_ascii=False)}
 Over time cover every country, but favour places that are famously beautiful and that free stock-footage
 sites (Pixabay, Pexels, Wikimedia) will really have clean footage of.
@@ -241,11 +240,16 @@ Pick the NEXT reel. JSON:
 def find_shots(plan, h, job, need=8, want_n=1, look_n=10, tag=""):
     want = f"{plan['place']} ({plan.get('mood', '')})"
     used = set(h.get("clips", []))
+    near = set()
+    for u in used:                                   # ek hi shoot ki saath wali clips (px93058, px93059...) bhi repeat lagti hain
+        m = re.match(r"(px)(\d+)$", str(u))
+        if m:
+            near.update(f"px{int(m.group(2)) + d}" for d in (-2, -1, 1, 2))
     seen, cands = set(), []
     pwords = set(footage.words(f"{plan['place']} {plan['country']}"))
     for q in (plan.get("queries") or [])[:8] + [plan["place"], plan["country"]]:
         for c in footage.videos(q, vertical=False) + footage.videos(q, vertical=True):
-            if c["id"] in used or c["id"] in seen or c.get("dur", 0) < 5:
+            if c["id"] in used or c["id"] in near or c["id"] in seen or c.get("dur", 0) < 5:
                 continue
             seen.add(c["id"])
             c["score"] = footage.match_score(c.get("text", ""), pwords) + (0.5 if c.get("vertical") else 0)
@@ -319,7 +323,7 @@ _OK_LIC = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa
 
 def find_music(mood, h, job):
     pieces = MUSIC.get((mood or "").lower().strip()) or random.choice(list(MUSIC.values()))
-    used = set(h.get("music", [])[-25:])
+    used = set(h.get("music", [])[-60:])
     for q in random.sample(pieces, len(pieces)):
         try:
             r = requests.get("https://commons.wikimedia.org/w/api.php", headers=UA, timeout=40, params={
@@ -529,7 +533,7 @@ def post_photo(path, caption):
 
 # ---------------------------------------------------------------- LONG (3.5-4 min 4K-feel nature film)
 def plan_long(h, avoid):
-    done = [p["country"] for p in h["posts"] if p.get("kind") == "long" and time.time() - p.get("ts", 0) < 120 * 86400]
+    done = [p["country"] for p in h["posts"] if p.get("kind") == "long"]
     return think(f"""You run "{PAGE_NAME}" (Landscape, Nature, Outdoor, Photography; ultra-HD). Plan today's LONG video:
 a calm ~4 minute cinematic nature film of ONE country ("Norway in 4K - Relaxing Nature Film" style) - 14 different
 breathtaking natural places of that country, no narration, only music. LOOK: bright sunny summer, vivid green
