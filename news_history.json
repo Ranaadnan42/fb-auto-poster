@@ -611,6 +611,25 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122109375147532804"
+  },
+  {
+   "date": "2026-11-13 13:14",
+   "lang": "en",
+   "topic": "europe",
+   "link": "https://www.theguardian.com/environment/2026/nov/13/storm-charles-floods-flight-cancellations-southern-europe-weather",
+   "title": "Storm Charles causes floods and flight cancellations across southern Europe",
+   "words": [
+    "across",
+    "cancellations",
+    "causes",
+    "charles",
+    "europe",
+    "flight",
+    "floods",
+    "southern",
+    "storm"
+   ],
+   "post_id": "1448208791702551_122109465045532804"
   }
  ],
  "sports": [
@@ -1218,6 +1237,23 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122100217101548502"
+  },
+  {
+   "date": "2026-11-13 13:14",
+   "lang": "en",
+   "topic": "badminton",
+   "link": "https://news.google.com/rss/articles/CBMijwFBVV95cUxQaVViZzE4Tk40UzA1dmJpLS1iMDZHSlFtUHV3cS1GQkRQbUY0SzBxZ2puTU50RDNRRzNrdnJYUEZXMHJrTnhYcGJzckdhYXE3U2lpeC1yZENZdjIyWVJhTXlsc2puR09uTEdoMUxTZnJ6TGMyNWZhR3RsekJMcS1WWHlOQjBiOUpRQ0ZYQTJvRQ?oc=5",
+   "title": "Yingkiong to Host 4th GSBA Annual Championship in October 2027",
+   "words": [
+    "2027",
+    "annual",
+    "championship",
+    "gsba",
+    "host",
+    "october",
+    "yingkiong"
+   ],
+   "post_id": "1465090056678690_122100386697548502"
   }
  ],
  "used_images": [
@@ -1259,6 +1295,7 @@
   4013428,
   7202373,
   1284225,
-  802303
+  802303,
+  "pxi1043636"
  ]
 }

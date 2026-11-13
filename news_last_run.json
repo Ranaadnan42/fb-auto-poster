@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-13 09:25",
- "lang": "ur",
+ "time_utc": "2026-11-13 13:14",
+ "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1448208791702551_122109375147532804",
-   "topic": "world",
-   "title": "Microsoft scrambles to fix global outage affecting Teams and Outlook"
+   "post": "1448208791702551_122109465045532804",
+   "topic": "europe",
+   "title": "Storm Charles causes floods and flight cancellations across southern Europe"
   },
   "sports": {
-   "post": "1465090056678690_122100217101548502",
-   "topic": "tennis",
-   "title": "WTA Finals: Jessica Pegula saves match ‌point in stunning win over Linda Noskova to send Coco Gauff out and set up Mirra"
+   "post": "1465090056678690_122100386697548502",
+   "topic": "badminton",
+   "title": "Yingkiong to Host 4th GSBA Annual Championship in October 2027"
   }
  },
  "errors": []
