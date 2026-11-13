@@ -78,6 +78,18 @@
    "hook": "The hills are finally alive",
    "clip": "px356398",
    "beauty": 9
+  },
+  {
+   "ts": 1794529914.9610977,
+   "vid": "1074406249016918",
+   "post": "1074406249016918",
+   "kind": "reel",
+   "place": "Lake Bled",
+   "country": "Slovenia",
+   "mood": "bright sunny morning over turquoise water and emerald hills",
+   "hook": "POV: You found a fairytale",
+   "clip": "px306680",
+   "beauty": 10
   }
  ],
  "clips": [
@@ -108,12 +120,19 @@
   "px93058",
   "px93059",
   "px93062",
-  "px88207"
+  "px88207",
+  "px306680",
+  "px223273",
+  "px306683",
+  "px385162",
+  "px386376",
+  "px205153"
  ],
  "music": [
   "File:Clair de Lune by Claude Debussy (1905, piano solo).opus",
   "File:Nocturne in E flat major, Op. 9 no. 2.mp3",
   "File:Gymnopedie No. 3 (ISRC USUAN1100785).mp3",
-  "File:Purcell Henry - Abdelazer Suite.ogg"
+  "File:Purcell Henry - Abdelazer Suite.ogg",
+  "File:Gnossienne 7 (Satie).ogg"
  ]
 }
