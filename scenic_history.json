@@ -111,6 +111,18 @@
    "hook": "A piece of tropical heaven",
    "clip": "px37664",
    "beauty": 10
+  },
+  {
+   "ts": 1794589195.063722,
+   "vid": null,
+   "post": "1345688241970452_122100480351547841",
+   "kind": "pic",
+   "place": "Moraine Lake, Banff National Park",
+   "country": "Canada",
+   "mood": "bright sunny afternoon over turquoise lake",
+   "hook": "Is this place even real?",
+   "clip": "wmi156683598",
+   "beauty": 9
   }
  ],
  "clips": [
@@ -162,7 +174,8 @@
   "px179218",
   "px142199",
   "px334302",
-  "px37079"
+  "px37079",
+  "wmi156683598"
  ],
  "music": [
   "File:Clair de Lune by Claude Debussy (1905, piano solo).opus",

@@ -1,22 +1,28 @@
 {
- "started": "2026-11-12T21:53",
+ "started": "2026-11-13T11:25",
  "steps": [
-  "brain gemini-3.5-flash: 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand",
-  "brain gemini-3.8-flash: 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand",
-  "agent ka faisla: Lauterbrunnen, Switzerland - misty sunrise (Classic visual powerhouse; misty alpine valleys consistently stop the scroll.)",
-  "is jagah ki koi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "brain gemini-3.5-flash: 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand",
+  "token: user token expires_at=0 data_access_expires_at=1801949831",
+  "token: user token tha - page token bana kar istemal kiya",
   "brain gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeo",
-  "agent ka faisla: Reine, Lofoten Islands, Norway - misty sunrise (Epic fjords and misty peaks drive massive scroll-stopping engagement.)",
-  "photo wmi71701790 1920x1207: ok=True beauty=9 - Stunning atmospheric snowy Lofoten mountain view",
-  "DRY RUN - post nahi kiya"
+  "agent ka faisla: Moraine Lake, Banff National Park, Canada - bright sunny afternoon over turquoise lake (Iconic bright turquoise lake with massive viral appeal and high stock availability.)",
+  "photo wmi156683598 1920x1362: ok=True beauty=9 - Stunning iconic landscape, vibrant blue sky, perfect reflection.",
+  "brain gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeo",
+  "brain gemini-3.6-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeo",
+  "brain gemini-3-flash-preview: 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand",
+  "brain gemini-2.5-flash: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash is no longer ",
+  "Post waqt 20:03 job ki hadd se aage - 16:59 UTC par post hogi",
+  "Video tayyar - 328 minute intezar, post 16:59 UTC par hogi",
+  "Waqt ho gaya - post kar rahe hain",
+  "photo story lagi",
+  "pic posted: 1345688241970452_122100480351547841"
  ],
  "errors": [],
  "mode": "pic",
- "place": "Reine, Lofoten Islands",
- "country": "Norway",
- "caption": "Where ancient peaks rise directly from glassy waters, wrapped in a blanket of silent morning mist.\n\n📍 Reine, Lofoten Islands 🇳🇴\n\nWhere ancient peaks meet glassy waters in complete silence... 🏔️✨\n\nExperience the quiet magic of an iconic Lofoten fishing village wrapped in Norway fjord sunrise mist. A breathtaking Norway arctic landscape showcasing the best of Lofoten Islands mountains and fjords.\n\nWho would you love to watch this peaceful misty sunrise with?\n\nFollow for the most beautiful places on Earth in Ultra HD 🌍\n\n#WanderEarth #reinelofoten #lofotenislands #norwaynature #norwayfjords #arcticlandscape #travelnorway #nature #travel #landscape",
- "clip": "wmi71701790",
+ "place": "Moraine Lake, Banff National Park",
+ "country": "Canada",
+ "caption": "Where towering peaks meet water so vivid it looks unreal under the summer sun.\n\n📍 Moraine Lake, Canada 🇨🇦\n\nHave you ever seen water this impossibly blue? 🏔️\n\nExperience a bright sunny afternoon over turquoise lake waters where the canadian rockies green forest meets the banff mountains blue sky. Watching this albertalandscape sunny daytime view feels like pure magic.\n\nWho is the first person you would want to go canoeing here with?\n\nFollow for the most beautiful places on Earth in Ultra HD 🌍\n\n#WanderEarth #morainelake #banffnationalpark #lakelouise #canadianrockies #alberta #explorecanada #nature #travel #landscape",
+ "clip": "wmi156683598",
  "beauty": 9,
- "finished": "2026-11-12T21:57"
+ "posted": "1345688241970452_122100480351547841",
+ "finished": "2026-11-13T16:59"
 }
