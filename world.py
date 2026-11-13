@@ -273,6 +273,8 @@ def _vgem(ki=0):
     return _vclients[ki]
 
 
+STRICT_ON = [True]       # video na banne par agli koshish narm (post kabhi na ruke)
+STRICT_MAX = 5           # ek scene par itni sakht-check ke baad us scene ke liye normal check (reject ka dher na lage)
 VISION_STRICT = ("\nSTRICT MODE (the viewer must SEE exactly what the narrator says, in the right country): "
                  "Say true ONLY if the thing named in the narration is clearly visible and fills the frame, AND the clip is "
                  "really from that country/city. Country proof = a famous landmark, local architecture, signs/script, "
@@ -1083,6 +1085,7 @@ def get_clips(scene, country_words, job, prefix, need):
     alt_done = [False]
     alt_q = [None]
     cap = [0]
+    strict_n = [0]
     while ri < len(rounds):
       kind, queries, accept, want_r = rounds[ri]
       ri += 1
@@ -1160,7 +1163,10 @@ def get_clips(scene, country_words, job, prefix, need):
                         continue
                 except Exception:
                     pass
-                ok = vision_ok(jpgs, want_r, q, said, strict=bool(show) and key != "place", tags=c.get("text", ""))
+                use_strict = bool(show) and key != "place" and STRICT_ON[0] and not late and strict_n[0] < STRICT_MAX
+                if use_strict:
+                    strict_n[0] += 1
+                ok = vision_ok(jpgs, want_r, q, said, strict=use_strict, tags=c.get("text", ""))
                 # agent check na ho sake to sirf tab chalao jab clip ke tags mein usi mulk/jagah aur usi cheez ka naam ho
                 # (free AI quota khatam ho to bhi be-taalluq clip na aaye: jis cheez ki baat ho rahi hai uska
                 #  lafz clip ke tags mein lazmi ho - sirf mulk ka naam kaafi nahi, warna "Spain visa" par ghaas aa jati hai)
@@ -1650,6 +1656,7 @@ def _main():
             break
         except Exception as e:
             log(f"try {attempt + 1} fail: {str(e)[:300]}")
+            STRICT_ON[0] = False      # video nahi bani -> agli koshish normal check se (upload hona lazmi)
             REPORT["errors"].append(str(e)[:300])
             history.append({"subject": (plan or {}).get("subject", ""), "skipped": True})
             if attempt == 2:
