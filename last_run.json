@@ -1,31 +1,35 @@
 {
  "lang": "en",
- "stock_clips": 15,
+ "stock_clips": 38,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "hadith explained in urdu",
-  "islam explained",
-  "islam explained simply",
-  "islam explained for beginners",
-  "islam explained for christians",
-  "islam explained in hindi",
-  "islam explained.8",
-  "islam explained in spanish",
-  "islam explained for students"
+  "importance of salah in islam",
+  "importance of salah mufti menk",
+  "importance of salah yasir qadhi",
+  "importance of salah nouman ali khan",
+  "importance of salah omar suleiman",
+  "importance of salah salafi",
+  "importance of salah dr zakir naik",
+  "importance of salah youth club",
+  "importance of salah mohamed hoblos"
  ],
- "story": "Prophet tells story of man watering thirsty dog",
- "search": "islam explained simply",
- "vision_checks": 99,
- "clips_rejected": 70,
+ "story": "Abbad ibn Bishr continues praying despite arrow wounds",
+ "search": "importance of salah in islam",
+ "vision_checks": 131,
+ "clips_rejected": 127,
  "sources": {
-  "commons": 5,
-  "pixabay": 10
+  "pixabay": 30,
+  "commons": 7,
+  "mixkit": 1
  },
- "photo_clips": 2,
- "reel_minutes": 1.06,
- "time_utc": "2026-11-13 18:45",
- "title": "Islam Explained Simply: The Hadith of the Thirsty Dog",
+ "no_match": [
+  "mosque interior",
+  "mosque sunset sky"
+ ],
+ "long_minutes": 5.17,
+ "time_utc": "2026-11-13 21:04",
+ "title": "Struck by Arrows in Prayer: Importance of Salah in Islam",
  "dry_run": false,
  "posted_ok": 1
 }
