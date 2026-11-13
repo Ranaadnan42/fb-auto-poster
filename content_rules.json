@@ -1,108 +1,108 @@
 {
  "islamic": {
-  "avoid": [
-   "Repeated \"Nabi Kareem ka waqia\" titles"
-  ],
+  "avoid": [],
   "try": [
-   "Bilal ibn Rabah ki pehli azaan ka waqia",
-   "Qamar ka split hone ka karishma (Shamsi hijrat)",
-   "Nabi ﷺ ka camel jo paani se inkaar karta tha ka waqia",
-   "Umm Sulaym ki jang mein bahaduri ka kissa",
-   "Isra aur Mi'raj ki raat Buraq ke safar par focus",
-   "Nabi ﷺ ki ek ghair-Muslim padosi ke liye meharbani ka waqia"
+   "Bilal ibn Rabah's first Adhan and his perseverance",
+   "The miracle of the splitting of the moon witnessed by Meccans",
+   "Umm Salama's wise counsel during the Battle of the Trench",
+   "Abu Bakr's sacrifice of his wealth to feed the poor during the siege of Medina",
+   "Prophet Muhammad's Isra (Night Journey) focusing on trust in Allah",
+   "Zayd ibn Harithah's loyalty and role in the Battle of Mu'tah"
   ],
-  "note": "Page thodi repetitive lag rahi hai, especially Nabi aur Sahaba ki kahaniyon ka bar bar istemal."
+  "note": "Page thodi repetitive lag rahi hai, especially Abdullah ibn Umar aur Jumma ki stories bar bar aati hain."
  },
  "funny": {
   "avoid": [
-   "ماموں مستانہ کا ڈائٹ ڈرامہ series",
-   "یاروں کی گروپ چیٹ اور شمالی علاقہ جات series",
-   "a middle-class abbu's logic style",
-   "over-the-top breaking-news style",
-   "sarcastic narrator roasting the situation (gently) style",
-   "a motivational speaker giving terrible advice style",
-   "cricket-commentary style narration"
+   "ماموں مستانہ کا ڈائٹ ڈرامہ",
+   "یاروں کی گروپ چیٹ اور شمالی علاقہ جات",
+   "a middle-class abbu's logic",
+   "a motivational speaker giving terrible advice",
+   "sarcastic narrator roasting the situation (gently)",
+   "strict ammi's rules explained",
+   "expectation vs reality jokes"
   ],
   "try": [
-   "online grocery delivery mix‑up comedy",
-   "school PTA meeting drama with desi parents",
-   "mobile data recharge scam prank",
-   "birthday surprise gone wrong in a joint family",
-   "home renovation DIY fail with neighbor’s help",
-   "load shedding during a TV drama night"
+   "Load shedding ka drama aur generator ki kahani",
+   "Online grocery delivery ka ghalat address mix‑up",
+   "Zoom meeting mein mic off rehne ka comedy",
+   "Ramadan fasting ke beech Wi‑Fi cut off hona",
+   "School bus driver ki late aane ki kahani",
+   "Pakistani diaspora ki UK mein first day ka culture shock"
   ],
-  "note": "Page thora repetitive lag raha hai."
+  "note": "Page thoda repetitive lag raha hai, kayi topics bar bar aate hain."
  },
  "world": {
   "avoid": [
-   "What Nobody Tells You"
+   "What Nobody Tells You",
+   "Japan",
+   "Australia",
+   "Sydney"
   ],
   "try": [
-   "Living in Greece: Cost of Living, Safety & Daily Life",
-   "Kenya Country Documentary: Culture, Wildlife & Everyday Life",
-   "Moving to Estonia: Digital Nomad Lifestyle & Costs",
-   "South Africa vs Morocco: Cost, Culture & Safety Comparison",
-   "What Nobody Tells You About Living in Reykjavik, Iceland",
-   "Living in Norway: Fjords, Cost & Lifestyle"
+   "Living in Norway: Cost, Safety & Lifestyle",
+   "Exploring Kenya: Culture, Work, and Daily Life",
+   "Moving to Argentina: What You Need to Know",
+   "South Africa vs Morocco: Cost of Living & Culture Comparison",
+   "Living in Iceland: Jobs, Safety, and Nature",
+   "What Nobody Tells You About Life in Budapest, Hungary"
   ],
-  "note": "Page ka content thoda repeat ho raha hai."
+  "note": "Page thodi repetitive lag rahi hai."
  },
  "world_short": {
   "avoid": [
-   "Would You Live in ...",
-   "What Nobody Tells You About ...",
-   "5 Secret Places in ..."
+   "Japan",
+   "South Korea",
+   "Australia",
+   "London",
+   "Would You Live in..."
   ],
   "try": [
-   "Living in Oslo: Cost & Lifestyle",
-   "Hidden Gems in Kyoto, Japan",
-   "Traditional Food of Morocco: 5 Must-Try Dishes",
-   "What Life Really Costs in Singapore",
-   "Would You Live in Dublin? Pros & Cons",
-   "Paris vs Madrid: Wages & Cost of Living"
+   "5 Underrated Street Foods in Bangkok, Thailand",
+   "Iceland vs Norway: Which Nordic Country is Better for Expat Life?",
+   "Hidden Historical Sites in Rome You Miss on Tour Buses",
+   "Cost of Living in Dubai vs Doha: The Gulf Comparison",
+   "5 Secret Beaches in Portugal Beyond the Main Tourist Spots",
+   "Living in Buenos Aires: The Untold Truth of Argentina's Capital"
   ],
-  "note": "Page thodi repetitive lag rahi hai."
+  "note": "Page is repetitive with Japan, Australia, and specific title formats like '6 Surprising Facts' and 'What Life Really Costs'."
  },
  "frames": {
   "avoid": [
-   "Dubai"
+   "Japan",
+   "United Kingdom",
+   "Canada",
+   "Germany",
+   "Dubai",
+   "Paris",
+   "Seoul"
   ],
   "try": [
-   "Life in Japan",
-   "Visa Guide for Pakistanis to New Zealand",
-   "Cheapest Countries for Pakistani Students",
-   "Best Asian Countries for Pakistani Students",
-   "Life in South Africa",
-   "Life in Brazil"
+   "Life in New Zealand: Nature and Job Market for Pakistanis",
+   "Portugal vs Spain: Which is better for Pakistani students?",
+   "Life in Qatar: Real costs and work culture",
+   "Norway: High salary but high cost of living?",
+   "Life in Greece: Affordable European living for Pakistanis",
+   "Turkey vs UAE: Where should Pakistanis settle?"
   ],
-  "note": "Page thodi repetitive lag rahi hai."
+  "note": "Page is repetitive with visa guides and major Western cities; needs more diverse European and Middle Eastern options."
  },
  "frames_short": {
-  "avoid": [
-   "New Zealand",
-   "5 Important Tips",
-   "Jordan",
-   "Sri Lanka",
-   "Budapest",
-   "Greece",
-   "Kyrgyzstan"
-  ],
+  "avoid": [],
   "try": [
-   "Turkey / Istanbul: Visa and Life for Pakistanis",
-   "Malaysia / Kuala Lumpur: Salary and Jobs guide",
-   "Qatar / Doha: Cost of living 2026",
-   "Switzerland / Zurich: 5 Hidden beautiful places",
-   "UK / London: Life and expenses in 60 seconds",
-   "Thailand / Bangkok: Best food and travel tips"
+   "Life in Dubai: 5 Cheapest Areas for Pakistanis",
+   "Turkey (Istanbul) vs UAE: Kahan rehna behtar hai?",
+   "Malaysia: Student Visa aur Part-time Job Guide",
+   "Thailand: Digital Nomad Visa aur Cost of Living 2026",
+   "South Africa: Job Market aur Safety Guide for Pakistanis"
   ],
-  "note": "Page repetitive nahi hai, har video mein naya destination aur useful information hai jo audience ke liye behtar hai."
+  "note": "Page bohat zyada Europe aur Middle East par focused hai, abhi Asia aur Gulf ke naye angles try karein."
  },
  "_platforms": {
   "islamic": {
    "posts": 10,
-   "facebook": 7,
+   "facebook": 8,
    "youtube": 10,
-   "tiktok": 7
+   "tiktok": 8
   },
   "funny": {
    "posts": 10,
