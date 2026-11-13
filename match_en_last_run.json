@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-13 02:31",
+ "time_utc": "2026-11-13 07:04",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "sports": {
-   "key": "t401909976",
-   "sport": "basketball",
-   "date": "2026-11-13 02:31",
+   "key": "t401873052",
+   "sport": "american football",
+   "date": "2026-11-13 07:04",
    "lang": "en",
-   "match": "Toronto Raptors at Philadelphia 76ers",
-   "result": "Philadelphia 76ers beat Toronto Raptors 123-112",
-   "dur": 79,
-   "post_id": "963940779851466"
+   "match": "Washington Commanders at New York Giants",
+   "result": "Washington Commanders beat New York Giants 24-21",
+   "dur": 68,
+   "post_id": "984659871377322"
   }
  },
  "errors": []
