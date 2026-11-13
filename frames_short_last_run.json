@@ -1,28 +1,33 @@
 {
  "mode": "short",
- "clips": 32,
- "clips_rejected": 215,
- "vision_checks": 244,
+ "clips": 30,
+ "clips_rejected": 218,
+ "vision_checks": 243,
  "errors": [],
  "search_phrases": [
-  "talaq ke bare mein maloomat",
-  "din ke bare mein maloomat",
-  "hajj ke bare mein maloomat",
-  "quran ke bare mein maloomat",
-  "islam ke bare mein maloomat",
-  "mausam ke bare mein maloomat",
-  "duniya ke bare mein maloomat",
-  "jinnat ke bare mein maloomat",
-  "pakistan ke bare mein maloomat"
+  "dubai vs saudi arabia jobs",
+  "dubai vs saudi arabia vs qatar",
+  "dubai vs saudi arabia football",
+  "dubai vs saudi arabia comparison",
+  "dubai vs saudi arabia tamil",
+  "dubai vs saudi arabia malayalam",
+  "dubai vs saudi arabia war",
+  "dubai and saudi arabia",
+  "dubai and saudi arabia difference in hindi",
+  "canada vs australia which is better"
  ],
- "alt_searches": 4,
- "photos": 3,
- "seconds": 100.3,
+ "search": "canada vs australia which is better",
+ "alt_searches": 7,
+ "photos": 5,
+ "vision_waits": 2,
+ "seconds": 110.6,
  "links": [
+  "https://www.canada.ca/en/immigration-refugees-citizenship.html",
+  "https://immi.homeaffairs.gov.au",
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Austria / Vienna",
- "series": "pk_city_facts",
- "title": "آسٹریا کا شہر ویانا پاکستان کے لیے کتنا بہترین ہے؟ | Life in Vienna"
+ "subject": "Canada vs Australia: Pakistani ke liye kaun behtar?",
+ "series": "pk_versus_short",
+ "title": "Canada vs Australia: پاکستانی کے لیے کون سا ملک بہتر ہے؟ | Life Abroad"
 }
