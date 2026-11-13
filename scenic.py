@@ -535,7 +535,7 @@ def post_photo(path, caption):
 def plan_long(h, avoid):
     done = [p["country"] for p in h["posts"] if p.get("kind") == "long"]
     return think(f"""You run "{PAGE_NAME}" (Landscape, Nature, Outdoor, Photography; ultra-HD). Plan today's LONG video:
-a calm ~4 minute cinematic nature film of ONE country ("Norway in 4K - Relaxing Nature Film" style) - 14 different
+a calm ~6 minute cinematic nature film of ONE country ("Norway in 4K - Relaxing Nature Film" style) - 26 different
 breathtaking natural places of that country (each place gets 2 different clips, every clip shows ~7 seconds), no narration, only music. LOOK: bright sunny summer, vivid green
 valleys and meadows, blue sky, turquoise water, waterfalls, green villages (like Swissaround) - no night/fog/gloom;
 put green/summer words in every search query.
@@ -543,20 +543,20 @@ Countries already done (avoid): {json.dumps(done + avoid, ensure_ascii=False)}
 Choose a country famous for nature that free stock sites (Pixabay/Pexels/Wikimedia) have lots of clean footage of.
 JSON: {{"country": "...", "flag": "emoji",
  "title": "SEO title max 70 chars, e.g. 'Norway 4K - Fjords, Northern Lights & Mountains | Relaxing Nature Film'",
- "shots": [{{"place": "place name", "queries": ["3 short search terms, specific first"]}}  x 14],
+ "shots": [{{"place": "place name", "queries": ["3 short search terms, specific first"]}}  x 26],
  "caption": "2 short poetic lines about this country's nature",
  "music_mood": "calm piano / dreamy / uplifting strings / romantic / melancholic",
  "queries": ["5 phrases people search for this kind of video"]}}""")
 
 
 def LONG_SEG_SEC(n):
-    """Har clip 6-8 sec chale (user ko nayi screen jaldi chahiye); total ~205 sec ki koshish."""
-    return max(6.0, min(8.0, 205.0 / max(n, 1)))
+    """Har clip 6-8 sec chale (user ko nayi screen jaldi chahiye); total ~360 sec (6 min) ki koshish."""
+    return max(6.0, min(8.0, 360.0 / max(n, 1)))
 
 
 def long_film(plan, h, job):
     clips = []
-    for k, sh in enumerate(plan.get("shots", [])[:16]):
+    for k, sh in enumerate(plan.get("shots", [])[:28]):
         sub = {"place": sh.get("place", plan["country"]), "country": plan["country"],
                "queries": sh.get("queries") or [sh.get("place", "")], "mood": ""}
         d = os.path.join(job, f"s{k}")
@@ -568,9 +568,9 @@ def long_film(plan, h, job):
             if got:
                 got["label"] = sub["place"]
                 clips.append(got)
-        if len(clips) >= 30:
+        if len(clips) >= 52:
             break
-    if len(clips) < 16:
+    if len(clips) < 30:
         raise RuntimeError(f"long video ke liye sirf {len(clips)} achi clips mili")
     segs, seg_len = [], LONG_SEG_SEC(len(clips))          # har clip 6-8 sec; FB in-stream ads: film 3+ min honi chahiye
     for i, c in enumerate(clips):
