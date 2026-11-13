@@ -664,6 +664,25 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122109514833532804"
+  },
+  {
+   "date": "2026-11-13 17:24",
+   "lang": "ur",
+   "topic": "pakistan",
+   "link": "https://www.dawn.com/news/2044302/barrick-mining-expresses-interest-in-mineral-processing-industries-in-karachi-gwadar",
+   "title": "Barrick Mining expresses interest in mineral processing industries in Karachi, Gwadar",
+   "words": [
+    "barrick",
+    "expresses",
+    "gwadar",
+    "industries",
+    "interest",
+    "karachi",
+    "mineral",
+    "mining",
+    "processing"
+   ],
+   "post_id": "1448208791702551_122109532425532804"
   }
  ],
  "sports": [
@@ -1321,6 +1340,27 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122100507861548502"
+  },
+  {
+   "date": "2026-11-13 17:24",
+   "lang": "ur",
+   "topic": "snooker",
+   "link": "https://news.google.com/rss/articles/CBMikAJBVV95cUxPcWl6WmZSdExuR0dYTGVIbnduU2ZhNlBxejZUTDRSU2VhX0xjSGxpSVVpZnc2ZDNmNjcwc3hJeHUzYWVOWDRfRDlxVDV2ZWZsbzRlRjA4THlSbU1wRFg2eFBOQmdJeVRiSDBFWURPckhvb2pfZ2VvMjRfSTh4SnFtcUFueExPTmh3WWJ2Y3BQclE2OFZnbU14SmJzWEJkU3E2Y2ItTTd5SnNaY2hiaVhuZ1FIOG1oS0FhQTFPZWZoel8wOU5ZLVJub0RIMWZ5Zkw4b2FWQnRSY3liSEZUNDFWdms2Zi1BMEtlVXA3NWFuY3RGYzd1X1JpazNnLXpNa2M0OG1pY2ZFSUR1WjdkWjZINw?oc=5",
+   "title": "Epic celebrations from Brazilian snooker star after tense win to earn pro tour card",
+   "words": [
+    "after",
+    "brazilian",
+    "card",
+    "celebrations",
+    "earn",
+    "epic",
+    "from",
+    "snooker",
+    "star",
+    "tense",
+    "tour"
+   ],
+   "post_id": "1465090056678690_122100540375548502"
   }
  ],
  "used_images": [
@@ -1364,6 +1404,7 @@
   1284225,
   802303,
   "pxi1043636",
-  "pxi1615129"
+  "pxi1615129",
+  195082
  ]
 }
