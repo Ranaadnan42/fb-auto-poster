@@ -1,37 +1,30 @@
 {
- "time_utc": "2026-11-13 19:55",
+ "time_utc": "2026-11-13 15:43",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-13 19:55",
+   "date": "2026-11-13 15:43",
    "kind": "reel",
    "lang": "ur",
-   "title": "نائجیریا کی افریقہ کپ کوالیفائر میں شاندار فتح",
-   "dur": 67,
-   "post_id": "1867464881082592"
+   "title": "پاکستان میں معدنیات کے شعبے میں بڑی سرمایہ کاری کا امکان",
+   "dur": 71,
+   "post_id": "1708569150690227"
   },
   "sports": {
-   "date": "2026-11-13 19:55",
+   "date": "2026-11-13 15:43",
    "kind": "reel",
    "lang": "ur",
-   "title": "ریوسئی کاواکامی کا سینئر ٹور پر ہدف",
-   "dur": 57,
-   "post_id": "2205497953513301"
+   "title": "این ایچ ایل: نیش وِل پریڈیٹرز بمقابلہ ویگاس گولڈن نائٹس",
+   "dur": 55,
+   "post_id": "2300513127394158"
   }
  },
  "errors": [],
- "clips_rejected": 817,
- "alt_searches": 11,
- "agent_checks": 336,
- "agent_rejects": 328,
- "agent_skips": 468,
- "no_match": [
-  "@Ryuusei Kawakami",
-  "table tennis match",
-  "@Ryuusei Kawakami",
-  "table tennis tournament",
-  "stadium seats"
- ]
+ "clips_rejected": 430,
+ "alt_searches": 7,
+ "agent_checks": 199,
+ "agent_rejects": 190,
+ "agent_skips": 236
 }

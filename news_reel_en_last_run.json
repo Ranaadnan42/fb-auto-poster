@@ -1,30 +1,30 @@
 {
- "time_utc": "2026-11-13 21:41",
+ "time_utc": "2026-11-13 00:24",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-13 21:41",
+   "date": "2026-11-13 00:24",
    "kind": "reel",
    "lang": "en",
-   "title": "Microsoft Outage Sparks Global Tech Concerns",
-   "dur": 37,
-   "post_id": "1636197644913417"
+   "title": "Major Welfare System Overhaul Proposed For Young People",
+   "dur": 47,
+   "post_id": "2130838487794470"
   },
   "sports": {
-   "date": "2026-11-13 21:41",
+   "date": "2026-11-13 00:24",
    "kind": "reel",
    "lang": "en",
-   "title": "Jake Bauers' $58M Move to Boston Red Sox",
-   "dur": 62,
-   "post_id": "1664725525191138"
+   "title": "Table Tennis Veteran Leads From The Front",
+   "dur": 42,
+   "post_id": "1602575161899908"
   }
  },
  "errors": [],
- "agent_checks": 107,
- "agent_rejects": 94,
+ "agent_checks": 133,
+ "agent_rejects": 123,
  "agent_skips": 0,
- "clips_rejected": 95,
- "alt_searches": 1
+ "clips_rejected": 127,
+ "alt_searches": 2
 }
