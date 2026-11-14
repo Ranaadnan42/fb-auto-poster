@@ -54,6 +54,10 @@ PAGES = {
                      "Pakistan news, America news and Middle East news"),
         "cta": "دنیا بھر کی تازہ خبروں کے لیے News Act کو فالو کریں 👈",
         "cta_en": "Follow News Act for world news every day 👈",
+        # English posts: dollar / euro wale mulk (zyada ad-income)
+        "audience_en": ("English-speaking adults in the USA, UK, Canada, Australia, Ireland, Germany, the Netherlands, "
+                        "Scandinavia and the rest of Europe who follow world news, US news, UK/European news, "
+                        "business, markets and technology"),
         "rules": ("the hook/body may ONLY restate facts from 'What the video says' - never add or exaggerate "
                   "(no 'massive', 'shocking', 'watch highlights' unless stated); strictly neutral, no political opinion; "
                   "no meta hashtags like #UrduEnglish; max 2 emojis per line."),
@@ -66,6 +70,8 @@ PAGES = {
                      "hockey, UFC and every other sport"),
         "cta": "دنیا بھر کے کھیلوں کی ہر خبر کے لیے Sports Hubs کو فالو کریں 👈",
         "cta_en": "Follow Sports Hubs for every sport from around the world 👈",
+        "audience_en": ("sports fans in the USA, UK, Canada, Australia and Europe - NFL, NBA, MLB, NHL, Premier League, "
+                        "Champions League, La Liga, F1, tennis, golf, UFC, rugby and cricket"),
         "rules": ("the hook/body may ONLY restate facts from 'What the video says' - never invent or exaggerate scores, "
                   "results or records; no 'watch highlights' unless stated; no meta hashtags like #UrduEnglish; "
                   "max 2 emojis per line."),
@@ -91,7 +97,7 @@ def build(ask_json, page, title, script_text, lang="ur", is_reel=True, search_te
                 f"this video in the body words and hashtags): {json.dumps(search_terms, ensure_ascii=False)}")
     try:
         d = ask_json(f"""You are a Facebook growth/SEO expert. Write the post caption for a
-{'Reel' if is_reel else 'video'} on the page "{P['name']}". Audience: {P['audience']}.
+{'Reel' if is_reel else 'video'} on the page "{P['name']}". Audience: {P.get('audience_' + lang) or P['audience']}.
 Video title: {title}
 What the video says: {script_text[:1500]}{real}
 

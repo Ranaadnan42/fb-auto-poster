@@ -112,15 +112,21 @@ NEWS_REGIONS = {
     "americas": ["https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
                  "https://feeds.bbci.co.uk/news/world/latin_america/rss.xml", gnews("United States OR Canada OR Brazil")],
     "africa": ["https://feeds.bbci.co.uk/news/world/africa/rss.xml", gnews("Africa")],
+    # dollar / euro wale mulk - English posts inhi tak pohanchne ke liye
+    "usa": ["https://feeds.npr.org/1003/rss.xml", "https://feeds.bbci.co.uk/news/world/us_and_canada/rss.xml",
+            gnews("United States")],
+    "uk": ["https://feeds.bbci.co.uk/news/uk/rss.xml", "https://www.theguardian.com/uk-news/rss", gnews("United Kingdom")],
+    "canada_australia": ["https://www.abc.net.au/news/feed/51120/rss.xml", gnews("Canada"), gnews("Australia")],
     "business": ["https://feeds.bbci.co.uk/news/business/rss.xml", gnews("global economy markets")],
     "science_tech": ["https://feeds.bbci.co.uk/news/technology/rss.xml",
                      "https://feeds.bbci.co.uk/news/science_and_environment/rss.xml", gnews("technology AI science")],
 }
 # Urdu posts mein Pakistan / Gulf / South Asia ki khabar zyada (Urdu audience ke liye zyada dilchasp)
-NEWS_WEIGHT = {"en": {"world": 4, "middle_east": 2, "asia": 2, "europe": 2, "americas": 2, "africa": 1,
-                      "business": 2, "science_tech": 2, "pakistan": 1},
+# English = USA, UK, Europe, Canada, Australia (dollar / euro audience) ki khabar sab se zyada
+NEWS_WEIGHT = {"en": {"usa": 5, "uk": 4, "europe": 4, "canada_australia": 2, "world": 3, "business": 3,
+                      "science_tech": 3, "americas": 1, "middle_east": 1, "asia": 1, "africa": 1, "pakistan": 0.2},
                "ur": {"world": 3, "pakistan": 4, "middle_east": 3, "asia": 2, "europe": 1, "americas": 4,
-                      "africa": 1, "business": 1, "science_tech": 1}}
+                      "africa": 1, "business": 1, "science_tech": 1, "usa": 1, "uk": 0.5, "canada_australia": 0.3}}
 
 # Sports: dunya ke tamam bare khel - har run mein woh khel jo sab se kam dafa post hua
 SPORTS = {
@@ -165,6 +171,10 @@ SPORTS = {
 # Bare khel (cricket/football) zyada aate hain, chhote khel bhi bari bari aate rehte hain
 SPORT_WEIGHT = {"big_events": 5, "olympic_sports": 2, "cricket": 5, "football": 5, "tennis": 2, "basketball": 2, "formula1": 2, "hockey": 2,
                 "general": 2}
+# English Sports Hubs: USA / UK / Europe / Canada / Australia ke pasandeeda khel (dollar / euro audience)
+SPORT_WEIGHT_EN = {"big_events": 5, "football": 5, "american_football": 4, "basketball": 4, "baseball": 3,
+                   "hockey": 3, "tennis": 3, "formula1": 3, "golf": 2, "rugby": 2, "mma": 2, "boxing": 2,
+                   "cricket": 2, "cycling": 1.5, "general": 2, "kabaddi": 0.2}
 
 SPORT_IMG = {"cricket": "cricket stadium", "football": "football stadium", "tennis": "tennis court",
              "basketball": "basketball court", "formula1": "race car track", "hockey": "hockey stick ball",
@@ -430,7 +440,7 @@ def pick_topic(kind, past):
     if kind == "news":
         pool, weight = NEWS_REGIONS, NEWS_WEIGHT[LANG]
     else:
-        pool, weight = SPORTS, SPORT_WEIGHT
+        pool, weight = SPORTS, (SPORT_WEIGHT_EN if LANG == "en" else SPORT_WEIGHT)
     recent = [p.get("topic") for p in past[-40:]]
     mult = (brain().get(kind) or {}).get("topic_mult") or {}     # agent: jo topic zyada views laya
     scores = {}

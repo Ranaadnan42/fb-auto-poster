@@ -124,6 +124,8 @@ def pick_stories(kind, past):
 
 def write_script(kind, stories):
     P = news.PAGES[kind]
+    VIEWERS = ("in the USA, the UK, Europe, Canada and Australia" if LANG == "en"
+               else "in Pakistan, the Gulf and the wider world")
     lang = ("natural spoken Urdu in Urdu script (like a BBC Urdu / Geo news anchor; no Hindi words, no Roman)"
             if LANG == "ur" else "natural spoken English like a BBC news anchor")
     lst = "\n".join(f"{n + 1}. [{s['topic'].replace('_', ' ')}] {s['title']} -- {s['desc'] or '(headline only)'} "
@@ -142,7 +144,7 @@ Rules:
   country/league/tournament is) without adding new facts about this story.
 - Neutral, professional, easy to understand. Mention the source naturally ("according to BBC").
 - ORIGINALITY (Facebook only pays for original content): after the facts of each story add 1-2 sentences of
-  your own explanation - why it matters / what it means for viewers in Pakistan, the Gulf and the wider world
+  your own explanation - why it matters / what it means for viewers {VIEWERS}
   (clearly as analysis, not new facts). The first 3 seconds must be a strong hook about the biggest story.
 {news.brain_tips(kind)}- Start with a strong one-sentence hook. End with: ask viewers to follow {P['name']}, like and share.
 - Each story gets {per}.
@@ -371,15 +373,12 @@ def scene_video(i, terms, secs, used, fallback_terms, said="", kind="news"):
                 ok = True
             except Exception:
                 ok = False
-        if not ok and ALL_CLIPS:
-            try:
-                _render_clip(random.choice(ALL_CLIPS), seg + 0.1, out)   # kala screen kabhi nahi
-                ok = "reuse"
-            except Exception:
-                ok = False
         if not ok:
+            # doosri khabar ki clip ab KABHI nahi (wo boli ja rahi baat se match nahi karti) -
+            # isi khabar ka headline card: jo bola ja raha hai wohi screen par
             REPORT.setdefault("no_match", []).append(t)
-            color_clip(out, seg + 0.1)
+            REPORT["headline_cards"] = REPORT.get("headline_cards", 0) + 1
+            headline_card(out, seg + 0.1, CUR_HEADLINE[0] or said)
         elif ok is True:
             STORY_CLIPS.append(out)
             ALL_CLIPS.append(out)
@@ -394,7 +393,52 @@ def scene_video(i, terms, secs, used, fallback_terms, said="", kind="news"):
     return out
 
 
-ALL_CLIPS = []        # poori video ki agent-pass clips (kala screen ki jagah)
+ALL_CLIPS = []        # poori video ki agent-pass clips
+CUR_HEADLINE = [""]   # is waqt wali khabar ki headline (match na mile to headline card)
+
+
+def headline_card(out, secs, text):
+    """Koi matching clip / asli photo / jhanda na mile: khabar ki headline bari likhi hui, halki harkat ke sath.
+    Be-taalluq clip se behtar - viewer wohi dekhta hai jo suna ja raha hai."""
+    color_clip(out + ".bg.mp4", secs)
+    words = clean_voice(text).split()
+    words = words[:14]
+    lines, cur = [], []
+    for w_ in words:
+        cur.append(w_)
+        if len(cur) >= (3 if H > W else 5):
+            lines.append(" ".join(cur))
+            cur = []
+    if cur:
+        lines.append(" ".join(cur))
+    size = 92 if H > W else 84
+    body = "\\N".join(esc(x) for x in lines)
+    ass = out + ".card.ass"
+    with open(ass, "w", encoding="utf-8") as f:
+        f.write(f"""[Script Info]
+ScriptType: v4.00+
+PlayResX: {W}
+PlayResY: {H}
+WrapStyle: 0
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Card,{FONT},{size},&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,1,0,0,0,100,100,0,0,1,5,3,5,80,80,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 1,{ass_t(0)},{ass_t(secs)},Card,,0,0,0,,{{\\fad(250,250)\\t(0,{int(secs * 1000)},\\fscx106\\fscy106)}}{body}
+""")
+    fonts = news.FONTS_DIR.replace("\\", "/").replace(":", "\\:")
+    ap = os.path.abspath(ass).replace("\\", "/").replace(":", "\\:")
+    run(["ffmpeg", "-y", "-loglevel", "error", "-i", out + ".bg.mp4", "-vf", f"ass='{ap}':fontsdir='{fonts}',format=yuv420p",
+         "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", out])
+    for f_ in (out + ".bg.mp4", ass):
+        if os.path.exists(f_):
+            os.remove(f_)
+
+
 STORY_CLIPS = []      # mojooda khabar ki agent-pass clips (nayi khabar par khali)
 
 
@@ -458,6 +502,7 @@ def build_scene(i, kind, text, terms, headline, badge, used, fallback_terms):
     tts(text, voice)
     secs = duration(voice) + 0.35
     os.environ["AGENT_PAGE"] = kind
+    CUR_HEADLINE[0] = headline or ""
     vid = scene_video(i, terms, secs, used, fallback_terms, text, kind)
     import footage_agent as fa
     REPORT.update(fa.STATS)
