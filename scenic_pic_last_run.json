@@ -1,25 +1,22 @@
 {
- "started": "2026-11-14T10:48",
+ "started": "2026-11-12T21:53",
  "steps": [
-  "token: user token expires_at=0 data_access_expires_at=1801949831",
-  "token: user token tha - page token bana kar istemal kiya",
+  "brain gemini-3.5-flash: 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand",
+  "brain gemini-3.8-flash: 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand",
+  "agent ka faisla: Lauterbrunnen, Switzerland - misty sunrise (Classic visual powerhouse; misty alpine valleys consistently stop the scroll.)",
+  "is jagah ki koi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "brain gemini-3.5-flash: 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand",
   "brain gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeo",
-  "agent ka faisla: Lake Tekapo, South Island, New Zealand - bright sunny afternoon with blooming purple lupins and turquoise lake (Bright purple flowers and vivid turquoise water create high visual contrast.)",
-  "photo wmi138722091 1920x1266: ok=True beauty=9 - Vivid lupines, turquoise water, iconic New Zealand scenery.",
-  "brain gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeo",
-  "Post waqt 20:03 job ki hadd se aage - 16:22 UTC par post hogi",
-  "Video tayyar - 330 minute intezar, post 16:22 UTC par hogi",
-  "Waqt ho gaya - post kar rahe hain",
-  "photo story lagi",
-  "pic posted: 1345688241970452_122101273623547841"
+  "agent ka faisla: Reine, Lofoten Islands, Norway - misty sunrise (Epic fjords and misty peaks drive massive scroll-stopping engagement.)",
+  "photo wmi71701790 1920x1207: ok=True beauty=9 - Stunning atmospheric snowy Lofoten mountain view",
+  "DRY RUN - post nahi kiya"
  ],
  "errors": [],
  "mode": "pic",
- "place": "Lake Tekapo, South Island",
- "country": "New Zealand",
- "caption": "Vivid purple fields dancing beside crystal turquoise waters under a clear blue sky. Nature at its finest.\n\n📍 Lake Tekapo, New Zealand 🇳🇿\n\nVivid purple lupins dancing beside crystal turquoise waters... 💜✨\n\nWelcome to Lake Tekapo on a bright sunny summer day in New Zealand. Experience the magic of this breathtaking turquoise lake surrounded by blooming lupin flower fields under a clear blue sky.\n\nWho would you love to walk through this breathtaking landscape with?\n\nFollow for the most beautiful places on Earth in Ultra HD 🌍\n\n#WanderEarth #LakeTekapo #NewZealandTravel #LupinFlowers #SouthIslandNZ #TurquoiseLake #nature #travel #landscape #4k",
- "clip": "wmi138722091",
+ "place": "Reine, Lofoten Islands",
+ "country": "Norway",
+ "caption": "Where ancient peaks rise directly from glassy waters, wrapped in a blanket of silent morning mist.\n\n📍 Reine, Lofoten Islands 🇳🇴\n\nWhere ancient peaks meet glassy waters in complete silence... 🏔️✨\n\nExperience the quiet magic of an iconic Lofoten fishing village wrapped in Norway fjord sunrise mist. A breathtaking Norway arctic landscape showcasing the best of Lofoten Islands mountains and fjords.\n\nWho would you love to watch this peaceful misty sunrise with?\n\nFollow for the most beautiful places on Earth in Ultra HD 🌍\n\n#WanderEarth #reinelofoten #lofotenislands #norwaynature #norwayfjords #arcticlandscape #travelnorway #nature #travel #landscape",
+ "clip": "wmi71701790",
  "beauty": 9,
- "posted": "1345688241970452_122101273623547841",
- "finished": "2026-11-14T16:22"
+ "finished": "2026-11-12T21:57"
 }

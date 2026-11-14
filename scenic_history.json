@@ -183,6 +183,18 @@
    "hook": "POV: Summer in New Zealand",
    "clip": "wmi138722091",
    "beauty": 9
+  },
+  {
+   "ts": 1794673409.351485,
+   "vid": "1459228536322020",
+   "post": "1459228536322020",
+   "kind": "reel",
+   "place": "Kamikochi, Nagano",
+   "country": "Japan",
+   "mood": "bright sunny summer morning",
+   "hook": "Is this heaven on earth?",
+   "clip": "px137196",
+   "beauty": 10
   }
  ],
  "clips": [
@@ -254,7 +266,14 @@
   "px48601",
   "px177599",
   "px48602",
-  "wmi138722091"
+  "wmi138722091",
+  "px137196",
+  "px228847",
+  "px359535",
+  "px171110",
+  "px240841",
+  "px319751",
+  "px236928"
  ],
  "music": [
   "File:Clair de Lune by Claude Debussy (1905, piano solo).opus",
@@ -265,6 +284,7 @@
   "File:Satie Gymnopedie No 2 performed by Michael Laucke.flac",
   "File:Gymnopedie No. 2 (ISRC USUAN1100786).mp3",
   "File:Inleiding National Philharmonic of Russia olv. Vladimir Spivakov (audio).mp3",
-  "File:Claude Debussy - Première Arabesque - Patrizia Prati.ogg"
+  "File:Claude Debussy - Première Arabesque - Patrizia Prati.ogg",
+  "File:Fryderyk Chopin - Nocturne op. 32 n.2 As-dur - Patrizia Prati.ogg"
  ]
 }
