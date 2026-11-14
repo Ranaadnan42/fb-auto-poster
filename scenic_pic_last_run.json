@@ -1,31 +1,22 @@
 {
- "started": "2026-11-14T16:55",
+ "started": "2026-11-14T20:05",
  "steps": [
   "token: user token expires_at=0 data_access_expires_at=1801949831",
   "token: user token tha - page token bana kar istemal kiya",
-  "brain gemini-3.8-flash: 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand",
-  "agent ka faisla: Grindelwald, Bernese Oberland, Switzerland - bright sunny alpine valley with lush green pastures (Iconic Swissaround aesthetic with lush green hills and bright sunny peaks.)",
-  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "brain gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeo",
-  "agent ka faisla: Quiraing, Isle of Skye, Scotland - bright sunny green afternoon (Lush green rolling landscapes with great free stock footage, viral appeal.)",
-  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "brain gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeo",
-  "agent ka faisla: Geirangerfjord, Møre og Romsdal, Norway - bright sunny summer afternoon / blue fjord and green cliffs (Iconic sunny fjord views trigger massive aesthetic saves and shares.)",
-  "photo wmi180113947 1920x1280: ok=True beauty=6 - Stunning waterfalls and fjord, but overcast lighting.",
-  "photo wmi180112072 1920x1280: ok=True beauty=8 - Stunning fjord view with bright sunny lighting.",
-  "photo ov745206ab-dfaa-40c6-989e-4c95ca3f9dac 2500x1667: ok=True beauty=8 - Stunning sunny fjord view with clear vibrant colors.",
   "brain gemini-3.8-flash: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
-  "Post waqt 11:03 UTC guzar chuka - foran post",
-  "photo story lagi",
-  "pic posted: 1345688241970452_122101306467547841"
+  "brain gemini-3.6-flash: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "agent ka faisla: Madeira Island, Portugal - bright sunny morning coastal cliffs (Lush coastal cliffs and waterfalls are highly viral and visually unique.)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "agent ka faisla: Gásadalur (Múlafossur Waterfall), Faroe Islands - bright green afternoon over coastal cliffs (Iconic waterfall over green cliffs has extremely high viral potential.)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "agent ka faisla: Lisse (Tulip Fields), The Netherlands - bright sunny spring morning over flower fields (Vibrant color saturation and unique floral scenery offer high visual scroll-stopping power.)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "agent ka faisla: Isle of Skye, Scotland, United Kingdom - bright green summer morning (Iconic green cliffs and high-contrast landscapes are proven viral scroll-stoppers.)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai"
  ],
- "errors": [],
+ "errors": [
+  "fatal: 4 jagahon par bhi achi footage nahi mili"
+ ],
  "mode": "pic",
- "place": "Geirangerfjord, Møre og Romsdal",
- "country": "Norway",
- "caption": "Floating through endless sunlit cliffs and deep turquoise waters where time simply stands still.\n\n📍 Geirangerfjord, Norway 🇳🇴\n\nHave you ever seen a place where time simply stands still? 🌿✨\n\nGlide across the Geiranger fjord aerial blue water on a bright Geirangerfjord sunny summer day. Witness the Norwegian fjord sunlit cliffs rising above endless green mountains in pure tranquil perfection.\n\nWho would you float through this sunlit Norwegian paradise with? Tag them below! 🇳🇴\n\nFollow for the most beautiful places on Earth in Ultra HD 🌍\n\n#WanderEarth #Geirangerfjord #NorwayTravel #NorwegianFjords #NatureLovers #NewYork #SaudiArabia #Canada #Wanderlust #BeautifulDestinations #nature",
- "clip": "wmi180112072",
- "beauty": 8,
- "posted": "1345688241970452_122101306467547841",
- "finished": "2026-11-14T17:03"
+ "finished": "2026-11-14T20:06"
 }
