@@ -159,6 +159,11 @@ RULES = """Accuracy rules (very important):
 - Never invent stories, numbers or quotes. Respectful, hopeful, sincere tone.
 - No politics, no sectarian topics, no music talk.
 - Spoken plain sentences only: no emojis, no headings, no stage directions, no symbols."""
+try:
+    import page_brain as _pb
+    RULES = RULES + _pb.load("islamic")[1]      # AGENT ke seekhe sabaq har script mein
+except Exception:
+    pass
 
 os.makedirs(WORK, exist_ok=True)
 REPORT = {"lang": LANG, "stock_clips": 0, "fallback_clips": 0, "errors": []}
@@ -384,7 +389,13 @@ def pick_topic(history):
     used = [h["title"] for h in history[-150:]] + [c.get("title", "") for c in claims]
     stories = [h["story"] for h in history[-400:] if h.get("story")] + [c["story"] for c in claims if c.get("story")]
     n_lang = sum(1 for h in history if h.get("lang", "en") == LANG)
-    theme = THEMES[(n_lang * 7 + (3 if LANG == "ur" else 0)) % len(THEMES)]
+    # AGENT: jo theme zyada views laya wo zyada baar (page_brain.py), pichle 4 themes dobara nahi
+    import page_brain
+    a_mult, a_tips = page_brain.load("islamic")
+    recent_t = [h.get("theme") for h in history if h.get("lang", "en") == LANG][-4:]
+    opts = [t for t in THEMES if t not in recent_t] or THEMES
+    theme = random.choices(opts, weights=[max(float(a_mult.get(t, 1.0)), 0.2) for t in opts])[0]
+    log(f"Agent theme: {theme}")
     occ = _occasion_today(history)
     if occ:
         theme = occ[1]
@@ -410,7 +421,7 @@ These STORIES / incidents were ALREADY told (any language, any wording). Do NOT 
 the same person's same event, or the same hadith again - even with a new title or a new angle:
 {json.dumps(stories[-250:], ensure_ascii=False)}{{AVOID}}
 {search_part}
-Give ONE fresh, specific, emotionally engaging video idea inside this theme.
+{a_tips}Give ONE fresh, specific, emotionally engaging video idea inside this theme.
 IMPORTANT: prefer a REAL ISLAMIC STORY / incident (واقعہ / قصہ) that teaches this theme - an authentic
 event from the life of Prophet Muhammad (peace be upon him), the Sahaba, the prophets in the Quran,
 Islamic history, or an authentic hadith / sunnah - with real people and a clear turning point. Story

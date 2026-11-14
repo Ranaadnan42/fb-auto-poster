@@ -1,4 +1,4 @@
-name: Pages Agent (brain) - News, Sports, Hansi Ka Adda, Web Builder
+name: Pages Agent (brain) - News, Sports, Hansi Ka Adda, Web Builder, Islamic, Frames of Life
 # Roz: Facebook se views parhta hai, seekhta hai, plan (news_brain.json) khud badalta hai
 on:
   schedule:
@@ -49,16 +49,24 @@ jobs:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
         run: pip install -q google-genai && python wb_brain.py
+      - name: Islamic + Frames of Life - seekho aur plan badlo
+        if: always()
+        env:
+          FB_PAGE_TOKEN: ${{ secrets.FB_PAGE_TOKEN }}
+          FRAMES_PAGE_TOKEN: ${{ secrets.FRAMES_PAGE_TOKEN }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+        run: pip install -q google-genai && python page_brain.py
       - name: Save plan
         if: always()
         run: |
           git config user.name "auto-poster"
           git config user.email "auto-poster@users.noreply.github.com"
           mkdir -p /tmp/keep
-          for f in news_brain.json brain_report.json funny_brain.json funny_brain_report.json webbuilder_brain.json webbuilder_brain_report.json; do [ -f "$f" ] && cp "$f" /tmp/keep/; done
+          for f in news_brain.json brain_report.json funny_brain.json funny_brain_report.json webbuilder_brain.json webbuilder_brain_report.json islamic_brain.json islamic_brain_report.json frames_brain.json frames_brain_report.json; do [ -f "$f" ] && cp "$f" /tmp/keep/; done
           for i in 1 2 3 4 5; do
             git fetch -q origin main && git reset -q --hard origin/main
-            for f in news_brain.json brain_report.json funny_brain.json funny_brain_report.json webbuilder_brain.json webbuilder_brain_report.json; do [ -f "/tmp/keep/$f" ] && cp "/tmp/keep/$f" . && git add "$f"; done
+            for f in news_brain.json brain_report.json funny_brain.json funny_brain_report.json webbuilder_brain.json webbuilder_brain_report.json islamic_brain.json islamic_brain_report.json frames_brain.json frames_brain_report.json; do [ -f "/tmp/keep/$f" ] && cp "/tmp/keep/$f" . && git add "$f"; done
             git diff --cached --quiet && break
             git commit -q -m "Agent: naya plan (views se seekha)"
             git push -q origin HEAD:main && break

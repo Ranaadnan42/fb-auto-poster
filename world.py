@@ -499,6 +499,15 @@ def plan_topic(history):
     n = len(history)
     ser = LONG_SERIES if LONG else SHORT_SERIES
     series = ser[n % len(ser)]
+    a_tips = ""
+    if URDU:
+        # AGENT (Frames of Life): jo series zyada views layi wo zyada, pichli 2 dobara nahi (page_brain.py)
+        import page_brain
+        a_mult, a_tips = page_brain.load("frames")
+        recent_s = [h.get("series") for h in history[-2:]]
+        opts = [x for x in ser if x not in recent_s] or ser
+        series = random.choices(opts, weights=[max(float(a_mult.get(x, 1.0)), 0.2) for x in opts])[0]
+        log(f"Agent series: {series}")
     used = [h.get("subject", "") for h in history[-300:]]
     searches = _search_phrases(series)
     log(f"Search phrases: {searches[:12]}")
@@ -532,7 +541,7 @@ channel or brand, or are about news, politics, war, disasters or tragedies.
     _rk = ("frames" if URDU else "world") + ("" if LONG else "_short")
     plan = ask_json(f"""You plan the next video for the YouTube travel & world documentary channel "{CHANNEL}".{content_rules.text(_rk)}
 {aud}
-Video type: {SERIES_HINT[series]}.
+Video type: {SERIES_HINT[series]}.{a_tips}
 Already covered (do NOT repeat the same subject for this type): {json.dumps(used)}
 Pick a subject with strong worldwide search interest and plenty of REAL stock footage online
 (well-known places are better). Rotate continents fairly over time.
