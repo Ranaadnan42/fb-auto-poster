@@ -1,37 +1,29 @@
 {
- "time_utc": "2026-11-13 19:55",
+ "time_utc": "2026-11-14 08:04",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-13 19:55",
+   "date": "2026-11-14 08:04",
    "kind": "reel",
    "lang": "ur",
-   "title": "نائجیریا کی افریقہ کپ کوالیفائر میں شاندار فتح",
-   "dur": 67,
-   "post_id": "1867464881082592"
+   "title": "برسٹل برطانیہ کا پہلا ویٹ لینڈ سٹی بننے کو تیار",
+   "dur": 60,
+   "post_id": "1784388679487678"
   },
   "sports": {
-   "date": "2026-11-13 19:55",
+   "date": "2026-11-14 08:04",
    "kind": "reel",
    "lang": "ur",
-   "title": "ریوسئی کاواکامی کا سینئر ٹور پر ہدف",
-   "dur": 57,
-   "post_id": "2205497953513301"
+   "title": "فال لیگ چیمپئن شپ میں ابھرتے بیس بال کھلاڑی",
+   "dur": 55,
+   "post_id": "3464542173717704"
   }
  },
  "errors": [],
- "clips_rejected": 817,
- "alt_searches": 11,
- "agent_checks": 336,
- "agent_rejects": 328,
- "agent_skips": 468,
- "no_match": [
-  "@Ryuusei Kawakami",
-  "table tennis match",
-  "@Ryuusei Kawakami",
-  "table tennis tournament",
-  "stadium seats"
- ]
+ "agent_checks": 102,
+ "agent_rejects": 87,
+ "agent_skips": 0,
+ "clips_rejected": 88
 }
