@@ -1,29 +1,31 @@
 {
- "time_utc": "2026-11-14 08:04",
+ "time_utc": "2026-11-14 10:59",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-14 08:04",
+   "date": "2026-11-14 10:59",
    "kind": "reel",
    "lang": "ur",
-   "title": "برسٹل برطانیہ کا پہلا ویٹ لینڈ سٹی بننے کو تیار",
-   "dur": 60,
-   "post_id": "1784388679487678"
+   "title": "ڈیموکریٹس کی کامیابی اور سوشل میڈیا کا نیا رجحان",
+   "dur": 63,
+   "post_id": "4023510351278923"
   },
   "sports": {
-   "date": "2026-11-14 08:04",
+   "date": "2026-11-14 10:59",
    "kind": "reel",
    "lang": "ur",
-   "title": "فال لیگ چیمپئن شپ میں ابھرتے بیس بال کھلاڑی",
-   "dur": 55,
-   "post_id": "3464542173717704"
+   "title": "MLB lockout loom business as usual debate",
+   "dur": 63,
+   "post_id": "1002717875597242"
   }
  },
  "errors": [],
- "agent_checks": 102,
- "agent_rejects": 87,
- "agent_skips": 0,
- "clips_rejected": 88
+ "agent_checks": 213,
+ "agent_rejects": 202,
+ "agent_skips": 14,
+ "clips_rejected": 229,
+ "alt_searches": 4,
+ "time_budget_hit": true
 }
