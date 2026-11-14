@@ -1,7 +1,7 @@
 {
- "time_utc": "2026-11-13 15:24",
- "spotlight": "furniture store",
- "post_id": "1433592308397806",
+ "time_utc": "2026-11-14 15:05",
+ "spotlight": "supermarket",
+ "post_id": "29526752476944140",
  "error": null,
  "lang": "ur",
  "kind": "reel",
@@ -9,7 +9,7 @@
  "fallback": 0,
  "errors": [],
  "real_work": 4,
- "mock": 3,
- "real_pos": 1,
- "seconds": 57.7
+ "real_pos": 2,
+ "mock": 4,
+ "seconds": 60.8
 }
