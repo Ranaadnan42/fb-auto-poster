@@ -1,34 +1,45 @@
 {
  "mode": "auto",
- "stock_clips": 9,
+ "stock_clips": 11,
  "fallback_clips": 0,
  "errors": [],
  "format": "people",
  "search_phrases": [
-  "grandmother funny video",
-  "grandmother funny",
-  "grandma comedy",
-  "grandmother comedy",
-  "grandma home remedies"
+  "train journey funny video",
+  "train journey funny reels",
+  "train travel funny video",
+  "train travel funny moments",
+  "train travel funny whatsapp status tamil",
+  "train journey comedy",
+  "train journey comedy video",
+  "first train journey funny",
+  "funny train journey vlog",
+  "train travel comedy",
+  "train travel comedy shorts",
+  "train journey funny",
+  "after train journey comedy",
+  "indian train journey comedy",
+  "train journey stand up comedy"
  ],
  "funny_score": "3 -> 9",
- "search": "grandma home remedies",
- "reel_format": "har_ghar",
- "vision_checks": 178,
- "clips_rejected": 167,
- "no_match": [
-  "pakistani grandmother",
-  "man holding head",
-  "sad young man",
-  "happy pakistani family"
- ],
+ "search": "train journey comedy video",
+ "reel_format": "news",
+ "vision_checks": 194,
  "sources": {
-  "pixabay": 7,
-  "commons": 1
+  "mixkit": 1,
+  "pixabay": 6,
+  "commons": 3
  },
- "laughs": 5,
- "reel_minutes": 0.81,
- "time_utc": "2026-11-13 18:30",
- "title": "دادی اماں کا وکس شفا خانہ اور ہر بیماری کی آخری چھٹی",
+ "clips_rejected": 183,
+ "no_match": [
+  "biryani food container",
+  "man climbing bunk",
+  "man sleeping train",
+  "family laughing train"
+ ],
+ "laughs": 4,
+ "reel_minutes": 0.89,
+ "time_utc": "2026-11-14 08:04",
+ "title": "دیسی ٹرین کے سفر کے خوفناک مناظر",
  "dry_run": false
 }
