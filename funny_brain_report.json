@@ -1,13 +1,9 @@
 {
- "time_utc": "2026-11-14 01:06",
- "videos": 88,
- "views": 16332,
- "engagement": 195,
+ "time_utc": "2026-11-14 07:07",
+ "videos": 87,
+ "views": 16139,
+ "engagement": 194,
  "by_format": {
-  "chat": [
-   0.59,
-   18
-  ],
   "animal": [
    0.86,
    17
@@ -15,6 +11,10 @@
   "story": [
    1.2,
    16
+  ],
+  "chat": [
+   0.57,
+   17
   ],
   "people": [
    1.1,
@@ -39,11 +39,11 @@
    4
   ],
   "har_ghar": [
-   1.15,
+   1.14,
    7
   ],
   "types": [
-   1.65,
+   1.64,
    3
   ],
   "dialogue": [
@@ -60,10 +60,6 @@
   ]
  },
  "by_topic": {
-  "monday morning": [
-   1.26,
-   4
-  ],
   "cooking disaster": [
    0.23,
    2
@@ -117,8 +113,12 @@
    3
   ],
   "mobile phone addiction": [
-   1.24,
+   1.23,
    1
+  ],
+  "monday morning": [
+   1.35,
+   3
   ],
   "ammi ki daant (mother's scolding)": [
    1.15,
@@ -141,7 +141,7 @@
    2
   ],
   "barish (rain)": [
-   1.26,
+   1.25,
    1
   ],
   "selfie / TikTok craze, bank queue, Eidi collection, freelancing client, pet cat ruling the house": [
@@ -185,11 +185,11 @@
    1
   ],
   "fake diet plans": [
-   1.28,
+   1.27,
    3
   ],
   "bargaining in bazaar": [
-   1.35,
+   1.34,
    1
   ],
   "AC vs electricity bill": [
@@ -229,7 +229,7 @@
    1
   ],
   "aunties at a wedding judging food": [
-   1.18,
+   1.17,
    1
   ],
   "friends' group chat": [
@@ -249,7 +249,7 @@
    1
   ],
   "chai addiction": [
-   1.18,
+   1.17,
    1
   ],
   "lost TV remote, Eid shopping, online shopping, salary day, petrol price and bike": [
@@ -269,11 +269,11 @@
    1
   ],
   "fridge raid at midnight": [
-   1.07,
+   1.06,
    1
   ],
   "Eid ul Adha bakra mandi": [
-   1.17,
+   1.19,
    1
   ],
   "grandma's home remedies": [
@@ -282,10 +282,6 @@
   ]
  },
  "by_hour": {
-  "7": [
-   0.91,
-   7
-  ],
   "10": [
    0.06,
    1
@@ -297,6 +293,10 @@
   "14": [
    1.12,
    8
+  ],
+  "7": [
+   0.89,
+   6
   ],
   "11": [
    0.95,
@@ -311,7 +311,7 @@
    10
   ],
   "8": [
-   1.11,
+   1.1,
    6
   ],
   "15": [
@@ -344,17 +344,17 @@
   ]
  },
  "best": [
-  "[reel/people/types] ڈینٹسٹ کے مریض | dentist and patient funny video (topic dentist visit, views 592, eng 3, x2.71)",
+  "[reel/people/types] ڈینٹسٹ کے مریض | dentist and patient funny video (topic dentist visit, views 593, eng 3, x2.71)",
   "[reel/chat/-] باس کا عذاب اور پیر کی صبح کا بہانہ (topic monday morning, views 413, eng 2, x1.88)",
   "[long/story/-] چাচا بشیر اور محلے کا سپر کپ | قسط 1 (topic cricket match, views 275, eng 4, x1.65)"
  ],
- "summary": "Page par human character comedy aur 'Types of people' wala format sab se zabardast perform kar raha hai, jabke animal videos aur plain chat formats flop ho rahe hain. Dentist visit, sarkari daftar, aur mechanic ke bahaane jaise specific relatable topics logon ne bohot pasand kiye, jabke laundry day aur garmi ki shikayaton par views bilkul nahi aaye. Aage ke liye multi-topic mix chhor kar eik waqt mein eik hi situational topic par 'Types' ya 'Latifay' structure mein script likhein.",
+ "summary": "Page par 'people' format aur 'types' style ki reels (jaise dentist visit aur government office) sab se zyaada dekhi aur share ki ja rahi hain. Jabke 'animal' characters, chat formats, aur laundry/remote control jaise purane topics bilkul nahi chal rahe. Aglay hafte se multi-topic videos ki bajaye single-topic realistic desi comedy par focus karein taake reach aur monetization improve ho.",
  "plan": {
-  "updated": "2026-11-14 01:06",
+  "updated": "2026-11-14 07:07",
   "format_mult": {
-   "chat": 0.64,
    "animal": 0.88,
    "story": 1.17,
+   "chat": 0.62,
    "people": 1.09,
    "cartoon": 0.99
   },
@@ -384,7 +384,6 @@
    "nature-documentary narrator describing desi people": 1.04
   },
   "topic_mult": {
-   "monday morning": 1.14,
    "cooking disaster": 0.56,
    "cricket match": 1.15,
    "office / job interview": 1.1,
@@ -398,7 +397,8 @@
    "bijli ka bill": 1.09,
    "Eid shopping": 0.87,
    "exams and results": 1.1,
-   "mobile phone addiction": 1.06,
+   "mobile phone addiction": 1.05,
+   "monday morning": 1.16,
    "ammi ki daant (mother's scolding)": 1.04,
    "load of homework": 0.97,
    "road trip": 1.03,
@@ -436,16 +436,16 @@
    "wedding food (shaadi ka khaana) rush": 1.05,
    "PSL / cricket fans": 1.03,
    "motorway road trip": 1.03,
-   "fridge raid at midnight": 1.02,
+   "fridge raid at midnight": 1.01,
    "Eid ul Adha bakra mandi": 1.04,
    "grandma's home remedies": 1.02
   },
   "tips": [
-   "Focus on 'Types of People' reel structures (x1.65) and 'Latifay' (x1.25) featuring real human character interactions ('people' x1.10, 'story' x1.20) rather than 'chat' (x0.59) or 'animal' (x0.86) formats.",
-   "Target specific institutional and daily-life situations that hit high scores, such as dentist visits (x2.76), government office bureaucracy (x1.59), bazaar bargaining (x1.35), and mechanic excuses (x1.31).",
-   "Keep scripts tightly focused on a single topic per reel; combining multiple mashed-up topics into one long format drops performance drastically (x0.24 to x0.29).",
-   "Avoid generic household chore subjects like laundry day (x0.27), cooking disasters (x0.23), and simple weather complaints like summer heat (x0.58).",
-   "Drop the fake news bulletin style ('news' structure x0.75) and instead use 'Expectation vs Reality' hooks (x1.16) and 'Har Ghar' relatable household tropes (x1.15)."
+   "Focus on live 'people' actor formats using the 'types' structure (e.g., 'Dentist ke patient', 'Types of candidates'), which generated our highest performance up to x2.71.",
+   "Prioritize relatable daily desi struggles such as government office delays, Monday morning blues, bazaar bargaining, job interviews, and mechanic excuses.",
+   "Completely phase out 'animal' character formats (Bakra Mian, Murga Uncle) and text-overlay 'chat' videos, as both consistently rank among our worst performers (scoring x0.01 - x0.24).",
+   "Keep each reel tightly focused on a single relatable scenario rather than dumping multiple unrelated topics (like Careem bargaining, selfie craze, and Eidi collection) into one video.",
+   "Avoid overused household tropes that audience ignores, specifically cooking disasters, laundry day, remote control fights, and generic shaadi/mehndi function sketches."
   ]
  }
 }

@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14 01:13",
+ "updated": "2026-11-14 07:14",
  "mult": {
   "pk_city": 0.78,
   "pk_versus": 1.01,
@@ -11,18 +11,22 @@
   "pk_tour": 0.97,
   "pk_living": 0.99,
   "pk_jobhow": 0.98,
-  "pk_tour_short": 0.84,
-  "pk_cost_short": 0.7,
-  "pk_jobtip": 0.91,
-  "pk_food": 0.57,
-  "pk_hidden": 0.77,
-  "pk_salary_short": 0.6,
-  "pk_city_facts": 0.71,
-  "pk_versus_short": 0.73,
-  "pk_visa_short": 0.94,
-  "pk_facts": 1.1
+  "pk_tour_short": 0.81,
+  "pk_cost_short": 0.68,
+  "pk_jobtip": 0.88,
+  "pk_food": 0.55,
+  "pk_hidden": 0.74,
+  "pk_salary_short": 0.58,
+  "pk_city_facts": 0.69,
+  "pk_versus_short": 0.89,
+  "pk_visa_short": 0.91,
+  "pk_facts": 1.07
  },
  "tips": [
-  "Focus on short videos (under 2 mins) about surprising facts of high‑interest countries like China, Singapore, and Malta – these have the highest x scores; use hook lines like “Aap ko ye 6 fact nahi pata the!”; keep title"
+  "Prioritize in-depth country documentaries (pk_country) and student listicles (pk_best_list), as long-form content outperforms shorts overall (0.78 vs 0.61).",
+  "Completely drop food guides (pk_food, 0.35x) and salary/cost-of-living shorts (pk_salary_short, 0.39x), which consistently hit the bottom in views and engagement.",
+  "Use direct head-to-head comparison titles ('Canada vs Australia: Pakistani ke liye kon sa behtar hai?') which yield high viewership (3.12x).",
+  "Focus shorts strictly on high-curiosity travel hooks ('60 seconds tour') and shocking facts about tier-1 hubs, avoiding generic history tours like Dubai or Baku.",
+  "Target actionable job and student migration angles (Oman job tips, European low-cost education) over generic city sightseeing."
  ]
 }

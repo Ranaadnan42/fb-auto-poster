@@ -1,19 +1,15 @@
 {
- "time_utc": "2026-11-14 01:12",
- "videos": 71,
- "views": 14684,
- "engagement": 550,
+ "time_utc": "2026-11-14 07:12",
+ "videos": 70,
+ "views": 14437,
+ "engagement": 543,
  "by_theme": {
-  "reflection on a Quran verse": [
-   1.58,
-   3
-  ],
   "finding peace in remembering Allah (dhikr)": [
    1.18,
    3
   ],
   "the power of dua": [
-   1.17,
+   1.18,
    4
   ],
   "honesty and trust (amanah)": [
@@ -64,6 +60,10 @@
    1.09,
    2
   ],
+  "reflection on a Quran verse": [
+   1.86,
+   2
+  ],
   "a story of a prophet's trial and patience": [
    1.32,
    2
@@ -89,19 +89,19 @@
    4
   ],
   "stories of the Sahaba": [
-   0.92,
+   0.93,
    2
   ],
   "the value of time": [
-   1.31,
+   1.32,
    2
   ],
   "Jannah and how to reach it": [
-   1.05,
+   1.06,
    2
   ],
   "a lesson-filled event from early Islamic history": [
-   0.92,
+   0.94,
    2
   ],
   "death, the grave and the hereafter": [
@@ -121,7 +121,7 @@
    1
   ],
   "the night prayer (tahajjud)": [
-   1.56,
+   1.57,
    1
   ],
   "hope after sadness": [
@@ -132,7 +132,7 @@
  "by_lang": {
   "ur": [
    1.0,
-   66
+   65
   ],
   "en": [
    0.51,
@@ -140,13 +140,13 @@
   ]
  },
  "by_kind": {
-  "reel": [
-   0.95,
-   47
-  ],
   "long": [
    0.96,
    24
+  ],
+  "reel": [
+   0.95,
+   46
   ]
  },
  "best": [
@@ -154,13 +154,12 @@
   "[long/ur] ایمانداری کا انعام: جب چرواہے نے حضرت عمرؓ کو حیران کر دیا (theme honesty and trust (amanah), views 287, eng 14, x1.73)",
   "[reel/ur] نبی کریم کی سنتیں: سونے سے پہلے کا وہ عظیم نبوی تحفہ (theme a sunnah of the Prophet for daily life, views 228, eng 18, x1.63)"
  ],
- "summary": "Page ki best performance Quran verse reflections aur tahajjud reels se aa rahi hai, lekin charity aur parenting jaise topics bilkul kam views le rahe hain. Reels ka average x 0.95 hai aur long videos thode behtar (0.96) lekin dono ko short aur hook‑centric banane se engagement barhegi. Ab hum ko high‑income Gulf aur Western audience ko target karte hue in successful themes ko aur zyada reels aur concise titles ke saath push karna chahiye.",
+ "summary": "Aapke page par Quran e Pak ki aayat ki tafseer, Tahajjud ki fazilat aur Sahaba ke imaan afroz waqiaat wali Urdu videos bohot behtareen perform kar rahi hain. English language content, Sadaqah aur aam naseehato wale topics par views aur engagement bohot kam aaye hain. Is liye humne ab English content ko rokk kar poori tarah Urdu storytelling, Quranic reflections aur emotional Sunnah waqiaat par focus karne ki strategy banai hai.",
  "plan": {
-  "updated": "2026-11-14 01:12",
+  "updated": "2026-11-14 07:12",
   "mult": {
-   "reflection on a Quran verse": 1.26,
    "finding peace in remembering Allah (dhikr)": 1.09,
-   "the power of dua": 1.09,
+   "the power of dua": 1.1,
    "honesty and trust (amanah)": 1.16,
    "the value of salah": 0.76,
    "charity (sadaqah)": 0.62,
@@ -173,6 +172,7 @@
    "the blessings of Friday (Jumma): Surah Kahf, durood and dua": 1.12,
    "a dua that Allah answered (true incident)": 0.95,
    "trusting Allah (tawakkul)": 1.04,
+   "reflection on a Quran verse": 1.28,
    "a story of a prophet's trial and patience": 1.12,
    "repentance (tawbah) and second chances": 0.96,
    "a true miracle in the life of Prophet Muhammad": 1.04,
@@ -180,9 +180,9 @@
    "lessons from the life of Prophet Muhammad": 1.12,
    "good character and manners": 1.0,
    "stories of the Sahaba": 0.97,
-   "the value of time": 1.11,
+   "the value of time": 1.12,
    "Jannah and how to reach it": 1.02,
-   "a lesson-filled event from early Islamic history": 0.97,
+   "a lesson-filled event from early Islamic history": 0.98,
    "death, the grave and the hereafter": 0.99,
    "Islamic history and the golden age": 1.05,
    "rizq (provision) comes from Allah": 1.03,
@@ -191,7 +191,11 @@
    "hope after sadness": 0.98
   },
   "tips": [
-   "Focus on themes with x>1.5 like Quran verse reflections, tahajjud, and miracles – create more reels and short videos (30‑60 sec) on these; use hook lines that mention a specific benefit or miracle in the first 3 seconds,"
+   "Focus heavily on Urdu scripts featuring 'Reflection on Quran verses' (1.86x average) and 'Tahajjud / Night Prayer' (1.57x) with strong narrative hooks.",
+   "Prioritize emotional, story-driven hooks involving Sahaba and Prophet miracles (e.g., Abu Hurairah and Shaitan, Umar RA heart change, weeping palm tree) over generic advice.",
+   "Avoid generic, abstract topic lectures like 'Sadaqah' (0.43x), 'Controlling Anger' (0.49x), and 'Kindness to Parents' (0.52x) unless anchored in a dramatic true incident.",
+   "Completely stop producing videos in English (which performed as low as 0.01x to 0.59x) and stick strictly to authentic, emotional Urdu narration.",
+   "Use title framing that highlights a specific miracle, gift, or dramatic event (e.g., 'Sone se pehle ka azeem nabwi tuhfa' or 'Jab Umar RA ka dil badal gaya') for both Reels and Long videos."
   ]
  }
 }
