@@ -30,10 +30,10 @@ MAX_EXTRA = 1            # har page par ek run mein sirf 1 extra post (din mein 
 
 # page -> secrets, roz ka schedule (FB par), extra post kaise chalani hai (list = baari baari)
 PAGES = {
-    "islamic": dict(id="FB_PAGE_ID", tok="FB_PAGE_TOKEN", daily_photos=4, daily_reels=2,
+    "islamic": dict(id="FB_PAGE_ID", tok="FB_PAGE_TOKEN", daily_photos=2, daily_reels=2,
                     photo=[("photos.yml", {"pages": "islamic", "slot": "1"})],
                     reel=[("main.yml", {"language": "ur", "post_type": "reel"})]),
-    "funny": dict(id="FUNNY_PAGE_ID", tok="FUNNY_PAGE_TOKEN", daily_photos=5, daily_reels=3,
+    "funny": dict(id="FUNNY_PAGE_ID", tok="FUNNY_PAGE_TOKEN", daily_photos=2, daily_reels=3,
                   photo=[("photos.yml", {"pages": "funny", "slot": "1"})],
                   reel=[("funny.yml", {"mode": "reel"})]),
     "frames": dict(id="FRAMES_PAGE_ID", tok="FRAMES_PAGE_TOKEN", daily_photos=1, daily_reels=2,
@@ -48,7 +48,7 @@ PAGES = {
 }
 DEFAULT_TARGETS = {"reels": 0, "photos": 0}   # "stories" na ho to = reels
 MIN_STORIES = 7      # task na ho tab bhi har page par roz kam az kam 1 story (hafte ki 7)
-GROW = 1.2          # naye hafte ke targets abhi parhe nahi gaye -> pichhle hafte se 20% zyada maan lo
+GROW = 1.0          # asal task na parha gaya ho to andaza nahi barhate (zyada pics nahi)
 
 
 def env(k):
@@ -153,6 +153,10 @@ def main():
                                   ("photos", photos, cfg["daily_photos"])):   # pehle reel (reach zyada)
             if done < 0 or days_left <= 0:
                 continue
+            if not fresh and kind == "photos":
+                continue      # is hafte ka asal task abhi parha nahi gaya - andaze par extra pics nahi
+            if not (targets.get(name) or {}).get(kind) and kind != "stories":
+                continue      # task mein yeh cheez maangi hi nahi - extra nahi
             coming = math.floor(daily * days_left * 0.85)      # 15% margin - koi post fail bhi ho jaye
             short = t[kind] - done - coming
             if kind == "stories" and short > 0:
