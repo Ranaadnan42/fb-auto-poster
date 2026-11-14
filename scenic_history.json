@@ -207,6 +207,18 @@
    "hook": "Is this the prettiest place on Earth?",
    "clip": "wmi180112072",
    "beauty": 8
+  },
+  {
+   "ts": 1794681671.486606,
+   "vid": "2200241450578365",
+   "post": "2200241450578365",
+   "kind": "reel",
+   "place": "Grindelwald, Jungfrau Region",
+   "country": "Switzerland",
+   "mood": "bright green afternoon in the alps",
+   "hook": "Is this the ultimate fairytale village?",
+   "clip": "px171219",
+   "beauty": 9
   }
  ],
  "clips": [
@@ -286,7 +298,12 @@
   "px240841",
   "px319751",
   "px236928",
-  "wmi180112072"
+  "wmi180112072",
+  "px171219",
+  "px198802",
+  "px114594",
+  "px89312",
+  "px229501"
  ],
  "music": [
   "File:Clair de Lune by Claude Debussy (1905, piano solo).opus",
@@ -298,6 +315,7 @@
   "File:Gymnopedie No. 2 (ISRC USUAN1100786).mp3",
   "File:Inleiding National Philharmonic of Russia olv. Vladimir Spivakov (audio).mp3",
   "File:Claude Debussy - Première Arabesque - Patrizia Prati.ogg",
-  "File:Fryderyk Chopin - Nocturne op. 32 n.2 As-dur - Patrizia Prati.ogg"
+  "File:Fryderyk Chopin - Nocturne op. 32 n.2 As-dur - Patrizia Prati.ogg",
+  "File:Satie Gymnopedie No 1 performed by Michael Laucke.flac"
  ]
 }
