@@ -1,31 +1,42 @@
 {
- "time_utc": "2026-11-14 00:21",
+ "time_utc": "2026-11-14 03:20",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-14 00:21",
+   "date": "2026-11-14 03:20",
    "kind": "reel",
    "lang": "en",
-   "title": "Rising retail violence and organized theft in Scotland",
-   "dur": 50,
-   "post_id": "3066885203644061"
+   "title": "US Nationwide Flight Ground Stop Caused by Equipment Overload",
+   "dur": 55,
+   "post_id": "1142331651621426"
   },
   "sports": {
-   "date": "2026-11-14 00:21",
+   "date": "2026-11-14 03:20",
    "kind": "reel",
    "lang": "en",
-   "title": "Kiefer Sherwood Mic'd Up Hockey Action",
-   "dur": 40,
-   "post_id": "1480848337329004"
+   "title": "Caguas Secures 13-3 Victory Over Mayaguez",
+   "dur": 55,
+   "post_id": "1860326071644950"
   }
  },
  "errors": [],
- "clips_rejected": 497,
- "agent_checks": 53,
- "agent_rejects": 50,
- "agent_skips": 440,
- "alt_searches": 6,
+ "clips_rejected": 478,
+ "alt_searches": 7,
+ "agent_checks": 48,
+ "agent_rejects": 44,
+ "agent_skips": 424,
+ "no_match": [
+  "@Mayaguez",
+  "@Mayaguez",
+  "baseball match",
+  "@Caguas",
+  "baseball match",
+  "baseball stadium",
+  "world map",
+  "@Mayaguez"
+ ],
+ "headline_cards": 8,
  "time_budget_hit": true
 }
