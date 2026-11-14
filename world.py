@@ -1201,6 +1201,30 @@ def get_clips(scene, country_words, job, prefix, need):
     return got
 
 
+def rewrite_scene(sc, urdu):
+    """Agent: is scene ki footage nahi mili - usi jagah ki koi aur dikhne wali cheez chuno (mashhoor landmark,
+    bazaar, aam dish, sarak) aur narration usi ke mutabiq dobara likho, taake jo bola jaye wahi dikhe."""
+    tried = sc.get("_tried", []) + [sc.get("show") or ""]
+    try:
+        d = ask_json(f"""A documentary scene could not get real stock footage for "{sc.get('show')}" in "{sc.get('place')}".
+Original narration: "{(sc.get('text') or '')[:400]}"
+Pick ANOTHER very common, easily filmed thing from the SAME place that stock sites (Pexels, Pixabay, Wikimedia)
+surely have footage of (famous landmark, skyline, old town street, market, mosque, river, a world-famous dish).
+Do NOT use any of: {tried}. Rewrite the narration so it talks about THAT thing while keeping the same facts/flow
+of the video (1-3 sentences, {'Urdu in Roman/Urdu script exactly like the original' if urdu else 'English'}).
+Return JSON {{"text": "...", "say": "...", "show": "1-4 English filmable words", "search": ["2-3 short English phrases with the place name"]}}""", 0.5)
+        if not (d.get("text") and d.get("show")):
+            return None
+        n = dict(sc)
+        n.update({k: d[k] for k in ("text", "say", "show", "search") if d.get(k)})
+        n["_tried"] = tried
+        log(f"scene rewrite: '{sc.get('show')}' -> '{n['show']}'")
+        return n
+    except Exception as e:
+        log(f"scene rewrite fail: {str(e)[:100]}")
+        return None
+
+
 FOOD_WORDS_LIST = sorted(w for w in FOOD_WORDS if " " not in w)
 
 
@@ -1413,6 +1437,24 @@ def build(script, plan, out_path):
         dur = duration(os.path.join(job, f"a{n}.mp3")) + 0.45
         need = max(1, min(4, math.ceil(dur / 5.5))) if LONG else max(1, min(3, math.ceil(dur / 2.8)))   # Short: har 2-3 second par naya manzar
         clips = get_clips(sc, cwords, job, f"c{n}", need)
+        # Footage na mile to random/purani clip lagane ke bajaye agent narration ko aisi cheez par badle
+        # jis ki ASLI footage milti hai - awaaz aur video hamesha ek hi cheez ki baat karein.
+        for _rw in range(2):
+            if clips:
+                break
+            nsc = rewrite_scene(sc, URDU)
+            if not nsc:
+                break
+            sc = nsc
+            text = sc["text"].strip()
+            spoken = (sc.get("say") or "").strip()
+            if len(spoken.split()) < 0.7 * len(text.split()):
+                spoken = text
+            tts(spoken, os.path.join(job, f"a{n}.mp3"))
+            dur = duration(os.path.join(job, f"a{n}.mp3")) + 0.45
+            need = max(1, min(4, math.ceil(dur / 5.5))) if LONG else max(1, min(3, math.ceil(dur / 2.8)))
+            clips = get_clips(sc, cwords, job, f"c{n}r{_rw}", need)
+            REPORT["rewritten_scenes"] = REPORT.get("rewritten_scenes", 0) + 1
         # Har clip ko ISI scene ke mulk ke naam se rakho - "Malaysia vs Singapore" mein Singapore ki baat par
         # Malaysia ki clip / doosre mulk ka khaana na lage (pehle koi bhi pichli clip random lag jati thi)
         ckey = (sc.get("place") or "").split(",")[-1].strip().lower() or "_"
