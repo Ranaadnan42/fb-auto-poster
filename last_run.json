@@ -1,31 +1,34 @@
 {
  "lang": "ur",
- "stock_clips": 18,
+ "stock_clips": 14,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "انبیاء کرام کے واقعات",
-  "hazrat ka waqia video",
-  "hazrat umar ka waqia",
-  "hazrat ali ka waqia",
-  "hazrat ibrahim ka waqia",
-  "hazrat suleman ka waqia",
-  "hazrat bilal ka waqia",
-  "hazrat abbas ka waqia",
-  "hazrat nooh ka waqia",
-  "hazrat yousuf ka waqia"
+  "اخلاق حسنہ کا خلاصہ",
+  "اخلاق ڈرامہ",
+  "اخلاق حسنہ",
+  "اخلاقی کہانیاں",
+  "اخلاق نبوی",
+  "اخلاق نبوی کا خلاصہ",
+  "اخلاق میں بڑی طاقت ہے کہانی",
+  "اخلاق مصطفی",
+  "اخلاق کے بارے میں بیان",
+  "achay ikhlaq",
+  "achay akhlaq by tariq jameel",
+  "acha ikhlaq"
  ],
- "story": "Prophet Yunus calls Allah inside the whale",
- "search": "انبیاء کرام کے واقعات",
- "vision_checks": 98,
+ "story": "Prophet teaches smiling at others is charity",
+ "search": "اخلاق مصطفی",
+ "vision_checks": 127,
+ "clips_rejected": 98,
  "sources": {
-  "pixabay": 18
+  "commons": 2,
+  "pixabay": 12
  },
- "clips_rejected": 57,
  "photo_clips": 2,
- "reel_minutes": 1.11,
- "time_utc": "2026-11-14 08:10",
- "title": "انبیاء کرام کے واقعات: مچھلی کے پیٹ میں حضرت یونسؑ کا معجزہ",
+ "reel_minutes": 1.12,
+ "time_utc": "2026-11-14 13:32",
+ "title": "اخلاق مصطفی: ایک مسکراہٹ کیسے صدقہ بن گئی؟",
  "dry_run": false,
  "posted_ok": 1
 }
