@@ -159,6 +159,18 @@
    "hook": "Is this water even real?",
    "clip": "px47163",
    "beauty": 8
+  },
+  {
+   "ts": 1794645198.0294616,
+   "vid": "1862230815086799",
+   "post": "1862230815086799",
+   "kind": "reel",
+   "place": "Plitvice Lakes National Park",
+   "country": "Croatia",
+   "mood": "bright sunny afternoon / turquoise waterfalls & lush green forest",
+   "hook": "Is this place even real?",
+   "clip": "px224821",
+   "beauty": 10
   }
  ],
  "clips": [
@@ -225,7 +237,11 @@
   "px139068",
   "px29983",
   "px153672",
-  "px7924"
+  "px7924",
+  "px224821",
+  "px48601",
+  "px177599",
+  "px48602"
  ],
  "music": [
   "File:Clair de Lune by Claude Debussy (1905, piano solo).opus",
@@ -235,6 +251,7 @@
   "File:Gnossienne 7 (Satie).ogg",
   "File:Satie Gymnopedie No 2 performed by Michael Laucke.flac",
   "File:Gymnopedie No. 2 (ISRC USUAN1100786).mp3",
-  "File:Inleiding National Philharmonic of Russia olv. Vladimir Spivakov (audio).mp3"
+  "File:Inleiding National Philharmonic of Russia olv. Vladimir Spivakov (audio).mp3",
+  "File:Claude Debussy - Première Arabesque - Patrizia Prati.ogg"
  ]
 }
