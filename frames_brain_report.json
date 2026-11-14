@@ -1,0 +1,133 @@
+{
+ "time_utc": "2026-11-14 01:13",
+ "videos": 54,
+ "views": 20532,
+ "engagement": 366,
+ "by_series": {
+  "pk_city": [
+   0.53,
+   2
+  ],
+  "pk_versus": [
+   1.03,
+   2
+  ],
+  "pk_moving": [
+   0.41,
+   2
+  ],
+  "pk_best_list": [
+   1.11,
+   2
+  ],
+  "pk_jobs": [
+   0.39,
+   2
+  ],
+  "pk_country": [
+   4.41,
+   1
+  ],
+  "pk_visa": [
+   0.75,
+   1
+  ],
+  "pk_tour": [
+   0.9,
+   1
+  ],
+  "pk_living": [
+   0.96,
+   1
+  ],
+  "pk_jobhow": [
+   0.94,
+   1
+  ],
+  "pk_tour_short": [
+   0.75,
+   5
+  ],
+  "pk_cost_short": [
+   0.57,
+   5
+  ],
+  "pk_jobtip": [
+   0.83,
+   3
+  ],
+  "pk_food": [
+   0.37,
+   4
+  ],
+  "pk_hidden": [
+   0.63,
+   4
+  ],
+  "pk_salary_short": [
+   0.41,
+   4
+  ],
+  "pk_city_facts": [
+   0.55,
+   4
+  ],
+  "pk_versus_short": [
+   0.58,
+   4
+  ],
+  "pk_visa_short": [
+   0.88,
+   3
+  ],
+  "pk_facts": [
+   1.22,
+   3
+  ]
+ },
+ "by_lang": {},
+ "by_kind": {
+  "long": [
+   0.78,
+   15
+  ],
+  "short": [
+   0.62,
+   39
+  ]
+ },
+ "best": [
+  "[short/ur] چین کے 6 ناقابل یقین اور حیران کن حقائق | China Facts in Urdu (series pk_facts, views 5475, eng 115, x13.78)",
+  "[short/ur] 60 سیکنڈ میں سنگاپور کی خوبصورت دنیا | Singapore City Tour (series pk_tour_short, views 1915, eng 35, x4.60)",
+  "[long/ur] Malta Country Documentary in Urdu | مالٹا کا سفر اور زندگی (series pk_country, views 1357, eng 16, x4.36)"
+ ],
+ "summary": "Page ko short, fact‑based aur travel city videos pasand aa rahi hain, especially China aur Singapore ke surprising facts. Food aur low‑interest salary guides bilkul kam views le rahe hain, unko kam karo. Agent ko in high‑performing topics pe zyada content banana chahiye aur weak categories ko drop ya improve karna chahiye.",
+ "plan": {
+  "updated": "2026-11-14 01:13",
+  "mult": {
+   "pk_city": 0.78,
+   "pk_versus": 1.01,
+   "pk_moving": 0.7,
+   "pk_best_list": 1.04,
+   "pk_jobs": 0.69,
+   "pk_country": 1.45,
+   "pk_visa": 0.93,
+   "pk_tour": 0.97,
+   "pk_living": 0.99,
+   "pk_jobhow": 0.98,
+   "pk_tour_short": 0.84,
+   "pk_cost_short": 0.7,
+   "pk_jobtip": 0.91,
+   "pk_food": 0.57,
+   "pk_hidden": 0.77,
+   "pk_salary_short": 0.6,
+   "pk_city_facts": 0.71,
+   "pk_versus_short": 0.73,
+   "pk_visa_short": 0.94,
+   "pk_facts": 1.1
+  },
+  "tips": [
+   "Focus on short videos (under 2 mins) about surprising facts of high‑interest countries like China, Singapore, and Malta – these have the highest x scores; use hook lines like “Aap ko ye 6 fact nahi pata the!”; keep title"
+  ]
+ }
+}

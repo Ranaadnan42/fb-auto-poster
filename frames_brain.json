@@ -1,0 +1,28 @@
+{
+ "updated": "2026-11-14 01:13",
+ "mult": {
+  "pk_city": 0.78,
+  "pk_versus": 1.01,
+  "pk_moving": 0.7,
+  "pk_best_list": 1.04,
+  "pk_jobs": 0.69,
+  "pk_country": 1.45,
+  "pk_visa": 0.93,
+  "pk_tour": 0.97,
+  "pk_living": 0.99,
+  "pk_jobhow": 0.98,
+  "pk_tour_short": 0.84,
+  "pk_cost_short": 0.7,
+  "pk_jobtip": 0.91,
+  "pk_food": 0.57,
+  "pk_hidden": 0.77,
+  "pk_salary_short": 0.6,
+  "pk_city_facts": 0.71,
+  "pk_versus_short": 0.73,
+  "pk_visa_short": 0.94,
+  "pk_facts": 1.1
+ },
+ "tips": [
+  "Focus on short videos (under 2 mins) about surprising facts of high‑interest countries like China, Singapore, and Malta – these have the highest x scores; use hook lines like “Aap ko ye 6 fact nahi pata the!”; keep title"
+ ]
+}

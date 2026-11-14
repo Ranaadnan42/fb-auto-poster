@@ -1,57 +1,57 @@
 {
- "time_utc": "2026-11-13 20:03",
- "videos": 85,
- "views": 15703,
- "engagement": 185,
+ "time_utc": "2026-11-14 01:06",
+ "videos": 88,
+ "views": 16332,
+ "engagement": 195,
  "by_format": {
   "chat": [
    0.59,
    18
   ],
   "animal": [
-   0.87,
+   0.86,
    17
   ],
   "story": [
-   1.21,
+   1.2,
    16
   ],
   "people": [
-   1.09,
-   29
+   1.1,
+   31
   ],
   "cartoon": [
-   0.95,
-   5
+   0.98,
+   6
   ]
  },
  "by_reel_format": {
   "expectation": [
-   1.17,
+   1.16,
    4
   ],
   "kya_hota_agar": [
-   1.04,
+   1.03,
    4
   ],
   "latifay": [
-   1.28,
-   3
+   1.25,
+   4
   ],
   "har_ghar": [
-   1.16,
-   6
+   1.15,
+   7
   ],
   "types": [
-   1.66,
+   1.65,
    3
   ],
   "dialogue": [
-   0.98,
+   0.97,
    5
   ],
   "news": [
-   0.69,
+   0.75,
    3
   ],
   "pov": [
@@ -61,7 +61,7 @@
  },
  "by_topic": {
   "monday morning": [
-   1.27,
+   1.26,
    4
   ],
   "cooking disaster": [
@@ -73,11 +73,11 @@
    6
   ],
   "office / job interview": [
-   1.28,
+   1.27,
    2
   ],
   "sleeping late and waking late": [
-   1.1,
+   1.09,
    1
   ],
   "school / tuition": [
@@ -85,15 +85,15 @@
    3
   ],
   "summer heat": [
-   0.59,
+   0.58,
    2
   ],
   "street food": [
-   1.15,
+   1.14,
    2
   ],
   "teacher vs students": [
-   0.59,
+   0.62,
    4
   ],
   "rishta aunty": [
@@ -105,43 +105,43 @@
    2
   ],
   "bijli ka bill": [
-   1.25,
+   1.24,
    2
   ],
   "Eid shopping": [
-   0.72,
+   0.71,
    2
   ],
   "exams and results": [
-   1.22,
+   1.21,
    3
   ],
   "mobile phone addiction": [
-   1.25,
-   1
-  ],
-  "ammi ki daant (mother's scolding)": [
-   1.16,
-   1
-  ],
-  "load of homework": [
-   0.95,
-   4
-  ],
-  "road trip": [
-   1.12,
-   1
-  ],
-  "salary day": [
    1.24,
    1
   ],
+  "ammi ki daant (mother's scolding)": [
+   1.15,
+   1
+  ],
+  "load of homework": [
+   0.94,
+   4
+  ],
+  "road trip": [
+   1.11,
+   1
+  ],
+  "salary day": [
+   1.23,
+   1
+  ],
   "winter mornings": [
-   1.34,
+   1.33,
    2
   ],
   "barish (rain)": [
-   1.27,
+   1.26,
    1
   ],
   "selfie / TikTok craze, bank queue, Eidi collection, freelancing client, pet cat ruling the house": [
@@ -149,7 +149,7 @@
    1
   ],
   "Ludo fights at home": [
-   1.21,
+   1.2,
    1
   ],
   "barber shop": [
@@ -157,19 +157,19 @@
    1
   ],
   "mehndi function": [
-   0.3,
+   0.29,
    1
   ],
   "Eidi collection": [
-   1.22,
+   1.21,
    1
   ],
   "mechanic's 'sirf 5 minute'": [
-   1.32,
+   1.31,
    1
   ],
   "traffic jam": [
-   1.23,
+   1.22,
    1
   ],
   "laundry day": [
@@ -177,11 +177,11 @@
    1
   ],
   "moving to a new house": [
-   1.45,
+   1.44,
    1
   ],
   "ice cream truck": [
-   1.23,
+   1.22,
    1
   ],
   "fake diet plans": [
@@ -189,15 +189,15 @@
    3
   ],
   "bargaining in bazaar": [
-   1.36,
+   1.35,
    1
   ],
   "AC vs electricity bill": [
-   1.21,
+   1.2,
    1
   ],
   "government office file": [
-   1.6,
+   1.59,
    1
   ],
   "government office file, mehndi function, gaming addiction (PUBG / Ludo), grandma's home remedies, shaadi (wedding) season": [
@@ -205,19 +205,19 @@
    1
   ],
   "selfie / TikTok craze": [
-   1.1,
+   1.09,
    1
   ],
   "family WhatsApp group forwards": [
-   1.24,
+   1.23,
    1
   ],
   "first day at gym": [
-   1.07,
+   1.06,
    1
   ],
   "dentist visit": [
-   2.78,
+   2.76,
    1
   ],
   "remote control fight": [
@@ -234,18 +234,18 @@
   ],
   "friends' group chat": [
    1.18,
-   3
+   4
   ],
   "parking fight": [
    0.46,
    1
   ],
   "Sunday breakfast halwa puri": [
-   1.08,
+   1.07,
    1
   ],
   "freelancing client": [
-   1.18,
+   1.17,
    1
   ],
   "chai addiction": [
@@ -257,25 +257,33 @@
    1
   ],
   "wedding food (shaadi ka khaana) rush": [
-   1.23,
+   1.22,
    1
   ],
   "PSL / cricket fans": [
-   1.12,
+   1.11,
    1
   ],
   "motorway road trip": [
-   1.12,
+   1.11,
    1
   ],
   "fridge raid at midnight": [
    1.07,
    1
+  ],
+  "Eid ul Adha bakra mandi": [
+   1.17,
+   1
+  ],
+  "grandma's home remedies": [
+   1.09,
+   1
   ]
  },
  "by_hour": {
   "7": [
-   0.88,
+   0.91,
    7
   ],
   "10": [
@@ -283,19 +291,19 @@
    1
   ],
   "12": [
-   1.09,
+   1.08,
    7
   ],
   "14": [
    1.12,
-   7
+   8
   ],
   "11": [
    0.95,
    10
   ],
   "13": [
-   0.78,
+   0.77,
    6
   ],
   "16": [
@@ -303,15 +311,15 @@
    10
   ],
   "8": [
-   1.12,
+   1.11,
    6
   ],
   "15": [
-   1.26,
-   6
+   1.24,
+   7
   ],
   "17": [
-   1.34,
+   1.33,
    6
   ],
   "9": [
@@ -319,15 +327,15 @@
    8
   ],
   "18": [
-   1.29,
-   7
+   1.25,
+   8
   ],
   "20": [
    0.47,
    1
   ],
   "21": [
-   1.19,
+   1.18,
    1
   ],
   "22": [
@@ -336,71 +344,71 @@
   ]
  },
  "best": [
-  "[reel/people/types] ڈینٹسٹ کے مریض | dentist and patient funny video (topic dentist visit, views 592, eng 3, x2.73)",
-  "[reel/chat/-] باس کا عذاب اور پیر کی صبح کا بہانہ (topic monday morning, views 413, eng 2, x1.90)",
-  "[long/story/-] چাচا بشیر اور محلے کا سپر کپ | قسط 1 (topic cricket match, views 275, eng 4, x1.66)"
+  "[reel/people/types] ڈینٹسٹ کے مریض | dentist and patient funny video (topic dentist visit, views 592, eng 3, x2.71)",
+  "[reel/chat/-] باس کا عذاب اور پیر کی صبح کا بہانہ (topic monday morning, views 413, eng 2, x1.88)",
+  "[long/story/-] چাচا بشیر اور محلے کا سپر کپ | قسط 1 (topic cricket match, views 275, eng 4, x1.65)"
  ],
- "summary": "Hansi Ka Adda par human-based 'types' videos, office/job interviews, dentist visits aur story format sab se zyada viral ho rahe hain. Janwaro ke characters (Bakra/Murgha), laundry day aur multi-topic compilations bilkul flop ho chuki hain. Ab se humen janwaro ke content ko rok kar single-topic human comedy aur relatable daily life situations par focus karna hai.",
+ "summary": "Page par human character comedy aur 'Types of people' wala format sab se zabardast perform kar raha hai, jabke animal videos aur plain chat formats flop ho rahe hain. Dentist visit, sarkari daftar, aur mechanic ke bahaane jaise specific relatable topics logon ne bohot pasand kiye, jabke laundry day aur garmi ki shikayaton par views bilkul nahi aaye. Aage ke liye multi-topic mix chhor kar eik waqt mein eik hi situational topic par 'Types' ya 'Latifay' structure mein script likhein.",
  "plan": {
-  "updated": "2026-11-13 20:03",
+  "updated": "2026-11-14 01:06",
   "format_mult": {
    "chat": 0.64,
-   "animal": 0.89,
+   "animal": 0.88,
    "story": 1.17,
-   "people": 1.08,
-   "cartoon": 0.97
+   "people": 1.09,
+   "cartoon": 0.99
   },
   "reel_format_mult": {
    "expectation": 1.09,
    "kya_hota_agar": 1.02,
-   "latifay": 1.13,
+   "latifay": 1.14,
    "har_ghar": 1.1,
-   "types": 1.29,
-   "dialogue": 0.99,
-   "news": 0.83,
+   "types": 1.28,
+   "dialogue": 0.98,
+   "news": 0.87,
    "pov": 0.98
   },
   "style_mult": {
-   "ai": 1.17,
-   "cartoon": 1.06,
-   "cricket-commentary style narration of an everyday moment": 1.13,
+   "ai": 1.16,
+   "cartoon": 1.07,
+   "cricket-commentary style narration of an everyday moment": 1.12,
    "a desi aunty's commentary": 0.95,
    "over-the-top breaking-news style": 1.1,
    "sarcastic narrator roasting the situation (gently)": 0.94,
-   "a strict ammi's rules explained": 1.1,
+   "a strict ammi's rules explained": 1.09,
    "a lazy student's confessions": 1.08,
-   "a motivational speaker giving terrible advice": 1.26,
+   "a motivational speaker giving terrible advice": 1.3,
    "dramatic TV-serial narration of a tiny problem": 1.06,
    "observational desi comedy - 'har kisi ke saath hota hai'": 1.05,
-   "a middle-class abbu's logic": 0.82,
-   "nature-documentary narrator describing desi people": 1.03
+   "a middle-class abbu's logic": 0.86,
+   "nature-documentary narrator describing desi people": 1.04
   },
   "topic_mult": {
-   "monday morning": 1.15,
+   "monday morning": 1.14,
    "cooking disaster": 0.56,
    "cricket match": 1.15,
    "office / job interview": 1.1,
    "sleeping late and waking late": 1.02,
    "school / tuition": 0.84,
-   "summer heat": 0.81,
-   "street food": 1.06,
-   "teacher vs students": 0.74,
+   "summer heat": 0.8,
+   "street food": 1.05,
+   "teacher vs students": 0.76,
    "rishta aunty": 0.97,
    "shaadi (wedding) season": 0.76,
    "bijli ka bill": 1.09,
-   "Eid shopping": 0.88,
+   "Eid shopping": 0.87,
    "exams and results": 1.1,
    "mobile phone addiction": 1.06,
    "ammi ki daant (mother's scolding)": 1.04,
    "load of homework": 0.97,
    "road trip": 1.03,
-   "salary day": 1.06,
+   "salary day": 1.05,
    "winter mornings": 1.12,
    "barish (rain)": 1.06,
    "selfie / TikTok craze, bank queue, Eidi collection, freelancing client, pet cat ruling the house": 0.83,
    "Ludo fights at home": 1.05,
    "barber shop": 0.91,
-   "mehndi function": 0.74,
+   "mehndi function": 0.73,
    "Eidi collection": 1.05,
    "mechanic's 'sirf 5 minute'": 1.07,
    "traffic jam": 1.05,
@@ -413,13 +421,13 @@
    "government office file": 1.12,
    "government office file, mehndi function, gaming addiction (PUBG / Ludo), grandma's home remedies, shaadi (wedding) season": 0.76,
    "selfie / TikTok craze": 1.02,
-   "family WhatsApp group forwards": 1.06,
-   "first day at gym": 1.02,
+   "family WhatsApp group forwards": 1.05,
+   "first day at gym": 1.01,
    "dentist visit": 1.29,
    "remote control fight": 0.71,
    "rickshaw / Careem bargaining, buying a new phone, selfie / TikTok craze, bank queue, Eidi collection": 0.73,
    "aunties at a wedding judging food": 1.04,
-   "friends' group chat": 1.09,
+   "friends' group chat": 1.1,
    "parking fight": 0.82,
    "Sunday breakfast halwa puri": 1.02,
    "freelancing client": 1.04,
@@ -428,15 +436,16 @@
    "wedding food (shaadi ka khaana) rush": 1.05,
    "PSL / cricket fans": 1.03,
    "motorway road trip": 1.03,
-   "fridge raid at midnight": 1.02
+   "fridge raid at midnight": 1.02,
+   "Eid ul Adha bakra mandi": 1.04,
+   "grandma's home remedies": 1.02
   },
   "tips": [
-   "Use the 'types' structure (x1.66 average) and 'latifay' format more often, focusing on hilarious archetypes like 'Dentist ke mareez' or office workers.",
-   "Focus scripts on high-performing relatable desi scenarios: dentist visits, government office delays, job interviews, bazaar bargaining, and Monday morning office struggles.",
-   "Completely phase out animal characters (Bakra Miyan, Murgha Uncle) as the 'animal' format is severely underperforming (x0.87 average, worst reels below x0.25).",
-   "Avoid generic household chore topics (laundry day, cooking disasters) and general complaints like summer heat, as these consistently perform poorly.",
-   "Stick to single-topic focused videos; stop creating cluttered multi-topic compilations which drop engagement below x0.30.",
-   "Prioritize 'people' and episodic 'story' formats while ditching the fake 'news' structure (x0.69 average)."
+   "Focus on 'Types of People' reel structures (x1.65) and 'Latifay' (x1.25) featuring real human character interactions ('people' x1.10, 'story' x1.20) rather than 'chat' (x0.59) or 'animal' (x0.86) formats.",
+   "Target specific institutional and daily-life situations that hit high scores, such as dentist visits (x2.76), government office bureaucracy (x1.59), bazaar bargaining (x1.35), and mechanic excuses (x1.31).",
+   "Keep scripts tightly focused on a single topic per reel; combining multiple mashed-up topics into one long format drops performance drastically (x0.24 to x0.29).",
+   "Avoid generic household chore subjects like laundry day (x0.27), cooking disasters (x0.23), and simple weather complaints like summer heat (x0.58).",
+   "Drop the fake news bulletin style ('news' structure x0.75) and instead use 'Expectation vs Reality' hooks (x1.16) and 'Har Ghar' relatable household tropes (x1.15)."
   ]
  }
 }

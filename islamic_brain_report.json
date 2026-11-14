@@ -1,0 +1,197 @@
+{
+ "time_utc": "2026-11-14 01:12",
+ "videos": 71,
+ "views": 14684,
+ "engagement": 550,
+ "by_theme": {
+  "reflection on a Quran verse": [
+   1.58,
+   3
+  ],
+  "finding peace in remembering Allah (dhikr)": [
+   1.18,
+   3
+  ],
+  "the power of dua": [
+   1.17,
+   4
+  ],
+  "honesty and trust (amanah)": [
+   1.35,
+   3
+  ],
+  "the value of salah": [
+   0.51,
+   2
+  ],
+  "charity (sadaqah)": [
+   0.43,
+   4
+  ],
+  "kindness to parents": [
+   0.52,
+   3
+  ],
+  "humility and avoiding arrogance": [
+   1.01,
+   3
+  ],
+  "stories of the prophets mentioned in the Quran": [
+   0.65,
+   3
+  ],
+  "a powerful story of a Sahabi's sacrifice": [
+   0.83,
+   2
+  ],
+  "patience (sabr) in hardship": [
+   1.13,
+   2
+  ],
+  "controlling anger": [
+   0.49,
+   2
+  ],
+  "the blessings of Friday (Jumma): Surah Kahf, durood and dua": [
+   1.26,
+   3
+  ],
+  "a dua that Allah answered (true incident)": [
+   0.88,
+   2
+  ],
+  "trusting Allah (tawakkul)": [
+   1.09,
+   2
+  ],
+  "a story of a prophet's trial and patience": [
+   1.32,
+   2
+  ],
+  "repentance (tawbah) and second chances": [
+   0.9,
+   2
+  ],
+  "a true miracle in the life of Prophet Muhammad": [
+   1.11,
+   2
+  ],
+  "a sunnah of the Prophet for daily life": [
+   1.1,
+   2
+  ],
+  "lessons from the life of Prophet Muhammad": [
+   1.25,
+   3
+  ],
+  "good character and manners": [
+   1.0,
+   4
+  ],
+  "stories of the Sahaba": [
+   0.92,
+   2
+  ],
+  "the value of time": [
+   1.31,
+   2
+  ],
+  "Jannah and how to reach it": [
+   1.05,
+   2
+  ],
+  "a lesson-filled event from early Islamic history": [
+   0.92,
+   2
+  ],
+  "death, the grave and the hereafter": [
+   0.96,
+   1
+  ],
+  "Islamic history and the golden age": [
+   1.2,
+   1
+  ],
+  "rizq (provision) comes from Allah": [
+   1.12,
+   1
+  ],
+  "an authentic hadith of Prophet Muhammad and its meaning": [
+   0.92,
+   1
+  ],
+  "the night prayer (tahajjud)": [
+   1.56,
+   1
+  ],
+  "hope after sadness": [
+   0.96,
+   2
+  ]
+ },
+ "by_lang": {
+  "ur": [
+   1.0,
+   66
+  ],
+  "en": [
+   0.51,
+   5
+  ]
+ },
+ "by_kind": {
+  "reel": [
+   0.95,
+   47
+  ],
+  "long": [
+   0.96,
+   24
+  ]
+ },
+ "best": [
+  "[reel/ur] آیۃ الکرسی کی فضیلت: حضرت ابو ہریرہؓ اور شیطان کا ایمان افروز واقعہ (theme reflection on a Quran verse, views 267, eng 25, x2.14)",
+  "[long/ur] ایمانداری کا انعام: جب چرواہے نے حضرت عمرؓ کو حیران کر دیا (theme honesty and trust (amanah), views 287, eng 14, x1.73)",
+  "[reel/ur] نبی کریم کی سنتیں: سونے سے پہلے کا وہ عظیم نبوی تحفہ (theme a sunnah of the Prophet for daily life, views 228, eng 18, x1.63)"
+ ],
+ "summary": "Page ki best performance Quran verse reflections aur tahajjud reels se aa rahi hai, lekin charity aur parenting jaise topics bilkul kam views le rahe hain. Reels ka average x 0.95 hai aur long videos thode behtar (0.96) lekin dono ko short aur hook‑centric banane se engagement barhegi. Ab hum ko high‑income Gulf aur Western audience ko target karte hue in successful themes ko aur zyada reels aur concise titles ke saath push karna chahiye.",
+ "plan": {
+  "updated": "2026-11-14 01:12",
+  "mult": {
+   "reflection on a Quran verse": 1.26,
+   "finding peace in remembering Allah (dhikr)": 1.09,
+   "the power of dua": 1.09,
+   "honesty and trust (amanah)": 1.16,
+   "the value of salah": 0.76,
+   "charity (sadaqah)": 0.62,
+   "kindness to parents": 0.72,
+   "humility and avoiding arrogance": 1.0,
+   "stories of the prophets mentioned in the Quran": 0.81,
+   "a powerful story of a Sahabi's sacrifice": 0.93,
+   "patience (sabr) in hardship": 1.05,
+   "controlling anger": 0.75,
+   "the blessings of Friday (Jumma): Surah Kahf, durood and dua": 1.12,
+   "a dua that Allah answered (true incident)": 0.95,
+   "trusting Allah (tawakkul)": 1.04,
+   "a story of a prophet's trial and patience": 1.12,
+   "repentance (tawbah) and second chances": 0.96,
+   "a true miracle in the life of Prophet Muhammad": 1.04,
+   "a sunnah of the Prophet for daily life": 1.04,
+   "lessons from the life of Prophet Muhammad": 1.12,
+   "good character and manners": 1.0,
+   "stories of the Sahaba": 0.97,
+   "the value of time": 1.11,
+   "Jannah and how to reach it": 1.02,
+   "a lesson-filled event from early Islamic history": 0.97,
+   "death, the grave and the hereafter": 0.99,
+   "Islamic history and the golden age": 1.05,
+   "rizq (provision) comes from Allah": 1.03,
+   "an authentic hadith of Prophet Muhammad and its meaning": 0.98,
+   "the night prayer (tahajjud)": 1.12,
+   "hope after sadness": 0.98
+  },
+  "tips": [
+   "Focus on themes with x>1.5 like Quran verse reflections, tahajjud, and miracles – create more reels and short videos (30‑60 sec) on these; use hook lines that mention a specific benefit or miracle in the first 3 seconds,"
+  ]
+ }
+}

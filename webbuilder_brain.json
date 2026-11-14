@@ -1,0 +1,42 @@
+{
+ "updated": "2026-11-14 01:09",
+ "focus_mult": {
+  "pos": 0.96,
+  "website": 1.09,
+  "social": 0.76,
+  "app": 1.01,
+  "store": 1.04,
+  "autopilot": 0.73
+ },
+ "spot_mult": {
+  "restaurant": 0.54,
+  "grocery store": 0.69,
+  "pharmacy": 1.18,
+  "clothing shop": 0.92,
+  "beauty salon": 0.94,
+  "school": 0.65,
+  "bakery": 0.99,
+  "electronics shop": 0.4,
+  "real estate agency": 0.77,
+  "gym": 0.89,
+  "car workshop": 1.09,
+  "furniture store": 0.86,
+  "wholesale distributor": 0.95,
+  "jewellery shop": 1.39,
+  "travel agency": 0.53,
+  "clinic": 0.81,
+  "mobile phone shop": 1.36,
+  "hardware store": 1.06,
+  "cafe": 1.3,
+  "supermarket": 0.95
+ },
+ "color_mult": {},
+ "tips": [
+  "Start each reel with a bold, benefit‑driven hook like “Apka Business 3x Faster Grow Karega” especially in Urdu and Arabic where engagement is highest.",
+  "Showcase high‑performing business types – mobile phone shops, jewellery, cafes and bakeries – and mention specific outcomes (e.g., more customers, sales boost).",
+  "Use Arabic and Urdu titles that promise a quick upgrade (“ارتقِ بمتجرك”, “Web Builder کے ساتھ بزنس کو آگے بڑھائیں”) and keep English titles simple and action‑oriented (“Supercharge Your Business”).",
+  "End every video with a clear CTA to WhatsApp the business for a free demo, avoiding any price mention.",
+  "Avoid static picture posts and English‑only reels for school, travel or restaurant niches, as they have the lowest scores.",
+  ""
+ ]
+}
