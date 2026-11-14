@@ -194,10 +194,58 @@ def refresh_views(h):
             pass
 
 
-def plan_next(h, avoid):
+
+# ---------------------------------------------------------------- scene rotation (har dafa naya qudrati manzar, greenery zyada)
+SCENES = [
+    ("green forest", True, "deep green forest with sunlight through trees, forest trail, moss"),
+    ("rainforest & jungle", True, "lush tropical rainforest, jungle river, giant green trees"),
+    ("jungle waterfall", True, "waterfall falling into green jungle pool, ferns, mist in sunlight"),
+    ("green hills & meadows", True, "rolling green hills, grass meadows, sheep/cows grazing"),
+    ("tea & rice terraces", True, "green tea plantations or rice terraces on hillsides"),
+    ("flower fields", True, "wildflower, tulip, lavender or sunflower fields in bloom"),
+    ("river through green valley", True, "clear river or stream winding through a green valley"),
+    ("bamboo & mossy woods", True, "bamboo forest, mossy rocks, green ferns, calm streams"),
+    ("green island & lagoon", True, "green tropical island, turquoise lagoon, palm trees"),
+    ("green canyon & gorge", True, "green gorge or canyon with river and lush cliffs"),
+    ("alpine meadow & village", True, "green alpine meadow with wooden village and peaks"),
+    ("lake & mountains", False, "calm lake reflecting mountains under blue sky"),
+    ("beach & coastline", False, "sunny beach, sea cliffs, clear blue water"),
+    ("snowy peaks", False, "snowy mountain peaks under blue sky"),
+    ("desert & dunes", False, "golden sand dunes or red rock desert under blue sky"),
+    ("autumn forest", False, "colourful autumn forest, red and gold leaves"),
+]
+
+
+def pick_scene(h, avoid_scenes=()):
+    """Agent: pichhle posts ke views se seekhta hai, greenery ko zyada mauqa, aur pichhle 5 posts wala manzar dobara nahi."""
+    posts = [p for p in h["posts"] if p.get("kind") != "long"]
+    recent = [p.get("scene") for p in posts[-5:]]
+    stats = {}
+    for p in posts[-80:]:
+        if p.get("scene") and p.get("views") is not None:
+            stats.setdefault(p["scene"], []).append(p["views"])
+    allv = [v for vs in stats.values() for v in vs]
+    avg_all = (sum(allv) / len(allv)) if allv else 1
+    opts, weights = [], []
+    for name, green, desc in SCENES:
+        if name in recent or name in avoid_scenes:
+            continue
+        w = 3.0 if green else 1.0
+        vs = stats.get(name)
+        if vs:
+            w *= max(0.4, min(2.5, (sum(vs) / len(vs)) / max(avg_all, 1)))
+        else:
+            w *= 1.3  # kabhi try nahi hua - aazmao
+        opts.append((name, desc)); weights.append(w)
+    if not opts:
+        opts = [(n, d) for n, g, d in SCENES if g]; weights = [1] * len(opts)
+    return random.choices(opts, weights=weights)[0]
+
+
+def plan_next(h, avoid, scene=None):
     posts = h["posts"]
     used = sorted({f"{p['place']}, {p['country']}" for p in posts if p.get("kind") != "long"} | set(avoid))
-    perf = [{"place": f"{p['place']}, {p['country']}", "mood": p.get("mood"), "hook": p.get("hook"),
+    perf = [{"place": f"{p['place']}, {p['country']}", "scene": p.get("scene"), "mood": p.get("mood"), "hook": p.get("hook"),
              "views": p.get("views")} for p in posts[-40:] if p.get("views") is not None]
     perf.sort(key=lambda x: -x["views"])
     countries_recent = [p["country"] for p in posts[-12:]]
@@ -224,6 +272,7 @@ Avoid the same country as the last few reels: {json.dumps(countries_recent[-4:],
 Over time cover every country, but favour places that are famously beautiful and that free stock-footage
 sites (Pixabay, Pexels, Wikimedia) will really have clean footage of.
 
+{("TODAY'S SCENE TYPE IS FIXED BY THE OWNER: " + scene[0].upper() + " - " + scene[1] + ". Pick a famous, beautiful place in any country where this exact scene can be filmed, and make EVERY search query about this scene (not a lake/mountain if the scene is forest, jungle, waterfall, meadow etc.). Every shot must clearly show this scene type, bright and full of life.") if scene else ""}
 Pick the NEXT reel. JSON:
 {{"country": "...", "flag": "emoji flag", "place": "city/village/landmark",
  "mood": "e.g. sunny summer morning / bright green afternoon / blue-sky meadow / train through green valley",
@@ -539,6 +588,9 @@ a calm ~6 minute cinematic nature film of ONE country ("Norway in 4K - Relaxing 
 breathtaking natural places of that country (each place gets 2 different clips, every clip shows ~7 seconds), no narration, only music. LOOK: bright sunny summer, vivid green
 valleys and meadows, blue sky, turquoise water, waterfalls, green villages (like Swissaround) - no night/fog/gloom;
 put green/summer words in every search query.
+MIX the 26 places across MANY kinds of nature - green forests, waterfalls, rivers, green hills & meadows, flower
+fields, terraces/farmland, lakes, coast, mountains. At least 18 of the 26 must be green living nature (forest,
+jungle, meadow, waterfall, river valley, fields); no more than 4 lake shots and 4 snowy-peak shots.
 Countries already done (avoid): {json.dumps(done + avoid, ensure_ascii=False)}
 Choose a country famous for nature that free stock sites (Pixabay/Pexels/Wikimedia) have lots of clean footage of.
 JSON: {{"country": "...", "flag": "emoji",
@@ -801,9 +853,13 @@ def main():
         save_hist(h)
         return
 
-    shot, plan, avoid = None, None, []
+    shot, plan, avoid, bad_scenes = None, None, [], []
+    scene = pick_scene(h)
     for attempt in range(4):
-        plan = plan_next(h, avoid)
+        if attempt == 2:
+            bad_scenes.append(scene[0]); scene = pick_scene(h, bad_scenes)
+        log(f"aaj ka manzar: {scene[0]}")
+        plan = plan_next(h, avoid, scene)
         log(f"agent ka faisla: {plan.get('place')}, {plan.get('country')} - {plan.get('mood')} ({plan.get('why')})")
         if MODE == "pic":
             shot = find_photo(plan, h, WORK)
@@ -840,7 +896,8 @@ def main():
     REPORT["posted"] = vid
     h["posts"].append({"ts": time.time(), "vid": vid if MODE == "reel" else None, "post": vid, "kind": MODE,
                        "place": plan.get("place"), "country": plan.get("country"), "mood": plan.get("mood"),
-                       "hook": plan.get("hook"), "clip": shot["id"], "beauty": shot["beauty"]})
+                       "hook": plan.get("hook"), "clip": shot["id"], "beauty": shot["beauty"],
+                       "scene": scene[0]})
     h["clips"] = (h.get("clips", []) + [x["id"] for x in shots])[-3000:]
     if mtitle and mtitle != "synth pad":
         h["music"] = (h.get("music", []) + [mtitle])[-200:]
