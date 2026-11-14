@@ -1,31 +1,30 @@
 {
- "time_utc": "2026-11-14 00:21",
+ "time_utc": "2026-11-13 21:41",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-14 00:21",
+   "date": "2026-11-13 21:41",
    "kind": "reel",
    "lang": "en",
-   "title": "Rising retail violence and organized theft in Scotland",
-   "dur": 50,
-   "post_id": "3066885203644061"
+   "title": "Microsoft Outage Sparks Global Tech Concerns",
+   "dur": 37,
+   "post_id": "1636197644913417"
   },
   "sports": {
-   "date": "2026-11-14 00:21",
+   "date": "2026-11-13 21:41",
    "kind": "reel",
    "lang": "en",
-   "title": "Kiefer Sherwood Mic'd Up Hockey Action",
-   "dur": 40,
-   "post_id": "1480848337329004"
+   "title": "Jake Bauers' $58M Move to Boston Red Sox",
+   "dur": 62,
+   "post_id": "1664725525191138"
   }
  },
  "errors": [],
- "clips_rejected": 497,
- "agent_checks": 53,
- "agent_rejects": 50,
- "agent_skips": 440,
- "alt_searches": 6,
- "time_budget_hit": true
+ "agent_checks": 107,
+ "agent_rejects": 94,
+ "agent_skips": 0,
+ "clips_rejected": 95,
+ "alt_searches": 1
 }

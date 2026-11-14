@@ -1,11 +1,44 @@
 {
- "time_utc": "2026-11-11 11:15",
+ "time_utc": "2026-11-14 00:53",
  "kind": "long",
  "lang": "en",
  "dry_run": false,
- "posted": {},
- "errors": [
-  "news: Facebook jawab samajh nahi aaya: ",
-  "sports: Facebook jawab samajh nahi aaya: "
- ]
+ "posted": {
+  "news": {
+   "date": "2026-11-14 00:53",
+   "kind": "long",
+   "lang": "en",
+   "title": "GTA 6 Mystery and Global News Bulletin",
+   "dur": 450,
+   "post_id": "1077451088672192"
+  },
+  "sports": {
+   "date": "2026-11-14 00:53",
+   "kind": "long",
+   "lang": "en",
+   "title": "World Sports Roundup: Viddal Riley and Major League Shifts",
+   "dur": 340,
+   "post_id": "1827937185207047"
+  }
+ },
+ "errors": [],
+ "clips_rejected": 1094,
+ "alt_searches": 9,
+ "no_match": [
+  "@BBC",
+  "@Grand Theft Auto VI",
+  "Video game controller",
+  "Digital city skyline",
+  "Gaming computer monitor",
+  "Neon city street",
+  "Gaming studio",
+  "Software code screen",
+  "Handheld gaming device",
+  "Digital character model"
+ ],
+ "headline_cards": 10,
+ "agent_checks": 41,
+ "agent_rejects": 41,
+ "agent_skips": 1039,
+ "time_budget_hit": true
 }

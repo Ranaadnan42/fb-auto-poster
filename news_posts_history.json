@@ -2327,5 +2327,39 @@
   ],
   "sport": null,
   "title": "Kiefer Sherwood Mic'd Up Hockey Action"
+ },
+ {
+  "date": "2026-11-14 02:15",
+  "page": "news",
+  "id": "1077451088672192",
+  "fmt": "long",
+  "lang": "en",
+  "topics": [
+   "uk",
+   "usa",
+   "canada_australia",
+   "business",
+   "science_tech",
+   "africa"
+  ],
+  "sport": null,
+  "title": "GTA 6 Mystery and Global News Bulletin"
+ },
+ {
+  "date": "2026-11-14 02:30",
+  "page": "sports",
+  "id": "1827937185207047",
+  "fmt": "long",
+  "lang": "en",
+  "topics": [
+   "baseball",
+   "cycling",
+   "basketball",
+   "boxing",
+   "american_football",
+   "table_tennis"
+  ],
+  "sport": null,
+  "title": "World Sports Roundup: Viddal Riley and Major League Shifts"
  }
 ]

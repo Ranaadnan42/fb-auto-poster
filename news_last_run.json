@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-13 17:24",
- "lang": "ur",
+ "time_utc": "2026-11-14 00:50",
+ "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1448208791702551_122109532425532804",
-   "topic": "pakistan",
-   "title": "Barrick Mining expresses interest in mineral processing industries in Karachi, Gwadar"
+   "post": "1448208791702551_122109641595532804",
+   "topic": "americas",
+   "title": "A nationwide FAA ground stop halted departing flights across the United States on Friday after a communications outage a"
   },
   "sports": {
-   "post": "1465090056678690_122100540375548502",
-   "topic": "snooker",
-   "title": "Epic celebrations from Brazilian snooker star after tense win to earn pro tour card"
+   "post": "1465090056678690_122100763965548502",
+   "topic": "hockey",
+   "title": "Eight-seed UNC field hockey defeats Miami University, 1-0, to advance to NCAA tournament second round"
   }
  },
  "errors": []
