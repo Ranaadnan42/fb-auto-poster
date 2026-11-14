@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-13 22:47",
+ "time_utc": "2026-11-14 21:39",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "sports": {
-   "key": "c1561264",
+   "key": "c1561267",
    "sport": "cricket",
-   "date": "2026-11-13 22:47",
+   "date": "2026-11-14 21:39",
    "lang": "ur",
-   "match": "Arabian Aces v UAE Bulls",
-   "result": "Arabian Aces won by 8 runs",
-   "dur": 93,
-   "post_id": "1366215805448746"
+   "match": "UAE Bulls v Yas Lions",
+   "result": "UAE Bulls won by 26 runs",
+   "dur": 78,
+   "post_id": "1516008747250555"
   }
  },
  "errors": []
