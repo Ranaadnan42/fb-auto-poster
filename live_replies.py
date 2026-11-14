@@ -151,6 +151,8 @@ Return JSON: {{"reply": "...", "contact": true/false}}""")
 
 def threads_for(acct):
     pid, token = (env(k) for k in FB_ACCOUNTS[acct])
+    import fbtoken
+    token = fbtoken.page_token(pid, token)
     if not (pid and token):
         return None, None, []
     sub = "comments.limit(25){id,from,message,created_time}"

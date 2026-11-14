@@ -123,6 +123,76 @@ def save_history(h):
         json.dump(h, f, ensure_ascii=False, indent=1)
 
 
+
+# ---------------------------------------------------------------- AGENT: asal performance se seekhna
+# Pehle yeh sirf bot tha (fixed baari). Ab har run se pehle pichli pics ke asli reactions + comments + shares
+# Facebook se parhta hai, dekhta hai kaun si qism / mauzoo zyada chala, aur agli pic usi hisab se chunta hai
+# (jo chala wo zyada, jo nahi chala kam - band kabhi nahi, 25% naye tajurbe bhi). Behtareen aur kamzor posts
+# AI ko misaal ke taur par dikhata hai taake wo sabaq le kar likhe.
+def learn(page, hist):
+    P = PAGES.get(page) or {}
+    tok = P.get("token")
+    if not tok:
+        return
+    try:
+        import fbtoken
+        tok = fbtoken.page_token(P.get("id"), tok)
+    except Exception:
+        pass
+    now = time.time()
+    for m in hist.get(page, [])[-40:]:
+        pid = m.get("post_id")
+        if not pid:
+            continue
+        try:
+            age = now - datetime.datetime.strptime(m["date"], "%Y-%m-%d %H:%M").timestamp()
+        except Exception:
+            age = 99 * 86400
+        if age < 18 * 3600 or (m.get("eng_at") and now - m["eng_at"] < 2 * 86400) or age > 20 * 86400 and "eng" in m:
+            continue
+        try:
+            j = requests.get(f"https://graph.facebook.com/{GRAPH_VER}/{pid}", timeout=30, params={
+                "access_token": tok,
+                "fields": "reactions.summary(true).limit(0),comments.summary(true).limit(0),shares"}).json()
+            if "error" in j:
+                continue
+            m["eng"] = (j.get("reactions", {}).get("summary", {}).get("total_count", 0)
+                        + 3 * j.get("comments", {}).get("summary", {}).get("total_count", 0)
+                        + 5 * (j.get("shares") or {}).get("count", 0))
+            m["eng_at"] = now
+        except Exception:
+            pass
+
+
+def agent_pick(page, hist, key, options, slot_seed=0):
+    """Jo qism zyada chali us ko zyada mauqa; 25% baari naya tajurba. Koi data na ho to purani baari."""
+    rows = [m for m in hist.get(page, []) if "eng" in m and m.get(key)]
+    if len(rows) < 6:
+        return options[(len(hist.get(page, [])) + slot_seed) % len(options)]
+    if random.random() < 0.25:
+        return random.choice(options)
+    avg = sum(m["eng"] for m in rows) / len(rows) or 1
+    score = {}
+    for o in options:
+        g = [m["eng"] for m in rows if m.get(key) == o]
+        score[o] = max(0.4, min(3.0, (sum(g) / len(g)) / avg)) if g else 1.0
+    recent = [m.get(key) for m in hist.get(page, [])[-2:]]
+    for o in options:
+        if o in recent:
+            score[o] *= 0.5          # wohi cheez baar baar nahi
+    return random.choices(options, weights=[score[o] for o in options])[0]
+
+
+def agent_lessons(page, hist, fields):
+    rows = [m for m in hist.get(page, []) if "eng" in m]
+    if len(rows) < 6:
+        return ""
+    rows.sort(key=lambda m: -m["eng"])
+    show = lambda ms: json.dumps([{f: m.get(f) for f in fields} | {"score": m["eng"]} for m in ms], ensure_ascii=False)
+    return (f"\nLEARN from this page's REAL results (score = reactions + comments + shares).\n"
+            f"Best posts (make the new one even better in this direction): {show(rows[:5])}\n"
+            f"Weakest posts (avoid what made these flop): {show(rows[-4:])}\n")
+
 # ---------------------------------------------------------------- background image
 ISLAMIC_BLOCK = {"woman", "women", "girl", "girls", "lady", "female", "model", "yoga", "meditation", "fitness",
                  "workout", "exercise", "beauty", "fashion", "makeup", "bride", "couple", "romance", "kiss",
@@ -212,7 +282,7 @@ def fit_size(text, base, per_char, lo):
 # ---------------------------------------------------------------- Islamic quote card
 def islamic_post(hist):
     lang = "en" if SLOT == "2" else "ur"
-    kind = ISLAMIC_KINDS[len(hist["islamic"]) % len(ISLAMIC_KINDS)]
+    kind = agent_pick("islamic", hist, "kind", ISLAMIC_KINDS)
     used = [h["text"][:80] for h in hist["islamic"][-80:]]
     lang_rule = ("simple heart-touching URDU in Urdu script (not Roman), address reader as آپ, "
                  "write صلی اللہ علیہ وسلم after the Prophet's name"
@@ -223,6 +293,7 @@ Do NOT repeat these earlier posts: {json.dumps(used, ensure_ascii=False)}
 Accuracy: only well known, authentic Quran verses / Sahih hadith, translated meaning only (no Arabic text).
 Give the exact reference (e.g. Surah Al-Baqarah 2:286, Sahih Bukhari). If not 100% sure, write a
 naseehat instead and leave reference empty. No politics, no sectarian topics, never invent quotes.
+{agent_lessons("islamic", hist, ["kind", "lang", "text"])}
 Return JSON:
 {{"label": "2-3 word heading in the same language (e.g. قرآن کا پیغام / Hadith of the day)",
  "text": "the main quote, max 28 words",
@@ -260,8 +331,8 @@ Return JSON:
 
 # ---------------------------------------------------------------- Funny meme
 def funny_post(hist):
-    animal = ANIMALS[(len(hist["funny"]) * 5 + int(SLOT)) % len(ANIMALS)]
-    topic = FUNNY_TOPICS[(len(hist["funny"]) * 3) % len(FUNNY_TOPICS)]
+    animal = agent_pick("funny", hist, "animal", ANIMALS, int(SLOT) * 5)
+    topic = agent_pick("funny", hist, "topic", FUNNY_TOPICS)
     bg = os.path.join(WORK, "funny_bg.jpg")
     if not pixabay_image([f"funny {animal}", animal, "funny animal"], bg, hist["used_images"], "animals"):
         gradient_bg(bg)
@@ -271,6 +342,7 @@ like it is reacting). Page: "Hansi Ka Adda". Theme: {topic}.
 Write in simple everyday Urdu script (not Roman), clean family-friendly desi humor. No religion,
 no politics, no insults about any group, no vulgarity. Must be relatable and actually funny.
 Do NOT repeat: {json.dumps(used, ensure_ascii=False)}
+{agent_lessons("funny", hist, ["topic", "top", "bottom"])}
 Return JSON:
 {{"top": "setup line, max 12 words (e.g. جب امی کہیں بس پانچ منٹ میں آ رہی ہوں)",
  "bottom": "punchline / animal's reaction, max 10 words"}}""")
@@ -289,19 +361,20 @@ Return JSON:
     out = os.path.join(WORK, "funny_post.jpg")
     render(bg, ass, out, 0.12)
     caption = seo.build(ask_json, "funny", top, f"{top} {bottom}", "ur", is_reel=True)
-    return out, caption, {"animal": animal, "top": top, "bottom": bottom}
+    return out, caption, {"animal": animal, "topic": topic, "top": top, "bottom": bottom}
 
 
 # ---------------------------------------------------------------- Frames Of Life info card
 def frames_post(hist):
     h = hist.setdefault("frames", [])
-    kind = FRAMES_KINDS[len(h) % len(FRAMES_KINDS)]
-    place = FRAMES_PLACES[(len(h) * 7) % len(FRAMES_PLACES)]
+    kind = agent_pick("frames", hist, "kind", FRAMES_KINDS)
+    place = agent_pick("frames", hist, "place", FRAMES_PLACES, 7)
     used = [x["text"][:80] for x in h[-80:]]
     d = ask_json(f"""Create one Facebook image post for the page "Frames Of Life" (life abroad for Pakistanis).
 Type: {kind}. Place: {place}. Language: simple Urdu in Urdu script (not Roman), address reader as آپ.
 Only true, well-known, general facts. Prices/salaries only as rough approximate ranges and say "تقریباً".
 Never promise visas or jobs, no agents, no politics. Do NOT repeat: {json.dumps(used, ensure_ascii=False)}
+{agent_lessons("frames", hist, ["kind", "place", "text"])}
 Return JSON:
 {{"label": "2-4 word Urdu heading (e.g. کیا آپ جانتے ہیں؟ / دبئی میں خرچہ)",
  "text": "the main info, max 30 words",
@@ -353,6 +426,7 @@ def main():
     ok = 0
     for page in PAGES_TO_RUN:
         maker = {"islamic": islamic_post, "funny": funny_post, "frames": frames_post}[page]
+        learn(page, hist)          # agent: pichli pics ki asli performance parho
         for attempt in range(2):
             try:
                 path, caption, meta = maker(hist)

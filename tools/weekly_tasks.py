@@ -20,6 +20,8 @@ import requests
 
 sys.path.insert(0, os.path.dirname(__file__))
 import ghapi      # noqa: E402
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), ".."))
+import fbtoken    # noqa: E402
 
 GRAPH = "https://graph.facebook.com/v23.0"
 PK = dt.timezone(dt.timedelta(hours=5))
@@ -136,6 +138,7 @@ def main():
         pid, token = env(cfg["id"]), env(cfg["tok"])
         if not (pid and token):
             continue
+        token = fbtoken.page_token(pid, token)      # Wander Earth ka secret user token hai -> page token
         t = {**DEFAULT_TARGETS, **(targets.get(name) or {})}
         try:
             photos, reels = count(pid, token, start)

@@ -23,8 +23,20 @@ def _brain_tips(bot):
         "\n".join(f"- {x}" for x in t[:6]) + "\n"
 
 
+# Malik ki pakki hidayat - HAR video agent ke script prompt mein jati hai
+MATCH = """
+OWNER'S FIRM RULE - THE VIDEO MUST SHOW EXACTLY WHAT IS BEING SAID:
+- Every scene's footage/search terms must name the SAME exact thing the narration says at that moment
+  (a dish -> that exact dish of that country; a city -> that city; an animal -> that animal; a mosque -> that mosque).
+- Write narration only about things that can be shown with real stock footage. If something can't be filmed
+  (an abstract idea, a visa rule, a feeling), say it over a concrete visible thing that fits it and name that thing.
+- Never use a generic or unrelated clip just to fill time. If no matching footage exists, change the scene's
+  words to a visible thing that does have footage - viewers leave the moment picture and voice don't match.
+"""
+
+
 def text(bot):
-    return _text(bot) + _brain_tips(bot)
+    return MATCH + _text(bot) + _brain_tips(bot)
 
 
 def _text(bot):

@@ -45,6 +45,8 @@ PERSONA = {
                    "Our POS is used by shops in Saudi Arabia, UAE and Pakistan (works offline, one-time price). "
                    "For price/order questions invite them to WhatsApp. Never invent prices. "
                    "Do NOT write the link or number yourself - they are added automatically below your reply."),
+    "scenic": ("Wander Earth", "calm, warm travel and nature photography page. Name the place shown when asked, "
+               "share simple travel tips, never invent prices or visa rules."),
 }
 
 # Web Builder ke har jawab/comment ke neeche website (clickable) + WhatsApp
@@ -73,6 +75,7 @@ FB_ACCOUNTS = {
     "webbuilder": ("WB_PAGE_ID", "WB_PAGE_TOKEN"),
     "news": ("NEWS_PAGE_ID", "NEWS_PAGE_TOKEN"),
     "sports": ("SPORTS_PAGE_ID", "SPORTS_PAGE_TOKEN"),
+    "scenic": ("SCENIC_PAGE_ID", "SCENIC_PAGE_TOKEN"),
 }
 
 report = []
@@ -301,6 +304,8 @@ def fb_comment(token, obj_id, text):
 
 def run_facebook(acct, st):
     pid, token = (env(k) for k in FB_ACCOUNTS[acct])
+    import fbtoken
+    token = fbtoken.page_token(pid, token)
     if not (pid and token):
         return
     replied = set(st.setdefault("fb_replied", []))

@@ -50,6 +50,8 @@ jobs:
           NEWS_PAGE_TOKEN: ${{ secrets.NEWS_PAGE_TOKEN }}
           SPORTS_PAGE_ID: ${{ secrets.SPORTS_PAGE_ID }}
           SPORTS_PAGE_TOKEN: ${{ secrets.SPORTS_PAGE_TOKEN }}
+          SCENIC_PAGE_ID: ${{ secrets.SCENIC_PAGE_ID }}
+          SCENIC_PAGE_TOKEN: ${{ secrets.SCENIC_PAGE_TOKEN }}
           YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
           YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
           YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}

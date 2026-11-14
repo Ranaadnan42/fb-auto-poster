@@ -55,6 +55,8 @@ jobs:
           NEWS_PAGE_TOKEN: ${{ secrets.NEWS_PAGE_TOKEN }}
           SPORTS_PAGE_ID: ${{ secrets.SPORTS_PAGE_ID }}
           SPORTS_PAGE_TOKEN: ${{ secrets.SPORTS_PAGE_TOKEN }}
+          SCENIC_PAGE_ID: ${{ secrets.SCENIC_PAGE_ID }}
+          SCENIC_PAGE_TOKEN: ${{ secrets.SCENIC_PAGE_TOKEN }}
           LIVE_MINUTES: ${{ inputs.minutes || '345' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
           TEST_TEXT: ${{ inputs.test_text }}
