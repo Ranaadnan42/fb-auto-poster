@@ -1,15 +1,15 @@
 {
- "time_utc": "2026-11-12 19:03",
- "spotlight": "cafe",
- "post_id": "2305920003526283",
+ "time_utc": "2026-11-14 00:21",
+ "spotlight": "restaurant",
+ "post_id": "1174970168215852",
  "error": null,
  "lang": "en",
  "kind": "long",
- "clips": 1,
+ "clips": 2,
  "fallback": 0,
  "errors": [],
  "real_work": 7,
  "mock": 6,
  "real_pos": 5,
- "seconds": 118.0
+ "seconds": 129.1
 }
