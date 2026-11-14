@@ -147,6 +147,18 @@
    "hook": "POV: Finding absolute peace in Italy",
    "clip": "px137822",
    "beauty": 10
+  },
+  {
+   "ts": 1794627717.3954678,
+   "vid": "1847094126326070",
+   "post": "1847094126326070",
+   "kind": "reel",
+   "place": "Lake Pukaki",
+   "country": "New Zealand",
+   "mood": "bright sunny afternoon / turquoise lake & snowy peak",
+   "hook": "Is this water even real?",
+   "clip": "px47163",
+   "beauty": 8
   }
  ],
  "clips": [
@@ -206,7 +218,14 @@
   "px211231",
   "px305657",
   "px67201",
-  "px48483"
+  "px48483",
+  "px47163",
+  "px214594",
+  "px28776",
+  "px139068",
+  "px29983",
+  "px153672",
+  "px7924"
  ],
  "music": [
   "File:Clair de Lune by Claude Debussy (1905, piano solo).opus",
@@ -215,6 +234,7 @@
   "File:Purcell Henry - Abdelazer Suite.ogg",
   "File:Gnossienne 7 (Satie).ogg",
   "File:Satie Gymnopedie No 2 performed by Michael Laucke.flac",
-  "File:Gymnopedie No. 2 (ISRC USUAN1100786).mp3"
+  "File:Gymnopedie No. 2 (ISRC USUAN1100786).mp3",
+  "File:Inleiding National Philharmonic of Russia olv. Vladimir Spivakov (audio).mp3"
  ]
 }
