@@ -25,6 +25,7 @@ import subprocess
 import requests
 
 import wb_mock
+import wb_theme
 import showcase
 
 GRAPH_VER = "v23.0"
@@ -37,6 +38,8 @@ LANG = (os.environ.get("LANGUAGE") or "en").strip().lower()
 if LANG not in ("en", "ur", "ar"):
     LANG = "en"
 LONG = (os.environ.get("KIND") or "reel").strip().lower() == "long"
+THEME = wb_theme.pick("long" if LONG else "reel", LANG)      # har video ka apna rang
+wb_mock.GREEN, wb_mock.DARK = THEME["accent"], THEME["dark"]
 
 SITE = "https://client-hunt-six.vercel.app/"
 SITE_SHORT = SITE.replace("https://", "").rstrip("/")
@@ -355,7 +358,7 @@ def pixabay_clips(query, count, prefix):
 
 
 def fallback_clip(path):
-    c = random.choice([("0x071b14", "0x0f5a3f"), ("0x0b1a33", "0x15603f"), ("0x06231a", "0x0a7a5a")])
+    c = THEME["grad"]
     run(["ffmpeg", "-y", "-f", "lavfi", "-i", f"gradients=s={W}x{H}:c0={c[0]}:c1={c[1]}:speed=0.01:d=15",
          "-pix_fmt", "yuv420p", "-c:v", "libx264", "-preset", "ultrafast", path])
 
@@ -372,7 +375,7 @@ def esc(s):
 
 def make_ass(path, sub_text, label, dur):
     v = H > W
-    GREEN, WHITE = "&H007DC319", "&H00FFFFFF"
+    GREEN, WHITE = THEME["accent_ass"], "&H00FFFFFF"
     head = f"""[Script Info]
 ScriptType: v4.00+
 PlayResX: {W}

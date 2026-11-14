@@ -14,6 +14,14 @@ DEMO = os.path.abspath("demo_img")
 GREEN = (25, 195, 125)
 DARK = (8, 28, 22)
 
+
+def deep():      # header / total dabba - theme rang ka gehra shade
+    return tuple(int(c * 0.32) for c in GREEN)
+
+
+def mid():       # number / title text - theme rang ka darmiyana shade
+    return tuple(int(c * 0.5) for c in GREEN)
+
 # BUSINESSES (wb_video) -> demo_img folder
 FOLDER = {"restaurant": "restaurant", "grocery store": "grocery", "pharmacy": "pharmacy",
           "clothing shop": "fashion", "beauty salon": "salon", "school": "education", "clinic": "clinic",
@@ -90,7 +98,7 @@ def pos_screen(w, h, spot):
     im = Image.new("RGB", (w, h), (244, 247, 246))
     d = ImageDraw.Draw(im)
     u = h / 100
-    d.rectangle((0, 0, w, 9 * u), fill=(10, 60, 45))
+    d.rectangle((0, 0, w, 9 * u), fill=deep())
     d.text((2 * u, 2 * u), "WEB BUILDER POS", font=font(int(4.5 * u)), fill=GREEN)
     d.text((w - 34 * u, 2.6 * u), "Bill # 1048   Cashier: Ali", font=font(int(3 * u)), fill=(220, 235, 230))
     items = ITEMS.get(folder(spot), DEFAULT_ITEMS)
@@ -119,7 +127,7 @@ def pos_screen(w, h, spot):
         bx += bw + 2
     d.text((bx + 2 * u, 83 * u), "Barcode scan", font=font(int(3 * u)), fill=(90, 110, 100))
     x0 = lw + 2 * u
-    rr(d, (x0, 12 * u, w - 2 * u, 40 * u), int(1.5 * u), (10, 60, 45))
+    rr(d, (x0, 12 * u, w - 2 * u, 40 * u), int(1.5 * u), deep())
     d.text((x0 + 3 * u, 15 * u), "TOTAL", font=font(int(3.4 * u)), fill=(200, 230, 215))
     d.text((x0 + 3 * u, 22 * u), f"{total:,}", font=font(int(10 * u)), fill=GREEN)
     for j, (t, c) in enumerate([("PAY  CASH", GREEN), ("PRINT BILL", (40, 120, 220)),
@@ -134,7 +142,7 @@ def report_screen(w, h, spot):
     im = Image.new("RGB", (w, h), (244, 247, 246))
     d = ImageDraw.Draw(im)
     u = h / 100
-    d.rectangle((0, 0, w, 9 * u), fill=(10, 60, 45))
+    d.rectangle((0, 0, w, 9 * u), fill=deep())
     d.text((2 * u, 2 * u), "WEB BUILDER POS  -  Reports", font=font(int(4.5 * u)), fill=GREEN)
     cards = [("Today Sales", f"{random.randint(38, 96)},{random.randint(100, 999)}"),
              ("Profit", f"{random.randint(8, 22)},{random.randint(100, 999)}"),
@@ -144,7 +152,7 @@ def report_screen(w, h, spot):
         x = 2 * u + i * (cw + 2 * u)
         rr(d, (x, 12 * u, x + cw, 30 * u), int(1.5 * u), (255, 255, 255))
         d.text((x + 2 * u, 14 * u), t, font=font(int(3 * u)), fill=(90, 110, 100))
-        d.text((x + 2 * u, 20 * u), v, font=font(int(6 * u)), fill=(10, 90, 60) if i != 3 else (220, 90, 40))
+        d.text((x + 2 * u, 20 * u), v, font=font(int(6 * u)), fill=mid() if i != 3 else (220, 90, 40))
     rr(d, (2 * u, 33 * u, w * 0.62, 97 * u), int(1.5 * u), (255, 255, 255))
     d.text((4 * u, 35 * u), "Daily Sales - This Week", font=font(int(3.2 * u)), fill=(60, 80, 70))
     days = ["Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun"]
@@ -162,7 +170,7 @@ def report_screen(w, h, spot):
         st = random.randint(2, 140)
         d.text((x0 + 2 * u, y), it[:16], font=font(int(2.9 * u)), fill=(25, 40, 35))
         d.text((w - 12 * u, y), str(st), font=font(int(2.9 * u)),
-               fill=(220, 90, 40) if st < 10 else (10, 90, 60))
+               fill=(220, 90, 40) if st < 10 else mid())
     return im
 
 
@@ -177,7 +185,7 @@ def web_screen(w, h, spot, title):
     d.text((16 * u, 1.6 * u), f"www.{''.join(title.lower().split())[:18]}.com", font=font(int(2.4 * u)),
            fill=(90, 100, 95))
     d.rectangle((0, 6 * u, w, 14 * u), fill=(255, 255, 255))
-    d.text((3 * u, 7.8 * u), title, font=font(int(3.8 * u)), fill=(10, 90, 60))
+    d.text((3 * u, 7.8 * u), title, font=font(int(3.8 * u)), fill=mid())
     nav = ["Home", "Menu" if folder(spot) in ("restaurant", "cafe", "bakery") else "Products", "About", "Contact"]
     for i, n in enumerate(nav):
         d.text((w - (len(nav) - i) * 14 * u, 8.6 * u), n, font=font(int(2.8 * u)), fill=(60, 70, 65))
@@ -207,7 +215,7 @@ def app_screen(w, h, spot, title):
     im = Image.new("RGB", (w, h), (246, 248, 247))
     d = ImageDraw.Draw(im)
     u = w / 100
-    d.rectangle((0, 0, w, 30 * u), fill=(10, 60, 45))
+    d.rectangle((0, 0, w, 30 * u), fill=deep())
     d.text((6 * u, 8 * u), title[:18], font=font(int(7 * u)), fill=(255, 255, 255))
     rr(d, (6 * u, 18 * u, w - 6 * u, 26 * u), int(4 * u), (255, 255, 255))
     d.text((10 * u, 19.6 * u), "Search...", font=font(int(4 * u)), fill=(140, 150, 145))

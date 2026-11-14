@@ -25,6 +25,7 @@ import subprocess
 import requests
 
 import wb_mock
+import wb_theme
 import showcase
 
 # ------------------------------------------------------------- config
@@ -71,6 +72,9 @@ if LANG not in ("en", "ur", "ar"):
     LANG = "en"
 RTL = LANG in ("ur", "ar")      # Urdu aur Arabic dono daayen se baayen
 UR_FONT = "Noto Naskh Arabic"
+
+THEME = wb_theme.pick("pic", LANG)      # har post ka apna rang
+wb_mock.GREEN, wb_mock.DARK = THEME["accent"], THEME["dark"]
 
 # Har promo = ek offer. Pic "ad" ki shakal mein: upar brand + headline, beech mein
 # us cheez ki asal tasveer (POS machine / laptop website / phone app), neeche
@@ -319,8 +323,7 @@ def product_pic(focus, path):
 
 
 def gradient_bg(path):
-    c = random.choice([("0x071b14", "0x0f5a3f"), ("0x0b1a33", "0x15603f"),
-                       ("0x06231a", "0x0a7a5a"), ("0x0a1f14", "0x12805a")])
+    c = THEME["grad"]
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i",
                     f"gradients=s={W}x{H}:c0={c[0]}:c1={c[1]}:d=1", "-frames:v", "1", path],
                    check=True)
@@ -390,9 +393,9 @@ def render(photo, ass_path, out):
     fonts = FONTS_DIR.replace("\\", "/").replace(":", "\\:")
     ass = os.path.abspath(ass_path).replace("\\", "/").replace(":", "\\:")
     fc = (f"[0:v]scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},"
-          f"boxblur=22:2,drawbox=x=0:y=0:w=iw:h=ih:color=0x04140e@0.78:t=fill[bg];"
+          f"boxblur=22:2,drawbox=x=0:y=0:w=iw:h=ih:color={THEME['tint']}@0.78:t=fill[bg];"
           f"[0:v]scale={PIC_W}:{PIC_H}:force_original_aspect_ratio=increase,crop={PIC_W}:{PIC_H},"
-          f"pad={PIC_W + 12}:{PIC_H + 12}:6:6:color=0x19C37D[pic];"
+          f"pad={PIC_W + 12}:{PIC_H + 12}:6:6:color=0x{THEME['accent_hex']}[pic];"
           f"[bg][pic]overlay={PIC_X - 6}:{PIC_Y - 6},ass='{ass}':fontsdir='{fonts}'[v]")
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-loop", "1", "-i", photo, "-t", "1",
                     "-filter_complex", fc, "-map", "[v]", "-frames:v", "1", "-q:v", "2", out],
@@ -406,10 +409,10 @@ def make_card(promo, used_images):
     t = promo[LANG]
     ur = RTL
     F = UR_FONT if ur else EN_FONT
-    GREEN = "&H007DC319"      # Web Builder green (BGR)
-    YELLOW = "&H0000C8FF"
+    GREEN = THEME["accent_ass"]      # is post ka theme rang (BGR)
+    YELLOW = THEME["accent2_ass"]
     WHITE = "&H00FFFFFF"
-    DARK = "&H00140E04"
+    DARK = THEME["dark_ass"]
     LIGHT = "&H00E6E6E6"
     k = 1.4 if ur else 1.0      # Naskh font apni line-height ki wajah se chhota dikhta hai
     sz = lambda n: int(n * k)
