@@ -1,14 +1,11 @@
 {
  "open_fixes": [],
- "time_utc": "2026-11-14 10:42",
- "summary": "Wander Earth ki do fail runs AI quota / temporary timeout ki wajah se huin, inko dobara chala (rerun) diya gaya hai. Frames of Life mein footage agent world.py ke tehat automated tarike se handles hota hai.",
- "notes": [
-  "pichhla fix (1b6bfed) kaam kar gaya: Ensuring return type consistency for total duration in long_film to prevent potential type errors."
- ],
- "actions": [
-  "run 43534542918 (Wander Earth (Scenic Agent) [48 19 * * *]) dobara chalaya",
-  "run 43522297235 (Wander Earth (Scenic Agent) [33 17 * * *]) dobara chalaya"
- ],
+ "time_utc": "2026-11-14 19:58",
+ "summary": "AI quota khatam hone ki wajah se Frames of Life ki footage check nahi hui, owner ko quota reset karna hoga.",
+ "notes": [],
+ "actions": [],
  "edits": [],
- "needs_owner": []
+ "needs_owner": [
+  "Frames of Life footage agent ke liye AI quota reset ya increase karen"
+ ]
 }

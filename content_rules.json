@@ -1,104 +1,111 @@
 {
  "islamic": {
   "avoid": [
-   "Value of time theme",
-   "Hope after sadness theme"
+   "نبی کریم کا واقعہ"
   ],
   "try": [
-   "Bilal ibn Rabah’s perseverance and the call to prayer",
-   "Hadith: The reward of a sincere smile",
-   "The Battle of Badr: Trust in Allah and collective victory",
-   "Prophet Ayyub (Job) and the lesson of extreme patience",
-   "Quranic verse on gratitude (Ayat al‑Shukr) and its blessings",
-   "Companion Sa'd ibn Abi Waqqas’s generosity with food"
+   "Bilal ibn Rabah ki sabr aur azm ki kahani",
+   "Prophet Muhammad ki chand ko split karne ki mu'jiza ka sabak",
+   "Muezza billi ki kahani: Nabi ﷺ ki meharbani aur pyaar",
+   "Isra aur Mi'raj ka safar aur uske roohani faide",
+   "Sa'd ibn Abi Waqqas ki humility aur jihad ki kahani",
+   "Nabi ﷺ ki ek ghareeb aurat ko dene wali generosity ki waqi'a"
   ],
-  "note": "Page bohat repeat ho rahi hai, nayi kahaniyan zaroori hain."
+  "note": "Page thodi repetitive lag rahi hai"
  },
  "funny": {
   "avoid": [
-   "ماموں مستانہ کا ڈائٹ ڈرامہ series",
    "یاروں کی گروپ چیٹ اور شمالی علاقہ جات series",
-   "a middle-class abbu's logic style",
-   "a motivational speaker giving terrible advice style",
-   "sarcastic narrator roasting the situation (gently) style"
+   "ابّا کی بارگیننگ یا لاجک jokes",
+   "ریموٹ کنٹرول کی جنگ کا موضوع",
+   "Eid شاپنگ کے واقعات",
+   "Har ghar expectation vs reality انداز"
   ],
   "try": [
-   "online grocery delivery ka ghalat address confusion",
-   "school exam stress aur parents ki overprotective advice",
-   "DIY home repair mein pipe leak ka comic disaster",
-   "mobile data outage se family ki group chat drama",
-   "new streaming service subscription ka family debate"
+   "نیا موبائل ڈیٹا پلان پر خاندان کی بحث",
+   "پڑوس کی بیکری میں نئی پیزا کی آزمائش",
+   "سائیکل سے ٹیکسی تک کا سفر اور ڈرائیور کی کہانیاں",
+   "پڑوسی کی نئی سمارٹ واچ اور اس کے فنکشنز پر ہنسی",
+   "آن لائن کلاس میں انٹرنیٹ ڈراپ اور استاد کا ردعمل",
+   "گھر میں نئی ایئر کنڈیشنر کی انسٹالیشن اور ٹیکنیشن کی باتیں"
   ],
-  "note": "Page thodi repetitive lag rahi hai, especially series aur style mein."
+  "note": "Page thora repetitive lag raha hai."
  },
  "world": {
   "avoid": [
-   "What Nobody Tells You"
+   "Japan",
+   "Thailand",
+   "Vietnam",
+   "New Zealand",
+   "Sydney, Australia",
+   "What Nobody Tells You title phrasing"
   ],
   "try": [
-   "Living in Norway: Cost of Living, Safety & Quality of Life",
-   "Moving to Kenya: What Nobody Tells You about Daily Life",
-   "Chile vs Argentina: Cost of Living, Culture & Lifestyle Comparison",
-   "Exploring Malta: History, Lifestyle and Affordable Living",
-   "Living in Iceland: Jobs, Safety & Everyday Life",
-   "Bangkok vs Ho Chi Minh City: Expat Lifestyle Showdown"
+   "Living in Morocco: The Real Cost of the Medina Life",
+   "Iceland vs Norway: Which Nordic Country is Better for Expats?",
+   "Daily Life in Cairo: Navigating the Chaos and Culture",
+   "Moving to Lisbon vs Porto: The Honest Truth for Digital Nomads",
+   "Life in Buenos Aires: Safety, Food & Nightlife Reality Check",
+   "The Hidden Gems of Eastern Europe: Poland & Czechia Deep Dive"
   ],
-  "note": "Page thodi repetitive lag rahi hai."
+  "note": "Page is repetitive with 'What Nobody Tells You' titles and frequent focus on SE Asia and retirement niches."
  },
  "world_short": {
   "avoid": [
-   "5 Secret Places in Italy",
-   "Would You Live in Lisbon, Portugal?",
    "Japan",
-   "Italy",
-   "France"
+   "South Korea",
+   "Australia",
+   "5 Secret Places in",
+   "London"
   ],
   "try": [
-   "What Life Really Costs in Dubai",
-   "5 Secret Places in South Africa",
-   "Traditional Food of Brazil",
-   "Hidden Gems in Seoul",
-   "Would You Live in Toronto?",
-   "6 Surprising Facts About Germany"
+   "Traditional Food of Brazil: 5 Must-Try Dishes",
+   "Singapore vs Hong Kong: Wages and Lifestyle Compared",
+   "Hidden Gems in Iceland You Never Knew Existed",
+   "What Life Really Costs in Portugal | Honest Living Guide",
+   "6 Amazing Facts About Morocco You Didn't Know",
+   "Denmark vs Sweden: Cost of Living and Wages Revealed"
   ],
-  "note": "Page bohat repetitive hai."
+  "note": "Page titles aur Japan ke content mein kaafi repetitive ho raha hai, naye locations aur fresh wording try karein."
  },
  "frames": {
   "avoid": [
-   "Dubai aur UAE par dubara video",
-   "Canada mein Pakistani zindagi",
-   "Title mein 'کیسے لگتا ہے' ka baar baar istemal"
+   "Japan",
+   "Dubai",
+   "Canada",
+   "kaise lagta hai",
+   "ki sachi haqeeqat"
   ],
   "try": [
-   "Azerbaijan (Baku) mein Pakistaniyon ke liye tourism aur visa ki haqeeqat",
-   "Norway mein education aur jobs: Pakistaniyon ke liye mukammal guide",
-   "New Zealand mein zindagi aur PR hasil karne ka tareeqa",
-   "Oman mein naukri aur rehaysh: Dubai se kitna muftalif hai?",
-   "Switzerland Documentary: Duniya ke sab se ameer mulk ki asliyat",
-   "Thailand mein Pakistaniyon ke liye business aur visa ki tafseelat"
+   "Portugal Job Seeker Visa and Life",
+   "Life in Norway: Salaries and Weather",
+   "Thailand Tourism and Visa Guide for Pakistanis",
+   "New Zealand Migration and Job Market",
+   "Finland Education and Student Life",
+   "Ireland Work Permit and Living Costs"
   ],
-  "note": "Page par popular European aur Gulf mumalik kaafi repeat ho chuke hain, ab naye mumalik par focus karna behtar hoga."
+  "note": "Page ka format kaafi consistent hai lekin visa guides aur popular countries bar bar repeat ho rahi hain, naye regions explore karna behtar hoga."
  },
  "frames_short": {
   "avoid": [
-   "New Zealand"
+   "5 items list"
   ],
   "try": [
-   "Bhutan: 5 Unique Cultural Traditions",
-   "Mongolia: Life and Earnings in Ulaanbaatar",
-   "Iceland: 5 Hidden Gems for Travelers",
-   "Philippines: Cost of Living in Manila 2026",
-   "Kenya: 5 Must-Try Local Foods",
-   "Ethiopia: How to Find a Job in Addis Ababa"
+   "Bangladesh: 5 surprising facts about Dhaka",
+   "Cost of Living in Lagos, Nigeria 2026",
+   "Job Opportunities in Nairobi: 5 Tips for Pakistanis",
+   "Hidden Places in Cape Town: 5 Must-See Spots",
+   "Food Guide: 5 Traditional Dishes of Marrakech",
+   "Visa Tips for Pakistanis to Travel to Iceland: 5 Important Points"
   ],
-  "note": "Page thodi repetitive lag rahi hai."
+  "note": "Page thodi repetitive hai, lekin abhi bhi nayi cheezein shamil ki ja sakti hain."
  },
  "_platforms": {
   "islamic": {
    "posts": 10,
-   "facebook": 6,
+   "facebook": 7,
    "youtube": 10,
-   "tiktok": 4
+   "tiktok": 5
   },
   "funny": {
    "posts": 10,

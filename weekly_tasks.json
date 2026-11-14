@@ -1,32 +1,38 @@
 {
- "at": "2026-11-14T10:48+00:00",
- "week_start": "2026-11-08",
- "deadline_pk": "2026-11-14T00:00+05:00",
- "targets_fresh": true,
+ "at": "2026-11-14T19:59+00:00",
+ "week_start": "2026-11-15",
+ "deadline_pk": "2026-11-21T00:00+05:00",
+ "targets_fresh": false,
  "pages": {
   "islamic": {
-   "photos": "30/30",
-   "reels": "28/10",
-   "stories": "3/7",
-   "extra": []
+   "photos": "0/36",
+   "reels": "0/12",
+   "stories": "0/7",
+   "extra": [
+    "reels: 1 extra chala di (kami 2)"
+   ]
   },
   "funny": {
-   "photos": "37/30",
-   "reels": "27/9",
-   "stories": "4/7",
-   "extra": []
+   "photos": "0/36",
+   "reels": "0/11",
+   "stories": "0/7",
+   "extra": [
+    "photos: 1 extra chala di (kami 11)"
+   ]
   },
   "frames": {
-   "photos": "6/0",
-   "reels": "23/0",
-   "stories": "3/7",
+   "photos": "0/0",
+   "reels": "0/0",
+   "stories": "0/7",
    "extra": []
   },
   "webbuilder": {
-   "photos": "30/30",
-   "reels": "36/9",
-   "stories": "9/7",
-   "extra": []
+   "photos": "0/36",
+   "reels": "0/11",
+   "stories": "0/7",
+   "extra": [
+    "photos: 1 extra chala di (kami 21)"
+   ]
   },
   "scenic": {
    "error": "(#210) A page access token is required to request this resource."
