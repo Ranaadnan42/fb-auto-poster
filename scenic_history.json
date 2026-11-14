@@ -228,6 +228,18 @@
    "country": "Austria",
    "mood": "long film",
    "hook": "Austria 4K - Sunny Alps, Green Lakes & Valleys | Relaxing Nature Film"
+  },
+  {
+   "ts": 1794699400.726496,
+   "vid": "4649512522038431",
+   "post": "4649512522038431",
+   "kind": "reel",
+   "place": "Sete Cidades, São Miguel Island",
+   "country": "Portugal",
+   "mood": "bright sunny afternoon over green volcanic craters",
+   "hook": "Is this the edge of Earth?",
+   "clip": "px151218",
+   "beauty": 9
   }
  ],
  "clips": [
@@ -349,7 +361,12 @@
   "px43616",
   "px119236",
   "px45569",
-  "px4717"
+  "px4717",
+  "px151218",
+  "px344380",
+  "px376883",
+  "px149737",
+  "px204543"
  ],
  "music": [
   "File:Clair de Lune by Claude Debussy (1905, piano solo).opus",
@@ -362,6 +379,7 @@
   "File:Inleiding National Philharmonic of Russia olv. Vladimir Spivakov (audio).mp3",
   "File:Claude Debussy - Première Arabesque - Patrizia Prati.ogg",
   "File:Fryderyk Chopin - Nocturne op. 32 n.2 As-dur - Patrizia Prati.ogg",
-  "File:Satie Gymnopedie No 1 performed by Michael Laucke.flac"
+  "File:Satie Gymnopedie No 1 performed by Michael Laucke.flac",
+  "File:Claude Debussy - 2nd Arabesque (JMC, Han).oga"
  ]
 }
