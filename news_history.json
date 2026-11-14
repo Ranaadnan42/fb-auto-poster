@@ -758,6 +758,23 @@
     "weight"
    ],
    "post_id": "1448208791702551_122109759765532804"
+  },
+  {
+   "date": "2026-11-14 08:52",
+   "lang": "ur",
+   "topic": "americas",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxOS1F1U1pLV0V3dTVlT1RnSGF1dlJERU1sbkN5X2pMUmlPSFVoZkZaTmlRM3plQmZJQTBBaXdMQnZpbm1PV2NfajFvclpsUWE2VlhwZ3ZlcjVkNG1CbUVxMW9jempQY3VtVlNSUU11c3hGLU9GYk82N0cxT1BBQTZkbWs4VQ?oc=5",
+   "title": "F.A.A. Ends Nationwide Ground Stop but Delays Persist",
+   "words": [
+    "delays",
+    "ends",
+    "ground",
+    "nationwide",
+    "persist",
+    "stop"
+   ],
+   "breaking": true,
+   "post_id": "1448208791702551_122109769083532804"
   }
  ],
  "sports": [
@@ -1500,6 +1517,29 @@
     "ride"
    ],
    "post_id": "1465090056678690_122100960171548502"
+  },
+  {
+   "date": "2026-11-14 08:52",
+   "lang": "ur",
+   "topic": "cricket",
+   "link": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxNRTJXeHRJRVZIbFo2bUlYejBWc3F6ZWNzT19oNVNmRGhtZUp1UlBPZUd5SUh4aVBpRnJrWmwtc2hjOTVUM25hbS1MY3YtaVZtZjhBaTJJRDJyZnFoMTVtX183MEdmd25ybFo4Z3J6OWE0SV9Ia181dW8xZFdYY1VRNDg3NWhBQUo5cnpFcVQ5SXh5VDhGYXROcHBZZjFMZUttY3QycWo3OXdyek93cWw1c2NLUEhxYjVlajFQc3pmWnpsZjc0NWtONFFyYlktU09pOGZsY2xYbjF0Slg3ajkxREFDaExRTkhX?oc=5",
+   "title": "Sandpapergate: David Warner claims Cricket Australia's investigation into 2018 scandal 'stinks of a cover-up'",
+   "words": [
+    "2018",
+    "australia",
+    "claims",
+    "cover",
+    "cricket",
+    "david",
+    "into",
+    "investigation",
+    "sandpapergate",
+    "scandal",
+    "stinks",
+    "warner"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122100974883548502"
   }
  ],
  "used_images": [
@@ -1550,6 +1590,7 @@
   "pxi1379715",
   "pxi1537470",
   "pxi1215279",
-  4500761
+  4500761,
+  "pxi1822133"
  ]
 }
