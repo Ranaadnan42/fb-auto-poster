@@ -817,6 +817,29 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122109873153532804"
+  },
+  {
+   "date": "2026-11-14 15:05",
+   "lang": "ur",
+   "topic": "pakistan",
+   "link": "https://news.google.com/rss/articles/CBMiygFBVV95cUxOaU1FdmY5UmstZ1NranZCZEs0V0xub3dIcy1fSUpXWmNxUzJ2N202NmtQaTRkWnJlV3VNVmN5R2lIU29aS3VTVGFTS3l6Z2p0aXNYQjl3SzcxWXFId1lkelZMcWJrUUVLS1J2bnBSaHk0SXVSNTUzRXpTOV9WUXl0ZDdZWnZQWlJBazR3YzdkTjc5N2MtbGNxWXl2TFgwOERxTXZtRDRxd0NUZkJpS0x1cHRzM244NEE3djJZaW9wUl9wMWZadTJkOUpR?oc=5",
+   "title": "India Beat Pakistan in U19 Asia Cup Final: How Mohit Ulva Sealed a Last-Ball, One-Wicket Thriller",
+   "words": [
+    "asia",
+    "ball",
+    "beat",
+    "final",
+    "india",
+    "last",
+    "mohit",
+    "pakistan",
+    "sealed",
+    "thriller",
+    "ulva",
+    "wicket"
+   ],
+   "breaking": true,
+   "post_id": "1448208791702551_122109874413532804"
   }
  ],
  "sports": [
@@ -1630,6 +1653,32 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122101191249548502"
+  },
+  {
+   "date": "2026-11-14 15:05",
+   "lang": "ur",
+   "topic": "big_events",
+   "link": "https://news.google.com/rss/articles/CBMiggFBVV95cUxPaUt0ZUNuNUM0a1ZzMUZpZXRHZ3JKdjZWSzlrRnRNanJLZ1NZckZpUE5BYzBEbXkzRHVreDhMUDNrMTlaWUcyQlUxcWcwRUpyNXFsT2FtbnZzMWZ5WUNKckZxWkg3dFA3Mkw1dE5LbjU4OHYzdUdrN182ZUxjWkZuaWRR?oc=5",
+   "title": "Alpine skiing World Cup 2026-27: Emma Aicher claims first career slalom win with Mikaela Shiffrin absent in Levi",
+   "words": [
+    "2026",
+    "absent",
+    "aicher",
+    "alpine",
+    "career",
+    "claims",
+    "emma",
+    "first",
+    "levi",
+    "mikaela",
+    "shiffrin",
+    "skiing",
+    "slalom",
+    "with",
+    "world"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122101194411548502"
   }
  ],
  "used_images": [
@@ -1684,6 +1733,7 @@
   "pxi1822133",
   1553977,
   "pxi1563858",
-  262180
+  262180,
+  227561
  ]
 }
