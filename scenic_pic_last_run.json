@@ -1,22 +1,26 @@
 {
- "started": "2026-11-12T21:53",
+ "started": "2026-11-14T00:37",
  "steps": [
-  "brain gemini-3.5-flash: 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand",
-  "brain gemini-3.8-flash: 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand",
-  "agent ka faisla: Lauterbrunnen, Switzerland - misty sunrise (Classic visual powerhouse; misty alpine valleys consistently stop the scroll.)",
-  "is jagah ki koi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "brain gemini-3.5-flash: 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand",
-  "brain gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeo",
-  "agent ka faisla: Reine, Lofoten Islands, Norway - misty sunrise (Epic fjords and misty peaks drive massive scroll-stopping engagement.)",
-  "photo wmi71701790 1920x1207: ok=True beauty=9 - Stunning atmospheric snowy Lofoten mountain view",
-  "DRY RUN - post nahi kiya"
+  "token: user token expires_at=0 data_access_expires_at=1801949831",
+  "token: user token tha - page token bana kar istemal kiya",
+  "brain gemini-3.8-flash: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "brain gemini-3.6-flash: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "agent ka faisla: Isle of Skye, Scotland, United Kingdom - bright green morning over dramatic cliffs (Scotland's dramatic green cliffs are a viral contrast to previous Alpine meadows.)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "agent ka faisla: Mount Cook National Park, New Zealand - sunny summer morning with turquoise lakes and snowy peaks (High contrast turquoise water and snowy peaks ensure immediate scrolling stop.)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "brain gemini-3-flash-preview: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "brain gemini-2.5-flash: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash is no longer ",
+  "agent ka faisla: Skógafoss, South Iceland, Iceland - bright sunny afternoon waterfall and green cliffs (Iconic waterfall in brilliant sunshine guarantees instant visual stopping power.)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "agent ka faisla: Valensole Plateau, Provence, France - bright sunny lavender fields (Vibrant purple and yellow contrast under bright summer sun drives massive engagement.)",
+  "photo wmi1001727 1920x1440: ok=True beauty=7 - Bright lavender fields in Provence, France.",
+  "photo wmi1001734 1920x1440: ok=True beauty=5 - Dull lighting, brownish soil, lacks vibrant colors.",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai"
  ],
- "errors": [],
+ "errors": [
+  "fatal: 4 jagahon par bhi achi footage nahi mili"
+ ],
  "mode": "pic",
- "place": "Reine, Lofoten Islands",
- "country": "Norway",
- "caption": "Where ancient peaks rise directly from glassy waters, wrapped in a blanket of silent morning mist.\n\n📍 Reine, Lofoten Islands 🇳🇴\n\nWhere ancient peaks meet glassy waters in complete silence... 🏔️✨\n\nExperience the quiet magic of an iconic Lofoten fishing village wrapped in Norway fjord sunrise mist. A breathtaking Norway arctic landscape showcasing the best of Lofoten Islands mountains and fjords.\n\nWho would you love to watch this peaceful misty sunrise with?\n\nFollow for the most beautiful places on Earth in Ultra HD 🌍\n\n#WanderEarth #reinelofoten #lofotenislands #norwaynature #norwayfjords #arcticlandscape #travelnorway #nature #travel #landscape",
- "clip": "wmi71701790",
- "beauty": 9,
- "finished": "2026-11-12T21:57"
+ "finished": "2026-11-14T00:38"
 }
