@@ -171,6 +171,18 @@
    "hook": "Is this place even real?",
    "clip": "px224821",
    "beauty": 10
+  },
+  {
+   "ts": 1794673366.879767,
+   "vid": null,
+   "post": "1345688241970452_122101273623547841",
+   "kind": "pic",
+   "place": "Lake Tekapo, South Island",
+   "country": "New Zealand",
+   "mood": "bright sunny afternoon with blooming purple lupins and turquoise lake",
+   "hook": "POV: Summer in New Zealand",
+   "clip": "wmi138722091",
+   "beauty": 9
   }
  ],
  "clips": [
@@ -241,7 +253,8 @@
   "px224821",
   "px48601",
   "px177599",
-  "px48602"
+  "px48602",
+  "wmi138722091"
  ],
  "music": [
   "File:Clair de Lune by Claude Debussy (1905, piano solo).opus",
