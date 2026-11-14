@@ -526,20 +526,59 @@ def post_photo(path, caption):
     return pid
 
 
+def load_plan():
+    """wb_brain.py (agent) ka seekha hua plan - kaun sa product / rang zyada chal raha hai."""
+    try:
+        with open("webbuilder_brain.json", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
 def pick_promo(hist):
     if FORCE_FOCUS:
         for p in PROMOS:
             if p["focus"] == FORCE_FOCUS:
                 return p
-    # har zubaan apni baari se chare products ghumaye (aaj Urdu POS, English website ... )
-    n = sum(1 for p in hist.get("posts", []) if p.get("lang", "en") == LANG)
-    if LANG == "ar":
-        # Arabic (Saudi/UAE) - har doosra din POS
-        order = ["pos", "website", "pos", "app", "pos", "store", "pos", "autopilot"]
-        want = order[n % len(order)]
-        return next(p for p in PROMOS if p["focus"] == want)
-    off = 0 if LANG == "en" else 2
-    return PROMOS[(n + off) % len(PROMOS)]
+    # AGENT: jo product (focus) zyada views / reactions la raha hai wo zyada, magar sab chalte rahen;
+    # pichli 2 pics (is zubaan ki) wala product dobara nahi - har pic alag
+    mult = load_plan().get("focus_mult") or {}
+    mine = [p.get("focus") for p in hist.get("posts", []) if p.get("lang", "en") == LANG]
+    recent = set(mine[-2:])
+    opts = [p for p in PROMOS if p["focus"] not in recent] or PROMOS
+    w = []
+    for p in opts:
+        x = float(mult.get(p["focus"], 1.0))
+        if LANG == "ar" and p["focus"] == "pos":
+            x *= 2.5        # Arabic (Saudi/UAE) - POS sab se zyada
+        w.append(max(x, 0.2))
+    pick = random.choices(opts, weights=w)[0]
+    log(f"Agent: is dafa '{pick['focus']}' (weights {dict(zip([o['focus'] for o in opts], [round(x, 2) for x in w]))})")
+    return pick
+
+
+def self_check(path, promo):
+    """AGENT apna kaam khud dekhta hai: bani hui pic AI (Groq vision) ko dikhata hai.
+    Wapas: (theek hai?, masla). Vision na chale to (True, '') - post pehle ki tarah jaye."""
+    try:
+        import groq_vision
+        with open(path, "rb") as f:
+            img = f.read()
+        j = groq_vision.ask_json([img], f"""You are the quality checker of the Facebook page "{PAGE_NAME}" that sells
+websites, mobile apps, POS software and AI social-media automation to businesses. This is the promo image
+about to be posted (topic: {promo['focus']}). Check it strictly:
+1. All text is clearly readable (good contrast between text and its background, nothing cut off).
+2. The colors look professional and attractive (not ugly, not muddy, not hard on the eyes).
+3. The picture in the middle is related to website / POS / mobile app / business software.
+4. No woman or girl is shown, nothing inappropriate.
+Return JSON: {{"ok": true or false, "problem": "short reason if not ok, else empty"}}""")
+        if not isinstance(j, dict) or "ok" not in j:
+            return True, ""
+        ok = j.get("ok") in (True, "true", "True", "yes")
+        return ok, str(j.get("problem") or "")[:200]
+    except Exception as e:
+        log(f"Self-check nahi chala (post phir bhi jayegi): {str(e)[:120]}")
+        return True, ""
 
 
 def main():
@@ -548,7 +587,20 @@ def main():
     report = {"time_utc": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"),
               "focus": promo["focus"], "lang": LANG, "dry_run": DRY_RUN, "post_id": None, "error": None}
     try:
-        path = make_card(promo, hist.get("used_images", []))
+        global THEME
+        tried = []
+        for attempt in range(3):
+            path = make_card(promo, hist.get("used_images", []))
+            ok, problem = self_check(path, promo)
+            report["check"] = "ok" if ok else problem
+            if ok:
+                break
+            # AGENT: pasand nahi aayi - naya rang le kar dobara banao
+            log(f"Agent check: pic theek nahi ({problem}) - naye rang se dobara")
+            tried.append(THEME["hue"])
+            THEME = wb_theme.pick("pic", LANG, avoid=tried)
+            wb_mock.GREEN, wb_mock.DARK = THEME["accent"], THEME["dark"]
+        report["theme"] = THEME["name"]
         caption = build_caption(promo)
         log(f"--- Web Builder caption ({promo['focus']} / {LANG}) ---\n{caption}\n")
         if not DRY_RUN:
@@ -556,7 +608,8 @@ def main():
         else:
             report["post_id"] = "dry_run"
         hist.setdefault("posts", []).append(
-            {"focus": promo["focus"], "lang": LANG, "date": report["time_utc"], "post_id": report["post_id"]})
+            {"focus": promo["focus"], "lang": LANG, "date": report["time_utc"], "post_id": report["post_id"],
+             "hue": THEME["hue"]})
     except Exception as e:
         log(f"Web Builder ERROR: {e}")
         report["error"] = str(e)[:300]

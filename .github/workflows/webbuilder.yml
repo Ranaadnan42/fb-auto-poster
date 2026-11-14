@@ -107,6 +107,7 @@ jobs:
           WB_PAGE_TOKEN: ${{ secrets.WB_PAGE_TOKEN }}
           WB_PAGE_ID: ${{ secrets.WB_PAGE_ID }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           FOCUS: ${{ inputs.focus }}
           LANGUAGE: ${{ steps.m.outputs.lang }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}

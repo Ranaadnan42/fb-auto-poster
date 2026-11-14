@@ -148,6 +148,14 @@ PRICE_RE = re.compile(r"[$€£]|\b(usd|pkr|sar|aed|dollars?|rupees?|riyals?|dir
                       re.I)
 
 
+def AGENT_TIPS():
+    """wb_brain.py ne page ke asli views se jo seekha - writer ko hidayat."""
+    tips = [str(t) for t in (PLAN.get("tips") or [])][:6]
+    if not tips:
+        return ""
+    return "Lessons learned from this page's REAL results (follow them):\n- " + "\n- ".join(tips) + "\n"
+
+
 def write_script(spot, used_titles):
     if LANG == "ar":   # Arabic = Saudi/UAE dukaandar - zyada POS
         if LONG:
@@ -201,6 +209,7 @@ or "no monthly fee" anywhere (not in narration, title or caption). Price is only
 Make it exciting and persuasive like a professional ad: first line is a scroll-stopping hook,
 talk about real benefits (more customers, no wrong bills, know daily profit, sell online).
 Past video titles (make this one fresh and different): {json.dumps(used_titles[-30:], ensure_ascii=False)}
+{AGENT_TIPS()}
 
 For each scene also give:
  "label": 1-3 word ENGLISH on-screen heading (e.g. "WEBSITE", "MOBILE APP", "POS SOFTWARE", "EVERY BUSINESS"),
@@ -612,9 +621,32 @@ def post_long(path, title, desc):
     return j.get("id")
 
 
+def load_plan():
+    """wb_brain.py (agent) ka seekha hua plan."""
+    try:
+        with open("webbuilder_brain.json", encoding="utf-8") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+PLAN = load_plan()
+
+
+def pick_spot(vids):
+    """AGENT: jis business wali videos zyada dekhi gayin wo zyada; pichli 8 videos wale business dobara nahi."""
+    mult = PLAN.get("spot_mult") or {}
+    recent = {v.get("spotlight") for v in vids[-8:]}
+    opts = [b for b in BUSINESSES if b not in recent] or BUSINESSES
+    w = [max(float(mult.get(b, 1.0)), 0.2) for b in opts]
+    spot = random.choices(opts, weights=w)[0]
+    log(f"Agent: is video ka business '{spot}'")
+    return spot
+
+
 def main():
     vids = load_history()
-    spot = BUSINESSES[len(vids) % len(BUSINESSES)]
+    spot = pick_spot(vids)
     report = {"time_utc": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), "spotlight": spot,
               "post_id": None, "error": None}
     try:
@@ -643,7 +675,8 @@ def main():
                 else post_reel(path, cap)
             log(f"Posted: {report['post_id']}")
         vids.append({"date": report["time_utc"], "lang": LANG, "kind": REPORT["kind"],
-                     "title": script.get("title", ""), "spotlight": spot, "post_id": report["post_id"]})
+                     "title": script.get("title", ""), "spotlight": spot, "post_id": report["post_id"],
+                     "hue": THEME["hue"]})
     except Exception as e:
         log(f"ERROR: {e}")
         report["error"] = str(e)[:300]
