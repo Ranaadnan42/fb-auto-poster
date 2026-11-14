@@ -488,8 +488,8 @@ def build_caption(promo):
         ar_tags = AR_TAGS["pos" if promo["focus"] == "pos" else "web"]
         return (
             f"{t['head']} \U0001F680\n{pts}\n\U0001F4B0 {t['badge']}\n{t['for']}\n\n"
-            f"✅ عمل احترافي بسعر مناسب وتسليم سريع.\n"
-            f"\U0001F4AC شاهد أعمالنا واطلب السعر: {SITE}\n"
+            f"✅ عمل احترافي وتسليم سريع.\n"
+            f"\U0001F4AC شاهد أعمالنا واطلب نموذجاً مجانياً: {SITE}\n"
             f"\U0001F4F1 واتساب: {WA}\n\n"
             f"{ar_tags} {promo['tags']}"
         )
@@ -497,14 +497,14 @@ def build_caption(promo):
         return (
             f"{t['head']} \U0001F680\n{pts}\n\U0001F4B0 {t['badge']}\n{t['for']}\n\n"
             f"{promo['hi']}\n\n"
-            f"\U0001F4AC نمونے دیکھیں اور قیمت پوچھیں: {SITE}\n"
+            f"\U0001F4AC نمونے دیکھیں اور مفت ڈیمو لیں: {SITE}\n"
             f"\U0001F4F1 WhatsApp: {WA}\n\n"
             f"{promo['tags']} #Urdu #Hindi #UrduHindi"
         )
     return (
         f"{t['head']} \U0001F680\n{pts}\n\U0001F4B0 {t['badge']}\n{t['for']}\n\n"
         f"✅ Affordable, professional work - delivered fast.\n"
-        f"\U0001F4AC See examples & get a price: {SITE}\n"
+        f"\U0001F4AC See examples & get a free demo: {SITE}\n"
         f"\U0001F4F1 WhatsApp: {WA}\n\n"
         f"{promo['tags']}"
     )
