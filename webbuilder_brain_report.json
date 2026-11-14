@@ -1,8 +1,8 @@
 {
- "time_utc": "2026-11-14 07:09",
+ "time_utc": "2026-11-14 18:38",
  "posts": 162,
- "views": 4748,
- "engagement": 310,
+ "views": 4756,
+ "engagement": 316,
  "by_focus": {
   "pos": [
    0.95,
@@ -31,31 +31,31 @@
  },
  "by_business": {
   "restaurant": [
-   0.28,
+   0.4,
    6
   ],
   "grocery store": [
-   0.51,
+   0.6,
    7
   ],
   "pharmacy": [
-   1.37,
+   1.34,
    5
   ],
   "clothing shop": [
-   0.91,
+   0.89,
    4
   ],
   "beauty salon": [
-   0.92,
+   0.9,
    4
   ],
   "school": [
-   0.48,
+   0.47,
    4
   ],
   "bakery": [
-   1.02,
+   1.0,
    8
   ],
   "electronics shop": [
@@ -63,27 +63,27 @@
    4
   ],
   "real estate agency": [
-   0.7,
+   0.69,
    6
   ],
   "gym": [
-   0.84,
+   0.82,
    4
   ],
   "car workshop": [
-   1.19,
+   1.17,
    5
   ],
   "furniture store": [
-   0.81,
+   0.8,
    5
   ],
   "wholesale distributor": [
-   0.73,
+   0.91,
    5
   ],
   "jewellery shop": [
-   1.48,
+   1.46,
    5
   ],
   "travel agency": [
@@ -91,38 +91,38 @@
    6
   ],
   "clinic": [
-   0.71,
+   0.7,
    4
   ],
   "mobile phone shop": [
-   1.89,
+   1.87,
    3
   ],
   "hardware store": [
-   1.13,
+   1.11,
    4
   ],
   "cafe": [
-   1.59,
+   1.56,
    5
   ],
   "supermarket": [
-   0.95,
+   0.93,
    4
   ]
  },
  "by_color": {},
  "by_lang": {
   "en": [
-   0.56,
+   0.6,
    47
   ],
   "ar": [
-   1.01,
+   1.02,
    63
   ],
   "ur": [
-   0.93,
+   0.92,
    50
   ]
  },
@@ -132,25 +132,25 @@
    64
   ],
   "reel": [
-   0.72,
+   0.73,
    50
   ],
   "long": [
-   0.83,
+   0.88,
    48
   ]
  },
  "by_hour": {
   "23": [
-   1.03,
+   1.02,
    13
   ],
   "15": [
-   0.92,
+   0.91,
    5
   ],
   "1": [
-   0.86,
+   0.85,
    4
   ],
   "12": [
@@ -170,15 +170,15 @@
    19
   ],
   "11": [
-   1.06,
+   1.05,
    11
   ],
   "20": [
-   0.7,
+   0.73,
    22
   ],
   "0": [
-   0.45,
+   0.58,
    13
   ],
   "18": [
@@ -186,11 +186,11 @@
    19
   ],
   "22": [
-   1.07,
+   1.06,
    19
   ],
   "19": [
-   0.75,
+   0.74,
    12
   ],
   "10": [
@@ -198,22 +198,22 @@
    1
   ],
   "2": [
-   0.48,
+   0.47,
    3
   ],
   "13": [
-   0.7,
+   0.69,
    1
   ]
  },
  "best": [
-  "[reel/ur] ویب بلڈر کے ساتھ بزنس کو آگے بڑھائیں - Web Builder (business mobile phone shop, views 274, eng 3, x3.76)",
-  "[reel/ar] ارتقِ بمتجرك مع ويب بيلدر (business bakery, views 287, eng 2, x3.63)",
-  "[long/en] Supercharge Your Business with Web Builder (business pharmacy, views 230, eng 3, x3.21)"
+  "[reel/ur] ویب بلڈر کے ساتھ بزنس کو آگے بڑھائیں - Web Builder (business mobile phone shop, views 274, eng 3, x3.72)",
+  "[reel/ar] ارتقِ بمتجرك مع ويب بيلدر (business bakery, views 287, eng 2, x3.59)",
+  "[long/en] Supercharge Your Business with Web Builder (business pharmacy, views 230, eng 3, x3.14)"
  ],
- "summary": "Arabic aur Urdu Reels (khaas taur par Mobile Phone Shop, Cafe, aur Jewellery Shop ke liye) sab se zabardast performance de rahi hain. English language videos, AutoPilot posts, aur Restaurant/School waale promos bilkul nahi chal rahe. Agent ne English content ko rok kar poora focus high-performing Arabic/Urdu videos aur direct WhatsApp messages par shift kar diya hai.",
+ "summary": "Arabic aur Urdu videos mein mobile shops, cafes, aur jewellery shops ka content sab se behtareen perform kar raha hai. Generic English videos, school/restaurant ke topics, aur baghair business context wali posts bilkul nahi chal rahin. Is liye ab agent ne generic posts band kar ke saara focus top-performing retail niches aur direct WhatsApp CTAs par shift kar diya hai.",
  "plan": {
-  "updated": "2026-11-14 07:09",
+  "updated": "2026-11-14 18:38",
   "focus_mult": {
    "pos": 0.96,
    "website": 1.09,
@@ -223,34 +223,34 @@
    "autopilot": 0.73
   },
   "spot_mult": {
-   "restaurant": 0.43,
-   "grocery store": 0.62,
-   "pharmacy": 1.22,
-   "clothing shop": 0.95,
-   "beauty salon": 0.95,
-   "school": 0.66,
-   "bakery": 1.01,
+   "restaurant": 0.54,
+   "grocery store": 0.7,
+   "pharmacy": 1.2,
+   "clothing shop": 0.94,
+   "beauty salon": 0.94,
+   "school": 0.65,
+   "bakery": 1.0,
    "electronics shop": 0.4,
-   "real estate agency": 0.79,
-   "gym": 0.91,
-   "car workshop": 1.11,
-   "furniture store": 0.88,
-   "wholesale distributor": 0.82,
-   "jewellery shop": 1.28,
+   "real estate agency": 0.78,
+   "gym": 0.89,
+   "car workshop": 1.1,
+   "furniture store": 0.87,
+   "wholesale distributor": 0.94,
+   "jewellery shop": 1.27,
    "travel agency": 0.56,
    "clinic": 0.82,
    "mobile phone shop": 1.37,
-   "hardware store": 1.07,
-   "cafe": 1.34,
-   "supermarket": 0.97
+   "hardware store": 1.06,
+   "cafe": 1.32,
+   "supermarket": 0.96
   },
   "color_mult": {},
   "tips": [
-   "Write video scripts strictly in Arabic (1.01 score) and Urdu (0.93 score); avoid English scripts which heavily underperformed at 0.56.",
-   "Feature high-performing business niches in scripts: Mobile Phone Shops (1.89), Cafes (1.59), Jewellery Shops (1.48), Pharmacies (1.37), and Car Workshops (1.19). Stop featuring Restaurants (0.28) and Electronics Shops (0",
-   "Adopt localized, actionable hooks/titles such as 'ارتقِ بمتجرك مع ويب بيلدر' or Urdu business growth hooks; avoid generic English titles like 'Supercharge Your Business'.",
-   "Promote Websites (1.12), Stores (1.06), and Apps (1.02); downplay AutoPilot AI (0.62) and generic Social posts (0.70).",
-   "End every video with a strong call-to-action directing business owners to send a WhatsApp message, without ever referencing prices."
+   "Prioritize Arabic and Urdu scripts tailored to specific niches, cutting back heavily on English content which averages only 0.60 score.",
+   "Target top-performing business categories: mobile phone shops (1.87), cafes (1.56), jewellery shops (1.46), pharmacies (1.34), and car workshops (1.17); avoid schools, restaurants, and travel agencies.",
+   "Use localized, growth-oriented hook titles like 'ارتقِ بمتجرك مع ويب بيلدر' or 'ویب بلڈر کے ساتھ بزنس کو آگے بڑھائیں', completely ditching generic English hooks like 'Supercharge Your Business' or 'Boost Your Business In",
+   "Focus script benefits on digital store setup, websites, and retail app solutions rather than generic social media or autopilot AI messaging.",
+   "End every video with a clear, direct call-to-action urging business owners to message on WhatsApp for a custom business demo, without quoting prices."
   ]
  }
 }

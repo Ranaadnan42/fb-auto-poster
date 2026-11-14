@@ -1,5 +1,5 @@
 {
- "updated": "2026-11-14 07:09",
+ "updated": "2026-11-14 18:38",
  "focus_mult": {
   "pos": 0.96,
   "website": 1.09,
@@ -9,33 +9,33 @@
   "autopilot": 0.73
  },
  "spot_mult": {
-  "restaurant": 0.43,
-  "grocery store": 0.62,
-  "pharmacy": 1.22,
-  "clothing shop": 0.95,
-  "beauty salon": 0.95,
-  "school": 0.66,
-  "bakery": 1.01,
+  "restaurant": 0.54,
+  "grocery store": 0.7,
+  "pharmacy": 1.2,
+  "clothing shop": 0.94,
+  "beauty salon": 0.94,
+  "school": 0.65,
+  "bakery": 1.0,
   "electronics shop": 0.4,
-  "real estate agency": 0.79,
-  "gym": 0.91,
-  "car workshop": 1.11,
-  "furniture store": 0.88,
-  "wholesale distributor": 0.82,
-  "jewellery shop": 1.28,
+  "real estate agency": 0.78,
+  "gym": 0.89,
+  "car workshop": 1.1,
+  "furniture store": 0.87,
+  "wholesale distributor": 0.94,
+  "jewellery shop": 1.27,
   "travel agency": 0.56,
   "clinic": 0.82,
   "mobile phone shop": 1.37,
-  "hardware store": 1.07,
-  "cafe": 1.34,
-  "supermarket": 0.97
+  "hardware store": 1.06,
+  "cafe": 1.32,
+  "supermarket": 0.96
  },
  "color_mult": {},
  "tips": [
-  "Write video scripts strictly in Arabic (1.01 score) and Urdu (0.93 score); avoid English scripts which heavily underperformed at 0.56.",
-  "Feature high-performing business niches in scripts: Mobile Phone Shops (1.89), Cafes (1.59), Jewellery Shops (1.48), Pharmacies (1.37), and Car Workshops (1.19). Stop featuring Restaurants (0.28) and Electronics Shops (0",
-  "Adopt localized, actionable hooks/titles such as 'ارتقِ بمتجرك مع ويب بيلدر' or Urdu business growth hooks; avoid generic English titles like 'Supercharge Your Business'.",
-  "Promote Websites (1.12), Stores (1.06), and Apps (1.02); downplay AutoPilot AI (0.62) and generic Social posts (0.70).",
-  "End every video with a strong call-to-action directing business owners to send a WhatsApp message, without ever referencing prices."
+  "Prioritize Arabic and Urdu scripts tailored to specific niches, cutting back heavily on English content which averages only 0.60 score.",
+  "Target top-performing business categories: mobile phone shops (1.87), cafes (1.56), jewellery shops (1.46), pharmacies (1.34), and car workshops (1.17); avoid schools, restaurants, and travel agencies.",
+  "Use localized, growth-oriented hook titles like 'ارتقِ بمتجرك مع ويب بيلدر' or 'ویب بلڈر کے ساتھ بزنس کو آگے بڑھائیں', completely ditching generic English hooks like 'Supercharge Your Business' or 'Boost Your Business In",
+  "Focus script benefits on digital store setup, websites, and retail app solutions rather than generic social media or autopilot AI messaging.",
+  "End every video with a clear, direct call-to-action urging business owners to message on WhatsApp for a custom business demo, without quoting prices."
  ]
 }
