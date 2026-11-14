@@ -1,10 +1,10 @@
 {
- "time_utc": "2026-11-14 17:17",
- "focus": "autopilot",
+ "time_utc": "2026-11-14 20:00",
+ "focus": "store",
  "lang": "ar",
  "dry_run": false,
- "post_id": "1291543147384233_122121822231484999",
+ "post_id": "1291543147384233_122121844809484999",
  "error": null,
  "check": "ok",
- "theme": "hue101"
+ "theme": "hue247"
 }
