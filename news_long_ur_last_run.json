@@ -1,11 +1,35 @@
 {
- "time_utc": "2026-11-09 23:37",
+ "time_utc": "2026-11-14 15:05",
  "kind": "long",
  "lang": "ur",
  "dry_run": false,
- "posted": {},
- "errors": [
-  "news: Facebook jawab samajh nahi aaya: ",
-  "sports: Facebook jawab samajh nahi aaya: "
- ]
+ "posted": {
+  "news": {
+   "date": "2026-11-14 15:05",
+   "kind": "long",
+   "lang": "ur",
+   "title": "یوکرین کے لیے نیٹو کی پیشکش اور کرکٹ فائنل",
+   "dur": 340,
+   "post_id": "1801191391138483"
+  },
+  "sports": {
+   "date": "2026-11-14 15:05",
+   "kind": "long",
+   "lang": "ur",
+   "title": "ریسلنگ اور ای اسپورٹس کی دنیا سے اہم خبریں",
+   "dur": 561,
+   "post_id": "1146117658333034"
+  }
+ },
+ "errors": [],
+ "clips_rejected": 763,
+ "agent_checks": 234,
+ "agent_rejects": 214,
+ "agent_skips": 537,
+ "alt_searches": 8,
+ "time_budget_hit": true,
+ "no_match": [
+  "@Table Tennis England"
+ ],
+ "headline_cards": 1
 }

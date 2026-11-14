@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-14 16:10",
- "lang": "ur",
+ "time_utc": "2026-11-14 12:19",
+ "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1448208791702551_122109892407532804",
-   "topic": "africa",
-   "title": "Arrested generals and a threatened VP: President's son fuels Ugandan succession fever"
+   "post": "1448208791702551_122109829425532804",
+   "topic": "usa",
+   "title": "As Democrats win big, thirst traps of male candidates take social media by storm"
   },
   "sports": {
-   "post": "1465090056678690_122101236207548502",
-   "topic": "table_tennis",
-   "title": "Wearable Inertial Sensors Detect Knee Motion Linked to Landing Error Scores"
+   "post": "1465090056678690_122101089711548502",
+   "topic": "baseball",
+   "title": "From Teruaki Sato to Seiya Suzuki, Blue Jays involved in latest crop of Japanese stars"
   }
  },
  "errors": []
