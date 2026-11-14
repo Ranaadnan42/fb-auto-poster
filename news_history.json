@@ -775,6 +775,25 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122109769083532804"
+  },
+  {
+   "date": "2026-11-14 12:19",
+   "lang": "en",
+   "topic": "usa",
+   "link": "https://www.npr.org/2026/11/14/nx-s1-6040507/democrats-male-candidates-masculinity-trump",
+   "title": "As Democrats win big, thirst traps of male candidates take social media by storm",
+   "words": [
+    "candidates",
+    "democrats",
+    "male",
+    "media",
+    "social",
+    "storm",
+    "take",
+    "thirst",
+    "traps"
+   ],
+   "post_id": "1448208791702551_122109829425532804"
   }
  ],
  "sports": [
@@ -1540,6 +1559,28 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122100974883548502"
+  },
+  {
+   "date": "2026-11-14 12:19",
+   "lang": "en",
+   "topic": "baseball",
+   "link": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPOUJWRXJ6QVBsR3ZBY0ZmQXVicFc3Mk54SFNycGtfNGR2ZG11bnVvY1pZTndHTENhN2s0UDM0WTNkb05IYjNOcGRzcWczb2xjZWNlYjJuNEVGaFVVdXV3WHNOanBoTFdCMThYZDMtNkVXbTZNaUFOUVFXUjktcW9ITEQ5WFBkaVBGS29sZ05LWUNFRFNNR2dJdEhuLWVVN2NJMWhmbFIwR2N6dw?oc=5",
+   "title": "From Teruaki Sato to Seiya Suzuki, Blue Jays involved in latest crop of Japanese stars",
+   "words": [
+    "blue",
+    "crop",
+    "from",
+    "involved",
+    "japanese",
+    "jays",
+    "latest",
+    "sato",
+    "seiya",
+    "stars",
+    "suzuki",
+    "teruaki"
+   ],
+   "post_id": "1465090056678690_122101089711548502"
   }
  ],
  "used_images": [
@@ -1591,6 +1632,8 @@
   "pxi1537470",
   "pxi1215279",
   4500761,
-  "pxi1822133"
+  "pxi1822133",
+  1553977,
+  "pxi1563858"
  ]
 }
