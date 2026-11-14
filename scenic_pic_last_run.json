@@ -1,26 +1,26 @@
 {
- "started": "2026-11-14T00:37",
+ "started": "2026-11-14T23:36",
  "steps": [
   "token: user token expires_at=0 data_access_expires_at=1801949831",
   "token: user token tha - page token bana kar istemal kiya",
   "brain gemini-3.8-flash: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "agent ka faisla: Gásadalur, Vágar Island, Faroe Islands - bright green cliff and ocean waterfall under blue sky (Iconic ocean waterfall over lush green cliffs with high viral appeal.)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "agent ka faisla: The Quiraing, Isle of Skye, Scotland - bright sunny summer day / vivid green hills (High-performing viral UK landscape with iconic bright green cliffs.)",
+  "photo wmi21907872 1920x1280: ok=True beauty=3 - Dark, grey, dull, and gloomy weather.",
+  "photo wmi21907876 1920x1280: ok=True beauty=4 - Dull grey sky and gloomy lighting.",
+  "photo wmi21907542 1920x1280: ok=True beauty=4 - Too dull, overcast, and lacks vibrant colors.",
+  "photo wmi21907663 1920x1280: ok=True beauty=3 - Too dark, gloomy, and lacks vibrant colors.",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
   "brain gemini-3.6-flash: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
-  "agent ka faisla: Isle of Skye, Scotland, United Kingdom - bright green morning over dramatic cliffs (Scotland's dramatic green cliffs are a viral contrast to previous Alpine meadows.)",
+  "agent ka faisla: Madeira Island, Portugal - bright sunny morning over lush green coastal cliffs and waterfalls (Stunning green cliffs and waterfalls evoke a tropical-alpine hybrid viral vibe.)",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "agent ka faisla: Mount Cook National Park, New Zealand - sunny summer morning with turquoise lakes and snowy peaks (High contrast turquoise water and snowy peaks ensure immediate scrolling stop.)",
-  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "brain gemini-3-flash-preview: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
-  "brain gemini-2.5-flash: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash is no longer ",
-  "agent ka faisla: Skógafoss, South Iceland, Iceland - bright sunny afternoon waterfall and green cliffs (Iconic waterfall in brilliant sunshine guarantees instant visual stopping power.)",
-  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "agent ka faisla: Valensole Plateau, Provence, France - bright sunny lavender fields (Vibrant purple and yellow contrast under bright summer sun drives massive engagement.)",
-  "photo wmi1001727 1920x1440: ok=True beauty=7 - Bright lavender fields in Provence, France.",
-  "photo wmi1001734 1920x1440: ok=True beauty=5 - Dull lighting, brownish soil, lacks vibrant colors.",
+  "agent ka faisla: Skógafoss Waterfall, Iceland - bright sunny morning with rainbows (Iconic rainbow-adorned waterfall and lush green cliffs ensure high viral potential.)",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai"
  ],
  "errors": [
   "fatal: 4 jagahon par bhi achi footage nahi mili"
  ],
  "mode": "pic",
- "finished": "2026-11-14T00:38"
+ "finished": "2026-11-14T23:41"
 }
