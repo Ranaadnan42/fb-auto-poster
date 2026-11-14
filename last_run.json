@@ -1,33 +1,36 @@
 {
- "lang": "ur",
- "stock_clips": 15,
+ "lang": "en",
+ "stock_clips": 38,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "اللہ تعالیٰ پر بھروسہ",
-  "tawakkul in allah",
-  "tawakkul and patience",
-  "tawakkul kya hai",
-  "tawakkul youth club",
-  "tawakkul bayan",
-  "tawakkul nasheed",
-  "tawakkul in allah dr israr",
-  "tawakkul stories",
-  "tawakkal official"
+  "sahaba stories for kids",
+  "sahaba stories in urdu",
+  "sahaba stories arabic",
+  "sahaba stories playlist",
+  "sahaba stories animated",
+  "sahaba stories bangla",
+  "sahaba stories islamic guidance",
+  "sahaba stories in english",
+  "sahaba stories uthman"
  ],
- "story": "313 Muslims trust Allah at Badr victory",
- "search": "اللہ تعالیٰ پر بھروسہ",
- "vision_checks": 117,
+ "story": "Salman al-Farsi searches for truth",
+ "search": "sahaba stories in english",
+ "vision_checks": 95,
+ "clips_rejected": 153,
  "sources": {
-  "pixabay": 9,
+  "pixabay": 29,
+  "commons": 7,
   "mixkit": 1,
-  "commons": 5
+  "nasa": 1
  },
- "clips_rejected": 84,
- "photo_clips": 1,
- "reel_minutes": 1.13,
- "time_utc": "2026-11-14 20:01",
- "title": "غزوہِ بدر کا معجزہ: جب 313 نے اللہ تعالیٰ پر بھروسہ کیا",
+ "no_match": [
+  "mosque interior",
+  "mosque sunset sky"
+ ],
+ "long_minutes": 5.12,
+ "time_utc": "2026-11-14 19:24",
+ "title": "Sahaba Stories in English: Salman al-Farsi's Search for Truth",
  "dry_run": false,
  "posted_ok": 1
 }
