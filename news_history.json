@@ -702,6 +702,43 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122109593799532804"
+  },
+  {
+   "date": "2026-11-14 00:50",
+   "lang": "en",
+   "topic": "americas",
+   "link": "https://news.google.com/rss/articles/CBMiUkFVX3lxTE45SjktUUdNWUE2ZXV1dHVjaEd3eTRpOHdlSU1Nd0VJTFYyT2lkNE1YY0Z2T3BWM0lrZWlldEVMN0syX1Qwb1hWa1MyZklWdHc5dGc?oc=5",
+   "title": "A nationwide FAA ground stop halted departing flights across the United States on Friday after a communications outage affected air traffic control operations. ",
+   "words": [
+    "across",
+    "affected",
+    "after",
+    "airport",
+    "already",
+    "being",
+    "cleared",
+    "communications",
+    "control",
+    "departing",
+    "flights",
+    "friday",
+    "ground",
+    "halted",
+    "international",
+    "land",
+    "nationwide",
+    "ontario",
+    "operations",
+    "outage",
+    "said",
+    "states",
+    "stop",
+    "traffic",
+    "united",
+    "were"
+   ],
+   "breaking": true,
+   "post_id": "1448208791702551_122109641595532804"
   }
  ],
  "sports": [
@@ -1403,6 +1440,29 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122100643221548502"
+  },
+  {
+   "date": "2026-11-14 00:50",
+   "lang": "en",
+   "topic": "hockey",
+   "link": "https://news.google.com/rss/articles/CBMi4AFBVV95cUxNV0tjZlhWR2txOXFiNFJSS1R1UVpLNEZFUXRWR0lPb0tucFF4UXctekNNVDRWQ3NKaUExdUJXYzZDS3ZEanp6NGxYU09kYXhHcXZjeVR3YmdPOWhtTkZGQ1ozZ2dram8yMDFpY1BvbU9OMWxMQ1JqWmh2dmFBTzFhOFlHU3I4Wk9BN3dwODNaS1dSY09BNTFCWldMTWp2RlhkV2FJRkJyN3FISE9ZVWV0WHZLR1lkRjFlVDhnR1htY0ExUXFBSlJTczRUMGRtTWRtTUg1eFByNktlZG90STFZZg?oc=5",
+   "title": "Eight-seed UNC field hockey defeats Miami University, 1-0, to advance to NCAA tournament second round",
+   "words": [
+    "advance",
+    "defeats",
+    "eight",
+    "field",
+    "hockey",
+    "miami",
+    "ncaa",
+    "round",
+    "second",
+    "seed",
+    "tournament",
+    "university"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122100763965548502"
   }
  ],
  "used_images": [
@@ -1449,6 +1509,8 @@
   "pxi1615129",
   195082,
   "pxi1265254",
-  6619527
+  6619527,
+  "pxi1379715",
+  "pxi1537470"
  ]
 }
