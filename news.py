@@ -125,8 +125,8 @@ NEWS_REGIONS = {
 # English = USA, UK, Europe, Canada, Australia (dollar / euro audience) ki khabar sab se zyada
 NEWS_WEIGHT = {"en": {"usa": 5, "uk": 4, "europe": 4, "canada_australia": 2, "world": 3, "business": 3,
                       "science_tech": 3, "americas": 1, "middle_east": 1, "asia": 1, "africa": 1, "pakistan": 0.2},
-               "ur": {"world": 3, "pakistan": 4, "middle_east": 3, "asia": 2, "europe": 1, "americas": 4,
-                      "africa": 1, "business": 1, "science_tech": 1, "usa": 1, "uk": 0.5, "canada_australia": 0.3}}
+               "ur": {"world": 3, "pakistan": 4, "middle_east": 4, "asia": 2, "europe": 1, "americas": 3,
+                      "africa": 1, "business": 1, "science_tech": 1, "usa": 2, "uk": 2, "canada_australia": 1}}
 
 # Sports: dunya ke tamam bare khel - har run mein woh khel jo sab se kam dafa post hua
 SPORTS = {

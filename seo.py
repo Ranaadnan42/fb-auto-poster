@@ -14,8 +14,8 @@ PAGES = {
         "name": "Wander Earth",
         "brand_tags": ["#WanderEarth"],
         "base_tags": ["#nature", "#travel", "#landscape", "#4k", "#reels", "#beautifulplaces", "#earthpix"],
-        "audience": "nature and travel lovers worldwide (USA, UK, Europe, Canada, Australia) who love calm, "
-                    "breathtaking ultra-HD landscapes and dream destinations",
+        "audience": "nature and travel lovers in the USA, UK, Europe, Canada, Australia and the Gulf (UAE, Saudi "
+                    "Arabia, Qatar) who love calm, breathtaking ultra-HD landscapes and dream destinations",
         "cta": "Follow for the most beautiful places on Earth in Ultra HD 🌍",
         "cta_en": "Follow for the most beautiful places on Earth in Ultra HD 🌍",
         "rules": "English only; calm, poetic, wonder-filled; no fake facts; no clickbait lies; max 2 emojis per line.",
@@ -25,7 +25,9 @@ PAGES = {
         "brand_tags": ["#HansiKaAdda"],
         "base_tags": ["#funny", "#comedy", "#reels", "#pakistanicomedy", "#urducomedy",
                       "#funnyvideo", "#viral"],
-        "audience": "Pakistani / Urdu-speaking people who love desi comedy, memes and funny reels",
+        "audience": ("Urdu/Hindi-speaking people who love desi comedy, memes and funny reels - in Pakistan and "
+                     "especially the big Pakistani/Indian communities in the UAE, Saudi Arabia, Qatar, Kuwait, Oman, "
+                     "the UK, USA, Canada and Europe (desi life abroad, Gulf workers, family back home)"),
         "cta": "روز نئی مزاحیہ ویڈیوز کے لیے پیج فالو کریں 👈",
     },
     "islamic": {
@@ -33,7 +35,8 @@ PAGES = {
         "brand_tags": ["#IslamicMotivationalVideos"],
         "base_tags": ["#islam", "#islamicreminder", "#islamicvideo", "#reels", "#muslim",
                       "#deen", "#viral"],
-        "audience": "Muslims (Pakistan, India, Gulf, worldwide) looking for Islamic reminders and motivation",
+        "audience": ("Muslims looking for Islamic reminders and motivation - in Saudi Arabia, the UAE, Qatar, "
+                     "Kuwait and the Gulf, Muslims in the UK, USA, Canada and Europe, and Pakistan/India"),
         "cta": "روزانہ اسلامی یاد دہانی کے لیے پیج فالو کریں اور شیئر کریں 👈",
         "cta_en": "Follow the page for daily Islamic reminders 👈",
     },
@@ -50,14 +53,14 @@ PAGES = {
         "name": "News Act",
         "brand_tags": ["#NewsAct"],
         "base_tags": ["#news", "#worldnews", "#breakingnews", "#latestnews", "#urdunews", "#viral"],
-        "audience": ("Urdu and English speakers in Pakistan, the Gulf, India, UK and USA who follow world news, "
-                     "Pakistan news, America news and Middle East news"),
+        "audience": ("Urdu speakers in the Gulf (UAE, Saudi Arabia, Qatar, Kuwait, Oman), the UK, USA, Canada, "
+                     "Europe and Pakistan who follow world news, America news, Gulf/Middle East news and Pakistan news"),
         "cta": "دنیا بھر کی تازہ خبروں کے لیے News Act کو فالو کریں 👈",
         "cta_en": "Follow News Act for world news every day 👈",
         # English posts: dollar / euro wale mulk (zyada ad-income)
         "audience_en": ("English-speaking adults in the USA, UK, Canada, Australia, Ireland, Germany, the Netherlands, "
-                        "Scandinavia and the rest of Europe who follow world news, US news, UK/European news, "
-                        "business, markets and technology"),
+                        "Scandinavia and the rest of Europe, plus English-speaking expats in the UAE, Saudi Arabia "
+                        "and Qatar, who follow world news, US news, UK/European news, business, markets and technology"),
         "rules": ("the hook/body may ONLY restate facts from 'What the video says' - never add or exaggerate "
                   "(no 'massive', 'shocking', 'watch highlights' unless stated); strictly neutral, no political opinion; "
                   "no meta hashtags like #UrduEnglish; max 2 emojis per line."),
@@ -66,16 +69,26 @@ PAGES = {
         "name": "Sports Hubs",
         "brand_tags": ["#SportsHubs"],
         "base_tags": ["#sports", "#sportsnews", "#sportsupdate", "#sportshighlights", "#viral"],
-        "audience": ("sports fans worldwide (Pakistan, India, Gulf, UK, USA) - cricket, football, tennis, F1, NBA, "
-                     "hockey, UFC and every other sport"),
+        "audience": ("sports fans in the Gulf (UAE, Saudi Arabia, Qatar), the UK, USA, Canada, Europe, Australia and "
+                     "Pakistan/India - cricket, football, tennis, F1, NBA, hockey, UFC and every other sport"),
         "cta": "دنیا بھر کے کھیلوں کی ہر خبر کے لیے Sports Hubs کو فالو کریں 👈",
         "cta_en": "Follow Sports Hubs for every sport from around the world 👈",
         "audience_en": ("sports fans in the USA, UK, Canada, Australia and Europe - NFL, NBA, MLB, NHL, Premier League, "
-                        "Champions League, La Liga, F1, tennis, golf, UFC, rugby and cricket"),
+                        "Champions League, La Liga, F1, tennis, golf, UFC, rugby and cricket - plus sports fans in "
+                        "the UAE, Saudi Arabia and Qatar (Saudi Pro League, Dubai/Abu Dhabi events)"),
         "rules": ("the hook/body may ONLY restate facts from 'What the video says' - never invent or exaggerate scores, "
                   "results or records; no 'watch highlights' unless stated; no meta hashtags like #UrduEnglish; "
                   "max 2 emojis per line."),
     },
+}
+
+
+# USD / EUR + Gulf (zyada ad-income wale) mulkon ke hashtags - har post par 3 (bari bari alag)
+GEO_TAGS = {
+    "ur": ["#Dubai", "#UAE", "#SaudiArabia", "#Riyadh", "#Qatar", "#Kuwait", "#UK", "#London", "#USA",
+           "#Canada", "#Europe", "#Oman"],
+    "en": ["#USA", "#UK", "#London", "#NewYork", "#Canada", "#Australia", "#Europe", "#Germany", "#Dubai",
+           "#UAE", "#SaudiArabia", "#Qatar"],
 }
 
 
@@ -107,6 +120,8 @@ Return JSON:
  "keywords": "one line of 4-6 search keywords in Roman Urdu and English separated by ' | ' (e.g. funny video | pakistani comedy | ammi beta comedy)",
  "question": "one short question in {lang_name} that makes people comment or tag a friend",
  "hashtags": ["6 specific, popular, searchable topic hashtags in English or Roman Urdu, no spaces"]}}
+Reach: the post must also reach viewers in high-income countries (USA, UK, Canada, Europe, Australia) and the
+Gulf (UAE, Saudi Arabia, Qatar, Kuwait) - use the words and hashtags people there search for (in {lang_name}).
 Rules: {P.get("rules") or "no fake claims, no clickbait lies, no politics, no religious mockery, max 2 emojis per line."}""")
         hook = (d.get("hook") or title).strip()
         body = (d.get("body") or "").strip()
@@ -116,13 +131,15 @@ Rules: {P.get("rules") or "no fake claims, no clickbait lies, no politics, no re
     except Exception as e:
         print(f"[seo] fallback: {e}", flush=True)
         hook, body, kw, q, gen_tags = title, "", "", "", []
+    import random
+    geo = random.sample(GEO_TAGS.get(lang, GEO_TAGS["ur"]), 3)
     tags, seen = [], set()
-    for t in P["brand_tags"] + gen_tags + P["base_tags"]:
+    for t in P["brand_tags"] + gen_tags[:4] + geo + gen_tags[4:] + P["base_tags"]:
         t = _clean_tag(t)
         if t and t.lower() not in seen:
             seen.add(t.lower())
             tags.append(t)
-    tags = tags[:10]
+    tags = tags[:11]
     parts = [hook]
     if body:
         parts.append(body)
