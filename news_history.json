@@ -840,6 +840,25 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122109874413532804"
+  },
+  {
+   "date": "2026-11-14 15:05",
+   "lang": "en",
+   "topic": "canada_australia",
+   "link": "https://www.abc.net.au/news/2026-11-14/hobart-hurricanes-hammered-by-brisbane-heat-in-wbbl/107386442",
+   "title": "Heat hammer Hurricanes to hand WBBL champions sixth straight loss",
+   "words": [
+    "champions",
+    "hammer",
+    "hand",
+    "heat",
+    "hurricanes",
+    "loss",
+    "sixth",
+    "straight",
+    "wbbl"
+   ],
+   "post_id": "1448208791702551_122109873681532804"
   }
  ],
  "sports": [
@@ -1679,6 +1698,30 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122101194411548502"
+  },
+  {
+   "date": "2026-11-14 15:05",
+   "lang": "en",
+   "topic": "basketball",
+   "link": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxNeUNJOUVycWdpYTZUUndybHZKcHNTTE1FTGdNR19aMm1GQ2R6cGFwMTVERU9QYkFRWGVRdzFrWW9VaVZrejlJVVU5emZMVWdWenNRVkk0MFJ0R0JnUjZCQ3NaSVBFQVlSZ3NRYmwzOU1BejVkNXNObXljclF3VE9fbkhtUUIybExC?oc=5",
+   "title": "“What if we would have stuck it out?” – Dwight Howard says he regrets walking away from Kobe Bryant and the Lakers",
+   "words": [
+    "away",
+    "bryant",
+    "dwight",
+    "from",
+    "have",
+    "howard",
+    "kobe",
+    "lakers",
+    "regrets",
+    "says",
+    "stuck",
+    "walking",
+    "what",
+    "would"
+   ],
+   "post_id": "1465090056678690_122101194465548502"
   }
  ],
  "used_images": [
@@ -1734,6 +1777,7 @@
   1553977,
   "pxi1563858",
   262180,
-  227561
+  227561,
+  488700
  ]
 }
