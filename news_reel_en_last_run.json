@@ -1,29 +1,29 @@
 {
- "time_utc": "2026-11-14 19:56",
+ "time_utc": "2026-11-14 20:06",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-14 19:56",
+   "date": "2026-11-14 20:06",
    "kind": "reel",
    "lang": "en",
-   "title": "Alaska Elects Youngest Governor in Historic Political Shift",
-   "dur": 68,
-   "post_id": "1739715834490007"
+   "title": "Microsoft Outage: Outlook and Teams Service Restoration Ongoing",
+   "dur": 58,
+   "post_id": "1135799092750834"
   },
   "sports": {
-   "date": "2026-11-14 19:56",
+   "date": "2026-11-14 20:06",
    "kind": "reel",
    "lang": "en",
-   "title": "NFL Faces Officiating Hurdle For Panthers Vs Saints Game",
-   "dur": 54,
-   "post_id": "1156322973885042"
+   "title": "Ferrari's Secret Formula 1 Comeback Revealed",
+   "dur": 74,
+   "post_id": "1649221423566731"
   }
  },
  "errors": [],
- "agent_checks": 68,
- "agent_rejects": 54,
+ "agent_checks": 135,
+ "agent_rejects": 116,
  "agent_skips": 0,
- "clips_rejected": 54
+ "clips_rejected": 119
 }
