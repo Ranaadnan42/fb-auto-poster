@@ -1,35 +1,31 @@
 {
- "lang": "en",
- "stock_clips": 38,
+ "lang": "ur",
+ "stock_clips": 18,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "importance of salah in islam",
-  "importance of salah mufti menk",
-  "importance of salah yasir qadhi",
-  "importance of salah nouman ali khan",
-  "importance of salah omar suleiman",
-  "importance of salah salafi",
-  "importance of salah dr zakir naik",
-  "importance of salah youth club",
-  "importance of salah mohamed hoblos"
+  "انبیاء کرام کے واقعات",
+  "hazrat ka waqia video",
+  "hazrat umar ka waqia",
+  "hazrat ali ka waqia",
+  "hazrat ibrahim ka waqia",
+  "hazrat suleman ka waqia",
+  "hazrat bilal ka waqia",
+  "hazrat abbas ka waqia",
+  "hazrat nooh ka waqia",
+  "hazrat yousuf ka waqia"
  ],
- "story": "Abbad ibn Bishr continues praying despite arrow wounds",
- "search": "importance of salah in islam",
- "vision_checks": 131,
- "clips_rejected": 127,
+ "story": "Prophet Yunus calls Allah inside the whale",
+ "search": "انبیاء کرام کے واقعات",
+ "vision_checks": 98,
  "sources": {
-  "pixabay": 30,
-  "commons": 7,
-  "mixkit": 1
+  "pixabay": 18
  },
- "no_match": [
-  "mosque interior",
-  "mosque sunset sky"
- ],
- "long_minutes": 5.17,
- "time_utc": "2026-11-13 21:04",
- "title": "Struck by Arrows in Prayer: Importance of Salah in Islam",
+ "clips_rejected": 57,
+ "photo_clips": 2,
+ "reel_minutes": 1.11,
+ "time_utc": "2026-11-14 08:10",
+ "title": "انبیاء کرام کے واقعات: مچھلی کے پیٹ میں حضرت یونسؑ کا معجزہ",
  "dry_run": false,
  "posted_ok": 1
 }
