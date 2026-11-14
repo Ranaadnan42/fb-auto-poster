@@ -859,6 +859,24 @@
     "wbbl"
    ],
    "post_id": "1448208791702551_122109873681532804"
+  },
+  {
+   "date": "2026-11-14 16:10",
+   "lang": "ur",
+   "topic": "africa",
+   "link": "https://www.bbc.co.uk/news/articles/cmlydy0xw45wo?at_medium=RSS&at_campaign=rss",
+   "title": "Arrested generals and a threatened VP: President's son fuels Ugandan succession fever",
+   "words": [
+    "arrested",
+    "fever",
+    "fuels",
+    "generals",
+    "president",
+    "succession",
+    "threatened",
+    "ugandan"
+   ],
+   "post_id": "1448208791702551_122109892407532804"
   }
  ],
  "sports": [
@@ -1722,6 +1740,26 @@
     "would"
    ],
    "post_id": "1465090056678690_122101194465548502"
+  },
+  {
+   "date": "2026-11-14 16:10",
+   "lang": "ur",
+   "topic": "table_tennis",
+   "link": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOTTQwSXhXNVVGeVYzWUNkbjdoS2ZQdkFDSHo2OUdZWXdvdVl0ME9CdHNwSmxrSk8wd25xTlRoNS1pSXlGS1BDTjJLTzZPSVllU0ZnRDh1UmY3SkdVbTRhMWdfTmNneFZRQ0pHa3JyUlRScjh6YTZOUVVzN05oNkN4SW91VXNTUTI2aGZoMnlPYlkycS1yeS0tVVhDcWxXUXhvVGc?oc=5",
+   "title": "Wearable Inertial Sensors Detect Knee Motion Linked to Landing Error Scores",
+   "words": [
+    "detect",
+    "error",
+    "inertial",
+    "knee",
+    "landing",
+    "linked",
+    "motion",
+    "scores",
+    "sensors",
+    "wearable"
+   ],
+   "post_id": "1465090056678690_122101236207548502"
   }
  ],
  "used_images": [
@@ -1778,6 +1816,7 @@
   "pxi1563858",
   262180,
   227561,
-  488700
+  488700,
+  3385958
  ]
 }
