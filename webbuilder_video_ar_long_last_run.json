@@ -1,7 +1,7 @@
 {
- "time_utc": "2026-11-13 00:57",
- "spotlight": "car workshop",
- "post_id": "1976392323332811",
+ "time_utc": "2026-11-14 00:47",
+ "spotlight": "grocery store",
+ "post_id": "1713118223933474",
  "error": null,
  "lang": "ar",
  "kind": "long",
@@ -9,7 +9,7 @@
  "fallback": 0,
  "errors": [],
  "real_work": 5,
- "real_pos": 5,
+ "real_pos": 10,
  "mock": 6,
- "seconds": 122.1
+ "seconds": 168.8
 }
