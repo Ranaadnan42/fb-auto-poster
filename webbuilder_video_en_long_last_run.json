@@ -1,15 +1,18 @@
 {
- "time_utc": "2026-11-14 00:21",
- "spotlight": "restaurant",
- "post_id": "1174970168215852",
+ "time_utc": "2026-11-14 22:59",
+ "spotlight": "gym",
+ "post_id": "1017357861405914",
  "error": null,
  "lang": "en",
  "kind": "long",
- "clips": 2,
+ "clips": 0,
  "fallback": 0,
- "errors": [],
- "real_work": 7,
- "mock": 6,
- "real_pos": 5,
- "seconds": 129.1
+ "errors": [
+  "script: 'list' object has no attribute 'get'",
+  "script: 'list' object has no attribute 'get'"
+ ],
+ "real_work": 4,
+ "real_pos": 1,
+ "mock": 1,
+ "seconds": 34.7
 }
