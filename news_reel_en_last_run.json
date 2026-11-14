@@ -1,42 +1,29 @@
 {
- "time_utc": "2026-11-14 03:20",
+ "time_utc": "2026-11-14 19:56",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-14 03:20",
+   "date": "2026-11-14 19:56",
    "kind": "reel",
    "lang": "en",
-   "title": "US Nationwide Flight Ground Stop Caused by Equipment Overload",
-   "dur": 55,
-   "post_id": "1142331651621426"
+   "title": "Alaska Elects Youngest Governor in Historic Political Shift",
+   "dur": 68,
+   "post_id": "1739715834490007"
   },
   "sports": {
-   "date": "2026-11-14 03:20",
+   "date": "2026-11-14 19:56",
    "kind": "reel",
    "lang": "en",
-   "title": "Caguas Secures 13-3 Victory Over Mayaguez",
-   "dur": 55,
-   "post_id": "1860326071644950"
+   "title": "NFL Faces Officiating Hurdle For Panthers Vs Saints Game",
+   "dur": 54,
+   "post_id": "1156322973885042"
   }
  },
  "errors": [],
- "clips_rejected": 478,
- "alt_searches": 7,
- "agent_checks": 48,
- "agent_rejects": 44,
- "agent_skips": 424,
- "no_match": [
-  "@Mayaguez",
-  "@Mayaguez",
-  "baseball match",
-  "@Caguas",
-  "baseball match",
-  "baseball stadium",
-  "world map",
-  "@Mayaguez"
- ],
- "headline_cards": 8,
- "time_budget_hit": true
+ "agent_checks": 68,
+ "agent_rejects": 54,
+ "agent_skips": 0,
+ "clips_rejected": 54
 }
