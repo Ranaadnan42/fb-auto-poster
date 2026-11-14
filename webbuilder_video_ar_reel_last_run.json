@@ -1,15 +1,15 @@
 {
- "time_utc": "2026-11-13 23:43",
- "spotlight": "travel agency",
- "post_id": "1368489715204935",
+ "time_utc": "2026-11-14 22:38",
+ "spotlight": "cafe",
+ "post_id": "952800497713830",
  "error": null,
  "lang": "ar",
  "kind": "reel",
- "clips": 1,
+ "clips": 0,
  "fallback": 0,
  "errors": [],
  "real_work": 2,
  "real_pos": 5,
  "mock": 3,
- "seconds": 60.3
+ "seconds": 56.0
 }
