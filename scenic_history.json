@@ -195,6 +195,18 @@
    "hook": "Is this heaven on earth?",
    "clip": "px137196",
    "beauty": 10
+  },
+  {
+   "ts": 1794675810.9147208,
+   "vid": null,
+   "post": "1345688241970452_122101306467547841",
+   "kind": "pic",
+   "place": "Geirangerfjord, Møre og Romsdal",
+   "country": "Norway",
+   "mood": "bright sunny summer afternoon / blue fjord and green cliffs",
+   "hook": "Is this the prettiest place on Earth?",
+   "clip": "wmi180112072",
+   "beauty": 8
   }
  ],
  "clips": [
@@ -273,7 +285,8 @@
   "px171110",
   "px240841",
   "px319751",
-  "px236928"
+  "px236928",
+  "wmi180112072"
  ],
  "music": [
   "File:Clair de Lune by Claude Debussy (1905, piano solo).opus",
