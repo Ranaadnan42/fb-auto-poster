@@ -1,101 +1,104 @@
 {
  "islamic": {
   "avoid": [
-   "Time/value of time lessons",
-   "Jannah reward videos"
+   "Value of time theme",
+   "Hope after sadness theme"
   ],
   "try": [
-   "Bilal ibn Rabah: From slavery to the first muezzin – a tale of perseverance",
-   "The Prophet’s kindness to a cat: lesson in mercy and compassion",
-   "Companion Abu Darda’s habit of waking for Tahajjud – motivation for early prayer",
-   "The miracle of the splitting of the moon: a sign of Allah’s power",
-   "Hadith of the smiling neighbor: spreading joy as charity",
-   "Story of Umm Kulthum bint Ali: wisdom and patience in adversity"
+   "Bilal ibn Rabah’s perseverance and the call to prayer",
+   "Hadith: The reward of a sincere smile",
+   "The Battle of Badr: Trust in Allah and collective victory",
+   "Prophet Ayyub (Job) and the lesson of extreme patience",
+   "Quranic verse on gratitude (Ayat al‑Shukr) and its blessings",
+   "Companion Sa'd ibn Abi Waqqas’s generosity with food"
   ],
-  "note": "Page bohat repeat ho rahi hai"
+  "note": "Page bohat repeat ho rahi hai, nayi kahaniyan zaroori hain."
  },
  "funny": {
   "avoid": [
-   "family WhatsApp group forwards about relatives",
-   "fake diet plan jokes"
+   "ماموں مستانہ کا ڈائٹ ڈرامہ series",
+   "یاروں کی گروپ چیٹ اور شمالی علاقہ جات series",
+   "a middle-class abbu's logic style",
+   "a motivational speaker giving terrible advice style",
+   "sarcastic narrator roasting the situation (gently) style"
   ],
   "try": [
-   "neighbour ke naye baby ka elan aur aunties ki mashware",
-   "monsoon mein online grocery delivery ka mishap",
-   "ghar ki load shedding drama aur family ki reactions",
-   "mobile data pack khatam hone par creative bachao ke tareeqe",
-   "courtyard mein Ludo tournament aur desi competition ka maza",
-   "smart home assistant (Alexa) pehli baar use karne par family ki confusion"
+   "online grocery delivery ka ghalat address confusion",
+   "school exam stress aur parents ki overprotective advice",
+   "DIY home repair mein pipe leak ka comic disaster",
+   "mobile data outage se family ki group chat drama",
+   "new streaming service subscription ka family debate"
   ],
-  "note": "Page thoda repetitive lag raha hai, especially WhatsApp aur diet drama ki repeats."
+  "note": "Page thodi repetitive lag rahi hai, especially series aur style mein."
  },
  "world": {
   "avoid": [
-   "\"What Nobody Tells You\" series",
-   "Retiring in ... videos",
-   "\"Explore Italy\" style travel guide"
+   "What Nobody Tells You"
   ],
   "try": [
-   "Living in Kenya: Cost of Living, Safety & Culture",
-   "Moving to Estonia: Digital Nomad Friendly Guide",
-   "Retiring in Uruguay: Benefits and Challenges in 2025",
-   "Bangkok vs Kuala Lumpur: Lifestyle, Cost & Culture Comparison",
-   "Hidden Gems of Portugal: Beyond Lisbon and Porto",
-   "Daily Life in Reykjavik: Iceland’s Unique Lifestyle"
+   "Living in Norway: Cost of Living, Safety & Quality of Life",
+   "Moving to Kenya: What Nobody Tells You about Daily Life",
+   "Chile vs Argentina: Cost of Living, Culture & Lifestyle Comparison",
+   "Exploring Malta: History, Lifestyle and Affordable Living",
+   "Living in Iceland: Jobs, Safety & Everyday Life",
+   "Bangkok vs Ho Chi Minh City: Expat Lifestyle Showdown"
   ],
-  "note": "Page ka content thoda repeat ho raha hai."
+  "note": "Page thodi repetitive lag rahi hai."
  },
  "world_short": {
   "avoid": [
+   "5 Secret Places in Italy",
+   "Would You Live in Lisbon, Portugal?",
    "Japan",
-   "South Korea",
-   "Spain",
-   "Would You Live in ...",
-   "5 Secret Places in ..."
+   "Italy",
+   "France"
   ],
   "try": [
-   "Brazil",
-   "Turkey",
-   "Morocco",
-   "Egypt",
-   "Sweden",
-   "Finland"
+   "What Life Really Costs in Dubai",
+   "5 Secret Places in South Africa",
+   "Traditional Food of Brazil",
+   "Hidden Gems in Seoul",
+   "Would You Live in Toronto?",
+   "6 Surprising Facts About Germany"
   ],
   "note": "Page bohat repetitive hai."
  },
  "frames": {
   "avoid": [
-   "Best European Countries for Pakistani Students"
+   "Dubai aur UAE par dubara video",
+   "Canada mein Pakistani zindagi",
+   "Title mein 'کیسے لگتا ہے' ka baar baar istemal"
   ],
   "try": [
-   "Bhutan ka safar aur zindagi | Life in Bhutan",
-   "Sri Lanka mein Pakistani ki zindagi | Life in Sri Lanka",
-   "New Zealand Visa Guide for Pakistanis",
-   "Ireland mein naukri aur rehna | Jobs and Living in Ireland",
-   "Portugal mein Pakistani ke liye taleem | Education in Portugal",
-   "Norway mein zindagi aur kaam | Life and Work in Norway"
+   "Azerbaijan (Baku) mein Pakistaniyon ke liye tourism aur visa ki haqeeqat",
+   "Norway mein education aur jobs: Pakistaniyon ke liye mukammal guide",
+   "New Zealand mein zindagi aur PR hasil karne ka tareeqa",
+   "Oman mein naukri aur rehaysh: Dubai se kitna muftalif hai?",
+   "Switzerland Documentary: Duniya ke sab se ameer mulk ki asliyat",
+   "Thailand mein Pakistaniyon ke liye business aur visa ki tafseelat"
   ],
-  "note": "Page ka content thoda repetitive lag raha hai."
+  "note": "Page par popular European aur Gulf mumalik kaafi repeat ho chuke hain, ab naye mumalik par focus karna behtar hoga."
  },
  "frames_short": {
   "avoid": [
-   "Czech Republic",
-   "Prague"
+   "New Zealand"
   ],
   "try": [
-   "Cost of living in Doha, Qatar",
-   "Visa for Pakistani students in Germany",
-   "Hidden beaches in Maldives",
-   "Top 5 street foods in Lagos, Nigeria"
+   "Bhutan: 5 Unique Cultural Traditions",
+   "Mongolia: Life and Earnings in Ulaanbaatar",
+   "Iceland: 5 Hidden Gems for Travelers",
+   "Philippines: Cost of Living in Manila 2026",
+   "Kenya: 5 Must-Try Local Foods",
+   "Ethiopia: How to Find a Job in Addis Ababa"
   ],
-  "note": "Page thodi repetitive hai, lekin abhi bhi nayi cheezein shamil ki ja sakti hain."
+  "note": "Page thodi repetitive lag rahi hai."
  },
  "_platforms": {
   "islamic": {
    "posts": 10,
-   "facebook": 7,
+   "facebook": 6,
    "youtube": 10,
-   "tiktok": 5
+   "tiktok": 4
   },
   "funny": {
    "posts": 10,

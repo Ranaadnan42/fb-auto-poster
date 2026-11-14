@@ -1,33 +1,31 @@
 {
- "time_utc": "2026-11-13 21:28",
+ "time_utc": "2026-11-14 10:41",
  "fixed": [],
  "problems": [
-  "Wander Earth (Scenic Agent): fail hua (2026-11-12T22:49 UTC) run 43323405837",
-  "Wander Earth (Scenic Agent): fail hua (2026-11-12T21:02 UTC) run 43306196850",
+  "Wander Earth (Scenic Agent): fail hua (2026-11-14T00:29 UTC) run 43534542918",
+  "Wander Earth (Scenic Agent): fail hua (2026-11-13T22:48 UTC) run 43522297235",
   "Frames of Life - lambi video: 685 clips bina agent check ke (AI quota khatam) - footage ghalat ho sakti hai",
-  "Frames of Life - lambi video: in cheezon ki sahi footage nahi mili: residential apartment buildings Doha, remittance money transfer shop, Qatari machboos rice dish, arabic coffee gahwa pot dates platter",
-  "Web Builder reel (Arabic): 33 ghante se nahi chala"
+  "Frames of Life - lambi video: in cheezon ki sahi footage nahi mili: residential apartment buildings Doha, remittance money transfer shop, Qatari machboos rice dish, arabic coffee gahwa pot dates platter"
  ],
  "ok": [
-  "AutoPilot Sales Agent: 1 kamyab run",
-  "Website Agent / AI Employee (BizTools Hub): 2 kamyab run",
-  "Pages Agent (brain) - News, Sports, Hansi Ka Adda: 3 kamyab run",
+  "Website Agent / AI Employee (BizTools Hub): 1 kamyab run",
+  "Pages Agent (brain) - News, Sports, Hansi Ka Adda, Web Builder, Islamic, Frames of Life: 3 kamyab run",
   "Cinematic AI Stories (YouTube): 7 kamyab run",
-  "Comment Helper search: 3 kamyab run",
-  "Demo website photos (Pixabay): 3 kamyab run",
-  "Frames of Life (Urdu World Documentaries): 7 kamyab run",
-  "Funny Videos Poster: 7 kamyab run",
+  "Comment Helper search: 2 kamyab run",
+  "Demo website photos (Pixabay): 4 kamyab run",
+  "Frames of Life (Urdu World Documentaries): 6 kamyab run",
+  "Funny Videos Poster: 8 kamyab run",
   "Growth Bot (comment replies): 3 kamyab run",
-  "Live Replies (FB comments): 2 kamyab run",
-  "Daily Auto Poster: 9 kamyab run",
-  "News Act + Sports Hubs: 26 kamyab run",
-  "Daily Photo Posts: 5 kamyab run",
-  "Pinterest Pins: 3 kamyab run",
-  "Wander Earth (Scenic Agent): 14 kamyab run",
-  "Web Builder Promo: 14 kamyab run",
+  "Live Replies (FB comments): 1 kamyab run",
+  "Daily Auto Poster: 8 kamyab run",
+  "News Act + Sports Hubs: 23 kamyab run",
+  "Daily Photo Posts: 7 kamyab run",
+  "Pinterest Pins: 2 kamyab run",
+  "Wander Earth (Scenic Agent): 7 kamyab run",
+  "Web Builder Promo: 12 kamyab run",
   "Atlas Untold (World Documentaries): 4 kamyab run",
-  "Atlas Untold - lambi video: 104 clips, agent ne 646 check kin, 571 ghalat clips hata din",
-  "Atlas Untold - short: 29 clips, agent ne 261 check kin, 247 ghalat clips hata din",
-  "Frames of Life - short: 32 clips, agent ne 244 check kin, 215 ghalat clips hata din"
+  "Atlas Untold - lambi video: 102 clips, agent ne 547 check kin, 463 ghalat clips hata din",
+  "Atlas Untold - short: 33 clips, agent ne 246 check kin, 221 ghalat clips hata din",
+  "Frames of Life - short: 33 clips, agent ne 195 check kin, 170 ghalat clips hata din"
  ]
 }

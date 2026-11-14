@@ -1,10 +1,10 @@
 {
  "islamic": {
-  "at": "2026-11-13T21:29+00:00",
+  "at": "2026-11-14T10:48+00:00",
   "done": [],
   "problems": [],
   "name": "Islamic Motivational Videos",
-  "followers": 1306,
+  "followers": 1307,
   "insights_28d": {},
   "history": [
    {
@@ -54,18 +54,22 @@
    {
     "day": "2026-11-13",
     "followers": 1306
+   },
+   {
+    "day": "2026-11-14",
+    "followers": 1307
    }
   ],
-  "last_post": "2026-11-13T17:44+00:00"
+  "last_post": "2026-11-14T08:47+00:00"
  },
  "funny": {
-  "at": "2026-11-13T21:29+00:00",
+  "at": "2026-11-14T10:48+00:00",
   "done": [],
   "problems": [
    "7 din se followers nahi barhe - content badalna chahiye"
   ],
   "name": "Hansi Ka Adda ہنسی کا اڈا",
-  "followers": 1516,
+  "followers": 1517,
   "insights_28d": {},
   "history": [
    {
@@ -115,16 +119,20 @@
    {
     "day": "2026-11-13",
     "followers": 1516
+   },
+   {
+    "day": "2026-11-14",
+    "followers": 1517
    }
   ],
-  "last_post": "2026-11-13T18:52+00:00"
+  "last_post": "2026-11-14T08:57+00:00"
  },
  "frames": {
-  "at": "2026-11-13T21:29+00:00",
+  "at": "2026-11-14T10:48+00:00",
   "done": [],
   "problems": [],
   "name": "Frames Of Life",
-  "followers": 47,
+  "followers": 73,
   "insights_28d": {},
   "history": [
    {
@@ -174,16 +182,22 @@
    {
     "day": "2026-11-13",
     "followers": 47
+   },
+   {
+    "day": "2026-11-14",
+    "followers": 73
    }
   ],
-  "last_post": "2026-11-13T19:10+00:00"
+  "last_post": "2026-11-14T09:15+00:00"
  },
  "webbuilder": {
-  "at": "2026-11-13T21:29+00:00",
+  "at": "2026-11-14T10:48+00:00",
   "done": [],
-  "problems": [],
+  "problems": [
+   "7 din se followers nahi barhe - content badalna chahiye"
+  ],
   "name": "web builder",
-  "followers": 32,
+  "followers": 31,
   "insights_28d": {},
   "history": [
    {
@@ -233,8 +247,12 @@
    {
     "day": "2026-11-13",
     "followers": 32
+   },
+   {
+    "day": "2026-11-14",
+    "followers": 31
    }
   ],
-  "last_post": "2026-11-13T20:46+00:00"
+  "last_post": "2026-11-14T00:58+00:00"
  }
 }
