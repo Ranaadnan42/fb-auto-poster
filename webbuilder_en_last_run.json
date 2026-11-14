@@ -1,8 +1,10 @@
 {
- "time_utc": "2026-11-13 22:51",
- "focus": "social",
+ "time_utc": "2026-11-14 21:40",
+ "focus": "app",
  "lang": "en",
  "dry_run": false,
- "post_id": "1291543147384233_122121659823484999",
- "error": null
+ "post_id": "1291543147384233_122121853863484999",
+ "error": null,
+ "check": "ok",
+ "theme": "hue183"
 }
