@@ -1,29 +1,30 @@
 {
- "time_utc": "2026-11-14 08:04",
+ "time_utc": "2026-11-14 18:20",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-14 08:04",
+   "date": "2026-11-14 18:20",
    "kind": "reel",
    "lang": "ur",
-   "title": "برسٹل برطانیہ کا پہلا ویٹ لینڈ سٹی بننے کو تیار",
-   "dur": 60,
-   "post_id": "1784388679487678"
+   "title": "NHS England misses crucial cancer treatment targets",
+   "dur": 63,
+   "post_id": "1448985727348242"
   },
   "sports": {
-   "date": "2026-11-14 08:04",
+   "date": "2026-11-14 18:20",
    "kind": "reel",
    "lang": "ur",
-   "title": "فال لیگ چیمپئن شپ میں ابھرتے بیس بال کھلاڑی",
-   "dur": 55,
-   "post_id": "3464542173717704"
+   "title": "ڈبلیو ڈبلیو ای کے متنازع منصوبوں پر نئی رپورٹ",
+   "dur": 49,
+   "post_id": "2353119882188600"
   }
  },
  "errors": [],
- "agent_checks": 102,
- "agent_rejects": 87,
+ "agent_checks": 137,
+ "agent_rejects": 125,
  "agent_skips": 0,
- "clips_rejected": 88
+ "clips_rejected": 126,
+ "alt_searches": 2
 }
