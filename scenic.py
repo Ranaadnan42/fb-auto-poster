@@ -195,6 +195,117 @@ def refresh_views(h):
 
 
 
+# ---------------------------------------------------------------- TREND SCOUT (agent khud dekhta hai log aaj kal kya dekh rahe hain)
+def _yt_trending():
+    """Pichhle 7 din mein YouTube par sab se zyada dekhi gayi nature/travel videos (asal view count ke saath)."""
+    import yt_tokens
+    tok = None
+    for p in ("YT_FRAMES_", "YT_WORLD_", "YT_"):
+        cid, sec, ref = (os.environ.get(p + k) for k in ("CLIENT_ID", "CLIENT_SECRET", "REFRESH_TOKEN"))
+        if not (cid and sec):
+            continue
+        for acct in ("frames", "world", "legends"):
+            try:
+                ref = yt_tokens.get(acct, sec) or ref
+            except Exception:
+                pass
+        try:
+            j = requests.post("https://oauth2.googleapis.com/token", timeout=60, data={
+                "client_id": cid, "client_secret": sec, "refresh_token": ref, "grant_type": "refresh_token"}).json()
+            tok = j.get("access_token")
+        except Exception:
+            tok = None
+        if tok:
+            break
+    if not tok:
+        return []
+    H = {"Authorization": f"Bearer {tok}"}
+    since = (datetime.datetime.utcnow() - datetime.timedelta(days=7)).strftime("%Y-%m-%dT%H:%M:%SZ")
+    ids = []
+    for q in random.sample(["nature 4k", "beautiful places", "relaxing nature", "travel shorts", "most beautiful village",
+                            "waterfall", "forest", "mountains 4k", "beach paradise", "hidden places on earth",
+                            "drone footage nature", "scenic train"], 6):
+        try:
+            r = requests.get("https://www.googleapis.com/youtube/v3/search", headers=H, timeout=40, params={
+                "part": "id", "q": q, "type": "video", "order": "viewCount", "publishedAfter": since,
+                "maxResults": 10}).json()
+            ids += [i["id"]["videoId"] for i in r.get("items", []) if i.get("id", {}).get("videoId")]
+        except Exception as e:
+            log(f"yt trend search: {str(e)[:80]}")
+    out = []
+    for k in range(0, len(ids), 50):
+        try:
+            r = requests.get("https://www.googleapis.com/youtube/v3/videos", headers=H, timeout=40, params={
+                "part": "snippet,statistics", "id": ",".join(ids[k:k + 50])}).json()
+            out += [{"title": v["snippet"]["title"][:90], "views": int(v["statistics"].get("viewCount", 0))}
+                    for v in r.get("items", [])]
+        except Exception as e:
+            log(f"yt trend stats: {str(e)[:80]}")
+    out.sort(key=lambda x: -x["views"])
+    return out[:40]
+
+
+def _web_trends():
+    """Gemini + Google Search: is hafte Reels/TikTok/Shorts par kaunsi nature/travel videos viral hain."""
+    q = ("Search the web now. Which nature, travel and scenic-place videos are going viral THIS WEEK on Facebook Reels, "
+         "Instagram Reels, TikTok and YouTube Shorts? Which places, scene types (forest, waterfall, beach, snow, train, "
+         "village, flowers, desert, aurora...), seasons and hook styles are trending right now, and which places are "
+         "in the news/search trends for travel this month? Give specific names. Answer in short plain text.")
+    for key in KEYS:
+        for m in ("gemini-2.5-flash", "gemini-3-flash-preview", "gemini-2.5-flash-lite"):
+            try:
+                r = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={key}",
+                                  timeout=120, json={"contents": [{"parts": [{"text": q}]}],
+                                                     "tools": [{"google_search": {}}]})
+                if r.status_code == 200:
+                    return "".join(p.get("text", "") for p in r.json()["candidates"][0]["content"]["parts"])[:4000]
+                log(f"web trend {m}: {r.status_code}")
+            except Exception as e:
+                log(f"web trend {m}: {str(e)[:80]}")
+    return ""
+
+
+def trend_scout(h):
+    """Roz ek dafa: YouTube + web se dekho log kya dekh rahe hain, phir aaj ke liye 'hot' manzar/jagahen chuno."""
+    today = datetime.date.today().isoformat()
+    t = h.get("trends") or {}
+    if t.get("date") == today and t.get("hot"):
+        return t
+    yt = _yt_trending()
+    web = _web_trends()
+    log(f"trend scout: {len(yt)} YouTube videos, web report {len(web)} chars")
+    if not yt and not web:
+        return t if t.get("hot") else {}
+    month = datetime.date.today().strftime("%B")
+    j = think(f"""You are the trend scout of the nature/travel Facebook page "{PAGE_NAME}". It is {month} {today}.
+What people are watching RIGHT NOW:
+Most viewed nature/travel YouTube videos of the last 7 days (title + real views): {json.dumps(yt, ensure_ascii=False)}
+Web report on what is viral on Reels/TikTok/Shorts this week: {web or "n/a"}
+Our own reels and their real plays: {json.dumps([dict(place=p.get("place"), scene=p.get("scene"), views=p.get("views")) for p in h["posts"][-30:] if p.get("views") is not None], ensure_ascii=False)}
+From this, list what our page should post in the next days - VARIED (different scene types, countries, seasons),
+only real places that free stock footage exists for, bright and beautiful (no night/gloom except aurora).
+JSON: {{"hot": [{{"scene": "short scene type, e.g. 'tropical waterfall', 'snowy train', 'tulip fields', 'desert oasis'",
+ "place": "specific place, country", "why": "which trend this follows, max 10 words"}} x 10],
+ "hooks": ["5 hook styles that are working now"], "summary": "1 line - what people want to watch now"}}""", 0.7)
+    if j and j.get("hot"):
+        j["date"] = today
+        h["trends"] = j
+        REPORT["trends"] = j.get("summary")
+        return j
+    return t
+
+
+def pick_trend(h, trends, skip=()):
+    """Aaj ke hot list mein se woh jo pichhle posts mein nahi aaya."""
+    done = " ".join(f"{p.get('place')} {p.get('country')} {p.get('scene')}".lower() for p in h["posts"][-6:])
+    used_places = {(p.get("place") or "").lower() for p in h["posts"]}
+    opts = [x for x in (trends or {}).get("hot", [])
+            if x.get("scene") and x.get("scene") not in skip
+            and (x.get("scene") or "").lower() not in done
+            and (x.get("place") or "").split(",")[0].strip().lower() not in used_places]
+    return random.choice(opts) if opts else None
+
+
 # ---------------------------------------------------------------- scene rotation (har dafa naya qudrati manzar, greenery zyada)
 SCENES = [
     ("green forest", True, "deep green forest with sunlight through trees, forest trail, moss"),
@@ -230,7 +341,7 @@ def pick_scene(h, avoid_scenes=()):
     for name, green, desc in SCENES:
         if name in recent or name in avoid_scenes:
             continue
-        w = 3.0 if green else 1.0
+        w = 1.5 if green else 1.0
         vs = stats.get(name)
         if vs:
             w *= max(0.4, min(2.5, (sum(vs) / len(vs)) / max(avg_all, 1)))
@@ -273,6 +384,7 @@ Over time cover every country, but favour places that are famously beautiful and
 sites (Pixabay, Pexels, Wikimedia) will really have clean footage of.
 
 {("TODAY'S SCENE TYPE IS FIXED BY THE OWNER: " + scene[0].upper() + " - " + scene[1] + ". Pick a famous, beautiful place in any country where this exact scene can be filmed, and make EVERY search query about this scene (not a lake/mountain if the scene is forest, jungle, waterfall, meadow etc.). Every shot must clearly show this scene type, bright and full of life.") if scene else ""}
+{("Hook styles working on social media THIS WEEK (use one of these styles): " + json.dumps((h.get("trends") or {}).get("hooks", []), ensure_ascii=False)) if (h.get("trends") or {}).get("hooks") else ""}
 Pick the NEXT reel. JSON:
 {{"country": "...", "flag": "emoji flag", "place": "city/village/landmark",
  "mood": "e.g. sunny summer morning / bright green afternoon / blue-sky meadow / train through green valley",
@@ -854,10 +966,20 @@ def main():
         return
 
     shot, plan, avoid, bad_scenes = None, None, [], []
-    scene = pick_scene(h)
+    try:
+        trends = trend_scout(h)
+    except Exception as e:
+        log(f"trend scout fail: {str(e)[:120]}"); trends = {}
+    def choose():
+        # 70% aaj ke trend se, 30% apni rotation se (taake har din kuch naya aur aazmaya bhi jaye)
+        t = pick_trend(h, trends, bad_scenes) if random.random() < 0.7 else None
+        if t:
+            return (t["scene"], f"{t['scene']} - trending now ({t.get('why', '')}); suggested place: {t.get('place')}")
+        return pick_scene(h, bad_scenes)
+    scene = choose()
     for attempt in range(4):
         if attempt == 2:
-            bad_scenes.append(scene[0]); scene = pick_scene(h, bad_scenes)
+            bad_scenes.append(scene[0]); scene = choose()
         log(f"aaj ka manzar: {scene[0]}")
         plan = plan_next(h, avoid, scene)
         log(f"agent ka faisla: {plan.get('place')}, {plan.get('country')} - {plan.get('mood')} ({plan.get('why')})")
