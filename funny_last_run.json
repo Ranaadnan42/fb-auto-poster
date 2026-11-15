@@ -2,11 +2,8 @@
  "mode": "auto",
  "stock_clips": 0,
  "fallback_clips": 0,
- "errors": [],
- "format": "chat",
- "long_minutes": 7.71,
- "laughs": 14,
- "time_utc": "2026-11-14 21:03",
- "title": "پاکستانی گھرانوں کے 5 مزاحیہ اور شاہکار واٹس ایپ ڈرامے",
- "dry_run": false
+ "errors": [
+  "fatal: Awaaz nahi bani"
+ ],
+ "format": "chat"
 }
