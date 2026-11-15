@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-15 11:53",
+ "time_utc": "2026-11-15 22:06",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "sports": {
-   "key": "u600061400",
-   "sport": "mma",
-   "date": "2026-11-15 11:53",
+   "key": "t401873056",
+   "sport": "american football",
+   "date": "2026-11-15 22:06",
    "lang": "en",
-   "match": "UFC 334: Gane vs. Hokit",
-   "result": "Ciryl Gane beat Josh Hokit in the main event",
-   "dur": 69,
-   "post_id": "1147796191336391"
+   "match": "Houston Texans at Cleveland Browns",
+   "result": "Cleveland Browns beat Houston Texans 27-24",
+   "dur": 75,
+   "post_id": "41342611062004667"
   }
  },
  "errors": []
