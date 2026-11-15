@@ -1,30 +1,35 @@
 {
- "time_utc": "2026-11-14 18:20",
+ "time_utc": "2026-11-15 14:59",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-14 18:20",
+   "date": "2026-11-15 14:59",
    "kind": "reel",
    "lang": "ur",
-   "title": "NHS England misses crucial cancer treatment targets",
-   "dur": 63,
-   "post_id": "1448985727348242"
+   "title": "خیبر پختونخوا کے چار اضلاع میں دفعہ 144 نافذ",
+   "dur": 50,
+   "post_id": "1446602880271111"
   },
   "sports": {
-   "date": "2026-11-14 18:20",
+   "date": "2026-11-15 14:59",
    "kind": "reel",
    "lang": "ur",
-   "title": "ڈبلیو ڈبلیو ای کے متنازع منصوبوں پر نئی رپورٹ",
-   "dur": 49,
-   "post_id": "2353119882188600"
+   "title": "لولا نے فارمولا ای جن4 کے لیے رنگ واپس لے آئے",
+   "dur": 58,
+   "post_id": "2381448469336191"
   }
  },
  "errors": [],
- "agent_checks": 137,
- "agent_rejects": 125,
- "agent_skips": 0,
- "clips_rejected": 126,
- "alt_searches": 2
+ "agent_checks": 237,
+ "agent_rejects": 237,
+ "agent_skips": 51,
+ "clips_rejected": 291,
+ "alt_searches": 3,
+ "time_budget_hit": true,
+ "no_match": [
+  "@Lola Cars"
+ ],
+ "headline_cards": 1
 }
