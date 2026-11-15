@@ -1025,6 +1025,26 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122110314549532804"
+  },
+  {
+   "date": "2026-11-15 19:52",
+   "lang": "en",
+   "topic": "europe",
+   "link": "https://www.theguardian.com/world/2026/nov/15/estonia-to-close-all-border-crossings-with-russia-after-attack-on-drone-maker",
+   "title": "Estonia to close all border crossings with Russia after attack on drone maker",
+   "words": [
+    "after",
+    "attack",
+    "border",
+    "close",
+    "crossings",
+    "drone",
+    "estonia",
+    "maker",
+    "russia",
+    "with"
+   ],
+   "post_id": "1448208791702551_122110316577532804"
   }
  ],
  "sports": [
@@ -2053,6 +2073,23 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122102274915548502"
+  },
+  {
+   "date": "2026-11-15 19:52",
+   "lang": "en",
+   "topic": "football",
+   "link": "https://www.bbc.co.uk/sport/football/videos/c6kg7rpkr3jlo?at_medium=RSS&at_campaign=rss",
+   "title": "Struggling Charlton make WSL history after defeat at West Ham",
+   "words": [
+    "after",
+    "charlton",
+    "defeat",
+    "history",
+    "make",
+    "struggling",
+    "west"
+   ],
+   "post_id": "1465090056678690_122102280285548502"
   }
  ],
  "used_images": [
@@ -2123,6 +2160,8 @@
   "pxi4969453",
   "pxi2511043",
   2287547,
-  "pxi662956"
+  "pxi662956",
+  8155029,
+  4355589
  ]
 }
