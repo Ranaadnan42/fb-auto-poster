@@ -1,34 +1,36 @@
 {
  "mode": "auto",
- "stock_clips": 8,
- "fallback_clips": 1,
+ "stock_clips": 13,
+ "fallback_clips": 0,
  "errors": [],
  "format": "people",
  "search_phrases": [
-  "phone battery memes",
-  "phone battery 1 percent",
-  "phone battery low"
+  "funnymike moving to a new house",
+  "moving to our new house"
  ],
  "funny_score": "3 -> 9",
- "search": "phone battery 1 percent",
- "reel_format": "types",
- "vision_checks": 169,
- "sources": {
-  "pixabay": 7,
-  "mixkit": 1
- },
- "clips_rejected": 161,
+ "search": "moving to our new house",
+ "reel_format": "latifay",
+ "vision_checks": 191,
+ "clips_rejected": 202,
  "no_match": [
-  "man connecting phone charger cable",
-  "man connecting phone charger cable",
-  "disappointed man holding dead smartphone",
-  "man sprinting holding phone charger",
-  "man sprinting holding phone charger",
-  "man sprinting holding phone charger"
+  "family moving boxes",
+  "family moving boxes",
+  "family moving boxes",
+  "boy wrapping ceramic bowl",
+  "boy wrapping ceramic bowl",
+  "mother scolding son",
+  "new sofa living room",
+  "man pointing index finger",
+  "young boy packing box",
+  "toy car inside box",
+  "kitchen crockery boxes",
+  "kitchen crockery boxes",
+  "family unpacking boxes"
  ],
  "laughs": 5,
- "reel_minutes": 0.91,
- "time_utc": "2026-11-15 13:53",
- "title": "ایک پرسنٹ بیٹری اور ہمارے قومی کارنامے",
+ "reel_minutes": 0.88,
+ "time_utc": "2026-11-15 15:50",
+ "title": "نئے گھر کی شفٹنگ اور امی کا جہیز پروٹوکول",
  "dry_run": false
 }
