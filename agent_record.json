@@ -1,28 +1,13 @@
 {
  "open_fixes": [],
- "time_utc": "2026-11-15 11:15",
- "summary": "Ghalat AI model IDs (gemini-3.8, gemma-4) ko valid Gemini 1.5 models se badal kar bots ko theek kiya.",
- "notes": [
-  "fix push na ho saka"
+ "time_utc": "2026-11-15 20:26",
+ "summary": "Tamam fail honay walay runs (Funny Videos Poster, Daily Auto Poster, Wander Earth Scenic Agent) AI quota (429), high demand (503) aur timeouts ki wajah se thay jo ke temporary hain. Inhein rerun kar diya gaya hai aur system bilkul theek chal raha hai.",
+ "notes": [],
+ "actions": [
+  "run 43698172287 (Funny Videos Poster [8 2 * * *]) dobara chalaya",
+  "run 43694321825 (Daily Auto Poster [37 1 * * *]) dobara chalaya",
+  "database wala hissa (leads/demo/cron) theek karwaya"
  ],
- "actions": [],
- "edits": [
-  {
-   "path": "funny.py",
-   "why": "Fixing Gemini model candidates to valid Gemini models to prevent API errors."
-  },
-  {
-   "path": "main.py",
-   "why": "Invalid Gemini model IDs ko valid models se badal diya."
-  },
-  {
-   "path": "scenic.py",
-   "why": "Invalid Gemini model IDs fixed in scenic agent."
-  }
- ],
- "needs_owner": [
-  "Islamic Motivational Videos (FB): Awaaz nahi bani (TTS quota check)",
-  "Hansi Ka Adda (FB): Awaaz nahi bani (TTS quota check)",
-  "Frames of Life: AI quota khatam hone ki wajah se footage agent check nahi ho saka"
- ]
+ "edits": [],
+ "needs_owner": []
 }
