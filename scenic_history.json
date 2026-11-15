@@ -240,6 +240,18 @@
    "hook": "Is this the edge of Earth?",
    "clip": "px151218",
    "beauty": 9
+  },
+  {
+   "ts": 1794708389.4188843,
+   "vid": "2136002007000659",
+   "post": "2136002007000659",
+   "kind": "reel",
+   "place": "Passu Cones, Hunza Valley",
+   "country": "Pakistan",
+   "mood": "bright sunny morning over green valley and turquoise river",
+   "hook": "POV: You found paradise in Pakistan",
+   "clip": "px329057",
+   "beauty": 10
   }
  ],
  "clips": [
@@ -366,7 +378,11 @@
   "px344380",
   "px376883",
   "px149737",
-  "px204543"
+  "px204543",
+  "px329057",
+  "px189747",
+  "px329058",
+  "px330594"
  ],
  "music": [
   "File:Clair de Lune by Claude Debussy (1905, piano solo).opus",
@@ -380,6 +396,7 @@
   "File:Claude Debussy - Première Arabesque - Patrizia Prati.ogg",
   "File:Fryderyk Chopin - Nocturne op. 32 n.2 As-dur - Patrizia Prati.ogg",
   "File:Satie Gymnopedie No 1 performed by Michael Laucke.flac",
-  "File:Claude Debussy - 2nd Arabesque (JMC, Han).oga"
+  "File:Claude Debussy - 2nd Arabesque (JMC, Han).oga",
+  "File:Grieg - Peer Gynt Suite No. 1, Op. 46 - I. Morning Mood (Musopen Symphony).flac"
  ]
 }
