@@ -1,9 +1,34 @@
 {
  "mode": "auto",
- "stock_clips": 0,
- "fallback_clips": 0,
- "errors": [
-  "fatal: Awaaz nahi bani"
+ "stock_clips": 8,
+ "fallback_clips": 1,
+ "errors": [],
+ "format": "people",
+ "search_phrases": [
+  "phone battery memes",
+  "phone battery 1 percent",
+  "phone battery low"
  ],
- "format": "chat"
+ "funny_score": "3 -> 9",
+ "search": "phone battery 1 percent",
+ "reel_format": "types",
+ "vision_checks": 169,
+ "sources": {
+  "pixabay": 7,
+  "mixkit": 1
+ },
+ "clips_rejected": 161,
+ "no_match": [
+  "man connecting phone charger cable",
+  "man connecting phone charger cable",
+  "disappointed man holding dead smartphone",
+  "man sprinting holding phone charger",
+  "man sprinting holding phone charger",
+  "man sprinting holding phone charger"
+ ],
+ "laughs": 5,
+ "reel_minutes": 0.91,
+ "time_utc": "2026-11-15 13:53",
+ "title": "ایک پرسنٹ بیٹری اور ہمارے قومی کارنامے",
+ "dry_run": false
 }
