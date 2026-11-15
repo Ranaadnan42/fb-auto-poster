@@ -1,15 +1,15 @@
 {
- "time_utc": "2026-11-14 20:56",
- "spotlight": "real estate agency",
- "post_id": "1406363468242885",
+ "time_utc": "2026-11-15 17:35",
+ "spotlight": "car workshop",
+ "post_id": "1770942190681576",
  "error": null,
  "lang": "ur",
  "kind": "long",
- "clips": 0,
+ "clips": 3,
  "fallback": 0,
  "errors": [],
  "real_work": 7,
- "real_pos": 2,
- "mock": 5,
- "seconds": 107.6
+ "mock": 8,
+ "real_pos": 6,
+ "seconds": 133.9
 }
