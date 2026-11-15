@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-15 11:53",
+ "time_utc": "2026-11-15 14:13",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "sports": {
-   "key": "u600061400",
-   "sport": "mma",
-   "date": "2026-11-15 11:53",
+   "key": "c1555415",
+   "sport": "cricket",
+   "date": "2026-11-15 14:13",
    "lang": "en",
-   "match": "UFC 334: Gane vs. Hokit",
-   "result": "Ciryl Gane beat Josh Hokit in the main event",
-   "dur": 69,
-   "post_id": "1147796191336391"
+   "match": "Diasqua Little Sai Wan Cricket Club v Pakistan Association of Hong Kong",
+   "result": "Diasqua Little Sai Wan Cricket Club won by 204 runs",
+   "dur": 68,
+   "post_id": "1632590095017627"
   }
  },
  "errors": []
