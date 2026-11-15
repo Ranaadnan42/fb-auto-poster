@@ -1,29 +1,30 @@
 {
- "time_utc": "2026-11-14 20:06",
+ "time_utc": "2026-11-15 20:36",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-14 20:06",
+   "date": "2026-11-15 20:36",
    "kind": "reel",
    "lang": "en",
-   "title": "Microsoft Outage: Outlook and Teams Service Restoration Ongoing",
-   "dur": 58,
-   "post_id": "1135799092750834"
+   "title": "Ukraine Calls on US and Musk Over Starlink Limits",
+   "dur": 48,
+   "post_id": "1150727634375526"
   },
   "sports": {
-   "date": "2026-11-14 20:06",
+   "date": "2026-11-15 20:36",
    "kind": "reel",
    "lang": "en",
-   "title": "Ferrari's Secret Formula 1 Comeback Revealed",
-   "dur": 74,
-   "post_id": "1649221423566731"
+   "title": "Ronaldinho returns to professional football at age 46",
+   "dur": 43,
+   "post_id": "1390331752981162"
   }
  },
  "errors": [],
- "agent_checks": 135,
- "agent_rejects": 116,
+ "clips_rejected": 141,
+ "agent_checks": 144,
+ "agent_rejects": 136,
  "agent_skips": 0,
- "clips_rejected": 119
+ "alt_searches": 3
 }
