@@ -58,8 +58,9 @@ REPORT = {"time_utc": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), "mo
 
 # Pehli jang se tarteeb se (English Wikipedia titles). Khatam ho jaye to agent khud agli dhoondta hai.
 WARS = [
-    "Lagash–Umma border conflict", "Battle of Megiddo (15th century BC)", "Battle of Kadesh",
-    "Siege of Lachish", "Battle of Marathon", "Battle of Thermopylae", "Battle of Salamis",
+    "Prehistoric warfare", "Jebel Sahaba", "Nataruk", "Talheim Death Pit", "Lagash–Umma border conflict",
+    "Sargon of Akkad", "Battle of Megiddo (15th century BC)", "Battle of the Ten Kings", "Battle of Kadesh",
+    "Trojan War", "Battle of Muye", "Battle of Djahy", "Fall of Babylon", "Siege of Lachish", "Battle of Marathon", "Battle of Thermopylae", "Battle of Salamis",
     "Peloponnesian War", "Battle of Gaugamela", "Battle of the Hydaspes", "Kalinga War",
     "First Punic War", "Battle of Cannae", "Battle of Zama", "Gallic Wars", "Battle of Alesia",
     "Battle of Actium", "Battle of the Teutoburg Forest", "Siege of Jerusalem (70 CE)", "Battle of Adrianople",
@@ -96,36 +97,6 @@ WARS = [
     "Yom Kippur War", "Soviet–Afghan War", "Iran–Iraq War", "Falklands War", "Gulf War", "Bosnian War",
     "First Chechen War", "Kargil War", "Kosovo War", "War in Afghanistan (2001–2021)", "Iraq War",
 ]
-# Reels pehle in mash-hoor jangon par (zyada views), phir baqi sab
-FAMOUS = ["World War II", "World War I", "Battle of Stalingrad", "Normandy landings", "Battle of Thermopylae",
-          "Battle of Waterloo", "Attack on Pearl Harbor", "Battle of Hastings", "Battle of Gettysburg",
-          "Vietnam War", "Battle of Midway", "Battle of Cannae", "Fall of Constantinople", "Battle of Britain",
-          "Battle of the Bulge", "Korean War", "Battle of Agincourt", "Battle of Gaugamela", "Battle of Iwo Jima",
-          "Spanish Armada", "Battle of Trafalgar", "Battle of Berlin", "Gulf War", "Battle of Badr",
-          "Battle of Yarmuk", "Lagash–Umma border conflict", "Battle of Megiddo (15th century BC)"]
-
-
-# Har mulk ki baari - reels poori dunya ki jangein cover karein (mulk khatam to dobara shuru, nayi jang ke sath)
-COUNTRIES = [
-    "United States", "United Kingdom", "France", "Germany", "Russia", "China", "Japan", "India", "Pakistan",
-    "Turkey", "Egypt", "Iran", "Iraq", "Saudi Arabia", "Italy", "Spain", "Portugal", "Greece", "Poland",
-    "Netherlands", "Belgium", "Sweden", "Norway", "Denmark", "Finland", "Austria", "Hungary", "Czech Republic",
-    "Romania", "Bulgaria", "Serbia", "Croatia", "Ukraine", "Belarus", "Lithuania", "Ireland", "Scotland",
-    "Switzerland", "Mexico", "Canada", "Brazil", "Argentina", "Chile", "Peru", "Bolivia", "Paraguay", "Colombia",
-    "Venezuela", "Cuba", "Haiti", "Korea", "Vietnam", "Cambodia", "Thailand", "Myanmar", "Indonesia",
-    "Philippines", "Malaysia", "Afghanistan", "Bangladesh", "Sri Lanka", "Nepal", "Mongolia", "Kazakhstan",
-    "Uzbekistan", "Georgia", "Armenia", "Azerbaijan", "Syria", "Lebanon", "Jordan", "Israel", "Yemen", "Oman",
-    "Kuwait", "Libya", "Tunisia", "Algeria", "Morocco", "Sudan", "Ethiopia", "Eritrea", "Somalia", "Kenya",
-    "Uganda", "Rwanda", "Congo", "Angola", "Mozambique", "Zimbabwe", "South Africa", "Nigeria", "Ghana",
-    "Senegal", "Mali", "Chad", "Australia", "New Zealand", "Taiwan", "Tibet", "Bosnia and Herzegovina",
-    "Albania", "Estonia", "Latvia", "Slovakia", "Slovenia", "Montenegro", "North Macedonia", "Cyprus",
-    "Malta", "Iceland", "Ecuador", "Uruguay", "Guatemala", "El Salvador", "Honduras", "Nicaragua", "Panama",
-    "Dominican Republic", "Jamaica", "Laos", "Brunei", "Qatar", "Bahrain", "United Arab Emirates", "Tajikistan",
-    "Kyrgyzstan", "Turkmenistan", "Madagascar", "Namibia", "Botswana", "Zambia", "Tanzania", "Cameroon",
-    "Ivory Coast", "Liberia", "Sierra Leone", "Burundi", "South Sudan", "Mauritania", "Niger", "Burkina Faso",
-    "Papua New Guinea", "Fiji",
-]
-
 
 # ---------------------------------------------------------------- history
 def load_hist():
@@ -134,7 +105,6 @@ def load_hist():
             h = json.load(f)
     except Exception:
         h = {}
-    h.setdefault("country_i", 0)
     for k in ("reel", "long", "used_clips", "extra"):
         h.setdefault(k, [])
     return h
@@ -155,53 +125,27 @@ def next_from_ai(h, after):
     seen = sorted(done_titles(h, "reel") | done_titles(h, "long") | set(h["extra"]))
     j = news.ask_json(f"""You run a war-history page that tells the story of EVERY war and major battle in history,
 in chronological order. The last one covered was "{after}". Already covered (never repeat): {json.dumps(seen[-250:])}
-Suggest the next 8 real wars or major battles (every country of the world must get covered - prefer countries and
-regions not yet covered: Asia, Africa, Latin America, Oceania, Central Asia, the Middle East and Europe alike), each as its exact English Wikipedia article title. Avoid wars that are
+Suggest the next 8 real wars or major battles that are NOT yet covered, the EARLIEST in history first (any era -
+go back in time if older ones were missed), from every region of the world alike: Mesopotamia, Egypt, China, India,
+Persia, the Americas, Africa, Central Asia, Europe, Oceania, each as its exact English Wikipedia article title. Avoid wars that are
 still being fought today. Return JSON {{"wars": ["..."]}}""")
     out = [w.strip() for w in (j.get("wars") or []) if isinstance(w, str) and w.strip() and w.strip() not in seen]
     h["extra"] += out
     return out
 
 
-def country_war(h, done):
-    """Agle mulk ki sab se ahem jang jo abhi tak reel mein nahi aayi."""
-    for _ in range(4):
-        c = COUNTRIES[h["country_i"] % len(COUNTRIES)]
-        h["country_i"] += 1
-        j = news.ask_json(f"""For a war-history page covering every country on Earth: name the most famous / most
-important wars or battles that were fought in or by {c} (any era, ancient to modern, not still ongoing).
-Never these (already covered): {json.dumps(sorted(done)[-200:])}
-Return JSON {{"wars": ["up to 5 exact English Wikipedia article titles, most important first"]}}""")
-        for w in j.get("wars") or []:
-            if isinstance(w, str) and w.strip() and w.strip() not in done:
-                REPORT["country"] = c
-                log(f"Mulk ki baari: {c}")
-                return w.strip()
-    return None
-
-
 def pick_war(h):
-    if MODE == "long":                          # series: pehli jang se tarteeb se
-        done = done_titles(h, "long")
-        for w in WARS + h["extra"]:
-            if w not in done:
-                return w, len(done) + 1
-        last = h["long"][-1]["war"] if h["long"] else WARS[-1]
-        for w in next_from_ai(h, last):
+    """Ek hi timeline: dunya ki sab se pehli jang se tarteeb se. Reel aur long dono agli jang lete hain -
+    har jang ek dafa, koi chhoot-ti nahi. Episode number = timeline mein jagah."""
+    done = done_titles(h, "reel") | done_titles(h, "long")
+    for w in WARS + h["extra"]:
+        if w not in done:
             return w, len(done) + 1
-        raise RuntimeError("agli jang nahi mili")
-    done = done_titles(h, "reel")
-    if len(h["reel"]) % 2 == 0:                 # har doosri reel: agle mulk ki jang (poori dunya cover)
-        try:
-            w = country_war(h, done)
-            if w:
-                return w, None
-        except Exception as e:
-            log(f"mulk wali jang nahi mili ({str(e)[:100]}) - mash-hoor list se")
-    pool = [w for w in FAMOUS if w not in done] or [w for w in WARS + h["extra"] if w not in done]
-    if not pool:
-        pool = next_from_ai(h, h["reel"][-1]["war"] if h["reel"] else WARS[-1])
-    return random.choice(pool[:6]), None
+    last = (h["long"] + h["reel"])
+    last = sorted(last, key=lambda x: x.get("date", ""))[-1]["war"] if last else WARS[-1]
+    for w in next_from_ai(h, last):
+        return w, len(done) + 1
+    raise RuntimeError("agli jang nahi mili")
 
 
 # ---------------------------------------------------------------- facts (Wikipedia)
@@ -291,13 +235,13 @@ def write_script(facts, episode):
   1) a scroll-stopping hook (a shocking true number or twist from the facts), 2) WHEN and WHERE, 3) WHY it started,
   4-6) how it unfolded / the turning point, 7) WHO WON and WHO LOST, 8) how many people died (as the facts say),
   9) what it changed + "Follow Battles Untold for the story of every war in history." """
-        series = ""
+        series = f'\nThis is part {episode} of the series "History of Every War - from the very first war to today".'
     else:
         shape = """a LONG documentary of 800-950 spoken words (5-6 minutes) in 26-34 scenes, with these chapters
   (put the chapter name in each scene's "label"): "THE HOOK", "BEFORE THE WAR", "WHY IT STARTED", "THE SIDES",
   "HOW IT UNFOLDED", "THE TURNING POINT", "WHO WON", "THE HUMAN COST", "WHAT IT CHANGED". End with: this was
-  episode N of History of Every War, follow Battles Untold, like and share, comment which war we should cover next."""
-        series = f'\nThis is EPISODE {episode} of the series "History of Every War - from the first war to today".'
+  part N of History of Every War, follow Battles Untold, like and share, comment which war we should cover next."""
+        series = f'\nThis is part {episode} of the series "History of Every War - from the very first war to today".'
     prompt = f"""You are the narrator and writer of the Facebook page "Battles Untold" (war history for viewers in the
 USA, UK, Europe, Canada, Australia and the Gulf). Write {shape}{series}
 Subject: {facts['title']}
@@ -309,7 +253,9 @@ Rules:
 - Natural spoken English like a great History Channel narrator; your OWN words, never copied sentences.
 - ONLY facts written above. Dates, winners/losers and death tolls exactly as written (keep "estimated", "about",
   ranges). If the outcome was disputed or inconclusive, say so. If no casualty number is given, don't invent one.
-- If this was "the first recorded war/battle in history" (or similar) and the text says so, say it clearly.
+- If this was "the first recorded war/battle in history" / the oldest evidence of war (or similar) and the text
+  says so, say it clearly. For prehistoric topics explain when humans first fought and what the evidence is,
+  without describing injuries in detail.
 - Strictly neutral: never praise or blame a nation, religion or ethnic group; no glorifying killing; no graphic or
   gory descriptions (Facebook monetization). Explain causes and consequences like a historian.
 - ORIGINALITY: add 1-2 lines of your own historian insight (why it still matters today) - clearly as analysis.
@@ -512,8 +458,8 @@ def main():
         facts = gather_facts(war)
     script = write_script(facts, episode)
     log(f"Title: {script.get('title')} | {len(script['scenes'])} scenes")
-    if MODE == "long" and episode:
-        script["title"] = f"{script.get('title') or facts['title']} | History of Every War Ep. {episode}"
+    if episode:
+        script["title"] = f"{script.get('title') or facts['title']} | History of Every War #{episode}"
     path = build_video(script, facts, h["used_clips"])
     REPORT.update({k: v for k, v in nv.REPORT.items() if k not in ("errors", "posted")})
     desc = description(script, facts)
