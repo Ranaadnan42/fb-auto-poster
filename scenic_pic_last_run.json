@@ -1,5 +1,5 @@
 {
- "started": "2026-11-15T11:02",
+ "started": "2026-11-15T23:39",
  "steps": [
   "token: user token expires_at=0 data_access_expires_at=1801949831",
   "token: user token tha - page token bana kar istemal kiya",
@@ -10,29 +10,26 @@
   "web trend gemini-3-flash-preview: 429",
   "web trend gemini-2.5-flash-lite: 404",
   "trend scout: 0 YouTube videos, web report 0 chars",
-  "aaj ka manzar: desert & dunes",
+  "aaj ka manzar: green hills & meadows",
   "brain gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeo",
-  "agent ka faisla: Sossusvlei, Namib Desert, Namibia - bright sunny afternoon / golden sand dunes under deep blue sky (Iconic golden dunes against vivid blue sky create high-stopping visual contrast.)",
+  "agent ka faisla: Isle of Skye, Scotland, Scotland, United Kingdom - bright sunny afternoon over green rolling hills (Famous vivid green landscape with endless clean stock footage available.)",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: desert & dunes",
-  "brain gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeo",
-  "agent ka faisla: Wadi Rum, Jordan, Jordan - bright sunny afternoon / golden red desert under clear blue sky (Vivid red desert under blue skies creates striking visual contrast.)",
-  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: lake & mountains",
+  "aaj ka manzar: green hills & meadows",
   "brain gemini-3.8-flash: 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand",
-  "agent ka faisla: Lake Eibsee, Bavaria, Germany - bright sunny morning / crystal turquoise lake & mountain reflection (Stunning turquoise lake reflection of Germany's highest peak gets massive engagement.)",
+  "brain gemini-3.6-flash: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "agent ka faisla: Appenzell, Switzerland - bright sunny morning / vivid green alpine meadows (Appenzell's rolling hills are the quintessential viral aesthetic for green meadows.)",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: lake & mountains",
-  "brain gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeo",
-  "agent ka faisla: Lake Pehoé, Torres del Paine National Park, Chile - bright sunny afternoon / turquoise lake reflecting mountain peaks (Patagonia's vivid turquoise lake reflecting sunlit peaks creates instant scroll-stopping awe.)",
-  "photo wmi77863625 1920x1269: ok=True beauty=3 - Dead tree branches lack vibrant, scenic appeal.",
-  "photo wmi77936864 1920x2891: ok=True beauty=6 - Beautiful turquoise water, but lacks landscape context.",
-  "photo wmi92752895 1920x1081: ok=False beauty=8 - Vivid colors, stunning landscape, but contains watermark.",
+  "aaj ka manzar: green forest",
+  "brain gemini-3.8-flash: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "agent ka faisla: Black Forest (Schwarzwald), Germany - bright sunny morning / sunbeams through green pines (High-contrast sunbeams in deep green forests trigger high emotional engagement.)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "aaj ka manzar: green forest",
+  "agent ka faisla: Hoh Rainforest, Olympic National Park, USA - bright sunny morning / sunlight through mossy trees / emerald green forest (Vibrant moss and sunbeams create the high-contrast, viral fairytale aesthetic.)",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai"
  ],
  "errors": [
   "fatal: 4 jagahon par bhi achi footage nahi mili"
  ],
  "mode": "pic",
- "finished": "2026-11-15T11:08"
+ "finished": "2026-11-15T23:42"
 }
