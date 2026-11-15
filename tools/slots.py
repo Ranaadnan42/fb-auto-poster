@@ -37,14 +37,11 @@ SLOTS = [
     dict(file="cinematic.yml", crons=["47 18 * * *", "17 19 * * *"], post="01:17", lead=150),
     # Web Builder (pics + reels + long, en/ur/ar) - turant post karta hai
     dict(file="webbuilder.yml", crons=["23 10 * * *"], post="10:23", lead=15),
-    dict(file="webbuilder.yml", crons=["33 11 * * *"], post="11:33", lead=15),
     dict(file="webbuilder.yml", crons=["37 13 * * *"], post="13:37", lead=15),
     dict(file="webbuilder.yml", crons=["7 15 * * *"], post="15:07", lead=15),
     dict(file="webbuilder.yml", crons=["47 16 * * *"], post="16:47", lead=15),
     dict(file="webbuilder.yml", crons=["43 17 * * *"], post="17:43", lead=15),
-    dict(file="webbuilder.yml", crons=["27 18 * * *"], post="18:27", lead=15),
     dict(file="webbuilder.yml", crons=["13 19 * * *"], post="19:13", lead=15),
-    dict(file="webbuilder.yml", crons=["3 20 * * *"], post="20:03", lead=15),
     # News Act + Sports Hubs (pics turant, reel/long ban kar post)
     dict(file="news.yml", crons=["56 1 * * *"], post="02:11", lead=15),
     dict(file="news.yml", crons=["26 5 * * *"], post="05:41", lead=15),
