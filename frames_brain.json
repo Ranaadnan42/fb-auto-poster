@@ -1,32 +1,32 @@
 {
- "updated": "2026-11-15 07:29",
+ "updated": "2026-11-15 19:25",
  "mult": {
   "pk_city": 0.78,
   "pk_versus": 1.01,
-  "pk_moving": 0.77,
-  "pk_best_list": 1.05,
+  "pk_moving": 0.76,
+  "pk_best_list": 1.04,
   "pk_jobs": 0.71,
   "pk_country": 1.45,
-  "pk_visa": 0.91,
+  "pk_visa": 0.93,
   "pk_tour": 0.97,
   "pk_living": 0.99,
   "pk_jobhow": 0.98,
-  "pk_tour_short": 0.74,
-  "pk_cost_short": 0.56,
+  "pk_tour_short": 0.7,
+  "pk_cost_short": 0.57,
   "pk_jobtip": 0.82,
   "pk_food": 0.51,
-  "pk_hidden": 0.68,
-  "pk_salary_short": 0.55,
-  "pk_city_facts": 0.64,
-  "pk_versus_short": 0.98,
-  "pk_visa_short": 0.71,
+  "pk_hidden": 0.69,
+  "pk_salary_short": 0.56,
+  "pk_city_facts": 0.65,
+  "pk_versus_short": 0.99,
+  "pk_visa_short": 0.73,
   "pk_facts": 1.09
  },
  "tips": [
-  "Focus on comprehensive country documentaries (pk_country) and student migration listicles (pk_best_list), as long-form educational content holds significantly higher page average (0.82 vs 0.54).",
-  "Use direct country comparison hooks (pk_versus_short) like 'Canada vs Australia', which generated up to 9.69x performance.",
-  "Always use Urdu script for hooks and titles instead of Roman Urdu transliteration (Urdu title hit 5.9k views while the exact Roman Urdu version got only 31 views).",
-  "Completely eliminate food culture content (pk_food) and short salary breakdowns (pk_salary_short, pk_cost_short), which both averaged below 0.42x.",
-  "Avoid generic tourist or historical overviews (e.g., Baku tours, Dubai history) in favor of high-impact facts and actionable settlement insights."
+  "Always write titles in proper Urdu script with curiosity hooks (e.g., 'کون سا ملک بہتر ہے؟')—Roman Urdu titles flopped drastically (31 views vs 5,976 views for the exact same topic).",
+  "Focus on Country Comparisons (pk_versus_short) and in-depth Country Documentaries (pk_country, score 4.37x) focusing on lifestyle and student pathways.",
+  "Completely stop food content (pk_food, 0.31x) and micro salary shorts (pk_salary_short, 0.36x); audience interest in food guides is nearly zero.",
+  "Prioritize high-production long-form guides over random shorts; long-form retains a higher baseline (0.82x vs 0.54x) and drives better watch time for monetization.",
+  "For shorts, strictly use fast-paced curiosity hooks with specific numbers ('چین کے 6 ناقابل یقین اور حیران کن حقائق') rather than generic city history."
  ]
 }
