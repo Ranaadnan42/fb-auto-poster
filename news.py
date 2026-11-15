@@ -126,8 +126,9 @@ NEWS_REGIONS = {
 }
 # Urdu posts mein Pakistan / Gulf / South Asia ki khabar zyada (Urdu audience ke liye zyada dilchasp)
 # English = USA, UK, Europe, Canada, Australia (dollar / euro audience) ki khabar sab se zyada
-NEWS_WEIGHT = {"en": {"usa": 5, "uk": 4, "europe": 4, "canada_australia": 2, "world": 3, "business": 4,
-                      "science_tech": 5, "americas": 1, "middle_east": 1, "asia": 1, "africa": 1, "pakistan": 0.2},
+# News Act English = poori duniya (har baar alag khitta), bari global khabar ko thora zyada wazan
+NEWS_WEIGHT = {"en": {"usa": 3, "uk": 2.5, "europe": 3, "canada_australia": 2, "world": 4, "business": 3,
+                      "science_tech": 3.5, "americas": 2, "middle_east": 2.5, "asia": 3, "africa": 2, "pakistan": 1.5},
                "ur": {"world": 3, "pakistan": 4, "middle_east": 4, "asia": 2, "europe": 1, "americas": 3,
                       "africa": 1, "business": 1, "science_tech": 1, "usa": 2, "uk": 2, "canada_australia": 1}}
 

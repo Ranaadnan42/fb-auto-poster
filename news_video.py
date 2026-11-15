@@ -104,10 +104,11 @@ def save_hist(h):
 def pick_stories(kind, past):
     pool = news.NEWS_REGIONS if kind == "news" else news.SPORTS
     picked, links, topics = [], set(), set()
+    # News Act: ek video mein ek hi mulk/khitte ki khabrein nahi - har khabar alag khitte se (poori duniya)
     for topic in news.pick_topic(kind, past):
         if len(picked) >= STORIES:
             break
-        if topic in topics:
+        if topic in topics or (kind == "news" and {topic, *topics} >= {"usa", "americas"}):
             continue
         items = [i for i in news.fresh_items(pool[topic], past) if i["link"] not in links]
         items = [i for i in items if len(i["desc"]) >= 60] or items    # tafseel wali khabar pehle
