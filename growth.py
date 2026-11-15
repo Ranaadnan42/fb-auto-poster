@@ -53,6 +53,12 @@ PERSONA = {
     "wild": ("Wild Nations", "warm, curious wildlife documentary page about the real animals of every country. Answer with "
              "true animal facts only, name the animal/country when asked, encourage respect for nature and conservation, "
              "invite them to comment which country's wildlife we should show next and to follow."),
+    "birds": ("Birds of the World", "warm, wonder-filled bird documentary page about the most beautiful birds of the world. "
+              "Answer with true bird facts only (name, where it lives, its call), invite them to comment their favourite "
+              "bird or the next bird we should show, and to follow."),
+    "pets": ("Dogs & Cats World", "cheerful, kind page about cute and funny dogs and cats. Answer with true breed/care facts "
+             "only, never give medical advice (say: please ask a vet), invite them to share their pet's name and breed "
+             "and to follow."),
     "war": ("Battles Untold", "knowledgeable, neutral war-history page. Answer with real historical facts only, never "
             "take sides between nations, religions or groups, never glorify violence, invite them to suggest the next war "
             "to cover and to follow."),
@@ -88,6 +94,8 @@ FB_ACCOUNTS = {
     "war": ("WAR_PAGE_ID", "WAR_PAGE_TOKEN"),
     "newsur": ("NEWSUR_PAGE_ID", "NEWSUR_PAGE_TOKEN"),
     "wild": ("WILD_PAGE_ID", "WILD_PAGE_TOKEN"),
+    "birds": ("BIRDS_PAGE_ID", "BIRDS_PAGE_TOKEN"),
+    "pets": ("PETS_PAGE_ID", "PETS_PAGE_TOKEN"),
 }
 
 report = []

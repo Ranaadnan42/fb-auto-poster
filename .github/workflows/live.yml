@@ -67,6 +67,14 @@ jobs:
           NEWSUR_GROQ_API_KEY: ${{ secrets.NEWSUR_GROQ_API_KEY }}
           WILD_GEMINI_API_KEY: ${{ secrets.WILD_GEMINI_API_KEY }}
           WILD_GROQ_API_KEY: ${{ secrets.WILD_GROQ_API_KEY }}
+          BIRDS_PAGE_ID: ${{ secrets.BIRDS_PAGE_ID }}
+          BIRDS_PAGE_TOKEN: ${{ secrets.BIRDS_PAGE_TOKEN }}
+          BIRDS_GEMINI_API_KEY: ${{ secrets.BIRDS_GEMINI_API_KEY }}
+          BIRDS_GROQ_API_KEY: ${{ secrets.BIRDS_GROQ_API_KEY }}
+          PETS_PAGE_ID: ${{ secrets.PETS_PAGE_ID }}
+          PETS_PAGE_TOKEN: ${{ secrets.PETS_PAGE_TOKEN }}
+          PETS_GEMINI_API_KEY: ${{ secrets.PETS_GEMINI_API_KEY }}
+          PETS_GROQ_API_KEY: ${{ secrets.PETS_GROQ_API_KEY }}
           LIVE_MINUTES: ${{ inputs.minutes || '345' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
           TEST_TEXT: ${{ inputs.test_text }}

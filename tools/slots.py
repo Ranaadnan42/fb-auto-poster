@@ -88,6 +88,14 @@ SLOTS = [
     dict(file="wildlife.yml", crons=["7 12 * * *"], post="13:37", lead=90),
     dict(file="wildlife.yml", crons=["37 18 * * *"], post="20:07", lead=90),
     dict(file="wildlife.yml", crons=["47 20 * * *"], post="23:47", lead=180),
+    # Birds of the World (duniya ke parinde + asli awaz) - 2 reels + 1 lambi documentary
+    dict(file="birds.yml", crons=["57 12 * * *"], post="14:27", lead=90),
+    dict(file="birds.yml", crons=["47 19 * * *"], post="21:17", lead=90),
+    dict(file="birds.yml", crons=["47 21 * * *"], post="00:47", lead=180),
+    # Dogs & Cats World (pyare kuttay/billiyan) - 2 reels + 1 lambi video
+    dict(file="pets.yml", crons=["37 14 * * *"], post="16:07", lead=90),
+    dict(file="pets.yml", crons=["57 20 * * *"], post="22:27", lead=90),
+    dict(file="pets.yml", crons=["37 22 * * *"], post="01:37", lead=180),
     # Comment Helper search (Facebook posts dhoondta hai -> comment_hits.json; Supabase 04:15/13:15 email)
     dict(file="comment_search.yml", crons=["41 3 * * *"], post="03:41", lead=10),
     dict(file="comment_search.yml", crons=["41 12 * * *"], post="12:41", lead=10),

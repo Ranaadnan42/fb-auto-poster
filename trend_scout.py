@@ -39,6 +39,12 @@ NICHES = {
     "wild": ("wildlife documentaries - real animals of every country (predators, rare animals, animal facts)",
              ["wildlife documentary", "animals of africa", "amazing animals", "wild animals 4k", "animal facts",
               "predators documentary", "rare animals", "nature documentary animals"]),
+    "birds": ("bird documentaries - colorful birds of the world, bird songs, courtship dances, birdwatching",
+              ["colorful birds", "beautiful birds 4k", "bird sounds", "birds of paradise dance", "parrots",
+               "hummingbird slow motion", "birdwatching", "rare birds"]),
+    "pets": ("cute and funny dogs and cats, puppies, kittens, dog and cat breeds",
+             ["funny dogs", "funny cats", "cute puppies", "cute kittens", "dog breeds", "cat breeds",
+              "golden retriever", "husky"]),
     "scenic": ("beautiful nature and scenic travel places", ["nature 4k", "beautiful places", "relaxing nature",
                                                             "travel shorts", "drone footage nature", "hidden places on earth"]),
 }

@@ -72,11 +72,38 @@ def _wild_prompt(n, want, said):
             "about. Answer JSON {\"match\": true/false, \"why\": \"max 8 words\"}")
 
 
+def _birds_prompt(n, want, said):
+    return (f"You are the footage-checking agent of a BIRD documentary page. These {n} frame(s) are from ONE stock/"
+            f"archive VIDEO clip found for '{want}'. The narrator is saying right now: \"{(said or want)[:350]}\". "
+            "GOOD (true): real camera footage of THAT exact bird species alive (in nature or a natural-looking "
+            "aviary/reserve), ideally doing what is said (flying, singing, dancing/courtship display, feeding chicks, "
+            "nest); or, when the narrator talks about a place, that real habitat. BAD (false): a different bird species "
+            "(a toucan is not a hornbill, a macaw is not a cockatoo, a peacock is not a pheasant), a bird too small/far "
+            "to recognise, cartoon/CGI/AI art/toys/statues/drawings, a caged pet bird in a house, poultry, blood or a "
+            "kill, people/text/logos, or a random nature shot when a bird is being talked about. "
+            "Answer JSON {\"match\": true/false, \"why\": \"max 8 words\"}")
+
+
+def _pets_prompt(n, want, said):
+    return (f"You are the footage-checking agent of a DOGS & CATS page. These {n} frame(s) are from ONE stock VIDEO "
+            f"clip found for '{want}'. The narrator is saying right now: \"{(said or want)[:350]}\". "
+            "GOOD (true): real camera footage of THAT animal clearly visible - if a breed is named, THAT breed (a husky is "
+            "not a malamute or wolf, a persian is not a maine coon), if puppy/kitten is said a young one, ideally doing "
+            "what is said (playing, sleeping, running, eating). BAD (false): another breed or another animal, a dog when a "
+            "cat is said (or reverse), cartoon/CGI/AI art/toys/plush, an injured/sick/abused animal, a dog fight, "
+            "text/logos, or a shot where the animal is too small to see. "
+            "Answer JSON {\"match\": true/false, \"why\": \"max 8 words\"}")
+
+
 def _prompt(n, want, said, kind):
     if kind == "war":
         return _war_prompt(n, want, said)
     if kind == "wild":
         return _wild_prompt(n, want, said)
+    if kind == "birds":
+        return _birds_prompt(n, want, said)
+    if kind == "pets":
+        return _pets_prompt(n, want, said)
     sport = ("For sports: it must be THE SAME SPORT (cricket is not baseball, football is not rugby/American "
              "football), and if a team/country is named, not obviously another country's setting. "
              if kind == "sports" else "")
@@ -165,6 +192,18 @@ def _count(v):
 def alt_terms(want, said, ask_json, kind="news"):
     """Agent soche: yeh cheez dunya bhar ki stock/archive sites (Pixabay, Wikimedia Commons, NASA,
     Internet Archive, Mixkit) par aur kin alfaaz se milegi."""
+    if kind in ("birds", "pets"):
+        what = "bird species" if kind == "birds" else "dog/cat breed (or the same kind of pet)"
+        try:
+            d = ask_json(f"""A {'bird documentary' if kind == 'birds' else 'dogs & cats'} page needs real VIDEO footage of: "{want}".
+The narrator says: "{(said or '')[:300]}"
+Free stock/archive video sites found nothing matching.
+Give 6 OTHER short English search phrases (1-4 words) that would find real video of THE SAME {what}: its other common
+names, its scientific name, + a behaviour (flying, singing, dancing, nest / playing, sleeping, puppy, kitten).
+Never a different species or breed. Return JSON {{"queries": ["..."]}}""")
+            return [q for q in (d.get("queries") or []) if isinstance(q, str) and q.strip()][:6]
+        except Exception:
+            return []
     if kind == "wild":
         try:
             d = ask_json(f"""A wildlife documentary needs real VIDEO footage of: "{want}".

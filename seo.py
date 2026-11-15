@@ -78,6 +78,28 @@ PAGES = {
                   "conservation status exactly as said); add the country name and the animal name as hashtags; "
                   "family friendly, no gore words; max 2 emojis per line."),
     },
+    "birds": {
+        "name": "Birds of the World",
+        "brand_tags": ["#BirdsOfTheWorld"],
+        "base_tags": ["#birds", "#birdwatching", "#nature", "#wildlife", "#colorfulbirds", "#reels"],
+        "audience": ("bird and nature lovers in the USA, UK, Canada, Australia, Germany and the rest of Europe who love "
+                     "colorful birds, bird songs, birdwatching and nature documentaries"),
+        "cta": "Follow Birds of the World for the most beautiful birds on Earth 🦜🌍",
+        "cta_en": "Follow Birds of the World for the most beautiful birds on Earth 🦜🌍",
+        "rules": ("English only; the hook/body may ONLY restate facts from 'What the video says'; add the bird name and "
+                  "its region as hashtags; family friendly; max 2 emojis per line."),
+    },
+    "pets": {
+        "name": "Dogs & Cats World",
+        "brand_tags": ["#DogsAndCatsWorld"],
+        "base_tags": ["#dogs", "#cats", "#puppy", "#kitten", "#pets", "#cuteanimals", "#reels"],
+        "audience": ("dog and cat lovers and pet owners in the USA, UK, Canada, Australia and Europe who love cute and "
+                     "funny pet videos, breed facts and pet care tips"),
+        "cta": "Follow Dogs & Cats World for daily cute pets 🐶🐱",
+        "cta_en": "Follow Dogs & Cats World for daily cute pets 🐶🐱",
+        "rules": ("English only; the hook/body may ONLY restate facts from 'What the video says'; add the breed name as a "
+                  "hashtag; never medical advice; max 2 emojis per line."),
+    },
     "war": {
         "name": "Battles Untold",
         "brand_tags": ["#BattlesUntold"],

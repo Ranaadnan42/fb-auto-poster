@@ -1,0 +1,113 @@
+name: Birds of the World (Bird Agent)
+run-name: ${{ github.workflow }} [${{ inputs.sched || github.event.schedule || 'manual' }}]
+
+on:
+  schedule:
+    # Waqt UTC. Agent pehle chal kar video banata hai, POST_AT par post (slot_wait). USA/UK/Europe audience.
+    - cron: '57 12 * * *'    # reel - post 14:27 UTC = 9:27 subah New York / 2:27 London
+    - cron: '47 19 * * *'   # reel - post 21:17 UTC = 4:17 sehpehar New York / 9:17 shaam London
+    - cron: '47 21 * * *'   # long - post 00:47 UTC = 7:47 shaam New York (theme documentary)
+  workflow_dispatch:
+    inputs:
+      sched:
+        description: 'Scheduler ke liye - khali chhor dein'
+        type: string
+        default: ''
+      mode:
+        description: 'Kya banaye'
+        type: choice
+        options: [reel, long]
+        default: reel
+      dry_run:
+        description: 'Sirf video banaye, post na kare'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: birds-${{ (inputs.sched || github.event.schedule) || github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 358
+    outputs:
+      go: ${{ steps.g.outputs.go }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: tools
+      - id: g
+        name: Double post check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WF_FILE: birds.yml
+          SCHED: ${{ inputs.sched || github.event.schedule }}
+        run: python3 tools/slot_gate.py
+
+  build:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 358
+    env:
+      S: ${{ inputs.sched || github.event.schedule }}
+    steps:
+      - name: Job start time
+        run: echo "JOB_START=$(date +%s)" >> "$GITHUB_ENV"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install
+        run: |
+          for i in 1 2 3 4 5; do
+            sudo apt-get update && sudo apt-get install -y --fix-missing ffmpeg fonts-dejavu-core && break
+            echo "apt koshish $i fail - 30s baad dobara"; sleep 30
+          done
+          command -v ffmpeg
+          pip install requests pillow "edge-tts>=7.3.0"
+      - name: Run birds agent
+        env:
+          BIRDS_PAGE_ID: ${{ secrets.BIRDS_PAGE_ID }}
+          BIRDS_PAGE_TOKEN: ${{ secrets.BIRDS_PAGE_TOKEN }}
+          BIRDS_GEMINI_API_KEY: ${{ secrets.BIRDS_GEMINI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.BIRDS_GEMINI_API_KEY }}   # sirf is page ki apni key - purani shared key nahi
+          GROQ_API_KEY: ${{ secrets.BIRDS_GROQ_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.BIRDS_PIXABAY_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.BIRDS_PEXELS_API_KEY }}
+          MODE: ${{ env.S && (env.S == '47 21 * * *' && 'long' || 'reel') || inputs.mode || 'reel' }}
+          POST_AT: ${{ env.S == '57 12 * * *' && '14:27' || env.S == '47 19 * * *' && '21:17' || env.S == '47 21 * * *' && '00:47' || '' }}
+          DRY_RUN: ${{ (!env.S && github.event_name == 'workflow_dispatch' && inputs.dry_run) && '1' || '0' }}
+        run: python birds.py || { echo "Pehli koshish fail - 3 minute baad dobara"; sleep 180; python birds.py; }
+      - name: Keep video (dry run)
+        if: ${{ !inputs.sched && github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: birds-video
+          path: |
+            final_birds.mp4
+          if-no-files-found: ignore
+          retention-days: 5
+      - name: Save history
+        if: always()
+        run: |
+          FILES=$(ls birds_history.json birds_*_last_run.json birds_posts_history.json 2>/dev/null || true)
+          [ -z "$FILES" ] && exit 0
+          mkdir -p /tmp/keep
+          for f in $FILES; do cp "$f" /tmp/keep/; done
+          git config user.name "auto-poster"
+          git config user.email "auto-poster@users.noreply.github.com"
+          for i in 1 2 3 4 5; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            python3 tools/keep_files.py /tmp/keep $FILES
+            git add -A $FILES
+            git diff --cached --quiet && break
+            git commit -q -m "Update birds history and run report"
+            git push -q origin HEAD:main && break
+            sleep $((i * 5))
+          done
