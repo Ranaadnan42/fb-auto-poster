@@ -185,14 +185,28 @@ def refresh_views(h):
         if p.get("views_at") and now - p["views_at"] < 3 * 86400 and now - p["ts"] > 10 * 86400:
             continue
         try:
-            j = requests.get(f"{GRAPH}/{p['vid']}/video_insights", timeout=30,
-                             params={"metric": "blue_reels_play_count", "access_token": TOKEN}).json()
-            v = j.get("data", [{}])[0].get("values", [{}])[0].get("value")
-            if v is not None:
-                p["views"], p["views_at"] = int(v), now
-        except Exception:
-            pass
-
+            # sab metrics ek saath (pehle sirf ek metric mangta tha jo khali aata tha -> views kabhi save nahi hote the)
+            k = requests.get(f"{GRAPH}/{p['vid']}/video_insights", timeout=30, params={"access_token": TOKEN}).json()
+            vals = {}
+            for d in k.get("data") or []:
+                x = (d.get("values") or [{}])[0].get("value")
+                if isinstance(x, (int, float)):
+                    vals[d.get("name")] = int(x)
+            v = max([vals.get(m, 0) for m in ("blue_reels_play_count", "fb_reels_total_plays", "total_video_views",
+                                              "post_video_views")] + [0])
+            j = requests.get(f"{GRAPH}/{p['vid']}", timeout=30, params={
+                "fields": "views,likes.summary(true).limit(0),comments.summary(true).limit(0)",
+                "access_token": TOKEN}).json()
+            if isinstance(j.get("views"), int):
+                v = max(v, j["views"])
+            likes = ((j.get("likes") or {}).get("summary") or {}).get("total_count", 0)
+            comm = ((j.get("comments") or {}).get("summary") or {}).get("total_count", 0)
+            if v or likes or comm or "error" not in j:
+                p["views"], p["eng"], p["views_at"] = int(v), likes + 2 * comm, now
+            else:
+                log(f"views {p['vid']}: {str(j.get('error'))[:120]}")
+        except Exception as e:
+            log(f"views {p.get('vid')}: {str(e)[:120]}")
 
 
 # ---------------------------------------------------------------- TREND SCOUT (agent khud dekhta hai log aaj kal kya dekh rahe hain)
