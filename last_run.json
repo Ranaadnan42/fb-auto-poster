@@ -1,25 +1,44 @@
 {
  "lang": "ur",
- "stock_clips": 14,
+ "stock_clips": 46,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "dua qabool hone ka waqia",
-  "dua qabooliyat",
-  "dua qabooliyat wazifa"
+  "توبہ ڈرامہ",
+  "توبہ کا بیان",
+  "توبہ میری توبہ",
+  "توبہ قبول ہو میری توبہ قبول ہو",
+  "توبہ کی فضیلت",
+  "توبہ توبہ سونگ",
+  "توبہ توبہ",
+  "توبہ کے واقعات",
+  "توبہ ڈرامہ 1",
+  "tauba tauba",
+  "tauba drama",
+  "tauba meri tauba",
+  "tauba drama episode 1",
+  "tauba tumhare ye ishare",
+  "tauba qabool ho meri tauba qabool ho",
+  "tauba ishq",
+  "tauba drama last episode",
+  "tauba re tauba meri kamsin jawani"
  ],
- "story": "Prophet raises hands for rain during khutbah",
- "search": "dua qabool hone ka waqia",
- "vision_checks": 109,
- "clips_rejected": 81,
+ "story": "Ikrimah repents during violent sea storm",
+ "search": "توبہ کے واقعات",
+ "vision_checks": 159,
  "sources": {
-  "pixabay": 13,
-  "commons": 1
+  "pixabay": 35,
+  "commons": 9,
+  "mixkit": 1,
+  "nasa": 1
  },
- "photo_clips": 2,
- "reel_minutes": 1.23,
- "time_utc": "2026-11-15 14:00",
- "title": "دعا قبول ہونے کا واقعہ: جب نبی کریم ﷺ کے ہاتھ اٹھاتے ہی بارش ہوئی",
+ "clips_rejected": 129,
+ "no_match": [
+  "mosque sunset sky"
+ ],
+ "long_minutes": 5.96,
+ "time_utc": "2026-11-15 16:35",
+ "title": "توبہ کے واقعات: جب سمندری طوفان میں عکرمہ کا دل بدل گیا",
  "dry_run": false,
  "posted_ok": 1
 }
