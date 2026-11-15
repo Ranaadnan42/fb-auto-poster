@@ -1,36 +1,41 @@
 {
- "lang": "en",
- "stock_clips": 38,
+ "lang": "ur",
+ "stock_clips": 8,
  "fallback_clips": 0,
- "errors": [],
+ "errors": [
+  "reel: Awaaz nahi bani"
+ ],
  "search_phrases": [
-  "sahaba stories for kids",
-  "sahaba stories in urdu",
-  "sahaba stories arabic",
-  "sahaba stories playlist",
-  "sahaba stories animated",
-  "sahaba stories bangla",
-  "sahaba stories islamic guidance",
-  "sahaba stories in english",
-  "sahaba stories uthman"
+  "اسلامی تاریخی ڈرامے",
+  "اسلامی تاریخ آج کی 2026",
+  "اسلامی تاریخی واقعات",
+  "اسلامی تاریخ آج کی",
+  "اسلامی تاریخ کیا ہے",
+  "اسلامی تاریخی کہانیاں",
+  "اسلامی تاریخ کیا ہے اج",
+  "اسلامی تاریخ کے واقعات",
+  "اسلامی تاریخ 2026",
+  "islami tareekh today",
+  "islami tareekh kya hai aaj 2026",
+  "islami tareekhi maqamat",
+  "islami tareekhi waqiat",
+  "islami tareekh ka waqia",
+  "islami tareekh ki kitab",
+  "islami tareekh books in urdu",
+  "islami tareekh kya hai",
+  "islami tareekhi drama"
  ],
- "story": "Salman al-Farsi searches for truth",
- "search": "sahaba stories in english",
- "vision_checks": 95,
- "clips_rejected": 153,
+ "story": "Fatima al-Fihri builds Qarawiyyin university fasting",
+ "search": "اسلامی تاریخی واقعات",
+ "vision_checks": 84,
+ "clips_rejected": 63,
  "sources": {
-  "pixabay": 29,
-  "commons": 7,
-  "mixkit": 1,
-  "nasa": 1
+  "pixabay": 5,
+  "commons": 2,
+  "mixkit": 1
  },
- "no_match": [
-  "mosque interior",
-  "mosque sunset sky"
- ],
- "long_minutes": 5.12,
- "time_utc": "2026-11-14 19:24",
- "title": "Sahaba Stories in English: Salman al-Farsi's Search for Truth",
+ "time_utc": "2026-11-15 08:33",
+ "title": "اسلامی تاریخی واقعات: فاطمہ الفہری اور دنیا کی پہلی یونیورسٹی",
  "dry_run": false,
- "posted_ok": 1
+ "posted_ok": 0
 }
