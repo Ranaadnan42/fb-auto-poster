@@ -1,11 +1,48 @@
 {
- "time_utc": "2026-11-11 11:15",
+ "time_utc": "2026-11-14 23:54",
  "kind": "long",
  "lang": "en",
  "dry_run": false,
- "posted": {},
- "errors": [
-  "news: Facebook jawab samajh nahi aaya: ",
-  "sports: Facebook jawab samajh nahi aaya: "
- ]
+ "posted": {
+  "news": {
+   "date": "2026-11-14 23:54",
+   "kind": "long",
+   "lang": "en",
+   "title": "Global News: Meta Fined, UK Food Bank Crisis, and Iraq Crackdown",
+   "dur": 456,
+   "post_id": "1620623872593744"
+  },
+  "sports": {
+   "date": "2026-11-14 23:54",
+   "kind": "long",
+   "lang": "en",
+   "title": "Global Sports News: WWE Drama, NFL Maps, and Esports",
+   "dur": 232,
+   "post_id": "1804940884170737"
+  }
+ },
+ "errors": [],
+ "clips_rejected": 884,
+ "agent_checks": 312,
+ "agent_rejects": 297,
+ "agent_skips": 570,
+ "alt_searches": 7,
+ "time_budget_hit": true,
+ "no_match": [
+  "@WWE",
+  "professional sports stadium",
+  "@BMW",
+  "formula one race car",
+  "race track straightaway",
+  "racing car garage",
+  "historic race car",
+  "grandstand racing crowd",
+  "@Ultimate Fighting Championship",
+  "mixed martial arts cage",
+  "combat sports arena",
+  "sports broadcast camera",
+  "arena championship stage",
+  "sports event crowd"
+ ],
+ "headline_cards": 14
 }
