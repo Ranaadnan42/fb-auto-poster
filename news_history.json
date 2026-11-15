@@ -898,6 +898,20 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122110000011532804"
+  },
+  {
+   "date": "2026-11-15 03:08",
+   "lang": "ur",
+   "topic": "middle_east",
+   "link": "https://news.google.com/rss/articles/CBMihgFBVV95cUxNLUJsNEo5V0xyZU5OV1lHbzVyQWI1Z250MGIydmFBdEVQbFl3SjBscTMzRFN3bFctN1BaSWd1QWp4bVpCOWR5ZzlmVVZYR2QzZHhITFZZd2dZbFdWNm10cEhDQkdxNGNZNjN2MzdOMDF6TEtDZHU0SHJFbGtWWnhpb1NMVlk3Zw?oc=5",
+   "title": "Lee Kang-in Scapegoated in Passing Controversy",
+   "words": [
+    "controversy",
+    "kang",
+    "passing",
+    "scapegoated"
+   ],
+   "post_id": "1448208791702551_122110044237532804"
   }
  ],
  "sports": [
@@ -1801,6 +1815,25 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122101536777548502"
+  },
+  {
+   "date": "2026-11-15 03:08",
+   "lang": "ur",
+   "topic": "olympic_sports",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOY0FjV05TekdhRWhRSDZ6X1EwTTVSaGtRVEcxWXlZc0FQYlhPZ0d4T2JhOGZyWHlOOFJhdF85WVpObFIxc1BGbHV6TlJrVTBMejNVdC1IcC1iN0ZGQ3NFMEs1RTRiWS1XdHVtY1hUNkZQVzRSa2hKdkozSktGTTV3TXhSZkhoY3N1b0F1RklkWXRobjFuWmVsX0UtSmJ3QUtCenFWOVN1YVVhc1Q4bDRMbXF1dGdBdw?oc=5",
+   "title": "Hillcrest’s Hayden Hough makes history with swimming state championship",
+   "words": [
+    "championship",
+    "hayden",
+    "hillcrest",
+    "history",
+    "hough",
+    "makes",
+    "state",
+    "swimming",
+    "with"
+   ],
+   "post_id": "1465090056678690_122101638873548502"
   }
  ],
  "used_images": [
@@ -1860,6 +1893,7 @@
   488700,
   3385958,
   3387324,
-  "pxi555735"
+  "pxi555735",
+  "pxi79592"
  ]
 }
