@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-15 12:51",
- "lang": "ur",
+ "time_utc": "2026-11-15 15:38",
+ "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1448208791702551_122110202901532804",
+   "post": "1448208791702551_122110245759532804",
    "topic": "world",
-   "title": "The Philippines and Australia strengthen joint military deterrence at ASEAN summit"
+   "title": "Iran targets US military base in Bahrain with drone attack"
   },
   "sports": {
-   "post": "1465090056678690_122102016801548502",
-   "topic": "wrestling",
-   "title": "WWE’s Plans For Tiffany Stratton Expected To Fail"
+   "post": "1465090056678690_122102139093548502",
+   "topic": "big_events",
+   "title": "ICC locks in window for major events until 2035, India to host 2029 Champions Trophy and 2031 ODI World Cup"
   }
  },
  "errors": []

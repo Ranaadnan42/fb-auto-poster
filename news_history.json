@@ -986,6 +986,25 @@
     "summit"
    ],
    "post_id": "1448208791702551_122110202901532804"
+  },
+  {
+   "date": "2026-11-15 15:38",
+   "lang": "en",
+   "topic": "world",
+   "link": "https://www.bbc.co.uk/news/articles/cqn4e2py48kwo?at_medium=RSS&at_campaign=rss",
+   "title": "Iran targets US military base in Bahrain with drone attack",
+   "words": [
+    "attack",
+    "bahrain",
+    "base",
+    "drone",
+    "iran",
+    "military",
+    "targets",
+    "with"
+   ],
+   "breaking": true,
+   "post_id": "1448208791702551_122110245759532804"
   }
  ],
  "sports": [
@@ -1973,6 +1992,30 @@
     "tiffany"
    ],
    "post_id": "1465090056678690_122102016801548502"
+  },
+  {
+   "date": "2026-11-15 15:38",
+   "lang": "en",
+   "topic": "big_events",
+   "link": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxQTk5rSUtCQkQ3WEMtdzVkbTZCeFdsd2FxSmt2SEM3dVhXUi1LS09mc3Fvc0tKXzRNQnVLOHEtUzVINk5jeFR1N1UxdFd5TWJKNnRGbWl2akpIb2hWeHEwNE1TN3dKMGgzc3R3d1pRQmhCZGZjZkU5cFRPR2dfVkJqNktqanBlektxLTg4YkRad2REOHpEZzY3NVV5elhmMGxLcG16STFZeHhCeEpscFl6ckxLSzA2OFYyWGVndUZETTVoMU1wZDFfM3VEUDBjaWxtS25CTEhmYnNrbEdqZTVyUTJPb3hfcjVJd2lR0gHrAUFVX3lxTFBOTmtJS0JCRDdYQy13NWRtNkJ4V2x3YXFKa3ZIQzd1WFdSLUtLT2ZzcW9zS0pfNE1CdUs4cS1TNUg2TmN4VHU3VTF0V3lNYko2dEZtaXZqSkhvaFZ4cTA0TVM3d0owaDNzdHd3WlFCaEJkZmNmRTlwVE9HZ19WQmo2S2pqcGV6S3EtODhiRFp3ZEQ4ekRnNjc1VXl6WGYwbEtwbXpJMVl4eEJ4SmxwWXpyTEtLMDY4VjJYZWd1RkRNNWgxTXBkMV8zdURQMGNpbG1LbkJMSGZic2tsR2plNXJRMk9veF9yNUl3aVE?oc=5",
+   "title": "ICC locks in window for major events until 2035, India to host 2029 Champions Trophy and 2031 ODI World Cup",
+   "words": [
+    "2029",
+    "2031",
+    "2035",
+    "champions",
+    "events",
+    "host",
+    "india",
+    "locks",
+    "major",
+    "trophy",
+    "until",
+    "window",
+    "world"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122102139093548502"
   }
  ],
  "used_images": [
@@ -2039,6 +2082,8 @@
   "pxi82140",
   2639750,
   2962949,
-  2181977
+  2181977,
+  "pxi4969453",
+  "pxi2511043"
  ]
 }
