@@ -1,29 +1,30 @@
 {
- "time_utc": "2026-11-14 20:06",
+ "time_utc": "2026-11-14 23:43",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-14 20:06",
+   "date": "2026-11-14 23:43",
    "kind": "reel",
    "lang": "en",
-   "title": "Microsoft Outage: Outlook and Teams Service Restoration Ongoing",
-   "dur": 58,
-   "post_id": "1135799092750834"
+   "title": "Why North Carolina Hurricane Helene Recovery Was So Slow",
+   "dur": 51,
+   "post_id": "2670746600045704"
   },
   "sports": {
-   "date": "2026-11-14 20:06",
+   "date": "2026-11-14 23:43",
    "kind": "reel",
    "lang": "en",
-   "title": "Ferrari's Secret Formula 1 Comeback Revealed",
-   "dur": 74,
-   "post_id": "1649221423566731"
+   "title": "2027 Formula 1 Official Travel Packages Announced",
+   "dur": 51,
+   "post_id": "1445479383767570"
   }
  },
  "errors": [],
- "agent_checks": 135,
- "agent_rejects": 116,
+ "clips_rejected": 97,
+ "agent_checks": 105,
+ "agent_rejects": 93,
  "agent_skips": 0,
- "clips_rejected": 119
+ "alt_searches": 1
 }
