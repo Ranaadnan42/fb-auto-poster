@@ -1,11 +1,28 @@
 {
  "open_fixes": [],
- "time_utc": "2026-11-14 19:58",
- "summary": "AI quota khatam hone ki wajah se Frames of Life ki footage check nahi hui, owner ko quota reset karna hoga.",
- "notes": [],
+ "time_utc": "2026-11-15 11:15",
+ "summary": "Ghalat AI model IDs (gemini-3.8, gemma-4) ko valid Gemini 1.5 models se badal kar bots ko theek kiya.",
+ "notes": [
+  "fix push na ho saka"
+ ],
  "actions": [],
- "edits": [],
+ "edits": [
+  {
+   "path": "funny.py",
+   "why": "Fixing Gemini model candidates to valid Gemini models to prevent API errors."
+  },
+  {
+   "path": "main.py",
+   "why": "Invalid Gemini model IDs ko valid models se badal diya."
+  },
+  {
+   "path": "scenic.py",
+   "why": "Invalid Gemini model IDs fixed in scenic agent."
+  }
+ ],
  "needs_owner": [
-  "Frames of Life footage agent ke liye AI quota reset ya increase karen"
+  "Islamic Motivational Videos (FB): Awaaz nahi bani (TTS quota check)",
+  "Hansi Ka Adda (FB): Awaaz nahi bani (TTS quota check)",
+  "Frames of Life: AI quota khatam hone ki wajah se footage agent check nahi ho saka"
  ]
 }

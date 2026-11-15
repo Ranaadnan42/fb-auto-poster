@@ -1,111 +1,106 @@
 {
  "islamic": {
   "avoid": [
-   "نبی کریم کا واقعہ"
+   "Khalid ibn al‑Walid’s conversion and bravery",
+   "Salman al‑Farsi’s search for truth"
   ],
   "try": [
-   "Bilal ibn Rabah ki sabr aur azm ki kahani",
-   "Prophet Muhammad ki chand ko split karne ki mu'jiza ka sabak",
-   "Muezza billi ki kahani: Nabi ﷺ ki meharbani aur pyaar",
-   "Isra aur Mi'raj ka safar aur uske roohani faide",
-   "Sa'd ibn Abi Waqqas ki humility aur jihad ki kahani",
-   "Nabi ﷺ ki ek ghareeb aurat ko dene wali generosity ki waqi'a"
+   "Bilal ibn Rabah’s perseverance and call to prayer",
+   "The miracle of the splitting of the moon",
+   "Prophet Ayyub’s (Job) patience during severe illness",
+   "Uthman ibn Affan’s generosity during the famine of 7 AH",
+   "Imam Ali’s wisdom in the camel incident (the dispute over the camel’s ownership)",
+   "Abu Bakr’s early conversion and support for the Prophet"
   ],
-  "note": "Page thodi repetitive lag rahi hai"
+  "note": "Page thodi repetitive hai"
  },
  "funny": {
   "avoid": [
-   "یاروں کی گروپ چیٹ اور شمالی علاقہ جات series",
-   "ابّا کی بارگیننگ یا لاجک jokes",
-   "ریموٹ کنٹرول کی جنگ کا موضوع",
-   "Eid شاپنگ کے واقعات",
-   "Har ghar expectation vs reality انداز"
+   "ریموٹ کی جنگ اور ابّو کا سپریم کورٹ والا فیصلہ",
+   "دادی جان اور پوتے کی عید شاپنگ",
+   "یاروں کی گروپ چیٹ اور شمالی علاقہ جات",
+   "دیسی گھرانوں کے 5 شاہکار واٹس ایپ کارنامے",
+   "PSL فائنل اور دیسی گھرانوں کے ڈرامے"
   ],
   "try": [
-   "نیا موبائل ڈیٹا پلان پر خاندان کی بحث",
-   "پڑوس کی بیکری میں نئی پیزا کی آزمائش",
-   "سائیکل سے ٹیکسی تک کا سفر اور ڈرائیور کی کہانیاں",
-   "پڑوسی کی نئی سمارٹ واچ اور اس کے فنکشنز پر ہنسی",
-   "آن لائن کلاس میں انٹرنیٹ ڈراپ اور استاد کا ردعمل",
-   "گھر میں نئی ایئر کنڈیشنر کی انسٹالیشن اور ٹیکنیشن کی باتیں"
+   "نیا انٹرنیٹ پیکج اور ابو کا ڈیٹا بلیک آؤٹ ڈرامہ",
+   "پڑوسی کی نئی بائیسکل اور بچوں کی سائیڈ سٹریٹ ریس",
+   "دال چاول کے بجائے پاستا بنانے کی پہلی کوشش",
+   "سینٹرل پارک میں فری شاپنگ ایونٹ اور امی کا بگڑتا بجٹ",
+   "ٹی وی پر نئی ڈرامہ سیریز اور گھر کی رائے کا ٹکراؤ",
+   "پہلا آن لائن میٹنگ اور گھر کے شور کا ڈرامہ"
   ],
-  "note": "Page thora repetitive lag raha hai."
+  "note": "Page thodi repetitive lag rahi hai"
  },
  "world": {
   "avoid": [
-   "Japan",
-   "Thailand",
-   "Vietnam",
-   "New Zealand",
-   "Sydney, Australia",
-   "What Nobody Tells You title phrasing"
+   "What Nobody Tells You"
   ],
   "try": [
-   "Living in Morocco: The Real Cost of the Medina Life",
-   "Iceland vs Norway: Which Nordic Country is Better for Expats?",
-   "Daily Life in Cairo: Navigating the Chaos and Culture",
-   "Moving to Lisbon vs Porto: The Honest Truth for Digital Nomads",
-   "Life in Buenos Aires: Safety, Food & Nightlife Reality Check",
-   "The Hidden Gems of Eastern Europe: Poland & Czechia Deep Dive"
+   "Living in Iceland: Cost, Climate, and Lifestyle",
+   "Chile Uncovered: Daily Life and Expenses",
+   "Poland: Affordable Living and Culture",
+   "Greece: Islands, Cost of Living, and Expat Life",
+   "Argentina: Moving and Working in Buenos Aires",
+   "South Africa: Safety, Jobs, and Lifestyle in Cape Town"
   ],
-  "note": "Page is repetitive with 'What Nobody Tells You' titles and frequent focus on SE Asia and retirement niches."
+  "note": "Page ka content thoda repetitive lag raha hai."
  },
  "world_short": {
   "avoid": [
-   "Japan",
-   "South Korea",
-   "Australia",
-   "5 Secret Places in",
-   "London"
+   "Japan"
   ],
   "try": [
-   "Traditional Food of Brazil: 5 Must-Try Dishes",
-   "Singapore vs Hong Kong: Wages and Lifestyle Compared",
-   "Hidden Gems in Iceland You Never Knew Existed",
-   "What Life Really Costs in Portugal | Honest Living Guide",
-   "6 Amazing Facts About Morocco You Didn't Know",
-   "Denmark vs Sweden: Cost of Living and Wages Revealed"
+   "The Hidden History of the Great Wall of China in 60 Seconds",
+   "Why Iceland's Blue Lagoon is More Expensive Than You Think",
+   "5 Underrated Street Foods in Bangkok You Must Try",
+   "Living in Dubai: The Truth About Taxes and Heat",
+   "The Secret Underground Tunnels of Prague",
+   "Why New Zealand's Kiwi Fruit is Actually From China"
   ],
-  "note": "Page titles aur Japan ke content mein kaafi repetitive ho raha hai, naye locations aur fresh wording try karein."
+  "note": "Page is highly repetitive with same title formats and Japan appearing twice."
  },
  "frames": {
   "avoid": [
-   "Japan",
    "Dubai",
+   "Japan",
    "Canada",
-   "kaise lagta hai",
-   "ki sachi haqeeqat"
+   "Germany",
+   "Australia",
+   "Italy",
+   "Malta"
   ],
   "try": [
-   "Portugal Job Seeker Visa and Life",
-   "Life in Norway: Salaries and Weather",
-   "Thailand Tourism and Visa Guide for Pakistanis",
-   "New Zealand Migration and Job Market",
-   "Finland Education and Student Life",
-   "Ireland Work Permit and Living Costs"
+   "Life in New Zealand: Nature, Jobs, and Cost of Living for Pakistanis",
+   "Norway vs Sweden: Which is better for Pakistani workers?",
+   "Life in Qatar: Real salary breakdown and housing costs",
+   "Visa Guide for Turkey: E-visa process and tourism tips",
+   "Life in UAE (Abu Dhabi vs Dubai): Where should you settle?",
+   "Cheapest Countries in Europe for Pakistani Students (2024 Update)"
   ],
-  "note": "Page ka format kaafi consistent hai lekin visa guides aur popular countries bar bar repeat ho rahi hain, naye regions explore karna behtar hoga."
+  "note": "Page is highly repetitive with visa guides and 'Life in X' formats for major Western/Gulf countries."
  },
  "frames_short": {
   "avoid": [
-   "5 items list"
+   "Specific countries already covered: China, Saudi Arabia, Oman, Indonesia, Vietna",
+   "Specific countries already covered: Egypt, Ireland, New Zealand, Kazakhstan, Sin"
   ],
   "try": [
-   "Bangladesh: 5 surprising facts about Dhaka",
-   "Cost of Living in Lagos, Nigeria 2026",
-   "Job Opportunities in Nairobi: 5 Tips for Pakistanis",
-   "Hidden Places in Cape Town: 5 Must-See Spots",
-   "Food Guide: 5 Traditional Dishes of Marrakech",
-   "Visa Tips for Pakistanis to Travel to Iceland: 5 Important Points"
+   "Life in Dubai: Real daily expenses for a single person (not just cost of living)",
+   "Working in Qatar: Salary vs Savings potential for Pakistani workers",
+   "Travel to Turkey: Istanbul vs Cappadocia budget comparison",
+   "Life in Malaysia: Penang food scene and living costs",
+   "Moving to UAE: Family relocation checklist and school fees",
+   "Exploring Thailand: Bangkok street food and safety tips for tourists"
   ],
-  "note": "Page thodi repetitive hai, lekin abhi bhi nayi cheezein shamil ki ja sakti hain."
+  "note": "Page is highly repetitive with 'Cost of Living', 'Visa Tips', and 'Country Comparisons' formats."
  },
  "_platforms": {
   "islamic": {
    "posts": 10,
-   "facebook": 7,
+   "facebook": 6,
    "youtube": 10,
-   "tiktok": 5
+   "tiktok": 4
   },
   "funny": {
    "posts": 10,
