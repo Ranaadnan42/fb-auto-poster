@@ -366,48 +366,148 @@ def description(script, facts):
     return f"⚔️ {script.get('title')}\n\n{card}\n\n{script.get('caption', '')}\n\n{src}\n\n#BattlesUntold #history #war"
 
 
+BRAND_COVER = ("epic historical battle panorama, armored knights on horseback charging, roman legion shields, "
+               "cannons firing, burning castle, flying banners, fire sparks and smoke, dramatic golden sunset sky, "
+               "vibrant saturated colors, ultra HD 8k, hyper detailed 3D render, octane render, cinematic lighting, "
+               "volumetric light, no text, no letters, no watermark")
+BRAND_LOGO = ("3D emblem logo, golden spartan warrior helmet with red crest over a polished steel shield and two "
+              "crossed swords, glowing embers and fire behind, vibrant colors, ultra HD 8k, hyper detailed 3D render, "
+              "octane render, glossy metal, centered, dark red background, no text, no letters, no watermark")
+
+
+def ai_art(prompt, w, h, path):
+    """Rangeen 3D AI tasveer: pehle Pollinations (flux, free), phir Gemini image (WAR key)."""
+    import urllib.parse
+    url = ("https://image.pollinations.ai/prompt/" + urllib.parse.quote(prompt) +
+           f"?width={w}&height={h}&seed={random.randint(1, 99999)}&model=flux&nologo=true&private=true&enhance=true")
+    for attempt in range(4):
+        try:
+            r = requests.get(url, timeout=240)
+            if r.status_code == 200 and r.headers.get("content-type", "").startswith("image") and len(r.content) > 40000:
+                open(path, "wb").write(r.content)
+                log(f"brand art: pollinations ok ({w}x{h})")
+                return True
+            log(f"pollinations {r.status_code} (try {attempt + 1})")
+        except Exception as e:
+            log(f"pollinations error: {str(e)[:120]}")
+        time.sleep(20 + attempt * 15)
+    key = os.environ.get("WAR_GEMINI_API_KEY") or os.environ.get("GEMINI_API_KEY")
+    import base64
+    for model in ("gemini-2.5-flash-image", "gemini-2.0-flash-preview-image-generation"):
+        try:
+            j = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+                              params={"key": key}, timeout=180, json={
+                                  "contents": [{"parts": [{"text": prompt}]}],
+                                  "generationConfig": {"responseModalities": ["TEXT", "IMAGE"]}}).json()
+            for part in j["candidates"][0]["content"]["parts"]:
+                if part.get("inlineData"):
+                    open(path, "wb").write(base64.b64decode(part["inlineData"]["data"]))
+                    log(f"brand art: gemini {model} ok")
+                    return True
+        except Exception as e:
+            log(f"gemini image {model} fail: {str(e)[:120]}")
+    return False
+
+
+def hd(im, size):
+    """Bara karo (LANCZOS) + rang tez + sharp - ultra HD look."""
+    from PIL import Image, ImageEnhance, ImageFilter
+    w, h = im.size
+    tw, th = size
+    r = tw / th
+    cw, ch = (w, int(w / r)) if w / h < r else (int(h * r), h)
+    im = im.crop(((w - cw) // 2, (h - ch) // 2, (w + cw) // 2, (h + ch) // 2)).resize(size, Image.LANCZOS)
+    im = ImageEnhance.Color(im).enhance(1.3)
+    im = ImageEnhance.Contrast(im).enhance(1.12)
+    return im.filter(ImageFilter.UnsharpMask(radius=2, percent=120, threshold=2))
+
+
+def text_3d(canvas, txt, font, cx, y, depth=14):
+    """3D sona text: neeche gehri parteen (extrude), saya, upar sunehri gradient + chamak."""
+    from PIL import Image, ImageDraw, ImageFilter
+    d0 = ImageDraw.Draw(canvas)
+    tw = d0.textlength(txt, font=font)
+    x = cx - tw / 2
+    asc, desc = font.getmetrics()
+    th = asc + desc
+    sh = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+    ImageDraw.Draw(sh).text((x + depth + 6, y + depth + 10), txt, font=font, fill=(0, 0, 0, 200))
+    canvas.alpha_composite(sh.filter(ImageFilter.GaussianBlur(depth)))
+    glow = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+    ImageDraw.Draw(glow).text((x, y), txt, font=font, fill=(255, 140, 20, 170))
+    canvas.alpha_composite(glow.filter(ImageFilter.GaussianBlur(depth * 1.6)))
+    d = ImageDraw.Draw(canvas)
+    for i in range(depth, 0, -1):
+        k = i / depth
+        d.text((x + i * 0.7, y + i), txt, font=font,
+               fill=(int(90 - 50 * k), int(40 - 25 * k), int(5), 255))
+    grad = Image.new("RGBA", (int(tw) + 20, th + 20))
+    gd = ImageDraw.Draw(grad)
+    stops = [(0.0, (255, 250, 210)), (0.45, (255, 205, 70)), (0.55, (215, 140, 20)), (1.0, (255, 225, 120))]
+    for yy in range(grad.size[1]):
+        t = yy / grad.size[1]
+        for (a, ca), (b, cb) in zip(stops, stops[1:]):
+            if a <= t <= b:
+                f = (t - a) / (b - a)
+                gd.line([(0, yy), (grad.size[0], yy)], fill=tuple(int(ca[c] + (cb[c] - ca[c]) * f) for c in range(3)) + (255,))
+                break
+    mask = Image.new("L", grad.size, 0)
+    ImageDraw.Draw(mask).text((10, 10), txt, font=font, fill=255)
+    out = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+    out.paste(grad, (int(x) - 10, int(y) - 10), mask)
+    edge = Image.new("RGBA", canvas.size, (0, 0, 0, 0))
+    ImageDraw.Draw(edge).text((x, y), txt, font=font, fill=(0, 0, 0, 0),
+                              stroke_width=max(2, depth // 5), stroke_fill=(60, 25, 0, 255))
+    canvas.alpha_composite(edge)
+    canvas.alpha_composite(out)
+
+
 def brand():
-    """Ek dafa: page ki profile + cover picture (asli public-domain jang ki painting)."""
+    """Ek dafa: page ki profile (3D logo) + cover (rangeen 3D jang ka manzar), ultra HD."""
     from PIL import Image, ImageDraw, ImageFont
     P = page()
-    img = os.path.join(nv.WORK, "brand_src.jpg")
-    got = None
-    for name in ("Battle of Waterloo", "Battle of Trafalgar", "Battle of Hastings", "Battle of Gettysburg"):
-        got = footage.real_photo(name, img, [], min_w=1200)
-        if got:
-            break
-    if not got:
+    font = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts", "Cinzel.ttf")
+
+    def F(n):
+        try:
+            return ImageFont.truetype(font, n)
+        except Exception:
+            return ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf", n)
+
+    def src(prompt, w, h, name):
+        path = os.path.join(nv.WORK, name)
+        if ai_art(prompt, w, h, path):
+            return Image.open(path).convert("RGB")
+        log("AI art nahi mili - asli painting se")
+        for nm in ("Battle of Waterloo", "Battle of Trafalgar", "Battle of Hastings"):
+            if footage.real_photo(nm, path, [], min_w=1200):
+                return Image.open(path).convert("RGB")
         raise RuntimeError("brand ki tasveer nahi mili")
-    im = Image.open(img).convert("RGB")
-    w, h = im.size
-    cw, ch = (w, int(w / 1.777)) if w / h < 1.777 else (int(h * 1.777), h)
-    cov = im.crop(((w - cw) // 2, (h - ch) // 2, (w + cw) // 2, (h + ch) // 2)).resize((1920, 1080))
-    dark = Image.new("RGB", cov.size, (0, 0, 0))
-    cov = Image.blend(cov, dark, 0.35)
-    d = ImageDraw.Draw(cov)
-    try:
-        f1 = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf", 130)
-        f2 = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", 46)
-    except Exception:
-        f1 = f2 = ImageFont.load_default()
-    for txt, f, y in (("BATTLES UNTOLD", f1, 400), ("The story of every war in history", f2, 580)):
-        tw = d.textlength(txt, font=f)
-        d.text(((1920 - tw) / 2, y), txt, font=f, fill=(235, 215, 170), stroke_width=4, stroke_fill=(0, 0, 0))
+
+    # cover 2560x1440 (FB ultra HD)
+    cov = hd(src(BRAND_COVER, 1920, 1080, "brand_cover_src.jpg"), (2560, 1440)).convert("RGBA")
+    shade = Image.new("RGBA", cov.size, (0, 0, 0, 0))
+    sd = ImageDraw.Draw(shade)
+    for yy in range(cov.size[1]):
+        a = int(150 * max(0, 1 - abs(yy - 720) / 520))
+        sd.line([(0, yy), (cov.size[0], yy)], fill=(0, 0, 0, a))
+    cov.alpha_composite(shade)
+    text_3d(cov, "BATTLES UNTOLD", F(200), 1280, 520, depth=18)
+    text_3d(cov, "THE TRUE STORY OF EVERY WAR IN HISTORY", F(62), 1280, 800, depth=6)
     cov_path = os.path.join(nv.WORK, "cover.jpg")
-    cov.save(cov_path, quality=94)
-    s = min(w, h)
-    prof = im.crop(((w - s) // 2, (h - s) // 2, (w + s) // 2, (h + s) // 2)).resize((1080, 1080))
-    prof = Image.blend(prof, Image.new("RGB", prof.size, (0, 0, 0)), 0.45)
-    d = ImageDraw.Draw(prof)
-    try:
-        f3 = ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf", 210)
-    except Exception:
-        f3 = ImageFont.load_default()
-    for txt, y in (("BATTLES", 300), ("UNTOLD", 560)):
-        tw = d.textlength(txt, font=f3)
-        d.text(((1080 - tw) / 2, y), txt, font=f3, fill=(235, 215, 170), stroke_width=6, stroke_fill=(0, 0, 0))
+    cov.convert("RGB").save(cov_path, quality=96, subsampling=0)
+
+    # profile 2048x2048: 3D emblem + naam
+    prof = hd(src(BRAND_LOGO, 1024, 1024, "brand_logo_src.jpg"), (2048, 2048)).convert("RGBA")
+    shade = Image.new("RGBA", prof.size, (0, 0, 0, 0))
+    sd = ImageDraw.Draw(shade)
+    for yy in range(1300, 2048):
+        sd.line([(0, yy), (2048, yy)], fill=(0, 0, 0, int(200 * (yy - 1300) / 748)))
+    prof.alpha_composite(shade)
+    text_3d(prof, "BATTLES", F(300), 1024, 1440, depth=20)
+    text_3d(prof, "UNTOLD", F(230), 1024, 1760, depth=16)
     prof_path = os.path.join(nv.WORK, "profile.jpg")
-    prof.save(prof_path, quality=94)
+    prof.convert("RGB").save(prof_path, quality=96, subsampling=0)
     import shutil
     shutil.copy(prof_path, "final_war_profile.jpg")
     shutil.copy(cov_path, "final_war_cover.jpg")

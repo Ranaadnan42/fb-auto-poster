@@ -145,7 +145,7 @@ def age_hours(ts):
 
 
 # Naye pages ki apni alag API keys - purani (shared) keys in par kabhi nahi lagti
-OWN_KEYS = {"newsur": "NEWSUR", "wild": "WILD", "birds": "BIRDS", "pets": "PETS"}
+OWN_KEYS = {"newsur": "NEWSUR", "wild": "WILD", "birds": "BIRDS", "pets": "PETS", "war": "WAR"}
 
 
 def own_ready(acct):

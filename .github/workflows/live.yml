@@ -59,6 +59,8 @@ jobs:
           SCENIC_PAGE_TOKEN: ${{ secrets.SCENIC_PAGE_TOKEN }}
           WAR_PAGE_ID: ${{ secrets.WAR_PAGE_ID }}
           WAR_PAGE_TOKEN: ${{ secrets.WAR_PAGE_TOKEN }}
+          WAR_GEMINI_API_KEY: ${{ secrets.WAR_GEMINI_API_KEY }}
+          WAR_GROQ_API_KEY: ${{ secrets.WAR_GROQ_API_KEY }}
           NEWSUR_PAGE_ID: ${{ secrets.NEWSUR_PAGE_ID }}
           NEWSUR_PAGE_TOKEN: ${{ secrets.NEWSUR_PAGE_TOKEN }}
           WILD_PAGE_ID: ${{ secrets.WILD_PAGE_ID }}
