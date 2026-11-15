@@ -1,35 +1,31 @@
 {
- "time_utc": "2026-11-14 15:05",
+ "time_utc": "2026-11-15 19:59",
  "kind": "long",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-14 15:05",
+   "date": "2026-11-15 19:59",
    "kind": "long",
    "lang": "ur",
-   "title": "یوکرین کے لیے نیٹو کی پیشکش اور کرکٹ فائنل",
-   "dur": 340,
-   "post_id": "1801191391138483"
+   "title": "عالمی فضائی بحران، اے آئی جاسوسی اور کوئینز لینڈ میں طوفان",
+   "dur": 548,
+   "post_id": "2065767004142570"
   },
   "sports": {
-   "date": "2026-11-14 15:05",
+   "date": "2026-11-15 19:59",
    "kind": "long",
    "lang": "ur",
-   "title": "ریسلنگ اور ای اسپورٹس کی دنیا سے اہم خبریں",
-   "dur": 561,
-   "post_id": "1146117658333034"
+   "title": "رونالڈینیو کی فٹ بال میں واپسی اور کھیلوں کی اہم خبریں",
+   "dur": 514,
+   "post_id": "992181063410748"
   }
  },
  "errors": [],
- "clips_rejected": 763,
- "agent_checks": 234,
- "agent_rejects": 214,
- "agent_skips": 537,
+ "agent_checks": 270,
+ "agent_rejects": 247,
+ "agent_skips": 565,
+ "clips_rejected": 823,
  "alt_searches": 8,
- "time_budget_hit": true,
- "no_match": [
-  "@Table Tennis England"
- ],
- "headline_cards": 1
+ "time_budget_hit": true
 }
