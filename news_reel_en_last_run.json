@@ -1,29 +1,21 @@
 {
- "time_utc": "2026-11-14 20:06",
+ "time_utc": "2026-11-15 22:02",
  "kind": "reel",
  "lang": "en",
- "dry_run": false,
+ "dry_run": true,
  "posted": {
   "news": {
-   "date": "2026-11-14 20:06",
+   "date": "2026-11-15 22:02",
    "kind": "reel",
    "lang": "en",
-   "title": "Microsoft Outage: Outlook and Teams Service Restoration Ongoing",
-   "dur": 58,
-   "post_id": "1135799092750834"
-  },
-  "sports": {
-   "date": "2026-11-14 20:06",
-   "kind": "reel",
-   "lang": "en",
-   "title": "Ferrari's Secret Formula 1 Comeback Revealed",
-   "dur": 74,
-   "post_id": "1649221423566731"
+   "title": "Remembering Donald Anthony Kersting Carter in the USA",
+   "dur": 49
   }
  },
  "errors": [],
- "agent_checks": 135,
- "agent_rejects": 116,
+ "clips_rejected": 173,
+ "agent_checks": 175,
+ "agent_rejects": 171,
  "agent_skips": 0,
- "clips_rejected": 119
+ "alt_searches": 3
 }
