@@ -65,6 +65,19 @@ PAGES = {
                   "(no 'massive', 'shocking', 'watch highlights' unless stated); strictly neutral, no political opinion; "
                   "no meta hashtags like #UrduEnglish; max 2 emojis per line."),
     },
+    "wild": {
+        "name": "Wild Nations",
+        "brand_tags": ["#WildNations"],
+        "base_tags": ["#wildlife", "#animals", "#nature", "#wildanimals", "#naturedocumentary", "#reels"],
+        "audience": ("nature and animal lovers in the USA, UK, Canada, Australia, Germany and the rest of Europe, plus "
+                     "the Gulf (UAE, Saudi Arabia, Qatar), who love wildlife documentaries, safari, rare animals and "
+                     "animal facts"),
+        "cta": "Follow Wild Nations for the real wildlife of every country 🌍🐾",
+        "cta_en": "Follow Wild Nations for the real wildlife of every country 🌍🐾",
+        "rules": ("English only; the hook/body may ONLY restate facts from 'What the video says' (numbers and "
+                  "conservation status exactly as said); add the country name and the animal name as hashtags; "
+                  "family friendly, no gore words; max 2 emojis per line."),
+    },
     "war": {
         "name": "Battles Untold",
         "brand_tags": ["#BattlesUntold"],

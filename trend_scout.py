@@ -36,6 +36,9 @@ NICHES = {
     "war": ("war history documentaries (ancient battles, World War I and II, famous wars - why they started, who won)",
             ["war history documentary", "world war 2 documentary", "history of war", "ancient battles",
              "military history", "battle explained", "ww2 footage", "history documentary"]),
+    "wild": ("wildlife documentaries - real animals of every country (predators, rare animals, animal facts)",
+             ["wildlife documentary", "animals of africa", "amazing animals", "wild animals 4k", "animal facts",
+              "predators documentary", "rare animals", "nature documentary animals"]),
     "scenic": ("beautiful nature and scenic travel places", ["nature 4k", "beautiful places", "relaxing nature",
                                                             "travel shorts", "drone footage nature", "hidden places on earth"]),
 }

@@ -84,6 +84,10 @@ SLOTS = [
     dict(file="war.yml", crons=["43 13 * * *"], post="15:13", lead=90),
     dict(file="war.yml", crons=["13 21 * * *"], post="22:43", lead=90),
     dict(file="war.yml", crons=["13 22 * * *"], post="01:13", lead=180),
+    # Wild Nations (har mulk ke janwar) - 2 reels + 1 lambi documentary
+    dict(file="wildlife.yml", crons=["7 12 * * *"], post="13:37", lead=90),
+    dict(file="wildlife.yml", crons=["37 18 * * *"], post="20:07", lead=90),
+    dict(file="wildlife.yml", crons=["47 20 * * *"], post="23:47", lead=180),
     # Comment Helper search (Facebook posts dhoondta hai -> comment_hits.json; Supabase 04:15/13:15 email)
     dict(file="comment_search.yml", crons=["41 3 * * *"], post="03:41", lead=10),
     dict(file="comment_search.yml", crons=["41 12 * * *"], post="12:41", lead=10),

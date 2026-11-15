@@ -60,9 +60,23 @@ def _war_prompt(n, want, said):
             "Answer JSON {\"match\": true/false, \"why\": \"max 8 words\"}")
 
 
+def _wild_prompt(n, want, said):
+    return (f"You are the footage-checking agent of a WILDLIFE documentary page. These {n} frame(s) are from ONE stock/"
+            f"archive VIDEO clip found for '{want}'. The narrator is saying right now: \"{(said or want)[:350]}\". "
+            "Does it really show what is being said? GOOD (true): real camera footage of THAT exact animal species alive "
+            "(in the wild or a natural-looking reserve), ideally doing what is said (hunting, swimming, a cub...); or, "
+            "when the narrator talks about a place, that real wild landscape. BAD (false): a different species (a leopard "
+            "is not a cheetah or jaguar, a crocodile is not an alligator, an African elephant is not an Asian one if the "
+            "narrator says which), cartoon/CGI/AI art/toys/statues, a pet or farm animal, an animal in a small zoo cage, "
+            "blood or a graphic kill, people/cities/text/logos, or a random nature shot when an animal is being talked "
+            "about. Answer JSON {\"match\": true/false, \"why\": \"max 8 words\"}")
+
+
 def _prompt(n, want, said, kind):
     if kind == "war":
         return _war_prompt(n, want, said)
+    if kind == "wild":
+        return _wild_prompt(n, want, said)
     sport = ("For sports: it must be THE SAME SPORT (cricket is not baseball, football is not rugby/American "
              "football), and if a team/country is named, not obviously another country's setting. "
              if kind == "sports" else "")
@@ -151,6 +165,17 @@ def _count(v):
 def alt_terms(want, said, ask_json, kind="news"):
     """Agent soche: yeh cheez dunya bhar ki stock/archive sites (Pixabay, Wikimedia Commons, NASA,
     Internet Archive, Mixkit) par aur kin alfaaz se milegi."""
+    if kind == "wild":
+        try:
+            d = ask_json(f"""A wildlife documentary needs real VIDEO footage of: "{want}".
+The narrator says: "{(said or '')[:300]}"
+Free stock/archive video sites (Pixabay, Pexels, Wikimedia Commons, Internet Archive) found nothing matching.
+Give 6 OTHER short English search phrases (1-4 words) that would find real video of THE SAME animal species (or the
+same wild place): its other common names, its scientific name, the animal + a behaviour (hunting, eating, running,
+swimming, cub), the animal + its national park/region. Never a different animal. Return JSON {{"queries": ["..."]}}""")
+            return [q for q in (d.get("queries") or []) if isinstance(q, str) and q.strip()][:6]
+        except Exception:
+            return []
     if kind == "war":
         try:
             d = ask_json(f"""A war-history documentary needs real footage or images of: "{want}".

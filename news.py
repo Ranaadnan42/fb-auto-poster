@@ -44,9 +44,6 @@ LANG = (os.environ.get("LANGUAGE") or "en").strip().lower()
 BREAKING = os.environ.get("BREAKING") == "1"     # har 2 ghante: sirf bari taaza khabar ho to foran post
 BREAKING_PER_DAY = 5
 PAGES_TO_RUN = [p.strip() for p in (os.environ.get("PAGES") or "news,sports").split(",") if p.strip()]
-# News Act ab sirf English - Urdu khabrein naye Urdu page par jayengi (Sports Hubs par Urdu chalti rahegi)
-if LANG == "ur":
-    PAGES_TO_RUN = [p for p in PAGES_TO_RUN if p != "news"]
 PIXABAY_KEY = os.environ.get("PIXABAY_API_KEY")
 POSTS_LOG = "news_posts_history.json"      # har post ka record - agent (brain.py) is se views seekhta hai
 BRAIN_FILE = "news_brain.json"             # agent ka seekha hua plan
@@ -88,6 +85,16 @@ PAGES = {
     "sports": {"name": "Sports Hubs", "token": os.environ.get("SPORTS_PAGE_TOKEN"),
                "id": os.environ.get("SPORTS_PAGE_ID"), "color": "&H0000A5FF", "accent": "0xFFA500"},
 }
+
+# News Act ab sirf English. Urdu khabrein naye page "News Act Urdu" par jati hain (NEWSUR_PAGE_ID/TOKEN).
+# Urdu run mein "news" ka matlab News Act Urdu hai; us ka token na ho to Urdu News post nahi hoti
+# (Sports Hubs par Urdu pehle ki tarah chalti hai).
+if LANG == "ur":
+    PAGES["news"] = dict(PAGES["news"], name="News Act Urdu",
+                         token=(os.environ.get("NEWSUR_PAGE_TOKEN") or "").strip(),
+                         id=(os.environ.get("NEWSUR_PAGE_ID") or "").strip())
+    if not (PAGES["news"]["token"] and PAGES["news"]["id"]):
+        PAGES_TO_RUN = [p for p in PAGES_TO_RUN if p != "news"]
 
 
 def gnews(q, lang="en"):

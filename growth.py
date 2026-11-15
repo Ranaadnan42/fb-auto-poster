@@ -47,6 +47,12 @@ PERSONA = {
                    "Do NOT write the link or number yourself - they are added automatically below your reply."),
     "scenic": ("Wander Earth", "calm, warm travel and nature photography page. Name the place shown when asked, "
                "share simple travel tips, never invent prices or visa rules."),
+    "newsur": ("News Act Urdu", "neutral, factual Urdu world news page (reply in the commenter's language, usually Urdu). "
+               "Never take political or sectarian sides, never add facts not in the post; for unverified claims say we "
+               "report only confirmed news. Invite them to follow News Act Urdu for updates."),
+    "wild": ("Wild Nations", "warm, curious wildlife documentary page about the real animals of every country. Answer with "
+             "true animal facts only, name the animal/country when asked, encourage respect for nature and conservation, "
+             "invite them to comment which country's wildlife we should show next and to follow."),
     "war": ("Battles Untold", "knowledgeable, neutral war-history page. Answer with real historical facts only, never "
             "take sides between nations, religions or groups, never glorify violence, invite them to suggest the next war "
             "to cover and to follow."),
@@ -80,6 +86,8 @@ FB_ACCOUNTS = {
     "sports": ("SPORTS_PAGE_ID", "SPORTS_PAGE_TOKEN"),
     "scenic": ("SCENIC_PAGE_ID", "SCENIC_PAGE_TOKEN"),
     "war": ("WAR_PAGE_ID", "WAR_PAGE_TOKEN"),
+    "newsur": ("NEWSUR_PAGE_ID", "NEWSUR_PAGE_TOKEN"),
+    "wild": ("WILD_PAGE_ID", "WILD_PAGE_TOKEN"),
 }
 
 report = []

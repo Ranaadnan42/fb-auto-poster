@@ -130,6 +130,8 @@ jobs:
         env:
           NEWS_PAGE_TOKEN: ${{ secrets.NEWS_PAGE_TOKEN }}
           NEWS_PAGE_ID: ${{ secrets.NEWS_PAGE_ID }}
+          NEWSUR_PAGE_TOKEN: ${{ secrets.NEWSUR_PAGE_TOKEN }}
+          NEWSUR_PAGE_ID: ${{ secrets.NEWSUR_PAGE_ID }}
           SPORTS_PAGE_TOKEN: ${{ secrets.SPORTS_PAGE_TOKEN }}
           SPORTS_PAGE_ID: ${{ secrets.SPORTS_PAGE_ID }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
@@ -161,7 +163,7 @@ jobs:
             *) python news_video.py ;;
           esac
           # News Act ab sirf English: Urdu reel / long video slot par News Act ko English reel / long video milti hai
-          # (Urdu sirf Sports Hubs par) - is tarah News Act par rozana 6 reels + 2 long video English mein
+          # (Urdu khabar News Act Urdu + Sports Hubs par) - is tarah News Act par rozana 6 reels + 2 long video English mein
           if { [ "$KIND" = reel ] || [ "$KIND" = long ]; } && [ "$LANGUAGE" = ur ] && [[ ",$PAGES," == *",news,"* ]]; then
             LANGUAGE=en PAGES=news python news_video.py
           fi
