@@ -2837,5 +2837,17 @@
   ],
   "sport": null,
   "title": "Global Sports News: WWE Drama, NFL Maps, and Esports"
+ },
+ {
+  "date": "2026-11-15 02:19",
+  "page": "sports",
+  "id": "1076606032000712",
+  "fmt": "match",
+  "lang": "en",
+  "topics": [
+   "tennis"
+  ],
+  "sport": "tennis",
+  "title": "Thiago Agustin Tirante vs Taylor Fritz"
  }
 ]
