@@ -1,30 +1,30 @@
 {
- "time_utc": "2026-11-15 11:32",
+ "time_utc": "2026-11-14 18:20",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-15 11:32",
+   "date": "2026-11-14 18:20",
    "kind": "reel",
    "lang": "ur",
-   "title": "دنیا کے بااثر ترین مسلمانوں میں پاکستانی قیادت کا نمایاں مقام",
-   "dur": 62,
-   "post_id": "1633136151949674"
+   "title": "NHS England misses crucial cancer treatment targets",
+   "dur": 63,
+   "post_id": "1448985727348242"
   },
   "sports": {
-   "date": "2026-11-15 11:32",
+   "date": "2026-11-14 18:20",
    "kind": "reel",
    "lang": "ur",
-   "title": "Arsene Wenger FIFA Presidency Decision Update",
-   "dur": 47,
-   "post_id": "1648540553314507"
+   "title": "ڈبلیو ڈبلیو ای کے متنازع منصوبوں پر نئی رپورٹ",
+   "dur": 49,
+   "post_id": "2353119882188600"
   }
  },
  "errors": [],
- "clips_rejected": 170,
- "agent_checks": 179,
- "agent_rejects": 168,
+ "agent_checks": 137,
+ "agent_rejects": 125,
  "agent_skips": 0,
- "alt_searches": 3
+ "clips_rejected": 126,
+ "alt_searches": 2
 }
