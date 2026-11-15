@@ -1,41 +1,25 @@
 {
  "lang": "ur",
- "stock_clips": 8,
+ "stock_clips": 14,
  "fallback_clips": 0,
- "errors": [
-  "reel: Awaaz nahi bani"
- ],
+ "errors": [],
  "search_phrases": [
-  "اسلامی تاریخی ڈرامے",
-  "اسلامی تاریخ آج کی 2026",
-  "اسلامی تاریخی واقعات",
-  "اسلامی تاریخ آج کی",
-  "اسلامی تاریخ کیا ہے",
-  "اسلامی تاریخی کہانیاں",
-  "اسلامی تاریخ کیا ہے اج",
-  "اسلامی تاریخ کے واقعات",
-  "اسلامی تاریخ 2026",
-  "islami tareekh today",
-  "islami tareekh kya hai aaj 2026",
-  "islami tareekhi maqamat",
-  "islami tareekhi waqiat",
-  "islami tareekh ka waqia",
-  "islami tareekh ki kitab",
-  "islami tareekh books in urdu",
-  "islami tareekh kya hai",
-  "islami tareekhi drama"
+  "dua qabool hone ka waqia",
+  "dua qabooliyat",
+  "dua qabooliyat wazifa"
  ],
- "story": "Fatima al-Fihri builds Qarawiyyin university fasting",
- "search": "اسلامی تاریخی واقعات",
- "vision_checks": 84,
- "clips_rejected": 63,
+ "story": "Prophet raises hands for rain during khutbah",
+ "search": "dua qabool hone ka waqia",
+ "vision_checks": 109,
+ "clips_rejected": 81,
  "sources": {
-  "pixabay": 5,
-  "commons": 2,
-  "mixkit": 1
+  "pixabay": 13,
+  "commons": 1
  },
- "time_utc": "2026-11-15 08:33",
- "title": "اسلامی تاریخی واقعات: فاطمہ الفہری اور دنیا کی پہلی یونیورسٹی",
+ "photo_clips": 2,
+ "reel_minutes": 1.23,
+ "time_utc": "2026-11-15 14:00",
+ "title": "دعا قبول ہونے کا واقعہ: جب نبی کریم ﷺ کے ہاتھ اٹھاتے ہی بارش ہوئی",
  "dry_run": false,
- "posted_ok": 0
+ "posted_ok": 1
 }
