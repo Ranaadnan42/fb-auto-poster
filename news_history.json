@@ -929,6 +929,25 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122110043583532804"
+  },
+  {
+   "date": "2026-11-15 10:53",
+   "lang": "ur",
+   "topic": "business",
+   "link": "https://www.bbc.co.uk/news/articles/c6rrg51rkz09o?at_medium=RSS&at_campaign=rss",
+   "title": "Microsoft says services fully restored after day-long global outage",
+   "words": [
+    "after",
+    "fully",
+    "global",
+    "long",
+    "microsoft",
+    "outage",
+    "restored",
+    "says",
+    "services"
+   ],
+   "post_id": "1448208791702551_122110171413532804"
   }
  ],
  "sports": [
@@ -1870,6 +1889,24 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122101640805548502"
+  },
+  {
+   "date": "2026-11-15 10:53",
+   "lang": "ur",
+   "topic": "athletics",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOaldTVm54Tmh4THRDZ0tXWEVHazFFRkEtVTJVMjVGckI5T3JwLWN2SWp3RjdoUXM5ejdNc0gxY2I2V1pZSWdvMXZ2alZ4S2lLWDZvQmVwTGZ0V09fVXdRcVAyTDdLakhrSEg5cXdiMXlDOERJQXBYT0Y1QjdEZnNPTkNWMFFHMTRzX0cwTWg5VnpNQVQyVTY1S21QVktjZFhZQnJ3WHBGenpFZERnQTVIOWdsbw?oc=5",
+   "title": "Panther wrestling dominates in season opener at Grand View Open",
+   "words": [
+    "dominates",
+    "grand",
+    "open",
+    "opener",
+    "panther",
+    "season",
+    "view",
+    "wrestling"
+   ],
+   "post_id": "1465090056678690_122101930383548502"
   }
  ],
  "used_images": [
@@ -1932,6 +1969,7 @@
   "pxi555735",
   "pxi79592",
   89568,
-  "pxi6483905"
+  "pxi6483905",
+  "pxi82140"
  ]
 }
