@@ -22,7 +22,10 @@
    "mood": "misty morning",
    "hook": "POV: 6 AM in Switzerland",
    "clip": "px328740",
-   "beauty": 10
+   "beauty": 10,
+   "views": 253,
+   "eng": 4,
+   "views_at": 1794754652.0105715
   },
   {
    "ts": 1794510464.0357285,
@@ -34,7 +37,10 @@
    "mood": "misty sunrise",
    "hook": "Is this place even real?",
    "clip": "px224004",
-   "beauty": 9
+   "beauty": 9,
+   "views": 6,
+   "eng": 1,
+   "views_at": 1794754652.0105715
   },
   {
    "ts": 1794515095.3757823,
@@ -46,7 +52,10 @@
    "mood": "misty sunrise",
    "hook": "POV: 5:40 AM in Japan",
    "clip": "px164906",
-   "beauty": 10
+   "beauty": 10,
+   "views": 43,
+   "eng": 2,
+   "views_at": 1794754652.0105715
   },
   {
    "ts": 1794523500.0,
@@ -56,7 +65,10 @@
    "place": "Hallstatt",
    "country": "Austria",
    "mood": "misty morning",
-   "hook": null
+   "hook": null,
+   "views": 1122,
+   "eng": 18,
+   "views_at": 1794754652.0105715
   },
   {
    "ts": 1794526555.9696343,
@@ -65,7 +77,10 @@
    "place": "Switzerland",
    "country": "Switzerland",
    "mood": "long film",
-   "hook": "Switzerland 4K - Alps, Lakes & Valleys | Relaxing Nature Film"
+   "hook": "Switzerland 4K - Alps, Lakes & Valleys | Relaxing Nature Film",
+   "views": 206,
+   "eng": 4,
+   "views_at": 1794754652.0105715
   },
   {
    "ts": 1794527483.646903,
@@ -77,7 +92,10 @@
    "mood": "bright green afternoon / sunny alpine valley",
    "hook": "The hills are finally alive",
    "clip": "px356398",
-   "beauty": 9
+   "beauty": 9,
+   "views": 19,
+   "eng": 1,
+   "views_at": 1794754652.0105715
   },
   {
    "ts": 1794529914.9610977,
@@ -89,7 +107,10 @@
    "mood": "bright sunny morning over turquoise water and emerald hills",
    "hook": "POV: You found a fairytale",
    "clip": "px306680",
-   "beauty": 10
+   "beauty": 10,
+   "views": 5,
+   "eng": 1,
+   "views_at": 1794754652.0105715
   },
   {
    "ts": 1794585818.9172337,
@@ -98,7 +119,10 @@
    "place": "Norway",
    "country": "Norway",
    "mood": "long film",
-   "hook": "Norway 4K - Bright Summer Fjords & Green Valleys | Relaxing Nature Film"
+   "hook": "Norway 4K - Bright Summer Fjords & Green Valleys | Relaxing Nature Film",
+   "views": 227,
+   "eng": 1,
+   "views_at": 1794754652.0105715
   },
   {
    "ts": 1794586122.8450735,
@@ -110,7 +134,10 @@
    "mood": "sunny tropical morning / bright emerald green",
    "hook": "A piece of tropical heaven",
    "clip": "px37664",
-   "beauty": 10
+   "beauty": 10,
+   "views": 162,
+   "eng": 8,
+   "views_at": 1794754652.0105715
   },
   {
    "ts": 1794589195.063722,
@@ -146,7 +173,10 @@
    "mood": "sunny summer afternoon in lush green valley",
    "hook": "POV: Finding absolute peace in Italy",
    "clip": "px137822",
-   "beauty": 10
+   "beauty": 10,
+   "views": 17,
+   "eng": 1,
+   "views_at": 1794754652.0105715
   },
   {
    "ts": 1794627717.3954678,
@@ -158,7 +188,10 @@
    "mood": "bright sunny afternoon / turquoise lake & snowy peak",
    "hook": "Is this water even real?",
    "clip": "px47163",
-   "beauty": 8
+   "beauty": 8,
+   "views": 210,
+   "eng": 3,
+   "views_at": 1794754652.0105715
   },
   {
    "ts": 1794645198.0294616,
@@ -170,7 +203,10 @@
    "mood": "bright sunny afternoon / turquoise waterfalls & lush green forest",
    "hook": "Is this place even real?",
    "clip": "px224821",
-   "beauty": 10
+   "beauty": 10,
+   "views": 158,
+   "eng": 3,
+   "views_at": 1794754652.0105715
   },
   {
    "ts": 1794673366.879767,
@@ -194,7 +230,10 @@
    "mood": "bright sunny summer morning",
    "hook": "Is this heaven on earth?",
    "clip": "px137196",
-   "beauty": 10
+   "beauty": 10,
+   "views": 209,
+   "eng": 8,
+   "views_at": 1794754652.0105715
   },
   {
    "ts": 1794675810.9147208,
@@ -218,7 +257,10 @@
    "mood": "bright green afternoon in the alps",
    "hook": "Is this the ultimate fairytale village?",
    "clip": "px171219",
-   "beauty": 9
+   "beauty": 9,
+   "views": 251,
+   "eng": 4,
+   "views_at": 1794754652.0105715
   },
   {
    "ts": 1794689544.9283493,
@@ -252,6 +294,19 @@
    "hook": "POV: You found paradise in Pakistan",
    "clip": "px329057",
    "beauty": 10
+  },
+  {
+   "ts": 1794756822.1741807,
+   "vid": "2189704941924753",
+   "post": "2189704941924753",
+   "kind": "reel",
+   "place": "Sossusvlei, Namib Desert",
+   "country": "Namibia",
+   "mood": "bright sunny afternoon / towering golden dunes under blue sky",
+   "hook": "Is this even on planet Earth?",
+   "clip": "px284561",
+   "beauty": 9,
+   "scene": "desert & dunes"
   }
  ],
  "clips": [
@@ -382,7 +437,11 @@
   "px329057",
   "px189747",
   "px329058",
-  "px330594"
+  "px330594",
+  "px284561",
+  "px284560",
+  "px284563",
+  "px284557"
  ],
  "music": [
   "File:Clair de Lune by Claude Debussy (1905, piano solo).opus",
@@ -397,6 +456,7 @@
   "File:Fryderyk Chopin - Nocturne op. 32 n.2 As-dur - Patrizia Prati.ogg",
   "File:Satie Gymnopedie No 1 performed by Michael Laucke.flac",
   "File:Claude Debussy - 2nd Arabesque (JMC, Han).oga",
-  "File:Grieg - Peer Gynt Suite No. 1, Op. 46 - I. Morning Mood (Musopen Symphony).flac"
+  "File:Grieg - Peer Gynt Suite No. 1, Op. 46 - I. Morning Mood (Musopen Symphony).flac",
+  "File:Reverie by Ross Bugden.wav"
  ]
 }
