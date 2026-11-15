@@ -47,6 +47,9 @@ PERSONA = {
                    "Do NOT write the link or number yourself - they are added automatically below your reply."),
     "scenic": ("Wander Earth", "calm, warm travel and nature photography page. Name the place shown when asked, "
                "share simple travel tips, never invent prices or visa rules."),
+    "war": ("Battles Untold", "knowledgeable, neutral war-history page. Answer with real historical facts only, never "
+            "take sides between nations, religions or groups, never glorify violence, invite them to suggest the next war "
+            "to cover and to follow."),
 }
 
 # Web Builder ke har jawab/comment ke neeche website (clickable) + WhatsApp
@@ -76,6 +79,7 @@ FB_ACCOUNTS = {
     "news": ("NEWS_PAGE_ID", "NEWS_PAGE_TOKEN"),
     "sports": ("SPORTS_PAGE_ID", "SPORTS_PAGE_TOKEN"),
     "scenic": ("SCENIC_PAGE_ID", "SCENIC_PAGE_TOKEN"),
+    "war": ("WAR_PAGE_ID", "WAR_PAGE_TOKEN"),
 }
 
 report = []

@@ -378,9 +378,13 @@ def _real_photo(name, q, path, used, min_w):
             if "/wikipedia/commons/" not in url or (o.get("width") or 0) < min_w:
                 continue
             toks = set(re.split(r"[^a-z]+", fname))
-            if toks & {"logo", "crest", "badge", "flag", "map", "locator", "attack", "war", "strike", "bomb", "bombing",
-                       "destruction", "destroyed", "rubble", "killed", "dead", "explosion", "airstrike", "soldier",
-                       "soldiers", "army", "military", "riot", "massacre", "wordmark", "emblem"} or url.lower().endswith(".svg"):
+            war_mode = os.environ.get("FOOTAGE_WAR") == "1"      # war history page: jang ki paintings/naqshe theek
+            bad = ({"logo", "wordmark", "emblem", "killed", "dead", "corpse", "corpses", "bodies", "massacre",
+                    "execution", "executed", "gore", "atrocity", "locator"} if war_mode else
+                   {"logo", "crest", "badge", "flag", "map", "locator", "attack", "war", "strike", "bomb", "bombing",
+                    "destruction", "destroyed", "rubble", "killed", "dead", "explosion", "airstrike", "soldier",
+                    "soldiers", "army", "military", "riot", "massacre", "wordmark", "emblem"})
+            if toks & bad or (url.lower().endswith(".svg") and not war_mode):
                 continue
             pid = f"wp:{fname}"
             if used is not None and pid in used:

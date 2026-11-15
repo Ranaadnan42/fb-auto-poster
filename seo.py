@@ -65,6 +65,18 @@ PAGES = {
                   "(no 'massive', 'shocking', 'watch highlights' unless stated); strictly neutral, no political opinion; "
                   "no meta hashtags like #UrduEnglish; max 2 emojis per line."),
     },
+    "war": {
+        "name": "Battles Untold",
+        "brand_tags": ["#BattlesUntold"],
+        "base_tags": ["#history", "#warhistory", "#militaryhistory", "#documentary", "#historyfacts", "#reels"],
+        "audience": ("history lovers in the USA, UK, Canada, Australia, Germany and the rest of Europe, plus the Gulf "
+                     "(UAE, Saudi Arabia, Qatar), who love war history, battles, empires and military documentaries"),
+        "cta": "Follow Battles Untold for the story of every war in history ⚔️",
+        "cta_en": "Follow Battles Untold for the story of every war in history ⚔️",
+        "rules": ("English only; the hook/body may ONLY restate facts from 'What the video says' (dates, winners, "
+                  "death tolls exactly as said, 'estimated' kept); strictly neutral - never praise or blame a nation, "
+                  "religion or side, no glorifying violence, no graphic words; max 2 emojis per line."),
+    },
     "sports": {
         "name": "Sports Hubs",
         "brand_tags": ["#SportsHubs"],

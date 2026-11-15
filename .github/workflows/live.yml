@@ -57,6 +57,8 @@ jobs:
           SPORTS_PAGE_TOKEN: ${{ secrets.SPORTS_PAGE_TOKEN }}
           SCENIC_PAGE_ID: ${{ secrets.SCENIC_PAGE_ID }}
           SCENIC_PAGE_TOKEN: ${{ secrets.SCENIC_PAGE_TOKEN }}
+          WAR_PAGE_ID: ${{ secrets.WAR_PAGE_ID }}
+          WAR_PAGE_TOKEN: ${{ secrets.WAR_PAGE_TOKEN }}
           LIVE_MINUTES: ${{ inputs.minutes || '345' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
           TEST_TEXT: ${{ inputs.test_text }}

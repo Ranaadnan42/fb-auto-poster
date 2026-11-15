@@ -47,6 +47,8 @@ PAGES = {
     "scenic": dict(id="SCENIC_PAGE_ID", tok="SCENIC_PAGE_TOKEN", daily_photos=2, daily_reels=4,
                    photo=[("scenic.yml", {"mode": "pic", "dry_run": "false"})],
                    reel=[("scenic.yml", {"mode": "reel", "dry_run": "false"})]),
+    "war": dict(id="WAR_PAGE_ID", tok="WAR_PAGE_TOKEN", daily_photos=0, daily_reels=2,
+                photo=[], reel=[("war.yml", {"mode": "reel", "dry_run": "false"})]),
 }
 DEFAULT_TARGETS = {"reels": 0, "photos": 0}   # "stories" na ho to = reels
 MIN_STORIES = 7      # task na ho tab bhi har page par roz kam az kam 1 story (hafte ki 7)
@@ -110,6 +112,8 @@ def count_stories(pid, token, start):
 
 def dispatch(options, n):
     ok = 0
+    if not options:          # is page ka yeh type nahi (masalan war page par pics nahi)
+        return 0
     for i in range(n):
         wf, inputs = options[i % len(options)]
         try:

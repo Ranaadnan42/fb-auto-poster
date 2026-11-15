@@ -47,7 +47,22 @@ def _parse(txt):
     return None
 
 
+def _war_prompt(n, want, said):
+    return (f"You are the footage-checking agent of a WAR HISTORY documentary page. These {n} frame(s) are from ONE "
+            f"archive/stock clip or image found for '{want}'. The narrator is saying right now: \"{(said or want)[:350]}\". "
+            "Does it really show what is being said? GOOD (true): real archive film or photo of THAT war/era (old black-"
+            "and-white newsreel is GOOD for 1860-1960 wars), a historical painting/engraving/drawing of that battle or "
+            "its commanders, a historical map of that war/region, museum weapons/armour/uniforms of that era, the real "
+            "battlefield/fort/city/memorial of that place. BAD (false): gore, dead or mutilated bodies, blood, executions; "
+            "the wrong era (modern tanks/jets/rifles for an ancient or medieval war, or ancient scenes for a modern war); "
+            "a different war or country than the one being talked about; video-game/CGI/cartoon/AI art; toy soldiers; "
+            "modern movie posters, logos, channel text; random people, offices, nature or sunsets that are not that place. "
+            "Answer JSON {\"match\": true/false, \"why\": \"max 8 words\"}")
+
+
 def _prompt(n, want, said, kind):
+    if kind == "war":
+        return _war_prompt(n, want, said)
     sport = ("For sports: it must be THE SAME SPORT (cricket is not baseball, football is not rugby/American "
              "football), and if a team/country is named, not obviously another country's setting. "
              if kind == "sports" else "")
@@ -136,6 +151,18 @@ def _count(v):
 def alt_terms(want, said, ask_json, kind="news"):
     """Agent soche: yeh cheez dunya bhar ki stock/archive sites (Pixabay, Wikimedia Commons, NASA,
     Internet Archive, Mixkit) par aur kin alfaaz se milegi."""
+    if kind == "war":
+        try:
+            d = ask_json(f"""A war-history documentary needs real footage or images of: "{want}".
+The narrator says: "{(said or '')[:300]}"
+Free archive/stock sites (Wikimedia Commons, Internet Archive newsreels, Pixabay, NASA) found nothing matching.
+Give 6 OTHER short English search phrases (1-5 words) that would find it: the battle/war's other names, the year,
+"newsreel"/"archive footage" for 1900+ wars, "painting"/"engraving"/"map" for older wars, the real battlefield,
+fort, city or memorial today, museum weapons/armour of that era. Never gore, never a different war.
+Return JSON {{"queries": ["..."]}}""")
+            return [q for q in (d.get("queries") or []) if isinstance(q, str) and q.strip()][:6]
+        except Exception:
+            return []
     try:
         d = ask_json(f"""A {'sports' if kind == 'sports' else 'news'} video needs real footage of: "{want}".
 The anchor says: "{(said or '')[:300]}"

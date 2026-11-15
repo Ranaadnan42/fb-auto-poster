@@ -33,6 +33,9 @@ NICHES = {
                                                          "breaking news explained", "news analysis urdu"]),
     "sports": ("cricket & football news and highlights in Urdu", ["cricket news urdu", "pakistan cricket",
                                                                   "football highlights", "cricket highlights", "sports news"]),
+    "war": ("war history documentaries (ancient battles, World War I and II, famous wars - why they started, who won)",
+            ["war history documentary", "world war 2 documentary", "history of war", "ancient battles",
+             "military history", "battle explained", "ww2 footage", "history documentary"]),
     "scenic": ("beautiful nature and scenic travel places", ["nature 4k", "beautiful places", "relaxing nature",
                                                             "travel shorts", "drone footage nature", "hidden places on earth"]),
 }

@@ -1,0 +1,121 @@
+name: Battles Untold (War History Agent)
+run-name: ${{ github.workflow }} [${{ inputs.sched || github.event.schedule || 'manual' }}]
+
+on:
+  schedule:
+    # Waqt UTC. Agent pehle chal kar video banata hai, POST_AT par post (slot_wait). USA/UK/Europe audience.
+    - cron: '43 13 * * *'   # reel - post 15:13 UTC = 10:13 subah New York / 3:13 London
+    - cron: '13 21 * * *'   # reel - post 22:43 UTC = 5:43 shaam New York
+    - cron: '13 22 * * *'   # long - post 01:13 UTC = 8:13 raat New York (History of Every War, pehli jang se)
+  workflow_dispatch:
+    inputs:
+      sched:
+        description: 'Scheduler ke liye - khali chhor dein'
+        type: string
+        default: ''
+      mode:
+        description: 'Kya banaye'
+        type: choice
+        options: [reel, long, brand]
+        default: reel
+      dry_run:
+        description: 'Sirf video banaye, post na kare'
+        type: boolean
+        default: true
+
+permissions:
+  contents: write
+  actions: read
+
+concurrency:
+  group: war-${{ (inputs.sched || github.event.schedule) || github.run_id }}
+  cancel-in-progress: false
+
+jobs:
+  gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 358
+    outputs:
+      go: ${{ steps.g.outputs.go }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          sparse-checkout: tools
+      - id: g
+        name: Double post check
+        env:
+          GH_TOKEN: ${{ github.token }}
+          WF_FILE: war.yml
+          SCHED: ${{ inputs.sched || github.event.schedule }}
+        run: python3 tools/slot_gate.py
+
+  build:
+    needs: gate
+    if: needs.gate.outputs.go == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 358
+    env:
+      S: ${{ inputs.sched || github.event.schedule }}
+    steps:
+      - name: Job start time
+        run: echo "JOB_START=$(date +%s)" >> "$GITHUB_ENV"
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install
+        run: |
+          for i in 1 2 3 4 5; do
+            sudo apt-get update && sudo apt-get install -y --fix-missing ffmpeg fonts-dejavu-core && break
+            echo "apt koshish $i fail - 30s baad dobara"; sleep 30
+          done
+          command -v ffmpeg
+          pip install requests pillow "edge-tts>=7.3.0"
+      - name: Run war agent
+        env:
+          WAR_PAGE_ID: ${{ secrets.WAR_PAGE_ID }}
+          WAR_PAGE_TOKEN: ${{ secrets.WAR_PAGE_TOKEN }}
+          WAR_GEMINI_API_KEY: ${{ secrets.WAR_GEMINI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          YT_FRAMES_CLIENT_ID: ${{ secrets.YT_FRAMES_CLIENT_ID }}
+          YT_FRAMES_CLIENT_SECRET: ${{ secrets.YT_FRAMES_CLIENT_SECRET }}
+          YT_FRAMES_REFRESH_TOKEN: ${{ secrets.YT_FRAMES_REFRESH_TOKEN }}
+          YT_WORLD_CLIENT_ID: ${{ secrets.YT_WORLD_CLIENT_ID }}
+          YT_WORLD_CLIENT_SECRET: ${{ secrets.YT_WORLD_CLIENT_SECRET }}
+          YT_WORLD_REFRESH_TOKEN: ${{ secrets.YT_WORLD_REFRESH_TOKEN }}
+          MODE: ${{ env.S && (env.S == '13 22 * * *' && 'long' || 'reel') || inputs.mode || 'reel' }}
+          POST_AT: ${{ env.S == '43 13 * * *' && '15:13' || env.S == '13 21 * * *' && '22:43' || env.S == '13 22 * * *' && '01:13' || '' }}
+          DRY_RUN: ${{ (!env.S && github.event_name == 'workflow_dispatch' && inputs.dry_run) && '1' || '0' }}
+        run: python war.py || { echo "Pehli koshish fail - 3 minute baad dobara"; sleep 180; python war.py; }
+      - name: Keep video (dry run)
+        if: ${{ !inputs.sched && github.event_name == 'workflow_dispatch' && inputs.dry_run }}
+        uses: actions/upload-artifact@v4
+        with:
+          name: war-video
+          path: |
+            final_war.mp4
+            final_war_profile.jpg
+            final_war_cover.jpg
+          if-no-files-found: ignore
+          retention-days: 5
+      - name: Save history
+        if: always()
+        run: |
+          FILES=$(ls war_history.json war_*_last_run.json war_posts_history.json 2>/dev/null || true)
+          [ -z "$FILES" ] && exit 0
+          mkdir -p /tmp/keep
+          for f in $FILES; do cp "$f" /tmp/keep/; done
+          git config user.name "auto-poster"
+          git config user.email "auto-poster@users.noreply.github.com"
+          for i in 1 2 3 4 5; do
+            git fetch -q origin main && git reset -q --hard origin/main
+            python3 tools/keep_files.py /tmp/keep $FILES
+            git add -A $FILES
+            git diff --cached --quiet && break
+            git commit -q -m "Update war history and run report"
+            git push -q origin HEAD:main && break
+            sleep $((i * 5))
+          done
