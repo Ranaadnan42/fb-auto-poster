@@ -85,15 +85,15 @@ ph=Image.open(D+C['logo']+'.jpg').convert('RGB'); pw=800; ph=ph.resize((pw,int(p
 mk=Image.new('L',(pw,pw),0); ImageDraw.Draw(mk).ellipse([0,0,pw-1,pw-1],fill=255); lg.paste(ph,(112,92),mk)
 gloss=Image.new('RGBA',(S,S)); ImageDraw.Draw(gloss).ellipse([180,110,840,470],fill=(255,255,255,55)); lg=Image.alpha_composite(lg,gloss.filter(ImageFilter.GaussianBlur(30)))
 rb=Image.new('RGBA',(S,S)); rd=ImageDraw.Draw(rb)
-for x in range(60,965):
-    t=(x-60)/905; rd.line([(x,730),(x,880)],fill=(lerp(c[0],c[1],t*2) if t<.5 else lerp(c[1],c[2],(t-.5)*2))+(255,))
-m=Image.new('L',(S,S),0); ImageDraw.Draw(m).rounded_rectangle([60,730,964,880],75,fill=255); rb.putalpha(m)
+for x in range(140,885):
+    t=(x-140)/745; rd.line([(x,700),(x,820)],fill=(lerp(c[0],c[1],t*2) if t<.5 else lerp(c[1],c[2],(t-.5)*2))+(255,))
+m=Image.new('L',(S,S),0); ImageDraw.Draw(m).rounded_rectangle([140,700,884,820],60,fill=255); rb.putalpha(m)
 sh=Image.new('RGBA',(S,S)); sh.putalpha(m.filter(ImageFilter.GaussianBlur(18)).point(lambda v:int(v*.5))); lg.alpha_composite(sh,(0,12)); lg.alpha_composite(rb)
 lt='BIRDS OF THE WORLD' if name=='birds' else 'DOGS & CATS WORLD'
-lf=font('Cinzel.ttf',64 if len(lt)<19 else 58,900)
-text3d(lg,(512,830),lt,lf,6,(40,10,40),[(255,255,255),(255,240,180),(255,255,255)])
+lf=font('Cinzel.ttf',46,900)
+text3d(lg,(512,778),lt,lf,6,(40,10,40),[(255,255,255),(255,240,180),(255,255,255)])
 BUB={'birds':['p1','p4','p5'],'pets':['p1','p3','p2']}[name]
-for fn,(bx,by),br in zip(BUB,[(150,250),(874,250),(870,560)],[120,120,100]):
+for fn,(bx,by),br in zip(BUB,[(235,290),(789,290),(800,590)],[108,108,92]):
     ph=Image.open(D+fn+'.jpg').convert('RGB'); w=2*br; ph=ph.resize((w,int(ph.size[1]*w/ph.size[0]))); ph=ph.crop((0,int(w*0.12),w,int(w*0.12)+w))
     rg=Image.new('RGBA',(S,S)); rgd=ImageDraw.Draw(rg)
     for a in range(0,360,2):
@@ -103,8 +103,8 @@ for fn,(bx,by),br in zip(BUB,[(150,250),(874,250),(870,560)],[120,120,100]):
     gl=Image.new('RGBA',(S,S)); ImageDraw.Draw(gl).ellipse([bx-br*0.7,by-br*0.9,bx+br*0.7,by-br*0.1],fill=(255,255,255,50)); lg=Image.alpha_composite(lg,gl.filter(ImageFilter.GaussianBlur(8)))
 lg.alpha_composite(sh,(0,12)) if False else None
 lg.alpha_composite(rb)
-text3d(lg,(512,830),lt,lf,6,(40,10,40),[(255,255,255),(255,240,180),(255,255,255)])
+text3d(lg,(512,778),lt,lf,6,(40,10,40),[(255,255,255),(255,240,180),(255,255,255)])
 d=ImageDraw.Draw(lg)
-for x,y,r,cc in [(860,150,34,(255,215,0)),(150,640,26,(255,255,255)),(900,640,20,(255,255,255))]: star(d,x,y,r,cc)
+for x,y,r,cc in [(720,150,30,(255,215,0)),(250,560,24,(255,255,255)),(640,880,18,(255,255,255))]: star(d,x,y,r,cc)
 lg.convert('RGB').save(f'docs/brand/{name}_logo.jpg',quality=90)
 print('done',name)
