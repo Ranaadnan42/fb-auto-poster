@@ -134,6 +134,18 @@ jobs:
           SPORTS_PAGE_ID: ${{ secrets.SPORTS_PAGE_ID }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          YT_FRAMES_CLIENT_ID: ${{ secrets.YT_FRAMES_CLIENT_ID }}
+          YT_FRAMES_CLIENT_SECRET: ${{ secrets.YT_FRAMES_CLIENT_SECRET }}
+          YT_FRAMES_REFRESH_TOKEN: ${{ secrets.YT_FRAMES_REFRESH_TOKEN }}
+          YT_WORLD_CLIENT_ID: ${{ secrets.YT_WORLD_CLIENT_ID }}
+          YT_WORLD_CLIENT_SECRET: ${{ secrets.YT_WORLD_CLIENT_SECRET }}
+          YT_WORLD_REFRESH_TOKEN: ${{ secrets.YT_WORLD_REFRESH_TOKEN }}
+          YT_ISLAMIC_CLIENT_ID: ${{ secrets.YT_ISLAMIC_CLIENT_ID }}
+          YT_ISLAMIC_CLIENT_SECRET: ${{ secrets.YT_ISLAMIC_CLIENT_SECRET }}
+          YT_ISLAMIC_REFRESH_TOKEN: ${{ secrets.YT_ISLAMIC_REFRESH_TOKEN }}
+          YT_FUNNY_CLIENT_ID: ${{ secrets.YT_FUNNY_CLIENT_ID }}
+          YT_FUNNY_CLIENT_SECRET: ${{ secrets.YT_FUNNY_CLIENT_SECRET }}
+          YT_FUNNY_REFRESH_TOKEN: ${{ secrets.YT_FUNNY_REFRESH_TOKEN }}
           NEWS_GEMINI_API_KEY: ${{ secrets.NEWS_GEMINI_API_KEY }}
           SPORTS_GEMINI_API_KEY: ${{ secrets.SPORTS_GEMINI_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}

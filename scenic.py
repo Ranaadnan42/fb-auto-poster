@@ -703,6 +703,7 @@ put green/summer words in every search query.
 MIX the 26 places across MANY kinds of nature - green forests, waterfalls, rivers, green hills & meadows, flower
 fields, terraces/farmland, lakes, coast, mountains. At least 18 of the 26 must be green living nature (forest,
 jungle, meadow, waterfall, river valley, fields); no more than 4 lake shots and 4 snowy-peak shots.
+{("What is trending in nature/travel videos this week (lean the country and the kinds of places toward it): " + (h.get("trends") or {}).get("summary", "") + " Hot now: " + json.dumps([x.get("place") for x in (h.get("trends") or {}).get("hot", [])], ensure_ascii=False)) if (h.get("trends") or {}).get("hot") else ""}
 Countries already done (avoid): {json.dumps(done + avoid, ensure_ascii=False)}
 Choose a country famous for nature that free stock sites (Pixabay/Pexels/Wikimedia) have lots of clean footage of.
 JSON: {{"country": "...", "flag": "emoji",
@@ -930,6 +931,10 @@ def main():
     if MODE == "brand":
         return brand(WORK)
     if MODE == "long":
+        try:
+            trend_scout(h)          # lambi film bhi aaj ke trend ke hisaab se
+        except Exception as e:
+            log(f"trend scout fail: {str(e)[:120]}")
         plan, clips, avoid = None, None, []
         for _ in range(3):
             plan = plan_long(h, avoid)

@@ -124,6 +124,14 @@ def pick_stories(kind, past):
     return picked
 
 
+def _trends(kind):
+    try:
+        import trend_scout
+        return trend_scout.text("sports" if "sport" in str(kind).lower() else "news")
+    except Exception:
+        return ""
+
+
 def write_script(kind, stories):
     P = news.PAGES[kind]
     VIEWERS = ("in the USA, the UK, Europe, Canada and Australia" if LANG == "en"
@@ -148,7 +156,7 @@ Rules:
 - ORIGINALITY (Facebook only pays for original content): after the facts of each story add 1-2 sentences of
   your own explanation - why it matters / what it means for viewers {VIEWERS}
   (clearly as analysis, not new facts). The first 3 seconds must be a strong hook about the biggest story.
-{news.brain_tips(kind)}{content_rules.MATCH}- Start with a strong one-sentence hook. End with: ask viewers to follow {P['name']}, like and share.
+{news.brain_tips(kind)}{content_rules.MATCH}{_trends(kind)}- Start with a strong one-sentence hook. End with: ask viewers to follow {P['name']}, like and share.
 - Each story gets {per}.
 - For every scene give "visuals": 1-3 short ENGLISH search terms IN THE ORDER the narration mentions them.
   The FIRST term must name the SPECIFIC thing of the story (e.g. "Poundland store", "Barcelona general strike",

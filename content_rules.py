@@ -36,7 +36,12 @@ OWNER'S FIRM RULE - THE VIDEO MUST SHOW EXACTLY WHAT IS BEING SAID:
 
 
 def text(bot):
-    return MATCH + _text(bot) + _brain_tips(bot)
+    try:
+        import trend_scout
+        tr = trend_scout.text(bot)
+    except Exception:
+        tr = ""
+    return MATCH + _text(bot) + _brain_tips(bot) + tr
 
 
 def _text(bot):
