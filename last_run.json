@@ -1,27 +1,36 @@
 {
  "lang": "en",
- "stock_clips": 14,
+ "stock_clips": 40,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "value of time islamic speech in malayalam",
-  "importance of time islam",
-  "importance of time islamic lectures",
-  "time value of money in islam"
+  "prophet muhammad story for kids",
+  "prophet muhammad story part 2",
+  "prophet muhammad story part 1",
+  "prophet muhammad story part 4",
+  "prophet muhammad story movie",
+  "prophet muhammad story part 3",
+  "prophet muhammad story ai",
+  "prophet muhammad story bangla",
+  "prophet muhammad story in urdu"
  ],
- "story": "Prophet reveals grave occupant's wish for two rak'ahs",
- "search": "importance of time islam",
- "vision_checks": 126,
- "clips_rejected": 97,
+ "story": "Suraqah pursues Prophet whose horse sinks in sand",
+ "search": "prophet muhammad story part 2",
+ "vision_checks": 171,
  "sources": {
-  "pixabay": 10,
-  "commons": 3,
-  "mixkit": 1
+  "pixabay": 32,
+  "commons": 5,
+  "openverse": 1,
+  "mixkit": 2
  },
+ "clips_rejected": 118,
  "photo_clips": 2,
- "reel_minutes": 1.0,
- "time_utc": "2026-11-15 17:38",
- "title": "Importance of Time in Islam: Two Rak'ahs and a Grave",
+ "no_match": [
+  "mosque sunset sky"
+ ],
+ "long_minutes": 5.51,
+ "time_utc": "2026-11-15 19:58",
+ "title": "Prophet Muhammad Story Part 2: The Horse in the Sand",
  "dry_run": false,
  "posted_ok": 1
 }
