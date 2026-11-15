@@ -284,6 +284,8 @@ def get_clip(term, secs, out, used, said="", kind="news"):
             for f in [raw] + [f"{out}.chk{k}.jpg" for k in range(2)]:
                 if os.path.exists(f):
                     os.remove(f)
+    if os.environ.get("NO_PHOTOS") == "1":      # sirf asli video (war reels) - tasveer kabhi nahi
+        return False
     pics = [p for p in footage.photos(term) if p["id"] not in used and footage.match_score(p.get("text"), want) > 0]
     pics.sort(key=lambda p: -footage.match_score(p.get("text"), want))
     for p in pics[:4]:
@@ -355,6 +357,8 @@ def flag_clip(country, secs, out):
 def _try(t, secs, out, used, said, kind):
     if late() and ALL_CLIPS and not t.startswith(("#flag:", "@")):
         return False                  # waqt khatam - lambi talaash nahi, neeche pehle wali clip lagegi
+    if os.environ.get("NO_PHOTOS") == "1" and t.startswith(("#flag:", "@")):
+        return False                  # sirf asli video - jhanda/photo nahi
     if t.startswith("#flag:"):
         return flag_clip(t[6:], secs, out)
     if t.startswith("@"):

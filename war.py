@@ -12,7 +12,7 @@ MODE=brand -> ek dafa: page ki profile + cover picture
 Agent kaam:
   - Wikipedia se asal facts (tareekh, nateeja, casualties) - AI sirf inhi facts se script likhta hai
   - Har jumle par wohi footage jo bola ja raha hai: 1900+ jangon ki asli archive newsreel (Internet Archive /
-    Commons, public domain), purani jangon ki asli paintings / naqshe / qile / maidan-e-jang aaj -
+    Commons, public domain) aur har jang ki ASLI JAGAH aaj (maidan-e-jang, qila, shehar, yaadgaar) - TASVEER KABHI NAHI -
     har clip AI (footage_agent) dekh kar pass karta hai, gore / ghalat zamana / doosri jang rad
   - trend_scout: log aaj kal kya dekh rahe hain - us hisaab se angle
 Env: WAR_PAGE_ID, WAR_PAGE_TOKEN, WAR_GEMINI_API_KEY (na ho to GEMINI_API_KEY), GROQ_API_KEY, PIXABAY_API_KEY,
@@ -30,6 +30,7 @@ MODE = (os.environ.get("MODE") or "reel").strip().lower()
 os.environ["KIND"] = "reel" if MODE == "reel" else "long"
 os.environ["LANGUAGE"] = "en"
 os.environ["FOOTAGE_WAR"] = "1"
+os.environ["NO_PHOTOS"] = "1"          # malik: reel aur long dono mein tasveer nahi - sirf asli video, asli jagahein
 os.environ.setdefault("NEWS_BUDGET_MIN", "55" if MODE == "reel" else "150")
 
 import requests  # noqa: E402
@@ -104,6 +105,28 @@ FAMOUS = ["World War II", "World War I", "Battle of Stalingrad", "Normandy landi
           "Battle of Yarmuk", "Lagash–Umma border conflict", "Battle of Megiddo (15th century BC)"]
 
 
+# Har mulk ki baari - reels poori dunya ki jangein cover karein (mulk khatam to dobara shuru, nayi jang ke sath)
+COUNTRIES = [
+    "United States", "United Kingdom", "France", "Germany", "Russia", "China", "Japan", "India", "Pakistan",
+    "Turkey", "Egypt", "Iran", "Iraq", "Saudi Arabia", "Italy", "Spain", "Portugal", "Greece", "Poland",
+    "Netherlands", "Belgium", "Sweden", "Norway", "Denmark", "Finland", "Austria", "Hungary", "Czech Republic",
+    "Romania", "Bulgaria", "Serbia", "Croatia", "Ukraine", "Belarus", "Lithuania", "Ireland", "Scotland",
+    "Switzerland", "Mexico", "Canada", "Brazil", "Argentina", "Chile", "Peru", "Bolivia", "Paraguay", "Colombia",
+    "Venezuela", "Cuba", "Haiti", "Korea", "Vietnam", "Cambodia", "Thailand", "Myanmar", "Indonesia",
+    "Philippines", "Malaysia", "Afghanistan", "Bangladesh", "Sri Lanka", "Nepal", "Mongolia", "Kazakhstan",
+    "Uzbekistan", "Georgia", "Armenia", "Azerbaijan", "Syria", "Lebanon", "Jordan", "Israel", "Yemen", "Oman",
+    "Kuwait", "Libya", "Tunisia", "Algeria", "Morocco", "Sudan", "Ethiopia", "Eritrea", "Somalia", "Kenya",
+    "Uganda", "Rwanda", "Congo", "Angola", "Mozambique", "Zimbabwe", "South Africa", "Nigeria", "Ghana",
+    "Senegal", "Mali", "Chad", "Australia", "New Zealand", "Taiwan", "Tibet", "Bosnia and Herzegovina",
+    "Albania", "Estonia", "Latvia", "Slovakia", "Slovenia", "Montenegro", "North Macedonia", "Cyprus",
+    "Malta", "Iceland", "Ecuador", "Uruguay", "Guatemala", "El Salvador", "Honduras", "Nicaragua", "Panama",
+    "Dominican Republic", "Jamaica", "Laos", "Brunei", "Qatar", "Bahrain", "United Arab Emirates", "Tajikistan",
+    "Kyrgyzstan", "Turkmenistan", "Madagascar", "Namibia", "Botswana", "Zambia", "Tanzania", "Cameroon",
+    "Ivory Coast", "Liberia", "Sierra Leone", "Burundi", "South Sudan", "Mauritania", "Niger", "Burkina Faso",
+    "Papua New Guinea", "Fiji",
+]
+
+
 # ---------------------------------------------------------------- history
 def load_hist():
     try:
@@ -111,6 +134,7 @@ def load_hist():
             h = json.load(f)
     except Exception:
         h = {}
+    h.setdefault("country_i", 0)
     for k in ("reel", "long", "used_clips", "extra"):
         h.setdefault(k, [])
     return h
@@ -131,12 +155,29 @@ def next_from_ai(h, after):
     seen = sorted(done_titles(h, "reel") | done_titles(h, "long") | set(h["extra"]))
     j = news.ask_json(f"""You run a war-history page that tells the story of EVERY war and major battle in history,
 in chronological order. The last one covered was "{after}". Already covered (never repeat): {json.dumps(seen[-250:])}
-Suggest the next 8 real wars or major battles (any continent, any era - especially ones not yet covered, including
-Asian, African and Latin American ones), each as its exact English Wikipedia article title. Avoid wars that are
+Suggest the next 8 real wars or major battles (every country of the world must get covered - prefer countries and
+regions not yet covered: Asia, Africa, Latin America, Oceania, Central Asia, the Middle East and Europe alike), each as its exact English Wikipedia article title. Avoid wars that are
 still being fought today. Return JSON {{"wars": ["..."]}}""")
     out = [w.strip() for w in (j.get("wars") or []) if isinstance(w, str) and w.strip() and w.strip() not in seen]
     h["extra"] += out
     return out
+
+
+def country_war(h, done):
+    """Agle mulk ki sab se ahem jang jo abhi tak reel mein nahi aayi."""
+    for _ in range(4):
+        c = COUNTRIES[h["country_i"] % len(COUNTRIES)]
+        h["country_i"] += 1
+        j = news.ask_json(f"""For a war-history page covering every country on Earth: name the most famous / most
+important wars or battles that were fought in or by {c} (any era, ancient to modern, not still ongoing).
+Never these (already covered): {json.dumps(sorted(done)[-200:])}
+Return JSON {{"wars": ["up to 5 exact English Wikipedia article titles, most important first"]}}""")
+        for w in j.get("wars") or []:
+            if isinstance(w, str) and w.strip() and w.strip() not in done:
+                REPORT["country"] = c
+                log(f"Mulk ki baari: {c}")
+                return w.strip()
+    return None
 
 
 def pick_war(h):
@@ -150,6 +191,13 @@ def pick_war(h):
             return w, len(done) + 1
         raise RuntimeError("agli jang nahi mili")
     done = done_titles(h, "reel")
+    if len(h["reel"]) % 2 == 0:                 # har doosri reel: agle mulk ki jang (poori dunya cover)
+        try:
+            w = country_war(h, done)
+            if w:
+                return w, None
+        except Exception as e:
+            log(f"mulk wali jang nahi mili ({str(e)[:100]}) - mash-hoor list se")
     pool = [w for w in FAMOUS if w not in done] or [w for w in WARS + h["extra"] if w not in done]
     if not pool:
         pool = next_from_ai(h, h["reel"][-1]["war"] if h["reel"] else WARS[-1])
@@ -233,7 +281,12 @@ def write_script(facts, episode):
         trends = trend_scout.text("war")
     except Exception:
         pass
-    if MODE == "reel":
+    if True:
+        era = ("ONLY REAL VIDEO, NEVER pictures/paintings/maps: for 1900+ wars real archive newsreel film "
+               "('<war> newsreel', '<battle> 1944 archive footage'); for every war ALSO the REAL PLACES as they look "
+               "today on video - the battlefield, the fort/castle, the city, the river/mountain pass, the war memorial "
+               "or war museum - always with the place and country name (e.g. 'Thermopylae pass Greece', "
+               "'Waterloo battlefield Belgium', 'Edinburgh Castle Scotland')")
         shape = """a vertical REEL of 160-200 spoken words (60-75 seconds) in 7-9 scenes, in this order:
   1) a scroll-stopping hook (a shocking true number or twist from the facts), 2) WHEN and WHERE, 3) WHY it started,
   4-6) how it unfolded / the turning point, 7) WHO WON and WHO LOST, 8) how many people died (as the facts say),
@@ -264,8 +317,7 @@ Rules:
 - For EVERY scene give "visuals": 1-3 short ENGLISH search terms, in the order the narration mentions them, naming
   the SPECIFIC thing said (the battle, the place, the commander, the ships, the trenches, the map, the fort...).
   Never generic mood shots (fire, smoke, sunset, sky, random soldiers of another era), never gore.
-- "subjects": 2-5 real names from the text as exact English Wikipedia titles (the battle/war itself, commanders,
-  key places, ships) - their real portraits/paintings are shown.
+- "subjects": 2-5 real names from the text as exact English Wikipedia titles (the battle/war itself, key places).
 {trends}
 Return JSON:
 {{"title": "Facebook video title, max 12 words, curiosity hook + the war name",
@@ -297,14 +349,17 @@ def build_video(script, facts, used):
     subj = [x.strip() for x in (script.get("subjects") or []) if isinstance(x, str) and x.strip()][:5]
     if facts["title"] not in subj:
         subj.insert(0, facts["title"])
-    fallback = [f"@{x}" for x in subj] + [f"{facts['title']} painting", f"{facts['title']} map",
-                                          f"{facts['title']} memorial"]
+    place = (facts["infobox"].get("place") or facts["infobox"].get("location") or "").split(";")[0][:60]
+    # sirf asli video (reel + long): archive film + asli jagah aaj
+    fallback = [f"{facts['title']} archive footage", f"{place} battlefield", f"{place}",
+                f"{facts['title']} memorial", f"{place} fort"]
+    fallback = [x for x in fallback if x.strip() and x.strip() != "@"]
     nv.STORY_CLIPS.clear()
     scenes = []
     for i, sc in enumerate(script["scenes"]):
         terms = [t for t in (sc.get("visuals") or []) if isinstance(t, str) and t.strip()]
-        if i < len(subj) and (i == 0 or random.random() < 0.5):
-            terms = [f"@{subj[i]}"] + terms           # asli painting/portrait/naqsha
+        if not terms and place:
+            terms = [place]
         label = str(sc.get("label") or "").strip().upper()[:40] or None
         try:
             scenes.append(nv.build_scene(i, PAGE, sc["text"], terms, label, badge, used, fallback))
