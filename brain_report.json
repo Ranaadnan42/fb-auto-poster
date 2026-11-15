@@ -1,69 +1,69 @@
 {
- "time_utc": "2026-11-14 18:28",
- "posts_checked": 208,
+ "time_utc": "2026-11-15 07:11",
+ "posts_checked": 230,
  "pages": {
   "news": {
-   "posts": 94,
-   "views": 7713,
-   "engagement": 126,
+   "posts": 104,
+   "views": 9425,
+   "engagement": 173,
    "by_topic": {
     "americas": [
-     0.27,
+     0.26,
      21
     ],
     "middle_east": [
-     0.37,
+     0.35,
      12
     ],
     "asia": [
-     0.19,
-     8
+     0.22,
+     9
     ],
     "pakistan": [
-     0.7,
-     14
+     0.65,
+     17
     ],
     "science_tech": [
-     0.76,
+     0.71,
      10
     ],
     "business": [
      0.84,
-     12
+     14
     ],
     "africa": [
-     0.48,
-     5
+     0.64,
+     7
     ],
     "world": [
-     0.34,
+     0.32,
      10
     ],
     "europe": [
-     0.87,
+     0.81,
      14
     ],
     "uk": [
-     0.34,
-     3
+     0.56,
+     5
     ],
     "usa": [
-     0.58,
-     4
+     0.72,
+     7
     ],
     "canada_australia": [
-     0.91,
-     1
+     0.4,
+     3
     ]
    },
    "by_language": {
     "ur": [
-     0.5,
-     47
+     0.53,
+     51
     ],
     "en": [
      0.34,
-     47
+     53
     ]
    },
    "by_hour": {
@@ -72,7 +72,7 @@
      7
     ],
     "04:00 UTC": [
-     0.21,
+     0.2,
      5
     ],
     "06:00 UTC": [
@@ -84,7 +84,7 @@
      8
     ],
     "13:00 UTC": [
-     1.11,
+     1.07,
      6
     ],
     "14:00 UTC": [
@@ -92,35 +92,35 @@
      2
     ],
     "15:00 UTC": [
-     0.54,
-     3
+     0.31,
+     6
     ],
     "17:00 UTC": [
-     0.94,
+     0.93,
      6
     ],
     "18:00 UTC": [
-     2.32,
-     1
+     1.6,
+     2
     ],
     "20:00 UTC": [
-     1.59,
-     8
+     1.68,
+     10
     ],
     "23:00 UTC": [
-     0.33,
-     3
+     0.34,
+     5
     ],
     "00:00 UTC": [
      0.16,
      6
     ],
     "01:00 UTC": [
-     0.26,
+     0.25,
      6
     ],
     "02:00 UTC": [
-     0.23,
+     0.22,
      4
     ],
     "07:00 UTC": [
@@ -128,19 +128,19 @@
      2
     ],
     "16:00 UTC": [
-     1.07,
-     5
+     1.19,
+     7
     ],
     "08:00 UTC": [
-     0.27,
+     0.26,
      4
     ],
     "11:00 UTC": [
-     1.31,
+     1.22,
      3
     ],
     "12:00 UTC": [
-     1.42,
+     1.31,
      5
     ],
     "19:00 UTC": [
@@ -148,72 +148,72 @@
      2
     ],
     "22:00 UTC": [
-     0.59,
+     0.56,
      4
     ],
     "03:00 UTC": [
-     0.14,
+     0.13,
      3
     ]
    },
    "by_format": {
     "pic": [
      28,
-     25
+     27
     ],
     "reel": [
-     277,
-     31
+     312,
+     35
     ],
     "breaking": [
      22,
-     34
+     37
     ],
     "long": [
-     210,
-     4
+     250,
+     5
     ]
    },
    "topic_mult": {
-    "americas": 0.45,
-    "middle_east": 0.52,
-    "asia": 0.4,
-    "pakistan": 0.95,
-    "science_tech": 1.03,
+    "americas": 0.49,
+    "middle_east": 0.55,
+    "asia": 0.45,
+    "pakistan": 0.91,
+    "science_tech": 1.0,
     "business": 1.1,
-    "africa": 0.63,
-    "world": 0.51,
-    "europe": 1.16,
-    "uk": 0.58,
-    "usa": 0.73,
-    "canada_australia": 0.98
+    "africa": 0.73,
+    "world": 0.54,
+    "europe": 1.08,
+    "uk": 0.7,
+    "usa": 1.01,
+    "canada_australia": 0.63
    },
    "match_mult": {},
    "tips": [
-    "Focus primarily on Urdu language Reels and video formats, which dramatically outperform static photos and plain breaking text posts.",
-    "Prioritize high-stakes geopolitics (Europe, military tension, international plots) and Pakistan news over internal US politics or cultural features.",
-    "Use strong analytical hooks and opinion-driven headlines (e.g., Trump/Ukraine/Le Pen analysis) rather than dry news recaps.",
-    "Schedule primary posts during peak engagement windows between 11:00 UTC and 20:00 UTC, completely avoiding low-performing 04:00–09:00 UTC slots.",
-    "Ensure content uniqueness to eliminate accidental duplicate posts and avoid low-converting filler news from Asia and Americas."
+    "Prioritize Reels and Long video formats, as they generate exponentially higher reach and engagement compared to static pictures and standard breaking text posts.",
+    "Increase Urdu language coverage, which consistently achieves higher average engagement scores than English posts.",
+    "Focus hooks on high-impact political shifts, global military/security conflicts, and major Pakistani sports/events rather than routine regional legislative updates.",
+    "Schedule all primary posts between 12:00 UTC and 20:00 UTC, strictly avoiding the low-performing window between 00:00 UTC and 09:00 UTC.",
+    "Never post duplicate breaking news stories, and lean into Business, Europe, USA, and Science/Tech news topics over generic Americas or Asia stories."
    ],
    "best": [
-    "[pic/en/europe] Trump won't save Ukraine. But Marine Le Pen's betrayal could be worse | Mujtaba Rahman (views 0, eng 6, x5.36)",
-    "[reel/ur/middle_east] برطانیہ میں امریکی فضائی اڈے پر حملے کی سازش (views 597, eng 6, x2.70)",
-    "[breaking/ur/pakistan] Debutants Shine as Pakistan Reach 281-5 on Day One Against Sri Lanka (views 0, eng 2, x2.27)"
+    "[pic/en/europe] Trump won't save Ukraine. But Marine Le Pen's betrayal could be worse | Mujtaba Rahman (views 0, eng 6, x5.40)",
+    "[reel/en/usa] Alaska Elects Youngest Governor in Historic Political Shift (views 942, eng 24, x4.94)",
+    "[reel/ur/middle_east] برطانیہ میں امریکی فضائی اڈے پر حملے کی سازش (views 598, eng 6, x2.40)"
    ],
-   "summary": "Page par Urdu content aur Reels format sab se zyada reach aur views de rahay hain, jab kay English text aur static photos flop ho rahi hain. Topics mein Europe, Business, Pakistan aur Science/Tech top performers hain, jab ke Americas aur generic Asia news par audience engagment boht kam hai. Time ke hisab se 11:00 se 20:00 UTC sab se behtareen slots hain. Hum ne best topics ke multipliers barha diye hain taakay reach aur monetization fast ho sakay."
+   "summary": "Aap ke page par Reels aur Long content sab se behtar perform kar rahe hain, jabke simple text aur pictures par bohat kam views hain. Urdu posts ka result English se zyaada acha hai aur shaam (12:00 se 20:00 UTC) posting ke liye best waqt hai. Hum ne Business, Europe aur USA jaise strong topics ko barha diya hai aur weak regional topics ko kam kar diya hai."
   },
   "sports": {
-   "posts": 114,
-   "views": 4674,
-   "engagement": 102,
+   "posts": 126,
+   "views": 5062,
+   "engagement": 125,
    "by_topic": {
     "football": [
-     0.5,
-     8
+     0.53,
+     9
     ],
     "formula 1": [
-     0.37,
+     0.36,
      2
     ],
     "golf": [
@@ -225,64 +225,64 @@
      3
     ],
     "big_events": [
-     0.2,
-     15
+     0.17,
+     17
     ],
     "athletics": [
-     0.76,
-     3
+     0.83,
+     4
     ],
     "hockey": [
      0.27,
      4
     ],
     "esports": [
-     2.23,
-     2
+     1.71,
+     3
     ],
     "general": [
      0.4,
      2
     ],
     "table_tennis": [
-     0.21,
-     8
+     0.32,
+     10
     ],
     "volleyball": [
      0.4,
      2
     ],
     "american football": [
-     0.43,
+     0.42,
      2
     ],
     "american_football": [
-     0.48,
-     4
+     0.5,
+     5
     ],
     "cycling": [
-     0.1,
+     0.11,
      4
     ],
     "basketball": [
-     0.22,
-     5
+     0.17,
+     6
     ],
     "rugby": [
      0.15,
      4
     ],
     "formula1": [
-     0.33,
-     2
+     0.65,
+     5
     ],
     "cricket": [
-     0.32,
-     9
+     0.41,
+     11
     ],
     "boxing": [
-     0.54,
-     5
+     0.65,
+     6
     ],
     "motogp": [
      0.27,
@@ -293,8 +293,8 @@
      5
     ],
     "wrestling": [
-     2.43,
-     3
+     1.86,
+     5
     ],
     "tennis": [
      0.14,
@@ -313,7 +313,7 @@
      4
     ],
     "squash": [
-     0.59,
+     0.6,
      4
     ],
     "baseball": [
@@ -321,22 +321,22 @@
      7
     ],
     "badminton": [
-     0.68,
+     0.67,
      4
     ],
     "ice hockey": [
-     0.45,
+     0.44,
      2
     ]
    },
    "by_language": {
     "ur": [
-     0.44,
-     51
+     0.46,
+     56
     ],
     "en": [
-     0.24,
-     63
+     0.26,
+     70
     ]
    },
    "by_hour": {
@@ -361,36 +361,36 @@
      9
     ],
     "13:00 UTC": [
-     1.48,
+     1.47,
      8
     ],
     "14:00 UTC": [
-     2.59,
-     2
+     2.35,
+     3
     ],
     "15:00 UTC": [
-     0.8,
-     4
-    ],
-    "16:00 UTC": [
-     0.64,
-     6
-    ],
-    "18:00 UTC": [
-     2.7,
-     2
-    ],
-    "20:00 UTC": [
-     1.21,
+     0.24,
      7
     ],
+    "16:00 UTC": [
+     0.79,
+     8
+    ],
+    "18:00 UTC": [
+     2.26,
+     3
+    ],
+    "20:00 UTC": [
+     1.12,
+     9
+    ],
     "23:00 UTC": [
-     0.58,
-     6
+     0.66,
+     7
     ],
     "00:00 UTC": [
-     0.17,
-     8
+     0.2,
+     9
     ],
     "01:00 UTC": [
      0.11,
@@ -405,12 +405,12 @@
      3
     ],
     "17:00 UTC": [
-     1.21,
+     1.22,
      6
     ],
     "22:00 UTC": [
-     0.23,
-     7
+     0.28,
+     8
     ],
     "08:00 UTC": [
      0.14,
@@ -421,11 +421,11 @@
      3
     ],
     "12:00 UTC": [
-     1.93,
+     1.91,
      6
     ],
     "19:00 UTC": [
-     2.49,
+     2.48,
      3
     ],
     "03:00 UTC": [
@@ -436,79 +436,79 @@
    "by_format": {
     "pic": [
      24,
-     25
+     27
     ],
     "match": [
-     128,
-     21
+     133,
+     23
     ],
     "breaking": [
      16,
-     34
+     37
     ],
     "reel": [
-     99,
-     31
+     100,
+     35
     ],
     "long": [
      102,
-     3
+     4
     ]
    },
    "topic_mult": {
-    "football": 0.6,
-    "formula 1": 0.67,
+    "football": 0.62,
+    "formula 1": 0.66,
     "golf": 0.45,
     "olympic_sports": 0.57,
-    "big_events": 0.45,
-    "athletics": 1.1,
+    "big_events": 0.49,
+    "athletics": 1.12,
     "hockey": 0.47,
-    "esports": 1.66,
+    "esports": 1.49,
     "general": 0.69,
-    "table_tennis": 0.45,
+    "table_tennis": 0.42,
     "volleyball": 0.69,
     "american football": 0.71,
-    "american_football": 0.66,
+    "american_football": 0.65,
     "cycling": 0.45,
     "basketball": 0.4,
     "rugby": 0.45,
-    "formula1": 0.64,
-    "cricket": 0.43,
-    "boxing": 0.68,
+    "formula1": 0.76,
+    "cricket": 0.5,
+    "boxing": 0.75,
     "motogp": 0.59,
-    "snooker": 1.14,
-    "wrestling": 1.77,
+    "snooker": 1.06,
+    "wrestling": 1.63,
     "tennis": 0.45,
     "winter_sports": 0.77,
-    "kabaddi": 0.51,
+    "kabaddi": 0.53,
     "mma": 0.77,
-    "squash": 0.74,
+    "squash": 0.75,
     "baseball": 0.46,
-    "badminton": 1.02,
-    "ice hockey": 0.73
+    "badminton": 0.8,
+    "ice hockey": 0.72
    },
    "match_mult": {
-    "formula 1": 0.67,
-    "football": 0.79,
+    "formula 1": 0.66,
+    "football": 0.77,
     "american football": 0.71,
-    "basketball": 0.51,
-    "cricket": 1.22,
+    "basketball": 0.5,
+    "cricket": 1.24,
     "tennis": 0.4,
-    "ice hockey": 0.73
+    "ice hockey": 0.72
    },
    "tips": [
-    "Prioritize Urdu-language video Reels and Match formats, which perform drastically better than English text and static image posts.",
-    "Focus content on high-performing sports including Wrestling, Esports, Snooker, Boxing, and Football highlights.",
-    "Drastically cut down on low-performing static 'pic' and text 'breaking' formats, reallocating effort toward video content.",
-    "Craft headline hooks around iconic player moments, big fights, and legendary career highlights.",
-    "Schedule all primary posts during peak engagement hours between 12:00 UTC and 20:00 UTC."
+    "Prioritize athlete awards, medal victories, and decisive milestone achievements over generic tournament previews or hosting announcements.",
+    "Produce more content in Urdu or with strong Urdu captions, as Urdu posts deliver nearly double the engagement of English posts.",
+    "Focus formats on match breakdowns, long-form reviews, and reels; drastically reduce standalone 'pic' and brief 'breaking' posts which show the lowest score averages.",
+    "Avoid niche sports like golf, cycling, and rugby; reallocate posting frequency toward wrestling, esports, snooker, and athletics.",
+    "Schedule primary posts strictly within the 12:00 to 20:00 UTC window (peak 14:00-19:00 UTC) when audience engagement is 5x to 10x higher than morning hours."
    ],
    "best": [
-    "[reel/ur/boxing] ہیوی ویٹ بکسنگ کا بڑا مقابلہ (views 216, eng 4, x3.18)",
-    "[reel/ur/football] مائیکل کیرک کے مانچسٹر یونائیٹڈ میں یادگار لمحات (views 237, eng 3, x3.14)",
-    "[breaking/ur/big_events] Mexico has Secured Six Medals at the Dakar 2026 Youth Olympic Games (views 0, eng 2, x3.09)"
+    "[breaking/ur/big_events] Mexico has Secured Six Medals at the Dakar 2026 Youth Olympic Games (views 0, eng 2, x3.22)",
+    "[breaking/en/athletics] Montella Named Ivy League Defensive Player of the Week (views 0, eng 2, x3.22)",
+    "[breaking/ur/big_events] Saeed delights UAE with gold in Dakar Youth Olympic Games (views 0, eng 2, x3.22)"
    ],
-   "summary": "Page par Urdu content aur Reels/Match formats sab se behtareen views aur engagement de rahe hain. Wrestling aur Esports top-performing topics hain, jabke Golf, Tennis aur static images bilkul flop ho rahay hain. Content strategy ko shaam 12:00 se 20:00 UTC par focus kar ke low-performing topics ki quantity kam kar di hai."
+   "summary": "Data ke mutabiq Urdu posts, match formats aur reels sab se zyada reach aur engagement laa rahe hain, jabke static pics aur golf/cycling bilkul flop ho rahe hain. Wrestling, Esports, aur Snooker jese topics par audience ka interest bohat strong hai. Humne low-performing sports ko cut kar ke high-impact topics aur 12:00 se 20:00 UTC ke peak hours par focus set kar diya hai."
   }
  },
  "lang_flip": {

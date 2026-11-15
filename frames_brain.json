@@ -1,28 +1,32 @@
 {
- "updated": "2026-11-14 18:59",
+ "updated": "2026-11-15 07:29",
  "mult": {
   "pk_city": 0.78,
   "pk_versus": 1.01,
-  "pk_moving": 0.7,
+  "pk_moving": 0.77,
   "pk_best_list": 1.05,
-  "pk_jobs": 0.69,
+  "pk_jobs": 0.71,
   "pk_country": 1.45,
-  "pk_visa": 0.93,
+  "pk_visa": 0.91,
   "pk_tour": 0.97,
   "pk_living": 0.99,
   "pk_jobhow": 0.98,
-  "pk_tour_short": 0.73,
-  "pk_cost_short": 0.62,
+  "pk_tour_short": 0.74,
+  "pk_cost_short": 0.56,
   "pk_jobtip": 0.82,
   "pk_food": 0.51,
   "pk_hidden": 0.68,
-  "pk_salary_short": 0.54,
-  "pk_city_facts": 0.63,
+  "pk_salary_short": 0.55,
+  "pk_city_facts": 0.64,
   "pk_versus_short": 0.98,
-  "pk_visa_short": 0.65,
-  "pk_facts": 1.0
+  "pk_visa_short": 0.71,
+  "pk_facts": 1.09
  },
  "tips": [
-  "Focus on short videos (under 1 min) about surprising facts and country comparisons, especially China, Canada vs Australia, and Singapore – they have highest x scores; use hook like \"Aapko pata bhi nahi tha...\"; avoid foo"
+  "Focus on comprehensive country documentaries (pk_country) and student migration listicles (pk_best_list), as long-form educational content holds significantly higher page average (0.82 vs 0.54).",
+  "Use direct country comparison hooks (pk_versus_short) like 'Canada vs Australia', which generated up to 9.69x performance.",
+  "Always use Urdu script for hooks and titles instead of Roman Urdu transliteration (Urdu title hit 5.9k views while the exact Roman Urdu version got only 31 views).",
+  "Completely eliminate food culture content (pk_food) and short salary breakdowns (pk_salary_short, pk_cost_short), which both averaged below 0.42x.",
+  "Avoid generic tourist or historical overviews (e.g., Baku tours, Dubai history) in favor of high-impact facts and actionable settlement insights."
  ]
 }

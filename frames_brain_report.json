@@ -1,8 +1,8 @@
 {
- "time_utc": "2026-11-14 18:59",
- "videos": 55,
- "views": 26232,
- "engagement": 420,
+ "time_utc": "2026-11-15 07:29",
+ "videos": 57,
+ "views": 26526,
+ "engagement": 441,
  "by_series": {
   "pk_city": [
    0.53,
@@ -13,7 +13,7 @@
    2
   ],
   "pk_moving": [
-   0.41,
+   0.52,
    2
   ],
   "pk_best_list": [
@@ -21,7 +21,7 @@
    2
   ],
   "pk_jobs": [
-   0.39,
+   0.42,
    2
   ],
   "pk_country": [
@@ -29,8 +29,8 @@
    1
   ],
   "pk_visa": [
-   0.74,
-   1
+   0.8,
+   2
   ],
   "pk_tour": [
    0.89,
@@ -45,15 +45,15 @@
    1
   ],
   "pk_tour_short": [
-   0.61,
+   0.62,
    5
   ],
   "pk_cost_short": [
-   0.46,
-   5
+   0.42,
+   6
   ],
   "pk_jobtip": [
-   0.67,
+   0.68,
    3
   ],
   "pk_food": [
@@ -65,69 +65,73 @@
    4
   ],
   "pk_salary_short": [
-   0.34,
+   0.35,
    4
   ],
   "pk_city_facts": [
-   0.45,
+   0.46,
    4
   ],
   "pk_versus_short": [
-   0.96,
+   0.97,
    4
   ],
   "pk_visa_short": [
-   0.47,
+   0.55,
    4
   ],
   "pk_facts": [
-   1.01,
+   1.18,
    3
   ]
  },
  "by_lang": {},
  "by_kind": {
   "long": [
-   0.78,
-   15
+   0.82,
+   16
   ],
   "short": [
-   0.53,
-   40
+   0.54,
+   41
   ]
  },
  "best": [
-  "[short/ur] چین کے 6 ناقابل یقین اور حیران کن حقائق | China Facts in Urdu (series pk_facts, views 5475, eng 115, x10.89)",
-  "[short/ur] Canada vs Australia: پاکستانی کے لیے کون سا ملک بہتر ہے؟ | Life Abroad (series pk_versus_short, views 5890, eng 56, x9.51)",
+  "[short/ur] چین کے 6 ناقابل یقین اور حیران کن حقائق | China Facts in Urdu (series pk_facts, views 5475, eng 115, x11.02)",
+  "[short/ur] Canada vs Australia: پاکستانی کے لیے کون سا ملک بہتر ہے؟ | Life Abroad (series pk_versus_short, views 5945, eng 56, x9.69)",
   "[long/ur] Malta Country Documentary in Urdu | مالٹا کا سفر اور زندگی (series pk_country, views 1357, eng 16, x4.34)"
  ],
- "summary": "Aapke short fact aur country comparison videos bohat achha perform kar rahe hain, especially China aur Canada vs Australia. Food aur kuch visa videos bilkul kam views le rahe hain, unko kam karen. Series pk_facts, pk_versus_short aur pk_tour_short ko zyada promote karen aur titles mein numbers aur surprise hook lagayen.",
+ "summary": "Country documentaries, student guides aur proper Urdu title walay comparison videos (jaise Canada vs Australia) zabardast views aur engagement le rahe hain. Doosri taraf food guides, Baku jaisi aam travel videos aur Roman Urdu titles buri tarah flop ho rahe hain. Is liye humne food aur salary shorts ko rok kar long-form country documentaries aur Urdu script comparison content par focus shift kar diya hai.",
  "plan": {
-  "updated": "2026-11-14 18:59",
+  "updated": "2026-11-15 07:29",
   "mult": {
    "pk_city": 0.78,
    "pk_versus": 1.01,
-   "pk_moving": 0.7,
+   "pk_moving": 0.77,
    "pk_best_list": 1.05,
-   "pk_jobs": 0.69,
+   "pk_jobs": 0.71,
    "pk_country": 1.45,
-   "pk_visa": 0.93,
+   "pk_visa": 0.91,
    "pk_tour": 0.97,
    "pk_living": 0.99,
    "pk_jobhow": 0.98,
-   "pk_tour_short": 0.73,
-   "pk_cost_short": 0.62,
+   "pk_tour_short": 0.74,
+   "pk_cost_short": 0.56,
    "pk_jobtip": 0.82,
    "pk_food": 0.51,
    "pk_hidden": 0.68,
-   "pk_salary_short": 0.54,
-   "pk_city_facts": 0.63,
+   "pk_salary_short": 0.55,
+   "pk_city_facts": 0.64,
    "pk_versus_short": 0.98,
-   "pk_visa_short": 0.65,
-   "pk_facts": 1.0
+   "pk_visa_short": 0.71,
+   "pk_facts": 1.09
   },
   "tips": [
-   "Focus on short videos (under 1 min) about surprising facts and country comparisons, especially China, Canada vs Australia, and Singapore – they have highest x scores; use hook like \"Aapko pata bhi nahi tha...\"; avoid foo"
+   "Focus on comprehensive country documentaries (pk_country) and student migration listicles (pk_best_list), as long-form educational content holds significantly higher page average (0.82 vs 0.54).",
+   "Use direct country comparison hooks (pk_versus_short) like 'Canada vs Australia', which generated up to 9.69x performance.",
+   "Always use Urdu script for hooks and titles instead of Roman Urdu transliteration (Urdu title hit 5.9k views while the exact Roman Urdu version got only 31 views).",
+   "Completely eliminate food culture content (pk_food) and short salary breakdowns (pk_salary_short, pk_cost_short), which both averaged below 0.42x.",
+   "Avoid generic tourist or historical overviews (e.g., Baku tours, Dubai history) in favor of high-impact facts and actionable settlement insights."
   ]
  }
 }
