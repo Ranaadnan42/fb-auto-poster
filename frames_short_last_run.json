@@ -1,36 +1,32 @@
 {
  "mode": "short",
- "clips": 27,
- "clips_rejected": 212,
- "vision_checks": 233,
- "errors": [],
- "search_phrases": [
-  "kharch mein",
-  "kharche mein recipe",
-  "hindi mein kharcha",
-  "ivf mein kharcha kitna aata hai",
-  "urdu mein kharcha",
-  "ivf mein kharcha kitna lagta hai",
-  "mein kitna paisa",
-  "cost of living in dubai",
-  "cost of living in malaysia",
-  "cost of living in australia",
-  "cost of living in canada",
-  "cost of living in saudi arabia",
-  "cost of living in usa",
-  "cost of living in pakistan",
-  "cost of living in new zealand",
-  "cost of living in uk",
-  "cost of living in turkey"
+ "clips": 39,
+ "clips_rejected": 237,
+ "vision_checks": 269,
+ "errors": [
+  "fatal: Awaaz nahi bani",
+  "fatal: Awaaz nahi bani"
  ],
- "alt_searches": 5,
- "photos": 3,
- "seconds": 102.1,
+ "search_phrases": [
+  "ki sair kar duniya ki gafil",
+  "ki sair kara de",
+  "ki sirf",
+  "ki seerat",
+  "ki siren ki awaaz",
+  "li siri",
+  "ka siren",
+  "kya siren head",
+  "ki sir"
+ ],
+ "search": "ki sair kara de",
+ "alt_searches": 9,
+ "photos": 7,
+ "seconds": 85.4,
  "links": [
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Philippines / Manila",
- "series": "pk_cost_short",
- "title": "منیلا میں ایک مہینے کا خرچہ | Philippines Cost of Living"
+ "subject": "Brazil / Rio de Janeiro",
+ "series": "pk_tour_short",
+ "title": "Rio de Janeiro ki sair | Brazil Travel Guide"
 }
