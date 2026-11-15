@@ -111,6 +111,8 @@ def pick_stories(kind, past):
             continue
         items = [i for i in news.fresh_items(pool[topic], past) if i["link"] not in links]
         items = [i for i in items if len(i["desc"]) >= 60] or items    # tafseel wali khabar pehle
+        if kind == "news":
+            items = news.viral_rank(items)                                 # bari global khabar pehle
         log(f"{kind}/{topic}: {len(items)} taaza")
         if not items:
             continue
@@ -142,6 +144,10 @@ def write_script(kind, stories):
                     f"(source: {s['source']})" for n, s in enumerate(stories))
     per = "4-5 scenes (the whole reel 150-190 spoken words, about 50-60 seconds)" if KIND == "reel" \
         else "4 scenes each (EACH story at least 130-160 spoken words - the whole video must be 3-4 minutes)"
+    VIRAL = ("- This page's most-viewed reels (9K, 6K views) were big global English stories - a Microsoft "
+             "Outlook/Teams outage and a state electing its youngest governor ever. Open with the story that "
+             "affects the most people or is a historic first, in that same direct factual style.\n"
+             if kind == "news" and LANG == "en" else "")
     prompt = f"""You are the anchor and script writer of the Facebook page "{P['name']}"
 ({'world news' if kind == 'news' else 'world sports news'}). Write a {'short vertical REEL' if KIND == 'reel' else 'news BULLETIN video'}
 in {lang} covering these stories in this order:
@@ -156,7 +162,7 @@ Rules:
 - ORIGINALITY (Facebook only pays for original content): after the facts of each story add 1-2 sentences of
   your own explanation - why it matters / what it means for viewers {VIEWERS}
   (clearly as analysis, not new facts). The first 3 seconds must be a strong hook about the biggest story.
-{news.brain_tips(kind)}{content_rules.MATCH}{_trends(kind)}- Start with a strong one-sentence hook. End with: ask viewers to follow {P['name']}, like and share.
+{VIRAL}{news.brain_tips(kind)}{content_rules.MATCH}{_trends(kind)}- Start with a strong one-sentence hook. End with: ask viewers to follow {P['name']}, like and share.
 - Each story gets {per}.
 - For every scene give "visuals": 1-3 short ENGLISH search terms IN THE ORDER the narration mentions them.
   The FIRST term must name the SPECIFIC thing of the story (e.g. "Poundland store", "Barcelona general strike",

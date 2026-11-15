@@ -160,6 +160,10 @@ jobs:
             match) python match_video.py ;;
             *) python news_video.py ;;
           esac
+          # News Act ab sirf English: Urdu reel slot par News Act ko English reel milti hai (Urdu sirf Sports Hubs par)
+          if [ "$KIND" = reel ] && [ "$LANGUAGE" = ur ] && [[ ",$PAGES," == *",news,"* ]]; then
+            LANGUAGE=en PAGES=news python news_video.py
+          fi
       - name: Upload preview
         if: always()
         uses: actions/upload-artifact@v4

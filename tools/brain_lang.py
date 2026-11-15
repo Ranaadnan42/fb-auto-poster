@@ -11,7 +11,8 @@ try:
 except Exception:
     flip = {}
 if kind in ("pic", "reel", "breaking") and lang in ("ur", "en"):
-    p = float(flip.get("ur_to_en" if lang == "ur" else "en_to_ur", 0) or 0)
+    # News Act ab sirf English - English slot kabhi Urdu mein na badle (warna News Act ki post chhoot jaye)
+    p = float(flip.get("ur_to_en", 0) or 0) if lang == "ur" else 0.0
     if random.random() < min(p, 0.4):
         lang = "en" if lang == "ur" else "ur"
 print(f"{kind}_{lang}")

@@ -47,7 +47,88 @@ WB_FACTS = """- Prices "starting from" in the customer's region:
   and finds new customers automatically, 24/7. The owner just runs the business.
 - Demo: the Web Builder team shows a live demo on WhatsApp. Contact: WhatsApp."""
 
-STATS = {"started": None, "loops": 0, "replies": 0, "errors": [], "log": []}
+STATS = {"started": None, "loops": 0, "replies": 0, "likes": 0, "hidden": 0, "errors": [], "log": []}
+
+# ---------------------------------------------------------------- AGENT memory
+# Comment agent ki yaad (repo mein save): har page par kaun aksar comment karta hai, kis zubaan mein, kya poochha;
+# aur har page ke liye agent ke khud seekhe hue sabaq (har ~3 ghante pichli baat-cheet dekh kar).
+MEM_FILE = "comment_agent_memory.json"
+REVIEW_EVERY = 3 * 3600
+CONVOS = {}        # page -> is run ki baat-cheet (sabaq seekhne ke liye)
+
+
+def load_mem():
+    try:
+        with open(MEM_FILE, encoding="utf-8") as f:
+            m = json.load(f)
+    except Exception:
+        m = {}
+    m.setdefault("pages", {})
+    return m
+
+
+MEM = load_mem()
+
+
+def page_mem(acct):
+    p = MEM["pages"].setdefault(acct, {})
+    p.setdefault("fans", {})
+    p.setdefault("lessons", [])
+    p.setdefault("last_review", 0)
+    return p
+
+
+def remember_fan(acct, uid, name, text, action):
+    if not uid:
+        return
+    fans = page_mem(acct)["fans"]
+    f = fans.setdefault(uid, {"name": name, "count": 0, "notes": []})
+    f["name"] = name or f.get("name", "")
+    f["count"] += 1
+    f["last"] = now().isoformat()[:16]
+    f["notes"] = (f["notes"] + [f"{action}: {text[:70]}"])[-4:]
+    if len(fans) > 400:            # sab se purane fans hata do - file halki rahe
+        for k in sorted(fans, key=lambda k: fans[k].get("last", ""))[:len(fans) - 400]:
+            fans.pop(k, None)
+
+
+def fan_line(acct, uid):
+    f = page_mem(acct)["fans"].get(uid or "")
+    if not f or f.get("count", 0) < 1:
+        return "This is a NEW commenter (first time we talk to them)."
+    return (f"RETURNING fan \"{f.get('name', '')}\" - talked {f['count']} times before. Earlier: "
+            + " | ".join(f.get("notes", [])) + ". Greet them like a regular (e.g. welcome back), don't repeat old replies.")
+
+
+def review(acct):
+    """Agent khud seekhta hai: is page par log kya poochte/kehte hain aur kaise jawab se baat aage barhi."""
+    pm = page_mem(acct)
+    convos = CONVOS.get(acct) or []
+    if time.time() - pm["last_review"] < REVIEW_EVERY or len(convos) < 3:
+        return
+    pm["last_review"] = time.time()
+    name = PERSONA[acct][0]
+    try:
+        d = ask(f"""You are the comment-manager AI agent of the Facebook page "{name}". Below are recent comment
+conversations (C = commenter, P = page). Learn from them. Note what people ask/feel most, which replies got the
+commenter to write again (good), which got no answer, and what spam appears.
+Current lessons: {json.dumps(pm["lessons"], ensure_ascii=False)}
+Conversations:
+{chr(10).join(convos[-40:])[-6000:]}
+
+Return JSON {{"lessons": ["max 6 short, concrete rules for future replies on THIS page, keep the still-true current ones"]}}""")
+        les = [str(x)[:200] for x in (d.get("lessons") or []) if str(x).strip()][:6]
+        if les:
+            pm["lessons"] = les
+            log(f"{acct}: agent ne naye sabaq seekhe: {les}")
+        CONVOS[acct] = convos[-10:]
+    except Exception as e:
+        log(f"{acct} review fail: {str(e)[:150]}")
+
+
+def save_mem():
+    with open(MEM_FILE, "w", encoding="utf-8") as f:
+        json.dump(MEM, f, ensure_ascii=False, indent=1)
 SKIP = set()       # jin messages par AI ne jawab na dena chuna (spam/gaali) - dobara na poochhe
 
 
@@ -112,13 +193,16 @@ def wb_brain(post_text, thread, first):
     return reply
 
 
-def write_reply(acct, post_text, thread, page_name, first):
+def write_reply(acct, post_text, thread, page_name, first, uid=""):
     if acct == "webbuilder":
         try:
-            return wb_brain(post_text, thread, first)
+            r = wb_brain(post_text, thread, first)
+            return {"action": "reply" if r else "skip", "reply": r}
         except Exception as e:
             log(f"ai-chat fail, apna AI: {str(e)[:150]}")
     name, style = PERSONA[acct]
+    lessons = page_mem(acct)["lessons"]
+    lessons = ("What you (the agent) learned on this page:\n- " + "\n- ".join(lessons) + "\n") if lessons else ""
     sales = ""
     if acct == "webbuilder":
         sales = f"""You are the sales person of Web Builder. Talk like a helpful human salesman: answer the question,
@@ -142,11 +226,25 @@ Rules:
 - Short praise like "MashaAllah", "nice", "😂", "❤️" still gets a warm short thank-you reply.
 - No hashtags. No links.
 - If the message is spam, abuse, someone else's promotion/link, return reply "".
-Return JSON: {{"reply": "...", "contact": true/false}}""")
+- You are this page's AI comment AGENT, not a bot: think about the person, what they really mean, and the page's
+  growth. Where natural, end with ONE short friendly question so they comment again (more comments = more reach),
+  but not on every reply and never on spam.
+{lessons}
+About this person: {fan_line(acct, uid)}
+
+Also decide the ACTION:
+- "reply": normal reply (also "like" their comment).
+- "like": only a like, no text (e.g. they just tagged a friend, or a bare emoji after we already thanked them).
+- "hide": spam, scam, abuse, gaali, someone else's promotion or links - hide it from the page.
+- "skip": nothing to do.
+Return JSON: {{"action": "reply|like|hide|skip", "reply": "...", "contact": true/false}}""")
     reply = (data.get("reply") or "").strip()[:900]
+    action = (data.get("action") or ("reply" if reply else "skip")).strip().lower()
+    if action != "reply":
+        return {"action": action, "reply": ""}
     if reply and acct == "webbuilder" and (first or data.get("contact")):
         reply = growth.add_footer("webbuilder", reply)
-    return reply
+    return {"action": "reply" if reply else "skip", "reply": reply}
 
 
 def threads_for(acct):
@@ -168,6 +266,7 @@ def threads_for(acct):
                 continue
             msgs.sort(key=lambda m: m.get("created_time", ""))
             thread = [{"id": m["id"], "page": (m.get("from") or {}).get("id") == pid,
+                       "uid": (m.get("from") or {}).get("id", ""), "name": (m.get("from") or {}).get("name", ""),
                        "text": m["message"].strip()[:500], "time": m.get("created_time", "")} for m in msgs]
             last = thread[-1]
             if last["page"] or last["id"] in SKIP or age_hours(last["time"]) > MAX_AGE_HOURS:
@@ -194,10 +293,26 @@ def one_pass(accts):
         for t in todo[:10]:
             last = t["thread"][-1]
             try:
-                reply = write_reply(acct, t["post"], t["thread"], acct, t["first"])
+                dec = write_reply(acct, t["post"], t["thread"], acct, t["first"], last.get("uid", ""))
             except Exception as e:
                 log(f"{acct} AI fail: {str(e)[:150]}")
                 continue
+            reply, action = dec.get("reply") or "", dec.get("action")
+            CONVOS.setdefault(acct, []).append(
+                " / ".join(f"{'P' if m['page'] else 'C'}: {m['text'][:120]}" for m in t["thread"][-4:])
+                + f" -> agent {action}: {reply[:120]}")
+            remember_fan(acct, last.get("uid"), last.get("name"), last["text"], action)
+            if action in ("like", "hide") and not DRY_RUN:
+                try:
+                    if action == "like":
+                        fb_call("POST", f"{last['id']}/likes", token)
+                        STATS["likes"] += 1
+                    else:
+                        fb_call("POST", last["id"], token, is_hidden="true")
+                        STATS["hidden"] += 1
+                    log(f"{acct}: {action} {last['text'][:50]!r}")
+                except Exception as e:
+                    log(f"{acct} {action} fail: {str(e)[:120]}")
             if not reply:
                 SKIP.add(last["id"])
                 continue
@@ -207,6 +322,11 @@ def one_pass(accts):
             else:
                 try:
                     fb_call("POST", f"{t['top']}/comments", token, message=reply)
+                    try:
+                        fb_call("POST", f"{last['id']}/likes", token)      # jawab ke saath comment like bhi
+                        STATS["likes"] += 1
+                    except Exception:
+                        pass
                 except Exception as e:
                     log(f"{acct} post fail: {str(e)[:150]}")
                     SKIP.add(last["id"])
@@ -215,11 +335,13 @@ def one_pass(accts):
             line = f"{now():%m-%d %H:%M} {acct}: {last['text'][:50]!r} -> {reply.splitlines()[0][:90]}"
             STATS["log"] = (STATS["log"] + [line])[-60:]
             log(line)
+        review(acct)
 
 
 def save():
     with open(REPORT_FILE, "w", encoding="utf-8") as f:
         json.dump(STATS, f, ensure_ascii=False, indent=1)
+    save_mem()
 
 
 def main():
@@ -228,7 +350,7 @@ def main():
     if test:      # self-test: ek nakli comment par Web Builder ka jawab
         for q in test.split("||"):
             r = write_reply("webbuilder", "POS software for shops", [{"page": False, "text": q, "id": "t", "time": ""}],
-                            "webbuilder", True)
+                            "webbuilder", True).get("reply")
             STATS["log"].append(f"TEST {q!r} -> {r}")
             log(STATS["log"][-1])
         save()

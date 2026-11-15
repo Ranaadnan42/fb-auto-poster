@@ -44,6 +44,9 @@ LANG = (os.environ.get("LANGUAGE") or "en").strip().lower()
 BREAKING = os.environ.get("BREAKING") == "1"     # har 2 ghante: sirf bari taaza khabar ho to foran post
 BREAKING_PER_DAY = 5
 PAGES_TO_RUN = [p.strip() for p in (os.environ.get("PAGES") or "news,sports").split(",") if p.strip()]
+# News Act ab sirf English - Urdu khabrein naye Urdu page par jayengi (Sports Hubs par Urdu chalti rahegi)
+if LANG == "ur":
+    PAGES_TO_RUN = [p for p in PAGES_TO_RUN if p != "news"]
 PIXABAY_KEY = os.environ.get("PIXABAY_API_KEY")
 POSTS_LOG = "news_posts_history.json"      # har post ka record - agent (brain.py) is se views seekhta hai
 BRAIN_FILE = "news_brain.json"             # agent ka seekha hua plan
@@ -123,8 +126,8 @@ NEWS_REGIONS = {
 }
 # Urdu posts mein Pakistan / Gulf / South Asia ki khabar zyada (Urdu audience ke liye zyada dilchasp)
 # English = USA, UK, Europe, Canada, Australia (dollar / euro audience) ki khabar sab se zyada
-NEWS_WEIGHT = {"en": {"usa": 5, "uk": 4, "europe": 4, "canada_australia": 2, "world": 3, "business": 3,
-                      "science_tech": 3, "americas": 1, "middle_east": 1, "asia": 1, "africa": 1, "pakistan": 0.2},
+NEWS_WEIGHT = {"en": {"usa": 5, "uk": 4, "europe": 4, "canada_australia": 2, "world": 3, "business": 4,
+                      "science_tech": 5, "americas": 1, "middle_east": 1, "asia": 1, "africa": 1, "pakistan": 0.2},
                "ur": {"world": 3, "pakistan": 4, "middle_east": 4, "asia": 2, "europe": 1, "americas": 3,
                       "africa": 1, "business": 1, "science_tech": 1, "usa": 2, "uk": 2, "canada_australia": 1}}
 
@@ -397,6 +400,24 @@ def fetch_feed(url):
                     "date": parse_date(get.get("pubDate") or get.get("published") or get.get("updated")
                                        or get.get("date"))})
     return out
+
+
+# News Act par sab se zyada views (9K, 6K) bari global English khabron par aaye: Microsoft Outlook/Teams outage,
+# Alaska ka sab se kam umar governor. Aisi "sab ko lagne wali / tareekhi" khabar ko pehle chuno.
+VIRAL_RE = re.compile(
+    r"\b(outage|down for|goes down|global|worldwide|historic|history|first[- ]ever|youngest|oldest|record|"
+    r"microsoft|apple|google|amazon|meta|tesla|openai|nvidia|netflix|iphone|whatsapp|instagram|facebook|"
+    r"\bai\b|chatgpt|elon musk|election|elected|wins|governor|president|supreme court|ban(s|ned)?|"
+    r"crash|recall|layoffs?|billion|trillion|stock(s)? (plunge|soar|surge)|hack(ed|ers)?|cyber ?attack|"
+    r"breaking|shock|millions)\b", re.I)
+
+
+def viral_rank(items):
+    """English News Act: bari global/tech/tareekhi khabar oopar, baqi taazgi ke hisab se."""
+    if LANG != "en":
+        return items
+    return sorted(items, key=lambda i: -len(set(m.group(0).lower() for m in VIRAL_RE.finditer(
+        i["title"] + " " + (i.get("desc") or "")[:200]))))
 
 
 def fresh_items(urls, past):
@@ -686,6 +707,8 @@ def make_post(kind, hist, avoid_links):
         bt, bi = breaking_pick(kind, past, avoid_links)
     for topic in ([bt] if BREAKING else pick_topic(kind, past)[:6]):
         items = [bi] if BREAKING else [i for i in fresh_items(pool[topic], past) if i["link"] not in avoid_links]
+        if kind == "news" and not BREAKING:
+            items = viral_rank(items)
         log(f"{kind}/{topic}: {len(items)} taaza khabrein")
         if not items:
             continue

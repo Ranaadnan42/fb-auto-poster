@@ -1,4 +1,4 @@
-name: Live Replies (FB comments)
+name: Live Replies (FB comment agent)
 run-name: Live Replies ${{ github.event.schedule || 'manual' }}
 
 # Lagatar chalta hai: har run ~5 ghante 45 minute har minute comments dekhta hai,
@@ -64,7 +64,7 @@ jobs:
       - name: Save report
         if: always()
         run: |
-          FILES="live_last_run.json"
+          FILES="live_last_run.json comment_agent_memory.json"
           mkdir -p /tmp/keep
           for f in $FILES; do [ -f "$f" ] && cp "$f" /tmp/keep/; done
           git config user.name "auto-poster"
