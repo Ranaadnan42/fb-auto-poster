@@ -388,7 +388,7 @@ def scene_video(i, terms, secs, used, fallback_terms, said="", kind="news"):
             ok = any(_try(x, seg + 0.1, out, used, said, kind) for x in alt[:4])
         if not ok:
             ok = any(_try(f, seg + 0.1, out, used, said, kind) for f in fallback_terms)
-        if not ok and STORY_CLIPS:
+        if not ok and STORY_CLIPS and os.environ.get("NO_REUSE") != "1":
             try:
                 _render_clip(random.choice(STORY_CLIPS), seg + 0.1, out)   # isi khabar ki pehle wali (agent-pass) clip
                 ok = True

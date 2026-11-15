@@ -30,11 +30,13 @@ MODE = (os.environ.get("MODE") or "reel").strip().lower()
 os.environ["KIND"] = "reel" if MODE == "reel" else "long"
 os.environ["LANGUAGE"] = "en"
 os.environ["FOOTAGE_WAR"] = "1"
-os.environ["NO_PHOTOS"] = "1"          # malik: reel aur long dono mein tasveer nahi - sirf asli video, asli jagahein
+os.environ["NO_PHOTOS"] = "1"
+os.environ["NO_REUSE"] = "1"           # jo bola ja raha hai wohi - pichli clip dobara nahi (warna text card)          # malik: reel aur long dono mein tasveer nahi - sirf asli video, asli jagahein
 os.environ.setdefault("NEWS_BUDGET_MIN", "55" if MODE == "reel" else "150")
 
 import requests  # noqa: E402
 
+import content_rules  # noqa: E402
 import footage  # noqa: E402
 import news  # noqa: E402
 import news_video as nv  # noqa: E402
@@ -57,222 +59,30 @@ REPORT = {"time_utc": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), "mo
           "errors": []}
 
 # Pehli jang se tarteeb se (English Wikipedia titles). Khatam ho jaye to agent khud agli dhoondta hai.
-WARS = [
-    "Prehistoric warfare",
-    "Jebel Sahaba",
-    "Nataruk",
-    "Talheim Death Pit",
-    "Lagash–Umma border conflict",
-    "Sargon of Akkad",
-    "Battle of Megiddo (15th century BC)",
-    "Battle of the Ten Kings",
-    "Battle of Kadesh",
-    "Trojan War",
-    "Battle of Muye",
-    "Battle of Djahy",
-    "Siege of Lachish",
-    "Fall of Babylon",
-    "Battle of Opis",
-    "Battle of Pelusium (525 BC)",
-    "Greco-Persian Wars",
-    "Battle of Marathon",
-    "Battle of Thermopylae",
-    "Battle of Salamis",
-    "Peloponnesian War",
-    "Samnite Wars",
-    "Battle of Issus",
-    "Battle of Gaugamela",
-    "Battle of the Hydaspes",
-    "Wars of the Diadochi",
-    "Pyrrhic War",
-    "Kalinga War",
-    "First Punic War",
-    "Second Punic War",
-    "Battle of Cannae",
-    "Battle of Zama",
-    "Macedonian Wars",
-    "Third Punic War",
-    "Mithridatic Wars",
-    "Gallic Wars",
-    "Battle of Alesia",
-    "Battle of Carrhae",
-    "Caesar's civil war",
-    "Battle of Pharsalus",
-    "Battle of Philippi",
-    "Battle of Actium",
-    "Roman conquest of Britain",
-    "Roman–Parthian Wars",
-    "Boudica's uprising",
-    "Battle of the Teutoburg Forest",
-    "Siege of Jerusalem (70 CE)",
-    "Bar Kokhba revolt",
-    "Roman–Persian Wars",
-    "Battle of Edessa",
-    "Battle of the Milvian Bridge",
-    "Battle of Adrianople",
-    "Sack of Rome (410)",
-    "Battle of the Catalaunian Plains",
-    "Fall of the Western Roman Empire",
-    "Gothic War (535–554)",
-    "Byzantine–Sasanian War of 602–628",
-    "Battle of Dhi Qar",
-    "Battle of Badr",
-    "Battle of Uhud",
-    "Battle of the Trench",
-    "Conquest of Mecca",
-    "Ridda wars",
-    "Muslim conquest of the Levant",
-    "Battle of Yarmuk",
-    "Battle of al-Qadisiyyah",
-    "Muslim conquest of Persia",
-    "Battle of Nahavand",
-    "Muslim conquest of Egypt",
-    "Battle of the Camel",
-    "Battle of Siffin",
-    "Battle of Karbala",
-    "Siege of Constantinople (674–678)",
-    "Umayyad conquest of Hispania",
-    "Battle of Guadalete",
-    "Siege of Constantinople (717–718)",
-    "Battle of Tours",
-    "Battle of Talas",
-    "Battle of the Zab",
-    "Byzantine–Arab wars",
-    "Battle of Manzikert",
-    "Battle of Hastings",
-    "Battle of Sagrajas",
-    "Reconquista",
-    "First Crusade",
-    "Battle of Hattin",
-    "Third Crusade",
-    "Mongol invasion of the Khwarazmian Empire",
-    "Siege of Baghdad (1258)",
-    "Battle of Ain Jalut",
-    "Battle of Bannockburn",
-    "Battle of Kosovo",
-    "Battle of Nicopolis",
-    "Hundred Years' War",
-    "Battle of Crécy",
-    "Battle of Agincourt",
-    "Battle of Ankara",
-    "Battle of Varna",
-    "Fall of Constantinople",
-    "Wars of the Roses",
-    "Battle of Bosworth Field",
-    "Battle of Chaldiran",
-    "Battle of Mohács",
-    "Ottoman–Persian Wars",
-    "Ottoman–Habsburg wars",
-    "Battle of Lepanto",
-    "First Battle of Panipat",
-    "Second Battle of Panipat",
-    "Spanish conquest of the Aztec Empire",
-    "Spanish conquest of the Inca Empire",
-    "Spanish Armada",
-    "Imjin War",
-    "Battle of Sekigahara",
-    "Thirty Years' War",
-    "English Civil War",
-    "Battle of Vienna",
-    "Great Northern War",
-    "Battle of Poltava",
-    "War of the Spanish Succession",
-    "Battle of Karnal",
-    "Third Battle of Panipat",
-    "Battle of Plassey",
-    "Seven Years' War",
-    "American Revolutionary War",
-    "Battle of Saratoga",
-    "Siege of Yorktown",
-    "French Revolutionary Wars",
-    "Battle of the Nile",
-    "Battle of Trafalgar",
-    "Battle of Austerlitz",
-    "French invasion of Russia",
-    "Battle of Waterloo",
-    "War of 1812",
-    "Greek War of Independence",
-    "First Anglo-Afghan War",
-    "First Opium War",
-    "Mexican–American War",
-    "Crimean War",
-    "Indian Rebellion of 1857",
-    "American Civil War",
-    "Battle of Gettysburg",
-    "Paraguayan War",
-    "Franco-Prussian War",
-    "Anglo-Zulu War",
-    "Battle of Little Bighorn",
-    "First Sino-Japanese War",
-    "Spanish–American War",
-    "Second Boer War",
-    "Boxer Rebellion",
-    "Russo-Japanese War",
-    "Balkan Wars",
-    "World War I",
-    "Gallipoli campaign",
-    "Battle of Verdun",
-    "Battle of the Somme",
-    "Battle of Jutland",
-    "Battle of Passchendaele",
-    "Russian Civil War",
-    "Polish–Soviet War",
-    "Turkish War of Independence",
-    "Chaco War",
-    "Second Italo-Ethiopian War",
-    "Spanish Civil War",
-    "Second Sino-Japanese War",
-    "World War II",
-    "Invasion of Poland",
-    "Winter War",
-    "Battle of France",
-    "Dunkirk evacuation",
-    "Battle of Britain",
-    "Operation Barbarossa",
-    "Siege of Leningrad",
-    "Attack on Pearl Harbor",
-    "Battle of Midway",
-    "Second Battle of El Alamein",
-    "Battle of Stalingrad",
-    "Battle of Kursk",
-    "Battle of Guadalcanal",
-    "Normandy landings",
-    "Battle of Leyte Gulf",
-    "Battle of the Bulge",
-    "Battle of Iwo Jima",
-    "Battle of Okinawa",
-    "Battle of Berlin",
-    "Atomic bombings of Hiroshima and Nagasaki",
-    "Chinese Civil War",
-    "Indo-Pakistani war of 1947–1948",
-    "1948 Arab–Israeli War",
-    "Korean War",
-    "Battle of Inchon",
-    "First Indochina War",
-    "Battle of Dien Bien Phu",
-    "Algerian War",
-    "Suez Crisis",
-    "Bay of Pigs Invasion",
-    "Sino-Indian War",
-    "Indo-Pakistani war of 1965",
-    "Vietnam War",
-    "Tet Offensive",
-    "Six-Day War",
-    "Nigerian Civil War",
-    "Football War",
-    "Indo-Pakistani war of 1971",
-    "Yom Kippur War",
-    "Soviet–Afghan War",
-    "Iran–Iraq War",
-    "Falklands War",
-    "Gulf War",
-    "Bosnian War",
-    "First Chechen War",
-    "Kargil War",
-    "Kosovo War",
-    "War in Afghanistan (2001–2021)",
-    "Iraq War",
+# 1) Dunya ki pehli jang se tarteeb se purane daur ki jangein
+ANCIENT = ['Prehistoric warfare', 'Jebel Sahaba', 'Nataruk', 'Talheim Death Pit', 'Lagash–Umma border conflict', 'Sargon of Akkad', 'Battle of Megiddo (15th century BC)', 'Battle of the Ten Kings', 'Battle of Kadesh', 'Trojan War', 'Battle of Muye', 'Battle of Djahy', 'Siege of Lachish', 'Battle of Marathon', 'Battle of Thermopylae', 'Battle of Salamis', 'Peloponnesian War', 'Kalinga War']
+# 2) Phir saltanatein: Persian, Roman, Arab (tarteeb se)
+EMPIRES = ['Fall of Babylon', 'Battle of Opis', 'Battle of Pelusium (525 BC)', 'Greco-Persian Wars', 'Battle of Issus', 'Battle of Gaugamela', 'Samnite Wars', 'Pyrrhic War', 'First Punic War', 'Second Punic War', 'Battle of Cannae', 'Battle of Zama', 'Macedonian Wars', 'Third Punic War', 'Mithridatic Wars', 'Gallic Wars', 'Battle of Alesia', 'Battle of Carrhae', "Caesar's civil war", 'Battle of Pharsalus', 'Battle of Philippi', 'Battle of Actium', 'Battle of the Teutoburg Forest', 'Roman conquest of Britain', "Boudica's uprising", 'Roman–Parthian Wars', 'Siege of Jerusalem (70 CE)', 'Bar Kokhba revolt', 'Roman–Persian Wars', 'Battle of Edessa', 'Battle of the Milvian Bridge', 'Battle of Adrianople', 'Sack of Rome (410)', 'Battle of the Catalaunian Plains', 'Fall of the Western Roman Empire', 'Gothic War (535–554)', 'Byzantine–Sasanian War of 602–628', 'Battle of Dhi Qar', 'Battle of Badr', 'Battle of Uhud', 'Battle of the Trench', 'Conquest of Mecca', 'Ridda wars', 'Battle of Yarmuk', 'Muslim conquest of the Levant', 'Battle of al-Qadisiyyah', 'Muslim conquest of Persia', 'Battle of Nahavand', 'Muslim conquest of Egypt', 'Battle of the Camel', 'Battle of Siffin', 'Battle of Karbala', 'Siege of Constantinople (674–678)', 'Umayyad conquest of Hispania', 'Battle of Guadalete', 'Siege of Constantinople (717–718)', 'Battle of Tours', 'Battle of the Zab', 'Battle of Talas', 'Byzantine–Arab wars']
+WARS = ANCIENT + EMPIRES
+
+# 3) Phir mulk-ba-mulk: har mulk ki ahem jangein (us mulk ke andar purani se nayi), phir agla mulk
+COUNTRIES = [
+    "China", "India", "Egypt", "Iran", "Greece", "Italy", "Turkey", "Iraq", "Syria", "Mongolia", "Japan",
+    "Korea", "Vietnam", "United Kingdom", "France", "Germany", "Spain", "Portugal", "Russia", "Poland",
+    "Sweden", "Norway", "Denmark", "Netherlands", "Belgium", "Austria", "Hungary", "Serbia", "Bulgaria",
+    "Romania", "Ukraine", "Finland", "Ireland", "Scotland", "Switzerland", "Czech Republic", "Croatia",
+    "Bosnia and Herzegovina", "Albania", "Georgia", "Armenia", "Azerbaijan", "Pakistan", "Afghanistan",
+    "Bangladesh", "Sri Lanka", "Nepal", "Myanmar", "Thailand", "Cambodia", "Indonesia", "Philippines",
+    "Malaysia", "Kazakhstan", "Uzbekistan", "Saudi Arabia", "Yemen", "Oman", "Kuwait", "Jordan", "Lebanon",
+    "Israel", "Palestine", "Libya", "Tunisia", "Algeria", "Morocco", "Sudan", "Ethiopia", "Somalia", "Kenya",
+    "Uganda", "Rwanda", "Congo", "Angola", "Mozambique", "Zimbabwe", "South Africa", "Nigeria", "Ghana",
+    "Mali", "Senegal", "Madagascar", "United States", "Canada", "Mexico", "Cuba", "Haiti", "Guatemala",
+    "Nicaragua", "Colombia", "Venezuela", "Peru", "Bolivia", "Chile", "Argentina", "Paraguay", "Brazil",
+    "Uruguay", "Ecuador", "Australia", "New Zealand", "Taiwan", "Tibet", "Laos", "Estonia", "Latvia",
+    "Lithuania", "Belarus", "Cyprus", "Iceland",
 ]
+PER_COUNTRY = 6        # ek mulk ki zyada se zyada itni jangein, phir agla mulk
+
 
 # ---------------------------------------------------------------- history
 def load_hist():
@@ -281,6 +91,8 @@ def load_hist():
             h = json.load(f)
     except Exception:
         h = {}
+    h.setdefault("country_i", 0)
+    h.setdefault("country_n", 0)
     for k in ("reel", "long", "used_clips", "extra"):
         h.setdefault(k, [])
     return h
@@ -296,31 +108,37 @@ def done_titles(h, mode):
     return {x["war"] for x in h[mode]}
 
 
-def next_from_ai(h, after):
-    """Seed list khatam: agent khud agli (chronological) jang dhoondta hai jo pehle nahi aayi."""
-    seen = sorted(done_titles(h, "reel") | done_titles(h, "long") | set(h["extra"]))
-    j = news.ask_json(f"""You run a war-history page that tells the story of EVERY war and major battle in history,
-in chronological order. The last one covered was "{after}". Already covered (never repeat): {json.dumps(seen[-250:])}
-Suggest the next 8 real wars or major battles that are NOT yet covered, the EARLIEST in history first (any era -
-go back in time if older ones were missed), from every region of the world alike: Mesopotamia, Egypt, China, India,
-Persia, the Americas, Africa, Central Asia, Europe, Oceania, each as its exact English Wikipedia article title. Avoid wars that are
-still being fought today. Return JSON {{"wars": ["..."]}}""")
-    out = [w.strip() for w in (j.get("wars") or []) if isinstance(w, str) and w.strip() and w.strip() not in seen]
-    h["extra"] += out
-    return out
+def country_war(h, done):
+    """Mulk-ba-mulk: mojooda mulk ki agli ahem jang (us mulk ki tareekh mein tarteeb se), 6 ke baad agla mulk."""
+    for _ in range(len(COUNTRIES)):
+        c = COUNTRIES[h["country_i"] % len(COUNTRIES)]
+        if h["country_n"] < PER_COUNTRY:
+            j = news.ask_json(f"""For a war-history series that covers every country: list the most important wars and
+battles in the history of {c} (fought in or by {c}), OLDEST FIRST, not still ongoing.
+Never these (already covered): {json.dumps(sorted(done)[-300:])}
+Return JSON {{"wars": ["up to 6 exact English Wikipedia article titles, in chronological order"]}}""")
+            for w in j.get("wars") or []:
+                if isinstance(w, str) and w.strip() and w.strip() not in done:
+                    h["country_n"] += 1
+                    REPORT["country"] = c
+                    log(f"Mulk: {c} ({h['country_n']}/{PER_COUNTRY})")
+                    return w.strip()
+        h["country_i"] += 1                      # is mulk ki jangein mukammal - agla mulk
+        h["country_n"] = 0
+    return None
 
 
 def pick_war(h):
-    """Ek hi timeline: dunya ki sab se pehli jang se tarteeb se. Reel aur long dono agli jang lete hain -
-    har jang ek dafa, koi chhoot-ti nahi. Episode number = timeline mein jagah."""
+    """Tarteeb: 1) dunya ki pehli jang se purane daur ki jangein, 2) Persian / Roman / Arab saltanatein,
+    3) phir mulk-ba-mulk. Reel aur long dono agli jang lete hain - har jang ek dafa, koi chhoot-ti nahi."""
     done = done_titles(h, "reel") | done_titles(h, "long")
-    for w in WARS + h["extra"]:
+    n = len(done) + 1
+    for w in WARS:
         if w not in done:
-            return w, len(done) + 1
-    last = (h["long"] + h["reel"])
-    last = sorted(last, key=lambda x: x.get("date", ""))[-1]["war"] if last else WARS[-1]
-    for w in next_from_ai(h, last):
-        return w, len(done) + 1
+            return w, n
+    w = country_war(h, done)
+    if w:
+        return w, n
     raise RuntimeError("agli jang nahi mili")
 
 
@@ -440,6 +258,8 @@ Rules:
   the SPECIFIC thing said (the battle, the place, the commander, the ships, the trenches, the map, the fort...).
   Never generic mood shots (fire, smoke, sunset, sky, random soldiers of another era), never gore.
 - "subjects": 2-5 real names from the text as exact English Wikipedia titles (the battle/war itself, key places).
+{content_rules.MATCH}- If a sentence talks about something no real video can show, rewrite that sentence around a real,
+  filmable thing of that war (its place, fort, river, memorial, museum) - picture and voice must always match.
 {trends}
 Return JSON:
 {{"title": "Facebook video title, max 12 words, curiosity hook + the war name",
