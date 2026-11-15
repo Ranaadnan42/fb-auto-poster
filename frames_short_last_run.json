@@ -1,32 +1,31 @@
 {
  "mode": "short",
- "clips": 39,
- "clips_rejected": 237,
- "vision_checks": 269,
- "errors": [
-  "fatal: Awaaz nahi bani",
-  "fatal: Awaaz nahi bani"
- ],
+ "clips": 31,
+ "clips_rejected": 156,
+ "vision_checks": 183,
+ "errors": [],
  "search_phrases": [
-  "ki sair kar duniya ki gafil",
-  "ki sair kara de",
-  "ki sirf",
-  "ki seerat",
-  "ki siren ki awaaz",
-  "li siri",
-  "ka siren",
-  "kya siren head",
-  "ki sir"
+  "khubsurat jagah",
+  "khubsurat jagah ki video",
+  "khubsurat jagah hai",
+  "khubsurat jagah dikhayen",
+  "khubsurat jagah dikhao",
+  "khubsurat jagah ka video",
+  "khubsurat jagah ki tasviren",
+  "khubsurat jagah ki photo",
+  "khubsurat jagah ki tasvir",
+  "khubsurat jagah ki picture"
  ],
- "search": "ki sair kara de",
- "alt_searches": 9,
- "photos": 7,
- "seconds": 85.4,
+ "search": "khubsurat jagah ki video",
+ "vision_groq": 1,
+ "alt_searches": 6,
+ "photos": 6,
+ "seconds": 103.8,
  "links": [
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Brazil / Rio de Janeiro",
- "series": "pk_tour_short",
- "title": "Rio de Janeiro ki sair | Brazil Travel Guide"
+ "subject": "Bosnia and Herzegovina",
+ "series": "pk_hidden",
+ "title": "Bosnia ki 5 Khubsurat Chhupi Jagahein | Bosnia Travel Guide"
 }
