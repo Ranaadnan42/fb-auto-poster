@@ -338,6 +338,10 @@ def description(script, facts):
 # ---------------------------------------------------------------- main
 def main():
     os.makedirs(nv.WORK, exist_ok=True)
+    if not (os.environ.get("WILD_GEMINI_API_KEY") or os.environ.get("GROQ_API_KEY")):
+        log("Wild Nations ki apni API key (WILD_GEMINI_API_KEY / WILD_GROQ_API_KEY) abhi nahi - purani key istemal nahi hogi")
+        REPORT["waiting"] = "own API key missing"
+        return
     P = page()
     if not DRY_RUN and not (P["id"] and P["token"]):
         log("WILD_PAGE_ID / WILD_PAGE_TOKEN abhi set nahi - page jurne tak kuch nahi")

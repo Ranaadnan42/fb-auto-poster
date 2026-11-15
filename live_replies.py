@@ -109,7 +109,7 @@ def review(acct):
     pm["last_review"] = time.time()
     name = PERSONA[acct][0]
     try:
-        d = ask(f"""You are the comment-manager AI agent of the Facebook page "{name}". Below are recent comment
+        d = ask(acct=acct, prompt=f"""You are the comment-manager AI agent of the Facebook page "{name}". Below are recent comment
 conversations (C = commenter, P = page). Learn from them. Note what people ask/feel most, which replies got the
 commenter to write again (good), which got no answer, and what spam appears.
 Current lessons: {json.dumps(pm["lessons"], ensure_ascii=False)}
@@ -144,8 +144,48 @@ def age_hours(ts):
         return 0
 
 
-def ask(prompt):
-    """Tez jawab ke liye pehle Groq, phir Gemini."""
+# Naye pages ki apni alag API keys - purani (shared) keys in par kabhi nahi lagti
+OWN_KEYS = {"newsur": "NEWSUR", "wild": "WILD"}
+
+
+def own_ready(acct):
+    p = OWN_KEYS.get(acct)
+    return not p or bool(env(f"{p}_GEMINI_API_KEY") or env(f"{p}_GROQ_API_KEY"))
+
+
+def ask_own(prompt, p):
+    import requests
+    gk, qk = env(f"{p}_GEMINI_API_KEY"), env(f"{p}_GROQ_API_KEY")
+    if qk:
+        old = os.environ.get("GROQ_API_KEY")
+        os.environ["GROQ_API_KEY"] = qk
+        try:
+            return groq_backup.ask_json(prompt, 0.7, log)
+        except Exception as e:
+            log(f"{p} groq fail: {str(e)[:120]}")
+        finally:
+            if old is None:
+                os.environ.pop("GROQ_API_KEY", None)
+            else:
+                os.environ["GROQ_API_KEY"] = old
+    if not gk:
+        raise RuntimeError(f"{p}: apni API key nahi")
+    for model in ("gemini-2.5-flash", "gemini-2.5-flash-lite", "gemini-3.1-flash-lite"):
+        try:
+            j = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+                              params={"key": gk}, timeout=90,
+                              json={"contents": [{"parts": [{"text": prompt}]}],
+                                    "generationConfig": {"responseMimeType": "application/json", "temperature": 0.7}}).json()
+            return json.loads(j["candidates"][0]["content"]["parts"][0]["text"])
+        except Exception as e:
+            log(f"{p} gemini {model} fail: {str(e)[:100]}")
+    raise RuntimeError(f"{p}: AI jawab nahi")
+
+
+def ask(prompt, acct=None):
+    """Tez jawab ke liye pehle Groq, phir Gemini. Naye pages (OWN_KEYS) sirf apni keys se."""
+    if acct in OWN_KEYS:
+        return ask_own(prompt, OWN_KEYS[acct])
     if groq_backup.enabled():
         try:
             return groq_backup.ask_json(prompt, 0.7, log)
@@ -213,7 +253,7 @@ Facts you may use (NEVER invent other prices, discounts, delivery times or guara
 Do NOT write the website link or WhatsApp number yourself - set "contact": true and they are added below.
 Set "contact": true when they ask price, demo, order, contact, location, or are ready to buy."""
     convo = "\n".join(f"{'PAGE (you)' if m['page'] else 'CUSTOMER'}: {m['text']}" for m in thread)
-    data = ask(f"""You reply on Facebook as the page "{name}". Style: {style}
+    data = ask(acct=acct, prompt=f"""You reply on Facebook as the page "{name}". Style: {style}
 {sales}
 Post: "{post_text[:300]}"
 Conversation so far under this post (oldest first):
@@ -280,6 +320,8 @@ def one_pass(accts):
     for acct in accts:
         if PAUSE.get(acct, 0) > time.time():
             continue
+        if not own_ready(acct):
+            continue          # naya page: apni API key abhi nahi lagi
         try:
             pid, token, todo = threads_for(acct)
         except Exception as e:

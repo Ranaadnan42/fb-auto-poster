@@ -63,6 +63,10 @@ jobs:
           NEWSUR_PAGE_TOKEN: ${{ secrets.NEWSUR_PAGE_TOKEN }}
           WILD_PAGE_ID: ${{ secrets.WILD_PAGE_ID }}
           WILD_PAGE_TOKEN: ${{ secrets.WILD_PAGE_TOKEN }}
+          NEWSUR_GEMINI_API_KEY: ${{ secrets.NEWSUR_GEMINI_API_KEY }}
+          NEWSUR_GROQ_API_KEY: ${{ secrets.NEWSUR_GROQ_API_KEY }}
+          WILD_GEMINI_API_KEY: ${{ secrets.WILD_GEMINI_API_KEY }}
+          WILD_GROQ_API_KEY: ${{ secrets.WILD_GROQ_API_KEY }}
           LIVE_MINUTES: ${{ inputs.minutes || '345' }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
           TEST_TEXT: ${{ inputs.test_text }}

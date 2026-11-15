@@ -132,6 +132,9 @@ jobs:
           NEWS_PAGE_ID: ${{ secrets.NEWS_PAGE_ID }}
           NEWSUR_PAGE_TOKEN: ${{ secrets.NEWSUR_PAGE_TOKEN }}
           NEWSUR_PAGE_ID: ${{ secrets.NEWSUR_PAGE_ID }}
+          NEWSUR_GEMINI_API_KEY: ${{ secrets.NEWSUR_GEMINI_API_KEY }}
+          NEWSUR_GROQ_API_KEY: ${{ secrets.NEWSUR_GROQ_API_KEY }}
+          NEWSUR_PIXABAY_API_KEY: ${{ secrets.NEWSUR_PIXABAY_API_KEY }}
           SPORTS_PAGE_TOKEN: ${{ secrets.SPORTS_PAGE_TOKEN }}
           SPORTS_PAGE_ID: ${{ secrets.SPORTS_PAGE_ID }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
@@ -156,17 +159,36 @@ jobs:
           KIND: ${{ steps.m.outputs.kind }}
           DRY_RUN: ${{ inputs.dry_run && '1' || '0' }}
         run: |
-          case "$KIND" in
-            pic) python news.py ;;
-            breaking) BREAKING=1 python news.py ;;
-            match) python match_video.py ;;
-            *) python news_video.py ;;
-          esac
+          run_kind() {
+            case "$KIND" in
+              pic) python news.py ;;
+              breaking) BREAKING=1 python news.py ;;
+              match) python match_video.py ;;
+              *) python news_video.py ;;
+            esac
+          }
+          rc=0
+          if [ "$LANGUAGE" = ur ] && [[ ",$PAGES," == *",news,"* ]]; then
+            # Urdu: Sports Hubs pehle jaisa; News Act Urdu alag chalta hai - SIRF us ki apni API keys se
+            P2=$(echo ",$PAGES," | sed 's/,news,/,/; s/^,//; s/,$//')
+            if [ -n "$P2" ]; then PAGES="$P2" run_kind || rc=1; fi
+            if [ "$KIND" != match ]; then
+              if [ -n "$NEWSUR_GEMINI_API_KEY$NEWSUR_GROQ_API_KEY" ]; then
+                PAGES=news GEMINI_API_KEY="$NEWSUR_GEMINI_API_KEY" NEWS_GEMINI_API_KEY="$NEWSUR_GEMINI_API_KEY" \
+                  GROQ_API_KEY="$NEWSUR_GROQ_API_KEY" PIXABAY_API_KEY="$NEWSUR_PIXABAY_API_KEY" run_kind || rc=1
+              else
+                echo "News Act Urdu: apni API key abhi nahi lagi - purani key istemal nahi hogi, skip"
+              fi
+            fi
+          else
+            run_kind || rc=1
+          fi
           # News Act ab sirf English: Urdu reel / long video slot par News Act ko English reel / long video milti hai
           # (Urdu khabar News Act Urdu + Sports Hubs par) - is tarah News Act par rozana 6 reels + 2 long video English mein
           if { [ "$KIND" = reel ] || [ "$KIND" = long ]; } && [ "$LANGUAGE" = ur ] && [[ ",$PAGES," == *",news,"* ]]; then
-            LANGUAGE=en PAGES=news python news_video.py
+            LANGUAGE=en PAGES=news python news_video.py || rc=1
           fi
+          exit $rc
       - name: Upload preview
         if: always()
         uses: actions/upload-artifact@v4

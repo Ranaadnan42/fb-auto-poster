@@ -76,16 +76,10 @@ jobs:
           WILD_PAGE_ID: ${{ secrets.WILD_PAGE_ID }}
           WILD_PAGE_TOKEN: ${{ secrets.WILD_PAGE_TOKEN }}
           WILD_GEMINI_API_KEY: ${{ secrets.WILD_GEMINI_API_KEY }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
-          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
-          YT_FRAMES_CLIENT_ID: ${{ secrets.YT_FRAMES_CLIENT_ID }}
-          YT_FRAMES_CLIENT_SECRET: ${{ secrets.YT_FRAMES_CLIENT_SECRET }}
-          YT_FRAMES_REFRESH_TOKEN: ${{ secrets.YT_FRAMES_REFRESH_TOKEN }}
-          YT_WORLD_CLIENT_ID: ${{ secrets.YT_WORLD_CLIENT_ID }}
-          YT_WORLD_CLIENT_SECRET: ${{ secrets.YT_WORLD_CLIENT_SECRET }}
-          YT_WORLD_REFRESH_TOKEN: ${{ secrets.YT_WORLD_REFRESH_TOKEN }}
+          GEMINI_API_KEY: ${{ secrets.WILD_GEMINI_API_KEY }}   # sirf is page ki apni key - purani shared key nahi
+          GROQ_API_KEY: ${{ secrets.WILD_GROQ_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.WILD_PIXABAY_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.WILD_PEXELS_API_KEY }}
           MODE: ${{ env.S && (env.S == '47 20 * * *' && 'long' || 'reel') || inputs.mode || 'reel' }}
           POST_AT: ${{ env.S == '7 12 * * *' && '13:37' || env.S == '37 18 * * *' && '20:07' || env.S == '47 20 * * *' && '23:47' || '' }}
           DRY_RUN: ${{ (!env.S && github.event_name == 'workflow_dispatch' && inputs.dry_run) && '1' || '0' }}
