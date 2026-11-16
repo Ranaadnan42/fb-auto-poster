@@ -1,36 +1,34 @@
 {
- "lang": "en",
- "stock_clips": 40,
+ "lang": "ur",
+ "stock_clips": 15,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "prophet muhammad story for kids",
-  "prophet muhammad story part 2",
-  "prophet muhammad story part 1",
-  "prophet muhammad story part 4",
-  "prophet muhammad story movie",
-  "prophet muhammad story part 3",
-  "prophet muhammad story ai",
-  "prophet muhammad story bangla",
-  "prophet muhammad story in urdu"
+  "نبی کریم کی سنتیں",
+  "nabi ki sunnatein",
+  "nabi ki sunnat hai",
+  "nabi ki sunnat nabi ki seerat",
+  "nabi ki sunnat naat",
+  "nabi ki sunnat kya hai",
+  "nabi ki sunnat ka bayan",
+  "nabi ki sunnat par bayan",
+  "nabi ki sunnat sama ke rakhna",
+  "nabi ki sunnat kaun kaun si hai"
  ],
- "story": "Suraqah pursues Prophet whose horse sinks in sand",
- "search": "prophet muhammad story part 2",
- "vision_checks": 171,
+ "story": "Prophet mends shoes and serves family",
+ "search": "نبی کریم کی سنتیں",
+ "vision_checks": 79,
+ "clips_rejected": 100,
  "sources": {
-  "pixabay": 32,
-  "commons": 5,
-  "openverse": 1,
-  "mixkit": 2
+  "pixabay": 9,
+  "commons": 6
  },
- "clips_rejected": 118,
- "photo_clips": 2,
  "no_match": [
   "mosque sunset sky"
  ],
- "long_minutes": 5.51,
- "time_utc": "2026-11-15 19:58",
- "title": "Prophet Muhammad Story Part 2: The Horse in the Sand",
+ "reel_minutes": 1.11,
+ "time_utc": "2026-11-15 20:36",
+ "title": "نبی کریم کی سنتیں: جب آپﷺ نے اپنے جوتے خود سلے",
  "dry_run": false,
  "posted_ok": 1
 }
