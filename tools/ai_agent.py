@@ -203,6 +203,8 @@ def t_page(page, method="GET", edge="", params=None):
         return "sirf GET/POST/DELETE"
     if method == "DELETE" and not edge:
         return "poora page delete nahi ho sakta"
+    if method == "DELETE" and "DELETE-CONFIRMED" not in ORDER:
+        return "DELETE mana: malik ne khud delete ka saaf hukam nahi diya (DELETE-CONFIRMED nahi). Delete na karo."
     if method != "GET" and not ORDER:
         return "page par tabdeeli sirf malik ke hukam par"
     edge = str(edge or "").strip("/")
@@ -231,6 +233,8 @@ def t_youtube(channel, method="GET", endpoint="channels", params=None, body=None
         return "sirf GET/POST/PUT/DELETE"
     if method != "GET" and not ORDER:
         return "channel par tabdeeli sirf malik ke hukam par"
+    if method == "DELETE" and "DELETE-CONFIRMED" not in ORDER:
+        return "DELETE mana: malik ne khud delete ka saaf hukam nahi diya (DELETE-CONFIRMED nahi). Delete na karo."
     p = dict(params or {})
     if method == "GET" and endpoint in ("channels",) and "id" not in p:
         p.setdefault("mine", "true")
@@ -266,7 +270,8 @@ Repo: GitHub Actions bots that post videos/photos to Facebook pages and YouTube 
 Islamic, Hansi Ka Adda, Legends Untold, Web Builder), a website agent, plus a Supabase sales system.
 You get a health report (or an OWNER ORDER). For every problem: find the real cause, then fix it yourself.
 OWNER ORDER mode: the owner (Adnan) gave an order on WhatsApp. Do EXACTLY what he asked - completely, nothing extra,
-nothing else changed. FB page changes (bio, description, website, posting now, deleting a post) -> page_api.
+nothing else changed. NEVER delete posts/videos unless the order contains DELETE-CONFIRMED. Don't invent extra work
+the owner didn't ask for. FB page changes (bio, description, website, posting now, deleting a post) -> page_api.
 YouTube channel changes (video title/description/tags, delete video, playlists, channel description, comment replies) ->
 youtube_api (for PUT videos first GET the video snippet and send the full snippet back with your change).
 Bot behaviour changes (topics, posts per day, timing, captions, hashtags, language, style) -> find the right code

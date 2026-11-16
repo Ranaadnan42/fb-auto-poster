@@ -53,6 +53,22 @@ def scan():
 
 # GitHub ka apna cron ghanton late / gira deta hai (din mein 3 dafa hi chala) -
 # is liye Scheduler khud lagatar chalta hai: har 4 minute scan, ~5h40m baad apni jagah naya run chala deta hai.
+def manager_cmds():
+    """Super Manager (WhatsApp) ke hukam: qatar se utha kar manager.yml ko de do (cron ke intezar ke baghair)."""
+    import json
+    import urllib.request
+    try:
+        with urllib.request.urlopen("https://fobzocsluzwcqretshnm.supabase.co/functions/v1/wa-report?cmds=1",
+                                    timeout=30) as r:
+            cmds = json.load(r).get("cmds") or []
+    except Exception as e:
+        log(f"manager hukam na mile: {e}")
+        return
+    if cmds:
+        dispatch("manager.yml", {"cmds": json.dumps({"cmds": cmds}, ensure_ascii=False)[:60000]})
+        log(f"Super Manager ke {len(cmds)} hukam manager.yml ko diye")
+
+
 LOOP_MIN = int(os.environ.get("LOOP_MIN") or 0)
 t0 = time.time()
 while True:
@@ -60,6 +76,10 @@ while True:
         scan()
     except Exception as e:
         log(f"scan fail: {e}")
+    try:
+        manager_cmds()
+    except Exception as e:
+        log(f"manager fail: {e}")
     if time.time() - t0 > LOOP_MIN * 60:
         break
     time.sleep(240)
