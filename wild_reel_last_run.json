@@ -1,23 +1,23 @@
 {
- "time_utc": "2026-11-16 20:51",
+ "time_utc": "2026-11-16 21:53",
  "mode": "reel",
  "dry_run": false,
- "errors": [
-  "fatal: sirf 6 sahi clips, 4 text cards - video post nahi ki"
- ],
+ "errors": [],
  "country": "Kenya",
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 279,
+ "clips_rejected": 282,
+ "agent_checks": 203,
+ "agent_rejects": 191,
+ "agent_skips": 85,
  "alt_searches": 6,
- "agent_checks": 224,
- "agent_rejects": 218,
- "agent_skips": 56,
- "no_match": [
-  "Grévy's zebra water hole",
-  "Grévy's zebra foal",
-  "Grévy's zebra walking",
-  "Grévy's zebra running"
- ],
- "headline_cards": 4
+ "posted": {
+  "country": "Kenya",
+  "animal": "Reticulated giraffe",
+  "wiki": "Reticulated giraffe",
+  "date": "2026-11-16 21:53",
+  "title": "Meet Kenya's Tallest Giant: The Reticulated Giraffe",
+  "dur": 74,
+  "post_id": "1499169862087863"
+ }
 }
