@@ -366,7 +366,10 @@ def main():
     REPORT.update({k: v for k, v in nv.REPORT.items() if k not in ("errors", "posted")})
     cards, good = nv.REPORT.get("headline_cards", 0), len(nv.ALL_CLIPS)
     if cards and cards > 0.2 * (cards + good):         # jo bola ja raha us ki clip nahi - aisi video post nahi
-        raise RuntimeError(f"sirf {good} sahi clips, {cards} text cards - video post nahi ki")
+        h["reel" if MODE == "reel" else "long"].append({**{"pet": pet, "breed": breed, "theme": theme}, "date": REPORT["time_utc"],
+                                                       "skipped": f"bemel clips {cards}/{cards + good}"})
+        save_hist(h)                                    # agli koshish doosre topic par (jis ki asli clips milein)
+        raise RuntimeError(f"sirf {good} sahi clips, {cards} text cards - is topic ki video post nahi ki")
     desc = description(script, facts)
     log(f"--- description ---\n{desc}\n")
     meta = {"pet": pet, "breed": breed, "theme": theme, "wiki": facts["title"], "date": REPORT["time_utc"],

@@ -91,7 +91,7 @@ jobs:
           DRY_RUN: ${{ (!env.S && github.event_name == 'workflow_dispatch' && inputs.dry_run) && '1' || '0' }}
         run: |
           if [ "$MODE" = pic ]; then P=animal_pics.py; else P=pets.py; fi
-          python $P || { echo "Pehli koshish fail - 3 minute baad dobara"; sleep 180; python $P; }
+          python $P || { echo "Koshish 2 - doosra topic"; sleep 60; python $P; } || { echo "Koshish 3 - doosra topic"; sleep 60; python $P; }
       - name: Keep video (dry run)
         if: ${{ !inputs.sched && github.event_name == 'workflow_dispatch' && inputs.dry_run }}
         uses: actions/upload-artifact@v4
