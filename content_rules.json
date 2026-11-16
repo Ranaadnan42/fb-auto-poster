@@ -1,94 +1,105 @@
 {
  "islamic": {
-  "avoid": [],
-  "try": [
-   "Bilal ibn Rabah ki sabr aur pehli adhan ka waqia",
-   "Qamar ka split hone ka mu'jiza aur uska sabak",
-   "Nabi ﷺ ki billi ke saath rehmat ka waqia (billi ko apni jori mein se nikaalna)",
-   "Sahabi Abu Bakr ki sakhi aur Islam ke liye maal dene ki kahani",
-   "Sa'd ibn Abi Waqqas ki bahaduri aur Qadisiyyah ki jang ka waqia",
-   "Umar ibn al‑Khattab ki raat ki ibadat aur waqt ki ahmiyat ka paigham"
+  "avoid": [
+   "نبی کریم کی سنتیں",
+   "Value of time theme",
+   "Hope after sadness theme"
   ],
-  "note": "Page thodi repetitive lag rahi hai"
+  "try": [
+   "Bilal ibn Rabah's perseverance in calling Adhan",
+   "Isra and Mi'raj: lessons on prayer and trust",
+   "Abdullah ibn Umar's dedication to Quranic learning",
+   "Ashab al‑Jannat (People of the Garden) gratitude lesson",
+   "Prophet's smile hadith and its impact",
+   "Umar ibn al‑Khattab's justice in the market incident"
+  ],
+  "note": "Page bohat repeat ho rahi hai"
  },
  "funny": {
   "avoid": [
-   "یاروں کی گروپ چیٹ اور شمالی علاقہ جات series (all episodes)",
-   "Eid shopping frenzy jokes",
-   "parking fight at market"
+   "یاروں کی گروپ چیٹ اور شمالی علاقہ جات series",
+   "WhatsApp ڈرامے (واٹس ایپ کارنامے) کی متعدد پوسٹس",
+   "پیر کی صبح اور ابّا جی کا کلہاڑی فارمولا (دہرایا گیا)"
   ],
   "try": [
-   "نیا موبائل ڈیٹا پلان اور نیٹ ورک کی جدوجہد",
-   "سائیکل پر ٹریفک پولیس کا انسپیکشن",
-   "کچن میں الیکٹرک چولہا اور بجلی بل کا ڈرامہ",
-   "سوشل میڈیا پر فیک نیوز کا پھیلاؤ اور خاندان کی ردعمل",
-   "پڑوس کے نئے بچے کی اسکول کی پہلی دن کی ہنسی",
-   "گرمیوں میں ایئر کنڈیشنر کی مرمت اور بجلی بل کی شکایت"
+   "نیا موبائل پلان اور ڈیٹا کی قیمت پر گھر کی بحث",
+   "کچن میں ایئر فرائیر کا پہلا تجربہ اور دھواں",
+   "سکول کے پرنسپل کی غیر متوقع چھٹی کا اعلان",
+   "دوسری شادی میں رشتے داروں کا غیر معمولی ڈانس مقابلہ",
+   "پڑوس کے بیکری کی نئی پیزا پر سب کی رائے",
+   "آن لائن کلاس میں انٹرنیٹ ڈراپ اور استاد کی ردعمل"
   ],
-  "note": "Page thodi repetitive lag rahi hai, especially series aur remote control jokes."
+  "note": "Page thoda repetitive lag raha hai"
  },
  "world": {
   "avoid": [
-   "What Nobody Tells You About ... title pattern",
-   "Explore Italy video"
+   "What Nobody Tells You About ...",
+   "Japan",
+   "Australia",
+   "Retiring in ..."
   ],
   "try": [
-   "Living in Estonia: Digital Nomad Friendly Cost, Safety & Lifestyle",
-   "South Africa: Cost of Living, Safety & Travel Tips",
-   "Moving to Greece: Islands vs Mainland Life Insights",
-   "Sweden vs Finland: Cost, Culture & Quality of Life Comparison",
-   "What Nobody Tells You About Living in Buenos Aires, Argentina",
-   "Exploring Morocco: Culture, Safety & Cost of Living Guide"
+   "Living in Kenya: Cost of Living, Jobs & Safety",
+   "Argentina Unveiled: Culture, Food & Affordable Travel",
+   "Poland Documentary: History, Lifestyle & Moving Tips",
+   "Iceland Exploration: Nature, Cost of Living & Daily Life",
+   "Malaysia Guide: Urban Living, Costs & Safety",
+   "Greece Travel Guide: History, Food & Budget Living"
   ],
-  "note": "Page bohat repetitive hai"
+  "note": "Page thodi repetitive lag rahi hai."
  },
  "world_short": {
   "avoid": [
-   "Amsterdam",
-   "Berlin",
-   "Kyoto",
-   "Chiang Mai"
+   "Australia",
+   "Canada",
+   "South Korea",
+   "Japan",
+   "Would You Live in...",
+   "5 Secret Places in..."
   ],
   "try": [
-   "Living in Bali, Indonesia: Real Costs & Vibes",
-   "Dubai vs Singapore: Wages and Cost of Living Compared",
-   "6 Surprising Facts About Iceland You Didn't Know",
-   "Traditional Food of Thailand: 5 Must-Try Dishes",
-   "5 Secret Places in Morocco Nobody Tells You About",
-   "What Life Really Costs in Portugal (Lisbon vs Porto)"
+   "Iceland vs Portugal: Wages and Cost of Living Compared",
+   "Dubai in 60 Seconds: Desert Luxury & Hidden Gems",
+   "Traditional Food of Mexico: 5 Must-Try Dishes",
+   "5 Secret Places in New Zealand You Never Knew Existed",
+   "What Nobody Tells You About Visiting Lisbon",
+   "Singapore vs Germany: Wages, Cost and Lifestyle Compared"
   ],
-  "note": "Page is repetitive with '60 Seconds' and 'Would You Live' formats, but covers diverse countries."
+  "note": "Page is repetitive with specific countries (Australia, Canada, Japan) and title formats."
  },
  "frames": {
   "avoid": [
-   "Dubai",
-   "Japan",
-   "Canada",
-   "Germany",
-   "Australia",
-   "New Zealand"
+   "دبئی",
+   "دبئی کی حقیقت",
+   "دبئی بمقابلہ سعودی عرب",
+   "Best European Countries for Pakistani Students"
   ],
   "try": [
-   "Life in Portugal: Affordable European living for Pakistanis",
-   "Moving to Poland: Job market and visa guide in Urdu",
-   "Life in South Africa: Safety, jobs, and culture for Pakistanis",
-   "Iceland Travel Guide: Nature and visa process for Pakistanis",
-   "Life in Greece: Island living and work opportunities",
-   "Norway vs Sweden: Which is better for Pakistani workers?"
+   "Singapore Visa Guide for Pakistanis",
+   "Brazil Visa Guide for Pakistanis",
+   "Vietnam Life in Vietnam",
+   "Kenya Job Opportunities for Pakistanis",
+   "South Africa Life in South Africa"
   ],
-  "note": "Page is repetitive with visa guides and 'Life in X' formats for major Western/Asian hubs; needs geographic diversification to less common destinations."
+  "note": "Page thodi repetitive hai."
  },
  "frames_short": {
-  "avoid": [],
-  "try": [
-   "Urdu guide to public transport systems in Tokyo vs London",
-   "Top 5 street food stalls in Istanbul with prices",
-   "How to open a bank account in Dubai as a Pakistani",
-   "Weather and clothing guide for winter in Canada",
-   "Top 3 universities in Germany for Pakistani students",
-   "Safety tips for solo female travelers in Southeast Asia"
+  "avoid": [
+   "New Zealand",
+   "Kazakhstan",
+   "Norway",
+   "Finland",
+   "Iceland"
   ],
-  "note": "Page is highly repetitive with the same 5-6 content formats (cost, visa, food, places, comparison) applied to different countries."
+  "try": [
+   "Switzerland: Life in Zurich and Travel Tips",
+   "Turkey: Istanbul Travel Guide for Pakistanis",
+   "Germany: Study and Work Opportunities in Berlin",
+   "Malaysia: Cost of Living in Kuala Lumpur",
+   "Saudi Arabia: Life and Earnings in Riyadh",
+   "USA vs UK: Which country is better for immigration?"
+  ],
+  "note": "Page repetitive nahi hai, har video mein naye mulk aur mukhtalif maloomat di ja rahi hain."
  },
  "_platforms": {
   "islamic": {

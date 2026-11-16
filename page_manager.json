@@ -1,10 +1,10 @@
 {
  "islamic": {
-  "at": "2026-11-16T12:00+00:00",
+  "at": "2026-11-16T23:51+00:00",
   "done": [],
   "problems": [],
   "name": "Islamic Motivational Videos",
-  "followers": 1314,
+  "followers": 1316,
   "insights_28d": {},
   "history": [
    {
@@ -65,13 +65,14 @@
    },
    {
     "day": "2026-11-16",
-    "followers": 1314
+    "followers": 1316
    }
   ],
-  "last_post": "2026-11-16T09:09+00:00"
+  "posts_24h": 5,
+  "last_post": "2026-11-16T20:24+00:00"
  },
  "funny": {
-  "at": "2026-11-16T12:00+00:00",
+  "at": "2026-11-16T23:51+00:00",
   "done": [],
   "problems": [],
   "name": "Hansi Ka Adda ہنسی کا اڈا",
@@ -139,10 +140,11 @@
     "followers": 1520
    }
   ],
-  "last_post": "2026-11-16T10:21+00:00"
+  "posts_24h": 7,
+  "last_post": "2026-11-16T21:08+00:00"
  },
  "frames": {
-  "at": "2026-11-16T12:00+00:00",
+  "at": "2026-11-16T23:51+00:00",
   "done": [],
   "problems": [],
   "name": "Frames Of Life",
@@ -210,10 +212,11 @@
     "followers": 77
    }
   ],
-  "last_post": "2026-11-16T09:49+00:00"
+  "posts_24h": 3,
+  "last_post": "2026-11-16T22:14+00:00"
  },
  "webbuilder": {
-  "at": "2026-11-16T12:00+00:00",
+  "at": "2026-11-16T23:51+00:00",
   "done": [],
   "problems": [],
   "name": "web builder",
@@ -281,6 +284,140 @@
     "followers": 33
    }
   ],
-  "last_post": "2026-11-15T20:24+00:00"
+  "posts_24h": 5,
+  "last_post": "2026-11-16T23:48+00:00"
+ },
+ "news": {
+  "at": "2026-11-16T23:51+00:00",
+  "done": [],
+  "problems": [],
+  "name": "News Act",
+  "followers": 50,
+  "insights_28d": {},
+  "history": [
+   {
+    "day": "2026-11-16",
+    "followers": 50
+   }
+  ],
+  "posts_24h": 14,
+  "last_post": "2026-11-16T23:44+00:00"
+ },
+ "newsur": {
+  "at": "2026-11-16T23:51+00:00",
+  "done": [],
+  "problems": [],
+  "name": "News Act Urdu",
+  "followers": 1,
+  "insights_28d": {},
+  "history": [
+   {
+    "day": "2026-11-16",
+    "followers": 1
+   }
+  ],
+  "posts_24h": 7,
+  "last_post": "2026-11-16T23:40+00:00"
+ },
+ "sports": {
+  "at": "2026-11-16T23:51+00:00",
+  "done": [],
+  "problems": [],
+  "name": "Sports Hubs",
+  "followers": 15,
+  "insights_28d": {},
+  "history": [
+   {
+    "day": "2026-11-16",
+    "followers": 15
+   }
+  ],
+  "posts_24h": 21,
+  "last_post": "2026-11-16T23:32+00:00"
+ },
+ "scenic": {
+  "problems": [
+   "check fail: Invalid OAuth 2.0 Access Token"
+  ]
+ },
+ "war": {
+  "at": "2026-11-16T23:51+00:00",
+  "done": [],
+  "problems": [],
+  "name": "Battles Untold",
+  "followers": 1,
+  "insights_28d": {},
+  "history": [
+   {
+    "day": "2026-11-16",
+    "followers": 1
+   }
+  ],
+  "posts_24h": 9,
+  "last_post": "2026-11-16T22:52+00:00"
+ },
+ "birds": {
+  "at": "2026-11-16T23:51+00:00",
+  "done": [],
+  "problems": [],
+  "name": "Birds of the World",
+  "followers": 1,
+  "insights_28d": {},
+  "history": [
+   {
+    "day": "2026-11-16",
+    "followers": 1
+   }
+  ],
+  "posts_24h": 3,
+  "last_post": "2026-11-16T23:15+00:00"
+ },
+ "pets": {
+  "at": "2026-11-16T23:51+00:00",
+  "done": [],
+  "problems": [],
+  "name": "Dogs & Cats World",
+  "followers": 0,
+  "insights_28d": {},
+  "history": [
+   {
+    "day": "2026-11-16",
+    "followers": 0
+   }
+  ],
+  "posts_24h": 4,
+  "last_post": "2026-11-16T23:48+00:00"
+ },
+ "wild": {
+  "at": "2026-11-16T23:51+00:00",
+  "done": [],
+  "problems": [],
+  "name": "Wild Nations",
+  "followers": 0,
+  "insights_28d": {},
+  "history": [
+   {
+    "day": "2026-11-16",
+    "followers": 0
+   }
+  ],
+  "posts_24h": 3,
+  "last_post": "2026-11-16T23:14+00:00"
+ },
+ "faizi": {
+  "at": "2026-11-16T23:51+00:00",
+  "done": [],
+  "problems": [],
+  "name": "Style by Faizi",
+  "followers": 0,
+  "insights_28d": {},
+  "history": [
+   {
+    "day": "2026-11-16",
+    "followers": 0
+   }
+  ],
+  "posts_24h": 1,
+  "last_post": "2026-11-16T21:48+00:00"
  }
 }

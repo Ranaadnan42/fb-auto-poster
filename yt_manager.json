@@ -1,0 +1,90 @@
+{
+ "islamic": {
+  "name": "Islamic Motivational Videos (YT)",
+  "at": "2026-11-16T23:51+00:00",
+  "done": [
+   "999 ghante se upload nahi thi - main.yml khud chala diya"
+  ],
+  "problems": [],
+  "title": null,
+  "subscribers": 0,
+  "views": 0,
+  "videos": 0,
+  "last_upload": null,
+  "uploads_24h": 0,
+  "history": [
+   {
+    "day": "2026-11-16",
+    "subscribers": 0,
+    "views": 0
+   }
+  ],
+  "kicked": "2026-11-16"
+ },
+ "frames": {
+  "name": "Frames of Life (YT)",
+  "at": "2026-11-16T23:51+00:00",
+  "done": [
+   "999 ghante se upload nahi thi - frames.yml khud chala diya"
+  ],
+  "problems": [],
+  "title": null,
+  "subscribers": 0,
+  "views": 0,
+  "videos": 0,
+  "last_upload": null,
+  "uploads_24h": 0,
+  "history": [
+   {
+    "day": "2026-11-16",
+    "subscribers": 0,
+    "views": 0
+   }
+  ],
+  "kicked": "2026-11-16"
+ },
+ "world": {
+  "name": "Atlas Untold (YT)",
+  "at": "2026-11-16T23:51+00:00",
+  "done": [
+   "999 ghante se upload nahi thi - world.yml khud chala diya"
+  ],
+  "problems": [],
+  "title": null,
+  "subscribers": 0,
+  "views": 0,
+  "videos": 0,
+  "last_upload": null,
+  "uploads_24h": 0,
+  "history": [
+   {
+    "day": "2026-11-16",
+    "subscribers": 0,
+    "views": 0
+   }
+  ],
+  "kicked": "2026-11-16"
+ },
+ "default": {
+  "name": "Legends Untold (YT)",
+  "at": "2026-11-16T23:51+00:00",
+  "done": [
+   "999 ghante se upload nahi thi - cinematic.yml khud chala diya"
+  ],
+  "problems": [],
+  "title": null,
+  "subscribers": 0,
+  "views": 0,
+  "videos": 0,
+  "last_upload": null,
+  "uploads_24h": 0,
+  "history": [
+   {
+    "day": "2026-11-16",
+    "subscribers": 0,
+    "views": 0
+   }
+  ],
+  "kicked": "2026-11-16"
+ }
+}
