@@ -56,9 +56,9 @@ def subjects(h):
 def find_photo(subj, used, job):
     said = f"A beautiful ultra HD photo of a {subj} {NOUN}".strip()
     cands, seen = [], set()
-    for q in [subj, f"{subj} {NOUN}".strip(), f"{subj} nature"]:
+    for q in [subj, f"{subj} {NOUN}".strip(), f"{subj} nature", f"{subj} portrait"]:
         for c in footage.photos(q):
-            if c["id"] in used or c["id"] in seen:
+            if c["id"] in used or c["id"] in seen or c.get("src") == "pixabay" or c.get("w", 9999) < 1900:   # pixabay sirf 1280px deta
                 continue
             seen.add(c["id"])
             c["score"] = footage.match_score(c.get("text", ""), footage.words(subj))
@@ -66,7 +66,7 @@ def find_photo(subj, used, job):
                 cands.append(c)
     cands.sort(key=lambda c: -c["score"])
     from PIL import Image
-    for i, c in enumerate(cands[:10]):
+    for i, c in enumerate(cands[:16]):
         jp = os.path.join(job, f"p{i}.jpg")
         try:
             if not footage.download(c["url"], jp, 150000):
@@ -74,6 +74,7 @@ def find_photo(subj, used, job):
             wd, ht = Image.open(jp).size
             used.append(c["id"])
             if max(wd, ht) < 1900:                   # sirf ultra HD
+                log(f"chhoti {c['src']} {c['id']} {wd}x{ht}")
                 continue
             small = os.path.join(job, f"p{i}_s.jpg")
             Image.open(jp).convert("RGB").resize((768, int(768 * ht / wd))).save(small, quality=88)

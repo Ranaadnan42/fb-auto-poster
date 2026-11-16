@@ -102,7 +102,8 @@ def commons(q, video=True):
                 url = info.get("thumburl") or info.get("url")
                 if (info.get("width") or 0) < 1000 or not url:
                     continue
-                out.append({"id": f"wmi{pg.get('pageid')}", "url": url, "text": text, "photo": True, "src": "commons"})
+                out.append({"id": f"wmi{pg.get('pageid')}", "url": url, "text": text, "photo": True, "src": "commons",
+                            "w": max(info.get("width") or 0, info.get("height") or 0)})
         return out
     except Exception as e:
         _log(f"Commons error ({q}): {str(e)[:100]}")
@@ -263,7 +264,8 @@ def openverse(q):
                 continue
             tags = " ".join(t.get("name", "") for t in (h.get("tags") or []))
             out.append({"id": f"ov{h['id']}", "url": h["url"], "text": _clean(f"{h.get('title', '')} {tags}"),
-                        "photo": True, "src": "openverse"})
+                        "photo": True, "src": "openverse",
+                        "w": max(h.get("width") or 0, h.get("height") or 0)})
         return out
     except Exception as e:
         _log(f"Openverse error ({q}): {str(e)[:100]}")
