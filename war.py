@@ -607,7 +607,8 @@ def pics(P, h, n=2):
     j = news.ask_json(f"""Facebook page "Battles Untold" (war history, neutral, only true facts).
 War: {facts['title']}. Facts: {json.dumps(facts['infobox'])[:1500]} {facts['text'][:4000]}
 Images available (Wikimedia file names): {json.dumps([x['name'] for x in imgs])}
-Make {n} different photo posts. For each pick the best matching image (exact name from the list).
+Make {n} different photo posts. For each pick a DIFFERENT image (exact name from the list); prefer images that show fighting,
+weapons, warriors or battle art. Heading and fact must match what the image shows (judge by its file name).
 Return JSON {{"posts": [{{"image": "...", "heading": "max 4 words, e.g. THE FIRST WAR EVER", "fact": "one shocking true
 fact from the facts, max 18 words", "caption": "engaging English caption 3-5 short lines with 1-2 emojis, ends with a
 question to make people comment, then 5 hashtags incl #BattlesUntold #History"}}]}}""")
