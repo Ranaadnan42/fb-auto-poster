@@ -1,0 +1,32 @@
+{
+ "country_i": 0,
+ "long_i": 0,
+ "animals": {
+  "Kenya": [
+   "Hirola",
+   "Grevy's zebra",
+   "Reticulated giraffe",
+   "Gerenuk",
+   "African bush elephant",
+   "Lion",
+   "Cheetah",
+   "Lesser flamingo"
+  ]
+ },
+ "reel": [],
+ "long": [],
+ "used_clips": [],
+ "pic": [
+  {
+   "subject": "Hirola",
+   "photo": "wmi46570633",
+   "src": "commons",
+   "size": "1920x1440",
+   "date": "2026-11-16 20:44",
+   "post_id": "1501204066400712_122103704727546974"
+  }
+ ],
+ "pic_used": [
+  "wmi46570633"
+ ]
+}
