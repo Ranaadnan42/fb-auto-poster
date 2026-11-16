@@ -1,32 +1,28 @@
 {
- "lang": "ur",
- "stock_clips": 41,
+ "lang": "en",
+ "stock_clips": 39,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "nabi ka mojza salman azhari",
-  "nabi ka mojza bayan",
-  "nabi ka mojza engineer muhammad ali mirza",
-  "nabi ka mojza tariq jameel",
-  "nabi pak ka mojza",
-  "nabi saw ka mojza",
-  "nabi pak ka mojza imran aasi",
-  "chand par nabi ka mojza",
-  "allah ke nabi ka mojza"
+  "honesty in islam stories",
+  "importance of honesty in islam"
  ],
- "story": "Water flows from Prophet's fingers at Hudaybiyyah",
- "search": "nabi pak ka mojza",
- "vision_checks": 302,
+ "story": "Prophet names Abu Ubaidah Amin of this Ummah",
+ "search": "importance of honesty in islam",
+ "vision_checks": 108,
+ "clips_rejected": 173,
  "sources": {
-  "pixabay": 37,
-  "mixkit": 2,
-  "commons": 2
+  "pixabay": 28,
+  "nasa": 2,
+  "commons": 9
  },
- "clips_rejected": 221,
- "photo_clips": 1,
- "long_minutes": 5.28,
- "time_utc": "2026-11-16 19:42",
- "title": "نبی پاک کا معجزہ: جب مبارک انگلیوں سے پانی جاری ہوا",
+ "no_match": [
+  "open quran",
+  "mosque sunset sky"
+ ],
+ "long_minutes": 5.22,
+ "time_utc": "2026-11-16 20:05",
+ "title": "Importance of Honesty in Islam: The Trustworthy Sahabi",
  "dry_run": false,
  "posted_ok": 1
 }
