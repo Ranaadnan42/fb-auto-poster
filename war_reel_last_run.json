@@ -1,31 +1,29 @@
 {
- "time_utc": "2026-11-16 00:27",
+ "time_utc": "2026-11-15 23:24",
  "mode": "reel",
- "dry_run": false,
+ "dry_run": true,
  "errors": [],
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 247,
- "agent_checks": 236,
- "agent_rejects": 227,
- "agent_skips": 15,
- "alt_searches": 4,
+ "clips_rejected": 344,
+ "alt_searches": 5,
+ "agent_checks": 344,
+ "agent_rejects": 334,
+ "agent_skips": 0,
  "no_match": [
-  "Jebel Sahaba landscape Sudan",
-  "ancient human skeleton museum display",
-  "prehistoric projectile point museum artifact",
-  "archaeologist excavating skeleton site",
-  "British Museum prehistoric collection gallery"
+  "Nile River valley gorge",
+  "Sudan desert Nile bank",
+  "ancient human skeleton excavation footage",
+  "prehistoric skeleton display museum",
+  "archaeological dig site aerial"
  ],
  "headline_cards": 5,
  "posted": {
   "war": "Prehistoric warfare",
   "wiki": "Prehistoric warfare",
-  "date": "2026-11-16 00:27",
-  "title": "The Oldest War in Human History: Prehistoric Warfare | History of Every War #1",
+  "date": "2026-11-15 23:24",
+  "title": "The First War in Human History: Prehistoric Warfare Revealed | History of Every War #1",
   "episode": 1,
-  "dur": 85,
-  "post_id": "1699122485060839",
-  "story_id": "1784013929494358"
+  "dur": 84
  }
 }

@@ -1,0 +1,31 @@
+{
+ "time_utc": "2026-11-16 00:27",
+ "mode": "long",
+ "dry_run": false,
+ "errors": [],
+ "kind": "long",
+ "lang": "en",
+ "clips_rejected": 262,
+ "agent_checks": 238,
+ "agent_rejects": 217,
+ "agent_skips": 42,
+ "alt_searches": 4,
+ "no_match": [
+  "Lake Turkana Kenya drone footage",
+  "Naturhistorisches Museum Vienna Austria",
+  "ancient cemetery excavation site",
+  "Fortified hillfort earthworks Europe",
+  "Bronze Age weapons exhibit museum",
+  "archaeological landscape drone shot"
+ ],
+ "headline_cards": 6,
+ "posted": {
+  "war": "Prehistoric warfare",
+  "wiki": "Prehistoric warfare",
+  "date": "2026-11-16 00:27",
+  "title": "One in Ten Early Humans Faced Battle: The Truth of Prehistoric War | History of Every War #1",
+  "episode": 1,
+  "dur": 349,
+  "post_id": "29630280736589355"
+ }
+}
