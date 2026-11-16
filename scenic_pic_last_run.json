@@ -1,5 +1,5 @@
 {
- "started": "2026-11-16T20:06",
+ "started": "2026-11-16T20:46",
  "steps": [
   "token: user token expires_at=0 data_access_expires_at=1801949831",
   "token: user token tha - page token bana kar istemal kiya",
@@ -13,7 +13,7 @@
   "web trend gemini-3-flash-preview: 429",
   "web trend gemini-2.5-flash-lite: 404",
   "trend scout: 0 YouTube videos, web report 0 chars",
-  "aaj ka manzar: desert & dunes",
+  "aaj ka manzar: alpine meadow & village",
   "brain gemini-1.5-flash: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-1.5-flash is not found for API ver",
   "brain gemini-1.5-flash-8b: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-1.5-flash-8b is not found for API ",
   "brain gemini-2.0-flash-exp: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-2.0-flash-exp is not found for API",
@@ -28,29 +28,24 @@
   "brain gemini-1.5-pro: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-1.5-pro is not found for API versi",
   "Groq live models: openai/gpt-oss-120b, openai/gpt-oss-20b, allam-2-7b, qwen/qwen3.8-27b",
   "Groq model: openai/gpt-oss-120b",
-  "agent ka faisla: White Sands National Park, New Mexico, United States - bright sunny afternoon / golden dunes under blue sky (Stunning rarity, high engagement desert visuals)",
-  "photo wmi51840024 1920x1280: ok=False beauty=2 - Dark, brownish, flat texture, not White Sands.",
-  "photo wmi51840370 1920x1280: ok=False beauty=4 - Desert dunes, not vivid green/blue target look.",
-  "photo wmi51840407 1920x1280: ok=True beauty=8 - Bright white dunes, vivid blue sky, unique desert beauty.",
-  "photo wmi51840548 1920x1280: ok=False beauty=6 - Bright white dunes, blue sky, but split screen.",
-  "photo wmi51840396 1920x1280: ok=False beauty=6 - Bright white dunes, but lacks target vivid green/blue.",
-  "photo wmi51840592 1920x1280: ok=False beauty=6 - Bright white dunes, blue sky, but split screen.",
-  "photo wmi51840578 1920x1280: ok=False beauty=6 - Bright white dunes, blue sky, but lacks green.",
-  "photo wmi51840434 1920x1280: ok=False beauty=4 - Large white bars, dull sand, not target look",
-  "photo wmi51840414 1920x1280: ok=False beauty=4 - White sand dunes, not vivid green/blue target.",
-  "photo wmi51840565 1920x1280: ok=False beauty=4 - Dull sand, not vivid green/blue target.",
+  "agent ka faisla: Alpbach, Austria - bright green afternoon / blue‑sky meadow with wooden chalets (Iconic chalet vibe, vivid greens attract scroll‑stoppers)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "aaj ka manzar: alpine meadow & village",
   "Groq model: openai/gpt-oss-120b",
-  "Post waqt 20:03 UTC guzar chuka - foran post",
-  "photo story lagi",
-  "pic posted: 1345688241970452_122103444207547841"
+  "agent ka faisla: St. Wolfgang am Wolfgangsee, Austria - bright green afternoon / blue‑sky meadow with wooden chalets (Iconic charm, vivid greens, high viewer appeal)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "aaj ka manzar: rainforest & jungle",
+  "Groq model: openai/gpt-oss-120b",
+  "agent ka faisla: Mulu National Park, Malaysia - bright sunny morning / vibrant green canopy (Iconic jungle, vivid footage, high viewer curiosity)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "aaj ka manzar: rainforest & jungle",
+  "Groq model: openai/gpt-oss-120b",
+  "agent ka faisla: Monteverde Cloud Forest Reserve, Costa Rica - bright sunny morning / emerald canopy over misty river (Iconic lushness, high engagement stock footage)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai"
  ],
- "errors": [],
+ "errors": [
+  "fatal: 4 jagahon par bhi achi footage nahi mili"
+ ],
  "mode": "pic",
- "place": "White Sands National Park, New Mexico",
- "country": "United States",
- "caption": "Endless waves of pure light, whispers of wind across glassy dunes.\n\n📍 White Sands National Park, United States 🇺🇸\n\n☀️ Glimpse the endless glow of White Sands 🌾\n\nwhite sands national park summer vibes on bright sunrise dunes.\nnew mexico desert golden dunes under a crystal blue sky.\n\nWhich sunrise would you chase here?\n\nFollow for the most beautiful places on Earth in Ultra HD 🌍\n\n#WanderEarth #WhiteSands #DesertDreams #GoldenDunes #TravelUSA #London #Dubai #UK #NatureLovers #GulfTravel #nature",
- "clip": "wmi51840407",
- "beauty": 8,
- "posted": "1345688241970452_122103444207547841",
- "finished": "2026-11-16T20:10"
+ "finished": "2026-11-16T20:46"
 }
