@@ -367,17 +367,17 @@ def description(script, facts):
 
 
 BRAND_COVER = ("epic medieval battle close-up, armored knights fighting with swords in the foreground, cavalry charging, "
-               "red and gold banners, burning fortress, fire, sparks and smoke, crimson sunset sky, vibrant saturated "
-               "colors, 3D render, unreal engine, ultra detailed, cinematic action, no text")
+               "red and gold banners, burning fortress, fire sparks smoke, crimson sunset, vibrant colors, 3D render, "
+               "unreal engine, ultra detailed")
 BRAND_LOGO = ("3D emblem, golden spartan helmet with red crest on a steel shield with two crossed swords, glowing embers, "
               "glossy metal, vibrant colors, 3D render, unreal engine, ultra detailed, centered, dark red background, no text")
 
 
-def ai_art(prompt, w, h, path):
+def ai_art(prompt, w, h, path, seed=77):
     """Rangeen 3D AI tasveer: pehle Pollinations (flux, free), phir Gemini image (WAR key)."""
     import urllib.parse
     url = ("https://image.pollinations.ai/prompt/" + urllib.parse.quote(prompt) +
-           f"?width={w}&height={int(h * 1.12)}&seed={random.randint(1, 99999)}&model=flux&nologo=true&private=true")
+           f"?width={w}&height={h}&seed={seed}&model=flux&nologo=true")      # seed 77 = dekh kar chuni hui tasveer
     for attempt in range(4):
         try:
             r = requests.get(url, timeout=240)
@@ -385,7 +385,7 @@ def ai_art(prompt, w, h, path):
                 from PIL import Image
                 import io
                 im = Image.open(io.BytesIO(r.content)).convert("RGB")
-                im.crop((0, 0, im.width, int(im.height / 1.12))).save(path, quality=97)   # neeche ka watermark kaat do
+                im.crop((0, 0, im.width, int(im.height * 0.93))).save(path, quality=97)   # neeche ka watermark kaat do
                 log(f"brand art: pollinations ok ({w}x{h})")
                 return True
             log(f"pollinations {r.status_code} (try {attempt + 1})")
@@ -486,7 +486,7 @@ def brand():
         raise RuntimeError("brand ki tasveer nahi mili")
 
     # cover 2560x1440 (FB ultra HD)
-    cov = hd(src(BRAND_COVER, 1920, 1080, "brand_cover_src.jpg"), (2560, 1440)).convert("RGBA")
+    cov = hd(src(BRAND_COVER, 1280, 720, "brand_cover_src.jpg"), (2560, 1440)).convert("RGBA")
     shade = Image.new("RGBA", cov.size, (0, 0, 0, 0))
     sd = ImageDraw.Draw(shade)
     for yy in range(cov.size[1]):
