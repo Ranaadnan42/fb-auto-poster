@@ -1,11 +1,15 @@
 {
- "time_utc": "2026-11-15 23:24",
- "spotlight": "supermarket",
- "post_id": null,
- "error": "awaaz nahi bani",
+ "time_utc": "2026-11-16 19:46",
+ "spotlight": "bakery",
+ "post_id": "1551479793501145",
+ "error": null,
  "lang": "en",
  "kind": "long",
- "clips": 0,
+ "clips": 1,
  "fallback": 0,
- "errors": []
+ "errors": [],
+ "real_work": 7,
+ "real_pos": 3,
+ "mock": 4,
+ "seconds": 101.0
 }
