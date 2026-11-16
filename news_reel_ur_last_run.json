@@ -1,31 +1,22 @@
 {
- "time_utc": "2026-11-15 18:59",
+ "time_utc": "2026-11-16 12:30",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-15 18:59",
+   "date": "2026-11-16 12:30",
    "kind": "reel",
    "lang": "ur",
-   "title": "پاکستان میں آئی سی سی ایونٹ کی میزبانی کی امید",
-   "dur": 52,
-   "post_id": "1027750467008490"
-  },
-  "sports": {
-   "date": "2026-11-15 18:59",
-   "kind": "reel",
-   "lang": "ur",
-   "title": "ایبرڈین فٹ بال کلب کے نئے ہیڈ کوچ کا اعلان",
-   "dur": 57,
-   "post_id": "2354464111973264"
+   "title": "چوہدری سالک کا مریم نواز اور عظمیٰ بخاری کو نوٹس",
+   "dur": 60,
+   "post_id": "1599949821884711"
   }
  },
  "errors": [],
- "clips_rejected": 196,
- "alt_searches": 5,
- "agent_checks": 185,
- "agent_rejects": 176,
- "agent_skips": 19,
- "time_budget_hit": true
+ "agent_checks": 83,
+ "agent_rejects": 75,
+ "agent_skips": 0,
+ "clips_rejected": 75,
+ "alt_searches": 2
 }
