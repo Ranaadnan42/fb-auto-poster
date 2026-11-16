@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-15 23:54",
+ "time_utc": "2026-11-15 19:52",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1448208791702551_122110384359532804",
-   "topic": "americas",
-   "title": "Ice hockey-United States and Canada set up another women's world championship final"
+   "post": "1448208791702551_122110316577532804",
+   "topic": "europe",
+   "title": "Estonia to close all border crossings with Russia after attack on drone maker"
   },
   "sports": {
-   "post": "1465090056678690_122102436969548502",
-   "topic": "basketball",
-   "title": "LeBron James Passes Jason Kidd for Third in Assists"
+   "post": "1465090056678690_122102280285548502",
+   "topic": "football",
+   "title": "Struggling Charlton make WSL history after defeat at West Ham"
   }
  },
  "errors": []
