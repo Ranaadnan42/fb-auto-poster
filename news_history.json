@@ -1137,6 +1137,22 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122110716567532804"
+  },
+  {
+   "date": "2026-11-16 19:55",
+   "lang": "ur",
+   "topic": "usa",
+   "link": "https://www.npr.org/2026/11/16/nx-s1-6042432/nearly-two-million-people-are-behind-bars-in-the-us-how-did-we-get-here",
+   "title": "Nearly two million people are behind bars in the US. How did we get here?",
+   "words": [
+    "bars",
+    "behind",
+    "here",
+    "million",
+    "nearly",
+    "people"
+   ],
+   "post_id": "1357984777408020_122095604109558252"
   }
  ],
  "sports": [
@@ -2266,6 +2282,25 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122103141699548502"
+  },
+  {
+   "date": "2026-11-16 19:54",
+   "lang": "ur",
+   "topic": "esports",
+   "link": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxOLUJqNmxlaGZFeGJpenFmc0lEdS00M2dZWlFZRTdUYWZNaVoxR2F6R2VUOTl0UXM3YmNWSnRaUHotNHNNUzZSUHJxeXBNR1pibVpuemQ2Xzl2cWczVHBPdzlWNmNwM3k0LVJidlJtaDMzLXpad0s5M3RfMGdyM2h4c1RWRUl1MGt1alplRHlOMm13QURPcnJ5bTVZQzN6b044NjVDajZlWlE?oc=5",
+   "title": "Predator League India 2027: Playoff Teams, Schedule and Prize Pool",
+   "words": [
+    "2027",
+    "india",
+    "league",
+    "playoff",
+    "pool",
+    "predator",
+    "prize",
+    "schedule",
+    "teams"
+   ],
+   "post_id": "1465090056678690_122103191487548502"
   }
  ],
  "used_images": [
@@ -2344,6 +2379,7 @@
   5560658,
   5831146,
   "pxi1846039",
-  "pxi2224136"
+  "pxi2224136",
+  "wmi65353241"
  ]
 }
