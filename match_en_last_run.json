@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-15 11:53",
+ "time_utc": "2026-11-16 12:38",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "sports": {
-   "key": "u600061400",
-   "sport": "mma",
-   "date": "2026-11-15 11:53",
+   "key": "t401909985",
+   "sport": "basketball",
+   "date": "2026-11-16 12:38",
    "lang": "en",
-   "match": "UFC 334: Gane vs. Hokit",
-   "result": "Ciryl Gane beat Josh Hokit in the main event",
-   "dur": 69,
-   "post_id": "1147796191336391"
+   "match": "Indiana Pacers at Philadelphia 76ers",
+   "result": "Philadelphia 76ers beat Indiana Pacers 131-124",
+   "dur": 72,
+   "post_id": "29267139309647473"
   }
  },
  "errors": []
