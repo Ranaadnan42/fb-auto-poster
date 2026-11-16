@@ -233,12 +233,13 @@ def color_clip(out, secs):
          "-t", f"{secs:.2f}", "-pix_fmt", "yuv420p", "-c:v", "libx264", "-preset", "veryfast", out])
 
 
-def _render_clip(raw, secs, out):
+def _render_clip(raw, secs, out, flip=False):
     d = duration(raw) or 10
     start = max(0.0, random.uniform(0, max(0.0, d - secs - 0.5))) if d > secs + 1 else 0
     loop = ["-stream_loop", "-1"] if d < secs else []
     run(["ffmpeg", "-y", "-loglevel", "error", *loop, "-ss", f"{start:.2f}", "-i", raw, "-t", f"{secs:.2f}",
          "-vf", f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},"
+                f"{'hflip,crop=iw/1.12:ih/1.12,scale=' + str(W) + ':' + str(H) + ',' if flip else ''}"
                 f"eq=contrast=1.04:saturation=1.06,format=yuv420p",
          "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", os.environ.get("VIDEO_CRF", "21"), out])
 
@@ -413,9 +414,10 @@ def scene_video(i, terms, secs, used, fallback_terms, said="", kind="news"):
             ok = any(_try(x, seg + 0.1, out, used, said, kind) for x in alt[:4])
         if not ok:
             ok = any(_try(f, seg + 0.1, out, used, said, kind) for f in fallback_terms)
-        if not ok and STORY_CLIPS and os.environ.get("NO_REUSE") != "1":
+        if not ok and STORY_CLIPS and (os.environ.get("NO_REUSE") != "1" or os.environ.get("REUSE_SAME") == "1"):
             try:
-                _render_clip(random.choice(STORY_CLIPS), seg + 0.1, out)   # isi khabar ki pehle wali (agent-pass) clip
+                # isi topic (wahi janwar/khabar) ki pehle wali agent-pass clip - alag hissa, ulta + zoom taake naya lage
+                _render_clip(random.choice(STORY_CLIPS), seg + 0.1, out, flip=os.environ.get("REUSE_SAME") == "1")
                 ok = True
             except Exception:
                 ok = False
