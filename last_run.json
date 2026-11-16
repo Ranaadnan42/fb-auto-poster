@@ -1,28 +1,34 @@
 {
  "lang": "en",
- "stock_clips": 39,
+ "stock_clips": 14,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "honesty in islam stories",
-  "importance of honesty in islam"
+  "tahajjud prayer",
+  "tahajjud ki dua",
+  "tahajjud ki namaz ka tarika",
+  "tahajjud namaz",
+  "tahajjud prayer dua",
+  "tahajjud story",
+  "tahajjud miracle",
+  "tahajjud ki namaz kaise padhte hain",
+  "tahajjud ki fazilat"
  ],
- "story": "Prophet names Abu Ubaidah Amin of this Ummah",
- "search": "importance of honesty in islam",
- "vision_checks": 108,
- "clips_rejected": 173,
+ "story": "Prophet listens to Abu Musa reciting at night",
+ "search": "tahajjud story",
+ "vision_checks": 125,
+ "clips_rejected": 110,
  "sources": {
-  "pixabay": 28,
-  "nasa": 2,
-  "commons": 9
+  "pixabay": 11,
+  "commons": 2,
+  "mixkit": 1
  },
  "no_match": [
-  "open quran",
   "mosque sunset sky"
  ],
- "long_minutes": 5.22,
- "time_utc": "2026-11-16 20:05",
- "title": "Importance of Honesty in Islam: The Trustworthy Sahabi",
+ "reel_minutes": 1.14,
+ "time_utc": "2026-11-16 21:15",
+ "title": "A Beautiful Tahajjud Story: Prophet Listens to Abu Musa",
  "dry_run": false,
  "posted_ok": 1
 }
