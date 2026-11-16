@@ -1,6 +1,6 @@
 name: Scheduler (posts on time)
 
-# Har 15 minute ek chhota scan (seconds mein khatam) - GitHub par bojh bilkul kam.
+# Lagatar chalta hai (har 4 min scan, ~5h40m baad khud agla run). Cron sirf backup - GitHub cron ghanton late hota hai.
 # Jis post ka waqt qareeb ho us bot ko foran chala deta hai. Har bot ka apna cron bhi backup hai.
 on:
   schedule:
@@ -18,7 +18,7 @@ concurrency:
 jobs:
   keep:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 358
     steps:
       - uses: actions/checkout@v4
         with:
@@ -26,4 +26,5 @@ jobs:
       - name: Scheduler scan
         env:
           GH_TOKEN: ${{ github.token }}
+          LOOP_MIN: '340'
         run: python3 tools/keeper.py

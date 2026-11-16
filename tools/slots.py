@@ -85,14 +85,20 @@ SLOTS = [
     dict(file="war.yml", crons=["13 21 * * *"], post="22:43", lead=90),
     dict(file="war.yml", crons=["13 22 * * *"], post="01:13", lead=180),
     # Wild Nations (har mulk ke janwar) - 2 reels + 1 lambi documentary
+    dict(file="wildlife.yml", crons=["52 10 * * *"], post="11:07", lead=40),   # pic
+    dict(file="wildlife.yml", crons=["52 16 * * *"], post="17:07", lead=40),   # pic
     dict(file="wildlife.yml", crons=["7 12 * * *"], post="13:37", lead=90),
     dict(file="wildlife.yml", crons=["37 18 * * *"], post="20:07", lead=90),
     dict(file="wildlife.yml", crons=["47 20 * * *"], post="23:47", lead=180),
     # Birds of the World (duniya ke parinde + asli awaz) - 2 reels + 1 lambi documentary
+    dict(file="birds.yml", crons=["32 11 * * *"], post="11:47", lead=40),      # pic
+    dict(file="birds.yml", crons=["32 17 * * *"], post="17:47", lead=40),      # pic
     dict(file="birds.yml", crons=["57 12 * * *"], post="14:27", lead=90),
     dict(file="birds.yml", crons=["47 19 * * *"], post="21:17", lead=90),
     dict(file="birds.yml", crons=["47 21 * * *"], post="00:47", lead=180),
     # Dogs & Cats World (pyare kuttay/billiyan) - 2 reels + 1 lambi video
+    dict(file="pets.yml", crons=["22 12 * * *"], post="12:37", lead=40),       # pic
+    dict(file="pets.yml", crons=["22 18 * * *"], post="18:37", lead=40),       # pic
     dict(file="pets.yml", crons=["37 14 * * *"], post="16:07", lead=90),
     dict(file="pets.yml", crons=["57 20 * * *"], post="22:27", lead=90),
     dict(file="pets.yml", crons=["37 22 * * *"], post="01:37", lead=180),
