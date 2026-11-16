@@ -47,7 +47,7 @@ REPORT = {"time_utc": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), "mo
           "errors": [], "images": {}}
 LOOK = ("professional luxury fashion catalogue photo, photorealistic, a real elegant female fashion model wearing "
         "the complete outfit, full-length shot from head to toe, natural realistic beautiful face, natural skin texture, "
-        "correct hands and fingers, graceful modest pose, modest family-friendly styling, the outfit is the main focus, "
+        "perfect symmetrical eyes, correct anatomy, correct hands with five fingers, hands relaxed or hidden, graceful modest pose, modest family-friendly styling, the outfit is the main focus, "
         "real photograph shot on DSLR 85mm, boutique studio or elegant location, soft professional lighting, "
         "ultra detailed fabric texture and embroidery, sharp focus, 8k, no mannequin, no dress form, no text, no watermark")
 N = {"pic": 4, "reel": 6, "long": 12}[MODE]
@@ -72,10 +72,19 @@ def plan(h):
     month = datetime.datetime.utcnow().strftime("%B")
     past = [d["name"] for d in h["designs"][-80:]]
     themes = [p.get("theme") for p in h["posts"][-10:]]
+    trends = ""
+    try:
+        import trend_scout
+        trends = trend_scout.text("faizi")
+    except Exception as e:
+        log(f"trend research fail: {str(e)[:120]}")
     d = news.ask_json(f"""You are the creative director of the fashion page "Style by Faizi" (trending ladies dress
 designs: party wear, wedding & bridal, Eid/festive, formal, casual lawn/summer, maxi, gown, anarkali, sharara, gharara,
 lehenga, kaftan, abaya, co-ord sets, kurti with trousers/palazzo). It is {month}. Pick ONE fresh theme people are
 searching for right now (season/occasion/color trend) - not one of these recent themes: {json.dumps(themes)}.
+{trends}
+STRICT: every outfit MUST be a design that is actually trending right now (from the research above: the exact
+styles, cuts, colors, fabrics and embroidery going viral this season) - no old-fashioned or random designs.
 Then design {N} DIFFERENT outfits for it (different silhouettes and colors), none like these past ones:
 {json.dumps(past[-40:])}.
 Return JSON:
@@ -140,12 +149,52 @@ def gen_image(prompt, w, h, path, seed):
     return False
 
 
+def check_image(path):
+    """Sakht check: AI tasveer dekh kar batata hai ke model asli insan lagti hai ya nahi (chehra/haath/mannequin)."""
+    q = ("You are a strict fashion photo editor. Look at this image. Answer ONLY JSON {\"ok\": true/false, \"why\": \"...\"}. "
+         "ok=false if ANY of these: no real-looking human model wearing the dress; a mannequin/dress form/doll; "
+         "face distorted, blurry, plastic or uncanny; eyes wrong; extra/missing/fused fingers or deformed hands; "
+         "extra limbs or wrong body proportions; text or watermark; revealing or immodest clothing; outfit cut off.")
+    data = base64.b64encode(open(path, "rb").read()).decode()
+    for key in [os.environ.get("FAIZI_GEMINI_API_KEY"), os.environ.get("GEMINI_BACKUP_KEY")]:
+        if not key:
+            continue
+        for model in ("gemini-2.5-flash", "gemini-2.5-flash-lite"):
+            try:
+                r = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+                                  params={"key": key}, timeout=90, json={
+                                      "contents": [{"parts": [{"text": q},
+                                                              {"inlineData": {"mimeType": "image/jpeg", "data": data}}]}],
+                                      "generationConfig": {"responseMimeType": "application/json"}})
+                if r.status_code != 200:
+                    continue
+                j = json.loads(r.json()["candidates"][0]["content"]["parts"][0]["text"])
+                return bool(j.get("ok")), str(j.get("why", ""))[:150]
+            except Exception as e:
+                log(f"image check {model} fail: {str(e)[:100]}")
+    return None, "check nahi ho saka"
+
+
 def make_images(p):
     os.makedirs(JOB, exist_ok=True)
     out = []
+    REPORT["images"]["rejected"] = 0
     for i, d in enumerate(p["designs"]):
         path = os.path.join(JOB, f"d{i}.jpg")
-        if gen_image(d["prompt"], W, H, path, random.randint(1, 10 ** 6)):
+        good = False
+        for attempt in range(4):              # kharab chehra/haath/mannequin -> nayi tasveer
+            if not gen_image(d["prompt"], W, H, path, random.randint(1, 10 ** 6)):
+                break
+            ok, why = check_image(path)
+            if ok is None and attempt >= 1:   # checker hi band ho to aage chalo
+                good = True
+                break
+            if ok:
+                good = True
+                break
+            REPORT["images"]["rejected"] += 1
+            log(f"design {i + 1} reject (try {attempt + 1}): {why}")
+        if good:
             out.append({**d, "path": path})
             log(f"design {i + 1}: {d['name']}")
         else:
