@@ -1,31 +1,35 @@
 {
- "time_utc": "2026-11-16 02:46",
+ "time_utc": "2026-11-16 19:46",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-16 02:46",
+   "date": "2026-11-16 19:46",
    "kind": "reel",
    "lang": "en",
-   "title": "SpaceX Catches Starship Rocket with Mechanical Arms",
-   "dur": 49,
-   "post_id": "2357580825083990"
+   "title": "NASA's Voyager 1 Reaches Historic 16 Billion Mile Milestone",
+   "dur": 45,
+   "post_id": "1474177569114319"
   },
   "sports": {
-   "date": "2026-11-16 02:46",
+   "date": "2026-11-16 19:46",
    "kind": "reel",
    "lang": "en",
-   "title": "Lindy Duncan Wins First LPGA Title After 222 Starts",
-   "dur": 46,
-   "post_id": "855563014316257"
+   "title": "Predator League India 2027: Playoff and Prize Details",
+   "dur": 45,
+   "post_id": "4357982851159669"
   }
  },
  "errors": [],
- "agent_checks": 186,
- "agent_rejects": 178,
- "agent_skips": 56,
- "clips_rejected": 235,
- "alt_searches": 4,
+ "agent_checks": 77,
+ "agent_rejects": 73,
+ "agent_skips": 30,
+ "clips_rejected": 105,
+ "alt_searches": 2,
+ "no_match": [
+  "@Predator League India"
+ ],
+ "headline_cards": 1,
  "time_budget_hit": true
 }
