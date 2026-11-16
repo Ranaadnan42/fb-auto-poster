@@ -1,35 +1,33 @@
 {
  "mode": "auto",
- "stock_clips": 12,
+ "stock_clips": 10,
  "fallback_clips": 0,
  "errors": [],
  "format": "people",
  "search_phrases": [
-  "ludo wala funny video",
-  "ludo funny videos",
-  "ludo ki funny video"
+  "cat rules the house",
+  "cats in the house"
  ],
  "funny_score": "3 -> 9",
- "search": "ludo funny videos",
- "reel_format": "kya_hota_agar",
- "vision_checks": 105,
- "clips_rejected": 115,
- "no_match": [
-  "family playing board game",
-  "girl rolling dice",
-  "sneaky girl smiling",
-  "strict father pointing",
-  "dice on carpet",
-  "angry mother holding broom",
-  "angry mother holding broom",
-  "young man washing dishes"
- ],
+ "search": "cat rules the house",
+ "reel_format": "har_ghar",
+ "vision_checks": 132,
  "sources": {
-  "pixabay": 4
+  "pixabay": 5
  },
- "laughs": 4,
- "reel_minutes": 0.77,
- "time_utc": "2026-11-15 17:35",
- "title": "لڈو کا خاندانی فساد اور چھکے کی چوری",
+ "clips_rejected": 122,
+ "no_match": [
+  "man sitting on carpet floor",
+  "man sitting on carpet floor",
+  "woman boiling chicken kitchen",
+  "woman feeding cat bowl",
+  "man shocked bill",
+  "man shocked bill",
+  "cat sitting high chair"
+ ],
+ "laughs": 5,
+ "reel_minutes": 0.87,
+ "time_utc": "2026-11-15 20:27",
+ "title": "جب بلی نے پورے خاندان کو نوکر بنا دیا",
  "dry_run": false
 }
