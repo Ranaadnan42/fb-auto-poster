@@ -1,0 +1,35 @@
+{
+ "time_utc": "2026-11-16 20:53",
+ "mode": "reel",
+ "dry_run": false,
+ "errors": [
+  "fatal: sirf 4 sahi clips, 9 text cards - video post nahi ki"
+ ],
+ "calls": [
+  {
+   "file": "File:MalePeacockCall.ogg",
+   "license": "cc by-sa 3.0"
+  }
+ ],
+ "bird_calls": 1,
+ "kind": "reel",
+ "lang": "en",
+ "clips_rejected": 319,
+ "alt_searches": 7,
+ "agent_checks": 83,
+ "agent_rejects": 79,
+ "agent_skips": 235,
+ "no_match": [
+  "peacock eyespots close up",
+  "Indian peafowl calling",
+  "Indian peafowl foraging",
+  "Indian peafowl courtship display",
+  "peacock shaking feathers",
+  "Indian peafowl roosting",
+  "Indian peafowl national bird",
+  "peacock standing",
+  "Indian peafowl"
+ ],
+ "headline_cards": 9,
+ "time_budget_hit": true
+}
