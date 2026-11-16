@@ -1,0 +1,29 @@
+{
+ "time_utc": "2026-11-15 23:24",
+ "mode": "reel",
+ "dry_run": true,
+ "errors": [],
+ "kind": "reel",
+ "lang": "en",
+ "clips_rejected": 344,
+ "alt_searches": 5,
+ "agent_checks": 344,
+ "agent_rejects": 334,
+ "agent_skips": 0,
+ "no_match": [
+  "Nile River valley gorge",
+  "Sudan desert Nile bank",
+  "ancient human skeleton excavation footage",
+  "prehistoric skeleton display museum",
+  "archaeological dig site aerial"
+ ],
+ "headline_cards": 5,
+ "posted": {
+  "war": "Prehistoric warfare",
+  "wiki": "Prehistoric warfare",
+  "date": "2026-11-15 23:24",
+  "title": "The First War in Human History: Prehistoric Warfare Revealed | History of Every War #1",
+  "episode": 1,
+  "dur": 84
+ }
+}
