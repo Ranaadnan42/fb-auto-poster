@@ -97,6 +97,12 @@ SLOTS = [
     dict(file="birds.yml", crons=["47 19 * * *"], post="21:17", lead=90),
     dict(file="birds.yml", crons=["47 21 * * *"], post="00:47", lead=180),
     # Dogs & Cats World (pyare kuttay/billiyan) - 2 reels + 1 lambi video
+    # Style by Faizi
+    dict(file="faizi.yml", crons=["37 11 * * *"], post="12:07", lead=40),
+    dict(file="faizi.yml", crons=["47 14 * * *"], post="15:17", lead=40),
+    dict(file="faizi.yml", crons=["27 18 * * *"], post="18:57", lead=40),
+    dict(file="faizi.yml", crons=["17 21 * * *"], post="21:47", lead=40),
+    dict(file="faizi.yml", crons=["27 0 * * *"], post="01:07", lead=40),
     dict(file="pets.yml", crons=["22 12 * * *"], post="12:37", lead=40),       # pic
     dict(file="pets.yml", crons=["22 18 * * *"], post="18:37", lead=40),       # pic
     dict(file="pets.yml", crons=["37 14 * * *"], post="16:07", lead=90),

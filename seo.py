@@ -100,6 +100,17 @@ PAGES = {
         "rules": ("English only; the hook/body may ONLY restate facts from 'What the video says'; add the breed name as a "
                   "hashtag; never medical advice; max 2 emojis per line."),
     },
+    "faizi": {
+        "name": "Style by Faizi",
+        "brand_tags": ["#StyleByFaizi"],
+        "base_tags": ["#dressdesign", "#fashion", "#partywear", "#bridalwear", "#embroidery", "#ootd", "#reels"],
+        "audience": ("women who love fashion, party wear, wedding and Eid outfits, embroidery and new dress design ideas in "
+                     "the USA, UK, Canada, Europe, Australia and the Gulf (UAE, Saudi Arabia, Qatar, Kuwait)"),
+        "cta": "Follow Style by Faizi for new trending dress designs every day 👗✨",
+        "cta_en": "Follow Style by Faizi for new trending dress designs every day 👗✨",
+        "rules": ("English only; describe only the designs in 'What the video says' (colors, fabric, work, occasion); "
+                  "never name Pakistan or India; no prices; max 2 emojis per line."),
+    },
     "war": {
         "name": "Battles Untold",
         "brand_tags": ["#BattlesUntold"],
