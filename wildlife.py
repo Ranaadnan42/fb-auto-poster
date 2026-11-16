@@ -372,6 +372,9 @@ def main():
     log(f"Title: {script.get('title')} | {len(script['scenes'])} scenes")
     path = build_video(script, facts, h["used_clips"])
     REPORT.update({k: v for k, v in nv.REPORT.items() if k not in ("errors", "posted")})
+    cards, good = nv.REPORT.get("headline_cards", 0), len(nv.ALL_CLIPS)
+    if cards and cards > 0.2 * (cards + good):         # jo bola ja raha us ki clip nahi - aisi video post nahi
+        raise RuntimeError(f"sirf {good} sahi clips, {cards} text cards - video post nahi ki")
     desc = description(script, facts)
     log(f"--- description ---\n{desc}\n")
     meta = {"country": country, "animal": animal, "wiki": facts["title"], "date": REPORT["time_utc"],

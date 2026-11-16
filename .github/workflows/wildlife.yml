@@ -80,9 +80,9 @@ jobs:
           WILD_GEMINI_API_KEY: ${{ secrets.WILD_GEMINI_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.WILD_GEMINI_API_KEY }}   # sirf is page ki apni key - purani shared key nahi
           GEMINI_BACKUP_KEY: ${{ secrets.GEMINI_BACKUP_KEY }}
-          GROQ_API_KEY: ${{ secrets.WILD_GROQ_API_KEY }}
-          PIXABAY_API_KEY: ${{ secrets.WILD_PIXABAY_API_KEY }}
-          PEXELS_API_KEY: ${{ secrets.WILD_PEXELS_API_KEY }}
+          GROQ_API_KEY: ${{ secrets.WILD_GROQ_API_KEY || secrets.GROQ_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.WILD_PIXABAY_API_KEY || secrets.PIXABAY_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.WILD_PEXELS_API_KEY || secrets.PEXELS_API_KEY }}
           AGENT: wild
           HD_SRC: '1'
           VIDEO_CRF: '18'
