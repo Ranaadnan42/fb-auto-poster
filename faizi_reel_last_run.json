@@ -1,22 +1,23 @@
 {
- "time_utc": "2026-11-16 20:03",
+ "time_utc": "2026-11-16 21:40",
  "mode": "reel",
- "dry_run": true,
+ "dry_run": false,
  "errors": [],
  "images": {
   "pollinations": 6
  },
  "posted": {
   "mode": "reel",
-  "theme": "Midnight Velvet Glow",
+  "theme": "Autumn Ember Elegance",
   "designs": [
-   "Royal Midnight Velvet Gown",
-   "Starlit Sapphire Sharara",
-   "Obsidian Lace Anarkali",
-   "Moonlit Emerald Kaftan",
-   "Twilight Plum Maxi Dress",
-   "Cosmic Charcoal Co‑ord Set"
+   "Crimson Silk Anarkali",
+   "Burnt Orange Palazzo Set",
+   "Saffron Velvet Gown",
+   "Olive Green Lawn Maxi",
+   "Copper Metallic Sharara",
+   "Mauve Kaftan Ensemble"
   ],
-  "date": "2026-11-16 20:03"
+  "date": "2026-11-16 21:40",
+  "post_id": "2142603193294783"
  }
 }

@@ -23,6 +23,30 @@
   {
    "name": "Cosmic Charcoal Co‑ord Set",
    "date": "2026-11-16 20:03"
+  },
+  {
+   "name": "Crimson Silk Anarkali",
+   "date": "2026-11-16 21:40"
+  },
+  {
+   "name": "Burnt Orange Palazzo Set",
+   "date": "2026-11-16 21:40"
+  },
+  {
+   "name": "Saffron Velvet Gown",
+   "date": "2026-11-16 21:40"
+  },
+  {
+   "name": "Olive Green Lawn Maxi",
+   "date": "2026-11-16 21:40"
+  },
+  {
+   "name": "Copper Metallic Sharara",
+   "date": "2026-11-16 21:40"
+  },
+  {
+   "name": "Mauve Kaftan Ensemble",
+   "date": "2026-11-16 21:40"
   }
  ],
  "posts": [
@@ -38,6 +62,20 @@
     "Cosmic Charcoal Co‑ord Set"
    ],
    "date": "2026-11-16 20:03"
+  },
+  {
+   "mode": "reel",
+   "theme": "Autumn Ember Elegance",
+   "designs": [
+    "Crimson Silk Anarkali",
+    "Burnt Orange Palazzo Set",
+    "Saffron Velvet Gown",
+    "Olive Green Lawn Maxi",
+    "Copper Metallic Sharara",
+    "Mauve Kaftan Ensemble"
+   ],
+   "date": "2026-11-16 21:40",
+   "post_id": "2142603193294783"
   }
  ]
 }
