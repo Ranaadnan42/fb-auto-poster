@@ -78,25 +78,26 @@ FILM_WARS = [
     "Gulf War", "Bosnian War", "First Chechen War", "Kosovo War", "Kargil War", "War in Afghanistan (2001–2021)",
     "Iraq War",
 ]
-WARS = FILM_WARS
+WARS = []          # malik: seedha mulk-ba-mulk (har mulk ki pehli filmi jang se), FILM_WARS ab istemal nahi
 
 # 3) Phir mulk-ba-mulk: har mulk ki ahem jangein (us mulk ke andar purani se nayi), phir agla mulk
 COUNTRIES = [
-    "China", "India", "Egypt", "Iran", "Greece", "Italy", "Turkey", "Iraq", "Syria", "Mongolia", "Japan",
-    "Korea", "Vietnam", "United Kingdom", "France", "Germany", "Spain", "Portugal", "Russia", "Poland",
-    "Sweden", "Norway", "Denmark", "Netherlands", "Belgium", "Austria", "Hungary", "Serbia", "Bulgaria",
-    "Romania", "Ukraine", "Finland", "Ireland", "Scotland", "Switzerland", "Czech Republic", "Croatia",
-    "Bosnia and Herzegovina", "Albania", "Georgia", "Armenia", "Azerbaijan", "Pakistan", "Afghanistan",
-    "Bangladesh", "Sri Lanka", "Nepal", "Myanmar", "Thailand", "Cambodia", "Indonesia", "Philippines",
-    "Malaysia", "Kazakhstan", "Uzbekistan", "Saudi Arabia", "Yemen", "Oman", "Kuwait", "Jordan", "Lebanon",
-    "Israel", "Palestine", "Libya", "Tunisia", "Algeria", "Morocco", "Sudan", "Ethiopia", "Somalia", "Kenya",
-    "Uganda", "Rwanda", "Congo", "Angola", "Mozambique", "Zimbabwe", "South Africa", "Nigeria", "Ghana",
-    "Mali", "Senegal", "Madagascar", "United States", "Canada", "Mexico", "Cuba", "Haiti", "Guatemala",
-    "Nicaragua", "Colombia", "Venezuela", "Peru", "Bolivia", "Chile", "Argentina", "Paraguay", "Brazil",
-    "Uruguay", "Ecuador", "Australia", "New Zealand", "Taiwan", "Tibet", "Laos", "Estonia", "Latvia",
-    "Lithuania", "Belarus", "Cyprus", "Iceland",
+    "United States", "United Kingdom", "Canada", "New Zealand", "Austria", "Australia", "Germany", "France",
+    "Ireland", "China", "India", "Egypt", "Iran", "Greece", "Italy", "Turkey", "Iraq", "Syria", "Mongolia",
+    "Japan", "Korea", "Vietnam", "Spain", "Portugal", "Russia", "Poland", "Sweden", "Norway", "Denmark",
+    "Netherlands", "Belgium", "Hungary", "Serbia", "Bulgaria", "Romania", "Ukraine", "Finland", "Scotland",
+    "Switzerland", "Czech Republic", "Croatia", "Bosnia and Herzegovina", "Albania", "Georgia", "Armenia",
+    "Azerbaijan", "Pakistan", "Afghanistan", "Bangladesh", "Sri Lanka", "Nepal", "Myanmar", "Thailand",
+    "Cambodia", "Indonesia", "Philippines", "Malaysia", "Kazakhstan", "Uzbekistan", "Saudi Arabia", "Yemen",
+    "Oman", "Kuwait", "Jordan", "Lebanon", "Israel", "Palestine", "Libya", "Tunisia", "Algeria", "Morocco",
+    "Sudan", "Ethiopia", "Somalia", "Kenya", "Uganda", "Rwanda", "Congo", "Angola", "Mozambique", "Zimbabwe",
+    "South Africa", "Nigeria", "Ghana", "Mali", "Senegal", "Madagascar", "Mexico", "Cuba", "Haiti",
+    "Guatemala", "Nicaragua", "Colombia", "Venezuela", "Peru", "Bolivia", "Chile", "Argentina", "Paraguay",
+    "Brazil", "Uruguay", "Ecuador", "Taiwan", "Tibet", "Laos", "Estonia", "Latvia", "Lithuania", "Belarus",
+    "Cyprus", "Iceland",
 ]
-PER_COUNTRY = 6        # ek mulk ki zyada se zyada itni jangein, phir agla mulk
+PER_COUNTRY = 12
+H_COUNTRY_N = [1]       # ek mulk ki zyada se zyada itni jangein, phir agla mulk
 
 
 # ---------------------------------------------------------------- history
@@ -132,10 +133,12 @@ def country_war(h, done):
 battles in the history of {c} (fought in or by {c}) FROM 1897 ONWARD ONLY (the film era - real footage must exist),
 OLDEST FIRST, not still ongoing.
 Never these (already covered): {json.dumps(sorted(done)[-300:])}
-Return JSON {{"wars": ["up to 6 exact English Wikipedia article titles, in chronological order"]}}""")
+Include EVERY war and major battle of {c} in that period (not only famous ones), starting with its FIRST one.
+Return JSON {{"wars": ["up to 12 exact English Wikipedia article titles, in chronological order"]}}""")
             for w in j.get("wars") or []:
                 if isinstance(w, str) and w.strip() and w.strip() not in done:
                     h["country_n"] += 1
+                    H_COUNTRY_N[0] = h["country_n"]
                     REPORT["country"] = c
                     log(f"Mulk: {c} ({h['country_n']}/{PER_COUNTRY})")
                     return w.strip()
@@ -245,13 +248,17 @@ def write_script(facts, episode):
   1) a scroll-stopping hook (a shocking true number or twist from the facts), 2) WHEN and WHERE, 3) WHY it started,
   4-6) how it unfolded / the turning point, 7) WHO WON and WHO LOST, 8) how many people died (as the facts say),
   9) what it changed + "Follow Battles Untold for the story of every war in history." """
-        series = f'\nThis is part {episode} of the series "History of Every War on Film - from the first war ever filmed to today".'
+        series = (f'\nThis is part {episode} of the series "Every Country\'s Wars on Film" - now: {REPORT.get("country", "")}, '
+                  f'war number {H_COUNTRY_N[0]} of {REPORT.get("country", "")} in the series. If it is number 1, say clearly '
+                  f'this was the first war of {REPORT.get("country", "")} caught on film.')
     else:
         shape = """a LONG documentary of 800-950 spoken words (5-6 minutes) in 26-34 scenes, with these chapters
   (put the chapter name in each scene's "label"): "THE HOOK", "BEFORE THE WAR", "WHY IT STARTED", "THE SIDES",
   "HOW IT UNFOLDED", "THE TURNING POINT", "WHO WON", "THE HUMAN COST", "WHAT IT CHANGED". End with: this was
   part N of History of Every War, follow Battles Untold, like and share, comment which war we should cover next."""
-        series = f'\nThis is part {episode} of the series "History of Every War on Film - from the first war ever filmed to today".'
+        series = (f'\nThis is part {episode} of the series "Every Country\'s Wars on Film" - now: {REPORT.get("country", "")}, '
+                  f'war number {H_COUNTRY_N[0]} of {REPORT.get("country", "")} in the series. If it is number 1, say clearly '
+                  f'this was the first war of {REPORT.get("country", "")} caught on film.')
     prompt = f"""You are the narrator and writer of the Facebook page "Battles Untold" (war history for viewers in the
 USA, UK, Europe, Canada, Australia and the Gulf). Write {shape}{series}
 Subject: {facts['title']}
@@ -661,7 +668,7 @@ def pics(P, h, n=2):
     """2 tasveer posts usi jang par jo aakhri reel/long mein thi (ya WAR_OVERRIDE)."""
     war = os.environ.get("WAR_OVERRIDE", "").strip()
     if not war:
-        war = pick_war(h)[0]          # rozana pehle pics: wohi jang jis par aaj ki reel aayegi
+        war = pick_war(json.loads(json.dumps(h)))[0]  # copy: mulk ka counter reel hi barhaye. rozana pehle pics: wohi jang jis par aaj ki reel aayegi
     facts = gather_facts(war)
     log(f"Pics jang: {facts['title']}")
     imgs = war_images(facts["title"], n)
