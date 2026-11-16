@@ -1,0 +1,43 @@
+{
+ "designs": [
+  {
+   "name": "Royal Midnight Velvet Gown",
+   "date": "2026-11-16 20:03"
+  },
+  {
+   "name": "Starlit Sapphire Sharara",
+   "date": "2026-11-16 20:03"
+  },
+  {
+   "name": "Obsidian Lace Anarkali",
+   "date": "2026-11-16 20:03"
+  },
+  {
+   "name": "Moonlit Emerald Kaftan",
+   "date": "2026-11-16 20:03"
+  },
+  {
+   "name": "Twilight Plum Maxi Dress",
+   "date": "2026-11-16 20:03"
+  },
+  {
+   "name": "Cosmic Charcoal Co‑ord Set",
+   "date": "2026-11-16 20:03"
+  }
+ ],
+ "posts": [
+  {
+   "mode": "reel",
+   "theme": "Midnight Velvet Glow",
+   "designs": [
+    "Royal Midnight Velvet Gown",
+    "Starlit Sapphire Sharara",
+    "Obsidian Lace Anarkali",
+    "Moonlit Emerald Kaftan",
+    "Twilight Plum Maxi Dress",
+    "Cosmic Charcoal Co‑ord Set"
+   ],
+   "date": "2026-11-16 20:03"
+  }
+ ]
+}
