@@ -1,5 +1,5 @@
 {
- "started": "2026-11-16T19:53",
+ "started": "2026-11-16T20:01",
  "steps": [
   "token: user token expires_at=0 data_access_expires_at=1801949831",
   "token: user token tha - page token bana kar istemal kiya",
@@ -13,7 +13,7 @@
   "web trend gemini-3-flash-preview: 429",
   "web trend gemini-2.5-flash-lite: 404",
   "trend scout: 0 YouTube videos, web report 0 chars",
-  "aaj ka manzar: lake & mountains",
+  "aaj ka manzar: rainforest & jungle",
   "brain gemini-1.5-flash: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-1.5-flash is not found for API ver",
   "brain gemini-1.5-flash-8b: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-1.5-flash-8b is not found for API ",
   "brain gemini-2.0-flash-exp: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-2.0-flash-exp is not found for API",
@@ -28,24 +28,24 @@
   "brain gemini-1.5-pro: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-1.5-pro is not found for API versi",
   "Groq live models: openai/gpt-oss-120b, openai/gpt-oss-20b, allam-2-7b, qwen/qwen3.8-27b",
   "Groq model: openai/gpt-oss-120b",
-  "agent ka faisla: Lake Atitlán, Guatemala - bright sunny morning / turquoise lake reflecting volcanoes (Unique volcanic lake, vivid colors, high engagement potential)",
+  "agent ka faisla: Daintree Rainforest, Queensland, Australia - bright sunny morning / emerald green canopy (Stunning green depth, rare tropical vibe, high engagement potential)",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: lake & mountains",
+  "aaj ka manzar: rainforest & jungle",
   "Groq model: openai/gpt-oss-120b",
-  "agent ka faisla: Lake Tahoe, California/Nevada, United States - bright sunny morning / crystal clear lake reflecting snow‑capped mountains (Iconic, vibrant, high‑search, stunning reflections)",
-  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: green forest",
-  "Groq model: openai/gpt-oss-120b",
-  "agent ka faisla: Schwarzwald (Black Forest), Germany - bright green afternoon / sunlit forest trail (Iconic, vivid forest draws endless viewer curiosity)",
+  "agent ka faisla: Borneo Rainforest, Sabah, Malaysia - bright sunny morning / vivid green canopy (Iconic jungle, vivid colors, high engagement)",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
   "aaj ka manzar: green forest",
   "Groq model: openai/gpt-oss-120b",
-  "agent ka faisla: Białowieża Forest, Poland - bright green afternoon / sunlit forest trail (Iconic primeval forest, vivid green, rare footage appeal)",
+  "agent ka faisla: Black Forest – Triberg, Germany - bright green afternoon / sunlit forest trail (Iconic forest, vivid green, high search interest)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "aaj ka manzar: green forest",
+  "Groq model: openai/gpt-oss-120b",
+  "agent ka faisla: Hoh Rain Forest, Olympic National Park, United States - bright green afternoon / sunlit forest trail (Iconic, vivid green forest draws massive engagement)",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai"
  ],
  "errors": [
   "fatal: 4 jagahon par bhi achi footage nahi mili"
  ],
  "mode": "pic",
- "finished": "2026-11-16T19:54"
+ "finished": "2026-11-16T20:02"
 }
