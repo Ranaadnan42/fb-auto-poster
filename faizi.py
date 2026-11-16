@@ -57,6 +57,7 @@ FLAT = ("professional fashion product photo, photorealistic, the complete outfit
 DETAIL = ("realistic extreme close-up macro photo of this exact fabric being made: an industrial embroidery machine "
           "stitching the embroidery onto the fabric, or a tailor's hands sewing lace/border on it, real workshop, "
           "natural light, ultra sharp thread and embroidery detail, 8k, no face, no text, no watermark")
+TOP_SCORE = 8         # is se kam score wali tasveer dobara banti hai
 N_DETAIL = 4          # Tayyaba style: har run mein pehle 4 designs ka "banta hua kaam" close-up
 WHO = {"women": "for an adult woman", "men": "for an adult man", "girls": "for a little girl (kids wear)",
        "boys": "for a little boy (kids wear)", "baby": "for a baby / toddler (baby wear)"}
@@ -99,6 +100,9 @@ styles loved by Gulf and diaspora viewers (anarkali, sharara, lehenga, kurta). F
 theme people there are searching for right now (season/occasion/color trend) - not one of these recent themes:
 {json.dumps(themes)}.
 {trends}
+QUALITY: this page must beat the top dress pages (Tayyaba stitching boutique, Easy Stitching) - every design must
+look premium, luxury-catalogue level, something women would save and share; describe rich details (fabric, cut,
+embroidery, colour palette of the season).
 STRICT: every outfit MUST be a design that is actually trending right now (from the research above: the exact
 styles, cuts, colors, fabrics and embroidery going viral this season) - no old-fashioned or random designs.
 Then design {N} DIFFERENT outfits for it (different silhouettes and colors), none like these past ones:
@@ -178,6 +182,9 @@ def check_image(path, flat=False):
              "It should be a realistic product photo of a complete outfit laid flat on a background. ok=false if ANY of: "
              "a person, body part, mannequin or doll is visible; the outfit looks melted, broken, garbled or unrealistic; "
              "outfit cut off; text or watermark.")
+    q += (" Also add \"score\": 1-10 = how premium, beautiful and ON-TREND this design and photo look for 2026 "
+          "fashion buyers in USA/UK/Europe/Gulf, compared with top fashion pages (10 = Vogue/luxury-brand catalogue "
+          "quality that people would save and share; 5 = ordinary boutique photo). JSON: {\"ok\":..,\"why\":..,\"score\":..}")
     data = base64.b64encode(open(path, "rb").read()).decode()
     for key in [os.environ.get("FAIZI_GEMINI_API_KEY"), os.environ.get("GEMINI_BACKUP_KEY")]:
         if not key:
@@ -192,10 +199,14 @@ def check_image(path, flat=False):
                 if r.status_code != 200:
                     continue
                 j = json.loads(r.json()["candidates"][0]["content"]["parts"][0]["text"])
-                return bool(j.get("ok")), str(j.get("why", ""))[:150]
+                try:
+                    sc = float(j.get("score") or 0)
+                except Exception:
+                    sc = 0
+                return bool(j.get("ok")), str(j.get("why", ""))[:150], sc
             except Exception as e:
                 log(f"image check {model} fail: {str(e)[:100]}")
-    return None, "check nahi ho saka"
+    return None, "check nahi ho saka", 0
 
 
 def split_img(left, right, out):
@@ -225,18 +236,27 @@ def make_images(p):
                                   if who == "men" else LOOK)
         prompt = f"{d['prompt']}, {WHO[who]}"
         good = False
-        for attempt in range(4):              # kharab chehra/haath/mannequin -> nayi tasveer
+        best = (0, None)
+        for attempt in range(4):              # kharab chehra/haath/mannequin ya aam si tasveer -> nayi tasveer
             if not gen_image(prompt, W, H, path, random.randint(1, 10 ** 6), look):
                 break
-            ok, why = check_image(path, flat)
+            ok, why, sc = check_image(path, flat)
             if ok is None and attempt >= 1:   # checker hi band ho to aage chalo
                 good = True
                 break
-            if ok:
+            if ok and sc >= TOP_SCORE:        # top fashion pages se behtar - tabhi lagao
                 good = True
                 break
+            if ok and sc > best[0]:           # saaf hai magar utni shandar nahi - backup rakho
+                bp = path.replace(".jpg", "_best.jpg")
+                os.replace(path, bp)
+                best = (sc, bp)
             REPORT["images"]["rejected"] += 1
-            log(f"design {i + 1} reject (try {attempt + 1}): {why}")
+            log(f"design {i + 1} reject (try {attempt + 1}, score {sc}): {why}")
+        if not good and best[0] >= 6:
+            os.replace(best[1], path)
+            good = True
+            log(f"design {i + 1}: best backup (score {best[0]})")
         if good and i < N_DETAIL:
             dp = os.path.join(JOB, f"d{i}_det.jpg")
             dw, dh = (W, H) if MODE == "reel" else (W // 2, H)
