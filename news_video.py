@@ -311,6 +311,20 @@ def get_clip(term, secs, out, used, said="", kind="news"):
     return False
 
 
+def has_footage(term, kind, need=2):
+    """Topic chunne se pehle: kya is cheez ki kam se kam `need` asli clips (AI pass) milti hain?
+    Nayab janwar/parinda jis ki footage hi nahi - us par video na banao, agla topic."""
+    used, ok = [], 0
+    for k in range(need):
+        out = os.path.join(WORK, f"probe{k}.mp4")
+        if get_clip(term, 3, out, used, term, kind):
+            ok += 1
+        else:
+            break
+    log(f"footage probe '{term}': {ok}/{need}")
+    return ok >= need
+
+
 SUBJECT_HINT = ""      # match recap: "cricketer" / "footballer" - sahi shakhs mile
 
 

@@ -340,10 +340,12 @@ def main():
         return
     h = load_hist()
     pet = breed = theme = None
-    for attempt in range(3):
+    for attempt in range(6 if MODE == "reel" else 3):
         try:
             if MODE == "reel":
                 pet, breed = pick_reel(h)
+                if not nv.has_footage(breed, "pets"):
+                    raise RuntimeError("is ki asli clips nahi milti")
                 log(f"Nasal: {breed} ({pet})")
                 facts = reel_facts(pet, breed)
             else:

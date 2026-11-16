@@ -421,10 +421,12 @@ def main():
         return
     h = load_hist()
     bird = theme = None
-    for attempt in range(3):
+    for attempt in range(6 if MODE == "reel" else 3):
         try:
             if MODE == "reel":
                 bird = pick_reel(h)
+                if not nv.has_footage(bird, "birds"):
+                    raise RuntimeError("is ki asli clips nahi milti")
                 log(f"Parinda: {bird}")
                 facts = reel_facts(bird)
             else:

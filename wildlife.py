@@ -348,10 +348,12 @@ def main():
         REPORT["waiting"] = "page secrets missing"
         return
     h = load_hist()
-    for attempt in range(3):
+    for attempt in range(6 if MODE == "reel" else 3):
         try:
             if MODE == "reel":
                 country, animal = pick_reel(h)
+                if not nv.has_footage(animal, "wild"):
+                    raise RuntimeError("is ki asli clips nahi milti")
                 facts = reel_facts(country, animal)
             else:
                 country, animal = pick_long(h), None
