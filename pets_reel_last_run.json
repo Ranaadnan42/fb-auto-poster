@@ -1,23 +1,23 @@
 {
- "time_utc": "2026-11-16 22:37",
+ "time_utc": "2026-11-16 23:30",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 185,
- "alt_searches": 9,
- "agent_checks": 146,
- "agent_rejects": 140,
- "agent_skips": 40,
+ "clips_rejected": 98,
+ "alt_searches": 8,
+ "agent_checks": 65,
+ "agent_rejects": 60,
+ "agent_skips": 36,
  "posted": {
-  "pet": "cat",
-  "breed": "Maine Coon",
+  "pet": "dog",
+  "breed": "Pembroke Welsh Corgi",
   "theme": null,
-  "wiki": "Maine Coon",
-  "date": "2026-11-16 22:37",
-  "title": "Is the Maine Coon actually half-raccoon? The truth about this giant!",
-  "dur": 85,
-  "post_id": "1788017299170622"
+  "wiki": "Pembroke Welsh Corgi",
+  "date": "2026-11-16 23:30",
+  "title": "Why These Short-Legged Royalty Are Taking Over The World!",
+  "dur": 56,
+  "post_id": "1476641017898750"
  }
 }
