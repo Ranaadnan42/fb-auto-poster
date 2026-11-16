@@ -695,9 +695,6 @@ def main():
         meta["post_id"] = nv.post_reel(P, path, desc) if MODE == "reel" else \
             nv.post_long(P, path, script.get("title") or facts["title"], desc)
         log(f"posted {meta['post_id']}")
-        if MODE == "reel":
-            import stories
-            meta["story_id"] = stories.try_story(P["id"], P["token"], path, GRAPH_VER, log, REPORT["errors"])
         news.POSTS_LOG = "war_posts_history.json"
         news.log_post(PAGE, meta["post_id"], MODE, [war], meta["title"])
     if DRY_RUN:
