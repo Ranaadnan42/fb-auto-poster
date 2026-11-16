@@ -1,5 +1,5 @@
 {
- "time_utc": "2026-11-16 21:56",
+ "time_utc": "2026-11-16 22:42",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
@@ -12,18 +12,18 @@
  "bird_calls": 1,
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 484,
- "alt_searches": 8,
- "agent_checks": 269,
- "agent_rejects": 260,
- "agent_skips": 215,
+ "clips_rejected": 395,
+ "alt_searches": 9,
+ "agent_checks": 106,
+ "agent_rejects": 100,
+ "agent_skips": 291,
  "posted": {
   "bird": "Indian peafowl",
   "theme": null,
   "wiki": "Indian peafowl",
-  "date": "2026-11-16 21:56",
-  "title": "Why does this breathtaking giant bird carry a legendary fan of eyes?",
-  "dur": 80,
-  "post_id": "1155214933695750"
+  "date": "2026-11-16 22:42",
+  "title": "Why does this magnificent bird carry such a heavy secret?",
+  "dur": 74,
+  "post_id": "3325140747673724"
  }
 }
