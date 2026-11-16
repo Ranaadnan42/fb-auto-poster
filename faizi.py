@@ -84,11 +84,16 @@ def plan(h):
         trends = trend_scout.text("faizi")
     except Exception as e:
         log(f"trend research fail: {str(e)[:120]}")
-    d = news.ask_json(f"""You are the creative director of the fashion page "Style by Faizi" (trending ladies dress
-designs: party wear, wedding & bridal, Eid/festive, formal, casual lawn/summer, maxi, gown, anarkali, sharara, gharara,
-lehenga, kaftan, abaya, co-ord sets, kurti with trousers/palazzo) for EVERYONE: women, men (kurta shalwar,
-sherwani, waistcoat), girls and boys (kids wear, frocks) and babies (baby frocks, baby suits). It is {month}. Pick ONE fresh theme people are
-searching for right now (season/occasion/color trend) - not one of these recent themes: {json.dumps(themes)}.
+    d = news.ask_json(f"""You are the creative director of the fashion page "Style by Faizi" (trending dress designs
+for EVERYONE: women, men, girls and boys (kids wear) and babies). The page earns from Facebook ads, so its viewers must
+be in USA, UK, Canada, Europe, Australia and the Gulf (UAE, Saudi Arabia, Qatar, Kuwait). So about 70% of designs must
+be what women and families THERE search for: evening gowns, maxi dresses, cocktail/party dresses, wedding-guest and
+prom dresses, bridal gowns, summer/sundresses, modest fashion (abaya, kaftan, modest maxi), co-ord sets, winter/autumn
+outfits, kids party dresses, baby christening/birthday dresses, men's suits/blazers/smart casual; only about 30% eastern
+styles loved by Gulf and diaspora viewers (anarkali, sharara, lehenga, kurta). Follow their seasons and occasions
+(Christmas, New Year, Valentine's, Easter, prom, wedding season, Ramadan/Eid, summer). It is {month}. Pick ONE fresh
+theme people there are searching for right now (season/occasion/color trend) - not one of these recent themes:
+{json.dumps(themes)}.
 {trends}
 STRICT: every outfit MUST be a design that is actually trending right now (from the research above: the exact
 styles, cuts, colors, fabrics and embroidery going viral this season) - no old-fashioned or random designs.

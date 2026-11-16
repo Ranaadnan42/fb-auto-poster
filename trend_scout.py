@@ -45,12 +45,13 @@ NICHES = {
     "pets": ("cute and funny dogs and cats, puppies, kittens, dog and cat breeds",
              ["funny dogs", "funny cats", "cute puppies", "cute kittens", "dog breeds", "cat breeds",
               "golden retriever", "husky"]),
-    "faizi": ("trending dress designs for women, men, kids and babies (baby frocks, kids wear, party wear, wedding & bridal, Eid/festive, formal, "
+    "faizi": ("trending dress designs in USA, UK, Europe and the Gulf for women, men, kids and babies (evening gowns, maxi, wedding-guest, prom, modest fashion/abaya, baby & kids party dresses, party wear, wedding & bridal, Eid/festive, formal, "
               "lawn/summer, maxi, gown, anarkali, sharara, lehenga, kaftan, abaya, co-ord sets) - which exact styles, "
               "cuts, colors, fabrics and embroidery are trending right now",
               ["new dress design", "trending dress design", "party wear dress", "bridal dress", "maxi dress design",
                "sharara design", "anarkali dress", "abaya design", "fashion trends women", "baby frock design",
-               "kids dress design", "men kurta design"]),
+               "kids dress design", "men kurta design", "evening gown", "wedding guest dress", "prom dress",
+               "modest fashion", "abaya design", "outfit ideas"]),
     "scenic": ("beautiful nature and scenic travel places", ["nature 4k", "beautiful places", "relaxing nature",
                                                             "travel shorts", "drone footage nature", "hidden places on earth"]),
 }
