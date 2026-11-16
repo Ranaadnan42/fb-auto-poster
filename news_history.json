@@ -1101,6 +1101,23 @@
    ],
    "breaking": true,
    "post_id": "1357984777408020_122095027827558252"
+  },
+  {
+   "date": "2026-11-16 13:48",
+   "lang": "en",
+   "topic": "science_tech",
+   "link": "https://www.bbc.co.uk/weather/articles/c6y97j2xq531o?at_medium=RSS&at_campaign=rss",
+   "title": "Yellow weather warnings issued for snow as temperatures plummet",
+   "words": [
+    "issued",
+    "plummet",
+    "snow",
+    "temperatures",
+    "warnings",
+    "weather",
+    "yellow"
+   ],
+   "post_id": "1448208791702551_122110615827532804"
   }
  ],
  "sports": [
@@ -2198,6 +2215,21 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122102494443548502"
+  },
+  {
+   "date": "2026-11-16 13:48",
+   "lang": "en",
+   "topic": "general",
+   "link": "https://www.bbc.co.uk/sport/american-football/videos/cqglr9x7n4k0o?at_medium=RSS&at_campaign=rss",
+   "title": "Sacks, picks and 'a bag of tricks' - NFL best plays",
+   "words": [
+    "best",
+    "picks",
+    "plays",
+    "sacks",
+    "tricks"
+   ],
+   "post_id": "1465090056678690_122102927715548502"
   }
  ],
  "used_images": [
@@ -2273,6 +2305,8 @@
   4355589,
   "pxi10391352",
   "ov7104b84a-dc08-4721-b2de-11700114b464",
-  5560658
+  5560658,
+  5831146,
+  "pxi1846039"
  ]
 }
