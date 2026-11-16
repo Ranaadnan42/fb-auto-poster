@@ -366,25 +366,26 @@ def description(script, facts):
     return f"⚔️ {script.get('title')}\n\n{card}\n\n{script.get('caption', '')}\n\n{src}\n\n#BattlesUntold #history #war"
 
 
-BRAND_COVER = ("epic historical battle panorama, armored knights on horseback charging, roman legion shields, "
-               "cannons firing, burning castle, flying banners, fire sparks and smoke, dramatic golden sunset sky, "
-               "vibrant saturated colors, ultra HD 8k, hyper detailed 3D render, octane render, cinematic lighting, "
-               "volumetric light, no text, no letters, no watermark")
-BRAND_LOGO = ("3D emblem logo, golden spartan warrior helmet with red crest over a polished steel shield and two "
-              "crossed swords, glowing embers and fire behind, vibrant colors, ultra HD 8k, hyper detailed 3D render, "
-              "octane render, glossy metal, centered, dark red background, no text, no letters, no watermark")
+BRAND_COVER = ("epic medieval battle close-up, armored knights fighting with swords in the foreground, cavalry charging, "
+               "red and gold banners, burning fortress, fire, sparks and smoke, crimson sunset sky, vibrant saturated "
+               "colors, 3D render, unreal engine, ultra detailed, cinematic action, no text")
+BRAND_LOGO = ("3D emblem, golden spartan helmet with red crest on a steel shield with two crossed swords, glowing embers, "
+              "glossy metal, vibrant colors, 3D render, unreal engine, ultra detailed, centered, dark red background, no text")
 
 
 def ai_art(prompt, w, h, path):
     """Rangeen 3D AI tasveer: pehle Pollinations (flux, free), phir Gemini image (WAR key)."""
     import urllib.parse
     url = ("https://image.pollinations.ai/prompt/" + urllib.parse.quote(prompt) +
-           f"?width={w}&height={h}&seed={random.randint(1, 99999)}&model=flux&nologo=true&private=true&enhance=true")
+           f"?width={w}&height={int(h * 1.12)}&seed={random.randint(1, 99999)}&model=flux&nologo=true&private=true")
     for attempt in range(4):
         try:
             r = requests.get(url, timeout=240)
             if r.status_code == 200 and r.headers.get("content-type", "").startswith("image") and len(r.content) > 40000:
-                open(path, "wb").write(r.content)
+                from PIL import Image
+                import io
+                im = Image.open(io.BytesIO(r.content)).convert("RGB")
+                im.crop((0, 0, im.width, int(im.height / 1.12))).save(path, quality=97)   # neeche ka watermark kaat do
                 log(f"brand art: pollinations ok ({w}x{h})")
                 return True
             log(f"pollinations {r.status_code} (try {attempt + 1})")
@@ -523,7 +524,7 @@ def brand():
             "caption": "Welcome to Battles Untold ⚔️ The true story of every war in history - from the very first "
                        "recorded war 4,500 years ago to modern times. When it happened, why it started, who won, who "
                        "lost and what it cost. New videos every day.\n\n#BattlesUntold #History #WarHistory",
-            "access_token": P["token"]}))["id"]
+            "published": "false", "access_token": P["token"]}))["id"]
     r = requests.post(f"{GRAPH}/{P['id']}", timeout=120,
                       data={"cover": cid, "no_feed_story": "true", "access_token": P["token"]})
     log(f"cover: {r.status_code} {r.text[:200]}")
