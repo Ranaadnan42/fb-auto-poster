@@ -8,7 +8,7 @@ MODE=long -> 16:9, ~2.5-3 min: aaj ka theme (e.g. "Wedding Guest Looks"), 12 des
 
 Agent kaam:
   - Har roz AI khud trend sochta hai (season, shaadi/Eid/party, rang) - pichle 80 designs dobara nahi (history)
-  - Tasveer: dress mannequin par (koi AI chehra nahi), ultra detailed kapra/kaam - Pollinations flux (free),
+  - Tasveer: asli model ne dress pehni hui (realistic insan, mannequin nahi), ultra detailed kapra/kaam - Pollinations flux (free),
     na mile to is page ki apni Gemini key se image
   - Branding mein Pakistan/India ka naam nahi; USD/EUR + Gulf audience (seo.py "faizi")
 Env: FAIZI_PAGE_ID, FAIZI_PAGE_TOKEN, FAIZI_GEMINI_API_KEY (+GEMINI_BACKUP_KEY), MODE, POST_AT, DRY_RUN
@@ -45,9 +45,11 @@ VOICE = ("en-US-AvaNeural", "+0%")
 log = news.log
 REPORT = {"time_utc": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), "mode": MODE, "dry_run": DRY_RUN,
           "errors": [], "images": {}}
-LOOK = ("professional luxury fashion catalogue photo, the complete full-length outfit displayed on an elegant "
-        "headless dress form mannequin, no face, no person, no text, no watermark, boutique studio lighting, "
-        "soft elegant background, ultra detailed fabric texture and embroidery, sharp focus, 8k")
+LOOK = ("professional luxury fashion catalogue photo, photorealistic, a real elegant female fashion model wearing "
+        "the complete outfit, full-length shot from head to toe, natural realistic beautiful face, natural skin texture, "
+        "correct hands and fingers, graceful modest pose, modest family-friendly styling, the outfit is the main focus, "
+        "real photograph shot on DSLR 85mm, boutique studio or elegant location, soft professional lighting, "
+        "ultra detailed fabric texture and embroidery, sharp focus, 8k, no mannequin, no dress form, no text, no watermark")
 N = {"pic": 4, "reel": 6, "long": 12}[MODE]
 W, H = {"pic": (1080, 1350), "reel": (1080, 1920), "long": (1920, 1080)}[MODE]
 
