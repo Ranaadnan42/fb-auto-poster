@@ -1,0 +1,23 @@
+{
+ "time_utc": "2026-11-16 20:51",
+ "mode": "reel",
+ "dry_run": false,
+ "errors": [
+  "fatal: sirf 6 sahi clips, 4 text cards - video post nahi ki"
+ ],
+ "country": "Kenya",
+ "kind": "reel",
+ "lang": "en",
+ "clips_rejected": 279,
+ "alt_searches": 6,
+ "agent_checks": 224,
+ "agent_rejects": 218,
+ "agent_skips": 56,
+ "no_match": [
+  "Grévy's zebra water hole",
+  "Grévy's zebra foal",
+  "Grévy's zebra walking",
+  "Grévy's zebra running"
+ ],
+ "headline_cards": 4
+}
