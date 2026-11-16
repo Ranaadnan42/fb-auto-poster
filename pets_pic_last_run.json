@@ -1,0 +1,17 @@
+{
+ "mode": "pic",
+ "agent": "pets",
+ "dry_run": false,
+ "log": [
+  "Subject: Golden Retriever",
+  "Subject: Siberian Husky",
+  "Subject: Pembroke Welsh Corgi",
+  "Subject: German Shepherd",
+  "Subject: Labrador Retriever",
+  "Subject: French Bulldog",
+  "ERROR: koi saaf ultra-HD tasveer nahi mili"
+ ],
+ "errors": [
+  "koi saaf ultra-HD tasveer nahi mili"
+ ]
+}
