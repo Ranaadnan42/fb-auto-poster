@@ -3589,5 +3589,39 @@
   ],
   "sport": null,
   "title": "Predator League India 2027: Playoff and Prize Details"
+ },
+ {
+  "date": "2026-11-16 21:33",
+  "page": "news",
+  "id": "954860390816458",
+  "fmt": "long",
+  "lang": "en",
+  "topics": [
+   "canada_australia",
+   "business",
+   "africa",
+   "uk",
+   "asia",
+   "science_tech"
+  ],
+  "sport": null,
+  "title": "Global News Bulletin Stadium Costs Migration and Energy"
+ },
+ {
+  "date": "2026-11-16 21:45",
+  "page": "sports",
+  "id": "4110965289197286",
+  "fmt": "long",
+  "lang": "en",
+  "topics": [
+   "american_football",
+   "mma",
+   "boxing",
+   "hockey",
+   "snooker",
+   "tennis"
+  ],
+  "sport": null,
+  "title": "Global Sports News Bulletin Today"
  }
 ]

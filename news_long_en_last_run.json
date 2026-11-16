@@ -1,35 +1,31 @@
 {
- "time_utc": "2026-11-15 23:58",
+ "time_utc": "2026-11-16 20:18",
  "kind": "long",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-15 23:58",
+   "date": "2026-11-16 20:18",
    "kind": "long",
    "lang": "en",
-   "title": "Global Travel Chaos and Major Legal Shifts in Washington",
-   "dur": 474,
-   "post_id": "1702369847961668"
+   "title": "Global News Bulletin Stadium Costs Migration and Energy",
+   "dur": 340,
+   "post_id": "954860390816458"
   },
   "sports": {
-   "date": "2026-11-15 23:58",
+   "date": "2026-11-16 20:18",
    "kind": "long",
    "lang": "en",
-   "title": "England Victory in Spain Leads World Sports News Bulletin",
-   "dur": 313,
-   "post_id": "1446713760303261"
+   "title": "Global Sports News Bulletin Today",
+   "dur": 297,
+   "post_id": "4110965289197286"
   }
  },
  "errors": [],
- "clips_rejected": 1069,
- "agent_checks": 140,
- "agent_rejects": 129,
- "agent_skips": 930,
- "alt_searches": 9,
- "time_budget_hit": true,
- "no_match": [
-  "stadium floodlights"
- ],
- "headline_cards": 1
+ "clips_rejected": 927,
+ "alt_searches": 11,
+ "agent_checks": 237,
+ "agent_rejects": 215,
+ "agent_skips": 703,
+ "time_budget_hit": true
 }
