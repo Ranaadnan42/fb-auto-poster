@@ -1206,6 +1206,23 @@
    ],
    "breaking": true,
    "post_id": "1357984777408020_122095671501558252"
+  },
+  {
+   "date": "2026-11-16 23:27",
+   "lang": "en",
+   "topic": "canada_australia",
+   "link": "https://www.abc.net.au/news/2026-11-17/council-seeks-inquiry-into-mining-licences/107389260",
+   "title": "Mayor pushes for inquiry into mining licence approvals",
+   "words": [
+    "approvals",
+    "inquiry",
+    "into",
+    "licence",
+    "mayor",
+    "mining",
+    "pushes"
+   ],
+   "post_id": "1448208791702551_122110799115532804"
   }
  ],
  "sports": [
@@ -2407,6 +2424,28 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122103289191548502"
+  },
+  {
+   "date": "2026-11-16 23:27",
+   "lang": "en",
+   "topic": "mma",
+   "link": "https://news.google.com/rss/articles/CBMi-wFBVV95cUxPXzhVcV9lZ2ktS3Q5ZlJ6LWF1bXhIOFhNYktneTlRTTQ0ZGJGMHBhNFBYdDhCV2J3UTRxbnowRmN5bzAtMVEwQ01xd3FoaTFiTkRMLTVnalJOSkFkX0c1NXVJVVJjbWMtV3c1RU9jRWd5cWYyd2dDTTkzNVVyRVUwYW5GWFJRY0Q3eHZKejN6dGF5WkZxWFpHVlJtOGtRdjZGQUJYVG14NlRWN0RWcHMwWnNjcVBfSUxOX0I1clJxMjJxSVNRQlBpVlBPT1hyY2l0N3NsV1VRa0puMHRia0F2UnFUNGZCYWR0TTg1elhSMzhqNmtuRm1aekQ4dw?oc=5",
+   "title": "Merab Dvalishvili has no interest in making peace with Nurmagomedov brothers after attack: 'They're not real men'",
+   "words": [
+    "after",
+    "attack",
+    "brothers",
+    "dvalishvili",
+    "interest",
+    "making",
+    "merab",
+    "nurmagomedov",
+    "peace",
+    "real",
+    "they",
+    "with"
+   ],
+   "post_id": "1465090056678690_122103292293548502"
   }
  ],
  "used_images": [
@@ -2490,6 +2529,7 @@
   2778583,
   "pxi9216455",
   1663087,
-  3508631
+  3508631,
+  2666577
  ]
 }
