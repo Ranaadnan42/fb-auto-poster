@@ -1,31 +1,30 @@
 {
- "time_utc": "2026-11-16 02:46",
+ "time_utc": "2026-11-16 23:25",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-16 02:46",
+   "date": "2026-11-16 23:25",
    "kind": "reel",
    "lang": "en",
-   "title": "SpaceX Catches Starship Rocket with Mechanical Arms",
-   "dur": 49,
-   "post_id": "2357580825083990"
+   "title": "Australian MP Discharged From Hospital After Car Attack",
+   "dur": 46,
+   "post_id": "1620207489152421"
   },
   "sports": {
-   "date": "2026-11-16 02:46",
+   "date": "2026-11-16 23:25",
    "kind": "reel",
    "lang": "en",
-   "title": "Lindy Duncan Wins First LPGA Title After 222 Starts",
-   "dur": 46,
-   "post_id": "855563014316257"
+   "title": "Blackhawks Host Maple Leafs in NHL Homestand Preview",
+   "dur": 58,
+   "post_id": "1336505481858804"
   }
  },
  "errors": [],
- "agent_checks": 186,
- "agent_rejects": 178,
- "agent_skips": 56,
- "clips_rejected": 235,
- "alt_searches": 4,
- "time_budget_hit": true
+ "clips_rejected": 69,
+ "agent_checks": 83,
+ "agent_rejects": 69,
+ "agent_skips": 0,
+ "alt_searches": 1
 }
