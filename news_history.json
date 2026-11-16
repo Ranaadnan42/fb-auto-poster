@@ -1171,6 +1171,22 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122110746081532804"
+  },
+  {
+   "date": "2026-11-16 22:08",
+   "lang": "en",
+   "topic": "business",
+   "link": "https://www.bbc.co.uk/news/videos/c60rkn7vdjxxo?at_medium=RSS&at_campaign=rss",
+   "title": "'Parents are offering to pay kids' wages': Salon owner",
+   "words": [
+    "kids",
+    "offering",
+    "owner",
+    "parents",
+    "salon",
+    "wages"
+   ],
+   "post_id": "1448208791702551_122110784667532804"
   }
  ],
  "sports": [
@@ -2339,6 +2355,18 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122103200373548502"
+  },
+  {
+   "date": "2026-11-16 22:08",
+   "lang": "en",
+   "topic": "american_football",
+   "link": "https://news.google.com/rss/articles/CBMibEFVX3lxTE5MX1EyRmYyTUQ1anNUTVpJTmpzdWwtZTRMWUMyVHFhUWtvMlB6UklpaFFobTFjdUJzejhPNmRtUk45V2lWdWpiYlJ2MnpYVjR2aFZhQnJkN05vQUdkOHlER1M5bEFnVG5GT2xLXw?oc=5",
+   "title": "#ProHogs In The NFL – Week 10",
+   "words": [
+    "prohogs",
+    "week"
+   ],
+   "post_id": "1465090056678690_122103257871548502"
   }
  ],
  "used_images": [
@@ -2419,6 +2447,8 @@
   "pxi1846039",
   "pxi2224136",
   "wmi65353241",
-  2778583
+  2778583,
+  "pxi9216455",
+  1663087
  ]
 }
