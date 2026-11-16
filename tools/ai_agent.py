@@ -26,7 +26,9 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 os.chdir(ROOT)
 REC = "agent_record.json"
 MAX_STEPS = 18
-MAX_EDITS = 3
+# Adnan ka WhatsApp hukam (Super Manager -> manager.yml) - is mode mein agent wohi karta hai jo malik ne kaha
+ORDER = (os.environ.get("OWNER_ORDER") or "").strip()
+MAX_EDITS = 6 if ORDER else 3
 NO_EDIT = ("tools/ai_agent.py", "tools/ai_employee.py", "tools/ghapi.py")
 SUPA_FIX = "https://fobzocsluzwcqretshnm.supabase.co/functions/v1/ai-employee?run=1"
 NOW = ghapi.utcnow()
@@ -132,13 +134,21 @@ def t_edit(path, old, new, why=""):
     path = os.path.normpath(path)
     if len(STATE["edits"]) >= MAX_EDITS:
         return "is dafa ki edit limit poori"
-    if not path.endswith(".py") or path in NO_EDIT or path.startswith(("..", ".github")):
-        return "is file ko edit karne ki ijazat nahi (sirf bots ki .py files)"
+    wf_ok = False   # GitHub ka token workflow files push nahi kar sakta - timing badalni ho to needs_owner
+    js_ok = bool(ORDER) and path.endswith(".json") and "/" not in path and "token" not in path
+    if path in NO_EDIT or path.startswith("..") or not (path.endswith(".py") and not path.startswith(".github")
+                                                         or wf_ok or js_ok):
+        return "is file ko edit karne ki ijazat nahi (bots ki .py; malik ke hukam par workflows .yml / .json bhi)"
     src = open(path, encoding="utf-8").read() if os.path.isfile(path) else None
     if src is None or src.count(old) != 1:
         return "old text file mein theek ek dafa nahi mila - pehle read_file se exact text lo"
     open(path, "w", encoding="utf-8").write(src.replace(old, new))
-    chk = sh(f"python3 -m py_compile {path} && echo OK")
+    if path.endswith(".py"):
+        chk = sh(f"python3 -m py_compile {path} && echo OK")
+    elif path.endswith(".json"):
+        chk = sh(f"python3 -c 'import json,sys;json.load(open(sys.argv[1]))' {path} && echo OK")
+    else:
+        chk = sh(f"python3 -c 'import yaml,sys;yaml.safe_load(open(sys.argv[1]))' {path} && echo OK")
     if not chk.endswith("OK"):
         open(path, "w", encoding="utf-8").write(src)
         return f"compile fail, wapas kar diya: {chk[-400:]}"
@@ -174,7 +184,74 @@ def t_supabase():
         return f"fail: {e}"
 
 
+PAGE_ENV = {"islamic": "FB", "funny": "FUNNY", "frames": "FRAMES", "webbuilder": "WB", "news": "NEWS",
+            "newsur": "NEWSUR", "sports": "SPORTS", "scenic": "SCENIC", "war": "WAR", "birds": "BIRDS",
+            "pets": "PETS", "wild": "WILD", "faizi": "FAIZI", "legends": "CINE_FB"}
+
+
+def t_page(page, method="GET", edge="", params=None):
+    """Malik ke hukam par FB page par seedha kaam (Graph API): bio/description/website, post, post delete, info."""
+    key = PAGE_ENV.get(str(page).lower())
+    if not key:
+        return f"page '{page}' nahi pehchana. Mojood: {', '.join(PAGE_ENV)}"
+    pid = os.environ.get(f"{key}_PAGE_ID") or ""
+    tok = os.environ.get(f"{key}_PAGE_TOKEN") or os.environ.get(f"{key}_TOKEN") or ""
+    if not (pid and tok):
+        return f"{page} ka token/ID is job mein nahi"
+    method = str(method).upper()
+    if method not in ("GET", "POST", "DELETE"):
+        return "sirf GET/POST/DELETE"
+    if method == "DELETE" and not edge:
+        return "poora page delete nahi ho sakta"
+    if method != "GET" and not ORDER:
+        return "page par tabdeeli sirf malik ke hukam par"
+    edge = str(edge or "").strip("/")
+    path = edge if (edge and edge.split("/")[0].replace("_", "").isdigit()) else "/".join(x for x in (pid, edge) if x)
+    p = dict(params or {})
+    p["access_token"] = tok
+    r = requests.request(method, f"https://graph.facebook.com/v23.0/{path}",
+                         params=p if method == "GET" else None, data=p if method != "GET" else None, timeout=90)
+    if method != "GET":
+        STATE["actions"].append(f"{page}: {method} {edge or 'page'} {json.dumps(params or {}, ensure_ascii=False)[:80]}")
+    return r.text[:4000]
+
+
+def t_youtube(channel, method="GET", endpoint="channels", params=None, body=None):
+    """Malik ke hukam par YouTube channel par seedha kaam (YouTube Data API v3)."""
+    import yt
+    ch = str(channel).lower()
+    if ch in ("legends", "legends_untold", "cinematic"):
+        ch = "default"
+    if ch == "default" and os.environ.get("YT_REFRESH_TOKEN"):
+        os.environ.setdefault("YT_DEFAULT_REFRESH_TOKEN", os.environ["YT_REFRESH_TOKEN"])
+    if not yt.enabled(ch):
+        return f"channel '{channel}' ka token is job mein nahi (islamic/funny/frames/world/legends/movie)"
+    method = str(method).upper()
+    if method not in ("GET", "POST", "PUT", "DELETE"):
+        return "sirf GET/POST/PUT/DELETE"
+    if method != "GET" and not ORDER:
+        return "channel par tabdeeli sirf malik ke hukam par"
+    p = dict(params or {})
+    if method == "GET" and endpoint in ("channels",) and "id" not in p:
+        p.setdefault("mine", "true")
+    r = requests.request(method, f"https://www.googleapis.com/youtube/v3/{str(endpoint).strip('/')}",
+                         headers={"Authorization": f"Bearer {yt._token(ch)}"}, params=p,
+                         json=body if body is not None else None, timeout=90)
+    if method != "GET":
+        STATE["actions"].append(f"YouTube {channel}: {method} {endpoint} {json.dumps(p, ensure_ascii=False)[:60]}")
+    return r.text[:4000]
+
+
 TOOLS = {
+    "youtube_api": (t_youtube, "channel (islamic/funny/frames/world/legends/movie), method GET|POST|PUT|DELETE, endpoint "
+                               "(channels, videos, search, playlists, playlistItems, commentThreads, comments...), params {}, "
+                               "body {} - YouTube channel par seedha kaam: video ka title/description/tags badlo "
+                               "(PUT videos part=snippet), video delete, playlist banao, comments ka jawab, channel ka "
+                               "description (PUT channels part=brandingSettings), stats parho"),
+    "page_api": (t_page, "page (islamic/funny/frames/webbuilder/news/newsur/sports/scenic/war/birds/pets/wild/faizi/legends), "
+                         "method GET|POST|DELETE, edge (khali = page khud; 'feed', 'photos', 'published_posts', ya post id), "
+                         "params {} - FB page par seedha kaam: about/description/website badlo (POST edge khali), "
+                         "text post (feed: message,link), photo post (photos: url,caption), post delete, info/insights parho"),
     "read_run_log": (t_run_log, "run_id - fail run ka error log"),
     "read_file": (t_read_file, "path, start, end - code parho"),
     "grep": (t_grep, "pattern - repo mein dhoondo (regex)"),
@@ -187,7 +264,15 @@ TOOLS = {
 SYSTEM = f"""You are the AI agent (employee) that keeps a set of automated bots healthy without any human.
 Repo: GitHub Actions bots that post videos/photos to Facebook pages and YouTube channels (Atlas Untold, Frames of Life,
 Islamic, Hansi Ka Adda, Legends Untold, Web Builder), a website agent, plus a Supabase sales system.
-You get a health report. For every problem: find the real cause, then fix it yourself.
+You get a health report (or an OWNER ORDER). For every problem: find the real cause, then fix it yourself.
+OWNER ORDER mode: the owner (Adnan) gave an order on WhatsApp. Do EXACTLY what he asked - completely, nothing extra,
+nothing else changed. FB page changes (bio, description, website, posting now, deleting a post) -> page_api.
+YouTube channel changes (video title/description/tags, delete video, playlists, channel description, comment replies) ->
+youtube_api (for PUT videos first GET the video snippet and send the full snippet back with your change).
+Bot behaviour changes (topics, posts per day, timing, captions, hashtags, language, style) -> find the right code
+(grep/read_file) and edit_file; owner orders MAY change captions/schedules/content (and a top-level .json like content_rules.json;
+.github workflow files can NOT be pushed - for a cron/timing change put it in needs_owner) - that is what he asked. Then run_workflow for that bot if he wants it now.
+If something truly can't be done (new token, login, payment), say so in needs_owner. Summary: Roman Urdu, what you did.
 Rules:
 - Read the failing run's log (read_run_log) before deciding. Look at code (grep/read_file) before editing.
 - Temporary causes (network, timeout, 429 quota, 5xx) -> rerun_failed. Do NOT edit code for them.
@@ -256,15 +341,18 @@ def main():
         notes.append(f"runs list na mili: {e}")
 
     problems = health.get("problems", [])
-    if not fails and not problems:
+    if ORDER:      # malik ka hukam - sehat ki report nahi, sirf hukam
+        fails, problems = [], []
+    if not ORDER and not fails and not problems:
         rec.update({"time_utc": NOW.strftime("%Y-%m-%d %H:%M"), "summary": "sab theek, kuch karne ki zaroorat nahi",
                     "notes": notes, "actions": [], "needs_owner": []})
         json.dump(rec, open(REC, "w"), ensure_ascii=False, indent=1)
         log("sab theek")
         return
 
+    first = ("OWNER ORDER (WhatsApp se, Adnan):\n" + ORDER) if ORDER else None
     msgs = [{"role": "system", "content": SYSTEM},
-            {"role": "user", "content": "HEALTH REPORT\nproblems:\n" + "\n".join(problems[:30]) +
+            {"role": "user", "content": first} if first else {"role": "user", "content": "HEALTH REPORT\nproblems:\n" + "\n".join(problems[:30]) +
              "\n\nfailed runs (last 26h):\n" + json.dumps(fails[:25], indent=0) +
              ("\n\nnotes:\n" + "\n".join(notes) if notes else "")}]
     final = {}

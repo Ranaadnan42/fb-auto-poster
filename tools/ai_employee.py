@@ -35,10 +35,8 @@ BOTS = {
     "photos_last_run.json": ("Photo posts", 30),
     "webbuilder_en_last_run.json": ("Web Builder photo (English)", 30),
     "webbuilder_ur_last_run.json": ("Web Builder photo (Urdu)", 30),
-    "webbuilder_ar_last_run.json": ("Web Builder photo (Arabic)", 30),
     "webbuilder_video_en_reel_last_run.json": ("Web Builder reel (English)", 30),
     "webbuilder_video_ur_reel_last_run.json": ("Web Builder reel (Urdu)", 30),
-    "webbuilder_video_ar_reel_last_run.json": ("Web Builder reel (Arabic)", 30),
     "site_last_run.json": ("Website/blog agent", 30),
     "growth_last_run.json": ("Growth (comments)", 30),
 }

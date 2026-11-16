@@ -55,6 +55,16 @@ PAGES = {
                        "and mobile apps. Serving Saudi Arabia, UAE, Pakistan and worldwide.",
         "website": SITE,
     }),
+    # baaqi saare pages - settings pehle se set hain, sirf nigrani (followers, posting, ruka bot chalao)
+    "news": ("NEWS_PAGE_ID", "NEWS_PAGE_TOKEN", "news.yml", {}),
+    "newsur": ("NEWSUR_PAGE_ID", "NEWSUR_PAGE_TOKEN", "news.yml", {}),
+    "sports": ("SPORTS_PAGE_ID", "SPORTS_PAGE_TOKEN", "news.yml", {}),
+    "scenic": ("SCENIC_PAGE_ID", "SCENIC_PAGE_TOKEN", "scenic.yml", {}),
+    "war": ("WAR_PAGE_ID", "WAR_PAGE_TOKEN", "war.yml", {}),
+    "birds": ("BIRDS_PAGE_ID", "BIRDS_PAGE_TOKEN", "birds.yml", {}),
+    "pets": ("PETS_PAGE_ID", "PETS_PAGE_TOKEN", "pets.yml", {}),
+    "wild": ("WILD_PAGE_ID", "WILD_PAGE_TOKEN", "wildlife.yml", {}),
+    "faizi": ("FAIZI_PAGE_ID", "FAIZI_PAGE_TOKEN", "faizi.yml", {}),
 }
 # Facebook kabhi kabhi metric naam badalta hai - jo chale wohi le lo
 METRICS = ["page_follows", "page_media_view", "page_total_media_view_unique",
@@ -126,9 +136,11 @@ def check_page(name, pid, token, workflow, defaults, rec):
 
     # 4. posting ruki to bot chalao (din mein 1 dafa)
     try:
-        posts = fb("GET", f"{pid}/published_posts", token, limit=5, fields="created_time").get("data", [])
+        posts = fb("GET", f"{pid}/published_posts", token, limit=40, fields="created_time").get("data", [])
     except Exception:
-        posts = fb("GET", f"{pid}/feed", token, limit=5, fields="created_time").get("data", [])
+        posts = fb("GET", f"{pid}/feed", token, limit=40, fields="created_time").get("data", [])
+    out["posts_24h"] = sum(1 for p in posts if (NOW - dt.datetime.strptime(
+        p["created_time"], "%Y-%m-%dT%H:%M:%S%z")).total_seconds() < 86400)
     last = max((dt.datetime.strptime(p["created_time"], "%Y-%m-%dT%H:%M:%S%z") for p in posts), default=None)
     out["last_post"] = last.isoformat(timespec="minutes") if last else None
     gap = (NOW - last).total_seconds() / 3600 if last else 999

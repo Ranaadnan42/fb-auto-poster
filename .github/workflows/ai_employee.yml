@@ -60,19 +60,52 @@ jobs:
           SCENIC_PAGE_TOKEN: ${{ secrets.SCENIC_PAGE_TOKEN }}
           WAR_PAGE_ID: ${{ secrets.WAR_PAGE_ID }}
           WAR_PAGE_TOKEN: ${{ secrets.WAR_PAGE_TOKEN }}
+          NEWS_PAGE_ID: ${{ secrets.NEWS_PAGE_ID }}
+          NEWS_PAGE_TOKEN: ${{ secrets.NEWS_PAGE_TOKEN }}
+          NEWSUR_PAGE_ID: ${{ secrets.NEWSUR_PAGE_ID }}
+          NEWSUR_PAGE_TOKEN: ${{ secrets.NEWSUR_PAGE_TOKEN }}
+          SPORTS_PAGE_ID: ${{ secrets.SPORTS_PAGE_ID }}
+          SPORTS_PAGE_TOKEN: ${{ secrets.SPORTS_PAGE_TOKEN }}
+          BIRDS_PAGE_ID: ${{ secrets.BIRDS_PAGE_ID }}
+          BIRDS_PAGE_TOKEN: ${{ secrets.BIRDS_PAGE_TOKEN }}
+          PETS_PAGE_ID: ${{ secrets.PETS_PAGE_ID }}
+          PETS_PAGE_TOKEN: ${{ secrets.PETS_PAGE_TOKEN }}
+          WILD_PAGE_ID: ${{ secrets.WILD_PAGE_ID }}
+          WILD_PAGE_TOKEN: ${{ secrets.WILD_PAGE_TOKEN }}
+          FAIZI_PAGE_ID: ${{ secrets.FAIZI_PAGE_ID }}
+          FAIZI_PAGE_TOKEN: ${{ secrets.FAIZI_PAGE_TOKEN }}
+          YT_CLIENT_ID: ${{ secrets.YT_CLIENT_ID }}
+          YT_CLIENT_SECRET: ${{ secrets.YT_CLIENT_SECRET }}
+          YT_REFRESH_TOKEN: ${{ secrets.YT_REFRESH_TOKEN }}
+          YT_ISLAMIC_CLIENT_ID: ${{ secrets.YT_ISLAMIC_CLIENT_ID }}
+          YT_ISLAMIC_CLIENT_SECRET: ${{ secrets.YT_ISLAMIC_CLIENT_SECRET }}
+          YT_ISLAMIC_REFRESH_TOKEN: ${{ secrets.YT_ISLAMIC_REFRESH_TOKEN }}
+          YT_FUNNY_CLIENT_ID: ${{ secrets.YT_FUNNY_CLIENT_ID }}
+          YT_FUNNY_CLIENT_SECRET: ${{ secrets.YT_FUNNY_CLIENT_SECRET }}
+          YT_FUNNY_REFRESH_TOKEN: ${{ secrets.YT_FUNNY_REFRESH_TOKEN }}
+          YT_FRAMES_CLIENT_ID: ${{ secrets.YT_FRAMES_CLIENT_ID }}
+          YT_FRAMES_CLIENT_SECRET: ${{ secrets.YT_FRAMES_CLIENT_SECRET }}
+          YT_FRAMES_REFRESH_TOKEN: ${{ secrets.YT_FRAMES_REFRESH_TOKEN }}
+          YT_WORLD_CLIENT_ID: ${{ secrets.YT_WORLD_CLIENT_ID }}
+          YT_WORLD_CLIENT_SECRET: ${{ secrets.YT_WORLD_CLIENT_SECRET }}
+          YT_WORLD_REFRESH_TOKEN: ${{ secrets.YT_WORLD_REFRESH_TOKEN }}
+          YT_MOVIE_CLIENT_ID: ${{ secrets.YT_MOVIE_CLIENT_ID }}
+          YT_MOVIE_CLIENT_SECRET: ${{ secrets.YT_MOVIE_CLIENT_SECRET }}
+          YT_MOVIE_REFRESH_TOKEN: ${{ secrets.YT_MOVIE_REFRESH_TOKEN }}
         run: |
-          pip install -q requests >/dev/null 2>&1 || true
+          pip install -q requests pillow >/dev/null 2>&1 || true
           python3 tools/page_manager.py || true
+          python3 tools/yt_manager.py || true
           python3 tools/weekly_tasks.py || true
       - name: Save record
         run: |
           git config user.name "auto-poster"
           git config user.email "auto-poster@users.noreply.github.com"
-          cp employee_github.json /tmp/emp.json; cp agent_record.json /tmp/agent.json 2>/dev/null || true; cp content_rules.json /tmp/rules.json 2>/dev/null || true; cp page_manager.json /tmp/pm.json 2>/dev/null || true; cp weekly_tasks.json /tmp/wt.json 2>/dev/null || true
+          cp employee_github.json /tmp/emp.json; cp agent_record.json /tmp/agent.json 2>/dev/null || true; cp content_rules.json /tmp/rules.json 2>/dev/null || true; cp page_manager.json /tmp/pm.json 2>/dev/null || true; cp weekly_tasks.json /tmp/wt.json 2>/dev/null || true; cp yt_manager.json /tmp/ytm.json 2>/dev/null || true
           for i in 1 2 3 4 5; do
             git fetch -q origin main && git reset -q --hard origin/main
-            cp /tmp/emp.json employee_github.json; cp /tmp/agent.json agent_record.json 2>/dev/null || true; cp /tmp/rules.json content_rules.json 2>/dev/null || true; cp /tmp/pm.json page_manager.json 2>/dev/null || true; cp /tmp/wt.json weekly_tasks.json 2>/dev/null || true
-            git add employee_github.json; git add agent_record.json content_rules.json page_manager.json weekly_tasks.json 2>/dev/null || true
+            cp /tmp/emp.json employee_github.json; cp /tmp/agent.json agent_record.json 2>/dev/null || true; cp /tmp/rules.json content_rules.json 2>/dev/null || true; cp /tmp/pm.json page_manager.json 2>/dev/null || true; cp /tmp/wt.json weekly_tasks.json 2>/dev/null || true; cp /tmp/ytm.json yt_manager.json 2>/dev/null || true
+            git add employee_github.json; git add agent_record.json content_rules.json page_manager.json weekly_tasks.json yt_manager.json 2>/dev/null || true
             git diff --cached --quiet && break
             git commit -q -m "AI employee record"
             git push -q origin HEAD:main && break
@@ -80,3 +113,5 @@ jobs:
           done
       - name: Database side (leads, demo websites, cron)
         run: curl -s -m 170 "https://fobzocsluzwcqretshnm.supabase.co/functions/v1/ai-employee?run=1" | head -c 2000 || true
+      - name: Super Manager - naye bade masle foran WhatsApp par
+        run: curl -s -m 90 "https://fobzocsluzwcqretshnm.supabase.co/functions/v1/wa-report?watch=1" | head -c 500 || true
