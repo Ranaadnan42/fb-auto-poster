@@ -1,29 +1,38 @@
 {
- "time_utc": "2026-11-15 23:24",
+ "time_utc": "2026-11-16 20:05",
  "mode": "reel",
  "dry_run": true,
  "errors": [],
+ "country": "United States",
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 344,
- "alt_searches": 5,
- "agent_checks": 344,
- "agent_rejects": 334,
- "agent_skips": 0,
+ "clips_rejected": 315,
+ "alt_searches": 6,
  "no_match": [
-  "Nile River valley gorge",
-  "Sudan desert Nile bank",
-  "ancient human skeleton excavation footage",
-  "prehistoric skeleton display museum",
-  "archaeological dig site aerial"
+  "Gettysburg National Military Park United States",
+  "Fort Sumter South Carolina United States",
+  "Lincoln Memorial Washington DC United States",
+  "Fort Sumter South Carolina United States",
+  "Vicksburg National Military Park Mississippi United States",
+  "Gettysburg battlefield Pennsylvania United States",
+  "Atlanta skyline Georgia United States",
+  "Appomattox Court House Virginia United States",
+  "United States Capitol Washington DC",
+  "Arlington National Cemetery Virginia United States",
+  "Emancipation Memorial Washington DC United States",
+  "Lincoln Memorial Washington DC United States"
  ],
- "headline_cards": 5,
- "posted": {
-  "war": "Prehistoric warfare",
-  "wiki": "Prehistoric warfare",
-  "date": "2026-11-15 23:24",
-  "title": "The First War in Human History: Prehistoric Warfare Revealed | History of Every War #1",
+ "headline_cards": 12,
+ "agent_checks": 127,
+ "agent_rejects": 127,
+ "agent_skips": 186,
+ "time_budget_hit": true,
+ "dry": {
+  "war": "American Civil War",
+  "wiki": "American Civil War",
+  "date": "2026-11-16 20:05",
+  "title": "America's Deadliest Conflict Exposed: The American Civil War | History of Every War #1",
   "episode": 1,
-  "dur": 84
+  "dur": 79
  }
 }
