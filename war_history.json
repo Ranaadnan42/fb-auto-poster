@@ -1,38 +1,8 @@
 {
  "country_i": 0,
  "country_n": 0,
- "reel": [
-  {
-   "war": "Prehistoric warfare",
-   "wiki": "Prehistoric warfare",
-   "date": "2026-11-16 00:27",
-   "title": "The Oldest War in Human History: Prehistoric Warfare | History of Every War #1",
-   "episode": 1,
-   "dur": 85,
-   "post_id": "1699122485060839",
-   "story_id": "1784013929494358"
-  }
- ],
- "long": [
-  {
-   "war": "Prehistoric warfare",
-   "wiki": "Prehistoric warfare",
-   "date": "2026-11-16 00:27",
-   "title": "One in Ten Early Humans Faced Battle: The Truth of Prehistoric War | History of Every War #1",
-   "episode": 1,
-   "dur": 349,
-   "post_id": "29630280736589355"
-  },
-  {
-   "war": "Jebel Sahaba",
-   "wiki": "Jebel Sahaba",
-   "date": "2026-11-16 02:08",
-   "title": "The Oldest War in History: The Prehistoric Slaughter at Jebel Sahaba | History of Every War #2",
-   "episode": 2,
-   "dur": 334,
-   "post_id": "1641511604436805"
-  }
- ],
+ "reel": [],
+ "long": [],
  "used_clips": [
   "px44890",
   "px10877",

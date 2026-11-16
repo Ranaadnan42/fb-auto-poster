@@ -17,7 +17,7 @@ on:
       mode:
         description: 'Kya banaye'
         type: choice
-        options: [reel, long, pics, brand]
+        options: [reel, long, pics, brand, delete]
         default: reel
       war:
         description: 'Khaas jang (Wikipedia title) - khali = agli jang khud'

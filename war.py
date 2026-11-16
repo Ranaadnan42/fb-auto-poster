@@ -63,7 +63,22 @@ REPORT = {"time_utc": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), "mo
 ANCIENT = ['Prehistoric warfare', 'Jebel Sahaba', 'Nataruk', 'Talheim Death Pit', 'Lagash–Umma border conflict', 'Sargon of Akkad', 'Battle of Megiddo (15th century BC)', 'Battle of the Ten Kings', 'Battle of Kadesh', 'Trojan War', 'Battle of Muye', 'Battle of Djahy', 'Siege of Lachish', 'Battle of Marathon', 'Battle of Thermopylae', 'Battle of Salamis', 'Peloponnesian War', 'Kalinga War']
 # 2) Phir saltanatein: Persian, Roman, Arab (tarteeb se)
 EMPIRES = ['Fall of Babylon', 'Battle of Opis', 'Battle of Pelusium (525 BC)', 'Greco-Persian Wars', 'Battle of Issus', 'Battle of Gaugamela', 'Samnite Wars', 'Pyrrhic War', 'First Punic War', 'Second Punic War', 'Battle of Cannae', 'Battle of Zama', 'Macedonian Wars', 'Third Punic War', 'Mithridatic Wars', 'Gallic Wars', 'Battle of Alesia', 'Battle of Carrhae', "Caesar's civil war", 'Battle of Pharsalus', 'Battle of Philippi', 'Battle of Actium', 'Battle of the Teutoburg Forest', 'Roman conquest of Britain', "Boudica's uprising", 'Roman–Parthian Wars', 'Siege of Jerusalem (70 CE)', 'Bar Kokhba revolt', 'Roman–Persian Wars', 'Battle of Edessa', 'Battle of the Milvian Bridge', 'Battle of Adrianople', 'Sack of Rome (410)', 'Battle of the Catalaunian Plains', 'Fall of the Western Roman Empire', 'Gothic War (535–554)', 'Byzantine–Sasanian War of 602–628', 'Battle of Dhi Qar', 'Battle of Badr', 'Battle of Uhud', 'Battle of the Trench', 'Conquest of Mecca', 'Ridda wars', 'Battle of Yarmuk', 'Muslim conquest of the Levant', 'Battle of al-Qadisiyyah', 'Muslim conquest of Persia', 'Battle of Nahavand', 'Muslim conquest of Egypt', 'Battle of the Camel', 'Battle of Siffin', 'Battle of Karbala', 'Siege of Constantinople (674–678)', 'Umayyad conquest of Hispania', 'Battle of Guadalete', 'Siege of Constantinople (717–718)', 'Battle of Tours', 'Battle of the Zab', 'Battle of Talas', 'Byzantine–Arab wars']
-WARS = ANCIENT + EMPIRES
+# malik ka faisla: sirf woh jangein jin ki ASLI film maujood hai - pehli filmi jang (1897) se aaj tak, tarteeb se
+FILM_WARS = [
+    "Greco-Turkish War (1897)", "Spanish–American War", "Philippine–American War", "Second Boer War",
+    "Boxer Rebellion", "Russo-Japanese War", "Mexican Revolution", "Italo-Turkish War", "First Balkan War",
+    "Second Balkan War", "World War I", "Gallipoli campaign", "Battle of the Somme", "Battle of Verdun",
+    "Russian Civil War", "Polish–Soviet War", "Greco-Turkish War (1919–1922)", "Irish War of Independence",
+    "Rif War", "Chinese Civil War", "Chaco War", "Second Italo-Ethiopian War", "Spanish Civil War",
+    "Second Sino-Japanese War", "Winter War", "World War II", "Battle of Britain", "Attack on Pearl Harbor",
+    "Battle of Stalingrad", "Battle of Midway", "Normandy landings", "Battle of Iwo Jima", "Battle of Berlin",
+    "Indo-Pakistani war of 1947–1948", "1948 Arab–Israeli War", "Korean War", "First Indochina War",
+    "Algerian War", "Suez Crisis", "Vietnam War", "Indo-Pakistani war of 1965", "Six-Day War",
+    "Indo-Pakistani war of 1971", "Yom Kippur War", "Soviet–Afghan War", "Iran–Iraq War", "Falklands War",
+    "Gulf War", "Bosnian War", "First Chechen War", "Kosovo War", "Kargil War", "War in Afghanistan (2001–2021)",
+    "Iraq War",
+]
+WARS = FILM_WARS
 
 # 3) Phir mulk-ba-mulk: har mulk ki ahem jangein (us mulk ke andar purani se nayi), phir agla mulk
 COUNTRIES = [
@@ -114,7 +129,8 @@ def country_war(h, done):
         c = COUNTRIES[h["country_i"] % len(COUNTRIES)]
         if h["country_n"] < PER_COUNTRY:
             j = news.ask_json(f"""For a war-history series that covers every country: list the most important wars and
-battles in the history of {c} (fought in or by {c}), OLDEST FIRST, not still ongoing.
+battles in the history of {c} (fought in or by {c}) FROM 1897 ONWARD ONLY (the film era - real footage must exist),
+OLDEST FIRST, not still ongoing.
 Never these (already covered): {json.dumps(sorted(done)[-300:])}
 Return JSON {{"wars": ["up to 6 exact English Wikipedia article titles, in chronological order"]}}""")
             for w in j.get("wars") or []:
@@ -229,13 +245,13 @@ def write_script(facts, episode):
   1) a scroll-stopping hook (a shocking true number or twist from the facts), 2) WHEN and WHERE, 3) WHY it started,
   4-6) how it unfolded / the turning point, 7) WHO WON and WHO LOST, 8) how many people died (as the facts say),
   9) what it changed + "Follow Battles Untold for the story of every war in history." """
-        series = f'\nThis is part {episode} of the series "History of Every War - from the very first war to today".'
+        series = f'\nThis is part {episode} of the series "History of Every War on Film - from the first war ever filmed to today".'
     else:
         shape = """a LONG documentary of 800-950 spoken words (5-6 minutes) in 26-34 scenes, with these chapters
   (put the chapter name in each scene's "label"): "THE HOOK", "BEFORE THE WAR", "WHY IT STARTED", "THE SIDES",
   "HOW IT UNFOLDED", "THE TURNING POINT", "WHO WON", "THE HUMAN COST", "WHAT IT CHANGED". End with: this was
   part N of History of Every War, follow Battles Untold, like and share, comment which war we should cover next."""
-        series = f'\nThis is part {episode} of the series "History of Every War - from the very first war to today".'
+        series = f'\nThis is part {episode} of the series "History of Every War on Film - from the first war ever filmed to today".'
     prompt = f"""You are the narrator and writer of the Facebook page "Battles Untold" (war history for viewers in the
 USA, UK, Europe, Canada, Australia and the Gulf). Write {shape}{series}
 Subject: {facts['title']}
@@ -704,6 +720,13 @@ def main():
     h = load_hist()
     if MODE == "pics":
         pics(P, h)
+        return
+    if MODE == "delete":                    # malik ke kehne par: diye gaye post/video id page se hatao
+        for vid in re.split(r"[\s,]+", os.environ.get("WAR_OVERRIDE", "").strip()):
+            if vid:
+                r = requests.delete(f"https://graph.facebook.com/v21.0/{vid}", params={"access_token": P["token"]},
+                                    timeout=60)
+                log(f"delete {vid}: {r.status_code} {r.text[:150]}")
         return
     war, episode = pick_war(h)
     if os.environ.get("WAR_OVERRIDE", "").strip():
