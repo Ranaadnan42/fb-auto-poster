@@ -1,31 +1,30 @@
 {
- "time_utc": "2026-11-16 00:27",
+ "time_utc": "2026-11-16 02:08",
  "mode": "long",
  "dry_run": false,
  "errors": [],
  "kind": "long",
  "lang": "en",
- "clips_rejected": 262,
- "agent_checks": 238,
- "agent_rejects": 217,
- "agent_skips": 42,
- "alt_searches": 4,
+ "clips_rejected": 211,
+ "alt_searches": 5,
+ "agent_checks": 220,
+ "agent_rejects": 207,
+ "agent_skips": 0,
  "no_match": [
-  "Lake Turkana Kenya drone footage",
-  "Naturhistorisches Museum Vienna Austria",
-  "ancient cemetery excavation site",
-  "Fortified hillfort earthworks Europe",
-  "Bronze Age weapons exhibit museum",
-  "archaeological landscape drone shot"
+  "Nile Valley Sudan",
+  "Wadi Halfa District Sudan",
+  "British Museum London",
+  "Lake Nasser Sudan",
+  "British Museum London"
  ],
- "headline_cards": 6,
+ "headline_cards": 5,
  "posted": {
-  "war": "Prehistoric warfare",
-  "wiki": "Prehistoric warfare",
-  "date": "2026-11-16 00:27",
-  "title": "One in Ten Early Humans Faced Battle: The Truth of Prehistoric War | History of Every War #1",
-  "episode": 1,
-  "dur": 349,
-  "post_id": "29630280736589355"
+  "war": "Jebel Sahaba",
+  "wiki": "Jebel Sahaba",
+  "date": "2026-11-16 02:08",
+  "title": "The Oldest War in History: The Prehistoric Slaughter at Jebel Sahaba | History of Every War #2",
+  "episode": 2,
+  "dur": 334,
+  "post_id": "1641511604436805"
  }
 }
