@@ -97,6 +97,7 @@ COUNTRIES = [
     "Cyprus", "Iceland",
 ]
 PER_COUNTRY = 12
+FILM_YEAR = 1897   # is se pehle ki jangon mein asli film nahi - us daur ki ASLI tasveerein (Commons)
 H_COUNTRY_N = [1]       # ek mulk ki zyada se zyada itni jangein, phir agla mulk
 
 
@@ -130,7 +131,7 @@ def country_war(h, done):
         c = COUNTRIES[h["country_i"] % len(COUNTRIES)]
         if h["country_n"] < PER_COUNTRY:
             j = news.ask_json(f"""For a war-history series that covers every country: list the most important wars and
-battles in the history of {c} (fought in or by {c}) FROM 1897 ONWARD ONLY (the film era - real footage must exist),
+battles in the history of {c} (fought in or by {c}) FROM 1850 ONWARD ONLY (the era of real war photographs and film),
 OLDEST FIRST, not still ongoing.
 Never these (already covered): {json.dumps(sorted(done)[-300:])}
 Include EVERY war and major battle of {c} in that period (not only famous ones), starting with its FIRST one.
@@ -238,7 +239,11 @@ def write_script(facts, episode):
         trends = trend_scout.text("war")
     except Exception:
         pass
-    if True:
+    if yr and yr < FILM_YEAR:
+        era = ("this war is BEFORE film existed, so the visuals are REAL PHOTOGRAPHS and paintings of that time "
+               "(battlefield photos, commanders' portraits, soldiers in camp, ships, forts). Talk about things such "
+               "photos can show: the commanders, the armies, the battlefield, the cities, the ships")
+    if True and not (yr and yr < FILM_YEAR):
         era = ("ONLY REAL VIDEO, NEVER pictures/paintings/maps: for 1900+ wars real archive newsreel film "
                "('<war> newsreel', '<battle> 1944 archive footage'); for every war ALSO the REAL PLACES as they look "
                "today on video - the battlefield, the fort/castle, the city, the river/mountain pass, the war memorial "
@@ -248,17 +253,17 @@ def write_script(facts, episode):
   1) a scroll-stopping hook (a shocking true number or twist from the facts), 2) WHEN and WHERE, 3) WHY it started,
   4-6) how it unfolded / the turning point, 7) WHO WON and WHO LOST, 8) how many people died (as the facts say),
   9) what it changed + "Follow Battles Untold for the story of every war in history." """
-        series = (f'\nThis is part {episode} of the series "Every Country\'s Wars on Film" - now: {REPORT.get("country", "")}, '
+        series = (f'\nThis is part {episode} of the series "Every Country\'s Wars on Camera" - now: {REPORT.get("country", "")}, '
                   f'war number {H_COUNTRY_N[0]} of {REPORT.get("country", "")} in the series. If it is number 1, say clearly '
-                  f'this was the first war of {REPORT.get("country", "")} caught on film.')
+                  f'this was the first war of {REPORT.get("country", "")} caught on camera.')
     else:
         shape = """a LONG documentary of 800-950 spoken words (5-6 minutes) in 26-34 scenes, with these chapters
   (put the chapter name in each scene's "label"): "THE HOOK", "BEFORE THE WAR", "WHY IT STARTED", "THE SIDES",
   "HOW IT UNFOLDED", "THE TURNING POINT", "WHO WON", "THE HUMAN COST", "WHAT IT CHANGED". End with: this was
   part N of History of Every War, follow Battles Untold, like and share, comment which war we should cover next."""
-        series = (f'\nThis is part {episode} of the series "Every Country\'s Wars on Film" - now: {REPORT.get("country", "")}, '
+        series = (f'\nThis is part {episode} of the series "Every Country\'s Wars on Camera" - now: {REPORT.get("country", "")}, '
                   f'war number {H_COUNTRY_N[0]} of {REPORT.get("country", "")} in the series. If it is number 1, say clearly '
-                  f'this was the first war of {REPORT.get("country", "")} caught on film.')
+                  f'this was the first war of {REPORT.get("country", "")} caught on camera.')
     prompt = f"""You are the narrator and writer of the Facebook page "Battles Untold" (war history for viewers in the
 USA, UK, Europe, Canada, Australia and the Gulf). Write {shape}{series}
 Subject: {facts['title']}
@@ -309,6 +314,62 @@ Return JSON:
 
 
 # ---------------------------------------------------------------- video
+def photo_terms(script, facts, subj):
+    """Film se pehle ki jang: us ki Wikipedia articles ki ASLI tasveerein (Commons) jama karo, phir AI har jumle ke
+    liye wohi tasveer chune jo bola ja raha hai (file ke naam se). Har scene ko '#img:<path>' terms milte hain."""
+    pool, seen = [], set()
+    for t in [facts["title"]] + subj:
+        try:
+            for im in war_images(t, 30):
+                if im["url"] not in seen:
+                    seen.add(im["url"])
+                    pool.append(im)
+        except Exception as e:
+            log(f"  tasveer pool fail '{t}': {str(e)[:80]}")
+        if len(pool) >= 60:
+            break
+    if len(pool) < 3:
+        log("  asli tasveerein kam - sirf video talaash")
+        return
+    names = "\n".join(f"{k}: {im['name']}" for k, im in enumerate(pool))
+    lines = "\n".join(f"{i}: {sc['text'][:300]}" for i, sc in enumerate(script["scenes"]))
+    try:
+        j = news.ask_json(f"""War documentary about "{facts['title']}". Real historical images (Wikimedia file names):
+{names}
+
+Narration scenes:
+{lines}
+
+For EACH scene choose 1-3 image indexes whose file name shows exactly what that scene says (the commander named,
+the battle named, the place, the ships...). Use each image at most once if possible. If nothing truly fits a scene,
+give []. Return JSON {{"pick": {{"0": [..], "1": [..]}}}}""")
+        pick = j.get("pick") or {}
+    except Exception as e:
+        log(f"  tasveer chunao fail: {str(e)[:100]}")
+        return
+    got = 0
+    for i, sc in enumerate(script["scenes"]):
+        paths = []
+        for k in (pick.get(str(i)) or [])[:3]:
+            try:
+                im = pool[int(k)]
+            except Exception:
+                continue
+            path = os.path.join(nv.WORK, f"hist_{i}_{len(paths)}.jpg")
+            url = ("https://commons.wikimedia.org/wiki/Special:FilePath/" + requests.utils.quote(im["name"].replace(" ", "_"))
+                   + "?width=1600")
+            try:
+                if footage.download(url, path, 20000):
+                    paths.append("#img:" + path)
+            except Exception as e:
+                log(f"  tasveer download fail {im['name'][:50]}: {str(e)[:60]}")
+        if paths:
+            sc["_imgs"] = paths
+            got += len(paths)
+            log(f"  scene {i}: asli tasveerein {[p.split('/')[-1] for p in paths]}")
+    REPORT["hist_photos"] = got
+
+
 def rematch_scene(sc, shown, facts):
     """Scene ki footage nahi mili: AI wohi facts rakh kar jumla us cheez ke gird likhe jo screen par dikh sakti hai."""
     opts = "\n".join(f"{k}: footage of {', '.join(v[0][:2])}" for k, v in enumerate(shown))
@@ -339,13 +400,16 @@ def build_video(script, facts, used):
                 f"{facts['title']} memorial", f"{place} fort"]
     fallback = [x for x in fallback if x.strip() and x.strip() != "@"]
     nv.STORY_CLIPS.clear()
+    yr = year_of(facts)
+    if yr and yr < FILM_YEAR:
+        photo_terms(script, facts, subj)
     # aawaz = tasveer: kisi aur scene ki clip random dobara NAHI lagegi. Jis jumle ki footage na mile,
     # wo jumla (wohi facts) us cheez ke gird dobara likha jata hai jis ki asli footage is video mein mil chuki.
     os.environ["NO_REUSE"] = "1"
     shown = []          # [(scene ki visuals, scene ka text, clip paths)] jo agent ne pass ki
     scenes = []
     for i, sc in enumerate(script["scenes"]):
-        terms = [t for t in (sc.get("visuals") or []) if isinstance(t, str) and t.strip()]
+        terms = list(sc.get("_imgs") or []) + [t for t in (sc.get("visuals") or []) if isinstance(t, str) and t.strip()]
         if not terms and place:
             terms = [place]
         label = str(sc.get("label") or "").strip().upper()[:40] or None

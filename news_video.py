@@ -355,10 +355,17 @@ def flag_clip(country, secs, out):
 
 
 def _try(t, secs, out, used, said, kind):
-    if late() and ALL_CLIPS and not t.startswith(("#flag:", "@")):
+    if late() and ALL_CLIPS and not t.startswith(("#flag:", "@", "#img:")):
         return False                  # waqt khatam - lambi talaash nahi, neeche pehle wali clip lagegi
-    if os.environ.get("NO_PHOTOS") == "1" and t.startswith(("#flag:", "@")):
+    if os.environ.get("NO_PHOTOS") == "1" and t.startswith(("#flag:", "@")) and not t.startswith("#img:"):
         return False                  # sirf asli video - jhanda/photo nahi
+    if t.startswith("#img:"):          # war page: us daur ki asli tasveer (pehle se chuni hui), harkat ke sath
+        try:
+            footage.photo_to_clip(t[5:], out, W, H, secs=secs, fps=FPS)
+            return True
+        except Exception as e:
+            log(f"  img clip fail: {str(e)[:80]}")
+            return False
     if t.startswith("#flag:"):
         return flag_clip(t[6:], secs, out)
     if t.startswith("@"):
