@@ -1,21 +1,31 @@
 {
- "time_utc": "2026-11-15 22:02",
+ "time_utc": "2026-11-16 02:46",
  "kind": "reel",
  "lang": "en",
- "dry_run": true,
+ "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-15 22:02",
+   "date": "2026-11-16 02:46",
    "kind": "reel",
    "lang": "en",
-   "title": "Remembering Donald Anthony Kersting Carter in the USA",
-   "dur": 49
+   "title": "SpaceX Catches Starship Rocket with Mechanical Arms",
+   "dur": 49,
+   "post_id": "2357580825083990"
+  },
+  "sports": {
+   "date": "2026-11-16 02:46",
+   "kind": "reel",
+   "lang": "en",
+   "title": "Lindy Duncan Wins First LPGA Title After 222 Starts",
+   "dur": 46,
+   "post_id": "855563014316257"
   }
  },
  "errors": [],
- "clips_rejected": 173,
- "agent_checks": 175,
- "agent_rejects": 171,
- "agent_skips": 0,
- "alt_searches": 3
+ "agent_checks": 186,
+ "agent_rejects": 178,
+ "agent_skips": 56,
+ "clips_rejected": 235,
+ "alt_searches": 4,
+ "time_budget_hit": true
 }
