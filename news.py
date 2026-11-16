@@ -213,10 +213,12 @@ CURRENT_PAGE = ""   # "news" / "sports" - har page ki apni Gemini key
 def gemini_json(prompt):
     key = (os.environ.get(f"{CURRENT_PAGE.upper()}_GEMINI_API_KEY") if CURRENT_PAGE else None) \
         or os.environ.get("GEMINI_API_KEY")
-    if not key:
+    # page ki apni key pehle; woh fail ho to sirf tab Default (backup) key
+    keys = [k for k in dict.fromkeys([key, os.environ.get("GEMINI_BACKUP_KEY")]) if k]
+    if not keys:
         raise RuntimeError("GEMINI_API_KEY nahi")
     last = None
-    for model in ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-2.5-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]:
+    for key, model in [(k, m) for k in keys for m in ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-2.5-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]]:
         try:
             r = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
                               params={"key": key}, timeout=120,

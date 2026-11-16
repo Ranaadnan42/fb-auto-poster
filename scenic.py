@@ -35,7 +35,8 @@ import footage
 PAGE_NAME = os.environ.get("SCENIC_PAGE_NAME", "Wander Earth")
 PAGE_ID = os.environ.get("SCENIC_PAGE_ID")
 TOKEN = os.environ.get("SCENIC_PAGE_TOKEN")
-KEYS = [k for k in dict.fromkeys([os.environ.get("SCENIC_GEMINI_API_KEY"), os.environ.get("GEMINI_API_KEY")]) if k]
+KEYS = [k for k in dict.fromkeys([os.environ.get("SCENIC_GEMINI_API_KEY"), os.environ.get("GEMINI_API_KEY"),
+                                 os.environ.get("GEMINI_BACKUP_KEY")]) if k]
 DRY_RUN = os.environ.get("DRY_RUN") == "1"
 MODE = (os.environ.get("MODE") or "reel").strip().lower()          # reel | pic | long
 GRAPH = "https://graph.facebook.com/v23.0"

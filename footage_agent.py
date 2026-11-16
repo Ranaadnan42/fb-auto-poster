@@ -28,7 +28,8 @@ STATS = {"agent_checks": 0, "agent_rejects": 0, "agent_skips": 0}
 
 def _keys():
     page = (os.environ.get("AGENT_PAGE") or "").upper()
-    ks = [os.environ.get(f"{page}_GEMINI_API_KEY") if page else None, os.environ.get("GEMINI_API_KEY")]
+    ks = [os.environ.get(f"{page}_GEMINI_API_KEY") if page else None, os.environ.get("GEMINI_API_KEY"),
+          os.environ.get("GEMINI_BACKUP_KEY")]   # Default key sirf backup
     return [k for k in dict.fromkeys(ks) if k]
 
 

@@ -31,6 +31,7 @@ jobs:
           SPORTS_PAGE_ID: ${{ secrets.SPORTS_PAGE_ID }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_BACKUP_KEY: ${{ secrets.GEMINI_BACKUP_KEY }}
           NEWS_GEMINI_API_KEY: ${{ secrets.NEWS_GEMINI_API_KEY }}
           SPORTS_GEMINI_API_KEY: ${{ secrets.SPORTS_GEMINI_API_KEY }}
         run: python brain.py
@@ -40,6 +41,7 @@ jobs:
           FUNNY_PAGE_TOKEN: ${{ secrets.FUNNY_PAGE_TOKEN }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_BACKUP_KEY: ${{ secrets.GEMINI_BACKUP_KEY }}
           FUNNY_GEMINI_API_KEY: ${{ secrets.GEMINI_KEY_FUNNY || secrets.GEMINI_API_KEY }}
         run: python funny_brain.py
       - name: Web Builder - seekho aur plan badlo
@@ -48,6 +50,7 @@ jobs:
           WB_PAGE_TOKEN: ${{ secrets.WB_PAGE_TOKEN }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_BACKUP_KEY: ${{ secrets.GEMINI_BACKUP_KEY }}
         run: pip install -q google-genai && python wb_brain.py
       - name: Islamic + Frames of Life - seekho aur plan badlo
         if: always()
@@ -56,6 +59,7 @@ jobs:
           FRAMES_PAGE_TOKEN: ${{ secrets.FRAMES_PAGE_TOKEN }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_BACKUP_KEY: ${{ secrets.GEMINI_BACKUP_KEY }}
         run: pip install -q google-genai && python page_brain.py
       - name: Save plan
         if: always()
