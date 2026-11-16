@@ -1,13 +1,45 @@
 {
- "open_fixes": [],
- "time_utc": "2026-11-15 20:26",
- "summary": "Tamam fail honay walay runs (Funny Videos Poster, Daily Auto Poster, Wander Earth Scenic Agent) AI quota (429), high demand (503) aur timeouts ki wajah se thay jo ke temporary hain. Inhein rerun kar diya gaya hai aur system bilkul theek chal raha hai.",
+ "open_fixes": [
+  {
+   "commit": "6dddb668de1fe8937ace2998381219896bb807dd",
+   "workflow": "scenic.yml",
+   "why": "Updating retired/invalid Gemini model IDs to current working ones to fix 404 errors.",
+   "time": "2026-11-16T11:46:43.924772"
+  },
+  {
+   "commit": "6dddb668de1fe8937ace2998381219896bb807dd",
+   "workflow": "webbuilder.yml",
+   "why": "Update retired AI model IDs to working Gemini 1.5/2.0 models to prevent 404/429 errors.",
+   "time": "2026-11-16T11:46:43.924772"
+  },
+  {
+   "commit": "6dddb668de1fe8937ace2998381219896bb807dd",
+   "workflow": "brain.yml",
+   "why": "Update Gemini model list to currently supported versions.",
+   "time": "2026-11-16T11:46:43.924772"
+  }
+ ],
+ "time_utc": "2026-11-16 11:46",
+ "summary": "Gemini ke purane/retired model IDs (gemini-2.5/3.x) ki wajah se 404 aur 429 errors aa rahe thay, jinhein update kar ke gemini-1.5-flash aur 2.0-flash-exp se replace kar diya gaya hai. Failed workflows rerun/trigger kar diye gaye hain.",
  "notes": [],
  "actions": [
-  "run 43698172287 (Funny Videos Poster [8 2 * * *]) dobara chalaya",
-  "run 43694321825 (Daily Auto Poster [37 1 * * *]) dobara chalaya",
-  "database wala hissa (leads/demo/cron) theek karwaya"
+  "run 43775361956 (Wander Earth (Scenic Agent) [48 19 * * *]) dobara chalaya",
+  "code fix push kiya (6dddb66)",
+  "webbuilder.yml naye code ke saath chalaya"
  ],
- "edits": [],
+ "edits": [
+  {
+   "path": "scenic.py",
+   "why": "Updating retired/invalid Gemini model IDs to current working ones to fix 404 errors."
+  },
+  {
+   "path": "wb_video.py",
+   "why": "Update retired AI model IDs to working Gemini 1.5/2.0 models to prevent 404/429 errors."
+  },
+  {
+   "path": "wb_brain.py",
+   "why": "Update Gemini model list to currently supported versions."
+  }
+ ],
  "needs_owner": []
 }
