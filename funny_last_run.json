@@ -1,12 +1,13 @@
 {
  "mode": "auto",
- "stock_clips": 0,
+ "stock_clips": 48,
  "fallback_clips": 0,
  "errors": [],
- "format": "cartoon",
- "reel_minutes": 0.72,
- "laughs": 3,
- "time_utc": "2026-11-16 15:36",
- "title": "ماما رشید اور مہندی کا خالی لفافہ",
+ "format": "story",
+ "long_minutes": 5.72,
+ "series": "ماجد بریک اور رکشے کا عذاب part 1 (ai)",
+ "laughs": 7,
+ "time_utc": "2026-11-16 18:51",
+ "title": "ماجد بریک اور رکشے کا عذاب | قسط 1",
  "dry_run": false
 }
