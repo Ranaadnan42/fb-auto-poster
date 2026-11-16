@@ -1,31 +1,26 @@
 {
- "time_utc": "2026-11-15 18:59",
+ "time_utc": "2026-11-16 17:54",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-15 18:59",
+   "date": "2026-11-16 17:54",
    "kind": "reel",
    "lang": "ur",
-   "title": "پاکستان میں آئی سی سی ایونٹ کی میزبانی کی امید",
-   "dur": 52,
-   "post_id": "1027750467008490"
-  },
-  "sports": {
-   "date": "2026-11-15 18:59",
-   "kind": "reel",
-   "lang": "ur",
-   "title": "ایبرڈین فٹ بال کلب کے نئے ہیڈ کوچ کا اعلان",
-   "dur": 57,
-   "post_id": "2354464111973264"
+   "title": "پاک بھارت ساف چیمپئن شپ فائنل پیشگوئی",
+   "dur": 51,
+   "post_id": "1818063012831704"
   }
  },
  "errors": [],
- "clips_rejected": 196,
- "alt_searches": 5,
- "agent_checks": 185,
- "agent_rejects": 176,
- "agent_skips": 19,
- "time_budget_hit": true
+ "clips_rejected": 98,
+ "alt_searches": 3,
+ "no_match": [
+  "@Nolberto Solano"
+ ],
+ "headline_cards": 1,
+ "agent_checks": 103,
+ "agent_rejects": 98,
+ "agent_skips": 0
 }
