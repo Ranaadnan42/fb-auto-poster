@@ -1,5 +1,5 @@
 {
- "started": "2026-11-15T23:39",
+ "started": "2026-11-16T12:00",
  "steps": [
   "token: user token expires_at=0 data_access_expires_at=1801949831",
   "token: user token tha - page token bana kar istemal kiya",
@@ -10,26 +10,28 @@
   "web trend gemini-3-flash-preview: 429",
   "web trend gemini-2.5-flash-lite: 404",
   "trend scout: 0 YouTube videos, web report 0 chars",
-  "aaj ka manzar: green hills & meadows",
-  "brain gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeo",
-  "agent ka faisla: Isle of Skye, Scotland, Scotland, United Kingdom - bright sunny afternoon over green rolling hills (Famous vivid green landscape with endless clean stock footage available.)",
-  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: green hills & meadows",
+  "aaj ka manzar: river through green valley",
   "brain gemini-3.8-flash: 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand",
-  "brain gemini-3.6-flash: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
-  "agent ka faisla: Appenzell, Switzerland - bright sunny morning / vivid green alpine meadows (Appenzell's rolling hills are the quintessential viral aesthetic for green meadows.)",
+  "agent ka faisla: Soča Valley, Bovec, Slovenia, Slovenia - bright sunny summer afternoon / crystal turquoise river through emerald valley (Vivid turquoise river flowing through lush green valley delivers high retention.)",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: green forest",
-  "brain gemini-3.8-flash: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
-  "agent ka faisla: Black Forest (Schwarzwald), Germany - bright sunny morning / sunbeams through green pines (High-contrast sunbeams in deep green forests trigger high emotional engagement.)",
-  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: green forest",
-  "agent ka faisla: Hoh Rainforest, Olympic National Park, USA - bright sunny morning / sunlight through mossy trees / emerald green forest (Vibrant moss and sunbeams create the high-contrast, viral fairytale aesthetic.)",
-  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai"
+  "aaj ka manzar: river through green valley",
+  "brain gemini-3.8-flash: HTTPSConnectionPool(host='generativelanguage.googleapis.com', port=443): Read timed out. (read timeo",
+  "agent ka faisla: Kunhar River, Kaghan Valley, Pakistan, Pakistan - bright sunny morning / turquoise river winding through lush green valley (Vivid turquoise river and lush green valley spark instant scrolling pause.)",
+  "photo wmi69080131 1920x1280: ok=True beauty=8 - Stunning alpine scenery with vibrant green contrast.",
+  "brain gemini-3.8-flash: 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand",
+  "Post waqt 20:03 job ki hadd se aage - 17:34 UTC par post hogi",
+  "Video tayyar - 331 minute intezar, post 17:34 UTC par hogi",
+  "Waqt ho gaya - post kar rahe hain",
+  "photo story lagi",
+  "pic posted: 1345688241970452_122103338769547841"
  ],
- "errors": [
-  "fatal: 4 jagahon par bhi achi footage nahi mili"
- ],
+ "errors": [],
  "mode": "pic",
- "finished": "2026-11-15T23:42"
+ "place": "Kunhar River, Kaghan Valley, Pakistan",
+ "country": "Pakistan",
+ "caption": "Where crystal turquoise glacial waters flow gently through vibrant green alpine pastures.\n\n📍 Kunhar River, Kaghan Valley 🇵🇰\n\nImagine waking up to this crystal turquoise river winding through paradise. 🏔️✨\n\nWatch the pristine Kunhar River in Kaghan Valley flow gently through vibrant pastures on a bright summer morning. This breathtaking Pakistan green mountain river is nature at its most peaceful and captivating.\n\nWho would you love to escape to this peaceful valley with? Tag them below! 👇\n\nFollow for the most beautiful places on Earth in Ultra HD 🌍\n\n#WanderEarth #KunharRiver #KaghanValley #PakistanTravel #AlpineRiver #USA #UK #Qatar #NatureLovers #BeautifulDestinations #nature",
+ "clip": "wmi69080131",
+ "beauty": 8,
+ "posted": "1345688241970452_122103338769547841",
+ "finished": "2026-11-16T17:35"
 }
