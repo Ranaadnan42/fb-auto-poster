@@ -54,6 +54,10 @@ FLAT = ("professional fashion product photo, photorealistic, the complete outfit
         "clean soft beige linen or light wooden background, top-down view, matching dupatta/trousers folded beside it, "
         "natural soft daylight, ultra detailed fabric texture, stitching and embroidery, sharp focus, 8k, "
         "no person, no mannequin, no text, no watermark")
+DETAIL = ("realistic extreme close-up macro photo of this exact fabric being made: an industrial embroidery machine "
+          "stitching the embroidery onto the fabric, or a tailor's hands sewing lace/border on it, real workshop, "
+          "natural light, ultra sharp thread and embroidery detail, 8k, no face, no text, no watermark")
+N_DETAIL = 4          # Tayyaba style: har run mein pehle 4 designs ka "banta hua kaam" close-up
 WHO = {"women": "for an adult woman", "men": "for an adult man", "girls": "for a little girl (kids wear)",
        "boys": "for a little boy (kids wear)", "baby": "for a baby / toddler (baby wear)"}
 N = {"pic": 4, "reel": 6, "long": 12}[MODE]
@@ -194,6 +198,20 @@ def check_image(path, flat=False):
     return None, "check nahi ho saka"
 
 
+def split_img(left, right, out):
+    from PIL import Image
+    c = Image.new("RGB", (W, H), "white")
+    half = (W - 8) // 2
+    for k, f in enumerate((left, right)):
+        im = Image.open(f).convert("RGB")
+        r = max(half / im.width, H / im.height)
+        im = im.resize((int(im.width * r) + 1, int(im.height * r) + 1), Image.LANCZOS)
+        x0, y0 = (im.width - half) // 2, (im.height - H) // 2
+        c.paste(im.crop((x0, y0, x0 + half, y0 + H)), (k * (half + 8), 0))
+    c.save(out, quality=95)
+    return out
+
+
 def make_images(p):
     os.makedirs(JOB, exist_ok=True)
     out = []
@@ -219,7 +237,18 @@ def make_images(p):
                 break
             REPORT["images"]["rejected"] += 1
             log(f"design {i + 1} reject (try {attempt + 1}): {why}")
+        if good and i < N_DETAIL:
+            dp = os.path.join(JOB, f"d{i}_det.jpg")
+            dw, dh = (W, H) if MODE == "reel" else (W // 2, H)
+            if gen_image(d["prompt"], dw, dh, dp, random.randint(1, 10 ** 6), DETAIL):
+                d = {**d, "detail": dp}
         if good:
+            d = {**d, "main": path}
+            if d.get("detail") and MODE != "reel":     # pic/long: baen taraf kaam ka close-up, daen taraf model
+                try:
+                    path = split_img(d["detail"], path, os.path.join(JOB, f"d{i}_split.jpg"))
+                except Exception as e:
+                    log(f"split skip: {str(e)[:80]}")
             out.append({**d, "path": path})
             log(f"design {i + 1}: {d['name']}")
         else:
@@ -309,9 +338,25 @@ def music(path, secs):
             "-af", "lowpass=f=3500,aecho=0.6:0.5:120:0.3,volume=1.1", path])
 
 
+def detail_clip(i, img, secs=2.5):
+    """Tayyaba style: model se pehle kapre par kaam banta hua close-up (sirf music, bina awaz)."""
+    raw = os.path.join(JOB, f"dr{i}.mp4")
+    footage.photo_to_clip(img, raw, W, H, secs=secs)
+    out = os.path.join(JOB, f"dc{i}.mp4")
+    nv.run(["ffmpeg", "-y", "-loglevel", "error", "-i", raw, "-f", "lavfi", "-i", "anullsrc=r=44100:cl=stereo",
+            "-t", f"{secs:.2f}", "-c:v", "libx264", "-preset", "veryfast", "-crf", os.environ.get("VIDEO_CRF", "18"),
+            "-pix_fmt", "yuv420p", "-r", "30", "-c:a", "aac", "-ar", "44100", "-ac", "2", "-shortest", out])
+    return out
+
+
 def build_video(p, imgs):
     clips = [scene(0, imgs[0]["path"], p["theme"], p.get("hook") or p["theme"], 0)]
     for i, d in enumerate(imgs, 1):
+        if MODE == "reel" and d.get("detail"):
+            try:
+                clips.append(detail_clip(i, d["detail"]))
+            except Exception as e:
+                log(f"detail clip skip: {str(e)[:80]}")
         clips.append(scene(i, d["path"], d["name"], d.get("line") or d["name"], i))
     clips.append(scene(len(imgs) + 1, imgs[-1]["path"], "Which one is your favourite?",
                        p.get("outro") or "Comment your favourite number and follow Style by Faizi.", 0))
@@ -357,7 +402,7 @@ def a_or_b(imgs):
     top = 150
     half = (W - 30) // 2
     for k, d in enumerate(imgs[:2]):
-        im = Image.open(d["path"]).convert("RGB")
+        im = Image.open(d.get("main") or d["path"]).convert("RGB")
         th = H - top - 20
         r = max(half / im.width, th / im.height)
         im = im.resize((int(im.width * r), int(im.height * r)), Image.LANCZOS)
