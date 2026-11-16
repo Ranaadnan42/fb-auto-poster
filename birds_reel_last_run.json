@@ -1,10 +1,8 @@
 {
- "time_utc": "2026-11-16 20:53",
+ "time_utc": "2026-11-16 21:56",
  "mode": "reel",
  "dry_run": false,
- "errors": [
-  "fatal: sirf 4 sahi clips, 9 text cards - video post nahi ki"
- ],
+ "errors": [],
  "calls": [
   {
    "file": "File:MalePeacockCall.ogg",
@@ -14,22 +12,18 @@
  "bird_calls": 1,
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 319,
- "alt_searches": 7,
- "agent_checks": 83,
- "agent_rejects": 79,
- "agent_skips": 235,
- "no_match": [
-  "peacock eyespots close up",
-  "Indian peafowl calling",
-  "Indian peafowl foraging",
-  "Indian peafowl courtship display",
-  "peacock shaking feathers",
-  "Indian peafowl roosting",
-  "Indian peafowl national bird",
-  "peacock standing",
-  "Indian peafowl"
- ],
- "headline_cards": 9,
- "time_budget_hit": true
+ "clips_rejected": 484,
+ "alt_searches": 8,
+ "agent_checks": 269,
+ "agent_rejects": 260,
+ "agent_skips": 215,
+ "posted": {
+  "bird": "Indian peafowl",
+  "theme": null,
+  "wiki": "Indian peafowl",
+  "date": "2026-11-16 21:56",
+  "title": "Why does this breathtaking giant bird carry a legendary fan of eyes?",
+  "dur": 80,
+  "post_id": "1155214933695750"
+ }
 }
