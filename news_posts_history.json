@@ -3267,5 +3267,39 @@
   ],
   "sport": null,
   "title": "Lindy Duncan Wins First LPGA Title After 12 Years"
+ },
+ {
+  "date": "2026-11-16 01:19",
+  "page": "news",
+  "id": "1702369847961668",
+  "fmt": "long",
+  "lang": "en",
+  "topics": [
+   "science_tech",
+   "usa",
+   "business",
+   "canada_australia",
+   "middle_east",
+   "africa"
+  ],
+  "sport": null,
+  "title": "Global Travel Chaos and Major Legal Shifts in Washington"
+ },
+ {
+  "date": "2026-11-16 01:33",
+  "page": "sports",
+  "id": "1446713760303261",
+  "fmt": "long",
+  "lang": "en",
+  "topics": [
+   "formula1",
+   "general",
+   "american_football",
+   "mma",
+   "esports",
+   "tennis"
+  ],
+  "sport": null,
+  "title": "England Victory in Spain Leads World Sports News Bulletin"
  }
 ]

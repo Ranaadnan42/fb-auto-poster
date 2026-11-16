@@ -1,37 +1,21 @@
 {
- "time_utc": "2026-11-15 23:24",
+ "time_utc": "2026-11-15 22:02",
  "kind": "reel",
  "lang": "en",
- "dry_run": false,
+ "dry_run": true,
  "posted": {
   "news": {
-   "date": "2026-11-15 23:24",
+   "date": "2026-11-15 22:02",
    "kind": "reel",
    "lang": "en",
-   "title": "Windows 11 Launched on iPhone Duo Using AI",
-   "dur": 55,
-   "post_id": "1569314845216865"
-  },
-  "sports": {
-   "date": "2026-11-15 23:24",
-   "kind": "reel",
-   "lang": "en",
-   "title": "Lindy Duncan Wins First LPGA Title After 12 Years",
-   "dur": 51,
-   "post_id": "1321083783445657"
+   "title": "Remembering Donald Anthony Kersting Carter in the USA",
+   "dur": 49
   }
  },
  "errors": [],
- "clips_rejected": 293,
- "alt_searches": 5,
- "no_match": [
-  "@Windows 11",
-  "@Windows 11",
-  "iPhone Duo smartphone"
- ],
- "headline_cards": 3,
- "agent_checks": 226,
- "agent_rejects": 218,
- "agent_skips": 70,
- "time_budget_hit": true
+ "clips_rejected": 173,
+ "agent_checks": 175,
+ "agent_rejects": 171,
+ "agent_skips": 0,
+ "alt_searches": 3
 }

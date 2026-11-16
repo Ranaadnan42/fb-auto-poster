@@ -1,48 +1,35 @@
 {
- "time_utc": "2026-11-14 23:54",
+ "time_utc": "2026-11-15 23:58",
  "kind": "long",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-14 23:54",
+   "date": "2026-11-15 23:58",
    "kind": "long",
    "lang": "en",
-   "title": "Global News: Meta Fined, UK Food Bank Crisis, and Iraq Crackdown",
-   "dur": 456,
-   "post_id": "1620623872593744"
+   "title": "Global Travel Chaos and Major Legal Shifts in Washington",
+   "dur": 474,
+   "post_id": "1702369847961668"
   },
   "sports": {
-   "date": "2026-11-14 23:54",
+   "date": "2026-11-15 23:58",
    "kind": "long",
    "lang": "en",
-   "title": "Global Sports News: WWE Drama, NFL Maps, and Esports",
-   "dur": 232,
-   "post_id": "1804940884170737"
+   "title": "England Victory in Spain Leads World Sports News Bulletin",
+   "dur": 313,
+   "post_id": "1446713760303261"
   }
  },
  "errors": [],
- "clips_rejected": 884,
- "agent_checks": 312,
- "agent_rejects": 297,
- "agent_skips": 570,
- "alt_searches": 7,
+ "clips_rejected": 1069,
+ "agent_checks": 140,
+ "agent_rejects": 129,
+ "agent_skips": 930,
+ "alt_searches": 9,
  "time_budget_hit": true,
  "no_match": [
-  "@WWE",
-  "professional sports stadium",
-  "@BMW",
-  "formula one race car",
-  "race track straightaway",
-  "racing car garage",
-  "historic race car",
-  "grandstand racing crowd",
-  "@Ultimate Fighting Championship",
-  "mixed martial arts cage",
-  "combat sports arena",
-  "sports broadcast camera",
-  "arena championship stage",
-  "sports event crowd"
+  "stadium floodlights"
  ],
- "headline_cards": 14
+ "headline_cards": 1
 }
