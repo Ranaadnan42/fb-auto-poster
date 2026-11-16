@@ -349,6 +349,34 @@ def page():
     return P
 
 
+def a_or_b(imgs):
+    """Tayyaba-style engagement tasveer: do designs saath saath, 'A or B?' - log comment mein jawab dete hain."""
+    from PIL import Image, ImageDraw, ImageFont
+    out = os.path.join(JOB, "a_or_b.jpg")
+    c = Image.new("RGB", (W, H), (250, 244, 238))
+    top = 150
+    half = (W - 30) // 2
+    for k, d in enumerate(imgs[:2]):
+        im = Image.open(d["path"]).convert("RGB")
+        th = H - top - 20
+        r = max(half / im.width, th / im.height)
+        im = im.resize((int(im.width * r), int(im.height * r)), Image.LANCZOS)
+        x0 = (im.width - half) // 2
+        im = im.crop((x0, 0, x0 + half, th))
+        c.paste(im, (10 + k * (half + 10), top))
+    dr = ImageDraw.Draw(c)
+    big = ImageFont.truetype("fonts/NotoSans-Bold.ttf", 92)
+    badge = ImageFont.truetype("fonts/NotoSans-Bold.ttf", 70)
+    t = "A or B?"
+    dr.text(((W - dr.textlength(t, font=big)) / 2, 22), t, font=big, fill=(120, 30, 70))
+    for k, L in enumerate("AB"):
+        cx = 10 + k * (half + 10) + 70
+        dr.ellipse((cx - 55, top + 25, cx + 55, top + 135), fill=(120, 30, 70))
+        dr.text((cx - dr.textlength(L, font=badge) / 2, top + 30), L, font=badge, fill="white")
+    c.save(out, quality=95)
+    return out
+
+
 def post_album(P, imgs, cap):
     ids = []
     for d in imgs:
@@ -408,7 +436,13 @@ def main():
         import slot_wait
         slot_wait.wait(log)
         if MODE == "pic":
-            meta["post_id"] = post_album(P, imgs, cap)
+            try:
+                ab = {"path": a_or_b(imgs), "name": "A or B"}
+                cap = f"A or B? 👀 Comment your pick 👇\n\n{cap}"
+                meta["post_id"] = post_album(P, [ab] + imgs, cap)
+            except Exception as e:
+                log(f"A/B tasveer skip: {str(e)[:100]}")
+                meta["post_id"] = post_album(P, imgs, cap)
         elif MODE == "reel":
             meta["post_id"] = nv.post_reel(P, path, cap)
         else:
