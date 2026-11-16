@@ -58,6 +58,10 @@ def _war_prompt(n, want, said):
             "the wrong era (modern tanks/jets/rifles for an ancient or medieval war, or ancient scenes for a modern war); "
             "a different war or country than the one being talked about; video-game/CGI/cartoon/AI art; toy soldiers; "
             "modern movie posters, logos, channel text; random people, offices, nature or sunsets that are not that place. "
+            "STRICT: it must clearly show the SPECIFIC thing being said. A generic look-alike is BAD: ocean waves or a "
+            "beach for a named lake/river, any desert or mountain that is not recognisably that place, a random rock or "
+            "stone, candles, flowers, generic ruins or a museum hall that is not that museum/object, lab or office "
+            "shots, modern people. If you are not sure it is that exact thing, answer false. "
             "Answer JSON {\"match\": true/false, \"why\": \"max 8 words\"}")
 
 
