@@ -1,20 +1,26 @@
 {
  "mode": "short",
- "clips": 38,
- "clips_rejected": 99,
- "vision_checks": 134,
+ "clips": 36,
+ "clips_rejected": 119,
+ "vision_checks": 150,
  "errors": [],
  "search_phrases": [
-  "wages vs cost of living",
-  "inflation and cost of living",
-  "prices and cost of living class 9",
-  "cost of living protest"
+  "things to know about gta 6",
+  "things to know about cars",
+  "things to know about gta vi",
+  "things to know about cats",
+  "things to know about middle school",
+  "things to know about iphone 17 pro max",
+  "things to know about arc raiders",
+  "things to know about palworld",
+  "things to know about real estate",
+  "things to know about fishing"
  ],
- "search": "wages vs cost of living",
- "alt_searches": 1,
- "seconds": 104.9,
+ "alt_searches": 3,
+ "photos": 4,
+ "seconds": 100.9,
  "links": [],
- "subject": "United Kingdom vs Australia",
- "series": "versus_short",
- "title": "UK vs Australia: Wages vs Cost of Living Compared"
+ "subject": "Prague, Czech Republic",
+ "series": "city_facts",
+ "title": "Prague: What Nobody Shows You Behind the Castles"
 }
