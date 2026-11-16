@@ -27,7 +27,7 @@ import sys
 import time
 
 MODE = (os.environ.get("MODE") or "reel").strip().lower()
-os.environ["KIND"] = "reel" if MODE == "reel" else "long"
+os.environ["KIND"] = "long" if MODE == "long" else "reel"
 os.environ["LANGUAGE"] = "en"
 os.environ["FOOTAGE_WAR"] = "1"
 os.environ["NO_PHOTOS"] = "1"
@@ -530,6 +530,118 @@ def brand():
     log(f"cover: {r.status_code} {r.text[:200]}")
 
 
+PIC_BAD = {"logo", "wordmark", "emblem", "killed", "dead", "corpse", "corpses", "bodies", "massacre", "execution",
+           "executed", "gore", "atrocity", "locator", "skeleton", "skeletons", "skull", "skulls", "remains", "bones",
+           "wound", "wounds", "map", "flag", "icon", "commons", "wiki", "svg", "edit", "question", "book"}
+
+
+def war_images(title, n=2):
+    """Jang ke Wikipedia article ki ASLI tasveerein (Commons, free license) - cave art, paintings, naqshe, khandar."""
+    j = _wiki({"action": "query", "titles": title, "redirects": 1, "generator": "images", "gimlimit": 60,
+               "prop": "imageinfo", "iiprop": "url|size|mime"})
+    out = []
+    for pg in (j.get("query") or {}).get("pages") or []:
+        ii = (pg.get("imageinfo") or [{}])[0]
+        name = pg.get("title", "").lower()
+        toks = set(re.split(r"[^a-z]+", name))
+        if ii.get("mime") not in ("image/jpeg", "image/png") or (ii.get("width") or 0) < 700 or toks & PIC_BAD:
+            continue
+        if "/wikipedia/commons/" not in ii.get("url", ""):
+            continue
+        out.append({"url": ii["url"], "name": pg.get("title", "")[5:], "w": ii["width"], "h": ii["height"]})
+    out.sort(key=lambda x: -x["w"] * x["h"])
+    return out[:n + 4]
+
+
+def pic_card(src, path, top, line):
+    """1080x1350 HD card: asli tasveer + sunehri 3D heading + ek fact."""
+    from PIL import Image, ImageDraw, ImageFont
+    font = os.path.join(os.path.dirname(os.path.abspath(__file__)), "fonts", "Cinzel.ttf")
+
+    def F(n):
+        try:
+            return ImageFont.truetype(font, n)
+        except Exception:
+            return ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSerif-Bold.ttf", n)
+    W, H = 2160, 2700
+    im = hd(Image.open(src).convert("RGB"), (W, H)).convert("RGBA")
+    shade = Image.new("RGBA", im.size, (0, 0, 0, 0))
+    sd = ImageDraw.Draw(shade)
+    for yy in range(H):
+        a = int(210 * max(0, (yy - 1500) / 1200)) + int(170 * max(0, (520 - yy) / 520))
+        sd.line([(0, yy), (W, yy)], fill=(0, 0, 0, min(a, 235)))
+    im.alpha_composite(shade)
+    top = top.upper()
+    size = 130 if len(top) <= 22 else 96 if len(top) <= 32 else 76
+    text_3d(im, top, F(size), W // 2, 230, depth=10)
+    d = ImageDraw.Draw(im)
+    f2 = F(84)
+    words, lines, cur = line.split(), [], ""
+    for w in words:
+        t = (cur + " " + w).strip()
+        if d.textlength(t, font=f2) > W - 260 and cur:
+            lines.append(cur)
+            cur = w
+        else:
+            cur = t
+    lines.append(cur)
+    y = H - 140 - len(lines) * 112
+    for ln in lines:
+        d.text((W // 2, y), ln, font=f2, fill=(255, 244, 220), anchor="mt", stroke_width=5, stroke_fill=(0, 0, 0))
+        y += 112
+    d.text((W // 2, H - 70), "BATTLES UNTOLD", font=F(48), fill=(230, 180, 70), anchor="mm")
+    im.convert("RGB").save(path, quality=95, subsampling=0)
+
+
+def pics(P, h, n=2):
+    """2 tasveer posts usi jang par jo aakhri reel/long mein thi (ya WAR_OVERRIDE)."""
+    war = os.environ.get("WAR_OVERRIDE", "").strip()
+    if not war:
+        last = sorted(h["reel"] + h["long"], key=lambda x: x.get("date", ""))
+        war = last[-1]["war"] if last else WARS[0]
+    facts = gather_facts(war)
+    log(f"Pics jang: {facts['title']}")
+    imgs = war_images(facts["title"], n)
+    if not imgs:
+        raise RuntimeError("is jang ki asli tasveer nahi mili")
+    j = news.ask_json(f"""Facebook page "Battles Untold" (war history, neutral, only true facts).
+War: {facts['title']}. Facts: {json.dumps(facts['infobox'])[:1500]} {facts['text'][:4000]}
+Images available (Wikimedia file names): {json.dumps([x['name'] for x in imgs])}
+Make {n} different photo posts. For each pick the best matching image (exact name from the list).
+Return JSON {{"posts": [{{"image": "...", "heading": "max 4 words, e.g. THE FIRST WAR EVER", "fact": "one shocking true
+fact from the facts, max 18 words", "caption": "engaging English caption 3-5 short lines with 1-2 emojis, ends with a
+question to make people comment, then 5 hashtags incl #BattlesUntold #History"}}]}}""")
+    done = []
+    for k, p in enumerate((j.get("posts") or [])[:n]):
+        im = next((x for x in imgs if x["name"] == p.get("image") and x["url"] not in done), None) or \
+            next((x for x in imgs if x["url"] not in done), None)
+        if not im:
+            break
+        raw = os.path.join(nv.WORK, f"pic_src_{k}")
+        r = requests.get(im["url"], headers=UA, timeout=120)
+        open(raw, "wb").write(r.content)
+        out = os.path.join(nv.WORK, f"pic_{k}.jpg")
+        pic_card(raw, out, p.get("heading") or "BATTLES UNTOLD", p.get("fact") or "")
+        done.append(im["url"])
+        cap = f"{p.get('caption', '')}\n\n📸 Image: Wikimedia Commons - {im['name']}\n📚 Source: Wikipedia - {facts['title']}"
+        log(f"pic {k + 1}: {p.get('heading')} | {im['name']}")
+        import shutil
+        shutil.copy(out, f"final_war_pic{k + 1}.jpg")
+        if DRY_RUN:
+            continue
+        with open(out, "rb") as f:
+            pid = nv.fb_json(requests.post(f"{GRAPH}/{P['id']}/photos", timeout=300, files={"source": f},
+                                           data={"message": cap, "published": "true", "access_token": P["token"]}))
+        pid = pid.get("post_id") or pid.get("id")
+        log(f"pic posted {pid}")
+        h.setdefault("pics", []).append({"war": war, "date": REPORT["time_utc"], "post_id": pid, "img": im["name"]})
+        if k + 1 < n:
+            time.sleep(20)
+    if not DRY_RUN:
+        save_hist(h)
+    REPORT["posted"] = {"pics": len(done), "war": war}
+
+
 # ---------------------------------------------------------------- main
 def main():
     os.makedirs(nv.WORK, exist_ok=True)
@@ -542,7 +654,13 @@ def main():
         REPORT["waiting"] = "page secrets missing"
         return
     h = load_hist()
+    if MODE == "pics":
+        pics(P, h)
+        return
     war, episode = pick_war(h)
+    if os.environ.get("WAR_OVERRIDE", "").strip():
+        war = os.environ["WAR_OVERRIDE"].strip()
+        episode = next((x["episode"] for x in h["reel"] + h["long"] if x["war"] == war), episode)
     log(f"Jang: {war} (episode {episode})")
     try:
         facts = gather_facts(war)
@@ -569,8 +687,15 @@ def main():
         meta["post_id"] = nv.post_reel(P, path, desc) if MODE == "reel" else \
             nv.post_long(P, path, script.get("title") or facts["title"], desc)
         log(f"posted {meta['post_id']}")
+        if MODE == "reel":
+            import stories
+            meta["story_id"] = stories.try_story(P["id"], P["token"], path, GRAPH_VER, log, REPORT["errors"])
         news.POSTS_LOG = "war_posts_history.json"
         news.log_post(PAGE, meta["post_id"], MODE, [war], meta["title"])
+    if DRY_RUN:
+        log("dry run - history mein darj nahi (jang agli dafa asli post hogi)")
+        REPORT["dry"] = meta
+        return
     h[MODE].append(meta)
     save_hist(h)
     REPORT["posted"] = meta

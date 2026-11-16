@@ -6,6 +6,7 @@ on:
     # Waqt UTC. Agent pehle chal kar video banata hai, POST_AT par post (slot_wait). USA/UK/Europe audience.
     - cron: '43 13 * * *'   # reel - post 15:13 UTC = 10:13 subah New York / 3:13 London
     - cron: '13 21 * * *'   # reel - post 22:43 UTC = 5:43 shaam New York
+    - cron: '13 18 * * *'   # pics - 2 asli tasveer posts (aakhri jang par) 18:13 UTC = 1:13 dopahar New York
     - cron: '13 22 * * *'   # long - post 01:13 UTC = 8:13 raat New York (History of Every War, pehli jang se)
   workflow_dispatch:
     inputs:
@@ -16,8 +17,12 @@ on:
       mode:
         description: 'Kya banaye'
         type: choice
-        options: [reel, long, brand]
+        options: [reel, long, pics, brand]
         default: reel
+      war:
+        description: 'Khaas jang (Wikipedia title) - khali = agli jang khud'
+        type: string
+        default: ''
       dry_run:
         description: 'Sirf video banaye, post na kare'
         type: boolean
@@ -86,7 +91,8 @@ jobs:
           YT_WORLD_CLIENT_ID: ${{ secrets.YT_WORLD_CLIENT_ID }}
           YT_WORLD_CLIENT_SECRET: ${{ secrets.YT_WORLD_CLIENT_SECRET }}
           YT_WORLD_REFRESH_TOKEN: ${{ secrets.YT_WORLD_REFRESH_TOKEN }}
-          MODE: ${{ env.S && (env.S == '13 22 * * *' && 'long' || 'reel') || inputs.mode || 'reel' }}
+          MODE: ${{ env.S && (env.S == '13 22 * * *' && 'long' || env.S == '13 18 * * *' && 'pics' || 'reel') || inputs.mode || 'reel' }}
+          WAR_OVERRIDE: ${{ inputs.war || '' }}
           POST_AT: ${{ env.S == '43 13 * * *' && '15:13' || env.S == '13 21 * * *' && '22:43' || env.S == '13 22 * * *' && '01:13' || '' }}
           DRY_RUN: ${{ (!env.S && github.event_name == 'workflow_dispatch' && inputs.dry_run) && '1' || '0' }}
         run: python war.py || { echo "Pehli koshish fail - 3 minute baad dobara"; sleep 180; python war.py; }
@@ -99,6 +105,8 @@ jobs:
             final_war.mp4
             final_war_profile.jpg
             final_war_cover.jpg
+            final_war_pic1.jpg
+            final_war_pic2.jpg
           if-no-files-found: ignore
           retention-days: 5
       - name: Save history
