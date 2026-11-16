@@ -240,7 +240,7 @@ def _render_clip(raw, secs, out):
     run(["ffmpeg", "-y", "-loglevel", "error", *loop, "-ss", f"{start:.2f}", "-i", raw, "-t", f"{secs:.2f}",
          "-vf", f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},"
                 f"eq=contrast=1.04:saturation=1.06,format=yuv420p",
-         "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", out])
+         "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", os.environ.get("VIDEO_CRF", "21"), out])
 
 
 def get_clip(term, secs, out, used, said="", kind="news"):
@@ -454,7 +454,7 @@ Dialogue: 1,{ass_t(0)},{ass_t(secs)},Card,,0,0,0,,{{\\fad(250,250)\\t(0,{int(sec
     fonts = news.FONTS_DIR.replace("\\", "/").replace(":", "\\:")
     ap = os.path.abspath(ass).replace("\\", "/").replace(":", "\\:")
     run(["ffmpeg", "-y", "-loglevel", "error", "-i", out + ".bg.mp4", "-vf", f"ass='{ap}':fontsdir='{fonts}',format=yuv420p",
-         "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "21", out])
+         "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", os.environ.get("VIDEO_CRF", "21"), out])
     for f_ in (out + ".bg.mp4", ass):
         if os.path.exists(f_):
             os.remove(f_)
@@ -535,7 +535,7 @@ def build_scene(i, kind, text, terms, headline, badge, used, fallback_terms):
     run(["ffmpeg", "-y", "-loglevel", "error", "-i", vid, "-i", voice, "-filter_complex",
          f"[0:v]drawbox=x=0:y=ih*0.62:w=iw:h=ih*0.38:color=black@0.35:t=fill,"
          f"ass='{ap}':fontsdir='{fonts}',fps={FPS},format=yuv420p[v];[1:a]apad=pad_dur=0.35,aresample=44100[a]",
-         "-map", "[v]", "-map", "[a]", "-t", f"{secs:.2f}", "-c:v", "libx264", "-preset", "veryfast", "-crf", "21",
+         "-map", "[v]", "-map", "[a]", "-t", f"{secs:.2f}", "-c:v", "libx264", "-preset", "veryfast", "-crf", os.environ.get("VIDEO_CRF", "21"),
          "-c:a", "aac", "-b:a", "160k", "-ar", "44100", "-ac", "2", out])
     return out
 

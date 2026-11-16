@@ -5,6 +5,8 @@ on:
   schedule:
     # Waqt UTC. Agent pehle chal kar video banata hai, POST_AT par post (slot_wait). USA/UK/Europe audience.
     - cron: '7 12 * * *'    # reel - post 13:37 UTC = 8:37 subah New York / 1:37 London
+    - cron: '52 10 * * *'   # pic - ultra-HD tasveer + photo story, post 11:07 UTC
+    - cron: '52 16 * * *'   # pic - ultra-HD tasveer + photo story, post 17:07 UTC
     - cron: '37 18 * * *'   # reel - post 20:07 UTC = 3:07 sehpehar New York / 8:07 shaam London
     - cron: '47 20 * * *'   # long - post 23:47 UTC = 6:47 shaam New York (Wildlife of <mulk>)
   workflow_dispatch:
@@ -16,7 +18,7 @@ on:
       mode:
         description: 'Kya banaye'
         type: choice
-        options: [reel, long]
+        options: [reel, long, pic]
         default: reel
       dry_run:
         description: 'Sirf video banaye, post na kare'
@@ -81,10 +83,15 @@ jobs:
           GROQ_API_KEY: ${{ secrets.WILD_GROQ_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.WILD_PIXABAY_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.WILD_PEXELS_API_KEY }}
-          MODE: ${{ env.S && (env.S == '47 20 * * *' && 'long' || 'reel') || inputs.mode || 'reel' }}
-          POST_AT: ${{ env.S == '7 12 * * *' && '13:37' || env.S == '37 18 * * *' && '20:07' || env.S == '47 20 * * *' && '23:47' || '' }}
+          AGENT: wild
+          HD_SRC: '1'
+          VIDEO_CRF: '18'
+          MODE: ${{ env.S && (env.S == '52 10 * * *' || env.S == '52 16 * * *') && 'pic' || env.S && (env.S == '47 20 * * *' && 'long' || 'reel') || inputs.mode || 'reel' }}
+          POST_AT: ${{ env.S == '52 10 * * *' && '11:07' || env.S == '52 16 * * *' && '17:07' || env.S == '7 12 * * *' && '13:37' || env.S == '37 18 * * *' && '20:07' || env.S == '47 20 * * *' && '23:47' || '' }}
           DRY_RUN: ${{ (!env.S && github.event_name == 'workflow_dispatch' && inputs.dry_run) && '1' || '0' }}
-        run: python wildlife.py || { echo "Pehli koshish fail - 3 minute baad dobara"; sleep 180; python wildlife.py; }
+        run: |
+          if [ "$MODE" = pic ]; then P=animal_pics.py; else P=wildlife.py; fi
+          python $P || { echo "Pehli koshish fail - 3 minute baad dobara"; sleep 180; python $P; }
       - name: Keep video (dry run)
         if: ${{ !inputs.sched && github.event_name == 'workflow_dispatch' && inputs.dry_run }}
         uses: actions/upload-artifact@v4
@@ -92,6 +99,7 @@ jobs:
           name: wild-video
           path: |
             final_wild.mp4
+            final_wild_pic.jpg
           if-no-files-found: ignore
           retention-days: 5
       - name: Save history

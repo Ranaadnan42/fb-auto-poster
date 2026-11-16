@@ -60,6 +60,8 @@ def pexels_videos(q, vertical=False):
         for v in r.json().get("videos", []):
             fs = sorted([f for f in v.get("video_files", []) if f.get("link")
                          and max(f.get("width") or 0, f.get("height") or 0) >= 1280], key=lambda f: f.get("width") or 0)
+            if os.environ.get("HD_SRC") == "1":           # ultra HD pages: 1920+ source (sab se chhoti 1920+)
+                fs = [f for f in fs if max(f.get("width") or 0, f.get("height") or 0) >= 1920] or fs[-1:]
             if fs and v.get("duration", 0) >= 3:
                 out.append({"id": f"pe{v['id']}", "url": fs[0]["link"], "dur": v.get("duration", 10),
                             "text": (v.get("url") or "").lower().replace("-", " "), "src": "pexels",

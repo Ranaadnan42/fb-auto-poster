@@ -76,11 +76,11 @@ def _wild_prompt(n, want, said):
 def _birds_prompt(n, want, said):
     return (f"You are the footage-checking agent of a BIRD documentary page. These {n} frame(s) are from ONE stock/"
             f"archive VIDEO clip found for '{want}'. The narrator is saying right now: \"{(said or want)[:350]}\". "
-            "GOOD (true): real camera footage of THAT exact bird species alive (in nature or a natural-looking "
-            "aviary/reserve), ideally doing what is said (flying, singing, dancing/courtship display, feeding chicks, "
+            "GOOD (true): real camera footage of THAT exact bird species alive (free in nature or a natural reserve), ideally doing what is said (flying, singing, dancing/courtship display, feeding chicks, "
             "nest); or, when the narrator talks about a place, that real habitat. BAD (false): a different bird species "
             "(a toucan is not a hornbill, a macaw is not a cockatoo, a peacock is not a pheasant), a bird too small/far "
-            "to recognise, cartoon/CGI/AI art/toys/statues/drawings, a caged pet bird in a house, poultry, blood or a "
+            "to recognise, cartoon/CGI/AI art/toys/statues/drawings, ANY cage/pinjra, bars, wire mesh, netting or aviary "
+            "enclosure visible anywhere (even a wild species behind wire is false), poultry, blood or a "
             "kill, people/text/logos, or a random nature shot when a bird is being talked about. "
             "Answer JSON {\"match\": true/false, \"why\": \"max 8 words\"}")
 
@@ -91,7 +91,8 @@ def _pets_prompt(n, want, said):
             "GOOD (true): real camera footage of THAT animal clearly visible - if a breed is named, THAT breed (a husky is "
             "not a malamute or wolf, a persian is not a maine coon), if puppy/kitten is said a young one, ideally doing "
             "what is said (playing, sleeping, running, eating). BAD (false): another breed or another animal, a dog when a "
-            "cat is said (or reverse), cartoon/CGI/AI art/toys/plush, an injured/sick/abused animal, a dog fight, "
+            "cat is said (or reverse), cartoon/CGI/AI art/toys/plush, ANY cage, crate, kennel bars, wire mesh, pet-shop "
+            "or shelter enclosure visible anywhere, an injured/sick/abused animal, a dog fight, "
             "text/logos, or a shot where the animal is too small to see. "
             "Answer JSON {\"match\": true/false, \"why\": \"max 8 words\"}")
 
