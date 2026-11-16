@@ -346,6 +346,14 @@ def page():
     return P
 
 
+GEO_TAGS = "#USA #Canada #NewZealand #UK #Austria #UnitedStates #London #Toronto #Vienna #Auckland"
+
+
+def geo(cap):
+    """Har caption mein USA/Canada/NZ/UK/Austria audience ke hashtags (dollar/euro wali audience)."""
+    return cap if "#NewZealand" in cap else cap.rstrip() + "\n\n" + GEO_TAGS
+
+
 def description(script, facts):
     import seo
     s = script.get("summary") or {}
@@ -360,10 +368,10 @@ def description(script, facts):
         parts = cap.split("\n\n")
         parts[1:1] = [card, src]
         out = "\n\n".join(p for p in parts if p)
-        return out + (" #reels" if MODE == "reel" and "#reels" not in out.lower() else "")
+        return geo(out + (" #reels" if MODE == "reel" and "#reels" not in out.lower() else ""))
     except Exception as e:
         log(f"SEO fail ({str(e)[:100]})")
-    return f"⚔️ {script.get('title')}\n\n{card}\n\n{script.get('caption', '')}\n\n{src}\n\n#BattlesUntold #history #war"
+    return geo(f"⚔️ {script.get('title')}\n\n{card}\n\n{script.get('caption', '')}\n\n{src}\n\n#BattlesUntold #history #war")
 
 
 BRAND_COVER = ("epic medieval battle close-up, armored knights fighting with swords in the foreground, cavalry charging, "
@@ -597,8 +605,7 @@ def pics(P, h, n=2):
     """2 tasveer posts usi jang par jo aakhri reel/long mein thi (ya WAR_OVERRIDE)."""
     war = os.environ.get("WAR_OVERRIDE", "").strip()
     if not war:
-        last = sorted(h["reel"] + h["long"], key=lambda x: x.get("date", ""))
-        war = last[-1]["war"] if last else WARS[0]
+        war = pick_war(h)[0]          # rozana pehle pics: wohi jang jis par aaj ki reel aayegi
     facts = gather_facts(war)
     log(f"Pics jang: {facts['title']}")
     imgs = war_images(facts["title"], n)
@@ -624,7 +631,7 @@ question to make people comment, then 5 hashtags incl #BattlesUntold #History"}}
         out = os.path.join(nv.WORK, f"pic_{k}.jpg")
         pic_card(raw, out, p.get("heading") or "BATTLES UNTOLD", p.get("fact") or "")
         done.append(im["url"])
-        cap = f"{p.get('caption', '')}\n\n📸 Image: Wikimedia Commons - {im['name']}\n📚 Source: Wikipedia - {facts['title']}"
+        cap = geo(f"{p.get('caption', '')}\n\n📸 Image: Wikimedia Commons - {im['name']}\n📚 Source: Wikipedia - {facts['title']}")
         log(f"pic {k + 1}: {p.get('heading')} | {im['name']}")
         import shutil
         shutil.copy(out, f"final_war_pic{k + 1}.jpg")

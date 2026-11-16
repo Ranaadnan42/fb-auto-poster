@@ -4,9 +4,9 @@ run-name: ${{ github.workflow }} [${{ inputs.sched || github.event.schedule || '
 on:
   schedule:
     # Waqt UTC. Agent pehle chal kar video banata hai, POST_AT par post (slot_wait). USA/UK/Europe audience.
-    - cron: '43 13 * * *'   # reel - post 15:13 UTC = 10:13 subah New York / 3:13 London
+    - cron: '43 13 * * *'   # reel + story - post 15:13 UTC = 10:13 subah New York / 3:13 London
     - cron: '13 21 * * *'   # reel - post 22:43 UTC = 5:43 shaam New York
-    - cron: '13 18 * * *'   # pics - 2 asli tasveer posts (aakhri jang par) 18:13 UTC = 1:13 dopahar New York
+    - cron: '13 13 * * *'   # pics (din ki pehli post) - 2 asli tasveerein aaj ki jang par, 13:13 UTC = 8:13 subah New York / 1:13 London / 2:13 Vienna
     - cron: '13 22 * * *'   # long - post 01:13 UTC = 8:13 raat New York (History of Every War, pehli jang se)
   workflow_dispatch:
     inputs:
@@ -91,7 +91,7 @@ jobs:
           YT_WORLD_CLIENT_ID: ${{ secrets.YT_WORLD_CLIENT_ID }}
           YT_WORLD_CLIENT_SECRET: ${{ secrets.YT_WORLD_CLIENT_SECRET }}
           YT_WORLD_REFRESH_TOKEN: ${{ secrets.YT_WORLD_REFRESH_TOKEN }}
-          MODE: ${{ env.S && (env.S == '13 22 * * *' && 'long' || env.S == '13 18 * * *' && 'pics' || 'reel') || inputs.mode || 'reel' }}
+          MODE: ${{ env.S && (env.S == '13 22 * * *' && 'long' || env.S == '13 13 * * *' && 'pics' || 'reel') || inputs.mode || 'reel' }}
           WAR_OVERRIDE: ${{ inputs.war || '' }}
           POST_AT: ${{ env.S == '43 13 * * *' && '15:13' || env.S == '13 21 * * *' && '22:43' || env.S == '13 22 * * *' && '01:13' || '' }}
           DRY_RUN: ${{ (!env.S && github.event_name == 'workflow_dispatch' && inputs.dry_run) && '1' || '0' }}
