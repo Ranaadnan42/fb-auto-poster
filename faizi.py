@@ -19,6 +19,7 @@ import io
 import json
 import os
 import random
+import re
 import subprocess
 import sys
 import time
@@ -130,7 +131,7 @@ def gen_image(prompt, w, h, path, seed, look=LOOK):
     url = ("https://image.pollinations.ai/prompt/" + urllib.parse.quote(full) +
            f"?width={w}&height={h}&seed={seed}&model=flux&nologo=true&enhance=true")
     from PIL import Image
-    for attempt in range(4):
+    for attempt in range(6):
         try:
             r = requests.get(url, timeout=240)
             if r.status_code == 200 and r.headers.get("content-type", "").startswith("image") and len(r.content) > 40000:
@@ -146,12 +147,14 @@ def gen_image(prompt, w, h, path, seed, look=LOOK):
     for key in [os.environ.get("FAIZI_GEMINI_API_KEY"), os.environ.get("GEMINI_BACKUP_KEY")]:
         if not key:
             continue
-        for model in ("gemini-2.5-flash-image", "gemini-2.0-flash-preview-image-generation"):
+        for model in gem_models(key, image=True):
             try:
                 j = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
                                   params={"key": key}, timeout=180, json={
                                       "contents": [{"parts": [{"text": full + f" Aspect ratio {w}:{h}."}]}],
                                       "generationConfig": {"responseModalities": ["TEXT", "IMAGE"]}}).json()
+                if "error" in j:
+                    raise RuntimeError(j["error"].get("message", ""))
                 for part in j["candidates"][0]["content"]["parts"]:
                     if part.get("inlineData"):
                         im = Image.open(io.BytesIO(base64.b64decode(part["inlineData"]["data"]))).convert("RGB")
@@ -169,6 +172,38 @@ def gen_image(prompt, w, h, path, seed, look=LOOK):
             except Exception as e:
                 log(f"gemini image {model} fail: {str(e)[:120]}")
     return False
+
+
+_GM = {}
+
+
+def gem_models(key, image=False):
+    """Is key par jo Gemini models abhi zinda hain (purane band ho jate hain) - naye pehle."""
+    ck = (key, image)
+    if ck not in _GM:
+        names = []
+        try:
+            j = requests.get("https://generativelanguage.googleapis.com/v1beta/models", params={"key": key,
+                             "pageSize": 200}, timeout=30).json()
+            for m in j.get("models", []):
+                n = m["name"].split("/")[-1]
+                if "generateContent" not in m.get("supportedGenerationMethods", []):
+                    continue
+                bad = ("tts", "live", "audio", "embedding", "robotics", "computer", "gemma", "learnlm")
+                if any(b in n for b in bad):
+                    continue
+                if image and "image" in n:
+                    names.append(n)
+                elif not image and "flash" in n and "image" not in n:
+                    names.append(n)
+            names.sort(key=lambda n: ("preview" in n or "exp" in n, "lite" in n,
+                                      -float((re.findall(r"(\d+(?:\.\d+)?)", n) or ["0"])[0])))
+        except Exception as e:
+            log(f"Gemini models list fail: {str(e)[:100]}")
+        _GM[ck] = names[:4] or (["gemini-2.5-flash-image"] if image else
+                                 ["gemini-3-flash-preview", "gemini-2.5-flash", "gemini-2.5-flash-lite"])
+        log(f"Gemini {'image' if image else 'vision'} models: {_GM[ck]}")
+    return _GM[ck]
 
 
 def check_image(path, flat=False):
@@ -189,7 +224,7 @@ def check_image(path, flat=False):
     for key in [os.environ.get("FAIZI_GEMINI_API_KEY"), os.environ.get("GEMINI_BACKUP_KEY")]:
         if not key:
             continue
-        for model in ("gemini-2.5-flash", "gemini-2.5-flash-lite"):
+        for model in gem_models(key):
             try:
                 r = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
                                   params={"key": key}, timeout=90, json={
@@ -197,6 +232,7 @@ def check_image(path, flat=False):
                                                               {"inlineData": {"mimeType": "image/jpeg", "data": data}}]}],
                                       "generationConfig": {"responseMimeType": "application/json"}})
                 if r.status_code != 200:
+                    log(f"image check {model} {r.status_code}: {r.text[:120]}")
                     continue
                 j = json.loads(r.json()["candidates"][0]["content"]["parts"][0]["text"])
                 try:

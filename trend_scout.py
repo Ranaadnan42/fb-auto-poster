@@ -122,7 +122,8 @@ def web_trends(desc, keys):
          "stories, formats, video lengths and hook styles are getting the most views right now, and what events, "
          "seasons or festivals coming up in the next 2 weeks will people search for? Give specific names. Short plain text.")
     for key in keys:
-        for m in ("gemini-2.5-flash", "gemini-3-flash-preview", "gemini-2.5-flash-lite"):
+        for m in ("gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-2.5-flash",
+                  "gemini-3.5-flash-lite", "gemini-2.5-flash-lite"):
             try:
                 r = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={key}",
                                   timeout=120, json={"contents": [{"parts": [{"text": q}]}],
