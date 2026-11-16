@@ -1,18 +1,18 @@
 {
- "updated": "2026-11-15 19:13",
+ "updated": "2026-11-16 07:24",
  "format_mult": {
-  "chat": 0.61,
   "animal": 0.98,
   "story": 1.2,
-  "people": 1.08,
+  "chat": 0.61,
+  "people": 1.06,
   "cartoon": 1.03
  },
  "reel_format_mult": {
-  "expectation": 1.1,
-  "kya_hota_agar": 1.0,
-  "latifay": 1.12,
-  "har_ghar": 1.1,
-  "types": 1.26,
+  "expectation": 1.11,
+  "kya_hota_agar": 1.01,
+  "latifay": 1.11,
+  "har_ghar": 1.04,
+  "types": 1.23,
   "dialogue": 0.97,
   "news": 0.9,
   "pov": 0.97
@@ -23,21 +23,21 @@
   "cricket-commentary style narration of an everyday moment": 1.14,
   "a desi aunty's commentary": 0.97,
   "over-the-top breaking-news style": 1.08,
-  "sarcastic narrator roasting the situation (gently)": 0.92,
+  "sarcastic narrator roasting the situation (gently)": 0.94,
   "a strict ammi's rules explained": 1.07,
   "a lazy student's confessions": 1.06,
   "a motivational speaker giving terrible advice": 1.28,
   "dramatic TV-serial narration of a tiny problem": 1.05,
-  "observational desi comedy - 'har kisi ke saath hota hai'": 1.04,
+  "observational desi comedy - 'har kisi ke saath hota hai'": 0.94,
   "a middle-class abbu's logic": 0.85,
-  "nature-documentary narrator describing desi people": 1.06
+  "nature-documentary narrator describing desi people": 1.07
  },
  "topic_mult": {
-  "school / tuition": 0.83,
   "summer heat": 0.8,
   "cricket match": 1.08,
   "street food": 1.04,
   "teacher vs students": 0.75,
+  "school / tuition": 0.86,
   "rishta aunty": 0.99,
   "shaadi (wedding) season": 0.76,
   "bijli ka bill": 1.08,
@@ -53,15 +53,15 @@
   "winter mornings": 1.11,
   "barish (rain)": 1.11,
   "selfie / TikTok craze, bank queue, Eidi collection, freelancing client, pet cat ruling the house": 0.84,
-  "Ludo fights at home": 1.04,
+  "Ludo fights at home": 1.05,
   "barber shop": 0.9,
   "mehndi function": 0.73,
   "Eidi collection": 1.04,
-  "cooking disaster": 0.94,
+  "cooking disaster": 0.95,
   "mechanic's 'sirf 5 minute'": 1.06,
   "traffic jam": 1.04,
   "laundry day": 0.71,
-  "moving to a new house": 1.09,
+  "moving to a new house": 1.08,
   "ice cream truck": 1.04,
   "fake diet plans": 1.17,
   "bargaining in bazaar": 1.07,
@@ -88,13 +88,15 @@
   "Eid ul Adha bakra mandi": 1.04,
   "grandma's home remedies": 1.06,
   "train journey": 1.04,
-  "remote control fight, lost TV remote, Eid shopping, online shopping, salary day": 0.86
+  "remote control fight, lost TV remote, Eid shopping, online shopping, salary day": 0.86,
+  "phone battery 1%": 1.01,
+  "pet cat ruling the house": 0.89
  },
  "tips": [
-  "Prioritize 'types' (x1.60) and 'latifay' (x1.22) reel structures; avoid 'news' format reels (x0.83) which consistently underperform.",
-  "Focus script topics on relatable outside-home/work situations (dentist visits, office interviews, Monday morning blues, government office delays, mechanic excuses) over low-performing domestic chores (laundry day, remote",
-  "Utilize 'story' (x1.26) and 'people' (x1.09) video formats as primary content drivers, while avoiding generic 'chat' format reels which average a low x0.56.",
-  "Lean into high-engagement lifestyle humor like fake diet plans, bazaar bargaining, rain/winter mornings, and friends' group chats; cut back on wedding/mehndi and generic summer heat themes.",
-  "Use specific archetype titles (e.g., 'ڈینٹسٹ کے مریض', 'ماموں مستانہ کا ڈائٹ ڈرامہ') that immediately signal the relatable struggle in the first 3 seconds."
+  "Focus heavily on the 'types' structure (score 1.43) and 'latifay'/'expectation' styles, paired with real human actors ('people' format score 1.07) or short stories/cartoons rather than static text chats.",
+  "Cut down on 'chat' format videos drastically (overall score 0.56) and avoid 'news' format reels (0.83), as viewers find chat animations unengaging.",
+  "Write scripts around specific, high-performing situational comedy such as workplace hassles ('office / job interview' 1.53, 'monday morning' 1.32), bureaucracy ('government office file' 1.54), medical visits ('dentist vi",
+  "Stop posting tired, overdone domestic topics that are severely underperforming, specifically 'laundry day' (0.26), 'remote control fight' (0.26), 'mehndi function' (0.29), and generic 'summer heat' (0.57).",
+  "Use titles that highlight specific character archetypes and relational drama (e.g., 'ڈینٹسٹ کے مریض', 'ماموں مستانہ کا ڈائٹ ڈرامہ') to increase curiosity and shareability."
  ]
 }

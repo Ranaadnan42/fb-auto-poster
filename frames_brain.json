@@ -1,32 +1,32 @@
 {
- "updated": "2026-11-15 19:25",
+ "updated": "2026-11-16 07:31",
  "mult": {
   "pk_city": 0.78,
-  "pk_versus": 1.01,
-  "pk_moving": 0.76,
-  "pk_best_list": 1.04,
+  "pk_versus": 1.02,
+  "pk_moving": 0.77,
+  "pk_best_list": 1.05,
   "pk_jobs": 0.71,
   "pk_country": 1.45,
   "pk_visa": 0.93,
-  "pk_tour": 0.97,
+  "pk_tour": 0.98,
   "pk_living": 0.99,
-  "pk_jobhow": 0.98,
+  "pk_jobhow": 0.99,
   "pk_tour_short": 0.7,
-  "pk_cost_short": 0.57,
-  "pk_jobtip": 0.82,
+  "pk_cost_short": 0.58,
+  "pk_jobtip": 0.83,
   "pk_food": 0.51,
-  "pk_hidden": 0.69,
+  "pk_hidden": 0.68,
   "pk_salary_short": 0.56,
   "pk_city_facts": 0.65,
   "pk_versus_short": 0.99,
   "pk_visa_short": 0.73,
-  "pk_facts": 1.09
+  "pk_facts": 1.1
  },
  "tips": [
-  "Always write titles in proper Urdu script with curiosity hooks (e.g., 'کون سا ملک بہتر ہے؟')—Roman Urdu titles flopped drastically (31 views vs 5,976 views for the exact same topic).",
-  "Focus on Country Comparisons (pk_versus_short) and in-depth Country Documentaries (pk_country, score 4.37x) focusing on lifestyle and student pathways.",
-  "Completely stop food content (pk_food, 0.31x) and micro salary shorts (pk_salary_short, 0.36x); audience interest in food guides is nearly zero.",
-  "Prioritize high-production long-form guides over random shorts; long-form retains a higher baseline (0.82x vs 0.54x) and drives better watch time for monetization.",
-  "For shorts, strictly use fast-paced curiosity hooks with specific numbers ('چین کے 6 ناقابل یقین اور حیران کن حقائق') rather than generic city history."
+  "Focus on short videos (under 1 minute) about surprising facts and country comparisons, especially China, Canada vs Australia, and Singapore—these have the highest x scores;",
+  "Create more \"facts\" series (pk_facts) and \"versus\" short formats, using catchy hooks like \"6 unbelievable facts\" or \"Which country is better for Pakistanis?\";",
+  "Avoid low‑performing topics like Morocco food, Sweden salary, and Greece facts—replace them with high‑interest travel or education content;",
+  "Use titles with numbers and keywords (e.g., \"6 Amazing Facts\", \"Best European Countries for Pakistani Students\") and keep Urdu narration concise with English subtitles for broader reach;",
+  "Maintain video length around 60 seconds for short series and under 2‑3 minutes for long documentaries to boost watch time and shares."
  ]
 }
