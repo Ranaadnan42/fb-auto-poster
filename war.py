@@ -286,6 +286,25 @@ Return JSON:
 
 
 # ---------------------------------------------------------------- video
+def rematch_scene(sc, shown, facts):
+    """Scene ki footage nahi mili: AI wohi facts rakh kar jumla us cheez ke gird likhe jo screen par dikh sakti hai."""
+    opts = "\n".join(f"{k}: footage of {', '.join(v[0][:2])}" for k, v in enumerate(shown))
+    try:
+        j = news.ask_json(f"""A war-history reel about "{facts['title']}". This narration line has NO matching real footage:
+"{sc['text']}"
+Real video clips we DO have (index: what is shown):
+{opts}
+Pick the ONE clip that fits best and rewrite the line so it naturally talks about what that clip shows
+(e.g. "Here along the Nile, ..." / "In excavations like this one, ...") while keeping the same facts, numbers and
+roughly the same length. Never invent facts. Return JSON {{"clip": index, "text": "..."}}""")
+        k, txt = int(j.get("clip")), str(j.get("text") or "").strip()
+        if 0 <= k < len(shown) and len(txt.split()) >= 6:
+            return txt, k
+    except Exception as e:
+        log(f"  rematch fail: {str(e)[:120]}")
+    return None
+
+
 def build_video(script, facts, used):
     badge = (script.get("years") or "").strip() or "WAR HISTORY"
     subj = [x.strip() for x in (script.get("subjects") or []) if isinstance(x, str) and x.strip()][:5]
@@ -297,6 +316,10 @@ def build_video(script, facts, used):
                 f"{facts['title']} memorial", f"{place} fort"]
     fallback = [x for x in fallback if x.strip() and x.strip() != "@"]
     nv.STORY_CLIPS.clear()
+    # aawaz = tasveer: kisi aur scene ki clip random dobara NAHI lagegi. Jis jumle ki footage na mile,
+    # wo jumla (wohi facts) us cheez ke gird dobara likha jata hai jis ki asli footage is video mein mil chuki.
+    os.environ["NO_REUSE"] = "1"
+    shown = []          # [(scene ki visuals, scene ka text, clip paths)] jo agent ne pass ki
     scenes = []
     for i, sc in enumerate(script["scenes"]):
         terms = [t for t in (sc.get("visuals") or []) if isinstance(t, str) and t.strip()]
@@ -304,7 +327,24 @@ def build_video(script, facts, used):
             terms = [place]
         label = str(sc.get("label") or "").strip().upper()[:40] or None
         try:
-            scenes.append(nv.build_scene(i, PAGE, sc["text"], terms, label, badge, used, fallback))
+            miss0, clips0 = len(nv.REPORT.get("no_match", [])), len(nv.ALL_CLIPS)
+            out = nv.build_scene(i, PAGE, sc["text"], terms, label, badge, used, fallback)
+            new_clips = nv.ALL_CLIPS[clips0:]
+            if len(nv.REPORT.get("no_match", [])) > miss0 and shown:
+                fixed = rematch_scene(sc, shown, facts)
+                if fixed:
+                    txt, k = fixed
+                    log(f"  scene {i}: footage nahi mili - jumla '{shown[k][0][0]}' ke gird dobara likha")
+                    nv.STORY_CLIPS[:] = list(shown[k][2])
+                    try:
+                        out = nv.build_scene(i, PAGE, txt, ["#reuse"] * 3, label, badge, used, [])
+                        sc["text"] = txt
+                        new_clips = []
+                    finally:
+                        nv.STORY_CLIPS.clear()
+            if new_clips:
+                shown.append((terms or [place], sc["text"], new_clips))
+            scenes.append(out)
         except Exception as e:
             log(f"scene {i} fail: {str(e)[:200]}")
             REPORT["errors"].append(f"scene {i}: {str(e)[:150]}")

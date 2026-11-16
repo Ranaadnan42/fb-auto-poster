@@ -377,6 +377,10 @@ def scene_video(i, terms, secs, used, fallback_terms, said="", kind="news"):
     alt = None
     for k, t in enumerate(terms[:n]):
         out = os.path.join(WORK, f"s{i}_{k}.mp4")
+        if t == "#reuse" and STORY_CLIPS:      # jumla isi clip ke gird likha gaya - wohi clip, talaash nahi
+            _render_clip(STORY_CLIPS[k % len(STORY_CLIPS)], seg + 0.1, out)
+            parts.append(out)
+            continue
         ok = _try(t, seg + 0.1, out, used, said, kind)
         if not ok:
             ok = any(_try(x, seg + 0.1, out, used, said, kind) for x in terms if x != t and not x.startswith("@"))
