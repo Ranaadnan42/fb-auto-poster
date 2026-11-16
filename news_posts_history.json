@@ -3483,6 +3483,18 @@
   "title": "پاک بھارت ساف چیمپئن شپ فائنل پیشگوئی"
  },
  {
+  "date": "2026-11-16 18:30",
+  "page": "news",
+  "id": "1448208791702551_122110716567532804",
+  "fmt": "breaking",
+  "lang": "en",
+  "topics": [
+   "middle_east"
+  ],
+  "sport": null,
+  "title": "Houthis accuse Saudi Arabia of strikes that killed 3 people"
+ },
+ {
   "date": "2026-11-16 18:31",
   "page": "news",
   "id": "2613386909074463",
@@ -3493,5 +3505,17 @@
   ],
   "sport": null,
   "title": "US Flight Disruptions Expected to Continue Into Monday"
+ },
+ {
+  "date": "2026-11-16 18:34",
+  "page": "sports",
+  "id": "1465090056678690_122103141699548502",
+  "fmt": "breaking",
+  "lang": "en",
+  "topics": [
+   "cricket"
+  ],
+  "sport": null,
+  "title": "Prince William and Kate play cricket in Mumbai"
  }
 ]
