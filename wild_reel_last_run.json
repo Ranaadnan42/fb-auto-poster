@@ -1,23 +1,27 @@
 {
- "time_utc": "2026-11-17 12:08",
+ "time_utc": "2026-11-17 18:38",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
- "country": "Kenya",
+ "country": "South Africa",
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 160,
- "agent_checks": 76,
- "agent_rejects": 67,
- "agent_skips": 91,
- "alt_searches": 6,
+ "clips_rejected": 222,
+ "alt_searches": 7,
+ "no_match": [
+  "Cape mountain zebra"
+ ],
+ "headline_cards": 1,
+ "agent_checks": 97,
+ "agent_rejects": 91,
+ "agent_skips": 130,
  "posted": {
-  "country": "Kenya",
-  "animal": "African bush elephant",
-  "wiki": "African bush elephant",
-  "date": "2026-11-17 12:08",
-  "title": "The Seven-Ton Titan: Kenya's Incredible African Bush Elephant",
-  "dur": 69,
-  "post_id": "1854327905717302"
+  "country": "South Africa",
+  "animal": "Cape mountain zebra",
+  "wiki": "Cape mountain zebra",
+  "date": "2026-11-17 18:38",
+  "title": "Meet the Rare Zebra That Lives High in the Mountains!",
+  "dur": 61,
+  "post_id": "4482792438643075"
  }
 }
