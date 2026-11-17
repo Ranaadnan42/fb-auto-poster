@@ -1,0 +1,29 @@
+{
+ "time_utc": "2026-11-17 02:00",
+ "mode": "long",
+ "dry_run": false,
+ "errors": [],
+ "images": {
+  "rejected": 11,
+  "pollinations": 25
+ },
+ "posted": {
+  "mode": "long",
+  "theme": "Crimson Citrus Chic",
+  "designs": [
+   "Scarlet Sunset Gown",
+   "Burgundy Blush Co‑ord Set",
+   "Pomelo Print Maxi Dress",
+   "Tangerine Taffeta Gown",
+   "Saffron Silk Suit",
+   "Mango Mingle Baby Dress",
+   "Citrus Charm Kids Party Dress",
+   "Peach Blossom Blazer",
+   "Grapefruit Glow Evening Gown",
+   "Clementine Couture Co‑ord Set",
+   "Orange Orchard Baby Romper"
+  ],
+  "date": "2026-11-17 02:00",
+  "post_id": "990702323585065"
+ }
+}
