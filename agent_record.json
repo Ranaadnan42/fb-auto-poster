@@ -1,29 +1,15 @@
 {
  "open_fixes": [],
- "time_utc": "2026-11-16 23:46",
- "summary": "Hallucinated model IDs (3.8/3.6) ko valid Gemini 1.5 aur Llama 3.2 vision models se badal diya hai. Birds, Pets, aur Scenic bots ab theek chalne chahiye.",
+ "time_utc": "2026-11-17 00:51",
+ "summary": "",
  "notes": [
-  "pichhla fix (6dddb66) kaam kar gaya: Updating retired/invalid Gemini model IDs to current working ones to fix 404 errors.",
-  "pichhla fix (6dddb66) kaam kar gaya: Update retired AI model IDs to working Gemini 1.5/2.0 models to prevent 404/429 errors.",
-  "pichhla fix (6dddb66) kaam kar gaya: Update Gemini model list to currently supported versions.",
-  "fix push na ho saka"
+  "dimagh na chala: koi AI model na chala: 404 Client Error: Not Found for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=AQ.Ab8RN6K_1NN5sMNRP7jibeVdQ0ccynmKE0_QZ3WsawnO3_YTUQ"
  ],
- "actions": [],
- "edits": [
-  {
-   "path": "groq_vision.py",
-   "why": "Reverting hallucinated/invalid Groq vision model names to valid ones (Llama 3.2 vision)."
-  },
-  {
-   "path": "cinematic.py",
-   "why": "Replacing invalid/hallucinated Gemini model IDs with current working ones."
-  },
-  {
-   "path": "page_brain.py",
-   "why": "Replacing invalid/hallucinated Gemini model IDs with current working ones."
-  }
+ "actions": [
+  "run 43964258180 (Birds of the World (Bird Agent) [47 19 * * *]) dobara chalaya",
+  "run 43952401033 (Wander Earth (Scenic Agent) [48 10 * * *]) dobara chalaya",
+  "run 43968932396 (Dogs & Cats World (Pets Agent) [22 12 * * *]) dobara chalaya"
  ],
- "needs_owner": [
-  "Update hardcoded model lists in site_agent.py, main.py, funny.py, photos.py, pinterest.py, growth.py, and trend_scout.py to use valid Gemini/Groq IDs (1.5-flash, 2.0-flash-exp, llama-3.2-11b-vision-preview)."
- ]
+ "edits": [],
+ "needs_owner": []
 }

@@ -1,105 +1,109 @@
 {
  "islamic": {
-  "avoid": [
-   "نبی کریم کی سنتیں",
-   "Value of time theme",
-   "Hope after sadness theme"
-  ],
+  "avoid": [],
   "try": [
-   "Bilal ibn Rabah's perseverance in calling Adhan",
-   "Isra and Mi'raj: lessons on prayer and trust",
-   "Abdullah ibn Umar's dedication to Quranic learning",
-   "Ashab al‑Jannat (People of the Garden) gratitude lesson",
-   "Prophet's smile hadith and its impact",
-   "Umar ibn al‑Khattab's justice in the market incident"
+   "Bilal ibn Rabah ki sabr aur azaan ka safar",
+   "Isra aur Mi'raj ka roohani safar aur uske sabak",
+   "Abdullah ibn Umar ki sadaqat aur tawazu ka waqia",
+   "Ashab al‑Kahf ki kahani: sabr aur tawakkul ka paigham",
+   "Prophet ﷺ ki ghair‑Muslim padosi ke saath rehmat ka waqia",
+   "Sahabi Khalid ibn al‑Walid ki jang mein sabr aur strategy"
   ],
-  "note": "Page bohat repeat ho rahi hai"
+  "note": "Nahi, page ka content kaafi mukhtalif hai"
  },
  "funny": {
   "avoid": [
-   "یاروں کی گروپ چیٹ اور شمالی علاقہ جات series",
-   "WhatsApp ڈرامے (واٹس ایپ کارنامے) کی متعدد پوسٹس",
-   "پیر کی صبح اور ابّا جی کا کلہاڑی فارمولا (دہرایا گیا)"
+   "یاروں کی گروپ چیٹ اور شمالی علاقہ جات",
+   "ماجد بریک اور رکشے کا عذاب | قسط 1",
+   "دادی اماں کا وکس شفا خانہ اور ہر بیماری کی آخری چھٹی",
+   "PSL فائنل اور دیسی گھرانوں کے ڈرامے",
+   "محلے کی گلی کا خطرناک کرکٹ میچ",
+   "بارش کا اصلی سچ: شاعری سے وائپر تک",
+   "سردی میں بستر سے اٹھنا اب قانونی جرم ہے",
+   "منڈی میں ابّا کی بارگیننگ اور بیپاری کا ہارٹ اٹیک"
   ],
   "try": [
-   "نیا موبائل پلان اور ڈیٹا کی قیمت پر گھر کی بحث",
-   "کچن میں ایئر فرائیر کا پہلا تجربہ اور دھواں",
-   "سکول کے پرنسپل کی غیر متوقع چھٹی کا اعلان",
-   "دوسری شادی میں رشتے داروں کا غیر معمولی ڈانس مقابلہ",
-   "پڑوس کے بیکری کی نئی پیزا پر سب کی رائے",
-   "آن لائن کلاس میں انٹرنیٹ ڈراپ اور استاد کی ردعمل"
+   "نئی موبائل ڈیٹا پیکج کی قیمت پر خاندان کی بحث",
+   "سائیکل پر ٹریفک پولیس کا ٹکٹ اور ابو کا ردعمل",
+   "دستک دار کی ڈلیوری پر گھر میں ہنگامہ اور امی کا ڈرامہ",
+   "سردیوں میں ہیٹر کی مرمت کا ڈرامہ اور پڑوسی کی مدد",
+   "پڑوسی کے کچن سے خوشبو اور چائے کی دعوت کا قصہ",
+   "بچوں کی اسکول کی پہلی ڈیوٹی پر ہنگامہ اور والدین کی مشاورت"
   ],
-  "note": "Page thoda repetitive lag raha hai"
+  "note": "Page thodi repetitive lag rahi hai."
  },
  "world": {
   "avoid": [
    "What Nobody Tells You About ...",
-   "Japan",
-   "Australia",
    "Retiring in ..."
   ],
   "try": [
-   "Living in Kenya: Cost of Living, Jobs & Safety",
-   "Argentina Unveiled: Culture, Food & Affordable Travel",
-   "Poland Documentary: History, Lifestyle & Moving Tips",
-   "Iceland Exploration: Nature, Cost of Living & Daily Life",
-   "Malaysia Guide: Urban Living, Costs & Safety",
-   "Greece Travel Guide: History, Food & Budget Living"
+   "Living in Greece: Cost, Culture, and Daily Life",
+   "Moving to Estonia: What Nobody Tells You",
+   "Retiring in Malaysia: Honest Truth for Expats",
+   "South Africa vs Kenya: Cost of Living and Lifestyle Comparison",
+   "Exploring Iceland: History, Nature, and Living Costs",
+   "Living in Argentina: Safety, Jobs, and Lifestyle"
   ],
-  "note": "Page thodi repetitive lag rahi hai."
+  "note": "Page bohat repetitive lag rahi hai."
  },
  "world_short": {
   "avoid": [
-   "Australia",
-   "Canada",
-   "South Korea",
+   "5 Secret Places in",
+   "Would You Live in",
    "Japan",
-   "Would You Live in...",
-   "5 Secret Places in..."
+   "South Korea",
+   "Australia",
+   "Spain"
   ],
   "try": [
-   "Iceland vs Portugal: Wages and Cost of Living Compared",
-   "Dubai in 60 Seconds: Desert Luxury & Hidden Gems",
-   "Traditional Food of Mexico: 5 Must-Try Dishes",
-   "5 Secret Places in New Zealand You Never Knew Existed",
-   "What Nobody Tells You About Visiting Lisbon",
-   "Singapore vs Germany: Wages, Cost and Lifestyle Compared"
+   "Traditional Food of Vietnam: 5 Must-Try Dishes",
+   "Iceland's Secret Places Most Travelers Miss",
+   "6 Surprising Facts About Brazil You Didn't Know",
+   "Singapore in 60 Seconds: The Lion City",
+   "Portugal vs Italy: Wages, Cost and Lifestyle Compared",
+   "What Nobody Tells You About Visiting Morocco"
   ],
-  "note": "Page is repetitive with specific countries (Australia, Canada, Japan) and title formats."
+  "note": "Formats kaafi repeat ho rahay hain, naye countries aur fresh comparisons ki zaroorat hai."
  },
  "frames": {
   "avoid": [
-   "دبئی",
-   "دبئی کی حقیقت",
-   "دبئی بمقابلہ سعودی عرب",
-   "Best European Countries for Pakistani Students"
+   "Dubai",
+   "Qatar",
+   "Sweden",
+   "جانے سے پہلے یہ ضرور جان لیں",
+   "ویزا کیسے لگتا ہے",
+   "Australia"
   ],
   "try": [
-   "Singapore Visa Guide for Pakistanis",
-   "Brazil Visa Guide for Pakistanis",
-   "Vietnam Life in Vietnam",
-   "Kenya Job Opportunities for Pakistanis",
-   "South Africa Life in South Africa"
+   "Portugal Job Search and PR Guide",
+   "Switzerland Tourism and Living Costs for Pakistanis",
+   "China Study and Business Guide",
+   "Turkey vs Greece: Which is better for settlement?",
+   "Ireland Work Permit and Life Reality",
+   "Oman Job Market and Salary Guide"
   ],
-  "note": "Page thodi repetitive hai."
+  "note": "Page ka content kaafi informative hai magar visa guides aur comparison videos ki wording thori repetitive ho rahi hai."
  },
  "frames_short": {
   "avoid": [
    "New Zealand",
-   "Kazakhstan",
-   "Norway",
-   "Finland",
-   "Iceland"
+   "5 Khubsurat Jagahein",
+   "Kazakhstan / Almaty",
+   "Finland / Helsinki",
+   "Iceland / Reykjavik",
+   "Hungary / Budapest",
+   "Kyrgyzstan / Bishkek"
   ],
   "try": [
-   "Switzerland: Life in Zurich and Travel Tips",
-   "Turkey: Istanbul Travel Guide for Pakistanis",
-   "Germany: Study and Work Opportunities in Berlin",
-   "Malaysia: Cost of Living in Kuala Lumpur",
-   "Saudi Arabia: Life and Earnings in Riyadh",
-   "USA vs UK: Which country is better for immigration?"
+   "Germany Job Seeker Visa: 5 Important Tips",
+   "Switzerland vs Luxembourg: Pakistaniyon ke liye kaunsa behtar hai?",
+   "Turkey (Istanbul) mein ek mahine ka kharcha",
+   "Malaysia: 6 hairan kun haqaiq",
+   "Saudi Arabia (Riyadh) mein salary aur bachat",
+   "Thailand ki 5 mashhoor halal food spots"
   ],
-  "note": "Page repetitive nahi hai, har video mein naye mulk aur mukhtalif maloomat di ja rahi hain."
+  "note": "Page ka content kaafi diverse hai lekin title patterns aur European cities ki repetition ko control karna zaroori hai."
  },
  "_platforms": {
   "islamic": {

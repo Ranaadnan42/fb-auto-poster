@@ -1,13 +1,13 @@
 {
- "at": "2026-11-16T23:51+00:00",
+ "at": "2026-11-17T00:55+00:00",
  "week_start": "2026-11-15",
  "deadline_pk": "2026-11-21T00:00+05:00",
  "targets_fresh": false,
  "pages": {
   "islamic": {
    "photos": "2/30",
-   "reels": "9/10",
-   "stories": "3/7",
+   "reels": "11/10",
+   "stories": "4/7",
    "extra": []
   },
   "funny": {
@@ -24,8 +24,8 @@
   },
   "webbuilder": {
    "photos": "6/30",
-   "reels": "10/9",
-   "stories": "5/7",
+   "reels": "11/9",
+   "stories": "6/7",
    "extra": []
   },
   "scenic": {
@@ -36,8 +36,8 @@
   },
   "war": {
    "photos": "10/0",
-   "reels": "1/0",
-   "stories": "3/7",
+   "reels": "2/0",
+   "stories": "4/7",
    "extra": []
   }
  }

@@ -1,7 +1,7 @@
 {
  "islamic": {
   "name": "Islamic Motivational Videos (YT)",
-  "at": "2026-11-16T23:51+00:00",
+  "at": "2026-11-17T00:55+00:00",
   "done": [
    "999 ghante se upload nahi thi - main.yml khud chala diya"
   ],
@@ -17,13 +17,18 @@
     "day": "2026-11-16",
     "subscribers": 0,
     "views": 0
+   },
+   {
+    "day": "2026-11-17",
+    "subscribers": 0,
+    "views": 0
    }
   ],
-  "kicked": "2026-11-16"
+  "kicked": "2026-11-17"
  },
  "frames": {
   "name": "Frames of Life (YT)",
-  "at": "2026-11-16T23:51+00:00",
+  "at": "2026-11-17T00:55+00:00",
   "done": [
    "999 ghante se upload nahi thi - frames.yml khud chala diya"
   ],
@@ -39,13 +44,18 @@
     "day": "2026-11-16",
     "subscribers": 0,
     "views": 0
+   },
+   {
+    "day": "2026-11-17",
+    "subscribers": 0,
+    "views": 0
    }
   ],
-  "kicked": "2026-11-16"
+  "kicked": "2026-11-17"
  },
  "world": {
   "name": "Atlas Untold (YT)",
-  "at": "2026-11-16T23:51+00:00",
+  "at": "2026-11-17T00:55+00:00",
   "done": [
    "999 ghante se upload nahi thi - world.yml khud chala diya"
   ],
@@ -61,13 +71,18 @@
     "day": "2026-11-16",
     "subscribers": 0,
     "views": 0
+   },
+   {
+    "day": "2026-11-17",
+    "subscribers": 0,
+    "views": 0
    }
   ],
-  "kicked": "2026-11-16"
+  "kicked": "2026-11-17"
  },
  "default": {
   "name": "Legends Untold (YT)",
-  "at": "2026-11-16T23:51+00:00",
+  "at": "2026-11-17T00:55+00:00",
   "done": [
    "999 ghante se upload nahi thi - cinematic.yml khud chala diya"
   ],
@@ -83,8 +98,13 @@
     "day": "2026-11-16",
     "subscribers": 0,
     "views": 0
+   },
+   {
+    "day": "2026-11-17",
+    "subscribers": 0,
+    "views": 0
    }
   ],
-  "kicked": "2026-11-16"
+  "kicked": "2026-11-17"
  }
 }
