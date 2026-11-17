@@ -1,9 +1,15 @@
 {
  "mode": "long",
- "clips": 97,
- "clips_rejected": 617,
- "vision_checks": 700,
- "errors": [],
+ "clips": 0,
+ "clips_rejected": 0,
+ "vision_checks": 0,
+ "errors": [
+  "Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/gemini-3.5-flash-lite for the latest features and improvements. We recommend you to use the Interactions API (https://ais",
+  "Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/gemini-3.5-flash-lite for the latest features and improvements. We recommend you to use the Interactions API (https://ais",
+  "Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/gemini-3.5-flash-lite for the latest features and improvements. We recommend you to use the Interactions API (https://ais",
+  "fatal: video nahi bani",
+  "fatal: Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/gemini-3.5-flash-lite for the latest features and improvements. We recommend you to use the Interactions API (https://ais"
+ ],
  "search_phrases": [
   "dubai vs saudi arabia jobs",
   "dubai vs saudi arabia vs qatar",
@@ -13,18 +19,7 @@
   "dubai vs saudi arabia malayalam",
   "dubai vs saudi arabia war",
   "dubai and saudi arabia",
-  "dubai and saudi arabia difference in hindi"
- ],
- "script_words": 1894,
- "alt_searches": 15,
- "photos": 20,
- "vision_waits": 1,
- "seconds": 741.5,
- "links": [
-  "https://beoe.gov.pk",
-  "https://oec.gov.pk"
- ],
- "subject": "Norway vs Denmark",
- "series": "pk_versus",
- "title": "ناروے یا ڈنمارک؟ پاکستانیوں کے لیے روزگار، تنخواہ اور زندگی | Norway vs Denmark"
+  "dubai and saudi arabia difference in hindi",
+  "canada vs australia which is better"
+ ]
 }
