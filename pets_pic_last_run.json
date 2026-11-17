@@ -3,21 +3,20 @@
  "agent": "pets",
  "dry_run": false,
  "log": [
-  "Subject: Pembroke Welsh Corgi",
-  "photo commons wmi145931531 1920x1273: agent=True",
-  "--- caption ---\nMeet the \"dwarf dog\" from Wales, the famous Pembroke Welsh Corgi! 🏴󠁧󠁢󠁷󠁬󠁳󠁿🐕\n\nDescended from the Spitz family, these cattle herding dogs were the favorite breed of Queen Elizabeth II. They remain highly popular in the United States with massive annual Corgi Meetups.\n\nWould you love to ",
-  "Video tayyar - 34 minute intezar, post 12:37 UTC par hogi",
-  "Waqt ho gaya - post kar rahe hain",
+  "Subject: Siberian Husky",
+  "photo commons wmi29117564 1920x1627: agent=True",
+  "--- caption ---\nMeet the Siberian Husky – the Arctic’s most iconic sled dog! 🐾❄️\n\nDiscover why Siberian Huskies are known for their thick double coat, energetic spirit, and stunning triangular ears.\n\nWho’s your favorite husky? Tag a friend who loves these fluffy explorers!\n\nFollow Dogs & Cats World ",
+  "Post waqt 18:37 UTC guzar chuka - foran post",
   "photo story lagi",
-  "posted 1389149844290401_122099691957553453"
+  "posted 1389149844290401_122099350707553453"
  ],
  "errors": [],
  "posted": {
-  "subject": "Pembroke Welsh Corgi",
-  "photo": "wmi145931531",
+  "subject": "Siberian Husky",
+  "photo": "wmi29117564",
   "src": "commons",
-  "size": "1920x1273",
-  "date": "2026-11-17 12:02",
-  "post_id": "1389149844290401_122099691957553453"
+  "size": "1920x1627",
+  "date": "2026-11-17 01:54",
+  "post_id": "1389149844290401_122099350707553453"
  }
 }
