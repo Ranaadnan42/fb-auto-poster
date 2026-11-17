@@ -1,32 +1,28 @@
 {
- "updated": "2026-11-16 22:52",
+ "updated": "2026-11-17 08:39",
  "mult": {
   "pk_city": 0.78,
-  "pk_versus": 1.02,
+  "pk_versus": 0.97,
   "pk_moving": 0.77,
-  "pk_best_list": 1.05,
-  "pk_jobs": 0.71,
-  "pk_country": 1.45,
-  "pk_visa": 0.93,
+  "pk_best_list": 1.06,
+  "pk_jobs": 0.72,
+  "pk_country": 1.46,
+  "pk_visa": 0.94,
   "pk_tour": 0.98,
   "pk_living": 0.99,
   "pk_jobhow": 0.99,
-  "pk_tour_short": 0.71,
-  "pk_cost_short": 0.55,
-  "pk_jobtip": 0.84,
+  "pk_cost_short": 0.56,
+  "pk_jobtip": 0.83,
   "pk_food": 0.52,
   "pk_hidden": 0.69,
-  "pk_salary_short": 0.57,
-  "pk_city_facts": 0.66,
-  "pk_versus_short": 1.0,
+  "pk_salary_short": 0.56,
+  "pk_city_facts": 0.65,
+  "pk_versus_short": 0.99,
   "pk_visa_short": 0.73,
-  "pk_facts": 1.1
+  "pk_tour_short": 0.84,
+  "pk_facts": 0.97
  },
  "tips": [
-  "Prioritize full country documentaries (pk_country), country comparisons (pk_versus), and high-intrigue facts (pk_facts) like China or Malta.",
-  "Stop producing food guides (pk_food) and short salary/cost breakdown shorts (pk_salary_short, pk_cost_short), which consistently get sub-0.4x performance.",
-  "Always use standard Urdu script for video titles instead of Roman Urdu (e.g., Canada vs Australia scored x10.13 in Urdu script vs x0.18 in Roman Urdu).",
-  "Shift focus toward long-form content over shorts, as long videos average significantly better performance (0.83 vs 0.55) and drive higher monetization.",
-  "Pick aspirational or high-interest destinations (Canada, Australia, Malta, Singapore, China) rather than lower-demand spots like Morocco or Baku."
+  "Focus on short videos (under 1 min) about surprising facts and country comparisons, especially China, Canada vs Australia, and Singapore – they have highest x scores; use hook like \"Aapko pata bhi nahi tha...\"; avoid foo"
  ]
 }
