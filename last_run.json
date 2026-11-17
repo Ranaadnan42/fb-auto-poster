@@ -1,31 +1,32 @@
 {
  "lang": "en",
- "stock_clips": 14,
+ "stock_clips": 40,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "gratitude in islamic perspective",
-  "gratitude in islam malayalam",
-  "gratitude in islam in urdu",
-  "practicing gratitude in islam",
-  "power of gratitude in islam",
-  "importance of gratitude in islam",
-  "patience and gratitude in islam",
-  "how to show gratitude in islam",
-  "gratitude meditation islam"
+  "life after death islamic lecture",
+  "life after death islamic movie",
+  "life after death islamic video",
+  "life after death islamic short film",
+  "life after death islam gcse",
+  "life after death islamic speech",
+  "life after death islam ai",
+  "life after death islam mufti menk",
+  "life after death muslim"
  ],
- "story": "Abu Bakr donates all his wealth",
- "search": "importance of gratitude in islam",
- "vision_checks": 108,
+ "story": "Prophet walks through a quiet graveyard",
+ "search": "life after death islamic speech",
+ "vision_checks": 156,
  "sources": {
-  "pixabay": 9,
-  "commons": 5
+  "pixabay": 29,
+  "commons": 8,
+  "nasa": 2,
+  "mixkit": 1
  },
- "clips_rejected": 76,
- "photo_clips": 1,
- "reel_minutes": 1.13,
- "time_utc": "2026-11-17 16:47",
- "title": "Importance of Gratitude in Islam: Abu Bakr’s Sacrifice",
+ "clips_rejected": 135,
+ "long_minutes": 4.43,
+ "time_utc": "2026-11-17 19:48",
+ "title": "A powerful life after death islamic speech to reflect on",
  "dry_run": false,
  "posted_ok": 1
 }
