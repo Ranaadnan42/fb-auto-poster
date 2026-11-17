@@ -1,24 +1,22 @@
 {
- "time_utc": "2026-11-16 23:51",
+ "time_utc": "2026-11-16 23:40",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-16 23:51",
+   "date": "2026-11-16 23:40",
    "kind": "reel",
    "lang": "en",
-   "title": "Bangladesh Clothing Factories Shut Down as Workers Strike Over Pay",
-   "dur": 52,
-   "post_id": "1826651098579724"
+   "title": "Mayor Demands Inquiry into Victoria Mining Licences",
+   "dur": 44,
+   "post_id": "1443968167888551"
   }
  },
- "errors": [
-  "sports: 'list' object has no attribute 'get'"
- ],
- "clips_rejected": 76,
- "agent_checks": 82,
- "agent_rejects": 75,
+ "errors": [],
+ "agent_checks": 68,
+ "agent_rejects": 64,
  "agent_skips": 0,
+ "clips_rejected": 65,
  "alt_searches": 1
 }
