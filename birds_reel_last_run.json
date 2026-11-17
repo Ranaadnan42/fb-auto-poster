@@ -1,8 +1,23 @@
 {
- "time_utc": "2026-11-17 02:46",
+ "time_utc": "2026-11-17 19:48",
  "mode": "reel",
  "dry_run": false,
- "errors": [
-  "fatal: facts nahi mile"
- ]
+ "errors": [],
+ "bird_calls": 0,
+ "kind": "reel",
+ "lang": "en",
+ "clips_rejected": 111,
+ "alt_searches": 9,
+ "agent_checks": 116,
+ "agent_rejects": 111,
+ "agent_skips": 0,
+ "posted": {
+  "bird": "Secretarybird",
+  "theme": null,
+  "wiki": "Secretarybird",
+  "date": "2026-11-17 19:48",
+  "title": "The Raptor on Stilts: Meet Africa’s Stunning Secretarybird",
+  "dur": 67,
+  "post_id": "3653955791439232"
+ }
 }
