@@ -1,95 +1,89 @@
 {
- "time_utc": "2026-11-17 00:37",
+ "time_utc": "2026-11-17 03:20",
  "mode": "long",
  "dry_run": false,
  "errors": [
-  "fatal: sirf 4 sahi clips, 46 text cards - is topic ki video post nahi ki"
+  "fatal: sirf 1 sahi clips, 48 text cards - is topic ki video post nahi ki"
  ],
  "calls": [
   {
-   "file": "File:En- Chalcidice.ogg",
-   "license": "cc by-sa 3.0"
-  },
-  {
-   "file": "File:XC170427 - Guianan Cock-of-the-rock - Rupicola rupicola.wav",
-   "license": "cc by-sa 3.0"
-  },
-  {
-   "file": "File:Opisthocomus hoazin - Hoatzin XC251282.mp3",
+   "file": "File:De-Rubinkehlkolibri.ogg",
    "license": "cc by-sa 4.0"
   },
   {
-   "file": "File:Tangara chilensis - Paradise Tanager XC242364.mp3",
+   "file": "File:Calypte anna - Anna's Hummingbird - XC109852.ogg",
+   "license": "cc by-sa 3.0"
+  },
+  {
+   "file": "File:Cyanocitta cristata - Blue Jay XC81291.mp3",
+   "license": "cc by-sa 3.0"
+  },
+  {
+   "file": "File:Cardinalis cardinalis - Northern Cardinal XC569289.mp3",
    "license": "cc by-sa 4.0"
   },
   {
-   "file": "File:Toco Toucan call (Ramphastos toco).ogg",
-   "license": "cc by 4.0"
-  },
-  {
-   "file": "File:Crypto (ISRC USUAN1600013).mp3",
-   "license": "cc by 3.0"
-  },
-  {
-   "file": "File:Interloper (MacLeod, Kevin) (ISRC USUAN1100401).oga",
-   "license": "cc by 3.0 us"
+   "file": "File:Archilochus colubris - Ruby-throated Hummingbird XC109597.mp3",
+   "license": "cc by-sa 3.0"
   }
  ],
- "bird_calls": 7,
+ "bird_calls": 5,
  "kind": "long",
  "lang": "en",
- "clips_rejected": 598,
- "agent_checks": 36,
- "agent_rejects": 32,
- "agent_skips": 551,
- "alt_searches": 23,
+ "clips_rejected": 576,
+ "alt_searches": 25,
  "no_match": [
-  "Scarlet macaw",
-  "Scarlet macaw flying in rainforest",
+  "Ruby-throated hummingbird hovering",
+  "Scarlet macaw flying",
+  "Hummingbird feeding on flower",
+  "Ruby-throated hummingbird in flight",
+  "Map of North America",
+  "Male Ruby-throated hummingbird throat",
+  "Hummingbird wings flapping",
+  "Ruby-throated hummingbird beak",
+  "Hummingbird hovering",
+  "California coastal landscape",
+  "Anna's hummingbird at feeder",
+  "Garden flowers in winter",
+  "Anna's hummingbird tongue",
+  "Hummingbird catching insect",
+  "Blue-throated macaw in tree",
+  "Bolivian forest",
+  "Blue-throated macaw throat",
+  "Blue-throated macaw flying",
+  "Blue-throated macaw perched",
+  "Rainforest canopy",
   "Scarlet macaw perched",
-  "Scarlet macaw calling",
-  "Scarlet macaws grooming",
-  "Scarlet macaws in tree",
-  "Guianan cock-of-the-rock male",
-  "Guianan cock-of-the-rock orange crest",
-  "Guianan cock-of-the-rock female",
-  "Guianan cock-of-the-rock nest area",
-  "Guianan cock-of-the-rock lek display",
-  "Guianan cock-of-the-rock dancing",
-  "Harpy eagle",
-  "Harpy eagle in canopy",
-  "Harpy eagle perched",
-  "Harpy eagle looking down",
-  "Harpy eagle wings",
-  "Harpy eagle forest view",
-  "Hoatzin",
-  "Hoatzin crest",
-  "Hoatzin eating leaves",
-  "Hoatzin in mangrove",
-  "Hoatzin chick",
-  "Hoatzin in swamp",
-  "Paradise tanager",
-  "Paradise tanager colors",
-  "Paradise tanager flying",
-  "Paradise tanager on branch",
-  "Paradise tanager close up",
-  "Paradise tanager in forest",
-  "Toco toucan",
-  "Toco toucan beak",
-  "Toco toucan eating fruit",
-  "Toco toucan in open forest",
-  "Toco toucan perched",
-  "Toco toucan in tree",
-  "Hyacinth macaw",
-  "Hyacinth macaw size",
-  "Hyacinth macaw flying",
-  "Hyacinth macaw blue feathers",
-  "Hyacinth macaw perched",
-  "Hyacinth macaw in forest",
-  "Amazon rainforest landscape",
-  "Amazon sunset",
+  "Tropical rainforest",
+  "Scarlet macaw in flight",
+  "Honduras jungle",
+  "Two Scarlet macaws flying",
+  "Macaws in canopy",
+  "Blue-and-yellow macaw perched",
+  "Tropical savanna",
+  "Blue-and-yellow macaw calling",
+  "Macaw in tree",
+  "Blue-and-yellow macaw close up",
+  "Macaw interacting",
+  "Blue jay on branch",
+  "Blue jay crest",
+  "Blue jay eating acorn",
+  "Blue jay in flight",
+  "Blue jay in garden",
+  "Blue jay perched",
+  "Male Northern cardinal",
+  "Female Northern cardinal",
+  "Northern cardinal singing",
+  "Cardinals feeding each other",
+  "Northern cardinal in snow",
+  "Cardinal on branch",
+  "Hummingbird hovering",
+  "Macaw flying",
   "Birds of the World logo",
-  "Scarlet macaw"
+  "Birds flying in sunset"
  ],
- "headline_cards": 46
+ "headline_cards": 48,
+ "agent_checks": 29,
+ "agent_rejects": 28,
+ "agent_skips": 541
 }
