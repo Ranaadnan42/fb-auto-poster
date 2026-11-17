@@ -1,23 +1,24 @@
 {
- "time_utc": "2026-11-16 21:40",
+ "time_utc": "2026-11-17 14:40",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
  "images": {
-  "pollinations": 6
+  "rejected": 6,
+  "pollinations": 16
  },
  "posted": {
   "mode": "reel",
-  "theme": "Autumn Ember Elegance",
+  "theme": "Winter Jewel Tones",
   "designs": [
-   "Crimson Silk Anarkali",
-   "Burnt Orange Palazzo Set",
-   "Saffron Velvet Gown",
-   "Olive Green Lawn Maxi",
-   "Copper Metallic Sharara",
-   "Mauve Kaftan Ensemble"
+   "Sapphire Velvet Evening Gown",
+   "Emerald Silk Co‑ord Set",
+   "Ruby Red Maxi Dress",
+   "Midnight Navy Suit",
+   "Ivory Lace Baby Romper",
+   "Peach Blossom Party Dress"
   ],
-  "date": "2026-11-16 21:40",
-  "post_id": "2142603193294783"
+  "date": "2026-11-17 14:40",
+  "post_id": "2776544456081859"
  }
 }
