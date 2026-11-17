@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-17 05:30",
+ "time_utc": "2026-11-17 06:10",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1448208791702551_122110873023532804",
-   "topic": "europe",
-   "title": "Zelensky urges US and Musk to lift Starlink restrictions and be on 'right side of history'"
+   "post": "1448208791702551_122110882383532804",
+   "topic": "science_tech",
+   "title": "California sues OpenAI over Hugging Face attack"
   },
   "sports": {
-   "post": "1465090056678690_122103466353548502",
-   "topic": "snooker",
-   "title": "Derry snooker star named No. 1 in new NI Amateur Snooker rankings"
+   "post": "1465090056678690_122103489813548502",
+   "topic": "motogp",
+   "title": "Ducati replaces injured Bagnaia for MotoGP in Portugal"
   }
  },
  "errors": []
