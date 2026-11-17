@@ -1,8 +1,29 @@
 {
- "time_utc": "2026-11-17 02:46",
+ "time_utc": "2026-11-17 12:08",
  "mode": "reel",
  "dry_run": false,
- "errors": [
-  "fatal: facts nahi mile"
- ]
+ "errors": [],
+ "calls": [
+  {
+   "file": "File:Atlantic Puffin (Fratercula arctica) (W1CDR0001416 BD3).ogg",
+   "license": "cc by-sa 4.0"
+  }
+ ],
+ "bird_calls": 1,
+ "kind": "reel",
+ "lang": "en",
+ "clips_rejected": 247,
+ "alt_searches": 9,
+ "agent_checks": 216,
+ "agent_rejects": 208,
+ "agent_skips": 37,
+ "posted": {
+  "bird": "Atlantic puffin",
+  "theme": null,
+  "wiki": "Atlantic puffin",
+  "date": "2026-11-17 12:08",
+  "title": "Why is this 'Sea Parrot' losing its colorful beak every winter?",
+  "dur": 95,
+  "post_id": "2229912647963005"
+ }
 }

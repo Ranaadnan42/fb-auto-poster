@@ -1,83 +1,95 @@
 {
- "time_utc": "2026-11-17 15:07",
+ "time_utc": "2026-11-17 00:37",
  "mode": "long",
  "dry_run": false,
  "errors": [
-  "fatal: sirf 12 sahi clips, 38 text cards - is topic ki video post nahi ki"
+  "fatal: sirf 4 sahi clips, 46 text cards - is topic ki video post nahi ki"
  ],
  "calls": [
   {
-   "file": "File:From Farm to Feast.ogg",
-   "license": "cc by-sa 4.0"
-  },
-  {
-   "file": "File:De-Rubinkehlkolibri.ogg",
-   "license": "cc by-sa 4.0"
-  },
-  {
-   "file": "File:Calypte anna - Anna's Hummingbird - XC109852.ogg",
+   "file": "File:En- Chalcidice.ogg",
    "license": "cc by-sa 3.0"
   },
   {
-   "file": "File:Calliope hum(a)oga.ogg",
+   "file": "File:XC170427 - Guianan Cock-of-the-rock - Rupicola rupicola.wav",
+   "license": "cc by-sa 3.0"
+  },
+  {
+   "file": "File:Opisthocomus hoazin - Hoatzin XC251282.mp3",
    "license": "cc by-sa 4.0"
   },
   {
-   "file": "File:Ensifera ensifera - Sword-billed Hummingbird XC250817.mp3",
+   "file": "File:Tangara chilensis - Paradise Tanager XC242364.mp3",
    "license": "cc by-sa 4.0"
   },
   {
-   "file": "File:Wa Baijot Pascal cinse.ogg",
-   "license": "cc by-sa 4.0"
+   "file": "File:Toco Toucan call (Ramphastos toco).ogg",
+   "license": "cc by 4.0"
+  },
+  {
+   "file": "File:Crypto (ISRC USUAN1600013).mp3",
+   "license": "cc by 3.0"
+  },
+  {
+   "file": "File:Interloper (MacLeod, Kevin) (ISRC USUAN1100401).oga",
+   "license": "cc by 3.0 us"
   }
  ],
- "bird_calls": 6,
+ "bird_calls": 7,
  "kind": "long",
  "lang": "en",
- "clips_rejected": 442,
- "agent_checks": 46,
- "agent_rejects": 34,
- "agent_skips": 405,
- "alt_searches": 20,
+ "clips_rejected": 598,
+ "agent_checks": 36,
+ "agent_rejects": 32,
+ "agent_skips": 551,
+ "alt_searches": 23,
  "no_match": [
-  "Anna's hummingbird iridescent crown",
-  "Anna's hummingbird tongue",
-  "Anna's hummingbird at feeder",
-  "snowy garden with hummingbird",
-  "Costa's hummingbird",
-  "desert landscape",
-  "male Costa's hummingbird",
-  "Costa's hummingbird throat feathers",
-  "Costa's hummingbird in oak forest",
-  "Costa's hummingbird flying",
-  "Rufous hummingbird",
-  "flying hummingbird",
-  "male Rufous hummingbird throat",
-  "Rufous hummingbird in flight",
-  "Rufous hummingbird hovering",
-  "mountain landscape",
-  "Calliope hummingbird",
-  "hummingbird in flight",
-  "male Calliope hummingbird throat",
-  "Calliope hummingbird hovering",
-  "Calliope hummingbird habitat",
-  "mountain meadow",
-  "Broad-tailed hummingbird",
-  "Broad-tailed hummingbird eye ring",
-  "male Broad-tailed hummingbird",
-  "Broad-tailed hummingbird wings",
-  "Broad-tailed hummingbird perching",
-  "forest canopy",
-  "Sword-billed hummingbird",
-  "Andes mountains",
-  "Sword-billed hummingbird beak",
-  "Sword-billed hummingbird drinking from passionflower",
-  "Sword-billed hummingbird flying",
-  "Andean cloud forest",
-  "collection of different hummingbirds",
-  "hummingbird flying away",
-  "hummingbird at flower",
-  "hummingbird flying in slow motion"
+  "Scarlet macaw",
+  "Scarlet macaw flying in rainforest",
+  "Scarlet macaw perched",
+  "Scarlet macaw calling",
+  "Scarlet macaws grooming",
+  "Scarlet macaws in tree",
+  "Guianan cock-of-the-rock male",
+  "Guianan cock-of-the-rock orange crest",
+  "Guianan cock-of-the-rock female",
+  "Guianan cock-of-the-rock nest area",
+  "Guianan cock-of-the-rock lek display",
+  "Guianan cock-of-the-rock dancing",
+  "Harpy eagle",
+  "Harpy eagle in canopy",
+  "Harpy eagle perched",
+  "Harpy eagle looking down",
+  "Harpy eagle wings",
+  "Harpy eagle forest view",
+  "Hoatzin",
+  "Hoatzin crest",
+  "Hoatzin eating leaves",
+  "Hoatzin in mangrove",
+  "Hoatzin chick",
+  "Hoatzin in swamp",
+  "Paradise tanager",
+  "Paradise tanager colors",
+  "Paradise tanager flying",
+  "Paradise tanager on branch",
+  "Paradise tanager close up",
+  "Paradise tanager in forest",
+  "Toco toucan",
+  "Toco toucan beak",
+  "Toco toucan eating fruit",
+  "Toco toucan in open forest",
+  "Toco toucan perched",
+  "Toco toucan in tree",
+  "Hyacinth macaw",
+  "Hyacinth macaw size",
+  "Hyacinth macaw flying",
+  "Hyacinth macaw blue feathers",
+  "Hyacinth macaw perched",
+  "Hyacinth macaw in forest",
+  "Amazon rainforest landscape",
+  "Amazon sunset",
+  "Birds of the World logo",
+  "Scarlet macaw"
  ],
- "headline_cards": 38
+ "headline_cards": 46
 }
