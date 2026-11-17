@@ -1,40 +1,8 @@
 {
- "time_utc": "2026-11-16 23:30",
+ "time_utc": "2026-11-17 01:24",
  "mode": "reel",
  "dry_run": false,
  "errors": [
-  "fatal: sirf 2 sahi clips, 15 text cards - is topic ki video post nahi ki"
- ],
- "calls": [
-  {
-   "file": "File:De-Mandarinente.ogg",
-   "license": "cc by-sa 4.0"
-  }
- ],
- "bird_calls": 1,
- "kind": "reel",
- "lang": "en",
- "clips_rejected": 284,
- "agent_checks": 45,
- "agent_rejects": 40,
- "agent_skips": 242,
- "alt_searches": 8,
- "no_match": [
-  "Mandarin duck in forest pond",
-  "Mandarin duck in UK park",
-  "Mandarin duck male standing",
-  "Mandarin duck sail feathers",
-  "Mandarin duck calling",
-  "Mandarin duck mouth open",
-  "Mandarin duck eating",
-  "Mandarin duck foraging",
-  "Mandarin duck courtship display",
-  "Mandarin duck dancing",
-  "Mandarin duck on tree branch",
-  "Mandarin duck nesting hole",
-  "Mandarin duck swimming",
-  "Mandarin duck family",
-  "Mandarin duck flying"
- ],
- "headline_cards": 15
+  "fatal: facts nahi mile"
+ ]
 }
