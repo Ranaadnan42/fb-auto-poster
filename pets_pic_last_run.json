@@ -3,20 +3,21 @@
  "agent": "pets",
  "dry_run": false,
  "log": [
-  "Subject: Siberian Husky",
-  "photo commons wmi29117564 1920x1627: agent=True",
-  "--- caption ---\nMeet the Siberian Husky – the Arctic’s most iconic sled dog! 🐾❄️\n\nDiscover why Siberian Huskies are known for their thick double coat, energetic spirit, and stunning triangular ears.\n\nWho’s your favorite husky? Tag a friend who loves these fluffy explorers!\n\nFollow Dogs & Cats World ",
-  "Post waqt 18:37 UTC guzar chuka - foran post",
+  "Subject: German Shepherd",
+  "photo commons wmi5301931 1920x2880: agent=True",
+  "--- caption ---\nThe German Shepherd is known as one of the most intelligent working dog breeds! 🐕✨\n\nAlso known in Britain as the Alsatian, this German breed was developed in 1899 for herding and is widely used today in police work, search-and-rescue, and as a companion dog.\n\nHave you ever owned a Ge",
+  "Video tayyar - 37 minute intezar, post 18:37 UTC par hogi",
+  "Waqt ho gaya - post kar rahe hain",
   "photo story lagi",
-  "posted 1389149844290401_122099350707553453"
+  "posted 1389149844290401_122099961333553453"
  ],
  "errors": [],
  "posted": {
-  "subject": "Siberian Husky",
-  "photo": "wmi29117564",
+  "subject": "German Shepherd",
+  "photo": "wmi5301931",
   "src": "commons",
-  "size": "1920x1627",
-  "date": "2026-11-17 01:54",
-  "post_id": "1389149844290401_122099350707553453"
+  "size": "1920x2880",
+  "date": "2026-11-17 17:59",
+  "post_id": "1389149844290401_122099961333553453"
  }
 }
