@@ -59,6 +59,22 @@
   {
    "name": "Ivory Lace Baby Romper",
    "date": "2026-11-16 23:06"
+  },
+  {
+   "name": "Ice Crystal Evening Gown",
+   "date": "2026-11-17 00:04"
+  },
+  {
+   "name": "Frosted Meadow Maxi Dress",
+   "date": "2026-11-17 00:04"
+  },
+  {
+   "name": "Snowfall Suede Blazer Set",
+   "date": "2026-11-17 00:04"
+  },
+  {
+   "name": "Arctic Baby Romper",
+   "date": "2026-11-17 00:04"
   }
  ],
  "posts": [
@@ -98,6 +114,17 @@
     "Ivory Lace Baby Romper"
    ],
    "date": "2026-11-16 23:06"
+  },
+  {
+   "mode": "pic",
+   "theme": "Winter Frost Luxe",
+   "designs": [
+    "Ice Crystal Evening Gown",
+    "Frosted Meadow Maxi Dress",
+    "Snowfall Suede Blazer Set",
+    "Arctic Baby Romper"
+   ],
+   "date": "2026-11-17 00:04"
   }
  ]
 }
