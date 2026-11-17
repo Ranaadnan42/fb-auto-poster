@@ -1325,6 +1325,23 @@
     "sues"
    ],
    "post_id": "1448208791702551_122110882383532804"
+  },
+  {
+   "date": "2026-11-17 08:09",
+   "lang": "en",
+   "topic": "asia",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxQNmZsemlaUEtha3lmcTBDSDhCYWpSYzE2RFc2R0ZjNGptZHlpeXp6a0xKTHNOalBfX3VJbEtrUGpISEpXcVNWbnFxel9pbktPR01odG5DZUVRZVh0UEVXWXg2MHZ5NzA0WTRjOFZGMWljLVNVTUJtYWFEZ3pLZF9SZnNXOHRWcmh3ODU2NElsc2ZNbWNoQ01XOWJPTVlXU0k?oc=5",
+   "title": "Canada and China agree on further tariff cuts",
+   "words": [
+    "agree",
+    "canada",
+    "china",
+    "cuts",
+    "further",
+    "tariff"
+   ],
+   "breaking": true,
+   "post_id": "1448208791702551_122110911405532804"
   }
  ],
  "sports": [
@@ -2649,6 +2666,22 @@
     "replaces"
    ],
    "post_id": "1465090056678690_122103489813548502"
+  },
+  {
+   "date": "2026-11-17 08:09",
+   "lang": "en",
+   "topic": "boxing",
+   "link": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBLZ3Z5UzNuYkNuNVpVYXR3VjRPcHlMdUVMaF9vV05rTUJobnM2eFJPSEs3MlNTeFM2WTFIbzlmU0FrdHlxN2loVFc2M2tzS0tzd0NYalUtRG5HelBYMXZpTHFPZ0VFT1RkaWMxdVl3MWxDNU9ZdWRucw?oc=5",
+   "title": "Limerick boxer Lee Reeves dies aged 31",
+   "words": [
+    "aged",
+    "boxer",
+    "dies",
+    "limerick",
+    "reeves"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122103558213548502"
   }
  ],
  "used_images": [
@@ -2738,6 +2771,8 @@
   "pxi2822129",
   "pxi8128",
   3723133,
-  3793523
+  3793523,
+  6849995,
+  546143
  ]
 }
