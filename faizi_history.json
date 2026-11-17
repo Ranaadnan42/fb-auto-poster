@@ -175,6 +175,26 @@
   {
    "name": "Eid Blossom Kaftan",
    "date": "2026-11-17 18:18"
+  },
+  {
+   "name": "Emerald Silk Maxi",
+   "date": "2026-11-17 21:11"
+  },
+  {
+   "name": "Emerald Tulle Co‑ord",
+   "date": "2026-11-17 21:11"
+  },
+  {
+   "name": "Emerald Lace Romper",
+   "date": "2026-11-17 21:11"
+  },
+  {
+   "name": "Emerald Chiffon Kaftan",
+   "date": "2026-11-17 21:11"
+  },
+  {
+   "name": "Emerald Velvet Blazer Set",
+   "date": "2026-11-17 21:11"
   }
  ],
  "posts": [
@@ -282,6 +302,19 @@
    ],
    "date": "2026-11-17 18:18",
    "post_id": "1433458693190419_122097879081555703"
+  },
+  {
+   "mode": "reel",
+   "theme": "Emerald Enchant",
+   "designs": [
+    "Emerald Silk Maxi",
+    "Emerald Tulle Co‑ord",
+    "Emerald Lace Romper",
+    "Emerald Chiffon Kaftan",
+    "Emerald Velvet Blazer Set"
+   ],
+   "date": "2026-11-17 21:11",
+   "post_id": "2223316965262985"
   }
  ]
 }
