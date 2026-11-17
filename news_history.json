@@ -1414,6 +1414,24 @@
    ],
    "breaking": true,
    "post_id": "1357984777408020_122096040855558252"
+  },
+  {
+   "date": "2026-11-17 14:28",
+   "lang": "en",
+   "topic": "science_tech",
+   "link": "https://www.bbc.co.uk/news/articles/cq99exy89dngo?at_medium=RSS&at_campaign=rss",
+   "title": "GTA 6 hacker pleads guilty after release from secure hospital",
+   "words": [
+    "after",
+    "from",
+    "guilty",
+    "hacker",
+    "hospital",
+    "pleads",
+    "release",
+    "secure"
+   ],
+   "post_id": "1448208791702551_122111070129532804"
   }
  ],
  "sports": [
@@ -2819,6 +2837,25 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122103796041548502"
+  },
+  {
+   "date": "2026-11-17 14:28",
+   "lang": "en",
+   "topic": "hockey",
+   "link": "https://news.google.com/rss/articles/CBMilAFBVV95cUxQdWZNLUhmQlIyZTczVk9wVEhFYzdGdU1RalkydkhyVTZIekVWWi10d080Sy1sYjY3eEJSXzEzbmhaM2FUS2VaVE1pYl8zcnJVWGM1VE5YR1R2bGVvYlVsdFBEcDR3b3ZiMjNoLVBaTEFENFgwNlFacTFNNFBUU3FKUVRpRTlhV08xZmx1NndQTk9MTE9t?oc=5",
+   "title": "Ducks goalies feeling the heat as the team’s goals-against woes continue",
+   "words": [
+    "against",
+    "continue",
+    "ducks",
+    "feeling",
+    "goalies",
+    "goals",
+    "heat",
+    "team",
+    "woes"
+   ],
+   "post_id": "1465090056678690_122103814629548502"
   }
  ],
  "used_images": [
@@ -2915,6 +2952,8 @@
   1428046,
   "pxi2405963",
   "pxi10323739",
-  931975
+  931975,
+  6586113,
+  751658
  ]
 }
