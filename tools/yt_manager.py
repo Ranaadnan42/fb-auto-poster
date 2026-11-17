@@ -42,6 +42,12 @@ def check(name, label, wf, rec):
     h = {"Authorization": f"Bearer {tok}"}
     ch = requests.get(f"{API}/channels", headers=h, timeout=60,
                       params={"part": "snippet,statistics,contentDetails", "mine": "true"}).json()
+    if ch.get("error") or not ch.get("items"):
+        # token sirf upload ki ijazat wala - stats nahi parh sakte; ghalat "999 ghante" par agent mat chalao
+        err = (ch.get("error") or {}).get("message", "channel nahi mila")
+        out["problems"].append(f"stats parhne ki ijazat nahi (token sirf upload): {str(err)[:90]}")
+        out["no_stats"] = True
+        return out
     it = (ch.get("items") or [{}])[0]
     st = it.get("statistics", {})
     out["title"] = it.get("snippet", {}).get("title")
