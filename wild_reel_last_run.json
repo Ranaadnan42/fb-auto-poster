@@ -1,23 +1,27 @@
 {
- "time_utc": "2026-11-17 21:54",
+ "time_utc": "2026-11-17 18:38",
  "mode": "reel",
- "dry_run": true,
+ "dry_run": false,
  "errors": [],
  "country": "South Africa",
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 188,
- "agent_checks": 120,
- "agent_rejects": 112,
- "agent_skips": 76,
- "alt_searches": 6,
- "tag_pass": 2,
+ "clips_rejected": 222,
+ "alt_searches": 7,
+ "no_match": [
+  "Cape mountain zebra"
+ ],
+ "headline_cards": 1,
+ "agent_checks": 97,
+ "agent_rejects": 91,
+ "agent_skips": 130,
  "posted": {
   "country": "South Africa",
-  "animal": "White rhinoceros",
-  "wiki": "White rhinoceros",
-  "date": "2026-11-17 21:54",
-  "title": "Did a mistranslation give the world's biggest rhino its name?",
-  "dur": 60
+  "animal": "Cape mountain zebra",
+  "wiki": "Cape mountain zebra",
+  "date": "2026-11-17 18:38",
+  "title": "Meet the Rare Zebra That Lives High in the Mountains!",
+  "dur": 61,
+  "post_id": "4482792438643075"
  }
 }
