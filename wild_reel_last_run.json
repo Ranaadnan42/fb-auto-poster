@@ -1,32 +1,9 @@
 {
- "time_utc": "2026-11-17 01:26",
+ "time_utc": "2026-11-17 02:32",
  "mode": "reel",
  "dry_run": false,
  "errors": [
-  "fatal: sirf 1 sahi clips, 13 text cards - video post nahi ki"
+  "fatal: facts nahi mile"
  ],
- "country": "Kenya",
- "kind": "reel",
- "lang": "en",
- "clips_rejected": 548,
- "alt_searches": 9,
- "no_match": [
-  "Gerenuk standing on hind legs",
-  "Gerenuk eating tree leaves",
-  "Gerenuk male horns",
-  "Gerenuk close up face",
-  "Gerenuk feeding acacia thorns",
-  "Gerenuk eating shoots",
-  "Gerenuk standing two legs",
-  "Gerenuk reaching high branch",
-  "Gerenuk browsing foliage",
-  "Gerenuk herd with juvenile",
-  "Gerenuk walking wilderness",
-  "Gerenuk Kenya landscape",
-  "Gerenuk Kenya"
- ],
- "headline_cards": 13,
- "agent_checks": 19,
- "agent_rejects": 18,
- "agent_skips": 524
+ "country": "Brazil"
 }
