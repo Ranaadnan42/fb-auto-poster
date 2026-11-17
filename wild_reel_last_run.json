@@ -1,23 +1,32 @@
 {
- "time_utc": "2026-11-16 22:25",
+ "time_utc": "2026-11-17 01:26",
  "mode": "reel",
  "dry_run": false,
- "errors": [],
+ "errors": [
+  "fatal: sirf 1 sahi clips, 13 text cards - video post nahi ki"
+ ],
  "country": "Kenya",
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 316,
- "agent_checks": 190,
- "agent_rejects": 177,
- "agent_skips": 131,
- "alt_searches": 6,
- "posted": {
-  "country": "Kenya",
-  "animal": "Reticulated giraffe",
-  "wiki": "Reticulated giraffe",
-  "date": "2026-11-16 22:25",
-  "title": "The Towering Mosaic: Discover Kenya's Magnificent Reticulated Giraffe",
-  "dur": 86,
-  "post_id": "29028393170188167"
- }
+ "clips_rejected": 548,
+ "alt_searches": 9,
+ "no_match": [
+  "Gerenuk standing on hind legs",
+  "Gerenuk eating tree leaves",
+  "Gerenuk male horns",
+  "Gerenuk close up face",
+  "Gerenuk feeding acacia thorns",
+  "Gerenuk eating shoots",
+  "Gerenuk standing two legs",
+  "Gerenuk reaching high branch",
+  "Gerenuk browsing foliage",
+  "Gerenuk herd with juvenile",
+  "Gerenuk walking wilderness",
+  "Gerenuk Kenya landscape",
+  "Gerenuk Kenya"
+ ],
+ "headline_cards": 13,
+ "agent_checks": 19,
+ "agent_rejects": 18,
+ "agent_skips": 524
 }
