@@ -1,34 +1,8 @@
 {
- "time_utc": "2026-11-17 01:53",
+ "time_utc": "2026-11-17 02:46",
  "mode": "reel",
  "dry_run": false,
  "errors": [
-  "fatal: sirf 0 sahi clips, 9 text cards - video post nahi ki"
- ],
- "calls": [
-  {
-   "file": "File:MalePeacockCall.ogg",
-   "license": "cc by-sa 3.0"
-  }
- ],
- "bird_calls": 1,
- "kind": "reel",
- "lang": "en",
- "clips_rejected": 332,
- "alt_searches": 9,
- "no_match": [
-  "Indian peafowl male display court",
-  "Indian peafowl open forest",
-  "Indian peafowl male blue crown",
-  "Indian peafowl calling",
-  "Indian peafowl foraging ground",
-  "Indian peafowl courtship dance",
-  "Indian peafowl walking undergrowth",
-  "Indian peafowl national bird",
-  "Indian peafowl close up portrait"
- ],
- "headline_cards": 9,
- "agent_checks": 15,
- "agent_rejects": 15,
- "agent_skips": 314
+  "fatal: facts nahi mile"
+ ]
 }
