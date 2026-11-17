@@ -1,7 +1,7 @@
 {
- "time_utc": "2026-11-16 19:46",
- "spotlight": "bakery",
- "post_id": "1551479793501145",
+ "time_utc": "2026-11-17 19:00",
+ "spotlight": "restaurant",
+ "post_id": "1401411978796858",
  "error": null,
  "lang": "en",
  "kind": "long",
@@ -11,5 +11,5 @@
  "real_work": 7,
  "real_pos": 3,
  "mock": 4,
- "seconds": 101.0
+ "seconds": 94.4
 }
