@@ -4,14 +4,19 @@
  "dry_run": false,
  "log": [
   "Subject: Golden Retriever",
-  "Subject: Siberian Husky",
-  "Subject: Pembroke Welsh Corgi",
-  "Subject: German Shepherd",
-  "Subject: Labrador Retriever",
-  "Subject: French Bulldog",
-  "ERROR: koi saaf ultra-HD tasveer nahi mili"
+  "photo commons wmi19002220 1920x1440: agent=False",
+  "photo commons wmi7179352 1920x1440: agent=True",
+  "--- caption ---\nMeet the gentle and affectionate Golden Retriever! 🐕✨\n\nThis British working dog is a popular companion known for its striking golden coat and friendly nature. Originally bred in Scotland, it remains one of the most registered breeds in the world. 🐾🇬🇧\n\nIs the Golden Retriever your fav",
+  "photo story lagi",
+  "posted 1389149844290401_122099261889553453"
  ],
- "errors": [
-  "koi saaf ultra-HD tasveer nahi mili"
- ]
+ "errors": [],
+ "posted": {
+  "subject": "Golden Retriever",
+  "photo": "wmi7179352",
+  "src": "commons",
+  "size": "1920x1440",
+  "date": "2026-11-16 22:32",
+  "post_id": "1389149844290401_122099261889553453"
+ }
 }
