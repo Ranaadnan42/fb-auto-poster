@@ -1,22 +1,29 @@
 {
- "time_utc": "2026-11-17 13:13",
+ "time_utc": "2026-11-17 15:54",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-17 13:13",
+   "date": "2026-11-17 15:54",
    "kind": "reel",
    "lang": "en",
-   "title": "GTA 6 Hacker Pleads Guilty to Rockstar Games Breach",
-   "dur": 47,
-   "post_id": "2287960928802320"
+   "title": "US Probes Tech Firm Over Nvidia AI Chips",
+   "dur": 46,
+   "post_id": "2244998386399078"
+  },
+  "sports": {
+   "date": "2026-11-17 15:54",
+   "kind": "reel",
+   "lang": "en",
+   "title": "2027 NFL Draft: Major Shake-up for Chargers and Ravens",
+   "dur": 44,
+   "post_id": "2655786611537211"
   }
  },
  "errors": [],
- "clips_rejected": 83,
- "agent_checks": 86,
- "agent_rejects": 79,
- "agent_skips": 0,
- "alt_searches": 1
+ "clips_rejected": 57,
+ "agent_checks": 66,
+ "agent_rejects": 56,
+ "agent_skips": 0
 }
