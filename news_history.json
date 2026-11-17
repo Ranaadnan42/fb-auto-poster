@@ -1272,6 +1272,23 @@
    ],
    "breaking": true,
    "post_id": "1357984777408020_122095723809558252"
+  },
+  {
+   "date": "2026-11-17 04:09",
+   "lang": "en",
+   "topic": "asia",
+   "link": "https://www.bbc.co.uk/news/articles/cmewvxg855yno?at_medium=RSS&at_campaign=rss",
+   "title": "Taking Korea's toughest exam from behind bars",
+   "words": [
+    "bars",
+    "behind",
+    "exam",
+    "from",
+    "korea",
+    "taking",
+    "toughest"
+   ],
+   "post_id": "1448208791702551_122110854945532804"
   }
  ],
  "sports": [
@@ -2549,6 +2566,21 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122103357237548502"
+  },
+  {
+   "date": "2026-11-17 04:09",
+   "lang": "en",
+   "topic": "golf",
+   "link": "https://www.bbc.co.uk/sport/golf/articles/cq39gn9zy4v9o?at_medium=RSS&at_campaign=rss",
+   "title": "First win for Duncan after 12 years & 222 attempts",
+   "words": [
+    "after",
+    "attempts",
+    "duncan",
+    "first",
+    "years"
+   ],
+   "post_id": "1465090056678690_122103416451548502"
   }
  ],
  "used_images": [
@@ -2636,6 +2668,8 @@
   2666577,
   "pxi3370970",
   "pxi2822129",
-  "pxi8128"
+  "pxi8128",
+  3723133,
+  3793523
  ]
 }
