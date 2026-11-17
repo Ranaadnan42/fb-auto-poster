@@ -1,29 +1,40 @@
 {
- "time_utc": "2026-11-16 22:42",
+ "time_utc": "2026-11-16 23:30",
  "mode": "reel",
  "dry_run": false,
- "errors": [],
+ "errors": [
+  "fatal: sirf 2 sahi clips, 15 text cards - is topic ki video post nahi ki"
+ ],
  "calls": [
   {
-   "file": "File:MalePeacockCall.ogg",
-   "license": "cc by-sa 3.0"
+   "file": "File:De-Mandarinente.ogg",
+   "license": "cc by-sa 4.0"
   }
  ],
  "bird_calls": 1,
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 395,
- "alt_searches": 9,
- "agent_checks": 106,
- "agent_rejects": 100,
- "agent_skips": 291,
- "posted": {
-  "bird": "Indian peafowl",
-  "theme": null,
-  "wiki": "Indian peafowl",
-  "date": "2026-11-16 22:42",
-  "title": "Why does this magnificent bird carry such a heavy secret?",
-  "dur": 74,
-  "post_id": "3325140747673724"
- }
+ "clips_rejected": 284,
+ "agent_checks": 45,
+ "agent_rejects": 40,
+ "agent_skips": 242,
+ "alt_searches": 8,
+ "no_match": [
+  "Mandarin duck in forest pond",
+  "Mandarin duck in UK park",
+  "Mandarin duck male standing",
+  "Mandarin duck sail feathers",
+  "Mandarin duck calling",
+  "Mandarin duck mouth open",
+  "Mandarin duck eating",
+  "Mandarin duck foraging",
+  "Mandarin duck courtship display",
+  "Mandarin duck dancing",
+  "Mandarin duck on tree branch",
+  "Mandarin duck nesting hole",
+  "Mandarin duck swimming",
+  "Mandarin duck family",
+  "Mandarin duck flying"
+ ],
+ "headline_cards": 15
 }
