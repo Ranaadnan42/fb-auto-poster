@@ -1363,6 +1363,23 @@
     "support"
    ],
    "post_id": "1357984777408020_122095921005558252"
+  },
+  {
+   "date": "2026-11-17 10:10",
+   "lang": "en",
+   "topic": "world",
+   "link": "https://www.france24.com/en/americas/20261116-chase-outage-disrupts-online-banking-and-zelle-payments-in-united-states-us-software",
+   "title": "Chase outage disrupts US online banking, Zelle payments",
+   "words": [
+    "banking",
+    "chase",
+    "disrupts",
+    "online",
+    "outage",
+    "payments",
+    "zelle"
+   ],
+   "post_id": "1448208791702551_122110949973532804"
   }
  ],
  "sports": [
@@ -2718,6 +2735,21 @@
     "tradwife"
    ],
    "post_id": "1465090056678690_122103643275548502"
+  },
+  {
+   "date": "2026-11-17 10:10",
+   "lang": "en",
+   "topic": "squash",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNa1NGa3J0UlhYOHFtbGxSMm53N2ZGVEFtWkoyazZFVS1uZ0pGVmN2dmlLQW53MFlZM2QzVThkXzhfNEp4MGhCbTZYbjNQOE1wcjBURVB5LURSLWFLcVFyaXlpd0dIWnlzUGpjY1BBRlFpMFlsUXI3NVFuMEZ3Y3d0dlJhenVXUjdISzVRUVpPOVhGSHU0dDJOU2ZVNkIzS2pN0gGjAUFVX3lxTE9tY1o2SlRYNmtVQ2c2OXdndThYWVJBZ3RBaWdYVGRjS3FHRXpLMEU0UGlNaERVaHJSU3E2anFCY1kydGd3OU0tQWVmeUYyM3drRDFoQlJKWHhHMl9iQ3JMNzVENS1TYjk3bjhhSnpfeXdBSGVpZWdGN2d2X0dEQ0hrUWQtX2lsUGh3N0E3NnNhNUgzZTR1RDFLODRjVWtJYWd3cG8?oc=5",
+   "title": "Velavan Senthilkumar Advances In QSF 3 PSA Copper Squash",
+   "words": [
+    "advances",
+    "copper",
+    "senthilkumar",
+    "squash",
+    "velavan"
+   ],
+   "post_id": "1465090056678690_122103656301548502"
   }
  ],
  "used_images": [
@@ -2810,6 +2842,7 @@
   3793523,
   6849995,
   546143,
-  "pxi5243090"
+  "pxi5243090",
+  1428046
  ]
 }
