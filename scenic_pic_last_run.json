@@ -1,5 +1,5 @@
 {
- "started": "2026-11-17T12:11",
+ "started": "2026-11-17T12:16",
  "steps": [
   "token: user token expires_at=0 data_access_expires_at=1801949831",
   "token: user token tha - page token bana kar istemal kiya",
@@ -13,7 +13,7 @@
   "web trend gemini-3-flash-preview: 429",
   "web trend gemini-2.5-flash-lite: 404",
   "trend scout: 0 YouTube videos, web report 0 chars",
-  "aaj ka manzar: snowy peaks",
+  "aaj ka manzar: green hills & meadows",
   "brain gemini-1.5-flash: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-1.5-flash is not found for API ver",
   "brain gemini-1.5-flash-8b: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-1.5-flash-8b is not found for API ",
   "brain gemini-2.0-flash-exp: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-2.0-flash-exp is not found for API",
@@ -24,17 +24,26 @@
   "brain gemini-2.0-flash-exp: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-2.0-flash-exp is not found for API",
   "brain gemini-1.5-pro: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-1.5-pro is not found for API versi",
   "Groq live models: openai/gpt-oss-120b, openai/gpt-oss-20b, allam-2-7b, qwen/qwen3.8-27b",
-  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 19945",
-  "groq openai/gpt-oss-120b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 19945",
-  "groq openai/gpt-oss-20b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199394",
-  "groq openai/gpt-oss-20b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199387",
+  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 19873",
+  "groq openai/gpt-oss-120b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 19873",
+  "groq openai/gpt-oss-20b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198675",
+  "groq openai/gpt-oss-20b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198668",
   "groq allam-2-7b try 1 failed: 400: {\"error\":{\"message\":\"`max_tokens` must be less than or equal to `4096`, the maximum value for `max_tokens` is less than the `context_window` for this model\",\"type\":\"invalid_request_error\",\"param\"",
-  "groq qwen/qwen3.8-27b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 197518, ",
-  "groq qwen/qwen3.8-27b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 197511, "
+  "Groq model: qwen/qwen3.8-27b",
+  "agent ka faisla: Isle of Skye, Scotland - bright sunny afternoon / lush green rolling hills & grazing cows (Classic Scottish greenery meets bright clarity, high visual retention.)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "aaj ka manzar: green hills & meadows",
+  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 19869",
+  "groq openai/gpt-oss-120b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 19868",
+  "groq openai/gpt-oss-20b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198626",
+  "groq openai/gpt-oss-20b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198619",
+  "groq allam-2-7b try 1 failed: 400: {\"error\":{\"message\":\"`max_tokens` must be less than or equal to `4096`, the maximum value for `max_tokens` is less than the `context_window` for this model\",\"type\":\"invalid_request_error\",\"param\"",
+  "groq qwen/qwen3.8-27b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199519, ",
+  "groq qwen/qwen3.8-27b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199512, "
  ],
  "errors": [
-  "fatal: Groq fail: 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 197511, Reque"
+  "fatal: Groq fail: 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199512, Reque"
  ],
  "mode": "pic",
- "finished": "2026-11-17T12:12"
+ "finished": "2026-11-17T12:17"
 }
