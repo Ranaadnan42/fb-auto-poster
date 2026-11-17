@@ -1,31 +1,23 @@
 {
- "time_utc": "2026-11-15 19:59",
+ "time_utc": "2026-11-16 23:33",
  "kind": "long",
  "lang": "ur",
  "dry_run": false,
  "posted": {
-  "news": {
-   "date": "2026-11-15 19:59",
-   "kind": "long",
-   "lang": "ur",
-   "title": "عالمی فضائی بحران، اے آئی جاسوسی اور کوئینز لینڈ میں طوفان",
-   "dur": 548,
-   "post_id": "2065767004142570"
-  },
   "sports": {
-   "date": "2026-11-15 19:59",
+   "date": "2026-11-16 23:33",
    "kind": "long",
    "lang": "ur",
-   "title": "رونالڈینیو کی فٹ بال میں واپسی اور کھیلوں کی اہم خبریں",
-   "dur": 514,
-   "post_id": "992181063410748"
+   "title": "ڈبلیو ڈبلیو ای میں جان سینا کی واپسی اور سنوکر کی خبریں",
+   "dur": 402,
+   "post_id": "1112754891643712"
   }
  },
  "errors": [],
- "agent_checks": 270,
- "agent_rejects": 247,
- "agent_skips": 565,
- "clips_rejected": 823,
- "alt_searches": 8,
+ "clips_rejected": 1007,
+ "agent_checks": 228,
+ "agent_rejects": 209,
+ "agent_skips": 789,
+ "alt_searches": 12,
  "time_budget_hit": true
 }

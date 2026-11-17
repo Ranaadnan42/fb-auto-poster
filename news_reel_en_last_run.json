@@ -1,24 +1,31 @@
 {
- "time_utc": "2026-11-17 00:59",
+ "time_utc": "2026-11-16 02:46",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-17 00:59",
+   "date": "2026-11-16 02:46",
    "kind": "reel",
    "lang": "en",
-   "title": "Rebuilt Libyan Town Becomes Political Showcase After Floods",
-   "dur": 56,
-   "post_id": "1419091913312077"
+   "title": "SpaceX Catches Starship Rocket with Mechanical Arms",
+   "dur": 49,
+   "post_id": "2357580825083990"
+  },
+  "sports": {
+   "date": "2026-11-16 02:46",
+   "kind": "reel",
+   "lang": "en",
+   "title": "Lindy Duncan Wins First LPGA Title After 222 Starts",
+   "dur": 46,
+   "post_id": "855563014316257"
   }
  },
- "errors": [
-  "sports: 'list' object has no attribute 'get'"
- ],
- "clips_rejected": 194,
- "agent_checks": 131,
- "agent_rejects": 128,
- "agent_skips": 65,
- "alt_searches": 4
+ "errors": [],
+ "agent_checks": 186,
+ "agent_rejects": 178,
+ "agent_skips": 56,
+ "clips_rejected": 235,
+ "alt_searches": 4,
+ "time_budget_hit": true
 }
