@@ -1,24 +1,36 @@
 {
- "time_utc": "2026-11-17 19:24",
+ "time_utc": "2026-11-17 19:36",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-17 19:24",
+   "date": "2026-11-17 19:36",
    "kind": "reel",
    "lang": "en",
-   "title": "Mozambique Opposition Leader Mondlane Faces Terrorism Trial",
-   "dur": 52,
-   "post_id": "1271190201892032"
+   "title": "Senegal Makes History as First to Qualify for AFCON 2027",
+   "dur": 53,
+   "post_id": "29253431090985193"
+  },
+  "sports": {
+   "date": "2026-11-17 19:36",
+   "kind": "reel",
+   "lang": "en",
+   "title": "USA Wrestling and AEW Forge Major New Partnership",
+   "dur": 50,
+   "post_id": "1843249746714014"
   }
  },
- "errors": [
-  "sports: 'list' object has no attribute 'get'"
+ "errors": [],
+ "clips_rejected": 171,
+ "alt_searches": 3,
+ "no_match": [
+  "@Senegal national football team",
+  "@USA Wrestling"
  ],
- "clips_rejected": 30,
- "alt_searches": 1,
- "agent_checks": 36,
- "agent_rejects": 30,
- "agent_skips": 0
+ "headline_cards": 2,
+ "agent_checks": 91,
+ "agent_rejects": 91,
+ "agent_skips": 77,
+ "time_budget_hit": true
 }
