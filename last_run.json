@@ -1,34 +1,44 @@
 {
- "lang": "en",
- "stock_clips": 14,
+ "lang": "ur",
+ "stock_clips": 52,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "tahajjud prayer",
-  "tahajjud ki dua",
-  "tahajjud ki namaz ka tarika",
-  "tahajjud namaz",
-  "tahajjud prayer dua",
-  "tahajjud story",
-  "tahajjud miracle",
-  "tahajjud ki namaz kaise padhte hain",
-  "tahajjud ki fazilat"
+  "غصہ ختم کرنے کا وظیفہ",
+  "غصہ پر بیان",
+  "غصہ ختم کرنے کی دعا",
+  "غصہ نہ کیا کرو نبی کریم صلى الله عليه وسلم کی ایسی نصیحت جو زندگی بدل دے صحیح بخاری 6116",
+  "غصہ کے نقصانات",
+  "غصہ کیوں آتا ہے",
+  "غصے کا علاج",
+  "غصہ کنٹرول کرنے کا طریقہ",
+  "غصہ ختم کرنے کا تعویذ",
+  "gussa control karne ka tarika",
+  "gussa kam karne ki dua",
+  "gussa gussa",
+  "gussa jaan de",
+  "gussa kam karne ka wazifa",
+  "gussa maine bola",
+  "gussa jatti da",
+  "gussa thanda karne ki dua",
+  "gussa dur karne ki dua"
  ],
- "story": "Prophet listens to Abu Musa reciting at night",
- "search": "tahajjud story",
- "vision_checks": 125,
- "clips_rejected": 110,
+ "story": "Umar halts his anger upon Quran verse",
+ "search": "غصے کا علاج",
+ "vision_checks": 166,
+ "clips_rejected": 127,
  "sources": {
-  "pixabay": 11,
-  "commons": 2,
-  "mixkit": 1
+  "pixabay": 40,
+  "commons": 9,
+  "mixkit": 3
  },
  "no_match": [
   "mosque sunset sky"
  ],
- "reel_minutes": 1.14,
- "time_utc": "2026-11-16 21:15",
- "title": "A Beautiful Tahajjud Story: Prophet Listens to Abu Musa",
+ "long_minutes": 5.18,
+ "reel_minutes": 1.21,
+ "time_utc": "2026-11-17 00:05",
+ "title": "جب حضرت عمرؓ کو غصہ آیا: غصے کا علاج اور ایک آیت کی طاقت",
  "dry_run": false,
- "posted_ok": 1
+ "posted_ok": 2
 }
