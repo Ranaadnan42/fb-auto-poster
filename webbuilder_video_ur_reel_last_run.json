@@ -1,15 +1,15 @@
 {
- "time_utc": "2026-11-16 23:44",
- "spotlight": "pharmacy",
- "post_id": "4747997745433367",
+ "time_utc": "2026-11-17 14:53",
+ "spotlight": "hardware store",
+ "post_id": "3271125953277404",
  "error": null,
  "lang": "ur",
  "kind": "reel",
- "clips": 1,
+ "clips": 0,
  "fallback": 0,
  "errors": [],
  "real_work": 4,
- "mock": 4,
  "real_pos": 1,
- "seconds": 61.0
+ "mock": 2,
+ "seconds": 49.4
 }
