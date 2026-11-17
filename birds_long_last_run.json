@@ -1,8 +1,83 @@
 {
- "time_utc": "2026-11-17 04:21",
+ "time_utc": "2026-11-17 15:07",
  "mode": "long",
  "dry_run": false,
  "errors": [
-  "fatal: Groq fail: 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199377, Reque"
- ]
+  "fatal: sirf 12 sahi clips, 38 text cards - is topic ki video post nahi ki"
+ ],
+ "calls": [
+  {
+   "file": "File:From Farm to Feast.ogg",
+   "license": "cc by-sa 4.0"
+  },
+  {
+   "file": "File:De-Rubinkehlkolibri.ogg",
+   "license": "cc by-sa 4.0"
+  },
+  {
+   "file": "File:Calypte anna - Anna's Hummingbird - XC109852.ogg",
+   "license": "cc by-sa 3.0"
+  },
+  {
+   "file": "File:Calliope hum(a)oga.ogg",
+   "license": "cc by-sa 4.0"
+  },
+  {
+   "file": "File:Ensifera ensifera - Sword-billed Hummingbird XC250817.mp3",
+   "license": "cc by-sa 4.0"
+  },
+  {
+   "file": "File:Wa Baijot Pascal cinse.ogg",
+   "license": "cc by-sa 4.0"
+  }
+ ],
+ "bird_calls": 6,
+ "kind": "long",
+ "lang": "en",
+ "clips_rejected": 442,
+ "agent_checks": 46,
+ "agent_rejects": 34,
+ "agent_skips": 405,
+ "alt_searches": 20,
+ "no_match": [
+  "Anna's hummingbird iridescent crown",
+  "Anna's hummingbird tongue",
+  "Anna's hummingbird at feeder",
+  "snowy garden with hummingbird",
+  "Costa's hummingbird",
+  "desert landscape",
+  "male Costa's hummingbird",
+  "Costa's hummingbird throat feathers",
+  "Costa's hummingbird in oak forest",
+  "Costa's hummingbird flying",
+  "Rufous hummingbird",
+  "flying hummingbird",
+  "male Rufous hummingbird throat",
+  "Rufous hummingbird in flight",
+  "Rufous hummingbird hovering",
+  "mountain landscape",
+  "Calliope hummingbird",
+  "hummingbird in flight",
+  "male Calliope hummingbird throat",
+  "Calliope hummingbird hovering",
+  "Calliope hummingbird habitat",
+  "mountain meadow",
+  "Broad-tailed hummingbird",
+  "Broad-tailed hummingbird eye ring",
+  "male Broad-tailed hummingbird",
+  "Broad-tailed hummingbird wings",
+  "Broad-tailed hummingbird perching",
+  "forest canopy",
+  "Sword-billed hummingbird",
+  "Andes mountains",
+  "Sword-billed hummingbird beak",
+  "Sword-billed hummingbird drinking from passionflower",
+  "Sword-billed hummingbird flying",
+  "Andean cloud forest",
+  "collection of different hummingbirds",
+  "hummingbird flying away",
+  "hummingbird at flower",
+  "hummingbird flying in slow motion"
+ ],
+ "headline_cards": 38
 }
