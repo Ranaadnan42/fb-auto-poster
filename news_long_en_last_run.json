@@ -1,31 +1,43 @@
 {
- "time_utc": "2026-11-16 20:18",
+ "time_utc": "2026-11-17 20:18",
  "kind": "long",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-16 20:18",
+   "date": "2026-11-17 20:18",
    "kind": "long",
    "lang": "en",
-   "title": "Global News Bulletin Stadium Costs Migration and Energy",
-   "dur": 340,
-   "post_id": "954860390816458"
+   "title": "New Tech Restrictions Threaten Global Trade and Markets",
+   "dur": 312,
+   "post_id": "1502870375096367"
   },
   "sports": {
-   "date": "2026-11-16 20:18",
+   "date": "2026-11-17 20:18",
    "kind": "long",
    "lang": "en",
-   "title": "Global Sports News Bulletin Today",
-   "dur": 297,
-   "post_id": "4110965289197286"
+   "title": "Global Sports Hub: F1 Drama and Football Legends",
+   "dur": 279,
+   "post_id": "2262270577711714"
   }
  },
  "errors": [],
- "clips_rejected": 927,
- "alt_searches": 11,
- "agent_checks": 237,
- "agent_rejects": 215,
- "agent_skips": 703,
- "time_budget_hit": true
+ "clips_rejected": 974,
+ "agent_checks": 243,
+ "agent_rejects": 218,
+ "agent_skips": 746,
+ "alt_searches": 7,
+ "time_budget_hit": true,
+ "no_match": [
+  "@Gianni Infantino",
+  "FIFA headquarters Zurich",
+  "football stadium pitch",
+  "@FIFA",
+  "stadium VIP seats",
+  "@UEFA",
+  "soccer ball on turf",
+  "Swiss Alps landscape",
+  "@Formula 1"
+ ],
+ "headline_cards": 9
 }

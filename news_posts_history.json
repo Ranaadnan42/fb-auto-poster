@@ -4401,5 +4401,39 @@
   ],
   "sport": null,
   "title": "USA Wrestling and AEW Forge Major New Partnership"
+ },
+ {
+  "date": "2026-11-17 21:32",
+  "page": "news",
+  "id": "1502870375096367",
+  "fmt": "long",
+  "lang": "en",
+  "topics": [
+   "uk",
+   "africa",
+   "americas",
+   "world",
+   "science_tech",
+   "europe"
+  ],
+  "sport": null,
+  "title": "New Tech Restrictions Threaten Global Trade and Markets"
+ },
+ {
+  "date": "2026-11-17 21:46",
+  "page": "sports",
+  "id": "2262270577711714",
+  "fmt": "long",
+  "lang": "en",
+  "topics": [
+   "formula1",
+   "wrestling",
+   "football",
+   "mma",
+   "olympic_sports",
+   "cycling"
+  ],
+  "sport": null,
+  "title": "Global Sports Hub: F1 Drama and Football Legends"
  }
 ]
