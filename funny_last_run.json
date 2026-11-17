@@ -1,36 +1,34 @@
 {
  "mode": "auto",
- "stock_clips": 14,
- "fallback_clips": 0,
+ "stock_clips": 7,
+ "fallback_clips": 1,
  "errors": [],
  "format": "people",
  "search_phrases": [
-  "exam results funny videos",
-  "exam results memes",
-  "exam results funny"
+  "sleeping late waking up late",
+  "late sleep early wake up",
+  "how to sleep early if you woke up late"
  ],
- "funny_score": "2 -> 9",
- "search": "exam results funny",
- "reel_format": "dialogue",
- "vision_checks": 129,
- "clips_rejected": 138,
- "no_match": [
-  "nervous student phone",
-  "boy talking dad",
-  "angry father shouting",
-  "student nervous smile",
-  "student nervous smile",
-  "teacher marking exam paper",
-  "math test score",
-  "math test score",
-  "boy arguing father"
- ],
+ "funny_score": "3 -> 9",
+ "search": "sleeping late waking up late",
+ "reel_format": "kya_hota_agar",
+ "vision_checks": 201,
  "sources": {
-  "pixabay": 5
+  "pixabay": 7
  },
+ "clips_rejected": 194,
+ "no_match": [
+  "angry mother entering bedroom",
+  "angry mother entering bedroom",
+  "frightened man waking up",
+  "strict father pointing watch",
+  "confused sleepy young man",
+  "man drinking sad tea kitchen",
+  "laughing friends group"
+ ],
  "laughs": 4,
  "reel_minutes": 0.87,
- "time_utc": "2026-11-17 07:03",
- "title": "رزلٹ ڈے اور ابّا کا چمڑے کا جوتا",
+ "time_utc": "2026-11-17 11:07",
+ "title": "رات کے تین بجے کا شہزادہ اور دوپہر کا بھوت",
  "dry_run": false
 }
