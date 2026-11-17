@@ -1,50 +1,8 @@
 {
- "time_utc": "2026-11-17 04:02",
+ "time_utc": "2026-11-17 06:50",
  "mode": "long",
  "dry_run": false,
  "errors": [
-  "fatal: sirf 0 sahi clips, 32 text cards - is topic ki video post nahi ki"
- ],
- "kind": "long",
- "lang": "en",
- "clips_rejected": 397,
- "alt_searches": 32,
- "no_match": [
-  "golden retriever dog playing with kids",
-  "labrador retriever dog outdoor running",
-  "golden retriever dog sitting in grass",
-  "golden retriever dog running in field",
-  "golden retriever dog guide dog walking",
-  "golden retriever dog holding toy in mouth",
-  "labrador retriever dog standing by lake",
-  "labrador retriever dog swimming in water",
-  "labrador retriever dog playing with ball",
-  "labrador retriever dog splashing in puddle",
-  "beagle dog sniffing grass outdoor",
-  "beagle dog small puppy standing",
-  "beagle dog working as detection dog",
-  "beagle dog barking baying outdoor",
-  "poodle dog thick curly coat standing",
-  "standard poodle dog outdoor jumping",
-  "miniature poodle dog performing trick",
-  "poodle dog standing on hind legs",
-  "french bulldog dog sitting on rug",
-  "french bulldog dog small puppy playing",
-  "french bulldog dog close up bat ears",
-  "french bulldog dog sleeping on couch funny",
-  "bernese mountain dog in snow mountains",
-  "bernese mountain dog walking outdoors",
-  "bernese mountain dog sitting happily",
-  "bernese mountain dog leaning on owner",
-  "maine coon cat fluffy fur sitting",
-  "maine coon cat looking around outdoor",
-  "maine coon cat large size resting",
-  "maine coon cat playing with water bowl",
-  "golden retriever dog hugging child",
-  "labrador retriever dog wagging tail family"
- ],
- "headline_cards": 32,
- "agent_checks": 24,
- "agent_rejects": 24,
- "agent_skips": 370
+  "fatal: Groq fail: 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198726, Reque"
+ ]
 }
