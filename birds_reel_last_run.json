@@ -1,8 +1,29 @@
 {
- "time_utc": "2026-11-17 02:46",
+ "time_utc": "2026-11-17 12:58",
  "mode": "reel",
  "dry_run": false,
- "errors": [
-  "fatal: facts nahi mile"
- ]
+ "errors": [],
+ "calls": [
+  {
+   "file": "File:Great hornbill , Buceros bicornis,sound.wav",
+   "license": "cc by-sa 4.0"
+  }
+ ],
+ "bird_calls": 1,
+ "kind": "reel",
+ "lang": "en",
+ "clips_rejected": 96,
+ "alt_searches": 8,
+ "agent_checks": 98,
+ "agent_rejects": 93,
+ "agent_skips": 0,
+ "posted": {
+  "bird": "Great hornbill",
+  "theme": null,
+  "wiki": "Great hornbill",
+  "date": "2026-11-17 12:58",
+  "title": "Why Does This Massive Bird Sound Like a Steam Train? Great Hornbill",
+  "dur": 75,
+  "post_id": "1443287441296308"
+ }
 }
