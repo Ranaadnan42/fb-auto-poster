@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-17 08:09",
+ "time_utc": "2026-11-17 06:10",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1448208791702551_122110911405532804",
-   "topic": "asia",
-   "title": "Canada and China agree on further tariff cuts"
+   "post": "1448208791702551_122110882383532804",
+   "topic": "science_tech",
+   "title": "California sues OpenAI over Hugging Face attack"
   },
   "sports": {
-   "post": "1465090056678690_122103558213548502",
-   "topic": "boxing",
-   "title": "Limerick boxer Lee Reeves dies aged 31"
+   "post": "1465090056678690_122103489813548502",
+   "topic": "motogp",
+   "title": "Ducati replaces injured Bagnaia for MotoGP in Portugal"
   }
  },
  "errors": []

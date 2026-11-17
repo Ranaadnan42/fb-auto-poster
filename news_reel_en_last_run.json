@@ -1,22 +1,21 @@
 {
- "time_utc": "2026-11-17 04:35",
+ "time_utc": "2026-11-17 08:16",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-17 04:35",
+   "date": "2026-11-17 08:16",
    "kind": "reel",
    "lang": "en",
-   "title": "GTA 6 Fans Use New Zealand Trick as Pre-Orders Surge",
+   "title": "US Flight Schedules Stabilize After Major Technical Failure",
    "dur": 45,
-   "post_id": "1656527379587012"
+   "post_id": "1134847875913356"
   }
  },
  "errors": [],
- "clips_rejected": 141,
- "agent_checks": 78,
- "agent_rejects": 74,
- "agent_skips": 59,
- "alt_searches": 1
+ "clips_rejected": 23,
+ "agent_checks": 28,
+ "agent_rejects": 23,
+ "agent_skips": 0
 }
