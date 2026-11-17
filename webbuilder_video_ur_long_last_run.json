@@ -1,7 +1,7 @@
 {
- "time_utc": "2026-11-17 00:29",
- "spotlight": "travel agency",
- "post_id": "1115921957905409",
+ "time_utc": "2026-11-17 16:36",
+ "spotlight": "clinic",
+ "post_id": "1751902315890985",
  "error": null,
  "lang": "ur",
  "kind": "long",
@@ -11,5 +11,5 @@
  "real_work": 7,
  "real_pos": 3,
  "mock": 3,
- "seconds": 87.2
+ "seconds": 95.0
 }
