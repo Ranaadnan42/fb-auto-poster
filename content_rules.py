@@ -47,20 +47,30 @@ def winners(bot):
     page = _PAGE.get(bot)
     if not page:
         return ""
+    d = os.path.dirname(FILE)
     try:
-        p = json.load(open(os.path.join(os.path.dirname(FILE), "page_manager.json"), encoding="utf-8")).get(page) or {}
+        miss = (json.load(open(os.path.join(d, "match_audit.json"), encoding="utf-8")).get(page) or {}).get("lessons") or []
     except Exception:
-        return ""
+        miss = []
+    audit = ""
+    if miss:
+        audit = ("\nMANAGER'S CHECK OF OUR LAST VIDEOS - picture did NOT match the voice here (never repeat this; "
+                 "name an exact, filmable subject and use footage of exactly that):\n" +
+                 "\n".join(f"- {m}" for m in miss[-5:]) + "\n")
+    try:
+        p = json.load(open(os.path.join(d, "page_manager.json"), encoding="utf-8")).get(page) or {}
+    except Exception:
+        return audit
     top = [t for t in (p.get("top_posts") or []) if t.get("text") and t.get("eng", 0) > 0]
     if not top:
-        return ""
+        return audit
     out = ("\nOUR AUDIENCE'S FAVOURITES (real engagement, last 28 days) - make today's piece in the same spirit "
            "(similar hook, emotion and kind of subject), but NEVER repeat the same subject:")
     for t in top[:3]:
         out += f"\n- {t['text']} ({t['eng']} reactions+comments+shares)"
     if p.get("eng_avg"):
         out += f"\n- Average post gets {p['eng_avg']}; aim higher with a stronger first line."
-    return out + "\n"
+    return audit + out + "\n"
 
 
 def text(bot):
