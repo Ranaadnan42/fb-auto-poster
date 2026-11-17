@@ -1,27 +1,23 @@
 {
- "time_utc": "2026-11-17 01:50",
+ "time_utc": "2026-11-16 23:30",
  "mode": "reel",
  "dry_run": false,
- "errors": [
-  "fatal: sirf 0 sahi clips, 9 text cards - is topic ki video post nahi ki"
- ],
+ "errors": [],
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 231,
- "alt_searches": 9,
- "no_match": [
-  "Siberian Husky dog sleeping in snow",
-  "Siberian Husky dog pulling sled",
-  "Siberian Husky dog face portrait",
-  "Siberian Husky dog playing inside house",
-  "Siberian Husky dog curled up sleeping",
-  "Siberian Husky puppy playing",
-  "Siberian Husky dog coat brushing",
-  "Siberian Husky dog running with family",
-  "Siberian Husky dog smiling camera"
- ],
- "headline_cards": 9,
- "agent_checks": 13,
- "agent_rejects": 13,
- "agent_skips": 217
+ "clips_rejected": 98,
+ "alt_searches": 8,
+ "agent_checks": 65,
+ "agent_rejects": 60,
+ "agent_skips": 36,
+ "posted": {
+  "pet": "dog",
+  "breed": "Pembroke Welsh Corgi",
+  "theme": null,
+  "wiki": "Pembroke Welsh Corgi",
+  "date": "2026-11-16 23:30",
+  "title": "Why These Short-Legged Royalty Are Taking Over The World!",
+  "dur": 56,
+  "post_id": "1476641017898750"
+ }
 }
