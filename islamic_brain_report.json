@@ -1,19 +1,15 @@
 {
- "time_utc": "2026-11-17 12:30",
- "videos": 73,
- "views": 15051,
- "engagement": 625,
+ "time_utc": "2026-11-17 21:36",
+ "videos": 75,
+ "views": 15573,
+ "engagement": 634,
  "by_theme": {
-  "humility and avoiding arrogance": [
-   1.07,
-   2
-  ],
   "a powerful story of a Sahabi's sacrifice": [
    0.79,
    2
   ],
   "patience (sabr) in hardship": [
-   1.08,
+   1.09,
    3
   ],
   "stories of the prophets mentioned in the Quran": [
@@ -21,11 +17,11 @@
    3
   ],
   "controlling anger": [
-   0.7,
+   0.71,
    4
   ],
   "the blessings of Friday (Jumma): Surah Kahf, durood and dua": [
-   1.22,
+   1.23,
    3
   ],
   "a dua that Allah answered (true incident)": [
@@ -41,7 +37,7 @@
    2
   ],
   "finding peace in remembering Allah (dhikr)": [
-   1.18,
+   1.19,
    2
   ],
   "honesty and trust (amanah)": [
@@ -57,11 +53,11 @@
    2
   ],
   "repentance (tawbah) and second chances": [
-   0.96,
-   3
+   0.95,
+   4
   ],
   "charity (sadaqah)": [
-   0.9,
+   0.91,
    2
   ],
   "a true miracle in the life of Prophet Muhammad": [
@@ -77,7 +73,7 @@
    5
   ],
   "good character and manners": [
-   1.01,
+   1.02,
    5
   ],
   "stories of the Sahaba": [
@@ -85,11 +81,11 @@
    3
   ],
   "the value of time": [
-   1.26,
-   2
+   1.13,
+   3
   ],
   "Jannah and how to reach it": [
-   1.12,
+   1.13,
    2
   ],
   "a lesson-filled event from early Islamic history": [
@@ -97,7 +93,7 @@
    2
   ],
   "death, the grave and the hereafter": [
-   0.91,
+   0.92,
    1
   ],
   "Islamic history and the golden age": [
@@ -105,8 +101,8 @@
    2
   ],
   "rizq (provision) comes from Allah": [
-   1.06,
-   1
+   0.98,
+   2
   ],
   "an authentic hadith of Prophet Muhammad and its meaning": [
    0.88,
@@ -120,8 +116,12 @@
    0.88,
    1
   ],
+  "humility and avoiding arrogance": [
+   1.27,
+   1
+  ],
   "the night prayer (tahajjud)": [
-   1.49,
+   1.5,
    1
   ],
   "hope after sadness": [
@@ -132,34 +132,33 @@
  "by_lang": {
   "ur": [
    0.98,
-   73
+   75
   ]
  },
  "by_kind": {
+  "reel": [
+   0.99,
+   51
+  ],
   "long": [
    0.97,
    24
-  ],
-  "reel": [
-   0.99,
-   49
   ]
  },
  "best": [
-  "[reel/ur] آیۃ الکرسی کی فضیلت: حضرت ابو ہریرہؓ اور شیطان کا ایمان افروز واقعہ (theme reflection on a Quran verse, views 267, eng 25, x2.03)",
-  "[reel/ur] غزوہِ بدر کا معجزہ: جب 313 نے اللہ تعالیٰ پر بھروسہ کیا (theme trusting Allah (tawakkul), views 251, eng 24, x1.94)",
+  "[reel/ur] آیۃ الکرسی کی فضیلت: حضرت ابو ہریرہؓ اور شیطان کا ایمان افروز واقعہ (theme reflection on a Quran verse, views 267, eng 25, x2.04)",
+  "[reel/ur] غزوہِ بدر کا معجزہ: جب 313 نے اللہ تعالیٰ پر بھروسہ کیا (theme trusting Allah (tawakkul), views 251, eng 24, x1.95)",
   "[long/ur] ایمانداری کا انعام: جب چرواہے نے حضرت عمرؓ کو حیران کر دیا (theme honesty and trust (amanah), views 287, eng 14, x1.67)"
  ],
- "summary": "Page ko Quran ki ayat aur tawakkul ki kahaniyan achi lag rahi hain, reels sab se zyada views la rahe hain. Nahin chal rahi hain boring topics jaise salah ki ahmiyat aur gussa control karna, unko kam karo. Agent ne content ko short reels, strong hooks aur high‑income audience ke liye English subtitles ke saath focus karne ko kaha hai.",
+ "summary": "Page ki reels aur long videos dono hi achi chal rahi hain, lekin Quran ki ayat ki tafseer, tawakkul aur amanah jaisi themes sab se zyada views aur engagement la rahi hain. Jo videos value of salah, anger control ya bahut specific historical topics par hain, unka performance bahut kam hai. Ab hum ko in high‑scoring themes par zyada reels banane chahiye aur low‑score topics ko kam ya avoid karna chahiye.",
  "plan": {
-  "updated": "2026-11-17 12:30",
+  "updated": "2026-11-17 21:36",
   "mult": {
-   "humility and avoiding arrogance": 1.03,
    "a powerful story of a Sahabi's sacrifice": 0.91,
    "patience (sabr) in hardship": 1.04,
    "stories of the prophets mentioned in the Quran": 0.86,
    "controlling anger": 0.82,
-   "the blessings of Friday (Jumma): Surah Kahf, durood and dua": 1.1,
+   "the blessings of Friday (Jumma): Surah Kahf, durood and dua": 1.11,
    "a dua that Allah answered (true incident)": 0.92,
    "trusting Allah (tawakkul)": 1.14,
    "reflection on a Quran verse": 1.26,
@@ -167,27 +166,28 @@
    "honesty and trust (amanah)": 1.2,
    "a story of a prophet's trial and patience": 1.1,
    "the power of dua": 1.09,
-   "repentance (tawbah) and second chances": 0.98,
+   "repentance (tawbah) and second chances": 0.97,
    "charity (sadaqah)": 0.96,
    "a true miracle in the life of Prophet Muhammad": 0.98,
    "a sunnah of the Prophet for daily life": 0.97,
    "lessons from the life of Prophet Muhammad": 0.86,
    "good character and manners": 1.01,
    "stories of the Sahaba": 0.93,
-   "the value of time": 1.1,
+   "the value of time": 1.06,
    "Jannah and how to reach it": 1.05,
    "a lesson-filled event from early Islamic history": 1.01,
    "death, the grave and the hereafter": 0.98,
    "Islamic history and the golden age": 0.94,
-   "rizq (provision) comes from Allah": 1.01,
+   "rizq (provision) comes from Allah": 0.99,
    "an authentic hadith of Prophet Muhammad and its meaning": 0.97,
    "the value of salah": 0.72,
    "kindness to parents": 0.97,
-   "the night prayer (tahajjud)": 1.1,
+   "humility and avoiding arrogance": 1.06,
+   "the night prayer (tahajjud)": 1.11,
    "hope after sadness": 0.97
   },
   "tips": [
-   "Focus on high‑performing themes like \"trusting Allah (tawakkul)\", \"reflection on a Quran verse\" and \"honesty & trust (amanah)\"; use Reel format (0.99 score) for quick hooks and keep videos under 60 seconds; start with a "
+   "Focus on high‑performing themes like \"reflection on a Quran verse\", \"trusting Allah (tawakkul)\", \"honesty and trust (amanah)\" and \"a true miracle in the life of Prophet Muhammad\"; use Reel format for quick hooks (under 3"
   ]
  }
 }
