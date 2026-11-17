@@ -121,5 +121,5 @@ jobs:
                   wf = c["wf"]
                   ok = all(ch.isalnum() or ch in "_.-" for ch in wf) and os.path.exists(f".github/workflows/{wf}")
                   r = subprocess.run(["gh", "workflow", "run", wf, "--repo", os.environ["REPO"], "--ref", "main"]) if ok else None
-                  tell(f"Manager: {wf} {'chala diya ✅ (10-40 min mein post)' if r and r.returncode == 0 else 'nahi chal saka ❌'}")
+                  print(wf, "dispatched" if r and r.returncode == 0 else "dispatch fail")  # Adnan: masle/confirm WhatsApp par nahi, sirf poochne par
           PY
