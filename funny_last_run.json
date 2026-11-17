@@ -1,13 +1,36 @@
 {
  "mode": "auto",
- "stock_clips": 48,
+ "stock_clips": 14,
  "fallback_clips": 0,
  "errors": [],
- "format": "cartoon",
- "long_minutes": 5.94,
- "series": "استاد ناصر اور واٹس ایپ کا وائرس | قسط 1 part 1 (cartoon)",
- "laughs": 6,
- "time_utc": "2026-11-16 20:58",
- "title": "استاد ناصر اور واٹس ایپ کا وائرس | قسط 1 | قسط 1",
+ "format": "people",
+ "search_phrases": [
+  "exam results funny videos",
+  "exam results memes",
+  "exam results funny"
+ ],
+ "funny_score": "2 -> 9",
+ "search": "exam results funny",
+ "reel_format": "dialogue",
+ "vision_checks": 129,
+ "clips_rejected": 138,
+ "no_match": [
+  "nervous student phone",
+  "boy talking dad",
+  "angry father shouting",
+  "student nervous smile",
+  "student nervous smile",
+  "teacher marking exam paper",
+  "math test score",
+  "math test score",
+  "boy arguing father"
+ ],
+ "sources": {
+  "pixabay": 5
+ },
+ "laughs": 4,
+ "reel_minutes": 0.87,
+ "time_utc": "2026-11-17 07:03",
+ "title": "رزلٹ ڈے اور ابّا کا چمڑے کا جوتا",
  "dry_run": false
 }
