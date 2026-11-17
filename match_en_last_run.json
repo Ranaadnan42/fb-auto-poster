@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-17 06:35",
+ "time_utc": "2026-11-17 22:04",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "sports": {
-   "key": "t401873065",
-   "sport": "american football",
-   "date": "2026-11-17 06:35",
+   "key": "f401933879",
+   "sport": "football",
+   "date": "2026-11-17 22:04",
    "lang": "en",
-   "match": "Los Angeles Chargers at Baltimore Ravens",
-   "result": "Los Angeles Chargers beat Baltimore Ravens 23-20",
-   "dur": 68,
-   "post_id": "1168407145744349"
+   "match": "Tahiti vs Cook Islands",
+   "result": "Tahiti 3-3 Cook Islands (draw)",
+   "dur": 60,
+   "post_id": "1116425011271199"
   }
  },
  "errors": []
