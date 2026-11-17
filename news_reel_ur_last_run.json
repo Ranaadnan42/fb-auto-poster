@@ -1,31 +1,22 @@
 {
- "time_utc": "2026-11-15 18:59",
+ "time_utc": "2026-11-17 04:12",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-15 18:59",
+   "date": "2026-11-17 04:12",
    "kind": "reel",
    "lang": "ur",
-   "title": "پاکستان میں آئی سی سی ایونٹ کی میزبانی کی امید",
-   "dur": 52,
-   "post_id": "1027750467008490"
-  },
-  "sports": {
-   "date": "2026-11-15 18:59",
-   "kind": "reel",
-   "lang": "ur",
-   "title": "ایبرڈین فٹ بال کلب کے نئے ہیڈ کوچ کا اعلان",
-   "dur": 57,
-   "post_id": "2354464111973264"
+   "title": "California Sues OpenAI Over Hugging Face Attack",
+   "dur": 64,
+   "post_id": "1172107018605296"
   }
  },
  "errors": [],
- "clips_rejected": 196,
- "alt_searches": 5,
- "agent_checks": 185,
- "agent_rejects": 176,
- "agent_skips": 19,
- "time_budget_hit": true
+ "clips_rejected": 51,
+ "agent_checks": 56,
+ "agent_rejects": 48,
+ "agent_skips": 3,
+ "alt_searches": 1
 }

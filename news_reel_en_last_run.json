@@ -1,24 +1,22 @@
 {
- "time_utc": "2026-11-16 23:51",
+ "time_utc": "2026-11-17 04:35",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-16 23:51",
+   "date": "2026-11-17 04:35",
    "kind": "reel",
    "lang": "en",
-   "title": "Bangladesh Clothing Factories Shut Down as Workers Strike Over Pay",
-   "dur": 52,
-   "post_id": "1826651098579724"
+   "title": "GTA 6 Fans Use New Zealand Trick as Pre-Orders Surge",
+   "dur": 45,
+   "post_id": "1656527379587012"
   }
  },
- "errors": [
-  "sports: 'list' object has no attribute 'get'"
- ],
- "clips_rejected": 76,
- "agent_checks": 82,
- "agent_rejects": 75,
- "agent_skips": 0,
+ "errors": [],
+ "clips_rejected": 141,
+ "agent_checks": 78,
+ "agent_rejects": 74,
+ "agent_skips": 59,
  "alt_searches": 1
 }
