@@ -1,5 +1,5 @@
 {
- "started": "2026-11-17T20:21",
+ "started": "2026-11-17T20:29",
  "steps": [
   "token: user token expires_at=0 data_access_expires_at=1801949831",
   "token: user token tha - page token bana kar istemal kiya",
@@ -24,17 +24,17 @@
   "brain gemini-2.0-flash-exp: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-2.0-flash-exp is not found for API",
   "brain gemini-1.5-pro: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"models/gemini-1.5-pro is not found for API versi",
   "Groq live models: openai/gpt-oss-120b, openai/gpt-oss-20b, allam-2-7b, qwen/qwen3.8-27b",
-  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 19930",
-  "groq openai/gpt-oss-120b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 19929",
-  "groq openai/gpt-oss-20b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199445",
-  "groq openai/gpt-oss-20b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199438",
+  "groq openai/gpt-oss-120b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 19822",
+  "groq openai/gpt-oss-120b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-120b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 19821",
+  "groq openai/gpt-oss-20b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198363",
+  "groq openai/gpt-oss-20b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `openai/gpt-oss-20b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198356",
   "groq allam-2-7b try 1 failed: 400: {\"error\":{\"message\":\"`max_tokens` must be less than or equal to `4096`, the maximum value for `max_tokens` is less than the `context_window` for this model\",\"type\":\"invalid_request_error\",\"param\"",
-  "groq qwen/qwen3.8-27b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198871, ",
-  "groq qwen/qwen3.8-27b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198864, "
+  "groq qwen/qwen3.8-27b try 1 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 197789, ",
+  "groq qwen/qwen3.8-27b try 2 failed: 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 197782, "
  ],
  "errors": [
-  "fatal: Groq fail: 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198864, Reque"
+  "fatal: Groq fail: 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 197782, Reque"
  ],
  "mode": "pic",
- "finished": "2026-11-17T20:22"
+ "finished": "2026-11-17T20:29"
 }
