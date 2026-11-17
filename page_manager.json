@@ -1,14 +1,14 @@
 {
  "islamic": {
-  "at": "2026-11-17T00:59+00:00",
+  "at": "2026-11-17T01:27+00:00",
   "done": [],
   "problems": [],
   "name": "Islamic Motivational Videos",
-  "followers": 1316,
+  "followers": 1317,
   "insights_28d": {},
   "posts_28d": 174,
-  "eng_28d": 773,
-  "eng_avg": 4.4,
+  "eng_28d": 775,
+  "eng_avg": 4.5,
   "best_hours_pk": [
    3,
    19,
@@ -34,7 +34,7 @@
     "at": "13 Nov 03:28"
    }
   ],
-  "low_posts": 15,
+  "low_posts": 14,
   "history": [
    {
     "day": "2026-11-02",
@@ -98,15 +98,15 @@
    },
    {
     "day": "2026-11-17",
-    "followers": 1316,
-    "eng_28d": 773
+    "followers": 1317,
+    "eng_28d": 775
    }
   ],
   "posts_24h": 7,
   "last_post": "2026-11-17T00:44+00:00"
  },
  "funny": {
-  "at": "2026-11-17T00:59+00:00",
+  "at": "2026-11-17T01:27+00:00",
   "done": [],
   "problems": [],
   "name": "Hansi Ka Adda ہنسی کا اڈا",
@@ -212,7 +212,7 @@
   "last_post": "2026-11-16T21:08+00:00"
  },
  "frames": {
-  "at": "2026-11-17T00:59+00:00",
+  "at": "2026-11-17T01:27+00:00",
   "done": [],
   "problems": [],
   "name": "Frames Of Life",
@@ -318,13 +318,13 @@
   "last_post": "2026-11-16T22:14+00:00"
  },
  "webbuilder": {
-  "at": "2026-11-17T00:59+00:00",
+  "at": "2026-11-17T01:27+00:00",
   "done": [],
   "problems": [],
   "name": "web builder",
   "followers": 33,
   "insights_28d": {},
-  "posts_28d": 202,
+  "posts_28d": 204,
   "eng_28d": 216,
   "eng_avg": 1.1,
   "best_hours_pk": [
@@ -352,7 +352,7 @@
     "at": "14 Nov 23:54"
    }
   ],
-  "low_posts": 33,
+  "low_posts": 35,
   "history": [
    {
     "day": "2026-11-02",
@@ -420,19 +420,19 @@
     "eng_28d": 216
    }
   ],
-  "posts_24h": 6,
-  "last_post": "2026-11-17T00:35+00:00"
+  "posts_24h": 8,
+  "last_post": "2026-11-17T01:12+00:00"
  },
  "news": {
-  "at": "2026-11-17T00:59+00:00",
+  "at": "2026-11-17T01:27+00:00",
   "done": [],
   "problems": [],
   "name": "News Act",
   "followers": 51,
   "insights_28d": {},
-  "posts_28d": 138,
+  "posts_28d": 139,
   "eng_28d": 311,
-  "eng_avg": 2.3,
+  "eng_avg": 2.2,
   "best_hours_pk": [
    1,
    5,
@@ -458,7 +458,7 @@
     "at": "16 Nov 05:02"
    }
   ],
-  "low_posts": 62,
+  "low_posts": 63,
   "history": [
    {
     "day": "2026-11-16",
@@ -471,10 +471,10 @@
    }
   ],
   "posts_24h": 15,
-  "last_post": "2026-11-17T00:11+00:00"
+  "last_post": "2026-11-17T01:26+00:00"
  },
  "newsur": {
-  "at": "2026-11-17T00:59+00:00",
+  "at": "2026-11-17T01:27+00:00",
   "done": [],
   "problems": [],
   "name": "News Act Urdu",
@@ -523,7 +523,7 @@
   "last_post": "2026-11-16T23:40+00:00"
  },
  "sports": {
-  "at": "2026-11-17T00:59+00:00",
+  "at": "2026-11-17T01:27+00:00",
   "done": [],
   "problems": [],
   "name": "Sports Hubs",
@@ -578,13 +578,13 @@
   ]
  },
  "war": {
-  "at": "2026-11-17T00:59+00:00",
+  "at": "2026-11-17T01:27+00:00",
   "done": [],
   "problems": [],
   "name": "Battles Untold",
   "followers": 1,
   "insights_28d": {},
-  "posts_28d": 12,
+  "posts_28d": 13,
   "eng_28d": 3,
   "eng_avg": 0.2,
   "best_hours_pk": [
@@ -612,7 +612,7 @@
     "at": "17 Nov 03:44"
    }
   ],
-  "low_posts": 9,
+  "low_posts": 10,
   "history": [
    {
     "day": "2026-11-16",
@@ -624,11 +624,11 @@
     "eng_28d": 3
    }
   ],
-  "posts_24h": 4,
-  "last_post": "2026-11-16T23:53+00:00"
+  "posts_24h": 5,
+  "last_post": "2026-11-17T01:14+00:00"
  },
  "birds": {
-  "at": "2026-11-17T00:59+00:00",
+  "at": "2026-11-17T01:27+00:00",
   "done": [],
   "problems": [],
   "name": "Birds of the World",
@@ -676,7 +676,7 @@
   "last_post": "2026-11-17T00:56+00:00"
  },
  "pets": {
-  "at": "2026-11-17T00:59+00:00",
+  "at": "2026-11-17T01:27+00:00",
   "done": [],
   "problems": [],
   "name": "Dogs & Cats World",
@@ -724,7 +724,7 @@
   "last_post": "2026-11-16T23:48+00:00"
  },
  "wild": {
-  "at": "2026-11-17T00:59+00:00",
+  "at": "2026-11-17T01:27+00:00",
   "done": [],
   "problems": [],
   "name": "Wild Nations",
@@ -772,7 +772,7 @@
   "last_post": "2026-11-17T00:33+00:00"
  },
  "faizi": {
-  "at": "2026-11-17T00:59+00:00",
+  "at": "2026-11-17T01:27+00:00",
   "done": [],
   "problems": [],
   "name": "Style by Faizi",

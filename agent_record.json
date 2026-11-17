@@ -1,19 +1,12 @@
 {
  "open_fixes": [],
- "time_utc": "2026-11-17 00:58",
+ "time_utc": "2026-11-17 01:27",
  "summary": "",
  "notes": [
   "dimagh na chala: koi AI model na chala: 401 Client Error: Unauthorized for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=AQ.Ab8RN6K_1NN5sMNRP7jibeVdQ0ccynmKE0_QZ3WsawnO3_YTUQ"
  ],
  "actions": [
-  "run 43944121785 (Birds of the World (Bird Agent) [47 19 * * *]) dobara chalaya",
-  "run 43970603231 (Website Agent / AI Employee (BizTools Hub) [post]) dobara chalaya",
-  "run 43982791883 (News Act + Sports Hubs [51 15 * * *]) dobara chalaya",
-  "run 43955280440 (Dogs & Cats World (Pets Agent) [57 20 * * *]) dobara chalaya",
-  "run 43944757254 (Wander Earth (Scenic Agent) [48 19 * * *]) dobara chalaya",
-  "run 43943353371 (Wander Earth (Scenic Agent) [48 19 * * *]) dobara chalaya",
-  "run 43774547103 (Web Builder Promo [13 19 * * *]) dobara chalaya",
-  "run 43944118007 (Wild Nations (Wildlife Agent) [37 18 * * *]) dobara chalaya"
+  "run 43953920244 (Wild Nations (Wildlife Agent) [47 20 * * *]) dobara chalaya"
  ],
  "edits": [],
  "needs_owner": []
