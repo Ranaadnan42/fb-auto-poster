@@ -3,20 +3,21 @@
  "agent": "wild",
  "dry_run": false,
  "log": [
-  "Subject: Hirola",
-  "photo commons wmi46570633 1920x1440: agent=True",
-  "--- caption ---\nDid you know only 300–500 Hirola antelopes are left in the wild? 🦌🇰🇪\n\nFound only in Kenya along the border of Somalia, this critically endangered species is the only living member of the Beatragus genus. Its loss would be the first mammalian genus extinction on mainland Africa in mod",
-  "Post waqt 11:07 UTC guzar chuka - foran post",
+  "Subject: Reticulated giraffe",
+  "photo commons wmi81733900 1920x2880: agent=True",
+  "--- caption ---\nMeet the Reticulated giraffe, the tallest land animal reaching 6 meters! 🦒🌍\n\nAlso known as the Somali giraffe, these giants feature unique liver-red polygonal spots. With 15,785 individuals globally in 2024, Kenya remains their primary population stronghold.\n\nTag a friend who would l",
+  "Video tayyar - 32 minute intezar, post 11:07 UTC par hogi",
+  "Waqt ho gaya - post kar rahe hain",
   "photo story lagi",
-  "posted 1501204066400712_122103704727546974"
+  "posted 1501204066400712_122104161579546974"
  ],
  "errors": [],
  "posted": {
-  "subject": "Hirola",
-  "photo": "wmi46570633",
+  "subject": "Reticulated giraffe",
+  "photo": "wmi81733900",
   "src": "commons",
-  "size": "1920x1440",
-  "date": "2026-11-16 20:44",
-  "post_id": "1501204066400712_122103704727546974"
+  "size": "1920x2880",
+  "date": "2026-11-17 10:34",
+  "post_id": "1501204066400712_122104161579546974"
  }
 }
