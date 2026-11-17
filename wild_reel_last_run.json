@@ -1,28 +1,9 @@
 {
- "time_utc": "2026-11-17 12:08",
+ "time_utc": "2026-11-17 02:32",
  "mode": "reel",
  "dry_run": false,
- "errors": [],
- "country": "Brazil",
- "kind": "reel",
- "lang": "en",
- "clips_rejected": 88,
- "alt_searches": 9,
- "no_match": [
-  "Capybara walking",
-  "Capybara Brazil"
+ "errors": [
+  "fatal: facts nahi mile"
  ],
- "headline_cards": 2,
- "agent_checks": 83,
- "agent_rejects": 80,
- "agent_skips": 5,
- "posted": {
-  "country": "Brazil",
-  "animal": "Capybara",
-  "wiki": "Capybara",
-  "date": "2026-11-17 12:08",
-  "title": "The Giant Rodent of Brazil: Meet the Heavyweight Champion Capybara",
-  "dur": 99,
-  "post_id": "1643584477219509"
- }
+ "country": "Brazil"
 }
