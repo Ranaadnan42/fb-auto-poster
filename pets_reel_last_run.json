@@ -1,23 +1,23 @@
 {
- "time_utc": "2026-11-16 23:30",
+ "time_utc": "2026-11-17 14:40",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 98,
- "alt_searches": 8,
- "agent_checks": 65,
- "agent_rejects": 60,
- "agent_skips": 36,
+ "clips_rejected": 158,
+ "agent_checks": 69,
+ "agent_rejects": 58,
+ "agent_skips": 99,
+ "alt_searches": 4,
  "posted": {
-  "pet": "dog",
-  "breed": "Pembroke Welsh Corgi",
+  "pet": "cat",
+  "breed": "British Shorthair",
   "theme": null,
-  "wiki": "Pembroke Welsh Corgi",
-  "date": "2026-11-16 23:30",
-  "title": "Why These Short-Legged Royalty Are Taking Over The World!",
-  "dur": 56,
-  "post_id": "1476641017898750"
+  "wiki": "British Shorthair",
+  "date": "2026-11-17 14:40",
+  "title": "The Real-Life Cheshire Cat: Meet the British Shorthair!",
+  "dur": 70,
+  "post_id": "2016248382403495"
  }
 }
