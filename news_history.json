@@ -1240,6 +1240,21 @@
     "rwanda"
    ],
    "post_id": "1448208791702551_122110806651532804"
+  },
+  {
+   "date": "2026-11-17 02:02",
+   "lang": "ur",
+   "topic": "uk",
+   "link": "https://www.bbc.co.uk/news/articles/c6x29ypw59n5o?at_medium=RSS&at_campaign=rss",
+   "title": "The Papers: 'No savings for a decade' and 'The name's Pattinson'",
+   "words": [
+    "decade",
+    "name",
+    "papers",
+    "pattinson",
+    "savings"
+   ],
+   "post_id": "1357984777408020_122095723095558252"
   }
  ],
  "sports": [
@@ -2479,6 +2494,25 @@
     "where"
    ],
    "post_id": "1465090056678690_122103313569548502"
+  },
+  {
+   "date": "2026-11-17 01:59",
+   "lang": "ur",
+   "topic": "winter_sports",
+   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxNT0dPdkEtcHM2a1BkSk1KcWJrSXJSVTBLaXRfcUtvcm5lYTloUDNUYmVkYnNEV0VYUzVDcnRXNjNmYWxuMmZOZGVoQXprVEJMNFdObUxMS1JmSFZYbC00SExDb09sTGtEVmZKVWpKRXlUOEMyakxWUXJKTHFxT2dyckxaWXFaQXNfMVE?oc=5",
+   "title": "Rising cost of hosting World Cup, Olympics driving multi-site trend",
+   "words": [
+    "cost",
+    "driving",
+    "hosting",
+    "multi",
+    "olympics",
+    "rising",
+    "site",
+    "trend",
+    "world"
+   ],
+   "post_id": "1465090056678690_122103351651548502"
   }
  ],
  "used_images": [
@@ -2565,6 +2599,7 @@
   3508631,
   2666577,
   "pxi3370970",
-  "pxi2822129"
+  "pxi2822129",
+  "pxi8128"
  ]
 }
