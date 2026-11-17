@@ -1,18 +1,18 @@
 {
  "islamic": {
-  "at": "2026-11-17T01:27+00:00",
+  "at": "2026-11-17T12:08+00:00",
   "done": [],
   "problems": [],
   "name": "Islamic Motivational Videos",
-  "followers": 1317,
+  "followers": 1320,
   "insights_28d": {},
-  "posts_28d": 174,
-  "eng_28d": 775,
+  "posts_28d": 179,
+  "eng_28d": 798,
   "eng_avg": 4.5,
   "best_hours_pk": [
    3,
    19,
-   13
+   5
   ],
   "top_posts": [
    {
@@ -34,7 +34,7 @@
     "at": "13 Nov 03:28"
    }
   ],
-  "low_posts": 14,
+  "low_posts": 15,
   "history": [
    {
     "day": "2026-11-02",
@@ -98,22 +98,22 @@
    },
    {
     "day": "2026-11-17",
-    "followers": 1317,
-    "eng_28d": 775
+    "followers": 1320,
+    "eng_28d": 798
    }
   ],
-  "posts_24h": 7,
-  "last_post": "2026-11-17T00:44+00:00"
+  "posts_24h": 10,
+  "last_post": "2026-11-17T08:07+00:00"
  },
  "funny": {
-  "at": "2026-11-17T01:27+00:00",
+  "at": "2026-11-17T12:08+00:00",
   "done": [],
   "problems": [],
   "name": "Hansi Ka Adda ہنسی کا اڈا",
   "followers": 1520,
   "insights_28d": {},
-  "posts_28d": 222,
-  "eng_28d": 319,
+  "posts_28d": 224,
+  "eng_28d": 323,
   "eng_avg": 1.4,
   "best_hours_pk": [
    0,
@@ -205,21 +205,21 @@
    {
     "day": "2026-11-17",
     "followers": 1520,
-    "eng_28d": 319
+    "eng_28d": 323
    }
   ],
   "posts_24h": 7,
-  "last_post": "2026-11-16T21:08+00:00"
+  "last_post": "2026-11-17T08:33+00:00"
  },
  "frames": {
-  "at": "2026-11-17T01:27+00:00",
+  "at": "2026-11-17T12:08+00:00",
   "done": [],
   "problems": [],
   "name": "Frames Of Life",
   "followers": 78,
   "insights_28d": {},
-  "posts_28d": 87,
-  "eng_28d": 439,
+  "posts_28d": 88,
+  "eng_28d": 440,
   "eng_avg": 5.0,
   "best_hours_pk": [
    21,
@@ -246,7 +246,7 @@
     "at": "07 Nov 13:41"
    }
   ],
-  "low_posts": 0,
+  "low_posts": 1,
   "history": [
    {
     "day": "2026-11-02",
@@ -311,21 +311,21 @@
    {
     "day": "2026-11-17",
     "followers": 78,
-    "eng_28d": 439
+    "eng_28d": 440
    }
   ],
   "posts_24h": 3,
-  "last_post": "2026-11-16T22:14+00:00"
+  "last_post": "2026-11-17T09:55+00:00"
  },
  "webbuilder": {
-  "at": "2026-11-17T01:27+00:00",
+  "at": "2026-11-17T12:08+00:00",
   "done": [],
   "problems": [],
   "name": "web builder",
   "followers": 33,
   "insights_28d": {},
-  "posts_28d": 204,
-  "eng_28d": 216,
+  "posts_28d": 205,
+  "eng_28d": 219,
   "eng_avg": 1.1,
   "best_hours_pk": [
    3,
@@ -352,7 +352,7 @@
     "at": "14 Nov 23:54"
    }
   ],
-  "low_posts": 35,
+  "low_posts": 33,
   "history": [
    {
     "day": "2026-11-02",
@@ -417,21 +417,21 @@
    {
     "day": "2026-11-17",
     "followers": 33,
-    "eng_28d": 216
+    "eng_28d": 219
    }
   ],
   "posts_24h": 8,
-  "last_post": "2026-11-17T01:12+00:00"
+  "last_post": "2026-11-17T10:10+00:00"
  },
  "news": {
-  "at": "2026-11-17T01:27+00:00",
+  "at": "2026-11-17T12:08+00:00",
   "done": [],
   "problems": [],
   "name": "News Act",
   "followers": 51,
   "insights_28d": {},
-  "posts_28d": 139,
-  "eng_28d": 311,
+  "posts_28d": 146,
+  "eng_28d": 315,
   "eng_avg": 2.2,
   "best_hours_pk": [
    1,
@@ -446,7 +446,7 @@
     "at": "15 Nov 01:05"
    },
    {
-    "eng": 59,
+    "eng": 60,
     "text": "Microsoft works to restore Outlook and Teams after a major global outage. 💻🚨  Mi",
     "url": "https://www.facebook.com/reel/1135799092750834/",
     "at": "15 Nov 01:17"
@@ -458,7 +458,7 @@
     "at": "16 Nov 05:02"
    }
   ],
-  "low_posts": 63,
+  "low_posts": 67,
   "history": [
    {
     "day": "2026-11-16",
@@ -467,22 +467,22 @@
    {
     "day": "2026-11-17",
     "followers": 51,
-    "eng_28d": 311
+    "eng_28d": 315
    }
   ],
-  "posts_24h": 15,
-  "last_post": "2026-11-17T01:26+00:00"
+  "posts_24h": 21,
+  "last_post": "2026-11-17T10:15+00:00"
  },
  "newsur": {
-  "at": "2026-11-17T01:27+00:00",
+  "at": "2026-11-17T12:08+00:00",
   "done": [],
   "problems": [],
   "name": "News Act Urdu",
   "followers": 1,
   "insights_28d": {},
-  "posts_28d": 8,
-  "eng_28d": 6,
-  "eng_avg": 0.8,
+  "posts_28d": 13,
+  "eng_28d": 8,
+  "eng_avg": 0.6,
   "best_hours_pk": [
    7,
    4
@@ -495,19 +495,19 @@
     "at": "16 Nov 17:52"
    },
    {
-    "eng": 0,
-    "text": "دی ہنگر گیمز کی کہانی میں آسٹریلوی فرد مزاحمت کا نیا چہرہ بن گیا 🎬🍿  دی ہنگر گیم",
-    "url": "https://www.facebook.com/reel/1520328543264654/",
-    "at": "17 Nov 04:40"
+    "eng": 2,
+    "text": "کیا امریکی نائب صدر جے ڈی وینس 2028 کے صدارتی انتخابات میں حصہ لیں گے؟ 🇺🇸🗳️  امر",
+    "url": "https://www.facebook.com/reel/2670843873369074/",
+    "at": "17 Nov 13:16"
    },
    {
     "eng": 0,
-    "text": "یمن میں حوثیوں کی پیش قدمی: سعودی عرب نے اتحادی فوج کے کمانڈر کو تبدیل کر دیا۔ 🇸",
-    "url": "https://www.facebook.com/122095695891558252/posts/122095671501558252",
-    "at": "17 Nov 04:25"
+    "text": "پاکستان کے لیے ایشیائی ترقیاتی بینک سے 500 ملین ڈالر قرض کی منظوری۔ 💰🇵🇰  ایشیائی",
+    "url": "https://www.facebook.com/122095695891558252/posts/122095921005558252",
+    "at": "17 Nov 15:05"
    }
   ],
-  "low_posts": 7,
+  "low_posts": 11,
   "history": [
    {
     "day": "2026-11-16",
@@ -516,22 +516,22 @@
    {
     "day": "2026-11-17",
     "followers": 1,
-    "eng_28d": 6
+    "eng_28d": 8
    }
   ],
-  "posts_24h": 7,
-  "last_post": "2026-11-16T23:40+00:00"
+  "posts_24h": 10,
+  "last_post": "2026-11-17T10:05+00:00"
  },
  "sports": {
-  "at": "2026-11-17T01:27+00:00",
+  "at": "2026-11-17T12:08+00:00",
   "done": [],
   "problems": [],
   "name": "Sports Hubs",
   "followers": 16,
   "insights_28d": {},
-  "posts_28d": 171,
-  "eng_28d": 96,
-  "eng_avg": 0.6,
+  "posts_28d": 184,
+  "eng_28d": 101,
+  "eng_avg": 0.5,
   "best_hours_pk": [
    19,
    18,
@@ -557,7 +557,7 @@
     "at": "15 Nov 03:20"
    }
   ],
-  "low_posts": 96,
+  "low_posts": 105,
   "history": [
    {
     "day": "2026-11-16",
@@ -566,11 +566,11 @@
    {
     "day": "2026-11-17",
     "followers": 16,
-    "eng_28d": 96
+    "eng_28d": 101
    }
   ],
-  "posts_24h": 22,
-  "last_post": "2026-11-17T00:52+00:00"
+  "posts_24h": 31,
+  "last_post": "2026-11-17T10:21+00:00"
  },
  "scenic": {
   "problems": [
@@ -578,15 +578,15 @@
   ]
  },
  "war": {
-  "at": "2026-11-17T01:27+00:00",
+  "at": "2026-11-17T12:08+00:00",
   "done": [],
   "problems": [],
   "name": "Battles Untold",
   "followers": 1,
   "insights_28d": {},
   "posts_28d": 13,
-  "eng_28d": 3,
-  "eng_avg": 0.2,
+  "eng_28d": 8,
+  "eng_avg": 0.6,
   "best_hours_pk": [
    3,
    5,
@@ -594,25 +594,25 @@
   ],
   "top_posts": [
    {
-    "eng": 1,
-    "text": "The final moments of a legendary commander. Custer and his men were surrounded o",
-    "url": "https://www.facebook.com/122096977695556052/posts/122096943315556052",
-    "at": "17 Nov 03:52"
-   },
-   {
-    "eng": 1,
-    "text": "Witness the chaos of the Greasy Grass. Native forces led by Crazy Horse secured ",
-    "url": "https://www.facebook.com/122096977695556052/posts/122096943189556052",
-    "at": "17 Nov 03:52"
-   },
-   {
-    "eng": 1,
+    "eng": 3,
     "text": "The first US war caught on camera claimed an estimated 700,000 lives. 📜📸  📅 When",
     "url": "https://www.facebook.com/reel/1783774039516760/",
     "at": "17 Nov 03:44"
+   },
+   {
+    "eng": 1,
+    "text": "The first war in history captured on camera. 📷⚔️  📅 When: April 12, 1861 – May 2",
+    "url": "https://www.facebook.com/reel/1150127411099772/",
+    "at": "17 Nov 06:14"
+   },
+   {
+    "eng": 1,
+    "text": "The 10-week war that changed the global map forever. 🗺️⚔️  📅 When: April to Augu",
+    "url": "https://www.facebook.com/reel/1750361676515666/",
+    "at": "17 Nov 04:53"
    }
   ],
-  "low_posts": 10,
+  "low_posts": 7,
   "history": [
    {
     "day": "2026-11-16",
@@ -621,20 +621,20 @@
    {
     "day": "2026-11-17",
     "followers": 1,
-    "eng_28d": 3
+    "eng_28d": 8
    }
   ],
   "posts_24h": 5,
   "last_post": "2026-11-17T01:14+00:00"
  },
  "birds": {
-  "at": "2026-11-17T01:27+00:00",
+  "at": "2026-11-17T12:08+00:00",
   "done": [],
   "problems": [],
   "name": "Birds of the World",
-  "followers": 1,
+  "followers": 4,
   "insights_28d": {},
-  "posts_28d": 6,
+  "posts_28d": 7,
   "eng_28d": 2,
   "eng_avg": 0.3,
   "best_hours_pk": [
@@ -649,18 +649,18 @@
    },
    {
     "eng": 0,
-    "text": "Behold the stunning scarlet macaw! 🦜  Discover the vibrant red, yellow, and blue",
-    "url": "https://www.facebook.com/122100965943551461/posts/122100967107551461",
-    "at": "17 Nov 05:56"
+    "text": "The rainbow lorikeet is a famous parrot species found in Australia! 🦜🌈  It lives",
+    "url": "https://www.facebook.com/122100965943551461/posts/122101300965551461",
+    "at": "17 Nov 16:47"
    },
    {
     "eng": 0,
-    "text": "Can this massive bird actually fly? 🦚✨  🦜 Bird: Indian peafowl (Pavo cristatus) ",
-    "url": "https://www.facebook.com/reel/3325140747673724/",
-    "at": "17 Nov 04:15"
+    "text": "Behold the stunning scarlet macaw! 🦜  Discover the vibrant red, yellow, and blue",
+    "url": "https://www.facebook.com/122100965943551461/posts/122100967107551461",
+    "at": "17 Nov 05:56"
    }
   ],
-  "low_posts": 5,
+  "low_posts": 6,
   "history": [
    {
     "day": "2026-11-16",
@@ -668,27 +668,33 @@
    },
    {
     "day": "2026-11-17",
-    "followers": 1,
+    "followers": 4,
     "eng_28d": 2
    }
   ],
-  "posts_24h": 4,
-  "last_post": "2026-11-17T00:56+00:00"
+  "posts_24h": 5,
+  "last_post": "2026-11-17T11:47+00:00"
  },
  "pets": {
-  "at": "2026-11-17T01:27+00:00",
+  "at": "2026-11-17T12:08+00:00",
   "done": [],
   "problems": [],
   "name": "Dogs & Cats World",
   "followers": 0,
   "insights_28d": {},
-  "posts_28d": 6,
+  "posts_28d": 7,
   "eng_28d": 0,
   "eng_avg": 0.0,
   "best_hours_pk": [
    4
   ],
   "top_posts": [
+   {
+    "eng": 0,
+    "text": "Meet the Siberian Husky – the Arctic’s most iconic sled dog! 🐾❄️  Discover why S",
+    "url": "https://www.facebook.com/122099314347553453/posts/122099350707553453",
+    "at": "17 Nov 06:54"
+   },
    {
     "eng": 0,
     "text": "👑 Tiny royal pups are stealing hearts worldwide! 🐾  🐶 Breed: Pembroke Welsh Corg",
@@ -700,12 +706,54 @@
     "text": "Is the giant Maine Coon cat actually half-raccoon? 🐱  🐱 Breed: Maine Coon 🌍 Orig",
     "url": "https://www.facebook.com/reel/1788017299170622/",
     "at": "17 Nov 04:20"
+   }
+  ],
+  "low_posts": 7,
+  "history": [
+   {
+    "day": "2026-11-16",
+    "followers": 0
+   },
+   {
+    "day": "2026-11-17",
+    "followers": 0,
+    "eng_28d": 0
+   }
+  ],
+  "posts_24h": 4,
+  "last_post": "2026-11-17T01:54+00:00"
+ },
+ "wild": {
+  "at": "2026-11-17T12:08+00:00",
+  "done": [],
+  "problems": [],
+  "name": "Wild Nations",
+  "followers": 0,
+  "insights_28d": {},
+  "posts_28d": 6,
+  "eng_28d": 0,
+  "eng_avg": 0.0,
+  "best_hours_pk": [
+   3
+  ],
+  "top_posts": [
+   {
+    "eng": 0,
+    "text": "Meet the Reticulated giraffe, the tallest land animal reaching 6 meters! 🦒🌍  Als",
+    "url": "https://www.facebook.com/122103799419546974/posts/122104161579546974",
+    "at": "17 Nov 16:07"
    },
    {
     "eng": 0,
-    "text": "Meet the gentle and affectionate Golden Retriever! 🐕✨  This British working dog ",
-    "url": "https://www.facebook.com/122099314347553453/posts/122099261889553453",
-    "at": "17 Nov 03:32"
+    "text": "Meet the rarest zebra on Earth! 🦓✨  The Grévy's zebra is the largest and most th",
+    "url": "https://www.facebook.com/122103799419546974/posts/122103793701546974",
+    "at": "17 Nov 05:33"
+   },
+   {
+    "eng": 0,
+    "text": "Meet the tallest living skyscraper on Earth! 🦒✨  🐾 Animal: Reticulated giraffe 🌍",
+    "url": "https://www.facebook.com/reel/29028393170188167/",
+    "at": "17 Nov 04:14"
    }
   ],
   "low_posts": 6,
@@ -720,40 +768,40 @@
     "eng_28d": 0
    }
   ],
-  "posts_24h": 4,
-  "last_post": "2026-11-16T23:48+00:00"
+  "posts_24h": 5,
+  "last_post": "2026-11-17T11:07+00:00"
  },
- "wild": {
-  "at": "2026-11-17T01:27+00:00",
+ "faizi": {
+  "at": "2026-11-17T12:08+00:00",
   "done": [],
   "problems": [],
-  "name": "Wild Nations",
+  "name": "Style by Faizi",
   "followers": 0,
   "insights_28d": {},
   "posts_28d": 5,
   "eng_28d": 0,
   "eng_avg": 0.0,
   "best_hours_pk": [
-   3
+   4
   ],
   "top_posts": [
    {
     "eng": 0,
-    "text": "Meet the rarest zebra on Earth! 🦓✨  The Grévy's zebra is the largest and most th",
-    "url": "https://www.facebook.com/122103799419546974/posts/122103793701546974",
-    "at": "17 Nov 05:33"
+    "text": "A or B? 👀 Comment your pick 👇  ✨ Icy Pearl Elegance awaits! ❄️  1. Pearl Whisper",
+    "url": "https://www.facebook.com/122097376215555703/posts/122097675855555703",
+    "at": "17 Nov 17:07"
    },
    {
     "eng": 0,
-    "text": "Meet the tallest living skyscraper on Earth! 🦒✨  🐾 Animal: Reticulated giraffe 🌍",
-    "url": "https://www.facebook.com/reel/29028393170188167/",
-    "at": "17 Nov 04:14"
+    "text": "Crimson Citrus Chic: Ready to turn heads? 🌟✨  1. Scarlet Sunset Gown 2. Burgundy",
+    "url": "https://www.facebook.com/reel/990702323585065/",
+    "at": "17 Nov 07:33"
    },
    {
     "eng": 0,
-    "text": "Meet Kenya's tallest giant standing at six meters! 🦒🌿  🐾 Animal: Reticulated gir",
-    "url": "https://www.facebook.com/reel/1499169862087863/",
-    "at": "17 Nov 03:39"
+    "text": "✨ Autumn Ember Elegance: Turn heads at every celebration!  1. Crimson Silk Anark",
+    "url": "https://www.facebook.com/reel/2142603193294783/",
+    "at": "17 Nov 02:48"
    }
   ],
   "low_posts": 5,
@@ -768,55 +816,7 @@
     "eng_28d": 0
    }
   ],
-  "posts_24h": 4,
-  "last_post": "2026-11-17T00:33+00:00"
- },
- "faizi": {
-  "at": "2026-11-17T01:27+00:00",
-  "done": [],
-  "problems": [],
-  "name": "Style by Faizi",
-  "followers": 0,
-  "insights_28d": {},
-  "posts_28d": 3,
-  "eng_28d": 0,
-  "eng_avg": 0.0,
-  "best_hours_pk": [
-   4
-  ],
-  "top_posts": [
-   {
-    "eng": 0,
-    "text": "✨ Autumn Ember Elegance: Turn heads at every celebration!  1. Crimson Silk Anark",
-    "url": "https://www.facebook.com/reel/2142603193294783/",
-    "at": "17 Nov 02:48"
-   },
-   {
-    "eng": 0,
-    "text": "",
-    "url": "https://www.facebook.com/122097376215555703/posts/996809059548808?substory_index=996809059548808",
-    "at": "16 Nov 04:23"
-   },
-   {
-    "eng": 0,
-    "text": "",
-    "url": "https://www.facebook.com/122097376215555703/posts/122096561139555703?substory_index=2161529731421485",
-    "at": "16 Nov 04:12"
-   }
-  ],
-  "low_posts": 3,
-  "history": [
-   {
-    "day": "2026-11-16",
-    "followers": 0
-   },
-   {
-    "day": "2026-11-17",
-    "followers": 0,
-    "eng_28d": 0
-   }
-  ],
-  "posts_24h": 1,
-  "last_post": "2026-11-16T21:48+00:00"
+  "posts_24h": 3,
+  "last_post": "2026-11-17T12:07+00:00"
  }
 }

@@ -1,17 +1,18 @@
 {
  "islamic": {
   "avoid": [
-   "نبی کریم صلی اللہ علیہ وسلم کا واقعہ:"
+   "Umm Salim's bravery in Hunain",
+   "Salman al-Farsi's search for truth"
   ],
   "try": [
-   "Umm Salama's patience during the Battle of Uhud",
-   "Sa'd ibn Abi Waqqas bravery in the Battle of Qadisiyyah",
-   "Surah Al-Ikhlas lesson on sincerity",
-   "Modern Muslim entrepreneur's journey overcoming adversity",
-   "Prophet's interaction with the people of Ta'if",
-   "Hadith on the importance of seeking knowledge"
+   "Bilal ibn Rabah's first call to prayer (Adhan) and perseverance",
+   "The ant (Naml) lesson in Surah An-Naml about teamwork and trust in Allah",
+   "Hadith of the Prophet on feeding a stray animal and compassion",
+   "The Isra and Mi'raj night journey focusing on patience and reliance on Allah",
+   "Abu Bakr's generous donation of his wealth to support the early Muslim community",
+   "Khadijah (RA)'s entrepreneurship and support of the Prophet as a motivational ex"
   ],
-  "note": "Page thodi repetitive hai, lekin ab bhi nayi stories shamil ki ja sakti hain."
+  "note": "Page thoda repetitive lag raha hai"
  },
  "funny": {
   "avoid": [
@@ -110,9 +111,9 @@
  "_platforms": {
   "islamic": {
    "posts": 10,
-   "facebook": 6,
+   "facebook": 7,
    "youtube": 10,
-   "tiktok": 6
+   "tiktok": 7
   },
   "funny": {
    "posts": 10,
