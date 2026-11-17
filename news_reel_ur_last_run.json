@@ -1,21 +1,22 @@
 {
- "time_utc": "2026-11-17 08:09",
+ "time_utc": "2026-11-17 12:58",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-17 08:09",
+   "date": "2026-11-17 12:58",
    "kind": "reel",
    "lang": "ur",
-   "title": "وینس کا صدارتی دوڑ کا فیصلہ اگلے سال متوقع",
-   "dur": 63,
-   "post_id": "2670843873369074"
+   "title": "ویسٹ بینک میں ۷۲ سالہ فلسطینی خاتون کا انتقال",
+   "dur": 49,
+   "post_id": "2683187472113217"
   }
  },
  "errors": [],
- "clips_rejected": 23,
- "agent_checks": 32,
- "agent_rejects": 23,
- "agent_skips": 0
+ "agent_checks": 51,
+ "agent_rejects": 45,
+ "agent_skips": 0,
+ "clips_rejected": 45,
+ "alt_searches": 1
 }

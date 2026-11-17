@@ -1,21 +1,22 @@
 {
- "time_utc": "2026-11-17 08:16",
+ "time_utc": "2026-11-17 13:13",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-17 08:16",
+   "date": "2026-11-17 13:13",
    "kind": "reel",
    "lang": "en",
-   "title": "US Flight Schedules Stabilize After Major Technical Failure",
-   "dur": 45,
-   "post_id": "1134847875913356"
+   "title": "GTA 6 Hacker Pleads Guilty to Rockstar Games Breach",
+   "dur": 47,
+   "post_id": "2287960928802320"
   }
  },
  "errors": [],
- "clips_rejected": 23,
- "agent_checks": 28,
- "agent_rejects": 23,
- "agent_skips": 0
+ "clips_rejected": 83,
+ "agent_checks": 86,
+ "agent_rejects": 79,
+ "agent_skips": 0,
+ "alt_searches": 1
 }
