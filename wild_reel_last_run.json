@@ -1,9 +1,23 @@
 {
- "time_utc": "2026-11-17 02:32",
+ "time_utc": "2026-11-17 12:08",
  "mode": "reel",
  "dry_run": false,
- "errors": [
-  "fatal: facts nahi mile"
- ],
- "country": "Brazil"
+ "errors": [],
+ "country": "Kenya",
+ "kind": "reel",
+ "lang": "en",
+ "clips_rejected": 160,
+ "agent_checks": 76,
+ "agent_rejects": 67,
+ "agent_skips": 91,
+ "alt_searches": 6,
+ "posted": {
+  "country": "Kenya",
+  "animal": "African bush elephant",
+  "wiki": "African bush elephant",
+  "date": "2026-11-17 12:08",
+  "title": "The Seven-Ton Titan: Kenya's Incredible African Bush Elephant",
+  "dur": 69,
+  "post_id": "1854327905717302"
+ }
 }

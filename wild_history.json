@@ -1,6 +1,6 @@
 {
- "country_i": 3,
- "long_i": 6,
+ "country_i": 0,
+ "long_i": 3,
  "animals": {
   "Kenya": [
    "Hirola",
@@ -222,6 +222,21 @@
    "title": "The Giant Rodent of Brazil: Meet the Heavyweight Champion Capybara",
    "dur": 99,
    "post_id": "1643584477219509"
+  },
+  {
+   "country": "Kenya",
+   "animal": "Gerenuk",
+   "date": "2026-11-17 12:08",
+   "skipped": "is ki asli clips nahi milti"
+  },
+  {
+   "country": "Kenya",
+   "animal": "African bush elephant",
+   "wiki": "African bush elephant",
+   "date": "2026-11-17 12:08",
+   "title": "The Seven-Ton Titan: Kenya's Incredible African Bush Elephant",
+   "dur": 69,
+   "post_id": "1854327905717302"
   }
  ],
  "long": [
@@ -6651,7 +6666,31 @@
   "px151267",
   "px37080",
   "px50782",
-  "px120962"
+  "px120962",
+  "px122780",
+  "mk33861",
+  "px32227",
+  "px10821",
+  "px184539",
+  "px74848",
+  "px74846",
+  "px74849",
+  "mk45948",
+  "px2996",
+  "px230253",
+  "px248127",
+  "px134816",
+  "px223671",
+  "px125468",
+  "px27259",
+  "px70928",
+  "px304376",
+  "px304357",
+  "px131824",
+  "px7251",
+  "px28053",
+  "px128648",
+  "px208815"
  ],
  "pic": [
   {
