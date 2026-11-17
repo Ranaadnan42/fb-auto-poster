@@ -57,6 +57,20 @@ def check(name, label, wf, rec):
             t = x.get("contentDetails", {}).get("videoPublishedAt")
             if t:
                 times.append(dt.datetime.fromisoformat(t.replace("Z", "+00:00")))
+    # recent videos ke views -> top video + average (market tools jaisi analytics)
+    try:
+        ids = [x.get("contentDetails", {}).get("videoId") for x in (pl.get("items", []) if up else [])]
+        ids = [i for i in ids if i]
+        if ids:
+            vs = requests.get(f"{API}/videos", headers=h, timeout=60,
+                              params={"part": "snippet,statistics", "id": ",".join(ids[:25])}).json().get("items", [])
+            vv = sorted(((int(v.get("statistics", {}).get("viewCount", 0) or 0),
+                          v.get("snippet", {}).get("title", "")[:70], v["id"]) for v in vs), reverse=True)
+            if vv:
+                out["recent_avg_views"] = round(sum(x[0] for x in vv) / len(vv))
+                out["top_videos"] = [{"views": a, "title": b, "url": f"https://youtu.be/{c}"} for a, b, c in vv[:3]]
+    except Exception as e:
+        print("   video stats fail:", str(e)[:100], flush=True)
     last = max(times, default=None)
     out["last_upload"] = last.isoformat(timespec="minutes") if last else None
     out["uploads_24h"] = sum(1 for t in times if (NOW - t).total_seconds() < 86400)

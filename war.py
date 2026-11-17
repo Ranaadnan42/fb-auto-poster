@@ -286,7 +286,7 @@ Rules:
   the SPECIFIC thing said (the battle, the place, the commander, the ships, the trenches, the map, the fort...).
   Never generic mood shots (fire, smoke, sunset, sky, random soldiers of another era), never gore.
 - "subjects": 2-5 real names from the text as exact English Wikipedia titles (the battle/war itself, key places).
-{content_rules.MATCH}- If a sentence talks about something no real video can show, rewrite that sentence around a real,
+{content_rules.MATCH}{content_rules.winners("war")}- If a sentence talks about something no real video can show, rewrite that sentence around a real,
   filmable thing of that war (its place, fort, river, memorial, museum) - picture and voice must always match.
 {trends}
 Return JSON:

@@ -220,7 +220,7 @@ Rules:
 - VISUALS: {vis}. For EVERY scene give "visuals": 1-3 short ENGLISH search terms for REAL VIDEO, in the order the
   narration mentions them; the FIRST term names the exact breed (+ dog/cat). Never another breed or animal,
   never cartoons, never generic shots without the animal.
-{content_rules.MATCH}- If a sentence talks about something no real video can show (DNA, numbers, history), rewrite it around
+{content_rules.MATCH}{content_rules.winners("pets")}- If a sentence talks about something no real video can show (DNA, numbers, history), rewrite it around
   a filmable moment of that breed - picture and voice must always match.
 {trends}
 Return JSON:

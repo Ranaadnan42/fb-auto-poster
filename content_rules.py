@@ -35,13 +35,41 @@ OWNER'S FIRM RULE - THE VIDEO MUST SHOW EXACTLY WHAT IS BEING SAID:
 """
 
 
+# bot -> page_manager.json ka page (Page Manager 28 din ke asli engagement se top posts nikalta hai)
+_PAGE = {"funny": "funny", "islamic": "islamic", "frames": "frames", "war": "war", "birds": "birds",
+         "pets": "pets", "wild": "wild", "scenic": "scenic", "news": "news", "newsur": "newsur",
+         "sports": "sports", "faizi": "faizi"}
+
+
+def winners(bot):
+    """Is page ki 28 din ki sab se zyada chali posts - agent inhi jaisi aur banaye (market tools sirf
+    dikhate hain, hamara agent khud seekhta hai)."""
+    page = _PAGE.get(bot)
+    if not page:
+        return ""
+    try:
+        p = json.load(open(os.path.join(os.path.dirname(FILE), "page_manager.json"), encoding="utf-8")).get(page) or {}
+    except Exception:
+        return ""
+    top = [t for t in (p.get("top_posts") or []) if t.get("text") and t.get("eng", 0) > 0]
+    if not top:
+        return ""
+    out = ("\nOUR AUDIENCE'S FAVOURITES (real engagement, last 28 days) - make today's piece in the same spirit "
+           "(similar hook, emotion and kind of subject), but NEVER repeat the same subject:")
+    for t in top[:3]:
+        out += f"\n- {t['text']} ({t['eng']} reactions+comments+shares)"
+    if p.get("eng_avg"):
+        out += f"\n- Average post gets {p['eng_avg']}; aim higher with a stronger first line."
+    return out + "\n"
+
+
 def text(bot):
     try:
         import trend_scout
         tr = trend_scout.text(bot)
     except Exception:
         tr = ""
-    return MATCH + _text(bot) + _brain_tips(bot) + tr
+    return MATCH + _text(bot) + _brain_tips(bot) + winners(bot) + tr
 
 
 def _text(bot):

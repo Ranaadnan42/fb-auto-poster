@@ -67,8 +67,8 @@ PAGES = {
     "faizi": ("FAIZI_PAGE_ID", "FAIZI_PAGE_TOKEN", "faizi.yml", {}),
 }
 # Facebook kabhi kabhi metric naam badalta hai - jo chale wohi le lo
-METRICS = ["page_follows", "page_media_view", "page_total_media_view_unique",
-           "page_post_engagements", "page_video_views", "page_impressions_unique"]
+METRICS = ["page_media_view", "page_total_media_view_unique", "page_post_engagements",
+           "page_video_views", "page_daily_follows_unique", "page_impressions_unique"]
 
 
 def env(k):
@@ -91,6 +91,47 @@ def load():
             return json.load(f)
     except Exception:
         return {}
+
+
+PK = dt.timezone(dt.timedelta(hours=5))
+
+
+def post_analytics(pid, token):
+    """28 din ki posts: reactions+comments+shares. Best posting ghante (PK time) aur top posts."""
+    since = int((NOW - dt.timedelta(days=28)).timestamp())
+    fields = ("created_time,message,permalink_url,shares,"
+              "reactions.summary(total_count).limit(0),comments.summary(total_count).limit(0)")
+    posts, url, params = [], f"{GRAPH}/{pid}/published_posts", {"access_token": token, "fields": fields,
+                                                                 "since": since, "limit": 100}
+    for _ in range(6):
+        j = requests.get(url, params=params, timeout=60).json()
+        if "error" in j:
+            raise RuntimeError(j["error"].get("message", "")[:150])
+        posts += j.get("data", [])
+        url, params = (j.get("paging") or {}).get("next"), None
+        if not url:
+            break
+    rows = []
+    for p in posts:
+        e = ((p.get("reactions") or {}).get("summary") or {}).get("total_count", 0) + \
+            ((p.get("comments") or {}).get("summary") or {}).get("total_count", 0) + \
+            (p.get("shares") or {}).get("count", 0)
+        t = dt.datetime.strptime(p["created_time"], "%Y-%m-%dT%H:%M:%S%z").astimezone(PK)
+        rows.append((e, t, (p.get("message") or "").strip().replace("\n", " ")[:80], p.get("permalink_url")))
+    if not rows:
+        return {"posts_28d": 0, "eng_28d": 0}
+    total = sum(r[0] for r in rows)
+    by_h = {}
+    for e, t, _, _ in rows:
+        by_h.setdefault(t.hour, []).append(e)
+    hours = sorted(((sum(v) / len(v), h) for h, v in by_h.items() if len(v) >= 2), reverse=True)
+    top = sorted(rows, key=lambda r: -r[0])[:3]
+    return {
+        "posts_28d": len(rows), "eng_28d": total, "eng_avg": round(total / len(rows), 1),
+        "best_hours_pk": [h for _, h in hours[:3]],
+        "top_posts": [{"eng": e, "text": m, "url": u, "at": t.strftime("%d %b %H:%M")} for e, t, m, u in top],
+        "low_posts": len([r for r in rows if r[0] == 0]),
+    }
 
 
 def check_page(name, pid, token, workflow, defaults, rec):
@@ -122,14 +163,29 @@ def check_page(name, pid, token, workflow, defaults, rec):
         try:
             d = fb("GET", f"{pid}/insights", token, metric=m, period="days_28").get("data", [])
             vals = (d[0].get("values") or []) if d else []
-            if vals:
+            if vals and vals[-1].get("value") is not None:
                 stats[m] = vals[-1].get("value")
+                continue
+            # naye metric sirf "day" period dete hain -> 28 din jama karo
+            d = fb("GET", f"{pid}/insights", token, metric=m, period="day",
+                   since=int((NOW - dt.timedelta(days=28)).timestamp()),
+                   until=int(NOW.timestamp())).get("data", [])
+            vals = [v.get("value") for v in ((d[0].get("values") or []) if d else [])]
+            nums = [v for v in vals if isinstance(v, (int, float))]
+            if nums:
+                stats[m] = sum(nums)
         except Exception:
             pass
     out["insights_28d"] = stats
+
+    # 3b. apni ginti (market tools jaisi): 28 din ki har post ka engagement -> best time + top post
+    try:
+        out.update(post_analytics(pid, token))
+    except Exception as e:
+        print("   analytics fail:", str(e)[:120], flush=True)
     hist = rec.get(name, {}).get("history", [])
     hist = [h for h in hist if h.get("day") != NOW.date().isoformat()][-59:]
-    hist.append({"day": NOW.date().isoformat(), "followers": out["followers"], **stats})
+    hist.append({"day": NOW.date().isoformat(), "followers": out["followers"], "eng_28d": out.get("eng_28d"), **stats})
     out["history"] = hist
     if len(hist) >= 8 and hist[-1]["followers"] <= hist[-8]["followers"]:
         out["problems"].append("7 din se followers nahi barhe - content badalna chahiye")

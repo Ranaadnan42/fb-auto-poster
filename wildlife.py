@@ -230,7 +230,7 @@ Rules:
 - VISUALS: {vis}. For EVERY scene give "visuals": 1-3 short ENGLISH search terms for REAL VIDEO, in the order the
   narration mentions them; the FIRST term names the exact animal (or exact place). Never another species, never zoo
   cages, never cartoons, never generic mood shots (sunset, sky, forest alone) unless the sentence is about that place.
-{content_rules.MATCH}- If a sentence talks about something no real video can show (DNA, numbers, history), rewrite it around
+{content_rules.MATCH}{content_rules.winners("wild")}- If a sentence talks about something no real video can show (DNA, numbers, history), rewrite it around
   a filmable moment of that animal - picture and voice must always match.
 {trends}
 Return JSON:
