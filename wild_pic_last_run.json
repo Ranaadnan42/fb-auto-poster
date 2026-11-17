@@ -3,21 +3,24 @@
  "agent": "wild",
  "dry_run": false,
  "log": [
-  "Subject: Reticulated giraffe",
-  "photo commons wmi81733900 1920x2880: agent=True",
-  "--- caption ---\nMeet the Reticulated giraffe, the tallest land animal reaching 6 meters! 🦒🌍\n\nAlso known as the Somali giraffe, these giants feature unique liver-red polygonal spots. With 15,785 individuals globally in 2024, Kenya remains their primary population stronghold.\n\nTag a friend who would l",
-  "Video tayyar - 32 minute intezar, post 11:07 UTC par hogi",
+  "Subject: Gerenuk",
+  "photo commons wmi71319120 1338x2048: agent=False",
+  "photo commons wmi189546362 1920x1280: agent=False",
+  "photo commons wmi5744739 1869x2756: agent=False",
+  "photo commons wmi149976781 1365x2048: agent=True",
+  "--- caption ---\nMeet the Gerenuk, the incredible 'giraffe gazelle' of East Africa! 🦒✨\n\nThis unique antelope stands up to 105 cm tall and weighs between 18 and 52 kg. It is famous for its long slender neck and reddish brown saddle.\n\nHave you ever seen an antelope with a neck this long before?\n\nFollow",
+  "Video tayyar - 32 minute intezar, post 17:07 UTC par hogi",
   "Waqt ho gaya - post kar rahe hain",
   "photo story lagi",
-  "posted 1501204066400712_122104161579546974"
+  "posted 1501204066400712_122104395537546974"
  ],
  "errors": [],
  "posted": {
-  "subject": "Reticulated giraffe",
-  "photo": "wmi81733900",
+  "subject": "Gerenuk",
+  "photo": "wmi149976781",
   "src": "commons",
-  "size": "1920x2880",
-  "date": "2026-11-17 10:34",
-  "post_id": "1501204066400712_122104161579546974"
+  "size": "1365x2048",
+  "date": "2026-11-17 16:34",
+  "post_id": "1501204066400712_122104395537546974"
  }
 }
