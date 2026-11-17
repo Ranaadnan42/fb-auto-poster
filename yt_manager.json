@@ -1,110 +1,38 @@
 {
  "islamic": {
   "name": "Islamic Motivational Videos (YT)",
-  "at": "2026-11-17T00:55+00:00",
-  "done": [
-   "999 ghante se upload nahi thi - main.yml khud chala diya"
+  "at": "2026-11-17T01:00+00:00",
+  "done": [],
+  "problems": [
+   "stats parhne ki ijazat nahi (token sirf upload): Request had insufficient authentication scopes."
   ],
-  "problems": [],
-  "title": null,
-  "subscribers": 0,
-  "views": 0,
-  "videos": 0,
-  "last_upload": null,
-  "uploads_24h": 0,
-  "history": [
-   {
-    "day": "2026-11-16",
-    "subscribers": 0,
-    "views": 0
-   },
-   {
-    "day": "2026-11-17",
-    "subscribers": 0,
-    "views": 0
-   }
-  ],
-  "kicked": "2026-11-17"
+  "no_stats": true
  },
  "frames": {
   "name": "Frames of Life (YT)",
-  "at": "2026-11-17T00:55+00:00",
-  "done": [
-   "999 ghante se upload nahi thi - frames.yml khud chala diya"
+  "at": "2026-11-17T01:00+00:00",
+  "done": [],
+  "problems": [
+   "stats parhne ki ijazat nahi (token sirf upload): Request had insufficient authentication scopes."
   ],
-  "problems": [],
-  "title": null,
-  "subscribers": 0,
-  "views": 0,
-  "videos": 0,
-  "last_upload": null,
-  "uploads_24h": 0,
-  "history": [
-   {
-    "day": "2026-11-16",
-    "subscribers": 0,
-    "views": 0
-   },
-   {
-    "day": "2026-11-17",
-    "subscribers": 0,
-    "views": 0
-   }
-  ],
-  "kicked": "2026-11-17"
+  "no_stats": true
  },
  "world": {
   "name": "Atlas Untold (YT)",
-  "at": "2026-11-17T00:55+00:00",
-  "done": [
-   "999 ghante se upload nahi thi - world.yml khud chala diya"
+  "at": "2026-11-17T01:00+00:00",
+  "done": [],
+  "problems": [
+   "stats parhne ki ijazat nahi (token sirf upload): Request had insufficient authentication scopes."
   ],
-  "problems": [],
-  "title": null,
-  "subscribers": 0,
-  "views": 0,
-  "videos": 0,
-  "last_upload": null,
-  "uploads_24h": 0,
-  "history": [
-   {
-    "day": "2026-11-16",
-    "subscribers": 0,
-    "views": 0
-   },
-   {
-    "day": "2026-11-17",
-    "subscribers": 0,
-    "views": 0
-   }
-  ],
-  "kicked": "2026-11-17"
+  "no_stats": true
  },
  "default": {
   "name": "Legends Untold (YT)",
-  "at": "2026-11-17T00:55+00:00",
-  "done": [
-   "999 ghante se upload nahi thi - cinematic.yml khud chala diya"
+  "at": "2026-11-17T01:00+00:00",
+  "done": [],
+  "problems": [
+   "stats parhne ki ijazat nahi (token sirf upload): Request had insufficient authentication scopes."
   ],
-  "problems": [],
-  "title": null,
-  "subscribers": 0,
-  "views": 0,
-  "videos": 0,
-  "last_upload": null,
-  "uploads_24h": 0,
-  "history": [
-   {
-    "day": "2026-11-16",
-    "subscribers": 0,
-    "views": 0
-   },
-   {
-    "day": "2026-11-17",
-    "subscribers": 0,
-    "views": 0
-   }
-  ],
-  "kicked": "2026-11-17"
+  "no_stats": true
  }
 }

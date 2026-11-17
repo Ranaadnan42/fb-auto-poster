@@ -1,6 +1,6 @@
 {
  "islamic": {
-  "at": "2026-11-17T00:53+00:00",
+  "at": "2026-11-17T00:59+00:00",
   "done": [],
   "problems": [],
   "name": "Islamic Motivational Videos",
@@ -106,7 +106,7 @@
   "last_post": "2026-11-17T00:44+00:00"
  },
  "funny": {
-  "at": "2026-11-17T00:53+00:00",
+  "at": "2026-11-17T00:59+00:00",
   "done": [],
   "problems": [],
   "name": "Hansi Ka Adda ہنسی کا اڈا",
@@ -212,7 +212,7 @@
   "last_post": "2026-11-16T21:08+00:00"
  },
  "frames": {
-  "at": "2026-11-17T00:53+00:00",
+  "at": "2026-11-17T00:59+00:00",
   "done": [],
   "problems": [],
   "name": "Frames Of Life",
@@ -318,7 +318,7 @@
   "last_post": "2026-11-16T22:14+00:00"
  },
  "webbuilder": {
-  "at": "2026-11-17T00:53+00:00",
+  "at": "2026-11-17T00:59+00:00",
   "done": [],
   "problems": [],
   "name": "web builder",
@@ -424,7 +424,7 @@
   "last_post": "2026-11-17T00:35+00:00"
  },
  "news": {
-  "at": "2026-11-17T00:53+00:00",
+  "at": "2026-11-17T00:59+00:00",
   "done": [],
   "problems": [],
   "name": "News Act",
@@ -474,7 +474,7 @@
   "last_post": "2026-11-17T00:11+00:00"
  },
  "newsur": {
-  "at": "2026-11-17T00:53+00:00",
+  "at": "2026-11-17T00:59+00:00",
   "done": [],
   "problems": [],
   "name": "News Act Urdu",
@@ -523,7 +523,7 @@
   "last_post": "2026-11-16T23:40+00:00"
  },
  "sports": {
-  "at": "2026-11-17T00:53+00:00",
+  "at": "2026-11-17T00:59+00:00",
   "done": [],
   "problems": [],
   "name": "Sports Hubs",
@@ -578,7 +578,7 @@
   ]
  },
  "war": {
-  "at": "2026-11-17T00:53+00:00",
+  "at": "2026-11-17T00:59+00:00",
   "done": [],
   "problems": [],
   "name": "Battles Untold",
@@ -628,15 +628,15 @@
   "last_post": "2026-11-16T23:53+00:00"
  },
  "birds": {
-  "at": "2026-11-17T00:53+00:00",
+  "at": "2026-11-17T00:59+00:00",
   "done": [],
   "problems": [],
   "name": "Birds of the World",
   "followers": 1,
   "insights_28d": {},
-  "posts_28d": 5,
+  "posts_28d": 6,
   "eng_28d": 2,
-  "eng_avg": 0.4,
+  "eng_avg": 0.3,
   "best_hours_pk": [
    4
   ],
@@ -649,18 +649,18 @@
    },
    {
     "eng": 0,
-    "text": "Can this massive bird actually fly? 🦚✨  🦜 Bird: Indian peafowl (Pavo cristatus) ",
-    "url": "https://www.facebook.com/reel/3325140747673724/",
-    "at": "17 Nov 04:15"
+    "text": "Behold the stunning scarlet macaw! 🦜  Discover the vibrant red, yellow, and blue",
+    "url": "https://www.facebook.com/122100965943551461/posts/122100967107551461",
+    "at": "17 Nov 05:56"
    },
    {
     "eng": 0,
-    "text": "Witness the breathtaking beauty of the majestic Indian peafowl! 🦚✨  The male pea",
-    "url": "https://www.facebook.com/122100965943551461/posts/122100880485551461",
-    "at": "17 Nov 02:13"
+    "text": "Can this massive bird actually fly? 🦚✨  🦜 Bird: Indian peafowl (Pavo cristatus) ",
+    "url": "https://www.facebook.com/reel/3325140747673724/",
+    "at": "17 Nov 04:15"
    }
   ],
-  "low_posts": 4,
+  "low_posts": 5,
   "history": [
    {
     "day": "2026-11-16",
@@ -672,11 +672,11 @@
     "eng_28d": 2
    }
   ],
-  "posts_24h": 3,
-  "last_post": "2026-11-16T23:15+00:00"
+  "posts_24h": 4,
+  "last_post": "2026-11-17T00:56+00:00"
  },
  "pets": {
-  "at": "2026-11-17T00:53+00:00",
+  "at": "2026-11-17T00:59+00:00",
   "done": [],
   "problems": [],
   "name": "Dogs & Cats World",
@@ -724,7 +724,7 @@
   "last_post": "2026-11-16T23:48+00:00"
  },
  "wild": {
-  "at": "2026-11-17T00:53+00:00",
+  "at": "2026-11-17T00:59+00:00",
   "done": [],
   "problems": [],
   "name": "Wild Nations",
@@ -772,7 +772,7 @@
   "last_post": "2026-11-17T00:33+00:00"
  },
  "faizi": {
-  "at": "2026-11-17T00:53+00:00",
+  "at": "2026-11-17T00:59+00:00",
   "done": [],
   "problems": [],
   "name": "Style by Faizi",

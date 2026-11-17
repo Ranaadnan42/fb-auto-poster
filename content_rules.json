@@ -1,15 +1,17 @@
 {
  "islamic": {
-  "avoid": [],
-  "try": [
-   "Bilal ibn Rabah ki sabr aur azaan ka safar",
-   "Isra aur Mi'raj ka roohani safar aur uske sabak",
-   "Abdullah ibn Umar ki sadaqat aur tawazu ka waqia",
-   "Ashab al‑Kahf ki kahani: sabr aur tawakkul ka paigham",
-   "Prophet ﷺ ki ghair‑Muslim padosi ke saath rehmat ka waqia",
-   "Sahabi Khalid ibn al‑Walid ki jang mein sabr aur strategy"
+  "avoid": [
+   "نبی کریم صلی اللہ علیہ وسلم کا واقعہ"
   ],
-  "note": "Nahi, page ka content kaafi mukhtalif hai"
+  "try": [
+   "Prophet Ibrahim's willingness to sacrifice his son (Ismail) and the lesson of ob",
+   "Prophet Muhammad's conversation with a young boy about the afterlife",
+   "Khadija bint Khuwaylid's support and business partnership with the Prophet",
+   "The miracle of the splitting of the moon (Shaqq al-Qamar) and its significance",
+   "Prophet Muhammad's patience during the persecution in Mecca (Sawm al-Mahshar)",
+   "Abu Bakr's honesty: returning a lost coin to the Prophet"
+  ],
+  "note": "Page thodi repetitive hai"
  },
  "funny": {
   "avoid": [
