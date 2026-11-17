@@ -1481,6 +1481,19 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122111156559532804"
+  },
+  {
+   "date": "2026-11-17 22:08",
+   "lang": "en",
+   "topic": "uk",
+   "link": "https://www.theguardian.com/technology/2026/nov/17/anthropic-ipo-flotation-buy-shares-stock-market-claude-ai",
+   "title": "Anthropic IPO: how can I buy shares, and is it worth it?",
+   "words": [
+    "anthropic",
+    "shares",
+    "worth"
+   ],
+   "post_id": "1448208791702551_122111185407532804"
   }
  ],
  "sports": [
@@ -2956,6 +2969,26 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122104061133548502"
+  },
+  {
+   "date": "2026-11-17 22:08",
+   "lang": "en",
+   "topic": "cycling",
+   "link": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPU3FjRVhaMGxMV3FYclhyRXREb24zZWhlcV9xRHZEaFVJY1ZQb3BhbWE0ay1vQU5yOHlwVXhwbUlVNW53eDhyWFIxOFN4YU5KQ19CcjV0RkVkeWFUZ2hZajhISHJiZDhGV1BQVGZnZGVLQjc1eFl4c05CVDlBdHd1SlFIMzFMV3ZWekd6Y0VqU1dyZw?oc=5",
+   "title": "Julian Alaphilippe reveals why he retired at 34: \"I was getting less and less enjoyment from modern cycling\"",
+   "words": [
+    "alaphilippe",
+    "cycling",
+    "enjoyment",
+    "from",
+    "getting",
+    "julian",
+    "less",
+    "modern",
+    "retired",
+    "reveals"
+   ],
+   "post_id": "1465090056678690_122104127499548502"
   }
  ],
  "used_images": [
@@ -3056,6 +3089,7 @@
   6586113,
   751658,
   "pxi78193",
-  "pxi6846318"
+  "pxi6846318",
+  1851269
  ]
 }
