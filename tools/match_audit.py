@@ -36,6 +36,22 @@ PAGES = {
 CHECKS = 5          # har video mein kitne jumle check
 
 
+def _ffmpeg():
+    import shutil
+    if shutil.which("ffmpeg"):
+        return "ffmpeg"
+    try:
+        import imageio_ffmpeg
+        return imageio_ffmpeg.get_ffmpeg_exe()
+    except Exception:
+        subprocess.run([sys.executable, "-m", "pip", "install", "-q", "imageio-ffmpeg"], timeout=180)
+        import imageio_ffmpeg
+        return imageio_ffmpeg.get_ffmpeg_exe()
+
+
+FF = None
+
+
 def env(k):
     return (os.environ.get(k) or "").strip()
 
@@ -54,7 +70,7 @@ def latest_video(pid, token):
 
 def transcribe(mp4, tmp):
     mp3 = os.path.join(tmp, "a.mp3")
-    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", mp4, "-vn", "-ac", "1", "-ar", "16000",
+    subprocess.run([FF, "-y", "-loglevel", "error", "-i", mp4, "-vn", "-ac", "1", "-ar", "16000",
                     "-b:a", "48k", mp3], check=True, timeout=180)
     key = env("GROQ_API_KEY")
     for model in ("whisper-large-v3-turbo", "whisper-large-v3"):
@@ -71,7 +87,7 @@ def transcribe(mp4, tmp):
 
 def frame(mp4, sec, tmp):
     jpg = os.path.join(tmp, f"f{int(sec * 10)}.jpg")
-    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{sec:.2f}", "-i", mp4, "-frames:v", "1",
+    subprocess.run([FF, "-y", "-loglevel", "error", "-ss", f"{sec:.2f}", "-i", mp4, "-frames:v", "1",
                     "-vf", "scale=512:-2", jpg], check=True, timeout=60)
     return open(jpg, "rb").read()
 
@@ -119,6 +135,8 @@ Reply JSON: {{"match": true/false, "said_subject": "<what the words are about, i
 
 
 def main():
+    global FF
+    FF = _ffmpeg()
     try:
         rec = json.load(open(OUT, encoding="utf-8"))
     except Exception:
