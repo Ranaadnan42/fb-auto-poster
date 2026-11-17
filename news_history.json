@@ -1223,6 +1223,23 @@
     "pushes"
    ],
    "post_id": "1448208791702551_122110799115532804"
+  },
+  {
+   "date": "2026-11-17 00:10",
+   "lang": "en",
+   "topic": "africa",
+   "link": "https://www.bbc.co.uk/news/articles/cw987343352go?at_medium=RSS&at_campaign=rss",
+   "title": "Five EU countries announce migrant deportation centre in Rwanda",
+   "words": [
+    "announce",
+    "centre",
+    "countries",
+    "deportation",
+    "five",
+    "migrant",
+    "rwanda"
+   ],
+   "post_id": "1448208791702551_122110806651532804"
   }
  ],
  "sports": [
@@ -2446,6 +2463,22 @@
     "with"
    ],
    "post_id": "1465090056678690_122103292293548502"
+  },
+  {
+   "date": "2026-11-17 00:10",
+   "lang": "en",
+   "topic": "boxing",
+   "link": "https://www.bbc.co.uk/sport/boxing/articles/cmy4xxqv150yo?at_medium=RSS&at_campaign=rss",
+   "title": "Cardiff's Kronk? The gym where Welsh champions train",
+   "words": [
+    "cardiff",
+    "champions",
+    "kronk",
+    "train",
+    "welsh",
+    "where"
+   ],
+   "post_id": "1465090056678690_122103313569548502"
   }
  ],
  "used_images": [
@@ -2530,6 +2563,8 @@
   "pxi9216455",
   1663087,
   3508631,
-  2666577
+  2666577,
+  "pxi3370970",
+  "pxi2822129"
  ]
 }
