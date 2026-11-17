@@ -3,22 +3,20 @@
  "agent": "wild",
  "dry_run": false,
  "log": [
-  "Subject: Grevy's zebra",
-  "photo commons wmi44051683 1920x1280: agent=False",
-  "photo commons wmi44051685 1920x1280: agent=False",
-  "photo commons wmi370966 1920x1220: agent=True",
-  "--- caption ---\nMeet the rarest zebra on Earth! 🦓✨\n\nThe Grévy's zebra is the largest and most threatened wild equid species. Discover why these unique animals with narrow stripes and mule-like ears are so special.\n\nDid you know these zebras have the narrowest stripes of all? Tag a wildlife lover!\n\nF",
-  "Post waqt 17:07 UTC guzar chuka - foran post",
+  "Subject: Hirola",
+  "photo commons wmi46570633 1920x1440: agent=True",
+  "--- caption ---\nDid you know only 300–500 Hirola antelopes are left in the wild? 🦌🇰🇪\n\nFound only in Kenya along the border of Somalia, this critically endangered species is the only living member of the Beatragus genus. Its loss would be the first mammalian genus extinction on mainland Africa in mod",
+  "Post waqt 11:07 UTC guzar chuka - foran post",
   "photo story lagi",
-  "posted 1501204066400712_122103793701546974"
+  "posted 1501204066400712_122103704727546974"
  ],
  "errors": [],
  "posted": {
-  "subject": "Grevy's zebra",
-  "photo": "wmi370966",
+  "subject": "Hirola",
+  "photo": "wmi46570633",
   "src": "commons",
-  "size": "1920x1220",
-  "date": "2026-11-17 00:33",
-  "post_id": "1501204066400712_122103793701546974"
+  "size": "1920x1440",
+  "date": "2026-11-16 20:44",
+  "post_id": "1501204066400712_122103704727546974"
  }
 }
