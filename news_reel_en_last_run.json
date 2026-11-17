@@ -1,24 +1,24 @@
 {
- "time_utc": "2026-11-16 23:51",
+ "time_utc": "2026-11-17 00:59",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-16 23:51",
+   "date": "2026-11-17 00:59",
    "kind": "reel",
    "lang": "en",
-   "title": "Bangladesh Clothing Factories Shut Down as Workers Strike Over Pay",
-   "dur": 52,
-   "post_id": "1826651098579724"
+   "title": "Rebuilt Libyan Town Becomes Political Showcase After Floods",
+   "dur": 56,
+   "post_id": "1419091913312077"
   }
  },
  "errors": [
   "sports: 'list' object has no attribute 'get'"
  ],
- "clips_rejected": 76,
- "agent_checks": 82,
- "agent_rejects": 75,
- "agent_skips": 0,
- "alt_searches": 1
+ "clips_rejected": 194,
+ "agent_checks": 131,
+ "agent_rejects": 128,
+ "agent_skips": 65,
+ "alt_searches": 4
 }
