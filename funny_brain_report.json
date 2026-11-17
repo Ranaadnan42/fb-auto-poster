@@ -1,15 +1,15 @@
 {
- "time_utc": "2026-11-17 08:34",
- "videos": 87,
- "views": 16006,
- "engagement": 218,
+ "time_utc": "2026-11-17 12:19",
+ "videos": 86,
+ "views": 15804,
+ "engagement": 216,
  "by_format": {
-  "animal": [
-   0.95,
-   13
-  ],
   "story": [
    1.26,
+   12
+  ],
+  "animal": [
+   0.94,
    12
   ],
   "chat": [
@@ -60,10 +60,6 @@
   ]
  },
  "by_topic": {
-  "school / tuition": [
-   0.69,
-   2
-  ],
   "rishta aunty": [
    0.96,
    3
@@ -107,6 +103,10 @@
   "road trip": [
    1.11,
    2
+  ],
+  "school / tuition": [
+   0.45,
+   1
   ],
   "salary day": [
    1.18,
@@ -298,10 +298,6 @@
   ]
  },
  "by_hour": {
-  "12": [
-   0.96,
-   6
-  ],
   "14": [
    1.15,
    6
@@ -313,6 +309,10 @@
   "8": [
    1.08,
    7
+  ],
+  "12": [
+   0.95,
+   5
   ],
   "15": [
    1.28,
@@ -358,14 +358,14 @@
  "best": [
   "[reel/people/types] ڈینٹسٹ کے مریض | dentist and patient funny video (topic dentist visit, views 593, eng 3, x2.60)",
   "[reel/chat/-] باس کا عذاب اور پیر کی صبح کا بہانہ (topic monday morning, views 413, eng 2, x1.80)",
-  "[long/story/-] ماجد بریک اور رکشے کا عذاب | قسط 1 (topic rickshaw / Careem bargaining, views 230, eng 4, x1.52)"
+  "[long/story/-] ماجد بریک اور رکشے کا عذاب | قسط 1 (topic rickshaw / Careem bargaining, views 231, eng 4, x1.52)"
  ],
- "summary": "Page par office ka chakar, rickshaw bargaining, sarkari daftaron ki khawari aur 'types of people' wale relatable sketches sab se zyada chal rahe hain. Dusri taraf screen chat format, laundry day aur remote control jese gharelu mamooli jhagray bilkul flop ho chuke hain. Ab chat format band karke real characters, Majid Break jesi mini stories aur types-based reels par pura focus karein.",
+ "summary": "Office life, bargaining, aur bahar ke maslay jaise dentist aur sarkari daftar log zyada pasand kar rahe hain. Ghar ke aam maslay jaise remote ki jung ya garmi ka rona ab purana ho gaya hai aur views nahi de raha. Chat videos kam karein aur 'Types' wali videos ya lambi kahaniyon par tawajjo dein kyunke inka engagement rate sab se behtar hai.",
  "plan": {
-  "updated": "2026-11-17 08:34",
+  "updated": "2026-11-17 12:19",
   "format_mult": {
-   "animal": 0.96,
    "story": 1.2,
+   "animal": 0.95,
    "chat": 0.62,
    "people": 1.06,
    "cartoon": 1.05
@@ -396,7 +396,6 @@
    "nature-documentary narrator describing desi people": 1.06
   },
   "topic_mult": {
-   "school / tuition": 0.86,
    "rishta aunty": 0.98,
    "shaadi (wedding) season": 0.75,
    "bijli ka bill": 1.07,
@@ -408,6 +407,7 @@
    "office / job interview": 1.11,
    "load of homework": 0.98,
    "road trip": 1.04,
+   "school / tuition": 0.82,
    "salary day": 1.04,
    "teacher vs students": 0.87,
    "winter mornings": 1.1,
@@ -457,11 +457,12 @@
    "rickshaw / Careem bargaining": 1.12
   },
   "tips": [
-   "Focus on relatable public hassle situations: write sketches around dentist visits, government office red tape, boss/Monday office tension, and rickshaw bargaining, as these hit highest engagement (x1.50 - x2.65).",
-   "Use the 'types' structure (e.g., 'Types of Patients/Commuters') and narrative storytelling ('story' format with recurrent characters like Majid Break or Mamoon Mastana); both strongly outperform other styles (x1.42 and x",
-   "Completely stop fake screen 'chat' format reels (lowest average at 0.57x, filling 5 out of 6 bottom flops); prioritize 'people' acted reels and episodic animated stories instead.",
-   "Avoid domestic cliché arguments like TV remote fights, laundry day, and general summer heat whines (scored below 0.27x); generic wedding/mehndi tropes also flop unless framed around specific food rush or aunties.",
-   "Hook viewers with sharp, specific situational titles (e.g., 'سرکاری فائل کا سفر' or 'باس کا عذاب اور پیر کی صبح کا بہانہ') rather than generic news-style formats ('news' reel structure avg 0.82x)."
+   "Prioritize 'Types' structure and 'Long/Story' formats over 'Chat' reels, as 'Types' (x1.42) and 'Story' (x1.26) are significantly outperforming other styles.",
+   "Focus on 'Out-of-Home' relatable struggles like Rickshaw/Careem bargaining, Government office bureaucracy, and Dentist visits which are hitting x1.50 to x2.60 scores.",
+   "Avoid generic household topics like 'Remote control fights', 'Laundry day', and 'Summer heat' as these are currently your lowest performing themes (all below x0.30).",
+   "Use specific professional characters (Boss, Dentist, Sarkari Babu) instead of generic family members (Behan, Dadi) to drive higher engagement and shares.",
+   "Scale back on 'News' and 'Animal' formats for comedy; the audience is responding much better to 'People' centric humor and 'Cartoon' group chat stories.",
+   "Craft titles that promise a journey or a sequence, such as 'Sarkari file ka safar' or 'Types of patients', to leverage the high performance of these specific hooks."
   ]
  }
 }

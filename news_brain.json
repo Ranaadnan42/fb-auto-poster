@@ -1,84 +1,85 @@
 {
- "updated": "2026-11-17 08:29",
- "posts_checked": 317,
+ "updated": "2026-11-17 12:07",
+ "posts_checked": 325,
  "news": {
   "topic_mult": {
    "americas": 0.45,
    "middle_east": 0.49,
-   "asia": 0.42,
+   "asia": 0.4,
    "pakistan": 0.9,
-   "science_tech": 0.89,
-   "business": 0.86,
-   "africa": 0.54,
-   "world": 0.48,
-   "europe": 0.98,
+   "science_tech": 0.96,
+   "business": 0.96,
+   "africa": 0.55,
+   "world": 0.49,
+   "europe": 0.86,
    "uk": 0.54,
-   "usa": 0.52,
-   "canada_australia": 0.49
+   "usa": 0.51,
+   "canada_australia": 0.4
   },
   "match_mult": {},
   "tips": [
-   "Prioritize major tech breakthroughs, AI developments, and big corporate/IT disruptions formatted as Reels, as these consistently generate the highest views.",
-   "Frame political and global news around historic milestones, unique human achievements, or major geopolitical shifts rather than routine party-political squabbles.",
-   "Avoid posting niche US domestic legislative politics in Urdu and skip routine session-by-session sports updates which yield zero engagement.",
-   "Keep hooks direct and factual by prominently naming recognizable global brands, leaders, or technologies (e.g., Microsoft, iPhone, Trump) in the opening seconds.",
-   "Convert breaking stories into short Reels instead of static image or text posts, as Reels outperform picture formats by over 30x."
+   "Prioritize Reels over all other formats; the data shows Reels (avg 818) outperform static 'Breaking' or 'Pic' posts by over 30x.",
+   "Focus on Science, Tech, and Business news with a direct impact or 'Historic' angle, as these generated your highest engagement scores (x13-14).",
+   "Schedule your most important posts between 12:00 UTC and 20:00 UTC, specifically targeting the 14:00 and 20:00 peaks where performance is highest.",
+   "Avoid generic political updates from the Americas and Middle East, which are currently showing the lowest engagement (0.18-0.24) and frequent zero-view counts.",
+   "When posting Urdu content, stick to high-interest local topics like Pakistan cricket or major regional shifts, as generic international news in Urdu is underperforming.",
+   "Use English for tech and global business news to capitalize on the success of the Windows 11 and Microsoft outage Reels."
   ]
  },
  "sports": {
   "topic_mult": {
-   "football": 0.4,
+   "football": 0.57,
    "formula 1": 0.69,
-   "golf": 0.45,
-   "olympic_sports": 0.71,
-   "big_events": 0.53,
+   "golf": 0.4,
+   "olympic_sports": 0.73,
+   "big_events": 0.4,
    "athletics": 0.53,
-   "hockey": 0.47,
-   "esports": 0.72,
+   "hockey": 0.48,
+   "esports": 0.73,
    "general": 0.43,
-   "table_tennis": 0.47,
+   "table_tennis": 0.48,
    "volleyball": 0.61,
-   "american football": 0.75,
-   "american_football": 0.72,
-   "cycling": 0.45,
+   "american football": 0.76,
+   "american_football": 0.73,
+   "cycling": 0.4,
    "basketball": 0.4,
-   "rugby": 0.45,
+   "rugby": 0.4,
    "formula1": 0.59,
-   "cricket": 0.43,
-   "boxing": 0.63,
+   "cricket": 0.44,
+   "boxing": 0.64,
    "motogp": 0.63,
-   "snooker": 1.07,
-   "wrestling": 1.72,
+   "snooker": 0.58,
+   "wrestling": 1.73,
    "tennis": 0.4,
    "winter_sports": 1.13,
    "kabaddi": 0.54,
    "mma": 0.61,
    "squash": 1.12,
    "baseball": 0.41,
-   "badminton": 1.11,
-   "ice hockey": 0.76
+   "badminton": 1.12,
+   "ice hockey": 0.48
   },
   "match_mult": {
    "formula 1": 0.69,
-   "football": 0.79,
-   "american football": 0.75,
-   "basketball": 0.56,
-   "cricket": 0.89,
+   "football": 0.8,
+   "american football": 0.76,
+   "basketball": 0.57,
+   "cricket": 0.9,
    "tennis": 0.4,
-   "ice hockey": 0.76,
-   "mma": 0.95
+   "ice hockey": 0.48,
+   "mma": 0.96
   },
   "tips": [
-   "Prioritize Urdu Reels focusing on specific legendary moments or heavy-hitting combat sports like Boxing and Wrestling to maximize reach.",
-   "Replace individual 'Breaking' news posts with 'Long' format multi-sport bulletins (e.g., Global Sports Hub Bulletin) as they retain viewers better.",
-   "Shift content focus toward niche high-performers like Wrestling, Snooker, and Squash, while significantly reducing Golf and Rugby coverage.",
-   "Stop using 'Pic' and 'Breaking' formats for English news as they currently yield zero engagement; convert these into short Urdu video summaries.",
-   "Schedule all high-priority posts between 11:00 UTC and 17:00 UTC to capitalize on peak audience activity periods.",
-   "Focus on 'Match' and 'Reel' formats for Football instead of static images to improve the currently low 0.32 average score."
+   "Prioritize Urdu Reels for high engagement, focusing on combat sports like Wrestling (WWE) and Boxing, using 'shock' or 'big decision' hooks.",
+   "Switch from short breaking news text posts to 'Global Sports Hub Bulletins' in long-form format, as these aggregate multiple sports and perform 3x better than average.",
+   "Stop posting static pictures and breaking news about Golf, Rugby, and Basketball, as these currently yield zero views and engagement.",
+   "Leverage nostalgia in Football content (e.g., 'Memorable moments') rather than just reporting current match results or lineups.",
+   "Schedule all high-impact posts between 11:00 UTC and 17:00 UTC to capitalize on peak audience activity; avoid the 04:00 to 10:00 UTC dead zone.",
+   "Use Urdu for emotional or high-action video content, while keeping English limited to multi-topic news bulletins."
   ]
  },
  "lang_flip": {
   "ur_to_en": 0,
-  "en_to_ur": 0.07
+  "en_to_ur": 0.08
  }
 }

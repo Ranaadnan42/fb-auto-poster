@@ -1,15 +1,15 @@
 {
- "time_utc": "2026-11-17 08:39",
+ "time_utc": "2026-11-17 12:32",
  "videos": 62,
- "views": 27997,
- "engagement": 461,
+ "views": 28051,
+ "engagement": 462,
  "by_series": {
   "pk_city": [
    0.54,
    2
   ],
   "pk_versus": [
-   0.95,
+   1.01,
    3
   ],
   "pk_moving": [
@@ -17,27 +17,27 @@
    3
   ],
   "pk_best_list": [
-   1.16,
+   1.15,
    2
   ],
   "pk_jobs": [
-   0.44,
+   0.43,
    2
   ],
   "pk_country": [
-   4.5,
+   4.46,
    1
   ],
   "pk_visa": [
-   0.86,
+   0.85,
    2
   ],
   "pk_tour": [
-   0.92,
+   0.91,
    1
   ],
   "pk_living": [
-   0.98,
+   0.97,
    1
   ],
   "pk_jobhow": [
@@ -97,20 +97,20 @@
   ]
  },
  "best": [
-  "[short/ur] چین کے 6 ناقابل یقین اور حیران کن حقائق | China Facts in Urdu (series pk_facts, views 5475, eng 115, x11.34)",
-  "[short/ur] Canada vs Australia: پاکستانی کے لیے کون سا ملک بہتر ہے؟ | Life Abroad (series pk_versus_short, views 6003, eng 56, x10.05)",
-  "[long/ur] Malta Country Documentary in Urdu | مالٹا کا سفر اور زندگی (series pk_country, views 1358, eng 16, x4.45)"
+  "[short/ur] چین کے 6 ناقابل یقین اور حیران کن حقائق | China Facts in Urdu (series pk_facts, views 5475, eng 115, x11.33)",
+  "[short/ur] Canada vs Australia: پاکستانی کے لیے کون سا ملک بہتر ہے؟ | Life Abroad (series pk_versus_short, views 6009, eng 56, x10.05)",
+  "[long/ur] Malta Country Documentary in Urdu | مالٹا کا سفر اور زندگی (series pk_country, views 1358, eng 16, x4.41)"
  ],
- "summary": "Abhi short fact aur country comparison videos bohat achha perform kar rahe hain, lekin food ya low‑interest cost videos kam views le rahe hain. Aapko zyada short, surprising content aur strong Urdu hooks lagane chahiye. In changes se views, shares aur overseas followers barhenge.",
+ "summary": "Page ne high-income audience ko attract karne ke liye short, comparison aur city tour videos pe focus karna chahiye. Low-performing food aur salary short videos ko kam karna chahiye. Agent ne high-engagement series ko boost karne ke liye hooks aur titles ko optimize kiya.",
  "plan": {
-  "updated": "2026-11-17 08:39",
+  "updated": "2026-11-17 12:32",
   "mult": {
    "pk_city": 0.78,
-   "pk_versus": 0.97,
+   "pk_versus": 1.0,
    "pk_moving": 0.77,
    "pk_best_list": 1.06,
-   "pk_jobs": 0.72,
-   "pk_country": 1.46,
+   "pk_jobs": 0.71,
+   "pk_country": 1.45,
    "pk_visa": 0.94,
    "pk_tour": 0.98,
    "pk_living": 0.99,
@@ -127,7 +127,7 @@
    "pk_facts": 0.97
   },
   "tips": [
-   "Focus on short videos (under 1 min) about surprising facts and country comparisons, especially China, Canada vs Australia, and Singapore – they have highest x scores; use hook like \"Aapko pata bhi nahi tha...\"; avoid foo"
+   "Use short formats (≤60s) for high-engagement topics like country comparisons and city tours; avoid very short (≤15s) food or salary guides. Focus on series pk_versus_short, pk_city, pk_country, and pk_tour_short as they "
   ]
  }
 }

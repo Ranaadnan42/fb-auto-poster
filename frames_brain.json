@@ -1,12 +1,12 @@
 {
- "updated": "2026-11-17 08:39",
+ "updated": "2026-11-17 12:32",
  "mult": {
   "pk_city": 0.78,
-  "pk_versus": 0.97,
+  "pk_versus": 1.0,
   "pk_moving": 0.77,
   "pk_best_list": 1.06,
-  "pk_jobs": 0.72,
-  "pk_country": 1.46,
+  "pk_jobs": 0.71,
+  "pk_country": 1.45,
   "pk_visa": 0.94,
   "pk_tour": 0.98,
   "pk_living": 0.99,
@@ -23,6 +23,6 @@
   "pk_facts": 0.97
  },
  "tips": [
-  "Focus on short videos (under 1 min) about surprising facts and country comparisons, especially China, Canada vs Australia, and Singapore – they have highest x scores; use hook like \"Aapko pata bhi nahi tha...\"; avoid foo"
+  "Use short formats (≤60s) for high-engagement topics like country comparisons and city tours; avoid very short (≤15s) food or salary guides. Focus on series pk_versus_short, pk_city, pk_country, and pk_tour_short as they "
  ]
 }
