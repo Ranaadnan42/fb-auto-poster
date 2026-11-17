@@ -25,6 +25,18 @@ import ghapi      # noqa: E402
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 os.chdir(ROOT)
 REC = "agent_record.json"
+# public repo hai - record/log mein koi API key/token kabhi na jaye
+_SECRET_RE = re.compile(r"(AQ\.[A-Za-z0-9_\-]{16,}|AIza[0-9A-Za-z_\-]{20,}|EAA[A-Za-z0-9]{30,}|gh[pousr]_[A-Za-z0-9]{20,}|sk-[A-Za-z0-9_\-]{20,}|ya29\.[A-Za-z0-9_\-]{20,})")
+_KEYPARAM_RE = re.compile(r"((?:key|access_token|token|api_key)=)[^&\s\"']+", re.I)
+
+
+def scrub(t):
+    return _KEYPARAM_RE.sub(r"\1***", _SECRET_RE.sub("***", t))
+
+
+def save_rec(rec):
+    with open(REC, "w") as f:
+        f.write(scrub(json.dumps(rec, ensure_ascii=False, indent=1)))
 MAX_STEPS = 18
 # Adnan ka WhatsApp hukam (Super Manager -> manager.yml) - is mode mein agent wohi karta hai jo malik ne kaha
 ORDER = (os.environ.get("OWNER_ORDER") or "").strip()
@@ -35,7 +47,7 @@ NOW = ghapi.utcnow()
 
 
 def log(m):
-    print(m, flush=True)
+    print(scrub(str(m)), flush=True)
 
 
 def sh(cmd):
@@ -351,7 +363,7 @@ def main():
     if not ORDER and not fails and not problems:
         rec.update({"time_utc": NOW.strftime("%Y-%m-%d %H:%M"), "summary": "sab theek, kuch karne ki zaroorat nahi",
                     "notes": notes, "actions": [], "needs_owner": []})
-        json.dump(rec, open(REC, "w"), ensure_ascii=False, indent=1)
+        save_rec(rec)
         log("sab theek")
         return
 
@@ -429,8 +441,8 @@ def main():
     rec.update({"time_utc": NOW.strftime("%Y-%m-%d %H:%M"), "summary": final.get("summary", ""),
                 "notes": notes, "actions": STATE["actions"], "edits": STATE["edits"],
                 "needs_owner": final.get("needs_owner", [])})
-    json.dump(rec, open(REC, "w"), ensure_ascii=False, indent=1)
-    log(json.dumps(rec, ensure_ascii=False, indent=1))
+    save_rec(rec)
+    log(scrub(json.dumps(rec, ensure_ascii=False, indent=1)))
 
 
 if __name__ == "__main__":

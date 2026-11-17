@@ -3,7 +3,7 @@
  "time_utc": "2026-11-17 12:07",
  "summary": "",
  "notes": [
-  "dimagh na chala: koi AI model na chala: 401 Client Error: Unauthorized for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=AQ.Ab8RN6K_1NN5sMNRP7jibeVdQ0ccynmKE0_QZ3WsawnO3_YTUQ"
+  "dimagh na chala: koi AI model na chala: 401 Client Error: Unauthorized for url: https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-lite:generateContent?key=***"
  ],
  "actions": [
   "run 44015552375 (Birds of the World (Bird Agent) [47 21 * * *]) dobara chalaya",
