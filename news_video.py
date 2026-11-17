@@ -233,15 +233,21 @@ def color_clip(out, secs):
          "-t", f"{secs:.2f}", "-pix_fmt", "yuv420p", "-c:v", "libx264", "-preset", "veryfast", out])
 
 
-def _render_clip(raw, secs, out, flip=False):
+def _render_clip(raw, secs, out, flip=False, max_start=None):
     d = duration(raw) or 10
-    start = max(0.0, random.uniform(0, max(0.0, d - secs - 0.5))) if d > secs + 1 else 0
+    hi = max(0.0, d - secs - 0.5)
+    if max_start is not None:          # sirf wohi hissa jo agent ne dekh kar pass kiya (lambi clip ka baqi hissa kuch aur ho sakta)
+        hi = min(hi, max(0.0, max_start))
+    start = max(0.0, random.uniform(0, hi)) if d > secs + 1 else 0
     loop = ["-stream_loop", "-1"] if d < secs else []
     run(["ffmpeg", "-y", "-loglevel", "error", *loop, "-ss", f"{start:.2f}", "-i", raw, "-t", f"{secs:.2f}",
          "-vf", f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps={FPS},"
                 f"{'hflip,crop=iw/1.12:ih/1.12,scale=' + str(W) + ':' + str(H) + ',' if flip else ''}"
                 f"eq=contrast=1.04:saturation=1.06,format=yuv420p",
          "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", os.environ.get("VIDEO_CRF", "21"), out])
+
+
+TRUSTED_TAGS = ("pixabay", "pexels", "mixkit")      # in ke tags insaan ne lagaye - lafz-match par bharosa
 
 
 def get_clip(term, secs, out, used, said="", kind="news"):
@@ -264,25 +270,31 @@ def get_clip(term, secs, out, used, said="", kind="news"):
             if not footage.download(c["url"], raw, 100000):
                 continue
             d = duration(raw) or c.get("dur", 10)
+            # jo hissa video mein lagega (shuru ke ~secs+3 sec) usi ke 3 frames - wohi AI dekhta hai
+            win = min(d, secs + 3)
             jpgs = []
-            for k, at in enumerate((min(d * 0.25, 2), max(min(d * 0.75, 9), 1))):
+            for k, at in enumerate((win * 0.1, win * 0.5, max(win * 0.9 - 0.2, 0.5))):
                 jpg = f"{out}.chk{k}.jpg"
-                if footage.frame(raw, jpg, at):
+                if footage.frame(raw, jpg, min(at, max(d - 0.3, 0))):
                     jpgs.append(jpg)
             full = footage.match_score(c.get("text"), want) >= len(want)
             v = fa.check(jpgs, term, said, kind) if jpgs else None
             used.append(c["id"])
-            if v is not True:          # sirf AI ne dekh kar haan kaha ho - andaze se clip nahi
+            if v is None and full and c.get("src") in TRUSTED_TAGS:
+                # AI ki aankh (quota) band: sirf woh clip jis ke tags mein boli gayi cheez ka HAR lafz ho
+                v = "tags"
+                REPORT["tag_pass"] = REPORT.get("tag_pass", 0) + 1
+            if v not in (True, "tags"):          # AI ne haan kaha ho, ya aankh band ho to poora lafz-match
                 REPORT["clips_rejected"] = REPORT.get("clips_rejected", 0) + 1
-                log(f"  agent ne clip rad ki '{term}': {c['src']} {c['id']}")
+                log(f"  agent ne clip rad ki '{term}': {c['src']} {c['id']} ({'aankh band' if v is None else 'bemel'})")
                 continue
-            _render_clip(raw, secs, out)
+            _render_clip(raw, secs, out, max_start=max(0.0, win - secs))
             log(f"  clip '{term}': {c['src']} {c['id']} (agent: {v})")
             return True
         except Exception as e:
             log(f"  clip fail {c['id']}: {str(e)[:100]}")
         finally:
-            for f in [raw] + [f"{out}.chk{k}.jpg" for k in range(2)]:
+            for f in [raw] + [f"{out}.chk{k}.jpg" for k in range(3)]:
                 if os.path.exists(f):
                     os.remove(f)
     if os.environ.get("NO_PHOTOS") == "1":      # sirf asli video (war reels) - tasveer kabhi nahi
@@ -298,6 +310,8 @@ def get_clip(term, secs, out, used, said="", kind="news"):
                 used.append(p["id"])
                 v = fa.check([img], term, said, kind)
                 full = footage.match_score(p.get("text"), want) >= len(want)
+                if v is None and full and p.get("src") in TRUSTED_TAGS:
+                    v = True               # aankh band - tags mein har lafz
                 if v is not True:          # sirf AI ne dekh kar haan kaha ho - andaze se clip nahi
                     REPORT["clips_rejected"] = REPORT.get("clips_rejected", 0) + 1
                     continue

@@ -51,6 +51,8 @@ def _small(img, width=384):
         from PIL import Image
         raw = base64.b64decode(img) if isinstance(img, str) else img
         im = Image.open(io.BytesIO(raw)).convert("RGB")
+        if im.width > im.height * 2:          # frames ki patti: har frame ~340px rahe
+            width = max(width, min(1100, im.width))
         if im.width > width:
             im = im.resize((width, int(im.height * width / im.width)))
         buf = io.BytesIO()

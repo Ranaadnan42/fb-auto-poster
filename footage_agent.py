@@ -141,6 +141,27 @@ def is_greenscreen(jpg):
         return False
 
 
+def _strip(datas, h=300):
+    """2-3 frames ko ek hi chhoti tasveer (saath saath) mein jorna."""
+    if len(datas) < 2:
+        return datas
+    try:
+        import io
+        from PIL import Image
+        ims = [Image.open(io.BytesIO(d)).convert("RGB") for d in datas]
+        ims = [im.resize((max(1, int(im.width * h / im.height)), h)) for im in ims]
+        out = Image.new("RGB", (sum(im.width for im in ims) + 8 * (len(ims) - 1), h), (0, 0, 0))
+        x = 0
+        for im in ims:
+            out.paste(im, (x, 0))
+            x += im.width + 8
+        buf = io.BytesIO()
+        out.save(buf, "JPEG", quality=80)
+        return [buf.getvalue()]
+    except Exception:
+        return datas
+
+
 def check(jpgs, want, said="", kind="news"):
     if any(is_greenscreen(j) for j in (jpgs if isinstance(jpgs, (list, tuple)) else [jpgs])):
         return False
@@ -152,7 +173,11 @@ def check(jpgs, want, said="", kind="news"):
             pass
     if not datas:
         return None
-    prompt = _prompt(len(datas), want, said, kind)
+    n_frames = len(datas)
+    datas = _strip(datas)               # sab frames ek patti mein - kam tokens, quota der se khatam
+    prompt = _prompt(n_frames, want, said, kind)
+    if len(datas) == 1 and n_frames > 1:
+        prompt = prompt.replace(f"These {n_frames} frame(s)", f"This image holds {n_frames} frames side by side, all")
     if time.time() - T0 < BUDGET_S:
         b64 = [base64.b64encode(d).decode() for d in datas]
         for ki, key in enumerate(_keys()):

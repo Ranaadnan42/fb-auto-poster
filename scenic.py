@@ -46,8 +46,11 @@ OUT = "final_scenic.mp4"
 HIST_FILE = "scenic_history.json"
 REPORT_FILE = f"scenic_{MODE}_last_run.json"
 FONT = os.path.abspath("fonts/NotoSans-Bold.ttf")
-TEXT_MODELS = ["gemini-1.5-flash", "gemini-1.5-flash-8b", "gemini-2.0-flash-exp", "gemini-1.5-pro"]
-VIS_MODELS = ["gemini-1.5-flash", "gemini-1.5-flash-8b", "gemini-2.0-flash-exp"]
+# purane 1.5/2.0 model band ho chuke the (404) - is liye Wander Earth ki AI aankh kabhi chalti hi nahi thi.
+# Ab har key ke LIVE model Google se poochte hain; na mile to yeh list.
+FALLBACK_MODELS = ["gemini-flash-lite-latest", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-flash-latest",
+                   "gemini-3-flash-preview", "gemma-4-31b-it"]
+_LIVE = {}
 UA = {"User-Agent": "WanderEarthBot/1.0 (https://github.com/Ranaadnan42/fb-auto-poster)"}
 REPORT = {"started": datetime.datetime.utcnow().isoformat(timespec="minutes"), "steps": [], "errors": []}
 _DEAD = set()
@@ -105,10 +108,35 @@ def _json(t):
     return json.loads(m.group(0)) if m else None
 
 
+def _models(key):
+    """Is key par abhi chalne wale Gemini models (lite pehle - zyada roz ki had)."""
+    if key in _LIVE:
+        return _LIVE[key]
+    names = []
+    try:
+        r = requests.get("https://generativelanguage.googleapis.com/v1beta/models", timeout=30,
+                         params={"key": key, "pageSize": 200})
+        for m in r.json().get("models", []):
+            n = m.get("name", "").split("/")[-1]
+            if "generateContent" not in (m.get("supportedGenerationMethods") or []):
+                continue
+            if not (n.startswith("gemini") and "flash" in n) and not n.startswith("gemma-4"):
+                continue
+            if any(b in n for b in ("image", "tts", "audio", "live", "embed", "native", "exp-", "learnlm", "robotics")):
+                continue
+            names.append(n)
+    except Exception as e:
+        log(f"model list fail: {str(e)[:80]}")
+    rank = lambda n: (0 if "lite" in n else 1 if n.startswith("gemini") else 2, "preview" in n, n)
+    _LIVE[key] = sorted(dict.fromkeys(names), key=rank)[:8] or FALLBACK_MODELS
+    log(f"Gemini models: {', '.join(_LIVE[key])}")
+    return _LIVE[key]
+
+
 def think(prompt, temp=0.9):
     for key in KEYS:
-        for m in TEXT_MODELS:
-            if (key, m) in _DEAD:
+        for m in _models(key):
+            if (key, m) in _DEAD or key in _DEAD:
                 continue
             try:
                 j = _json(_gem(m, key, [{"text": prompt}], temp=temp))
@@ -116,7 +144,7 @@ def think(prompt, temp=0.9):
                     return j
             except Exception as e:
                 if "not valid" in str(e) or str(e)[:3] == "401":
-                    _DEAD.update((key, x) for x in TEXT_MODELS + VIS_MODELS)     # key hi ghalat - is key ke sab model band
+                    _DEAD.add(key)     # key hi ghalat - is key ke sab model band
                 elif any(c in str(e)[:4] for c in ("400", "403", "404", "429")):
                     _DEAD.add((key, m))
                 log(f"brain {m}: {str(e)[:100]}")
@@ -151,8 +179,8 @@ def look(jpgs, want, country):
     parts = [{"text": prompt}] + [{"inline_data": {"mime_type": "image/jpeg",
                                                    "data": base64.b64encode(d).decode()}} for d in datas]
     for key in KEYS:
-        for m in VIS_MODELS:
-            if (key, m) in _DEAD:
+        for m in _models(key):
+            if (key, m) in _DEAD or key in _DEAD:
                 continue
             try:
                 j = _json(_gem(m, key, parts, temp=0))
@@ -160,7 +188,7 @@ def look(jpgs, want, country):
                     return j
             except Exception as e:
                 if "not valid" in str(e) or str(e)[:3] == "401":
-                    _DEAD.update((key, x) for x in TEXT_MODELS + VIS_MODELS)     # key hi ghalat - is key ke sab model band
+                    _DEAD.add(key)     # key hi ghalat - is key ke sab model band
                 elif any(c in str(e)[:4] for c in ("400", "403", "404", "429")):
                     _DEAD.add((key, m))
     try:
@@ -412,6 +440,11 @@ Pick the NEXT reel. JSON:
 
 
 # ---------------------------------------------------------------- 2-3) footage dhoondna + dekhna
+GENERIC = {"rice", "terraces", "terrace", "lake", "lakes", "river", "valley", "mountain", "mountains", "national", "park",
+           "beach", "falls", "waterfall", "island", "islands", "village", "forest", "fields", "field", "hills", "hill",
+           "glacier", "canyon", "coast", "bay", "the", "and", "peak", "fjord", "desert", "dunes", "tea", "garden"}
+
+
 def find_shots(plan, h, job, need=8, want_n=1, look_n=10, tag=""):
     want = f"{plan['place']} ({plan.get('mood', '')})"
     used = set(h.get("clips", []))
@@ -451,8 +484,10 @@ def find_shots(plan, h, job, need=8, want_n=1, look_n=10, tag=""):
                 jpgs.append(jp)
         v = look(jpgs, want, plan["country"])
         if v is None:
-            # aankh band - sirf pakka lafz-match aur saaf stock source chalega
-            ok, beauty = c["score"] >= 1 and c.get("src") in ("pixabay", "pexels", "mixkit"), 8
+            # aankh band - sirf pakka lafz-match: jagah ka apna naam (sirf mulk ya 'rice/lake' jaisa aam lafz nahi)
+            own = set(footage.words(plan["place"])) - set(footage.words(plan["country"])) - GENERIC
+            hit = footage.match_score(c.get("text", ""), own or pwords)
+            ok, beauty = hit >= 1 and c.get("src") in ("pixabay", "pexels", "mixkit"), 8
             v = {"why": "vision band - tag match"}
         else:
             ok = v.get("place_ok") and v.get("real") and v.get("clean")
