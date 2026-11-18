@@ -1,23 +1,24 @@
 {
- "time_utc": "2026-11-17 14:49",
+ "time_utc": "2026-11-17 22:42",
  "kind": "long",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "sports": {
-   "date": "2026-11-17 14:49",
+   "date": "2026-11-17 22:42",
    "kind": "long",
    "lang": "ur",
-   "title": "ٹائیگر ووڈز کی واپسی اور کھیلوں کی دنیا کی اہم خبریں",
-   "dur": 486,
-   "post_id": "2194388471285558"
+   "title": "ریسلنگ کی دنیا میں ہلچل اور فٹ بال ٹرانسفر اپ ڈیٹس",
+   "dur": 591,
+   "post_id": "1605302691346090"
   }
  },
  "errors": [],
- "clips_rejected": 521,
+ "agent_checks": 296,
+ "agent_rejects": 274,
+ "agent_skips": 353,
+ "clips_rejected": 609,
  "alt_searches": 6,
- "agent_checks": 47,
- "agent_rejects": 44,
- "agent_skips": 466,
+ "tag_pass": 12,
  "time_budget_hit": true
 }
