@@ -1,26 +1,28 @@
 {
- "started": "2026-11-18T10:55",
+ "started": "2026-11-18T11:05",
  "steps": [
   "token: user token expires_at=0 data_access_expires_at=1801949831",
   "token: user token tha - page token bana kar istemal kiya",
-  "aaj ka manzar: golden sand dunes",
+  "aaj ka manzar: green forest",
   "Gemini models: gemini-2.5-flash-lite, gemini-3.1-flash-lite, gemini-3.5-flash-lite, gemini-flash-lite-latest, gemini-3.1-flash-lite-preview, gemini-2.5-flash, gemini-3.5-flash, gemini-3.6-flash",
   "brain gemini-2.5-flash-lite: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no lo",
-  "agent ka faisla: Liwa Oasis, Abu Dhabi, United Arab Emirates - bright sunny afternoon / endless golden sand dunes (Golden dunes satisfy the current high-demand for desert aesthetics and curiosity.)",
+  "agent ka faisla: Black Forest (Schwarzwald), Germany - bright sunny morning / dappled sunlight filtering through ancient dense green forest (The iconic, lush aesthetic of the Black Forest performs exceptionally well.)",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: golden sand dunes",
-  "agent ka faisla: Merzouga, Sahara Desert, Morocco - bright sunny afternoon / endless golden sand dunes under deep blue sky (Stunning golden landscape visuals are currently trending for high engagement rates.)",
+  "aaj ka manzar: green forest",
+  "agent ka faisla: Bavarian Forest National Park, Germany - bright sunny morning / dappled sunlight through deep green forest canopy (High-contrast sunlight in dense forests is visually mesmerizing for viewers.)",
+  "photo wmi29739219 1920x2891: ok=True beauty=4 - Too dark, lacks the required vibrant landscape.",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: lush jungle waterfall",
-  "agent ka faisla: Skógafoss, South Iceland, Iceland - bright sunny afternoon / rainbows over massive lush green waterfall (High-contrast lush greens and rainbows are peak engagement for travel reels.)",
+  "aaj ka manzar: colonial architecture",
+  "agent ka faisla: Oaxaca City, Mexico, Mexico - bright sunny afternoon / vibrant colonial architecture and bustling plaza (Colonial aesthetic is trending and offers a warm, vibrant cultural escape.)",
+  "photo wmi95289850 1920x1228: ok=True beauty=4 - Flat lighting, lacks vibrant nature, looks cluttered.",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: lush jungle waterfall",
-  "agent ka faisla: Iguazu Falls, Foz do Iguaçu, Brazil - bright sunny morning / lush tropical jungle waterfall (High-energy jungle visuals satisfy the current trending travel aesthetic perfectly.)",
+  "aaj ka manzar: colonial architecture",
+  "agent ka faisla: Cartagena, Colombia - bright sunny afternoon / vibrant colonial streets and flower-covered balconies (Vibrant colors and colonial aesthetics are currently trending for winter travel.)",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai"
  ],
  "errors": [
   "fatal: 4 jagahon par bhi achi footage nahi mili"
  ],
  "mode": "pic",
- "finished": "2026-11-18T10:56"
+ "finished": "2026-11-18T11:08"
 }
