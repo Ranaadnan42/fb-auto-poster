@@ -210,7 +210,7 @@ def write_script(facts):
                f"scene only when the sentence is about the place (then name the place and '{c}')")
     else:
         shape = f"""a LONG wildlife documentary of 800-950 spoken words (5-6 minutes) in 26-34 scenes: "Wildlife of {c}".
-  Chapters (put the chapter name in each scene's "label"): "WELCOME TO {c.upper()}" (its wild landscapes), then ONE chapter
+  Chapters (put the chapter name in each scene's "label"): "WELCOME TO {c.upper()}" (ONLY 2 short scenes, landscapes), then ONE chapter
   per animal below (label = the animal's name in capitals, 3-4 scenes each: where it lives in {c}, looks, food,
   amazing behaviour), then "PROTECTING THEM" and "NEXT COUNTRY". End: follow Wild Nations, like and share, comment
   which country's wildlife we should show next."""
@@ -223,6 +223,8 @@ in the USA, UK, Europe, Canada, Australia and the Gulf). Write {shape}
 {body}
 
 Rules:
+- This page is about ANIMALS: every scene (except the 2 welcome scenes of a long video) is about an animal and teaches a fact
+  about it (where it lives, what it eats, how it behaves). No scenes about rangers, reserves, logos, or scenery alone.
 - Warm, wonder-filled spoken English like a great nature-documentary narrator; your OWN words, never copied sentences.
 - ONLY facts written above (sizes, speeds, numbers, status exactly as written). Never invent a number.
 - Family friendly: hunting can be described, but no blood, gore or graphic kills (Facebook monetization).
@@ -234,7 +236,7 @@ Rules:
   a filmable moment of that animal - picture and voice must always match.
 {trends}
 Return JSON:
-{{"title": "Facebook video title, max 12 words, curiosity hook + animal/country",
+{{"title": "Facebook video title, max 12 words, curiosity hook that NAMES the animals (e.g. 'Moose, Wolves & Polar Bears of Canada') - never a landscape title like 'Untamed Wilderness' or 'Journey Through'",
   "badge": "short on-screen badge, e.g. '{c.upper()}'",
   "subjects": ["2-5 exact English Wikipedia titles: the animal(s) and the main wild places in {c}"],
   "card": {{"animal": "...", "country": "{c}", "habitat": "max 8 words", "diet": "max 8 words", "status": "as written, or 'unknown'"}},
@@ -263,7 +265,8 @@ def build_video(script, facts, used):
     badge = (script.get("badge") or c).strip().upper()[:30]
     main_animal = facts["title"] if MODE == "reel" else ""
     fallback = ([f"{main_animal} wild", f"{main_animal}", f"{main_animal} {c}"] if main_animal else []) + \
-               [f"{c} wildlife", f"{c} national park", f"{c} nature"]
+               [f"{c} wildlife", f"{c} animals wild"]
+    chapter_animals = {a.upper(): a for a in (facts.get("animals") or [])}
     nv.STORY_CLIPS.clear()
     scenes = []
     for i, sc in enumerate(script["scenes"]):
@@ -272,7 +275,11 @@ def build_video(script, facts, used):
             terms = [main_animal or f"{c} wildlife"]
         label = str(sc.get("label") or "").strip().upper()[:40] or None
         try:
-            scenes.append(nv.build_scene(i, PAGE, sc["text"], terms, label, badge, used, fallback))
+            fb = fallback
+            if not main_animal and label and label.upper() in chapter_animals:   # long: us chapter ke janwar ki clip
+                a = chapter_animals[label.upper()]
+                fb = [f"{a} wild", f"{a}"] + fallback
+            scenes.append(nv.build_scene(i, PAGE, sc["text"], terms, label, badge, used, fb))
         except Exception as e:
             log(f"scene {i} fail: {str(e)[:200]}")
             REPORT["errors"].append(f"scene {i}: {str(e)[:150]}")
