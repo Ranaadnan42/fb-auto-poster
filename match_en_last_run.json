@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-18 06:37",
+ "time_utc": "2026-11-18 22:06",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "sports": {
-   "key": "t401892728",
-   "sport": "ice hockey",
-   "date": "2026-11-18 06:37",
+   "key": "f401930895",
+   "sport": "football",
+   "date": "2026-11-18 22:06",
    "lang": "en",
-   "match": "Los Angeles Kings at Boston Bruins",
-   "result": "Los Angeles Kings beat Boston Bruins 3-0",
-   "dur": 62,
-   "post_id": "1123281150516038"
+   "match": "Argentina vs Costa Rica",
+   "result": "Argentina beat Costa Rica 7-0",
+   "dur": 60,
+   "post_id": "1862324555079076"
   }
  },
  "errors": []
