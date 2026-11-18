@@ -1,43 +1,25 @@
 {
  "mode": "short",
- "clips": 39,
- "clips_rejected": 216,
- "vision_checks": 246,
- "errors": [],
+ "clips": 0,
+ "clips_rejected": 0,
+ "vision_checks": 0,
+ "errors": [
+  "Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/gemini-3.5-flash-lite for the latest features and improvements. We recommend you to use the Interactions API (https://ais",
+  "Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/gemini-3.5-flash-lite for the latest features and improvements. We recommend you to use the Interactions API (https://ais",
+  "Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/gemini-3.5-flash-lite for the latest features and improvements. We recommend you to use the Interactions API (https://ais",
+  "fatal: video nahi bani",
+  "fatal: Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/gemini-3.5-flash-lite for the latest features and improvements. We recommend you to use the Interactions API (https://ais"
+ ],
  "search_phrases": [
-  "mein salary kitni milti hai",
-  "salary mein barkat ka wazifa",
-  "russia mein salary kitni hai",
-  "dubai mein salary kitni hai",
-  "canada mein salary kitni hai",
-  "agniveer mein salary kitni hai",
-  "anganbadi mein salary kitni hai",
-  "kuwait mein salary kitni hai",
-  "excel mein salary sheet",
-  "excel mein salary kaise banaye",
-  "mein kitni salary milti hai",
-  "agniveer mein kitni salary milti hai",
-  "dubai mein kitni salary hai",
-  "anganbadi mein kitni salary milti hai",
-  "nevi mein kitni salary hoti hai",
-  "agniveer mein kitni salary hoti hai",
-  "agniveer mein kitni salary hai",
-  "railway mein kitni salary hoti hai",
-  "nda mein kitni salary hoti hai",
-  "army mein kitni salary hoti hai"
+  "visa for pakistani 2026",
+  "visa for pakistani passport",
+  "visa for pakistani in uae",
+  "spain visa for pakistani",
+  "albania visa for pakistani",
+  "kyrgyzstan visa for pakistani",
+  "azerbaijan visa for pakistani nationals",
+  "germany visa for pakistani",
+  "kazakhstan visa for pakistani"
  ],
- "search": "mein kitni salary milti hai",
- "alt_searches": 6,
- "photos": 9,
- "vision_waits": 1,
- "seconds": 116.2,
- "links": [
-  "https://www.visa.go.kr",
-  "https://oec.gov.pk",
-  "https://beoe.gov.pk",
-  "https://oec.gov.pk"
- ],
- "subject": "South Korea",
- "series": "pk_salary_short",
- "title": "جنوبی کوریا میں کتنی تنخواہ اور بچت؟ | South Korea Life"
+ "search": "spain visa for pakistani"
 }
