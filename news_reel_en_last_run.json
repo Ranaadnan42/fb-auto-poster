@@ -1,23 +1,24 @@
 {
- "time_utc": "2026-11-18 19:22",
+ "time_utc": "2026-11-18 19:39",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-18 19:22",
+   "date": "2026-11-18 19:39",
    "kind": "reel",
    "lang": "en",
-   "title": "Gloucester Cathedral Faces Major Financial Restructure",
-   "dur": 43,
-   "post_id": "955666230756759"
+   "title": "Anthropic AI founders set for multi-billion dollar stock debut",
+   "dur": 54,
+   "post_id": "1620122702622919"
   }
  },
  "errors": [
   "sports: awaaz nahi bani"
  ],
- "agent_checks": 29,
- "agent_rejects": 25,
+ "clips_rejected": 89,
+ "agent_checks": 96,
+ "agent_rejects": 89,
  "agent_skips": 0,
- "clips_rejected": 25
+ "alt_searches": 1
 }
