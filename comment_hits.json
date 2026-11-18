@@ -1,34 +1,148 @@
 {
- "updated": "2026-11-18T12:36Z",
- "new": 0,
+ "updated": "2026-11-18T20:53Z",
+ "new": 19,
  "stats": {
-  "site:facebook.com \"POS software\" chahiye": "0 (auto)",
-  "site:facebook.com \"billing software\" chahiye dukan": "0 (bing)",
-  "site:facebook.com \"software chahiye\" shop": "0 (auto)",
-  "site:facebook.com/groups \"POS\" recommend shop Pakistan": "0 (auto)",
-  "site:facebook.com \"POS system\" recommend restaurant": "0 (bing)",
+  "site:facebook.com \"POS software\" chahiye": "1 (auto)",
+  "site:facebook.com \"billing software\" chahiye dukan": "0 (auto)",
+  "site:facebook.com \"software chahiye\" shop": "1 (auto)",
+  "site:facebook.com/groups \"POS\" recommend shop Pakistan": "3 (auto)",
+  "site:facebook.com \"POS system\" recommend restaurant": "0 (yahoo)",
   "site:facebook.com \"looking for POS\" shop": "0 (auto)",
   "site:facebook.com \"inventory software\" recommend small business": "0 (auto)",
-  "site:facebook.com \"need a website\" for my business": "0 (auto)",
-  "site:facebook.com \"website banwani\" hai": "0 (auto)",
-  "site:facebook.com \"app banwani\" hai": "0 (auto)",
-  "site:facebook.com \"looking for web developer\" small business": "0 (auto)",
-  "site:facebook.com \"need a social media manager\"": "0 (yahoo)",
+  "site:facebook.com \"need a website\" for my business": "0 (bing)",
+  "site:facebook.com \"website banwani\" hai": "0 (yahoo)",
+  "site:facebook.com \"app banwani\" hai": "0 (bing)",
+  "site:facebook.com \"looking for web developer\" small business": "1 (auto)",
+  "site:facebook.com \"need a social media manager\"": "1 (bing)",
   "site:facebook.com \"faceless youtube\" automation help": "0 (auto)",
-  "site:facebook.com \"برنامج كاشير\" افضل": "0 (bing)",
-  "site:facebook.com \"برنامج محاسبي\" محل": "0 (auto)",
-  "site:facebook.com \"نظام نقاط البيع\" مطعم": "0 (yahoo)",
-  "site:facebook.com \"ابي موقع\" لمحلي": "0 (auto)",
+  "site:facebook.com \"برنامج كاشير\" افضل": "2 (auto)",
+  "site:facebook.com \"برنامج محاسبي\" محل": "1 (auto)",
+  "site:facebook.com \"نظام نقاط البيع\" مطعم": "0 (bing)",
+  "site:facebook.com \"ابي موقع\" لمحلي": "0 (yahoo)",
   "site:facebook.com/groups \"website chahiye\"": "0 (auto)",
-  "site:facebook.com/groups \"koi acha software\" dukan": "0 (yahoo)",
-  "site:facebook.com/groups \"POS\" Riyadh recommend": "0 (auto)",
-  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "0 (auto)",
-  "site:facebook.com/groups \"برنامج كاشير\" الرياض": "0 (auto)",
-  "site:facebook.com/groups \"برنامج كاشير\" دبي": "0 (auto)",
-  "site:facebook.com/groups \"who can make a website\"": "0 (google)",
-  "site:facebook.com/groups \"need an app\" for my business": "0 (auto)"
+  "site:facebook.com/groups \"koi acha software\" dukan": "0 (none)",
+  "site:facebook.com/groups \"POS\" Riyadh recommend": "2 (auto)",
+  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "2 (bing)",
+  "site:facebook.com/groups \"برنامج كاشير\" الرياض": "2 (auto)",
+  "site:facebook.com/groups \"برنامج كاشير\" دبي": "0 (bing)",
+  "site:facebook.com/groups \"who can make a website\"": "0 (none)",
+  "site:facebook.com/groups \"need an app\" for my business": "3 (auto)"
  },
  "hits": [
+  {
+   "url": "https://www.facebook.com/groups/752790164383176",
+   "title": "Web Developer Jobs and Projects - Facebook",
+   "snippet": "Nov 9, 2026 · I am looking for a POS (Point of Sale) System for a Restaurant. If anyone has a POS system available, or is providing POS software/services for restaurants, kindly share the details. Please share: 1. Features 2. Demo (available) You can inbox me Thank you!",
+   "found": "2026-11-18T20:51Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1722662108886675",
+   "title": "Sat Softwares & Hardware Solution | Facebook",
+   "snippet": "Oct 23, 2026 · iska software chahiye Kashif Ali Khan Haraj and 14 others 15 reactions · 5 comments",
+   "found": "2026-11-18T20:51Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/181854372407578",
+   "title": "Hastièroises, Hastièrois | Facebook",
+   "snippet": "1 day ago · Bienvenue dans le groupe Facebook de Matélé dédié aux Hastièroises et Hastièrois, aux associations, à la politique, aux sports, à la vie communale en général. Ce groupe est collaboratif, donc vous pouvez poster vos publications, événements, liens, photos, vidéos, annonces (non commerciales) et échanger entre Hastièroises et Hastièrois, et entre habitants et journalistes de ...",
+   "found": "2026-11-18T20:51Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/356425057798374",
+   "title": "SUPERNASJONAL - Facebook",
+   "snippet": "1 day ago · Motorsport Front wheels and rear wheel cars Rallycross Cars from Norway, Sweden, Denmark Finland German, Great Britain, Irish, Belgium, Netherlands,...",
+   "found": "2026-11-18T20:51Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/114260890649",
+   "title": "Forum for skøytehistorie | Facebook",
+   "snippet": "14 hours ago · \"Forum for skøytehistorie må vera ein av dei mest begeistra, intense og nerdete stader som finnest på nettet\", menes det i Dagbladet. Gruppen er for alle som er glade i skøytesporten, og som gjerne vil dele skøyteminner og skøyteopplevelser med andre. Eldre og ny skøytehistorie er av like stor interesse. Allverdens resultater, fra alle typer stevner gjennom tidene, kan man forresten ...",
+   "found": "2026-11-18T20:51Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/503614587414188",
+   "title": "Web Developer - Facebook",
+   "snippet": "5 days ago · Hello everyone, I'm about to open a new business and I'm actively looking for a graphic designer who could come up with my business logo design and also a web developer for my business website.",
+   "found": "2026-11-18T20:52Z"
+  },
+  {
+   "url": "https://www.facebook.com/ashlie.slettvet/posts/i-need-a-social-media-manager-and-content-strategist-who-specializes-in-creator-/2079570156755603",
+   "title": "Ashlie Slettvet - I NEED a social media manager and... | Facebook",
+   "snippet": "20 hours ago · I NEED a social media manager and content strategist who specializes in creator growth, brand partnerships, and monetization! 727-678-3156 Hot Momma’s llc",
+   "found": "2026-11-18T20:52Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/4253283411388887",
+   "title": "احسن سيستم كاشير | Facebook",
+   "snippet": "Oct 21, 2026 · 🔥 بسعر مغري جدًا 🔥 لو عندك محل تجاري، ملابس، سوبر ماركت، مطعم أو كافيه 👌 نقدم لك سيستم كامل لإدارة نشاطك التجاري يشمل: 💻 برنامج كاشير وإدارة المبيعات 📦 إدارة المخزون والمشتريات 🧾 طابعة ...",
+   "found": "2026-11-18T20:52Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1018168221621821",
+   "title": "انظمة سيستم كاشير ERP ومعدات اللازمه للمؤسسات التجاريه",
+   "snippet": "Nov 9, 2026 · برنامج كاشير إحترافي بأقل من 2000ج مفعل مدى الحياة بدون اشتراكات شهريه او سنويه أطلبه الآن واستفيد بالخصم للتواصل 01034018090 0 reactions Umar sales 12h · Public",
+   "found": "2026-11-18T20:52Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/536477197352883",
+   "title": "برامج محاسبيه | Facebook",
+   "snippet": "Nov 10, 2026 · ادارة الموارد البشرية (HR) إدارة شركات الشحن الداخلى والدولى إدارة مصانع الغزل و النسيج إدارة البيع في محلات الأقمشة إدارة مصانع الأدوية ادارة المدارس الخاصه ادارة المطاعم والكافيهات ...",
+   "found": "2026-11-18T20:52Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/543485182775096",
+   "title": "Aartrijke - Facebook",
+   "snippet": "20 hours ago · Open groep die draait rond niks anders dan Aartrijke. Heb je een vraag, evenement of gelijk wat anders te maken met Aartrijke kun je deze altijd posten!...",
+   "found": "2026-11-18T20:53Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/Rostrevor",
+   "title": "Rostrevor & Area Community News | Facebook",
+   "snippet": "1 day ago · Can anyone recommend a dog groomer in the Warrenpoint/Burren/Mayobridge areas. Roma Fitzpatrick and 2 others 3 reactions · 51 comments",
+   "found": "2026-11-18T20:53Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/osterlenanslagstavlan",
+   "title": "ÖSTERLEN Anslagstavlan - Facebook",
+   "snippet": "13 hours ago · Österlens Anslagstavla ska vara den givna kanalen på Facebook för att få uppdaterad och relevant information om vad som händer på Österlen. Bjud gärna in...",
+   "found": "2026-11-18T20:53Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1511314052439961",
+   "title": "Ähtärin historiaa - Facebook",
+   "snippet": "2 days ago · Tämän ryhmän tarkoitus on kerätä Ähtärin paikallishistoriaa tänne julkisesti kaikkien nähtäville. Varsinkin vanhat yksityisalbumien valokuvat ja niihin...",
+   "found": "2026-11-18T20:53Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/2086553668217251",
+   "title": "برامج كاشير سيستم و كاسيو | Facebook",
+   "snippet": "Nov 2, 2026 · ( ( كاشير للبيع بأقل سعر )) _ تسليم وتركيب في نفس اليوم _ شاشة تاتش + جهاز كمبيوتر _ برانتر فواتير + اسكانر + درج معدن _ برنامج كاشير مفتوح مدى الحياة بدون اشتراكات _متابعة المبيعات من الموبايل ...",
+   "found": "2026-11-18T20:53Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/651454887906614",
+   "title": "سوق أجهزة كاشير POS - بيع وشراء وتجار وموردين | Facebook",
+   "snippet": "Nov 3, 2026 · برنامج كاشير لإدارة السوبر ماركت ومحلات البقالة، يعمل بدون إنترنت (Offline). - إدارة المنتجات والمخزون - تسجيل المبيعات والفواتير - مراجعة تفاصيل الفواتير - نسخ احتياطي للبيانات 📩 للاستفسار عن ...",
+   "found": "2026-11-18T20:53Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/155101461307840",
+   "title": "Arizona Local Businesses | Facebook",
+   "snippet": "Nov 5, 2026 · Adopt an Angel through your local school district, rally your team, sponsor gifts, and challenge another business to join you. Message us when your business accepts the challenge.",
+   "found": "2026-11-18T20:53Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1524884814492046",
+   "title": "Arizona small business advertising - Facebook",
+   "snippet": "Oct 21, 2026 · A group designed to help small businesses advertise on Facebook. Please keep your post limited to information about your small business.",
+   "found": "2026-11-18T20:53Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/gilbertarizonasmallbusinessnetwork",
+   "title": "Gilbert Arizona Small Businesses (By Go Local Arizona) - Facebook",
+   "snippet": "Nov 8, 2026 · About this group Welcome, this group is open to Gilbert and East Valley small business owners and anyone looking to stay and support local businesses. The purpose of the group is to help small businesses grow and increase sale through networking activities.",
+   "found": "2026-11-18T20:53Z"
+  },
   {
    "url": "https://www.facebook.com/ultimateERPsolutions/videos/نظام-نقاط-البيع-من-الحلول-النهائية/481375065878066",
    "title": "نظام نقاط البيع من الحلول النهائية | إذا كنت تمتلك متجر أو مطعم أ...",
@@ -1714,120 +1828,6 @@
    "title": "Startup Founder Forum - Facebook",
    "snippet": "2 days ago · Picture a shop owner who calls a developer and says, \"I need an app.\" Orders come in through WhatsApp, phone calls and walk-ins. Stock is tracked in a notebook and sometimes in someone's head.",
    "found": "2026-11-09T12:10Z"
-  },
-  {
-   "url": "https://business.facebook.com/groups/362128913891059",
-   "title": "Livingston, MT Events | Facebook - Meta Business Suite",
-   "snippet": "1 day ago · A group forum to post events and activities happening around the Livingston, MT area.",
-   "found": "2026-11-09T12:10Z"
-  },
-  {
-   "url": "https://business.facebook.com/groups/wearecheyenne",
-   "title": "We Are Cheyenne | Facebook - Meta Business Suite",
-   "snippet": "2 days ago · Christmas light installation—your lights or ours Door and window caulking Gutter cleanouts Door adjustments and repairs Furniture assembly Junk removal Local, licensed, and insured. Honest work, clear pricing, and a real person answering the phone. Give us a call or send a text, and let’s put a dent in that list. Frontier Worx neighbors ...",
-   "found": "2026-11-09T12:10Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/CheyenneCommunityConnections",
-   "title": "Cheyenne Community Connections | Facebook",
-   "snippet": "COVERED! 🔥 Looking to upgrade your stairs, improve safety, or add a professional finish to your property? Check out these custom-fabricated steel handrails! At 307 Custom Fabrication LLC, we build strong, durable, custom-fit handrails designed to look great and stand the test of time. No cookie-cutter products here — we build to fit YOUR project!",
-   "found": "2026-11-09T12:10Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/676298950705533",
-   "title": "Cheyenne Rants, Raves, and Community | Facebook",
-   "snippet": "Oct 31, 2026 · I don't know what is going on with people who chose to do mean-spirited things like this, but all I can do is tell my family is that when everything around seems sad and bad, we just have to keep doing what's right.",
-   "found": "2026-11-09T12:10Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/780714943967597/posts/1509052747800476",
-   "title": "Comptoirs Richard’s really dropped the ball | Facebook",
-   "snippet": "Oct 30, 2026 · At that point, the restaurant management refused to apply the discount, stating that their POS machine was not showing any discount from the bank. Despite my repeated clarification that the discount had already been confirmed from all sides, the manager insisted that I contact the #JS Bank helpline.",
-   "found": "2026-11-08T18:04Z"
-  },
-  {
-   "url": "https://www.facebook.com/DesignSouthFlooring/posts/designsouth-is-looking-for-a-warehouse-worker-to-join-our-growing-crew-experienc/1562255032566044",
-   "title": "DesignSouth is looking... - DesignSouth Flooring & Interiors ...",
-   "snippet": "Oct 12, 2026 · What you’ll be doing: • Picking and preparing customer orders • Organizing warehouse inventory • Loading and unloading trucks • Driving a forklift • Lifting up to 50 lbs • Learning the ins and outs of the flooring business • Operating inventory software",
-   "found": "2026-11-08T18:04Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/748333769171864/posts/1984698682202027",
-   "title": "i need a website | Get your professional website development ...",
-   "snippet": "Oct 27, 2026 · Get your professional website development. Modern,fast and responsive website that helps you grow you business and reach more customers. Service include: Responsive website Fast Performance Seo...",
-   "found": "2026-11-08T18:04Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/smmjobs",
-   "title": "Social Media Jobs and Internships | Facebook",
-   "snippet": "Oct 21, 2026 · It’s time to book a call and trust me as your Social Media Manager! 😉 Your goals, my strategy👩💻Let me help you achieve them! Send me a message 📩 jemainealday22@gmail.com #SocialMediaManager #SocialMediaMarketing #DigitalMarketing #BusinessGrowth #HireAnSMM #trendingreels #trendingnow #trendingvideo #fypviralシ",
-   "found": "2026-11-08T18:04Z"
-  },
-  {
-   "url": "https://business.facebook.com/groups/PakistanBusinessOfficial",
-   "title": "Business ideas Pakistan پاکستانی کاروبار | Facebook",
-   "snippet": "4 days ago · Are you a beginner and searching for profitable small business ideas to start a business of your own? The object of crafting this group is to provide a...",
-   "found": "2026-11-08T18:04Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1810461389642384/posts/2069655503722970",
-   "title": "YouTube Automation Accelerator | BREAKING: Gemini can help ...",
-   "snippet": "Oct 14, 2026 · BREAKING: Gemini can help you build a faceless YouTube business from scratch. Niche, content ideas, scripts, videos, workflow it can help you build the whole thing. Here are 7 prompts I’d use to...",
-   "found": "2026-11-08T18:04Z"
-  },
-  {
-   "url": "https://www.facebook.com/appmaksab/posts/-لو-عندك-محل-أو-شركة-سواء-بتشتغل-فيتجارة-الجملة-أو-القطاعي-سوبر-ماركت-عطارة-أدوا/122237430968300601",
-   "title": "لو عندك محل... - مكسب - برنامج للمبيعات والمخازن والحسابات ...",
-   "snippet": "Nov 1, 2026 · لو عندك محل أو شركة، سواء بتشتغل في: تجارة الجملة أو القطاعي - سوبر ماركت - عطارة - أدوات كهربائية - أدوات صحية - منتجات غذائية - أسمدة ومبيدات - قطع غيار سيارات - منظفات ومنتجات ورقية - طرح...",
-   "found": "2026-11-08T18:04Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/wordpressai",
-   "title": "WordPress • AI | Speed | SEO | Developers | Facebook",
-   "snippet": "Oct 21, 2026 · Welcome to WordPress • AI | Speed | SEO | Developers! Discover how AI is transforming WordPress development and optimization. Discuss AI-powered tools for content creation, site speed improvements, and SEO enhancements. Connect with fellow WordPress developers and enthusiasts to share knowledge, best practices, and innovative solutions. Join us to stay at the forefront of WordPress technology!",
-   "found": "2026-11-08T18:05Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/274812453833284",
-   "title": "Mira Bhayander Mumbai - Facebook",
-   "snippet": "Oct 21, 2026 · Website Chahiye? Call Me 📞 🎓 School Website 🎓 College Website 🕌 Madrasa Website 💼 Business Website 👤 Personal Website Features Jo Milegi: ️ Modern & Professional Design ️ 100% Mobile Friendly ️ SEO Optimized - Google Me Rank Karega ️ Fast & Secure ️ Lifetime Ongoing Support Apna Business Online Grow Karna Hai?",
-   "found": "2026-11-08T18:05Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/464594796952255",
-   "title": "Meidän Vuolijoki - OurVillage | Facebook",
-   "snippet": "1 day ago · Kyllä nyt on kiitoksen aihe. Vuolijoki pieni taajama Kajaanin kupeessa, mutta kylältä löytyy kampaamot, hieroja, jalkahoitoa, siivouspalveluja, sähköasentaja, autonhuoltoa, apteekit ja ties mitä palveluja. Käytetään niitä, niin saamme vastakin käyttää oman kylän väkeä.",
-   "found": "2026-11-08T18:05Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/339285726186009",
-   "title": "I LOVE KUSTAVI | Facebook",
-   "snippet": "3 days ago · Tämä ryhmä on kaikille, jotka tuntevat rinnassaan lämpimän läikähdyksen Kustavia ajatellessaan. Seinälle saa mieluusti jakaa kuvia Kustavista, tietoa...",
-   "found": "2026-11-08T18:05Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1145855263215748/posts/1855551595579441",
-   "title": "Does leaving your tesla plugged in all night hurt the battery?",
-   "snippet": "Oct 15, 2026 · It's here where I should note that above all else, you should consult your owner's manual to know exactly what to do if you need to store it long-term. Most manuals recommend you do leave them plugged in, if possible, because the cars will then be automatically able to maintain a proper charge level as needed.",
-   "found": "2026-11-08T18:05Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/34387236980",
-   "title": "DONISTHORPE COLLIERY including other local Pits. - Facebook",
-   "snippet": "1 day ago · For all ex South Derbyshire & North West Leicestershire Colliery workers and friends. Including photo's of Cadley Hill, Rawdon, Oakthorpe, Measham, Walton Way & any other local pits. All welcome.",
-   "found": "2026-11-08T18:05Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/dinslaken.aktuell",
-   "title": "Dinslaken - aktuell | Facebook",
-   "snippet": "2 days ago · Gruppenbeschreibung: Hier bekommt ihr Bilder, Infos bzw. alle Arten von Neuigkeiten über unsere schöne Stadt im Grünen. Leider geht es nicht ohne ein...",
-   "found": "2026-11-08T18:05Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/Gniew",
-   "title": "wGniewie - Forum Debaty Publicznej dla mieszkańców Gminy ...",
-   "snippet": "2 days ago · REGULAMIN 1. Grupa „wGniewie\" to Forum Debaty Publicznej dla mieszkańców Gminy Gniew. 2. Forum powstało z inicjatywy Stowarzyszenia Centrum Aktywnych...",
-   "found": "2026-11-08T18:05Z"
   }
  ]
 }
