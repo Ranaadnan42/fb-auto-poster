@@ -1,23 +1,23 @@
 {
- "time_utc": "2026-11-18 12:59",
+ "time_utc": "2026-11-18 19:51",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
  "bird_calls": 0,
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 129,
+ "clips_rejected": 219,
+ "agent_checks": 187,
+ "agent_rejects": 184,
+ "agent_skips": 35,
  "alt_searches": 8,
- "agent_checks": 139,
- "agent_rejects": 127,
- "agent_skips": 0,
  "posted": {
-  "bird": "Emperor penguin",
+  "bird": "Grey crowned crane",
   "theme": null,
-  "wiki": "Emperor penguin",
-  "date": "2026-11-18 12:59",
-  "title": "Meet the Giant of the Frozen South: The Emperor Penguin!",
-  "dur": 104,
-  "post_id": "2698802810522789"
+  "wiki": "Grey crowned crane",
+  "date": "2026-11-18 19:51",
+  "title": "Why does this bird wear a crown of pure gold? 👑 Grey Crowned Crane",
+  "dur": 70,
+  "post_id": "1465304509037689"
  }
 }
