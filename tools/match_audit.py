@@ -34,6 +34,32 @@ PAGES = {
     "sports": ("SPORTS_PAGE_ID", "SPORTS_PAGE_TOKEN"),
 }
 CHECKS = 5          # har video mein kitne jumle check
+# Groq ka roz ka quota agents khatam kar dete hain - is liye har page ki APNI Gemini key se pehle dekho
+GEMINI_KEYS = {"islamic": "GEMINI_KEY_ISLAMIC", "funny": "GEMINI_KEY_FUNNY", "frames": "GEMINI_KEY_FRAMES",
+               "scenic": "SCENIC_GEMINI_API_KEY", "war": "WAR_GEMINI_API_KEY", "birds": "BIRDS_GEMINI_API_KEY",
+               "pets": "PETS_GEMINI_API_KEY", "wild": "WILD_GEMINI_API_KEY", "news": "NEWS_GEMINI_API_KEY",
+               "newsur": "NEWSUR_GEMINI_API_KEY", "sports": "SPORTS_GEMINI_API_KEY"}
+GEMINI_MODELS = ["gemini-3.1-flash-lite", "gemini-flash-lite-latest", "gemini-3.5-flash-lite", "gemini-flash-latest"]
+
+
+def gemini_vision(img, prompt, key):
+    import base64
+    import re
+    if not key:
+        return None
+    b = base64.b64encode(img).decode()
+    for m in GEMINI_MODELS:
+        try:
+            r = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={key}",
+                              timeout=40, json={"contents": [{"parts": [{"text": prompt}, {"inline_data": {
+                                  "mime_type": "image/jpeg", "data": b}}]}], "generationConfig": {"temperature": 0}})
+            if r.status_code != 200:
+                continue
+            t = r.json()["candidates"][0]["content"]["parts"][0]["text"]
+            return json.loads(re.search(r"\{.*\}", t, re.S).group(0))
+        except Exception:
+            continue
+    return None
 
 
 def _ffmpeg():
@@ -92,7 +118,7 @@ def frame(mp4, sec, tmp):
     return open(jpg, "rb").read()
 
 
-def audit(pid, token):
+def audit(pid, token, name=""):
     v = latest_video(pid, token)
     if not v:
         return None
@@ -116,13 +142,14 @@ def audit(pid, token):
                 img = frame(mp4, mid, tmp)
             except Exception:
                 continue
-            ans = groq_vision.ask_json([img], f"""The narrator of this video says at this exact moment (may be Urdu/Hindi/English):
+            q = f"""The narrator of this video says at this exact moment (may be Urdu/Hindi/English):
 "{said}"
 Look at the video frame. Does the picture show the specific thing being talked about (same subject, place, animal,
 person type, object or action)? A loosely related or generic clip is NOT a match. Funny/comedy acting scenes match
 if the situation fits the words.
 Reply JSON: {{"match": true/false, "said_subject": "<what the words are about, in English, max 8 words>",
-"shown": "<what the picture actually shows, max 8 words>"}}""")
+"shown": "<what the picture actually shows, max 8 words>"}}"""
+            ans = gemini_vision(img, q, env(GEMINI_KEYS.get(name, ""))) or groq_vision.ask_json([img], q)
             if isinstance(ans, dict) and "match" in ans:
                 res.append({"t": round(mid, 1), "match": bool(ans.get("match")),
                             "said": str(ans.get("said_subject", ""))[:80], "shown": str(ans.get("shown", ""))[:80]})
@@ -150,10 +177,13 @@ def main():
             continue
         prev = rec.get(name, {})
         try:
-            r = audit(pid, token)
+            r = audit(pid, token, name)
         except Exception as e:
             print(f"== {name}: fail {str(e)[:150]}", flush=True)
             continue
+        if r and str(r.get("note", "")).startswith("vision AI busy"):
+            print(f"== {name}: vision AI busy - ye video agli dafa dobara check hogi", flush=True)
+            continue                      # video ko 'ho gayi' mark nahi karte, warna kabhi check na hoti
         if not r or r.get("video") == prev.get("video"):
             print(f"== {name}: nayi video nahi", flush=True)
             continue

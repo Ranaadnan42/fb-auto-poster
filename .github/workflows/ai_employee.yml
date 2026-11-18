@@ -96,7 +96,8 @@ jobs:
           pip install -q requests pillow >/dev/null 2>&1 || true
           python3 tools/page_manager.py || true
           python3 tools/yt_manager.py || true
-          GROQ_API_KEY="${{ secrets.GROQ_API_KEY }}" timeout 900 python3 tools/match_audit.py || true
+          GROQ_API_KEY="${{ secrets.GROQ_API_KEY }}" GEMINI_KEY_ISLAMIC="${{ secrets.GEMINI_KEY_ISLAMIC }}" GEMINI_KEY_FUNNY="${{ secrets.GEMINI_KEY_FUNNY }}" GEMINI_KEY_FRAMES="${{ secrets.GEMINI_KEY_FRAMES }}" SCENIC_GEMINI_API_KEY="${{ secrets.SCENIC_GEMINI_API_KEY }}" WAR_GEMINI_API_KEY="${{ secrets.WAR_GEMINI_API_KEY }}" BIRDS_GEMINI_API_KEY="${{ secrets.BIRDS_GEMINI_API_KEY }}" PETS_GEMINI_API_KEY="${{ secrets.PETS_GEMINI_API_KEY }}" WILD_GEMINI_API_KEY="${{ secrets.WILD_GEMINI_API_KEY }}" NEWS_GEMINI_API_KEY="${{ secrets.NEWS_GEMINI_API_KEY }}" NEWSUR_GEMINI_API_KEY="${{ secrets.NEWSUR_GEMINI_API_KEY }}" SPORTS_GEMINI_API_KEY="${{ secrets.SPORTS_GEMINI_API_KEY }}" \
+            timeout 900 python3 tools/match_audit.py || true
           python3 tools/weekly_tasks.py || true
       - name: Save record
         run: |
