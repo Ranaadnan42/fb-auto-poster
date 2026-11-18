@@ -1,32 +1,23 @@
 {
- "lang": "en",
- "stock_clips": 40,
+ "lang": "ur",
+ "stock_clips": 15,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "life after death islamic lecture",
-  "life after death islamic movie",
-  "life after death islamic video",
-  "life after death islamic short film",
-  "life after death islam gcse",
-  "life after death islamic speech",
-  "life after death islam ai",
-  "life after death islam mufti menk",
-  "life after death muslim"
+  "nabi ke sabr ka waqia"
  ],
- "story": "Prophet walks through a quiet graveyard",
- "search": "life after death islamic speech",
- "vision_checks": 156,
+ "story": "Prophet Musa helps two women at Madyan well",
+ "search": "nabi ke sabr ka waqia",
+ "vision_checks": 115,
+ "clips_rejected": 85,
  "sources": {
-  "pixabay": 29,
-  "commons": 8,
-  "nasa": 2,
-  "mixkit": 1
+  "pixabay": 14,
+  "commons": 1
  },
- "clips_rejected": 135,
- "long_minutes": 4.43,
- "time_utc": "2026-11-17 19:48",
- "title": "A powerful life after death islamic speech to reflect on",
+ "photo_clips": 1,
+ "reel_minutes": 1.26,
+ "time_utc": "2026-11-18 06:49",
+ "title": "نبی کے صبر کا واقعہ: حضرت موسیٰؑ کی مدین میں آزمائش",
  "dry_run": false,
  "posted_ok": 1
 }
