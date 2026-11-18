@@ -97,15 +97,13 @@ def plan(h):
         trends = trend_scout.text("faizi")
     except Exception as e:
         log(f"trend research fail: {str(e)[:120]}")
-    d = news.ask_json(f"""You are the creative director of the fashion page "Style by Faizi" (trending dress designs
-for EVERYONE: women, men, girls and boys (kids wear) and babies). The page earns from Facebook ads, so its viewers must
-be in USA, UK, Canada, Europe, Australia and the Gulf (UAE, Saudi Arabia, Qatar, Kuwait). So about 70% of designs must
-be what women and families THERE search for: evening gowns, maxi dresses, cocktail/party dresses, wedding-guest and
-prom dresses, bridal gowns, summer/sundresses, modest fashion (abaya, kaftan, modest maxi), co-ord sets, winter/autumn
-outfits, kids party dresses, baby christening/birthday dresses, men's suits/blazers/smart casual; only about 30% eastern
-styles loved by Gulf and diaspora viewers (anarkali, sharara, lehenga, kurta). Follow their seasons and occasions
-(Christmas, New Year, Valentine's, Easter, prom, wedding season, Ramadan/Eid, summer). It is {month}. Pick ONE fresh
-theme people there are searching for right now (season/occasion/color trend) - not one of these recent themes:
+    d = news.ask_json(f"""You are the creative director of the fashion page "Style by Faizi". The page bio says:
+"Trending dress designs daily - Bridal - Party Wear - Lawn - Eid - Kurti". So EVERY design must be a LADIES (adult
+women's) outfit from these bio categories ONLY: Bridal, Party Wear, Lawn, Eid, Kurti. No men's wear, no kids wear,
+no baby wear, nothing outside these categories. Viewers are in USA, UK, Canada, Europe, Australia and the Gulf
+(UAE, Saudi Arabia, Qatar, Kuwait) and the diaspora. It is {month}. Pick ONE fresh theme from the bio categories
+(e.g. a bridal colour trend, party wear for the season, new lawn prints, Eid outfits, kurti styles) that people are
+searching for right now - not one of these recent themes:
 {json.dumps(themes)}.
 {trends}
 QUALITY: this page must beat the top dress pages (Tayyaba stitching boutique, Easy Stitching) - every design must
@@ -119,11 +117,11 @@ Return JSON:
 {{"theme": "short catchy theme title in English",
  "hook": "one spoken opening sentence (max 14 words) that makes women keep watching",
  "designs": [{{"name": "short outfit name, e.g. Emerald Velvet Sharara",
-              "who": "one of: women, men, girls, boys, baby",
+              "who": "women",
               "prompt": "very detailed English image prompt of ONLY the outfit: type, cut, length, exact colors, fabric, embroidery/work, dupatta, sleeves",
               "line": "one spoken sentence (14-22 words) describing it naturally: color, fabric, work and the occasion it suits"}}],
  "outro": "one spoken closing sentence asking viewers to comment their favourite number and follow Style by Faizi"}}
-Mix the "who" across the designs (mostly women, plus kids/baby and sometimes men), unless the theme is for one group.
+All designs are for adult women only, each from the bio categories (Bridal, Party Wear, Lawn, Eid, Kurti).
 Rules: English; never mention Pakistan, India or prices; family friendly; no brand names.""")
     ds = [x for x in d.get("designs", []) if x.get("prompt") and x.get("name")][:N]
     if len(ds) < max(3, N - 2):
@@ -218,7 +216,9 @@ def check_image(path, flat=False):
     q = ("You are a strict fashion photo editor. Look at this image. Answer ONLY JSON {\"ok\": true/false, \"why\": \"...\"}. "
          "ok=false if ANY of these: no real-looking human model wearing the dress; a mannequin/dress form/doll; "
          "face distorted, blurry, plastic or uncanny; eyes wrong; extra/missing/fused fingers or deformed hands; "
-         "extra limbs or wrong body proportions; text or watermark; revealing or immodest clothing; outfit cut off.")
+         "extra limbs or wrong body proportions; text or watermark; revealing or immodest clothing; outfit cut off; "
+         "the image is a collage, split, grid or has more than one panel; more than one person; the model is a child "
+         "or looks like a doll/cartoon/CGI instead of a real adult woman photographed by a camera.")
     if flat:
         q = ("You are a strict fashion photo editor. Look at this image. Answer ONLY JSON {\"ok\": true/false, \"why\": \"...\"}. "
              "It should be a realistic product photo of a complete outfit laid flat on a background. ok=false if ANY of: "
@@ -272,11 +272,9 @@ def make_images(p):
     REPORT["images"]["rejected"] = 0
     for i, d in enumerate(p["designs"]):
         path = os.path.join(JOB, f"d{i}.jpg")
-        who = d.get("who") if d.get("who") in WHO else "women"
-        # bachon/babies: hamesha flat-lay (Easy Stitching style, koi bacha model nahi); bare: zyada tar asli model
-        flat = who in ("girls", "boys", "baby") or random.random() < 0.3
-        look = FLAT if flat else (LOOK.replace("a real elegant female fashion model", "a real handsome male fashion model")
-                                  if who == "men" else LOOK)
+        who = "women"                         # bio: sirf ladies (Bridal/Party/Lawn/Eid/Kurti)
+        flat = False                          # har tasveer mein asli insan model - flat-lay nahi
+        look = LOOK
         prompt = f"{d['prompt']}, {WHO[who]}"
         good = False
         best = (0, None)
@@ -300,18 +298,13 @@ def make_images(p):
             os.replace(best[1], path)
             good = True
             log(f"design {i + 1}: best backup (score {best[0]})")
-        if good and i < N_DETAIL:
+        if good and i < N_DETAIL and MODE == "reel":   # close-up sirf reel mein alag clip; pic/long mein jodi tasveer nahi
             dp = os.path.join(JOB, f"d{i}_det.jpg")
             dw, dh = (W, H) if MODE == "reel" else (W // 2, H)
             if gen_image(d["prompt"], dw, dh, dp, random.randint(1, 10 ** 6), DETAIL):
                 d = {**d, "detail": dp}
         if good:
-            d = {**d, "main": path}
-            if d.get("detail") and MODE != "reel":     # pic/long: baen taraf kaam ka close-up, daen taraf model
-                try:
-                    path = split_img(d["detail"], path, os.path.join(JOB, f"d{i}_split.jpg"))
-                except Exception as e:
-                    log(f"split skip: {str(e)[:80]}")
+            d = {**d, "main": path}           # ek tasveer = ek model, poori (koi split/collage nahi)
             out.append({**d, "path": path})
             log(f"design {i + 1}: {d['name']}")
         else:
@@ -543,14 +536,8 @@ def main():
     if not DRY_RUN:
         import slot_wait
         slot_wait.wait(log)
-        if MODE == "pic":
-            try:
-                ab = {"path": a_or_b(imgs), "name": "A or B"}
-                cap = f"A or B? 👀 Comment your pick 👇\n\n{cap}"
-                meta["post_id"] = post_album(P, [ab] + imgs, cap)
-            except Exception as e:
-                log(f"A/B tasveer skip: {str(e)[:100]}")
-                meta["post_id"] = post_album(P, imgs, cap)
+        if MODE == "pic":                     # sirf alag alag poori tasveerein - "A or B" jodi tasveer nahi
+            meta["post_id"] = post_album(P, imgs, cap)
         elif MODE == "reel":
             meta["post_id"] = nv.post_reel(P, path, cap)
         else:
