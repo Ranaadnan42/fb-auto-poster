@@ -1,31 +1,29 @@
 {
  "mode": "short",
- "clips": 34,
- "clips_rejected": 185,
- "vision_checks": 214,
+ "clips": 32,
+ "clips_rejected": 244,
+ "vision_checks": 263,
  "errors": [],
  "search_phrases": [
-  "dubai vs saudi arabia jobs",
-  "dubai vs saudi arabia vs qatar",
-  "dubai vs saudi arabia football",
-  "dubai vs saudi arabia comparison",
-  "dubai vs saudi arabia tamil",
-  "dubai vs saudi arabia malayalam",
-  "dubai vs saudi arabia war",
-  "dubai and saudi arabia",
-  "dubai and saudi arabia difference in hindi"
+  "ke bare mein maloomat chahiye",
+  "talaq ke bare mein maloomat",
+  "din ke bare mein maloomat",
+  "hajj ke bare mein maloomat",
+  "quran ke bare mein maloomat",
+  "islam ke bare mein maloomat",
+  "mausam ke bare mein maloomat",
+  "duniya ke bare mein maloomat",
+  "jinnat ke bare mein maloomat"
  ],
+ "search": "duniya ke bare mein maloomat",
  "alt_searches": 8,
- "photos": 8,
- "seconds": 99.3,
+ "photos": 6,
+ "seconds": 107.4,
  "links": [
-  "https://pakistan.diplo.de",
-  "https://www.make-it-in-germany.com",
-  "https://vistoperitalia.esteri.it",
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Germany vs Italy",
- "series": "pk_versus_short",
- "title": "Germany vs Italy: پاکستانی کے لیے کون بہتر؟ | Europe Jobs"
+ "subject": "Switzerland / Zurich",
+ "series": "pk_city_facts",
+ "title": "زیورخ کی حیران کن باتیں | Zurich City Tour"
 }
