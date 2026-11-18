@@ -1,26 +1,28 @@
 {
- "started": "2026-11-18T11:14",
+ "started": "2026-11-18T11:21",
  "steps": [
   "token: user token expires_at=0 data_access_expires_at=1801949831",
   "token: user token tha - page token bana kar istemal kiya",
-  "aaj ka manzar: alpine meadow & village",
+  "aaj ka manzar: snow-capped peaks",
   "Gemini models: gemini-2.5-flash-lite, gemini-3.1-flash-lite, gemini-3.5-flash-lite, gemini-flash-lite-latest, gemini-3.1-flash-lite-preview, gemini-2.5-flash, gemini-3.5-flash, gemini-3.6-flash",
   "brain gemini-2.5-flash-lite: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no lo",
-  "agent ka faisla: Mittenwald, Bavarian Alps, Germany - bright sunny afternoon / vivid green alpine meadow with traditional wooden village and peaks (Iconic Bavarian aesthetic hits the viral green alpine meadow theme perfectly.)",
+  "agent ka faisla: Cortina d'Ampezzo, Dolomites, Italy - bright sunny winter morning / crisp snow-capped peaks against clear blue sky (High visual contrast of white peaks and blue sky drives engagement.)",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: alpine meadow & village",
-  "agent ka faisla: Alpe di Siusi, Dolomites, Italy - bright sunny summer afternoon over vast green alpine meadows and wooden huts (Iconic alpine scenery with strong visual appeal for social media algorithms.)",
+  "aaj ka manzar: snow-capped peaks",
+  "agent ka faisla: Hveravellir, Central Highlands, Iceland - bright sunny winter day with deep blue sky over jagged snow-capped peaks (High-contrast snowy peaks under clear skies perform exceptionally well currently.)",
+  "photo wmi61949866 1920x751: ok=True beauty=4 - Too barren and cold for target aesthetic.",
+  "photo wmi33779083 1920x1248: ok=False beauty=3 - Dull lighting, watermark present, not Hveravellir.",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: crystal clear beach",
-  "agent ka faisla: Koh Kood, Trat Province, Thailand - bright sunny afternoon / crystal clear turquoise tropical water (High-demand tropical aesthetic matches current winter-to-summer trend cycles perfectly.)",
+  "aaj ka manzar: green hills & meadows",
+  "agent ka faisla: The Ring of Kerry, County Kerry, Ireland - bright green afternoon / vibrant rolling emerald hills / sheep grazing in lush pastures (Vivid green landscapes in Ireland have viral potential for calm, cinematic reels.)",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: crystal clear beach",
-  "agent ka faisla: Anse Source d'Argent, La Digue, Seychelles - bright sunny afternoon / crystal clear turquoise water and white sand beach (High-contrast tropical visuals are currently trending for winter travel inspiration.)",
+  "aaj ka manzar: green hills & meadows",
+  "agent ka faisla: Svaneti Region, Georgia - bright sunny afternoon / rolling emerald meadows with grazing cattle (High-contrast alpine greenery and livestock visuals drive high engagement rates.)",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai"
  ],
  "errors": [
   "fatal: 4 jagahon par bhi achi footage nahi mili"
  ],
  "mode": "pic",
- "finished": "2026-11-18T11:16"
+ "finished": "2026-11-18T11:23"
 }
