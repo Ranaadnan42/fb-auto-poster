@@ -1,8 +1,87 @@
 {
- "time_utc": "2026-11-18 00:24",
+ "time_utc": "2026-11-18 04:07",
  "mode": "long",
  "dry_run": false,
  "errors": [
-  "fatal: Groq fail: 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 196240, Reque"
- ]
+  "fatal: sirf 17 sahi clips, 33 text cards - is topic ki video post nahi ki"
+ ],
+ "calls": [
+  {
+   "file": "File:Hector Berlioz - Les Nuits d'été, op.7 - VI L'île inconnue (Victoria de Los Angeles).flac",
+   "license": "public domain"
+  },
+  {
+   "file": "File:Sonus naturalis - Soundscape XC568248.mp3",
+   "license": "cc by-sa 4.0"
+  },
+  {
+   "file": "File:Dacelo novaeguineae ANWC X00520.opus",
+   "license": "cc by 3.0"
+  },
+  {
+   "file": "File:Sonus naturalis - Soundscape XC446856.mp3",
+   "license": "cc by-sa 4.0"
+  },
+  {
+   "file": "File:Pinkandgreygalahsroosting.ogg",
+   "license": "cc by-sa 4.0"
+  },
+  {
+   "file": "File:Bird song, grassy woodlands, central Victoria.ogg",
+   "license": "cc by-sa 4.0"
+  },
+  {
+   "file": "File:Mystery mystery - Identity unknown XC443116.mp3",
+   "license": "cc by-sa 4.0"
+  },
+  {
+   "file": "File:Hector Berlioz - Les Nuits d'été, op.7 - I Villanelle (Victoria de Los Angeles).flac",
+   "license": "public domain"
+  }
+ ],
+ "bird_calls": 8,
+ "kind": "long",
+ "lang": "en",
+ "clips_rejected": 688,
+ "alt_searches": 23,
+ "agent_checks": 13,
+ "agent_rejects": 11,
+ "agent_skips": 674,
+ "tag_pass": 15,
+ "no_match": [
+  "Rainbow lorikeet close up",
+  "Rainbow lorikeet feathers",
+  "Rainbow lorikeet calling",
+  "Rainbow lorikeet feeding",
+  "Laughing kookaburra laughing",
+  "Laughing kookaburra wings",
+  "Laughing kookaburra family",
+  "Laughing kookaburra feeding chicks",
+  "Sulphur-crested cockatoo perched",
+  "Sulphur-crested cockatoo crest",
+  "Sulphur-crested cockatoo flock",
+  "Sulphur-crested cockatoo in trees",
+  "Sulphur-crested cockatoo close up",
+  "Sulphur-crested cockatoo flying",
+  "Galah foraging",
+  "Crimson rosella perched",
+  "Crimson rosella red feathers",
+  "Crimson rosella in forest",
+  "Crimson rosella eating",
+  "Crimson rosella flying",
+  "Crimson rosella close up",
+  "Australian king parrot male",
+  "Australian king parrot in rainforest",
+  "Australian king parrot female",
+  "Australian king parrot eating fruit",
+  "Australian king parrot flying",
+  "Australian king parrot perched",
+  "Southern cassowary walking",
+  "Southern cassowary legs",
+  "Southern cassowary close up",
+  "Southern cassowary head",
+  "Southern cassowary in jungle",
+  "Southern cassowary walking away"
+ ],
+ "headline_cards": 33
 }
