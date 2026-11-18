@@ -1,9 +1,9 @@
 {
- "started": "2026-11-18T19:57",
+ "started": "2026-11-18T20:19",
  "steps": [
   "token: user token expires_at=0 data_access_expires_at=1801949831",
   "token: user token tha - page token bana kar istemal kiya",
-  "aaj ka manzar: river through green valley",
+  "aaj ka manzar: tropical coral reef",
   "Gemini models: gemini-2.5-flash-lite, gemini-3.1-flash-lite, gemini-3.5-flash-lite, gemini-flash-lite-latest, gemini-3.1-flash-lite-preview, gemini-2.5-flash, gemini-3.5-flash, gemini-3.6-flash",
   "brain gemini-2.5-flash-lite: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no lo",
   "brain gemini-3.1-flash-lite: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
@@ -11,26 +11,29 @@
   "brain gemini-flash-lite-latest: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
   "brain gemini-3.1-flash-lite-preview: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
   "brain gemini-2.5-flash: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash is no longer ",
-  "agent ka faisla: Soča Valley, Slovenia, Slovenia - bright sunny afternoon / emerald river through lush alpine valley (Vivid emerald river against green alpine valleys drives massive viewer retention.)",
-  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: river through green valley",
   "brain gemini-3.5-flash: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
   "brain gemini-3.6-flash: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
   "Gemini models: gemini-2.5-flash-lite, gemini-3.1-flash-lite, gemini-3.5-flash-lite, gemini-flash-lite-latest, gemini-3.1-flash-lite-preview, gemini-2.5-flash, gemini-3.5-flash, gemini-3.6-flash",
   "brain gemini-2.5-flash-lite: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no lo",
+  "agent ka faisla: Baa Atoll, Maldives, Maldives - bright sunny tropical morning / vibrant turquoise ocean with coral reefs (Tropical reef content is highly aesthetic and drives intense winter escapism engagement.)",
+  "photo wmi43608882 1920x1440: ok=True beauty=9 - Stunning turquoise water and clear blue sky.",
   "brain gemini-3.1-flash-lite: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
-  "agent ka faisla: Glenorchy, Otago, New Zealand, New Zealand - bright sunny afternoon / crystal clear river winding through vivid green valley (River through green valley fits the owner's exact prompt and New Zealand performs exceptionally.)",
-  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: lush jungle waterfall",
-  "agent ka faisla: Manuel Antonio, Costa Rica, Costa Rica - bright sunny afternoon / lush emerald jungle waterfall and tropical river (Jungle waterfalls capture the warm escape trend perfectly.)",
-  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: lush jungle waterfall",
-  "agent ka faisla: Trafalgar Falls, Dominica, Dominica - bright sunny daytime / lush emerald jungle waterfall under clear blue sky (Lush jungle waterfalls drive extreme stop-scrolling behavior during winter.)",
-  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai"
+  "brain gemini-3.5-flash-lite: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "brain gemini-flash-lite-latest: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "brain gemini-3.1-flash-lite-preview: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "brain gemini-2.5-flash: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash is no longer ",
+  "brain gemini-3.5-flash: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "Post waqt 20:03 UTC guzar chuka - foran post",
+  "photo story lagi",
+  "pic posted: 1345688241970452_122105456271547841"
  ],
- "errors": [
-  "fatal: 4 jagahon par bhi achi footage nahi mili"
- ],
+ "errors": [],
  "mode": "pic",
- "finished": "2026-11-18T19:58"
+ "place": "Baa Atoll, Maldives",
+ "country": "Maldives",
+ "caption": "Where the ocean breathes in shades of turquoise and the coral gardens never sleep. Pure bliss under the tropical sun.\n\n📍 Baa Atoll, Maldives 🇲🇻\n\nStep into paradise where the ocean breathes in pure turquoise. 🏝️🌊\n\nFly over this tropical island blue lagoon aerial view and marvel at the crystal clear turquoise water maldives is famous for. Watch the sunlight illuminate the vibrant sea life coral reef in absolute peace.\n\nWho would you love to explore this peaceful blue paradise with? Tag them below! ✨\n\nFollow for the most beautiful places on Earth in Ultra HD 🌍\n\n#WanderEarth #BaaAtoll #MaldivesTravel #TurquoiseWater #CoralReefParadise #Qatar #SaudiArabia #Australia #TropicalIsland #OceanWanderlust #nature",
+ "clip": "wmi43608882",
+ "beauty": 9,
+ "posted": "1345688241970452_122105456271547841",
+ "finished": "2026-11-18T20:19"
 }
