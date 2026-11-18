@@ -4692,5 +4692,29 @@
   ],
   "sport": "ice hockey",
   "title": "Los Angeles Kings at Boston Bruins"
+ },
+ {
+  "date": "2026-11-18 08:14",
+  "page": "news",
+  "id": "1448208791702551_122111324763532804",
+  "fmt": "breaking",
+  "lang": "en",
+  "topics": [
+   "canada_australia"
+  ],
+  "sport": null,
+  "title": "Usman Khawaja responds to Cricket Australia's sandpapergate independent forum"
+ },
+ {
+  "date": "2026-11-18 08:16",
+  "page": "sports",
+  "id": "1465090056678690_122104473807548502",
+  "fmt": "breaking",
+  "lang": "en",
+  "topics": [
+   "cricket"
+  ],
+  "sport": null,
+  "title": "Cricket Australia to open ‘Sandpapergate’ forum but no new probe"
  }
 ]

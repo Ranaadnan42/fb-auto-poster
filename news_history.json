@@ -1585,6 +1585,25 @@
     "year"
    ],
    "post_id": "1448208791702551_122111273037532804"
+  },
+  {
+   "date": "2026-11-18 08:10",
+   "lang": "en",
+   "topic": "canada_australia",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNSndIYlBEc0tRaURGaWZUbUdYOTUtZDZlQVR4Vnp3LXJ5OS1saDVvcWZuV0o5bWFEaVVPSTZ3YzVodHJ5QlFHY3BjVk1VakV1ZkZSZFdmSFdoTWNGVVladVBTakpPSjRsaTRCVkszbHlyRTU1MHllRy1NTldTN0VnbFR1MW1wYzRUc1lRd3Y3WWZxZGh3RzVXaTdWVXRaWl81SVJVR1RRQW93c1B6N1dMZUt4eWZ4TkFyVFROank3c0pQdUU?oc=5",
+   "title": "Usman Khawaja responds to Cricket Australia's sandpapergate independent forum",
+   "words": [
+    "australia",
+    "cricket",
+    "forum",
+    "independent",
+    "khawaja",
+    "responds",
+    "sandpapergate",
+    "usman"
+   ],
+   "breaking": true,
+   "post_id": "1448208791702551_122111324763532804"
   }
  ],
  "sports": [
@@ -3163,6 +3182,23 @@
     "wednesday"
    ],
    "post_id": "1465090056678690_122104377867548502"
+  },
+  {
+   "date": "2026-11-18 08:10",
+   "lang": "en",
+   "topic": "cricket",
+   "link": "https://news.google.com/rss/articles/CBMiswFBVV95cUxQVzNZYUJmUFYzTF9nQVJ2LXQ0akhkVVR1TWpwVUFuRVF3Smsyd2JSUk1yaHdaWDU2OE9ZcXRrcGw1UmRuQml3bWlLWi1kZ3Fkd0IweW5DV2lQbzZ1cWozSmdmdUNDUnZ6SGY5amR4dEUzLTQySEVLYWNQaDFfR195bTZnN2NXcHpWOHU4R3B1Q09rYkM1bURpRDExSzYwRms0RDRCYTlQaUZGSlZhOG91SGlydw?oc=5",
+   "title": "Cricket Australia to open ‘Sandpapergate’ forum but no new probe",
+   "words": [
+    "australia",
+    "cricket",
+    "forum",
+    "open",
+    "probe",
+    "sandpapergate"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122104473807548502"
   }
  ],
  "used_images": [
@@ -3270,6 +3306,8 @@
   6625476,
   "pxi453758",
   "pxi8048205",
-  "pxi698538"
+  "pxi698538",
+  5365722,
+  5489526
  ]
 }
