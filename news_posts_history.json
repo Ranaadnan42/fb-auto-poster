@@ -4985,5 +4985,39 @@
   ],
   "sport": null,
   "title": "Tyler Herro Returns Amid Milwaukee Trade Tension"
+ },
+ {
+  "date": "2026-11-18 21:25",
+  "page": "news",
+  "id": "1149868137417107",
+  "fmt": "long",
+  "lang": "en",
+  "topics": [
+   "middle_east",
+   "business",
+   "usa",
+   "science_tech",
+   "uk",
+   "world"
+  ],
+  "sport": null,
+  "title": "Global News Bulletin Tech Outages UK Energy Voyager 1 Record"
+ },
+ {
+  "date": "2026-11-18 21:47",
+  "page": "sports",
+  "id": "1107462262188781",
+  "fmt": "long",
+  "lang": "en",
+  "topics": [
+   "athletics",
+   "basketball",
+   "american_football",
+   "mma",
+   "esports",
+   "general"
+  ],
+  "sport": null,
+  "title": "Valtteri Bottas Secures 2027 F1 Seat with Cadillac"
  }
 ]
