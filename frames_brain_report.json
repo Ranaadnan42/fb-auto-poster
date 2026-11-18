@@ -1,55 +1,51 @@
 {
- "time_utc": "2026-11-17 21:38",
+ "time_utc": "2026-11-18 08:17",
  "videos": 63,
- "views": 28506,
- "engagement": 466,
+ "views": 28642,
+ "engagement": 468,
  "by_series": {
   "pk_versus": [
-   1.04,
+   1.08,
    3
   ],
   "pk_moving": [
-   0.57,
+   0.58,
    3
   ],
   "pk_best_list": [
-   1.08,
-   2
+   0.88,
+   3
   ],
   "pk_jobs": [
-   0.41,
+   0.42,
    2
   ],
   "pk_country": [
-   4.18,
+   4.29,
    1
   ],
   "pk_visa": [
-   0.8,
+   0.82,
    2
   ],
   "pk_tour": [
-   0.86,
+   0.88,
    1
   ],
   "pk_living": [
-   0.91,
+   0.93,
    1
   ],
   "pk_jobhow": [
-   0.9,
+   0.92,
    1
   ],
   "pk_city": [
-   1.28,
+   1.32,
    1
   ],
-  "pk_cost_short": [
-   0.43,
-   6
-  ],
   "pk_jobtip": [
-   0.65,
+   0.66,
    4
   ],
   "pk_food": [
@@ -57,23 +53,23 @@
    4
   ],
   "pk_hidden": [
-   0.56,
+   0.55,
    5
   ],
   "pk_salary_short": [
-   0.4,
+   0.42,
    5
   ],
   "pk_city_facts": [
-   0.49,
+   0.48,
    4
   ],
   "pk_versus_short": [
-   1.02,
+   1.0,
    4
   ],
   "pk_visa_short": [
-   0.6,
+   0.59,
    4
   ],
   "pk_tour_short": [
@@ -81,53 +77,61 @@
    6
   ],
   "pk_facts": [
-   0.97,
+   0.95,
    4
+  ],
+  "pk_cost_short": [
+   0.43,
+   5
   ]
  },
  "by_lang": {},
  "by_kind": {
   "long": [
    0.87,
-   17
+   18
   ],
   "short": [
    0.57,
-   46
+   45
   ]
  },
  "best": [
-  "[short/ur] چین کے 6 ناقابل یقین اور حیران کن حقائق | China Facts in Urdu (series pk_facts, views 5475, eng 115, x11.67)",
-  "[short/ur] Canada vs Australia: پاکستانی کے لیے کون سا ملک بہتر ہے؟ | Life Abroad (series pk_versus_short, views 6012, eng 56, x10.35)",
-  "[long/ur] Malta Country Documentary in Urdu | مالٹا کا سفر اور زندگی (series pk_country, views 1358, eng 16, x4.13)"
+  "[short/ur] چین کے 6 ناقابل یقین اور حیران کن حقائق | China Facts in Urdu (series pk_facts, views 5475, eng 115, x11.43)",
+  "[short/ur] Canada vs Australia: پاکستانی کے لیے کون سا ملک بہتر ہے؟ | Life Abroad (series pk_versus_short, views 6019, eng 56, x10.16)",
+  "[long/ur] Malta Country Documentary in Urdu | مالٹا کا سفر اور زندگی (series pk_country, views 1358, eng 16, x4.24)"
  ],
- "summary": "",
+ "summary": "Urdu script wale country comparisons, Malta jaise long documentaries aur Singapore/China ke visual facts shorts bohot acha perform kar rahe hain. Doosri taraf, Roman Urdu titles, food guides aur salary/living cost ke chote clips bilkul views nahi le rahe. Hum ne food aur salary shorts ko rok kar content ko Urdu-script comparative videos aur long country documentaries par shift kar diya hai.",
  "plan": {
-  "updated": "2026-11-17 21:38",
+  "updated": "2026-11-18 08:17",
   "mult": {
-   "pk_versus": 1.02,
-   "pk_moving": 0.75,
-   "pk_best_list": 1.03,
-   "pk_jobs": 0.7,
-   "pk_country": 1.43,
-   "pk_visa": 0.91,
-   "pk_tour": 0.96,
+   "pk_versus": 1.04,
+   "pk_moving": 0.76,
+   "pk_best_list": 0.94,
+   "pk_jobs": 0.71,
+   "pk_country": 1.44,
+   "pk_visa": 0.92,
+   "pk_tour": 0.97,
    "pk_living": 0.98,
-   "pk_jobhow": 0.97,
-   "pk_city": 1.06,
-   "pk_cost_short": 0.57,
-   "pk_jobtip": 0.78,
+   "pk_jobhow": 0.98,
+   "pk_city": 1.07,
+   "pk_jobtip": 0.79,
    "pk_food": 0.52,
-   "pk_hidden": 0.7,
-   "pk_salary_short": 0.56,
-   "pk_city_facts": 0.67,
-   "pk_versus_short": 1.01,
-   "pk_visa_short": 0.75,
+   "pk_hidden": 0.69,
+   "pk_salary_short": 0.58,
+   "pk_city_facts": 0.66,
+   "pk_versus_short": 1.0,
+   "pk_visa_short": 0.74,
    "pk_tour_short": 0.77,
-   "pk_facts": 0.98
+   "pk_facts": 0.97,
+   "pk_cost_short": 0.59
   },
   "tips": [
-   "Use short Urdu videos (≤60s) on comparative country topics like \"Canada vs Australia\" or \"Malta Country Documentary\" as they score >10x. Focus on engaging hooks such as surprising facts or cost comparisons, and keep titl"
+   "Always use Urdu script for titles instead of Roman Urdu: 'Canada vs Australia' in Urdu script hit 6,000+ views (x10.16) while the Roman Urdu version flopped at 31 views (x0.18).",
+   "Completely stop food guides and niche cuisine topics: 'pk_food' is the worst performing series (avg 0.32x, Morocco food had only 4 views).",
+   "Produce more long-form country documentaries and city realities: 'pk_country' (Malta x4.24) and 'pk_city' (Seoul x1.27) strongly outperform page averages.",
+   "For Shorts, focus strictly on dramatic country comparisons and fast visual tours/mind-blowing facts (China facts x11.43, Singapore 60s tour x3.82).",
+   "Avoid short salary and living cost breakdowns: 'pk_salary_short' and 'pk_cost_short' consistently score low (Kuwait 94 views, Sweden 46 views, both under 0.25x)."
   ]
  }
 }

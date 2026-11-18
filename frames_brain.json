@@ -1,28 +1,32 @@
 {
- "updated": "2026-11-17 21:38",
+ "updated": "2026-11-18 08:17",
  "mult": {
-  "pk_versus": 1.02,
-  "pk_moving": 0.75,
-  "pk_best_list": 1.03,
-  "pk_jobs": 0.7,
-  "pk_country": 1.43,
-  "pk_visa": 0.91,
-  "pk_tour": 0.96,
+  "pk_versus": 1.04,
+  "pk_moving": 0.76,
+  "pk_best_list": 0.94,
+  "pk_jobs": 0.71,
+  "pk_country": 1.44,
+  "pk_visa": 0.92,
+  "pk_tour": 0.97,
   "pk_living": 0.98,
-  "pk_jobhow": 0.97,
-  "pk_city": 1.06,
-  "pk_cost_short": 0.57,
-  "pk_jobtip": 0.78,
+  "pk_jobhow": 0.98,
+  "pk_city": 1.07,
+  "pk_jobtip": 0.79,
   "pk_food": 0.52,
-  "pk_hidden": 0.7,
-  "pk_salary_short": 0.56,
-  "pk_city_facts": 0.67,
-  "pk_versus_short": 1.01,
-  "pk_visa_short": 0.75,
+  "pk_hidden": 0.69,
+  "pk_salary_short": 0.58,
+  "pk_city_facts": 0.66,
+  "pk_versus_short": 1.0,
+  "pk_visa_short": 0.74,
   "pk_tour_short": 0.77,
-  "pk_facts": 0.98
+  "pk_facts": 0.97,
+  "pk_cost_short": 0.59
  },
  "tips": [
-  "Use short Urdu videos (≤60s) on comparative country topics like \"Canada vs Australia\" or \"Malta Country Documentary\" as they score >10x. Focus on engaging hooks such as surprising facts or cost comparisons, and keep titl"
+  "Always use Urdu script for titles instead of Roman Urdu: 'Canada vs Australia' in Urdu script hit 6,000+ views (x10.16) while the Roman Urdu version flopped at 31 views (x0.18).",
+  "Completely stop food guides and niche cuisine topics: 'pk_food' is the worst performing series (avg 0.32x, Morocco food had only 4 views).",
+  "Produce more long-form country documentaries and city realities: 'pk_country' (Malta x4.24) and 'pk_city' (Seoul x1.27) strongly outperform page averages.",
+  "For Shorts, focus strictly on dramatic country comparisons and fast visual tours/mind-blowing facts (China facts x11.43, Singapore 60s tour x3.82).",
+  "Avoid short salary and living cost breakdowns: 'pk_salary_short' and 'pk_cost_short' consistently score low (Kuwait 94 views, Sweden 46 views, both under 0.25x)."
  ]
 }

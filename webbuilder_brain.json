@@ -1,31 +1,31 @@
 {
- "updated": "2026-11-17 21:34",
+ "updated": "2026-11-18 08:11",
  "focus_mult": {
-  "social": 0.8,
   "pos": 0.93,
   "app": 1.05,
   "website": 1.1,
   "store": 1.07,
+  "social": 0.78,
   "autopilot": 0.77
  },
  "spot_mult": {
-  "restaurant": 0.6,
+  "restaurant": 0.63,
   "grocery store": 0.7,
-  "pharmacy": 0.83,
+  "pharmacy": 1.08,
   "clothing shop": 1.04,
   "beauty salon": 0.71,
   "school": 0.65,
-  "bakery": 0.99,
+  "bakery": 0.98,
   "electronics shop": 0.4,
   "real estate agency": 0.83,
   "gym": 0.92,
   "car workshop": 1.12,
   "furniture store": 0.85,
   "wholesale distributor": 0.88,
-  "jewellery shop": 1.25,
+  "jewellery shop": 1.24,
   "travel agency": 0.55,
-  "clinic": 0.92,
-  "mobile phone shop": 1.24,
+  "clinic": 0.88,
+  "mobile phone shop": 1.23,
   "hardware store": 0.99,
   "cafe": 1.35,
   "supermarket": 0.94
@@ -33,22 +33,22 @@
  "color_mult": {
   "9": 0.93,
   "3": 1.08,
-  "8": 1.0,
+  "8": 0.92,
   "6": 1.09,
   "0": 1.01,
   "1": 1.0,
   "4": 1.0,
+  "11": 0.65,
   "10": 1.06,
   "5": 1.1,
   "7": 1.09,
-  "2": 0.71,
-  "11": 0.58
+  "2": 1.13
  },
  "tips": [
-  "Start each reel with a bold, benefit‑driven hook in the local language (Urdu or Arabic) like “Apka Business Khud Badhaye!” or “ارتقِ بمتجرك الآن” to capture attention quickly;",
-  "Highlight specific business types that performed best – mobile phone shops, cafes, bakeries, jewellery – and mention how Web Builder’s websites, apps or POS boost sales for them;",
-  "Use the proven title style: “Web Builder کے ساتھ بزنس کو آگے بڑھائیں” or “Supercharge Your Business with Web Builder” – keep it short, action‑oriented and include the brand name;",
-  "Add a clear CTA to message WhatsApp for a free demo or consultation, e.g., “WhatsApp karein free demo ke liye” or “راسلنا على الواتساب الآن”;",
-  "Avoid generic pics without a hook and English‑only reels for non‑English audiences, as they yielded zero views."
+  "Prioritize Arabic and Urdu scripts over English, focusing heavily on top-performing niches: cafes, mobile phone shops, jewellery shops, car workshops, and pharmacies.",
+  "Adopt proven localized hook styles like 'ارتقِ بمتجرك مع ويب بيلدر' and 'بزنس کو آگے بڑھائیں', completely ditching generic English hooks like 'Supercharge Your Business' or 'Boost Your Business Instantly'.",
+  "Avoid producing scripts for low-engagement industries such as electronics shops, travel agencies, schools, and beauty salons until stronger hooks are tested.",
+  "Center script value propositions around Online Stores, Websites, and Mobile Apps, while sidelining standalone AutoPilot AI and generic social media pitches.",
+  "Include a strong, direct call-to-action urging shop and business owners to message directly on WhatsApp to digitize their operations, while strictly avoiding any mention of pricing."
  ]
 }
