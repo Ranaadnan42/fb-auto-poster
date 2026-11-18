@@ -1,13 +1,13 @@
 {
  "islamic": {
-  "at": "2026-11-18T12:06+00:00",
+  "at": "2026-11-18T22:47+00:00",
   "done": [],
   "problems": [],
   "name": "Islamic Motivational Videos",
-  "followers": 1321,
+  "followers": 1323,
   "insights_28d": {},
-  "posts_28d": 178,
-  "eng_28d": 814,
+  "posts_28d": 179,
+  "eng_28d": 824,
   "eng_avg": 4.6,
   "best_hours_pk": [
    3,
@@ -34,7 +34,7 @@
     "at": "13 Nov 03:28"
    }
   ],
-  "low_posts": 12,
+  "low_posts": 11,
   "history": [
    {
     "day": "2026-11-02",
@@ -103,27 +103,27 @@
    },
    {
     "day": "2026-11-18",
-    "followers": 1321,
-    "eng_28d": 814
+    "followers": 1323,
+    "eng_28d": 824
    }
   ],
-  "posts_24h": 4,
-  "last_post": "2026-11-18T08:07+00:00"
+  "posts_24h": 6,
+  "last_post": "2026-11-18T18:50+00:00"
  },
  "funny": {
-  "at": "2026-11-18T12:06+00:00",
+  "at": "2026-11-18T22:47+00:00",
   "done": [],
   "problems": [],
   "name": "Hansi Ka Adda ہنسی کا اڈا",
-  "followers": 1520,
+  "followers": 1519,
   "insights_28d": {},
-  "posts_28d": 224,
-  "eng_28d": 331,
+  "posts_28d": 223,
+  "eng_28d": 332,
   "eng_avg": 1.5,
   "best_hours_pk": [
    0,
-   20,
-   13
+   13,
+   20
   ],
   "top_posts": [
    {
@@ -145,7 +145,7 @@
     "at": "13 Nov 20:35"
    }
   ],
-  "low_posts": 33,
+  "low_posts": 29,
   "history": [
    {
     "day": "2026-11-02",
@@ -214,22 +214,22 @@
    },
    {
     "day": "2026-11-18",
-    "followers": 1520,
-    "eng_28d": 331
+    "followers": 1519,
+    "eng_28d": 332
    }
   ],
   "posts_24h": 6,
-  "last_post": "2026-11-18T08:33+00:00"
+  "last_post": "2026-11-18T17:54+00:00"
  },
  "frames": {
-  "at": "2026-11-18T12:06+00:00",
+  "at": "2026-11-18T22:47+00:00",
   "done": [],
   "problems": [],
   "name": "Frames Of Life",
-  "followers": 81,
+  "followers": 84,
   "insights_28d": {},
-  "posts_28d": 95,
-  "eng_28d": 455,
+  "posts_28d": 98,
+  "eng_28d": 466,
   "eng_avg": 4.8,
   "best_hours_pk": [
    21,
@@ -256,7 +256,7 @@
     "at": "07 Nov 13:41"
    }
   ],
-  "low_posts": 2,
+  "low_posts": 0,
   "history": [
    {
     "day": "2026-11-02",
@@ -325,22 +325,22 @@
    },
    {
     "day": "2026-11-18",
-    "followers": 81,
-    "eng_28d": 455
+    "followers": 84,
+    "eng_28d": 466
    }
   ],
-  "posts_24h": 7,
-  "last_post": "2026-11-18T08:18+00:00"
+  "posts_24h": 6,
+  "last_post": "2026-11-18T19:12+00:00"
  },
  "webbuilder": {
-  "at": "2026-11-18T12:06+00:00",
+  "at": "2026-11-18T22:47+00:00",
   "done": [],
   "problems": [],
   "name": "web builder",
   "followers": 34,
   "insights_28d": {},
-  "posts_28d": 210,
-  "eng_28d": 226,
+  "posts_28d": 215,
+  "eng_28d": 232,
   "eng_avg": 1.1,
   "best_hours_pk": [
    3,
@@ -367,7 +367,7 @@
     "at": "14 Nov 23:54"
    }
   ],
-  "low_posts": 31,
+  "low_posts": 30,
   "history": [
    {
     "day": "2026-11-02",
@@ -437,22 +437,22 @@
    {
     "day": "2026-11-18",
     "followers": 34,
-    "eng_28d": 226
+    "eng_28d": 232
    }
   ],
   "posts_24h": 6,
-  "last_post": "2026-11-18T10:12+00:00"
+  "last_post": "2026-11-18T19:32+00:00"
  },
  "news": {
-  "at": "2026-11-18T12:06+00:00",
+  "at": "2026-11-18T22:47+00:00",
   "done": [],
   "problems": [],
   "name": "News Act",
-  "followers": 51,
+  "followers": 53,
   "insights_28d": {},
-  "posts_28d": 164,
-  "eng_28d": 323,
-  "eng_avg": 2.0,
+  "posts_28d": 172,
+  "eng_28d": 333,
+  "eng_avg": 1.9,
   "best_hours_pk": [
    1,
    5,
@@ -478,7 +478,7 @@
     "at": "16 Nov 05:02"
    }
   ],
-  "low_posts": 78,
+  "low_posts": 80,
   "history": [
    {
     "day": "2026-11-16",
@@ -491,27 +491,27 @@
    },
    {
     "day": "2026-11-18",
-    "followers": 51,
-    "eng_28d": 323
+    "followers": 53,
+    "eng_28d": 333
    }
   ],
-  "posts_24h": 18,
-  "last_post": "2026-11-18T08:52+00:00"
+  "posts_24h": 15,
+  "last_post": "2026-11-18T21:26+00:00"
  },
  "newsur": {
-  "at": "2026-11-18T12:06+00:00",
+  "at": "2026-11-18T22:47+00:00",
   "done": [],
   "problems": [],
   "name": "News Act Urdu",
   "followers": 2,
   "insights_28d": {},
-  "posts_28d": 20,
+  "posts_28d": 22,
   "eng_28d": 11,
-  "eng_avg": 0.6,
+  "eng_avg": 0.5,
   "best_hours_pk": [
    13,
    9,
-   15
+   19
   ],
   "top_posts": [
    {
@@ -533,7 +533,7 @@
     "at": "17 Nov 13:16"
    }
   ],
-  "low_posts": 16,
+  "low_posts": 18,
   "history": [
    {
     "day": "2026-11-16",
@@ -551,22 +551,22 @@
    }
   ],
   "posts_24h": 7,
-  "last_post": "2026-11-18T10:08+00:00"
+  "last_post": "2026-11-18T14:13+00:00"
  },
  "sports": {
-  "at": "2026-11-18T12:06+00:00",
+  "at": "2026-11-18T22:47+00:00",
   "done": [],
   "problems": [],
   "name": "Sports Hubs",
-  "followers": 16,
+  "followers": 17,
   "insights_28d": {},
-  "posts_28d": 211,
-  "eng_28d": 109,
+  "posts_28d": 221,
+  "eng_28d": 116,
   "eng_avg": 0.5,
   "best_hours_pk": [
    18,
    16,
-   17
+   1
   ],
   "top_posts": [
    {
@@ -588,7 +588,7 @@
     "at": "15 Nov 03:20"
    }
   ],
-  "low_posts": 125,
+  "low_posts": 129,
   "history": [
    {
     "day": "2026-11-16",
@@ -601,12 +601,12 @@
    },
    {
     "day": "2026-11-18",
-    "followers": 16,
-    "eng_28d": 109
+    "followers": 17,
+    "eng_28d": 116
    }
   ],
-  "posts_24h": 27,
-  "last_post": "2026-11-18T10:04+00:00"
+  "posts_24h": 23,
+  "last_post": "2026-11-18T22:18+00:00"
  },
  "scenic": {
   "problems": [
@@ -614,18 +614,18 @@
   ]
  },
  "war": {
-  "at": "2026-11-18T12:06+00:00",
+  "at": "2026-11-18T22:47+00:00",
   "done": [],
   "problems": [],
   "name": "Battles Untold",
-  "followers": 2,
+  "followers": 3,
   "insights_28d": {},
-  "posts_28d": 19,
-  "eng_28d": 14,
+  "posts_28d": 24,
+  "eng_28d": 17,
   "eng_avg": 0.7,
   "best_hours_pk": [
+   20,
    3,
-   2,
    4
   ],
   "top_posts": [
@@ -637,18 +637,18 @@
    },
    {
     "eng": 1,
-    "text": "War is expensive, and the state of California officially funded the Mariposa Bat",
-    "url": "https://www.facebook.com/122096977695556052/posts/122097562383556052",
-    "at": "18 Nov 02:47"
+    "text": "The hidden 1851 conflict that changed Yosemite forever. 🏔️📜  📅 When: December 18",
+    "url": "https://www.facebook.com/reel/1824818718640421/",
+    "at": "18 Nov 20:14"
    },
    {
     "eng": 1,
-    "text": "The discovery of gold sparked a fierce struggle for land in the Sierra Nevada. 🏹",
-    "url": "https://www.facebook.com/122096977695556052/posts/122097561705556052",
-    "at": "18 Nov 02:47"
+    "text": "A 146-year-old murder conviction was finally overturned in 2004. ⚖️📜  📅 When: 18",
+    "url": "https://www.facebook.com/reel/2187840121856900/",
+    "at": "18 Nov 18:38"
    }
   ],
-  "low_posts": 7,
+  "low_posts": 9,
   "history": [
    {
     "day": "2026-11-16",
@@ -661,29 +661,35 @@
    },
    {
     "day": "2026-11-18",
-    "followers": 2,
-    "eng_28d": 14
+    "followers": 3,
+    "eng_28d": 17
    }
   ],
-  "posts_24h": 6,
-  "last_post": "2026-11-18T02:23+00:00"
+  "posts_24h": 7,
+  "last_post": "2026-11-18T22:43+00:00"
  },
  "birds": {
-  "at": "2026-11-18T12:06+00:00",
+  "at": "2026-11-18T22:47+00:00",
   "done": [],
   "problems": [],
   "name": "Birds of the World",
-  "followers": 9,
+  "followers": 10,
   "insights_28d": {},
-  "posts_28d": 12,
-  "eng_28d": 4,
-  "eng_avg": 0.3,
+  "posts_28d": 15,
+  "eng_28d": 6,
+  "eng_avg": 0.4,
   "best_hours_pk": [
+   19,
    2,
-   22,
-   16
+   22
   ],
   "top_posts": [
+   {
+    "eng": 2,
+    "text": "Meet the tallest bird that survives the freezing Antarctic wilderness! 🐧❄️  🦜 Bi",
+    "url": "https://www.facebook.com/reel/2698802810522789/",
+    "at": "18 Nov 19:28"
+   },
    {
     "eng": 2,
     "text": "Why does this giant bird carry a legendary fan of eyes? 🦚  🦜 Bird: Indian peafow",
@@ -695,15 +701,9 @@
     "text": "Witness the breathtaking beauty of the majestic Indian peafowl! 🦚✨  The male pea",
     "url": "https://www.facebook.com/122100965943551461/posts/122100880485551461",
     "at": "17 Nov 02:13"
-   },
-   {
-    "eng": 0,
-    "text": "Meet the stunning Western Parotia bird of paradise! 🦜✨  Discover this medium-siz",
-    "url": "https://www.facebook.com/122100965943551461/posts/122102208945551461",
-    "at": "18 Nov 16:47"
    }
   ],
-  "low_posts": 10,
+  "low_posts": 12,
   "history": [
    {
     "day": "2026-11-16",
@@ -716,26 +716,27 @@
    },
    {
     "day": "2026-11-18",
-    "followers": 9,
-    "eng_28d": 4
+    "followers": 10,
+    "eng_28d": 6
    }
   ],
-  "posts_24h": 5,
-  "last_post": "2026-11-18T11:47+00:00"
+  "posts_24h": 4,
+  "last_post": "2026-11-18T21:18+00:00"
  },
  "pets": {
-  "at": "2026-11-18T12:06+00:00",
+  "at": "2026-11-18T22:47+00:00",
   "done": [],
   "problems": [],
   "name": "Dogs & Cats World",
   "followers": 1,
   "insights_28d": {},
-  "posts_28d": 11,
+  "posts_28d": 15,
   "eng_28d": 2,
-  "eng_avg": 0.2,
+  "eng_avg": 0.1,
   "best_hours_pk": [
    4,
-   3
+   23,
+   21
   ],
   "top_posts": [
    {
@@ -746,18 +747,18 @@
    },
    {
     "eng": 0,
-    "text": "Did you know your Lab is part otter? 🦦  🐶 Breed: Labrador Retriever 🌍 Origin: Ne",
-    "url": "https://www.facebook.com/reel/1709973087395593/",
-    "at": "18 Nov 03:27"
+    "text": "Meet the tiny lion from the Baltic region! 🦁  🐶 Breed: Pomeranian 🌍 Origin: Pome",
+    "url": "https://www.facebook.com/reel/1700407131434410/",
+    "at": "19 Nov 03:27"
    },
    {
     "eng": 0,
-    "text": "The German Shepherd is known as one of the most intelligent working dog breeds! ",
-    "url": "https://www.facebook.com/122099314347553453/posts/122099961333553453",
-    "at": "17 Nov 23:37"
+    "text": "Did you know French Bulldogs appeared in Paris in the mid-nineteenth century? 🇫🇷",
+    "url": "https://www.facebook.com/122099314347553453/posts/122100702651553453",
+    "at": "18 Nov 23:37"
    }
   ],
-  "low_posts": 10,
+  "low_posts": 14,
   "history": [
    {
     "day": "2026-11-16",
@@ -775,22 +776,22 @@
    }
   ],
   "posts_24h": 4,
-  "last_post": "2026-11-17T22:27+00:00"
+  "last_post": "2026-11-18T22:27+00:00"
  },
  "wild": {
-  "at": "2026-11-18T12:06+00:00",
+  "at": "2026-11-18T22:47+00:00",
   "done": [],
   "problems": [],
   "name": "Wild Nations",
-  "followers": 1,
+  "followers": 3,
   "insights_28d": {},
-  "posts_28d": 12,
-  "eng_28d": 7,
-  "eng_avg": 0.6,
+  "posts_28d": 16,
+  "eng_28d": 8,
+  "eng_avg": 0.5,
   "best_hours_pk": [
    22,
-   16,
-   3
+   18,
+   16
   ],
   "top_posts": [
    {
@@ -801,18 +802,18 @@
    },
    {
     "eng": 1,
+    "text": "Canada's Untamed Wilderness: Journey Through the Great North  🌍 Country: Canada ",
+    "url": "https://www.facebook.com/reel/1623576648959365/",
+    "at": "18 Nov 06:09"
+   },
+   {
+    "eng": 1,
     "text": "Meet the heavyweight champion of the rodent world! 🦫✨  🐾 Animal: Capybara 🌍 Coun",
     "url": "https://www.facebook.com/reel/1643584477219509/",
     "at": "17 Nov 18:37"
-   },
-   {
-    "eng": 0,
-    "text": "Meet the largest living terrestrial animal on our planet! 🐘🌍  The African bush e",
-    "url": "https://www.facebook.com/122103799419546974/posts/122105008707546974",
-    "at": "18 Nov 16:07"
    }
   ],
-  "low_posts": 10,
+  "low_posts": 13,
   "history": [
    {
     "day": "2026-11-16",
@@ -825,26 +826,27 @@
    },
    {
     "day": "2026-11-18",
-    "followers": 1,
-    "eng_28d": 7
+    "followers": 3,
+    "eng_28d": 8
    }
   ],
   "posts_24h": 6,
-  "last_post": "2026-11-18T11:07+00:00"
+  "last_post": "2026-11-18T20:59+00:00"
  },
  "faizi": {
-  "at": "2026-11-18T12:06+00:00",
+  "at": "2026-11-18T22:47+00:00",
   "done": [],
   "problems": [],
   "name": "Style by Faizi",
   "followers": 0,
   "insights_28d": {},
-  "posts_28d": 10,
+  "posts_28d": 14,
   "eng_28d": 1,
   "eng_avg": 0.1,
   "best_hours_pk": [
    4,
-   2
+   23,
+   20
   ],
   "top_posts": [
    {
@@ -855,18 +857,18 @@
    },
    {
     "eng": 0,
-    "text": "Which velvet glam look is your holiday favorite? ✨👗  1. Cherry Red Satin Slip 2.",
-    "url": "https://www.facebook.com/reel/1665757948418370/",
-    "at": "18 Nov 06:10"
+    "text": "✨ Quiet Luxury Eid Elegance ✨  1. Bordeaux Velvet Eid Anarkali 2. Sapphire Silk ",
+    "url": "https://www.facebook.com/reel/2920882594949230/",
+    "at": "19 Nov 02:47"
    },
    {
     "eng": 0,
-    "text": "✨ Emerald Enchant: Shine at every celebration! ✨  1. Emerald Silk Maxi 2. Emeral",
-    "url": "https://www.facebook.com/reel/2223316965262985/",
-    "at": "18 Nov 02:48"
+    "text": "👑✨ Midnight Orchid Luxe – the gown that turns heads!  1. Midnight Orchid Bridal ",
+    "url": "https://www.facebook.com/122097376215555703/posts/122098581915555703",
+    "at": "18 Nov 23:57"
    }
   ],
-  "low_posts": 9,
+  "low_posts": 13,
   "history": [
    {
     "day": "2026-11-16",
@@ -884,6 +886,6 @@
    }
   ],
   "posts_24h": 6,
-  "last_post": "2026-11-18T01:10+00:00"
+  "last_post": "2026-11-18T21:47+00:00"
  }
 }

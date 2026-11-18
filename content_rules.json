@@ -1,92 +1,104 @@
 {
  "islamic": {
   "avoid": [
-   "توبہ کے واقعات",
-   "وقت کی قدر و قیمت",
-   "ام سلیمؓ کی شجاعت",
-   "غزوہ بدر کا معجزہ",
-   "A powerful life after death islamic speech to reflect on"
+   "The value of time/5 things before 5",
+   "Miracles involving animals (Camel/Horse)",
+   "Title prefix 'توبہ کے واقعات'",
+   "Title prefix 'انبیاء کرام کے واقعات'"
   ],
   "try": [
-   "قصة الصحابي عبد الرحمن بن عوف اور صدقه في غزوة خندق",
-   "حديث نبوي عن الصدق وأثره في التجارة اليومية",
-   "قصة الصحابية رقية بنت خلدون ومساهمتها في نشر العلم",
-   "تفسير آية الصبر في سورة البقرة وربطها بحياة اليوم",
-   "حكاية الصحابي خالد بن الوليد وإيمانه في معركة مؤتة",
-   "دروس من قصة النبي ﷺ مع المرأة التي طلبت الماء في الصحراء"
+   "The story of Prophet Yusuf (AS) and the power of forgiveness",
+   "The miracle of the small meal during the Battle of the Trench",
+   "The importance of kindness to parents (Huqooq-ul-Walidain)",
+   "Hazrat Bilal (RA) and his steadfastness in Makkah",
+   "The story of the 'People of the Cave' (Ashab-e-Kahf)",
+   "The concept of Halal Rizq and the story of a pious merchant"
   ],
-  "note": "Page bohat repetitive lag rahi hai."
+  "note": "Page ka content overall balanced hai, lekin Tawbah aur Tahajjud ke topics thode zyada repeat ho rahe hain."
  },
  "funny": {
   "avoid": [
-   "یاروں کی گروپ چیٹ اور شمالی علاقہ جات series",
-   "پیر کی صبح اور ابّا جی کا کلہاڑی فارمولا",
-   "پلمبر کے پانچ منٹ اور کچن کا واٹر پارک"
+   "rat ke do baje fridge par daka",
+   "majid break aur riksha",
+   "ustad nasir whatsapp virus",
+   "pakistani gharon ke whatsapp dramay",
+   "qist 1 or qist 2 naming pattern"
   ],
   "try": [
-   "پڑوس کے بیکری میں نئی ڈونٹ کی قیمت پر ہنگامہ",
-   "سحری کے دوران بجلی کٹ جانا اور خاندان کی ہنسی",
-   "آن لائن کلاس کے دوران انٹرنیٹ ڈراپ اور والد کی ٹیکنیکل مشورے",
-   "نیا موبائل پلان اور فیملی کے ڈیٹا کی جنگ",
-   "پہلا دن نئی نوکری کا اور امی کا مشورہ",
-   "گرمیوں میں ایئر کنڈیشنر کی ٹھنڈک پر گھر کی بحث"
+   "electricity bill aur aam public ka jazbaati rad-e-amal",
+   "wifi router ki batti kharab honay par ghar walon ki panic situation",
+   "laundry machine mein kapray daltay waqt bhool janay walay sakkay aur chabian",
+   "baba ji aur free mashwaray on every single life problem",
+   "online food delivery rider ke sath address samjhanay ki roz marra ki jang",
+   "khuwabon mein lottery jeetnay ke baad foran ammi ka utha dena"
   ],
-  "note": "Page ka content kaafi repetitive lag raha hai."
+  "note": "Page bilkul theek chal raha hai, bas pichle dinon mein WhatsApp chats aur series ke parts kuch zyada ho gaye thay jinhein thora vary karne ki zarurat hai."
  },
  "world": {
   "avoid": [
-   "What Nobody Tells You series"
+   "What Nobody Tells You",
+   "Retiring in X"
   ],
   "try": [
-   "Living in Greece: Cost, Culture & Daily Life",
-   "Moving to Estonia: Hidden Gems & Affordable Living",
-   "Chile Country Documentary: From Andes to Coast",
-   "Iceland Lifestyle Guide: Safety, Jobs & Weather",
-   "Morocco Travel & Living Tips: Markets, Culture, Costs",
-   "Argentina Deep Dive: Food, Festivals, and Expat Life"
+   "Living in Iceland – Cost, Jobs, Safety & Culture",
+   "Retiring in Malta: The Honest Truth for Expats",
+   "Moving to Peru: What Nobody Tells You",
+   "What Living in Estonia Is Really Like (Cost, Jobs & Quality)",
+   "What Nobody Tells You About Living in Hong Kong",
+   "Retiring in Belize: What Nobody Tells You About Living Here"
   ],
-  "note": "Page bohat repetitive lag rahi hai."
+  "note": "Page bohat repetitive hai."
  },
  "world_short": {
   "avoid": [
-   "Comparing UK/Australia/Canada with other countries",
-   "Secret places in Italy or Greece"
+   "Would You Live in",
+   "5 Secret Places in",
+   "Japan",
+   "Chile",
+   "South Korea"
   ],
   "try": [
-   "Cost of living in Buenos Aires, Argentina: Real rent vs. lifestyle",
-   "5 Hidden Gems in Morocco: Beyond Marrakech",
-   "Traditional Food of Thailand: 5 Street Foods You Must Try",
-   "Would You Live in Cape Town? The Untold Truth (Revisit with new angle on safety/",
-   "6 Surprising Facts About Brazil You Didn't Know",
-   "Switzerland vs. Germany: Wages, Cost and Lifestyle Compared"
+   "The Hidden Gems of Bhutan: 5 Places You Must See",
+   "Cost of Living in Nairobi, Kenya: A Realistic Breakdown",
+   "Traditional Food of Morocco: 5 Must-Try Dishes",
+   "5 Secret Places in Vietnam You Never Knew Existed",
+   "Would You Live in Reykjavik, Iceland? Pros, Cons & Cost",
+   "London vs Berlin: Which City Should You Choose?"
   ],
-  "note": "Page is repetitive on cost-of-living comparisons and specific European food/secret places."
+  "note": "Page bohat repetitive hai."
  },
  "frames": {
-  "avoid": [],
-  "try": [
-   "South Africa Visa Guide for Pakistanis",
-   "Life in Singapore",
-   "Jobs in Saudi Arabia",
-   "Cheapest countries for Pakistani students in Asia",
-   "Education in Germany for Pakistani students",
-   "Travel guide to Bhutan"
+  "avoid": [
+   "Dubai",
+   "United Kingdom",
+   "London"
   ],
-  "note": "Page bohat repetitive hai, har post same type ka."
+  "try": [
+   "سوئٹزرلینڈ میں پاکستانیوں کے لیے روزگار اور رہائش",
+   "فن لینڈ: دنیا کا خوش ترین ملک اور پاکستانیوں کے لیے مواقع",
+   "سعودی عرب میں نئے ویزا قوانین اور ورک کلچر",
+   "ترکی میں تعلیم اور اسکالرشپ کا مکمل طریقہ کار",
+   "مجارستان (Hungary) میں پاکستانیوں کے لیے ورک ویزا",
+   "آسٹریا میں زندگی اور کام کرنے کا تجربہ"
+  ],
+  "note": "Page kafi had tak repetitive ho chuki hai, ab naye countries aur mukhtalif topics par focus karne ki zaroorat hai."
  },
  "frames_short": {
   "avoid": [
-   "Sair"
+   "پاکستانی کے لیے کون بہتر",
+   "حیران کن حقائق",
+   "خوبصورت جگہیں",
+   "کھانے"
   ],
   "try": [
-   "Argentina: Buenos Aires living cost",
-   "Kenya: Nairobi expat life",
-   "Egypt: Cairo job market",
-   "UAE: Dubai salary vs cost",
-   "South Africa: Cape Town lifestyle",
-   "Nigeria: Lagos startup scene"
+   "Vietnam: Digital Nomad life in Da Nang",
+   "Kazakhstan: Cultural traditions and Almaty lifestyle",
+   "Argentina: Cost of living for remote workers in Buenos Aires",
+   "Singapore: Public transport and housing tips for expats",
+   "Mauritius: Work-life balance and island living",
+   "Oman: Hidden gems and travel guide for Pakistani tourists"
   ],
-  "note": "Page bohat repetitive hai, titles aur topics baar baar repeat ho rahe hain."
+  "note": "Page kafi had tak repetitive hai, har video ka format aur title structure aik jaisa hai."
  },
  "_platforms": {
   "islamic": {

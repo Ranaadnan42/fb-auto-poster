@@ -1,67 +1,225 @@
 {
  "islamic": {
-  "video": "4647566535473794",
-  "at": "2026-11-18T08:07:09+0000",
-  "note": "vision AI busy - agli dafa",
-  "history": [],
-  "avg": null,
-  "lessons": []
+  "video": "1940883863956312",
+  "at": "2026-11-18T18:50:16+0000",
+  "title": "#SubhanaAllah",
+  "score": 0,
+  "checked": 1,
+  "misses": [
+   {
+    "t": 3.1,
+    "match": false,
+    "said": "making someone a widow",
+    "shown": "a park at night"
+   }
+  ],
+  "history": [
+   {
+    "day": "2026-11-18",
+    "score": 0
+   }
+  ],
+  "avg": 0,
+  "lessons": [
+   "said \"making someone a widow\" but showed \"a park at night\""
+  ]
  },
  "funny": {
-  "video": "2068417997205474",
-  "at": "2026-11-18T08:33:07+0000",
-  "note": "vision AI busy - agli dafa",
-  "history": [],
-  "avg": null,
-  "lessons": []
+  "video": "3051300295205830",
+  "at": "2026-11-18T17:54:18+0000",
+  "title": "",
+  "score": 60,
+  "checked": 5,
+  "misses": [
+   {
+    "t": 4.1,
+    "match": false,
+    "said": "student remembering homework due at a graveyard",
+    "shown": "a notebook on a desk"
+   },
+   {
+    "t": 45.5,
+    "match": false,
+    "said": "Forgetting homework copy at home",
+    "shown": "Bridge towering above clouds"
+   }
+  ],
+  "history": [
+   {
+    "day": "2026-11-18",
+    "score": 60
+   }
+  ],
+  "avg": 60,
+  "lessons": [
+   "said \"student remembering homework due at a graveyard\" but showed \"a notebook on a desk\"",
+   "said \"Forgetting homework copy at home\" but showed \"Bridge towering above clouds\""
+  ]
  },
  "frames": {
-  "video": "2323640588411961",
-  "at": "2026-11-18T08:17:31+0000",
-  "note": "vision AI busy - agli dafa",
-  "history": [],
-  "avg": null,
+  "video": "1527183412555400",
+  "at": "2026-11-18T19:11:36+0000",
+  "title": "لندن کی سیر کریں 🌍\n\nلندن ٹور ان اردو میں دیکھیں اور ویزا، جاب اور لاگت کے بارے م",
+  "score": 100,
+  "checked": 5,
+  "misses": [],
+  "history": [
+   {
+    "day": "2026-11-18",
+    "score": 100
+   }
+  ],
+  "avg": 100,
   "lessons": []
  },
  "war": {
-  "video": "1126139740427876",
-  "at": "2026-11-18T02:23:09+0000",
-  "note": "vision AI busy - agli dafa",
-  "history": [],
-  "avg": null,
-  "lessons": []
+  "video": "1114764154680517",
+  "at": "2026-11-18T22:43:05+0000",
+  "title": "",
+  "score": 0,
+  "checked": 5,
+  "misses": [
+   {
+    "t": 2.4,
+    "match": false,
+    "said": "civilian deaths in a brutal war",
+    "shown": "text overlay about a shocking toll"
+   },
+   {
+    "t": 8.4,
+    "match": false,
+    "said": "Philippine-American War",
+    "shown": "Text on a dark background"
+   },
+   {
+    "t": 15.2,
+    "match": false,
+    "said": "US annexation of the Philippines",
+    "shown": "text on a dark background"
+   },
+   {
+    "t": 22.5,
+    "match": false,
+    "said": "clashes in Manila involving Emilio Aguinaldo",
+    "shown": "text on screen about outbreak of war"
+   },
+   {
+    "t": 29.4,
+    "match": false,
+    "said": "Filipino guerrilla tactics and Aguinaldo's capture",
+    "shown": "Text on screen about turning point"
+   }
+  ],
+  "history": [
+   {
+    "day": "2026-11-18",
+    "score": 0
+   }
+  ],
+  "avg": 0,
+  "lessons": [
+   "said \"civilian deaths in a brutal war\" but showed \"text overlay about a shocking toll\"",
+   "said \"Philippine-American War\" but showed \"Text on a dark background\"",
+   "said \"US annexation of the Philippines\" but showed \"text on a dark background\"",
+   "said \"clashes in Manila involving Emilio Aguinaldo\" but showed \"text on screen about outbreak of war\"",
+   "said \"Filipino guerrilla tactics and Aguinaldo's capture\" but showed \"Text on screen about turning point\""
+  ]
  },
  "birds": {
-  "video": "1456220262595532",
-  "at": "2026-11-17T21:17:08+0000",
-  "note": "vision AI busy - agli dafa",
-  "history": [],
-  "avg": null,
-  "lessons": []
+  "video": "1132597632974089",
+  "at": "2026-11-18T21:17:22+0000",
+  "title": "",
+  "score": 80,
+  "checked": 5,
+  "misses": [
+   {
+    "t": 37.0,
+    "match": false,
+    "said": "frogs and grass seeds for food",
+    "shown": "close-up of a crowned crane"
+   }
+  ],
+  "history": [
+   {
+    "day": "2026-11-18",
+    "score": 80
+   }
+  ],
+  "avg": 80,
+  "lessons": [
+   "said \"frogs and grass seeds for food\" but showed \"close-up of a crowned crane\""
+  ]
  },
  "pets": {
-  "video": "1117369307738701",
-  "at": "2026-11-17T22:27:13+0000",
-  "note": "vision AI busy - agli dafa",
-  "history": [],
-  "avg": null,
+  "video": "1147392404342618",
+  "at": "2026-11-18T22:27:08+0000",
+  "title": "",
+  "score": 100,
+  "checked": 5,
+  "misses": [],
+  "history": [
+   {
+    "day": "2026-11-18",
+    "score": 100
+   }
+  ],
+  "avg": 100,
   "lessons": []
  },
  "wild": {
-  "video": "1623576648959365",
-  "at": "2026-11-18T01:07:01+0000",
-  "note": "vision AI busy - agli dafa",
-  "history": [],
-  "avg": null,
+  "video": "1448168206817801",
+  "at": "2026-11-18T20:58:25+0000",
+  "title": "",
+  "score": 100,
+  "checked": 5,
+  "misses": [],
+  "history": [
+   {
+    "day": "2026-11-18",
+    "score": 100
+   }
+  ],
+  "avg": 100,
   "lessons": []
  },
  "news": {
-  "video": "1184274721204957",
-  "at": "2026-11-18T08:51:56+0000",
-  "note": "vision AI busy - agli dafa",
-  "history": [],
-  "avg": null,
-  "lessons": []
+  "video": "1149868137417107",
+  "at": "2026-11-18T21:24:23+0000",
+  "title": "Global news bulletin covering tech outages, energy costs & Voyager 1 🌍\n\nHere is ",
+  "score": 40,
+  "checked": 5,
+  "misses": [
+   {
+    "t": 3.1,
+    "match": false,
+    "said": "international tech disruptions and space milestones",
+    "shown": "vintage television studio cameras"
+   },
+   {
+    "t": 171.9,
+    "match": false,
+    "said": "Apple and air traffic authorities",
+    "shown": "United States flag"
+   },
+   {
+    "t": 230.6,
+    "match": false,
+    "said": "establishing strict operational standards",
+    "shown": "The Royal Courts of Justice building"
+   }
+  ],
+  "history": [
+   {
+    "day": "2026-11-18",
+    "score": 40
+   }
+  ],
+  "avg": 40,
+  "lessons": [
+   "said \"international tech disruptions and space milestones\" but showed \"vintage television studio cameras\"",
+   "said \"Apple and air traffic authorities\" but showed \"United States flag\"",
+   "said \"establishing strict operational standards\" but showed \"The Royal Courts of Justice building\""
+  ]
  },
  "newsur": {
   "video": "1172032355506739",
