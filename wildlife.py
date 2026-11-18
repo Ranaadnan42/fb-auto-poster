@@ -201,7 +201,7 @@ def write_script(facts):
     c = facts["country"]
     if MODE == "reel":
         shape = f"""a vertical REEL of 160-200 spoken words (60-75 seconds) in 7-9 scenes about ONE animal of {c}:
-  1) a scroll-stopping hook (the most surprising true fact), 2) where in {c} it lives (habitat), 3) what it looks like
+  1) a very short, punchy scroll-stopping hook (the most surprising true fact, max 12 words), 2) where in {c} it lives (habitat), 3) what it looks like
   / how big, 4) what it eats and how it hunts or feeds, 5-6) its most amazing behaviour or super-power, 7) family life
   / babies, 8) is it endangered (only as the facts say), 9) "Follow Wild Nations - the real wildlife of every country." """
         body = f"ANIMAL: {facts['title']}\nWIKIPEDIA:\n{facts['text']}\n\nWILDLIFE OF {c.upper()} (context):\n{facts['country_text']}"
