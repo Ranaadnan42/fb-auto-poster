@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-18 20:08",
+ "time_utc": "2026-11-18 14:30",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1448208791702551_122111543373532804",
-   "topic": "pakistan",
-   "title": "Pakistan successfully launches FATAH-III supersonic cruise missile"
+   "post": "1448208791702551_122111456889532804",
+   "topic": "europe",
+   "title": "Russian military plane crashes, killing all 19 on board"
   },
   "sports": {
-   "post": "1465090056678690_122104976529548502",
-   "topic": "big_events",
-   "title": "USA Basketball announces roster for World Cup qualifying games in Nov."
+   "post": "1465090056678690_122104743933548502",
+   "topic": "olympic_sports",
+   "title": "Tyumen’s Alexandra Stashkevich represents Russia at Miss Universe 2026 in Hato Rey, San Juan"
   }
  },
  "errors": []

@@ -1,24 +1,30 @@
 {
- "time_utc": "2026-11-18 19:39",
+ "time_utc": "2026-11-18 20:03",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-18 19:39",
+   "date": "2026-11-18 20:03",
    "kind": "reel",
    "lang": "en",
-   "title": "Anthropic AI founders set for multi-billion dollar stock debut",
-   "dur": 54,
-   "post_id": "1620122702622919"
+   "title": "UK Inflation Rises to 3.6% Driven by Fuel Costs",
+   "dur": 46,
+   "post_id": "1709211240874776"
+  },
+  "sports": {
+   "date": "2026-11-18 20:03",
+   "kind": "reel",
+   "lang": "en",
+   "title": "Tyler Herro Returns Amid Milwaukee Trade Tension",
+   "dur": 47,
+   "post_id": "1463534205357923"
   }
  },
- "errors": [
-  "sports: awaaz nahi bani"
- ],
- "clips_rejected": 89,
- "agent_checks": 96,
- "agent_rejects": 89,
- "agent_skips": 0,
- "alt_searches": 1
+ "errors": [],
+ "clips_rejected": 134,
+ "agent_checks": 132,
+ "agent_rejects": 123,
+ "agent_skips": 9,
+ "alt_searches": 3
 }
