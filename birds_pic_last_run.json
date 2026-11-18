@@ -3,21 +3,38 @@
  "agent": "birds",
  "dry_run": false,
  "log": [
-  "Subject: Keel-billed toucan",
-  "photo commons wmi69988047 1920x1410: agent=True",
-  "--- caption ---\nMeet the vibrant keel-billed toucan 🦜\n\nNative to tropical forests of southern Mexico and Central America, this rainbow-billed bird features a brightly colored bill that makes up one-third of its total length.\n\nDid you know this stunning species is the national bird of Belize?\n\nFollow",
-  "Video tayyar - 37 minute intezar, post 17:47 UTC par hogi",
+  "Subject: Greater bird-of-paradise",
+  "photo commons wmi10771492 1224x2443: agent=False",
+  "photo commons wmi5801241 1920x2891: agent=False",
+  "photo commons wmi41330804 1920x1152: agent=False",
+  "photo commons wmi52111818 1920x975: agent=False",
+  "photo commons wmi7932046 1920x1440: agent=False",
+  "photo commons wmi75726374 1920x2996: agent=False",
+  "photo commons wmi75726507 1920x2704: agent=False",
+  "photo commons wmi45985776 1920x1277: agent=False",
+  "photo commons wmi45986927 1920x1277: agent=False",
+  "photo commons wmi45988787 1920x1277: agent=False",
+  "photo commons wmi46187735 1920x1277: agent=False",
+  "photo commons wmi46187734 1920x1277: agent=False",
+  "photo commons wmi75790893 1920x2950: agent=False",
+  "photo commons wmi56708636 1920x2594: agent=False",
+  "photo commons wmi56708664 1920x2580: agent=False",
+  "photo commons wmi54986861 1920x2528: agent=False",
+  "Subject: Western parotia",
+  "photo commons wmi154371411 1920x1280: agent=True",
+  "--- caption ---\nMeet the stunning Western Parotia bird of paradise! 🦜✨\n\nDiscover this medium-sized bird featuring jet black plumage, golden-green breast shields, and unique head wires. Watch how the male compares to the unadorned brown female.\n\nWhat is your favorite feature of this magnificent bird?",
+  "Video tayyar - 35 minute intezar, post 11:47 UTC par hogi",
   "Waqt ho gaya - post kar rahe hain",
   "photo story lagi",
-  "posted 1390293244177890_122101517307551461"
+  "posted 1390293244177890_122102208945551461"
  ],
  "errors": [],
  "posted": {
-  "subject": "Keel-billed toucan",
-  "photo": "wmi69988047",
+  "subject": "Western parotia",
+  "photo": "wmi154371411",
   "src": "commons",
-  "size": "1920x1410",
-  "date": "2026-11-17 17:09",
-  "post_id": "1390293244177890_122101517307551461"
+  "size": "1920x1280",
+  "date": "2026-11-18 11:11",
+  "post_id": "1390293244177890_122102208945551461"
  }
 }
