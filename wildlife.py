@@ -200,8 +200,16 @@ def write_script(facts):
         pass
     c = facts["country"]
     if MODE == "reel":
+        hook_style = random.choice([
+            "a hunting or feeding moment (how it catches or finds food)",
+            "a speed, jump, swim or flight moment (how fast/far it moves)",
+            "a baby / parenting moment",
+            "a surprising everyday habit (sleeping, drinking, communicating, hiding)",
+            "a myth people believe about it, then the truth",
+            "a question to the viewer about this animal, answered in scene 2",
+            "a dangerous or tense moment in the wild (no blood)"])
         shape = f"""a vertical REEL of 160-200 spoken words (60-75 seconds) in 7-9 scenes about ONE animal of {c}:
-  1) a very short, punchy scroll-stopping hook (the most surprising true fact that a camera CAN SHOW - its size, speed, hunting or behaviour; never internal organs like liver/bones/DNA - max 12 words), 2) where in {c} it lives (habitat), 3) what it looks like
+  1) a very short, punchy scroll-stopping hook, max 12 words, built on {hook_style}. It must be something a camera CAN SHOW. NEVER open with size/weight/height superlatives (heavyweight, giant, biggest, tallest, titan, tons) or internal organs (liver, bones, DNA) - our last reels all opened that way and became repetitive, 2) where in {c} it lives (habitat), 3) what it looks like
   / how big, 4) what it eats and how it hunts or feeds, 5-6) its most amazing behaviour or super-power, 7) family life
   / babies, 8) is it endangered (only as the facts say), 9) "Follow Wild Nations - the real wildlife of every country." """
         body = f"ANIMAL: {facts['title']}\nWIKIPEDIA:\n{facts['text']}\n\nWILDLIFE OF {c.upper()} (context):\n{facts['country_text']}"
@@ -236,7 +244,7 @@ Rules:
   a filmable moment of that animal - picture and voice must always match.
 {trends}
 Return JSON:
-{{"title": "Facebook video title, max 12 words, curiosity hook that NAMES the animals (e.g. 'Moose, Wolves & Polar Bears of Canada') - never a landscape title like 'Untamed Wilderness' or 'Journey Through'",
+{{"title": "Facebook video title, max 12 words (for reels: no 'Meet the ...' / 'heavyweight' / 'giant' / 'titan' pattern), curiosity hook that NAMES the animals (e.g. 'Moose, Wolves & Polar Bears of Canada') - never a landscape title like 'Untamed Wilderness' or 'Journey Through'",
   "badge": "short on-screen badge, e.g. '{c.upper()}'",
   "subjects": ["2-5 exact English Wikipedia titles: the animal(s) and the main wild places in {c}"],
   "card": {{"animal": "...", "country": "{c}", "habitat": "max 8 words", "diet": "max 8 words", "status": "as written, or 'unknown'"}},
