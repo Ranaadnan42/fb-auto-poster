@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-17 22:04",
+ "time_utc": "2026-11-18 04:07",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "sports": {
-   "key": "f401933879",
-   "sport": "football",
-   "date": "2026-11-17 22:04",
+   "key": "t401910003",
+   "sport": "basketball",
+   "date": "2026-11-18 04:07",
    "lang": "en",
-   "match": "Tahiti vs Cook Islands",
-   "result": "Tahiti 3-3 Cook Islands (draw)",
-   "dur": 60,
-   "post_id": "1116425011271199"
+   "match": "Portland Trail Blazers at Minnesota Timberwolves",
+   "result": "Minnesota Timberwolves beat Portland Trail Blazers 106-105",
+   "dur": 68,
+   "post_id": "1896996894454067"
   }
  },
  "errors": []

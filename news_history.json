@@ -1569,6 +1569,22 @@
     "wave"
    ],
    "post_id": "1448208791702551_122111246757532804"
+  },
+  {
+   "date": "2026-11-18 05:28",
+   "lang": "en",
+   "topic": "world",
+   "link": "https://www.theguardian.com/science/2026/nov/18/cambridge-word-of-the-year-human",
+   "title": "‘Human’ wins Cambridge dictionary’s word of the year",
+   "words": [
+    "cambridge",
+    "dictionary",
+    "human",
+    "wins",
+    "word",
+    "year"
+   ],
+   "post_id": "1448208791702551_122111273037532804"
   }
  ],
  "sports": [
@@ -3130,6 +3146,23 @@
     "world"
    ],
    "post_id": "1465090056678690_122104348761548502"
+  },
+  {
+   "date": "2026-11-18 05:28",
+   "lang": "en",
+   "topic": "football",
+   "link": "https://www.bbc.co.uk/sport/football/articles/cvx2xwx604y0o?at_medium=RSS&at_campaign=rss",
+   "title": "Liverpool lead Chelsea in Camara race - Wednesday's gossip",
+   "words": [
+    "camara",
+    "chelsea",
+    "gossip",
+    "lead",
+    "liverpool",
+    "race",
+    "wednesday"
+   ],
+   "post_id": "1465090056678690_122104377867548502"
   }
  ],
  "used_images": [
@@ -3236,6 +3269,7 @@
   1455038,
   6625476,
   "pxi453758",
-  "pxi8048205"
+  "pxi8048205",
+  "pxi698538"
  ]
 }
