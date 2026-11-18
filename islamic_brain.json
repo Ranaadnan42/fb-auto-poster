@@ -1,7 +1,6 @@
 {
- "updated": "2026-11-18 08:15",
+ "updated": "2026-11-18 21:14",
  "mult": {
-  "patience (sabr) in hardship": 1.03,
   "stories of the prophets mentioned in the Quran": 0.85,
   "controlling anger": 0.83,
   "the blessings of Friday (Jumma): Surah Kahf, durood and dua": 1.1,
@@ -10,19 +9,19 @@
   "reflection on a Quran verse": 1.25,
   "finding peace in remembering Allah (dhikr)": 1.06,
   "honesty and trust (amanah)": 1.2,
-  "a story of a prophet's trial and patience": 1.09,
-  "the power of dua": 1.09,
-  "repentance (tawbah) and second chances": 0.97,
-  "charity (sadaqah)": 0.96,
+  "a story of a prophet's trial and patience": 1.12,
+  "the power of dua": 1.08,
+  "repentance (tawbah) and second chances": 0.96,
+  "charity (sadaqah)": 0.95,
   "a true miracle in the life of Prophet Muhammad": 0.97,
   "a sunnah of the Prophet for daily life": 0.98,
-  "lessons from the life of Prophet Muhammad": 0.86,
-  "good character and manners": 1.01,
-  "stories of the Sahaba": 0.93,
+  "lessons from the life of Prophet Muhammad": 0.85,
+  "good character and manners": 1.0,
+  "stories of the Sahaba": 0.92,
   "the value of time": 1.08,
   "Jannah and how to reach it": 1.04,
-  "a lesson-filled event from early Islamic history": 1.01,
-  "death, the grave and the hereafter": 0.98,
+  "a lesson-filled event from early Islamic history": 1.0,
+  "death, the grave and the hereafter": 0.97,
   "Islamic history and the golden age": 0.93,
   "rizq (provision) comes from Allah": 1.02,
   "an authentic hadith of Prophet Muhammad and its meaning": 0.97,
@@ -30,14 +29,15 @@
   "kindness to parents": 0.97,
   "humility and avoiding arrogance": 1.06,
   "a powerful story of a Sahabi's sacrifice": 0.98,
+  "patience (sabr) in hardship": 1.09,
   "the night prayer (tahajjud)": 1.1,
   "hope after sadness": 0.96
  },
  "tips": [
-  "Focus heavily on 'reflection on a Quran verse' (1.76x) and 'honesty and trust (amanah)' (1.57x) with dramatic, character-driven hooks like Hazrat Umar (RA) or Ayat al-Kursi.",
-  "Prioritize practical spiritual daily habits: push 'the night prayer (tahajjud)' (1.48x), 'trusting Allah (tawakkul)' (1.28x), and Jummah reminders (1.21x).",
-  "Completely avoid generic lecture-style titles on basic ethics like 'controlling anger' (0.72x) and generic 'value of salah' (0.26x); replace them with narrative mystery hooks.",
-  "Cut down broad Islamic history war narratives (e.g. معرکہ قادسیہ, 0.57x) and standard prophets' outlines (0.73x) unless framed around intense emotional miracles (e.g. 313 in Badr, 1.93x).",
-  "Both Reels (0.99x) and Long videos (0.97x) perform closely, but Reels drive higher engagement rates; use curiosity-inducing 'وہ عظیم تحفہ' style titles."
+  "Prioritize 'Quranic Verse Reflections' and 'Miracles (Mu'jiza)' as these are your highest-performing themes.",
+  "Avoid generic moral preaching (e.g., 'how to control anger') and broad historical narratives, as they are significantly underperforming.",
+  "Use 'Wonder' or 'Result' hooks (e.g., 'The power of this verse...') instead of 'Instructional' hooks (e.g., 'The importance of...').",
+  "Focus on Sahaba stories that highlight specific, high-stakes virtues like Amanah (Honesty) and Tawakkul (Trust).",
+  "Target high-income demographics by emphasizing spiritual peace and divine intervention rather than basic etiquette/manners."
  ]
 }

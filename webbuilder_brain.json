@@ -1,54 +1,55 @@
 {
- "updated": "2026-11-18 08:11",
+ "updated": "2026-11-18 21:07",
  "focus_mult": {
-  "pos": 0.93,
-  "app": 1.05,
-  "website": 1.1,
   "store": 1.07,
+  "pos": 0.93,
   "social": 0.78,
+  "app": 1.05,
+  "website": 1.11,
   "autopilot": 0.77
  },
  "spot_mult": {
-  "restaurant": 0.63,
-  "grocery store": 0.7,
-  "pharmacy": 1.08,
-  "clothing shop": 1.04,
+  "clothing shop": 1.05,
   "beauty salon": 0.71,
   "school": 0.65,
-  "bakery": 0.98,
+  "bakery": 0.99,
   "electronics shop": 0.4,
   "real estate agency": 0.83,
   "gym": 0.92,
-  "car workshop": 1.12,
-  "furniture store": 0.85,
+  "car workshop": 1.13,
+  "furniture store": 0.83,
   "wholesale distributor": 0.88,
-  "jewellery shop": 1.24,
+  "jewellery shop": 1.25,
   "travel agency": 0.55,
+  "restaurant": 0.6,
+  "grocery store": 0.7,
+  "pharmacy": 1.06,
   "clinic": 0.88,
-  "mobile phone shop": 1.23,
+  "mobile phone shop": 1.24,
   "hardware store": 0.99,
   "cafe": 1.35,
-  "supermarket": 0.94
+  "supermarket": 0.9
  },
  "color_mult": {
-  "9": 0.93,
-  "3": 1.08,
+  "9": 0.94,
+  "3": 1.02,
   "8": 0.92,
   "6": 1.09,
-  "0": 1.01,
+  "0": 0.95,
   "1": 1.0,
   "4": 1.0,
   "11": 0.65,
   "10": 1.06,
   "5": 1.1,
   "7": 1.09,
-  "2": 1.13
+  "2": 1.14
  },
  "tips": [
-  "Prioritize Arabic and Urdu scripts over English, focusing heavily on top-performing niches: cafes, mobile phone shops, jewellery shops, car workshops, and pharmacies.",
-  "Adopt proven localized hook styles like 'ارتقِ بمتجرك مع ويب بيلدر' and 'بزنس کو آگے بڑھائیں', completely ditching generic English hooks like 'Supercharge Your Business' or 'Boost Your Business Instantly'.",
-  "Avoid producing scripts for low-engagement industries such as electronics shops, travel agencies, schools, and beauty salons until stronger hooks are tested.",
-  "Center script value propositions around Online Stores, Websites, and Mobile Apps, while sidelining standalone AutoPilot AI and generic social media pitches.",
-  "Include a strong, direct call-to-action urging shop and business owners to message directly on WhatsApp to digitize their operations, while strictly avoiding any mention of pricing."
+  "Focus video content on high-performing niches: Cafe, Mobile Phone Shop, Jewellery Shop, and Pharmacy; avoid School, Travel Agency, and Restaurant content.",
+  "Prioritize Arabic and Urdu language scripts over English, as they consistently outperform English content in engagement.",
+  "Use 'Business Growth' and 'Store Upgrade' as the primary hook themes; avoid generic 'Boost Your Business' titles.",
+  "Ensure every video features a specific, relatable business type (e.g., a bakery or mobile shop) rather than abstract or generic business concepts.",
+  "Keep calls to action focused on direct messaging for a consultation or demo, rather than vague invitations to visit the website.",
+  "Stop producing static images for 'Autopilot' and 'POS' services, as they are currently yielding zero engagement."
  ]
 }
