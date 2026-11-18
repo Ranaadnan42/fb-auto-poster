@@ -3,20 +3,21 @@
  "agent": "wild",
  "dry_run": false,
  "log": [
-  "Subject: Hirola",
-  "photo commons wmi46570633 1920x1440: agent=True",
-  "--- caption ---\nDid you know only 300–500 Hirola antelopes are left in the wild? 🦌🇰🇪\n\nFound only in Kenya along the border of Somalia, this critically endangered species is the only living member of the Beatragus genus. Its loss would be the first mammalian genus extinction on mainland Africa in mod",
-  "Post waqt 11:07 UTC guzar chuka - foran post",
+  "Subject: African bush elephant",
+  "photo commons wmi180858231 1920x1280: agent=True",
+  "--- caption ---\nMeet the largest living terrestrial animal on our planet! 🐘🌍\n\nThe African bush elephant bull reaches an average shoulder height of 3.04–3.36 m and weighs up to 6.9 t. Its large ears and uniquely cracked skin help regulate body heat across diverse African habitats.\n\nHave you ever seen",
+  "Video tayyar - 35 minute intezar, post 11:07 UTC par hogi",
+  "Waqt ho gaya - post kar rahe hain",
   "photo story lagi",
-  "posted 1501204066400712_122103704727546974"
+  "posted 1501204066400712_122105008707546974"
  ],
  "errors": [],
  "posted": {
-  "subject": "Hirola",
-  "photo": "wmi46570633",
+  "subject": "African bush elephant",
+  "photo": "wmi180858231",
   "src": "commons",
-  "size": "1920x1440",
-  "date": "2026-11-16 20:44",
-  "post_id": "1501204066400712_122103704727546974"
+  "size": "1920x1280",
+  "date": "2026-11-18 10:31",
+  "post_id": "1501204066400712_122105008707546974"
  }
 }
