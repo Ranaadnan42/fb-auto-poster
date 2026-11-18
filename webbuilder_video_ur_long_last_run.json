@@ -1,7 +1,7 @@
 {
- "time_utc": "2026-11-17 16:36",
- "spotlight": "clinic",
- "post_id": "1751902315890985",
+ "time_utc": "2026-11-18 16:34",
+ "spotlight": "pharmacy",
+ "post_id": "3664265843714091",
  "error": null,
  "lang": "ur",
  "kind": "long",
@@ -9,7 +9,7 @@
  "fallback": 0,
  "errors": [],
  "real_work": 7,
- "real_pos": 3,
- "mock": 3,
- "seconds": 95.0
+ "real_pos": 4,
+ "mock": 4,
+ "seconds": 106.2
 }
