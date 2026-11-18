@@ -1,118 +1,92 @@
 {
  "islamic": {
   "avoid": [
-   "repeated emphasis on the value of time using Umar bin Abdul Aziz",
-   "the incident of Abu Bakr's specific sacrifice"
+   "توبہ کے واقعات",
+   "وقت کی قدر و قیمت",
+   "ام سلیمؓ کی شجاعت",
+   "غزوہ بدر کا معجزہ",
+   "A powerful life after death islamic speech to reflect on"
   ],
   "try": [
-   "The perseverance and wisdom of Bilal ibn Rabah under hardship",
-   "The beautiful character of Asma bint Abi Bakr during the Hijrah",
-   "A hadith lesson on guarding the tongue and speaking good or remaining silent",
-   "The story of Abu Ayyub al-Ansari and his dedication to spreading knowledge",
-   "The Islamic etiquette of hospitality and honoring neighbors based on authentic t",
-   "Reflecting on the life and patience of Ayub (Job) as mentioned in the Quran"
+   "قصة الصحابي عبد الرحمن بن عوف اور صدقه في غزوة خندق",
+   "حديث نبوي عن الصدق وأثره في التجارة اليومية",
+   "قصة الصحابية رقية بنت خلدون ومساهمتها في نشر العلم",
+   "تفسير آية الصبر في سورة البقرة وربطها بحياة اليوم",
+   "حكاية الصحابي خالد بن الوليد وإيمانه في معركة مؤتة",
+   "دروس من قصة النبي ﷺ مع المرأة التي طلبت الماء في الصحراء"
   ],
-  "note": "Page thori bohat repetitive ho rahi hai, kuch topics aur shakhsiat repeat hue hain, is liye naye topics try karne chahiyen."
+  "note": "Page bohat repetitive lag rahi hai."
  },
  "funny": {
   "avoid": [
-   "شمالی علاقہ جات",
-   "یاروں کی گروپ چیٹ",
-   "منظور انکل",
-   "ماجد بریک",
-   "استاد ناصر",
-   "ماما رشید",
-   "چائے کا پرچہ",
-   "موٹروے روڈ ٹرپ"
+   "یاروں کی گروپ چیٹ اور شمالی علاقہ جات series",
+   "پیر کی صبح اور ابّا جی کا کلہاڑی فارمولا",
+   "پلمبر کے پانچ منٹ اور کچن کا واٹر پارک"
   ],
   "try": [
-   "بجلی کا بل اور دیسی گھرانوں میں ایمرجنسی لائٹ کا صفایا",
-   "عید کی قربانی کے بعد فریج میں گوشت کی تقسیم اور محلے کے حساب کتاب",
-   "شادی کے سیزن میں درزی کا جھوٹا وعدہ اور سوٹ کی تاخیر",
-   "سحری میں اٹھنے کی ناکام کوشش اور پورا خاندان ڈرامائی انداز میں",
-   "گھر میں نیا وائی فائی لگنے کے بعد بچوں اور ابّا جی کی جنگ",
-   "امتحان کی رات گیس غائب ہونے پر پڑھائی کا ڈرامائی نقصان"
+   "پڑوس کے بیکری میں نئی ڈونٹ کی قیمت پر ہنگامہ",
+   "سحری کے دوران بجلی کٹ جانا اور خاندان کی ہنسی",
+   "آن لائن کلاس کے دوران انٹرنیٹ ڈراپ اور والد کی ٹیکنیکل مشورے",
+   "نیا موبائل پلان اور فیملی کے ڈیٹا کی جنگ",
+   "پہلا دن نئی نوکری کا اور امی کا مشورہ",
+   "گرمیوں میں ایئر کنڈیشنر کی ٹھنڈک پر گھر کی بحث"
   ],
-  "note": "Page bilkul theek chal raha hai, bas series aur kuch repeat kirdaar avoid karne hain taake nayaapan rahe."
+  "note": "Page ka content kaafi repetitive lag raha hai."
  },
  "world": {
   "avoid": [
-   "Japan",
-   "Thailand",
-   "Spain",
-   "Mexico",
-   "What Nobody Tells You About"
+   "What Nobody Tells You series"
   ],
   "try": [
-   "Moving to Iceland: Cost of Living, Nature & Isolation",
-   "Switzerland vs Austria: Which Alpine Country is Better?",
-   "Retiring in Panama: The Honest Truth for Expats",
-   "What Living in Argentina Is Really Like in 2025",
-   "Moving to Scotland: Cost of Living, Culture & Highlands",
-   "Colombia vs Peru: Cost of Living & Lifestyle Comparison"
+   "Living in Greece: Cost, Culture & Daily Life",
+   "Moving to Estonia: Hidden Gems & Affordable Living",
+   "Chile Country Documentary: From Andes to Coast",
+   "Iceland Lifestyle Guide: Safety, Jobs & Weather",
+   "Morocco Travel & Living Tips: Markets, Culture, Costs",
+   "Argentina Deep Dive: Food, Festivals, and Expat Life"
   ],
-  "note": "Page thori repetitive ho gai hai, qism-bar-qism countries aur 'What Nobody Tells You' wali phrasing baar baar repeat ho rahi hai."
+  "note": "Page bohat repetitive lag rahi hai."
  },
  "world_short": {
   "avoid": [
-   "Portugal",
-   "Japan",
-   "Spain",
-   "Canada",
-   "Australia",
-   "South Korea",
-   "Would You Live in",
-   "5 Secret Places in"
+   "Comparing UK/Australia/Canada with other countries",
+   "Secret places in Italy or Greece"
   ],
   "try": [
-   "Iceland",
-   "Vietnam",
-   "Argentina",
-   "Scotland",
-   "Morocco",
-   "Sweden"
+   "Cost of living in Buenos Aires, Argentina: Real rent vs. lifestyle",
+   "5 Hidden Gems in Morocco: Beyond Marrakech",
+   "Traditional Food of Thailand: 5 Street Foods You Must Try",
+   "Would You Live in Cape Town? The Untold Truth (Revisit with new angle on safety/",
+   "6 Surprising Facts About Brazil You Didn't Know",
+   "Switzerland vs. Germany: Wages, Cost and Lifestyle Compared"
   ],
-  "note": "Page thori repetitive hogayi hai kyunki kuch countries aur titles bar bar repeat ho rahe hain."
+  "note": "Page is repetitive on cost-of-living comparisons and specific European food/secret places."
  },
  "frames": {
-  "avoid": [
-   "Dubai",
-   "Japan",
-   "United Kingdom",
-   "Canada",
-   "Germany",
-   "Pakistanis ke liye kaun sa mulk behtar hai"
-  ],
+  "avoid": [],
   "try": [
-   "South Korea mein parhai aur wahan ka work visa",
-   "Switzerland mein Pakistaniyon ki zindagi aur tourism",
-   "Thailand mein business aur job ke mauqay",
-   "Saudi Arabia mein naye visa rules aur jobs",
-   "China mein scholarship aur Pakistani students ka lifestyle",
-   "Vienna, Austria ka travel documentary aur cost of living"
+   "South Africa Visa Guide for Pakistanis",
+   "Life in Singapore",
+   "Jobs in Saudi Arabia",
+   "Cheapest countries for Pakistani students in Asia",
+   "Education in Germany for Pakistani students",
+   "Travel guide to Bhutan"
   ],
-  "note": "Page thora repetitive ho gaya hai kyunke bar bar aik hi tarah ke visa aur country comparison guides post ho rahe hain."
+  "note": "Page bohat repetitive hai, har post same type ka."
  },
  "frames_short": {
   "avoid": [
-   "United Kingdom / London",
-   "South Korea",
-   "Malta",
-   "Iceland / Reykjavik",
-   "Finland / Helsinki",
-   "Bosnia and Herzegovina",
-   "Brazil / Rio de Janeiro",
-   "Philippines / Manila"
+   "Sair"
   ],
   "try": [
-   "Italy / Rome",
-   "Germany / Berlin",
-   "Spain / Madrid",
-   "Turkey / Istanbul",
-   "France / Paris",
-   "Switzerland / Zurich"
+   "Argentina: Buenos Aires living cost",
+   "Kenya: Nairobi expat life",
+   "Egypt: Cairo job market",
+   "UAE: Dubai salary vs cost",
+   "South Africa: Cape Town lifestyle",
+   "Nigeria: Lagos startup scene"
   ],
-  "note": "Page thori repetitive ho rahi hai kyunke lagataar countries aur unke kharche/visa cover ho rahe hain, thori variety laane ki zaroorat hai."
+  "note": "Page bohat repetitive hai, titles aur topics baar baar repeat ho rahe hain."
  },
  "_platforms": {
   "islamic": {

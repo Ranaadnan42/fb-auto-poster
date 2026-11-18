@@ -1,11 +1,33 @@
 {
- "open_fixes": [],
- "time_utc": "2026-11-18 01:26",
- "summary": "Tamam bots ke fail hone ki asal wajah AI model quotas aur rate limits (429 / RESOURCE_EXHAUSTED) hain. Yeh aarzi (temporary) masail hain, is liye koi code change nahi kiya gaya.",
+ "open_fixes": [
+  {
+   "commit": "2b5541d898291d8df80b282072dafce02f4e4a8e",
+   "workflow": "frames.yml",
+   "why": "Updating to valid Gemini model IDs to fix 404 errors.",
+   "time": "2026-11-18T11:57:23.299726"
+  },
+  {
+   "commit": "2b5541d898291d8df80b282072dafce02f4e4a8e",
+   "workflow": "frames.yml",
+   "why": "Ensure phrase is converted to a string to avoid 'list' object has no attribute 'strip' error when Gemini returns a list.",
+   "time": "2026-11-18T11:57:23.299726"
+  }
+ ],
+ "time_utc": "2026-11-18 11:57",
+ "summary": "Frames of Life / Atlas Untold mein model IDs ko correct kiya aur search_phrase list parsing error fix kar diya.",
  "notes": [],
- "actions": [],
- "edits": [],
- "needs_owner": [
-  "AI model quotas (Gemini & Groq) exhausted, need to wait for rate limits to reset or upgrade API plans"
- ]
+ "actions": [
+  "code fix push kiya (2b5541d)"
+ ],
+ "edits": [
+  {
+   "path": "world.py",
+   "why": "Updating to valid Gemini model IDs to fix 404 errors."
+  },
+  {
+   "path": "world.py",
+   "why": "Ensure phrase is converted to a string to avoid 'list' object has no attribute 'strip' error when Gemini returns a list."
+  }
+ ],
+ "needs_owner": []
 }

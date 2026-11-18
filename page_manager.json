@@ -1,14 +1,14 @@
 {
  "islamic": {
-  "at": "2026-11-18T01:36+00:00",
+  "at": "2026-11-18T12:06+00:00",
   "done": [],
   "problems": [],
   "name": "Islamic Motivational Videos",
   "followers": 1321,
   "insights_28d": {},
-  "posts_28d": 177,
-  "eng_28d": 805,
-  "eng_avg": 4.5,
+  "posts_28d": 178,
+  "eng_28d": 814,
+  "eng_avg": 4.6,
   "best_hours_pk": [
    3,
    19,
@@ -34,7 +34,7 @@
     "at": "13 Nov 03:28"
    }
   ],
-  "low_posts": 11,
+  "low_posts": 12,
   "history": [
    {
     "day": "2026-11-02",
@@ -104,26 +104,26 @@
    {
     "day": "2026-11-18",
     "followers": 1321,
-    "eng_28d": 805
+    "eng_28d": 814
    }
   ],
-  "posts_24h": 6,
-  "last_post": "2026-11-17T16:19+00:00"
+  "posts_24h": 4,
+  "last_post": "2026-11-18T08:07+00:00"
  },
  "funny": {
-  "at": "2026-11-18T01:36+00:00",
+  "at": "2026-11-18T12:06+00:00",
   "done": [],
   "problems": [],
   "name": "Hansi Ka Adda ہنسی کا اڈا",
   "followers": 1520,
   "insights_28d": {},
-  "posts_28d": 223,
+  "posts_28d": 224,
   "eng_28d": 331,
   "eng_avg": 1.5,
   "best_hours_pk": [
    0,
-   13,
-   20
+   20,
+   13
   ],
   "top_posts": [
    {
@@ -145,7 +145,7 @@
     "at": "13 Nov 20:35"
    }
   ],
-  "low_posts": 32,
+  "low_posts": 33,
   "history": [
    {
     "day": "2026-11-02",
@@ -218,19 +218,19 @@
     "eng_28d": 331
    }
   ],
-  "posts_24h": 7,
-  "last_post": "2026-11-17T17:33+00:00"
+  "posts_24h": 6,
+  "last_post": "2026-11-18T08:33+00:00"
  },
  "frames": {
-  "at": "2026-11-18T01:36+00:00",
+  "at": "2026-11-18T12:06+00:00",
   "done": [],
   "problems": [],
   "name": "Frames Of Life",
   "followers": 81,
   "insights_28d": {},
-  "posts_28d": 92,
-  "eng_28d": 452,
-  "eng_avg": 4.9,
+  "posts_28d": 95,
+  "eng_28d": 455,
+  "eng_avg": 4.8,
   "best_hours_pk": [
    21,
    19,
@@ -256,7 +256,7 @@
     "at": "07 Nov 13:41"
    }
   ],
-  "low_posts": 0,
+  "low_posts": 2,
   "history": [
    {
     "day": "2026-11-02",
@@ -326,20 +326,20 @@
    {
     "day": "2026-11-18",
     "followers": 81,
-    "eng_28d": 452
+    "eng_28d": 455
    }
   ],
-  "posts_24h": 5,
-  "last_post": "2026-11-17T13:55+00:00"
+  "posts_24h": 7,
+  "last_post": "2026-11-18T08:18+00:00"
  },
  "webbuilder": {
-  "at": "2026-11-18T01:36+00:00",
+  "at": "2026-11-18T12:06+00:00",
   "done": [],
   "problems": [],
   "name": "web builder",
-  "followers": 33,
+  "followers": 34,
   "insights_28d": {},
-  "posts_28d": 209,
+  "posts_28d": 210,
   "eng_28d": 226,
   "eng_avg": 1.1,
   "best_hours_pk": [
@@ -367,7 +367,7 @@
     "at": "14 Nov 23:54"
    }
   ],
-  "low_posts": 30,
+  "low_posts": 31,
   "history": [
    {
     "day": "2026-11-02",
@@ -436,22 +436,22 @@
    },
    {
     "day": "2026-11-18",
-    "followers": 33,
+    "followers": 34,
     "eng_28d": 226
    }
   ],
   "posts_24h": 6,
-  "last_post": "2026-11-17T19:06+00:00"
+  "last_post": "2026-11-18T10:12+00:00"
  },
  "news": {
-  "at": "2026-11-18T01:36+00:00",
+  "at": "2026-11-18T12:06+00:00",
   "done": [],
   "problems": [],
   "name": "News Act",
   "followers": 51,
   "insights_28d": {},
-  "posts_28d": 159,
-  "eng_28d": 322,
+  "posts_28d": 164,
+  "eng_28d": 323,
   "eng_avg": 2.0,
   "best_hours_pk": [
    1,
@@ -478,7 +478,7 @@
     "at": "16 Nov 05:02"
    }
   ],
-  "low_posts": 74,
+  "low_posts": 78,
   "history": [
    {
     "day": "2026-11-16",
@@ -492,25 +492,26 @@
    {
     "day": "2026-11-18",
     "followers": 51,
-    "eng_28d": 322
+    "eng_28d": 323
    }
   ],
-  "posts_24h": 20,
-  "last_post": "2026-11-18T00:08+00:00"
+  "posts_24h": 18,
+  "last_post": "2026-11-18T08:52+00:00"
  },
  "newsur": {
-  "at": "2026-11-18T01:36+00:00",
+  "at": "2026-11-18T12:06+00:00",
   "done": [],
   "problems": [],
   "name": "News Act Urdu",
-  "followers": 1,
+  "followers": 2,
   "insights_28d": {},
-  "posts_28d": 15,
-  "eng_28d": 8,
-  "eng_avg": 0.5,
+  "posts_28d": 20,
+  "eng_28d": 11,
+  "eng_avg": 0.6,
   "best_hours_pk": [
-   7,
-   4
+   13,
+   9,
+   15
   ],
   "top_posts": [
    {
@@ -521,18 +522,18 @@
    },
    {
     "eng": 2,
+    "text": "مغربی ممالک میں فلسطین کے حامیوں پر پابندیاں، مڈل ایسٹ مانیٹر کا تجزیہ 🌍📰  مڈل ا",
+    "url": "https://www.facebook.com/reel/1639893614281823/",
+    "at": "18 Nov 13:40"
+   },
+   {
+    "eng": 2,
     "text": "کیا امریکی نائب صدر جے ڈی وینس 2028 کے صدارتی انتخابات میں حصہ لیں گے؟ 🇺🇸🗳️  امر",
     "url": "https://www.facebook.com/reel/2670843873369074/",
     "at": "17 Nov 13:16"
-   },
-   {
-    "eng": 0,
-    "text": "ڈونلڈ ٹرمپ کا دورہ ایشیا اور اہم سفارتی معاملات پر نظر۔ 🌎🇺🇸  امریکی میڈیا 'دی ہل",
-    "url": "https://www.facebook.com/122095695891558252/posts/122096040855558252",
-    "at": "17 Nov 19:15"
    }
   ],
-  "low_posts": 13,
+  "low_posts": 16,
   "history": [
    {
     "day": "2026-11-16",
@@ -545,21 +546,21 @@
    },
    {
     "day": "2026-11-18",
-    "followers": 1,
-    "eng_28d": 8
+    "followers": 2,
+    "eng_28d": 11
    }
   ],
   "posts_24h": 7,
-  "last_post": "2026-11-17T14:15+00:00"
+  "last_post": "2026-11-18T10:08+00:00"
  },
  "sports": {
-  "at": "2026-11-18T01:36+00:00",
+  "at": "2026-11-18T12:06+00:00",
   "done": [],
   "problems": [],
   "name": "Sports Hubs",
   "followers": 16,
   "insights_28d": {},
-  "posts_28d": 201,
+  "posts_28d": 211,
   "eng_28d": 109,
   "eng_avg": 0.5,
   "best_hours_pk": [
@@ -587,7 +588,7 @@
     "at": "15 Nov 03:20"
    }
   ],
-  "low_posts": 115,
+  "low_posts": 125,
   "history": [
    {
     "day": "2026-11-16",
@@ -604,8 +605,8 @@
     "eng_28d": 109
    }
   ],
-  "posts_24h": 30,
-  "last_post": "2026-11-18T00:13+00:00"
+  "posts_24h": 27,
+  "last_post": "2026-11-18T10:04+00:00"
  },
  "scenic": {
   "problems": [
@@ -613,15 +614,15 @@
   ]
  },
  "war": {
-  "at": "2026-11-18T01:36+00:00",
+  "at": "2026-11-18T12:06+00:00",
   "done": [],
   "problems": [],
   "name": "Battles Untold",
-  "followers": 1,
+  "followers": 2,
   "insights_28d": {},
-  "posts_28d": 18,
+  "posts_28d": 19,
   "eng_28d": 14,
-  "eng_avg": 0.8,
+  "eng_avg": 0.7,
   "best_hours_pk": [
    3,
    2,
@@ -647,7 +648,7 @@
     "at": "18 Nov 02:47"
    }
   ],
-  "low_posts": 6,
+  "low_posts": 7,
   "history": [
    {
     "day": "2026-11-16",
@@ -660,27 +661,27 @@
    },
    {
     "day": "2026-11-18",
-    "followers": 1,
+    "followers": 2,
     "eng_28d": 14
    }
   ],
-  "posts_24h": 5,
-  "last_post": "2026-11-18T01:13+00:00"
+  "posts_24h": 6,
+  "last_post": "2026-11-18T02:23+00:00"
  },
  "birds": {
-  "at": "2026-11-18T01:36+00:00",
+  "at": "2026-11-18T12:06+00:00",
   "done": [],
   "problems": [],
   "name": "Birds of the World",
-  "followers": 7,
+  "followers": 9,
   "insights_28d": {},
-  "posts_28d": 11,
+  "posts_28d": 12,
   "eng_28d": 4,
-  "eng_avg": 0.4,
+  "eng_avg": 0.3,
   "best_hours_pk": [
    2,
    22,
-   4
+   16
   ],
   "top_posts": [
    {
@@ -697,12 +698,12 @@
    },
    {
     "eng": 0,
-    "text": "Meet the bird with movie-star eyelashes and a lethal kick! 🦅✨  🦜 Bird: Secretary",
-    "url": "https://www.facebook.com/reel/3653955791439232/",
-    "at": "18 Nov 02:17"
+    "text": "Meet the stunning Western Parotia bird of paradise! 🦜✨  Discover this medium-siz",
+    "url": "https://www.facebook.com/122100965943551461/posts/122102208945551461",
+    "at": "18 Nov 16:47"
    }
   ],
-  "low_posts": 9,
+  "low_posts": 10,
   "history": [
    {
     "day": "2026-11-16",
@@ -715,15 +716,15 @@
    },
    {
     "day": "2026-11-18",
-    "followers": 7,
+    "followers": 9,
     "eng_28d": 4
    }
   ],
   "posts_24h": 5,
-  "last_post": "2026-11-17T21:17+00:00"
+  "last_post": "2026-11-18T11:47+00:00"
  },
  "pets": {
-  "at": "2026-11-18T01:36+00:00",
+  "at": "2026-11-18T12:06+00:00",
   "done": [],
   "problems": [],
   "name": "Dogs & Cats World",
@@ -773,23 +774,23 @@
     "eng_28d": 2
    }
   ],
-  "posts_24h": 5,
+  "posts_24h": 4,
   "last_post": "2026-11-17T22:27+00:00"
  },
  "wild": {
-  "at": "2026-11-18T01:36+00:00",
+  "at": "2026-11-18T12:06+00:00",
   "done": [],
   "problems": [],
   "name": "Wild Nations",
   "followers": 1,
   "insights_28d": {},
-  "posts_28d": 11,
+  "posts_28d": 12,
   "eng_28d": 7,
   "eng_avg": 0.6,
   "best_hours_pk": [
    22,
-   3,
-   1
+   16,
+   3
   ],
   "top_posts": [
    {
@@ -806,12 +807,12 @@
    },
    {
     "eng": 0,
-    "text": "Canada's Untamed Wilderness: Journey Through the Great North  🌍 Country: Canada ",
-    "url": "https://www.facebook.com/reel/1623576648959365/",
-    "at": "18 Nov 06:09"
+    "text": "Meet the largest living terrestrial animal on our planet! 🐘🌍  The African bush e",
+    "url": "https://www.facebook.com/122103799419546974/posts/122105008707546974",
+    "at": "18 Nov 16:07"
    }
   ],
-  "low_posts": 9,
+  "low_posts": 10,
   "history": [
    {
     "day": "2026-11-16",
@@ -829,10 +830,10 @@
    }
   ],
   "posts_24h": 6,
-  "last_post": "2026-11-18T01:09+00:00"
+  "last_post": "2026-11-18T11:07+00:00"
  },
  "faizi": {
-  "at": "2026-11-18T01:36+00:00",
+  "at": "2026-11-18T12:06+00:00",
   "done": [],
   "problems": [],
   "name": "Style by Faizi",
@@ -882,7 +883,7 @@
     "eng_28d": 1
    }
   ],
-  "posts_24h": 7,
+  "posts_24h": 6,
   "last_post": "2026-11-18T01:10+00:00"
  }
 }
