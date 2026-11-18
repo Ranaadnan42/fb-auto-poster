@@ -201,7 +201,7 @@ def write_script(facts):
     c = facts["country"]
     if MODE == "reel":
         shape = f"""a vertical REEL of 160-200 spoken words (60-75 seconds) in 7-9 scenes about ONE animal of {c}:
-  1) a very short, punchy scroll-stopping hook (the most surprising true fact, max 12 words), 2) where in {c} it lives (habitat), 3) what it looks like
+  1) a very short, punchy scroll-stopping hook (the most surprising true fact that a camera CAN SHOW - its size, speed, hunting or behaviour; never internal organs like liver/bones/DNA - max 12 words), 2) where in {c} it lives (habitat), 3) what it looks like
   / how big, 4) what it eats and how it hunts or feeds, 5-6) its most amazing behaviour or super-power, 7) family life
   / babies, 8) is it endangered (only as the facts say), 9) "Follow Wild Nations - the real wildlife of every country." """
         body = f"ANIMAL: {facts['title']}\nWIKIPEDIA:\n{facts['text']}\n\nWILDLIFE OF {c.upper()} (context):\n{facts['country_text']}"
@@ -230,7 +230,7 @@ Rules:
 - Family friendly: hunting can be described, but no blood, gore or graphic kills (Facebook monetization).
 - ORIGINALITY: add 1-2 lines of your own insight (why this animal matters / what we can learn) - clearly as insight.
 - VISUALS: {vis}. For EVERY scene give "visuals": 1-3 short ENGLISH search terms for REAL VIDEO, in the order the
-  narration mentions them; the FIRST term names the exact animal (or exact place). Never another species, never zoo
+  narration mentions them; the FIRST term names the exact animal (or exact place), and EVERY term must contain the animal's name (e.g. 'great white shark underwater', never just 'ocean' or 'sea'). Never another species, never zoo
   cages, never cartoons, never generic mood shots (sunset, sky, forest alone) unless the sentence is about that place.
 {content_rules.MATCH}{content_rules.winners("wild")}- If a sentence talks about something no real video can show (DNA, numbers, history), rewrite it around
   a filmable moment of that animal - picture and voice must always match.
