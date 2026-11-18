@@ -1,11 +1,15 @@
 {
- "time_utc": "2026-11-18 19:22",
+ "time_utc": "2026-11-18 19:27",
  "spotlight": "clothing shop",
- "post_id": null,
- "error": "awaaz nahi bani",
+ "post_id": "4525528394375390",
+ "error": null,
  "lang": "en",
  "kind": "long",
- "clips": 0,
+ "clips": 3,
  "fallback": 0,
- "errors": []
+ "errors": [],
+ "real_work": 7,
+ "mock": 6,
+ "real_pos": 6,
+ "seconds": 131.0
 }
