@@ -226,7 +226,7 @@ def write_script(facts):
                f"scene only when the sentence is about the place (then name the place and '{c}')")
     else:
         shape = f"""a LONG wildlife documentary of 800-950 spoken words (5-6 minutes) in 26-34 scenes: "Wildlife of {c}".
-  Chapters (put the chapter name in each scene's "label"): "WELCOME TO {c.upper()}" (ONLY 2 short scenes, landscapes), then ONE chapter
+  Chapters (put the chapter name in each scene's "label"): "WELCOME TO {c.upper()}" (ONLY 1 scene of max 12 spoken words = about 5 seconds, the country's landscape), then ONE chapter
   per animal below (label = the animal's name in capitals, 3-4 scenes each: where it lives in {c}, looks, food,
   amazing behaviour), then "PROTECTING THEM" and "NEXT COUNTRY". End: follow Wild Nations, like and share, comment
   which country's wildlife we should show next."""
@@ -239,7 +239,7 @@ in the USA, UK, Europe, Canada, Australia and the Gulf). Write {shape}
 {body}
 
 Rules:
-- This page is about ANIMALS: every scene (except the 2 welcome scenes of a long video) is about an animal and teaches a fact
+- This page is about ANIMALS: every scene (except the single 5-second welcome scene of a long video) is about an animal and teaches a fact
   about it (where it lives, what it eats, how it behaves). No scenes about rangers, reserves, logos, or scenery alone.
 - Warm, wonder-filled spoken English like a great nature-documentary narrator; your OWN words, never copied sentences.
 - ONLY facts written above (sizes, speeds, numbers, status exactly as written). Never invent a number.
