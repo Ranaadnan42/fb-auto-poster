@@ -189,25 +189,42 @@ def check(jpgs, want, said="", kind="news"):
         b64 = [base64.b64encode(d).decode() for d in datas]
         for ki, key in enumerate(_keys()):
             for m in MODELS:
-                if (ki, m) in _DEAD or _REST.get(m, 0) > time.time():
+                if (ki, m) in _DEAD or _REST.get((ki, m), 0) > time.time():
                     continue
                 try:
-                    r = requests.post(
-                        f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={key}",
-                        timeout=35, json={"contents": [{"parts": [{"text": prompt}] + [
-                            {"inline_data": {"mime_type": "image/jpeg", "data": b}} for b in b64]}],
-                            "generationConfig": {"temperature": 0}})
-                    if r.status_code in (400, 401, 403, 404, 429):
+                    for _try in range(2):
+                        r = requests.post(
+                            f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={key}",
+                            timeout=35, json={"contents": [{"parts": [{"text": prompt}] + [
+                                {"inline_data": {"mime_type": "image/jpeg", "data": b}} for b in b64]}],
+                                "generationConfig": {"temperature": 0}})
+                        if r.status_code != 429:
+                            break
+                        txt = r.text
+                        if "PerDay" in txt or "per day" in txt.lower():
+                            break                                   # din ka quota khatam - neeche band
+                        w = re.search(r'"retryDelay":\s*"(\d+)', txt)
+                        w = int(w.group(1)) if w else 30
+                        if w <= 25 and _try == 0:
+                            time.sleep(w + 1)                       # minute ki limit - ruk kar dobara, band nahi
+                            continue
+                        _REST[(ki, m)] = time.time() + max(w, 30)
+                        break
+                    if r.status_code == 429:
+                        if "PerDay" in r.text or "per day" in r.text.lower():
+                            _DEAD.add((ki, m))                      # sirf din ka quota khatam ho to poore run band
+                        continue
+                    if r.status_code in (400, 401, 403, 404):
                         _DEAD.add((ki, m))
                         continue
                     if r.status_code >= 500:
-                        _REST[m] = time.time() + 120
+                        _REST[(ki, m)] = time.time() + 120
                         continue
                     v = _parse(r.json()["candidates"][0]["content"]["parts"][0]["text"])
                     if v is not None:
                         return _count(v)
                 except Exception:
-                    _REST[m] = time.time() + 120
+                    _REST[(ki, m)] = time.time() + 120
     try:
         import groq_vision
         t = groq_vision.ask(datas, prompt, json_mode=False)

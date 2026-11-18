@@ -30,6 +30,7 @@ os.environ["KIND"] = "reel" if MODE == "reel" else "long"
 os.environ["LANGUAGE"] = "en"
 os.environ["NO_PHOTOS"] = "1"          # malik: sirf asli video - tasveer nahi
 os.environ["NO_REUSE"] = "1"           # jo bola ja raha hai wohi - pichli clip dobara nahi
+os.environ.setdefault("MAX_REJECTS", "3")   # quota bachao: 3 clips rad = ye lafz kaam ka nahi, naye alfaaz
 if MODE == "reel":                       # reel = ek hi janwar: clip kam pare to usi janwar ki pass-clip (naye angle se)
     os.environ["REUSE_SAME"] = "1"
 os.environ.setdefault("NEWS_BUDGET_MIN", "55" if MODE == "reel" else "150")

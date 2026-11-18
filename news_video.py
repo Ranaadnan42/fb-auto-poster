@@ -262,8 +262,10 @@ def get_clip(term, secs, out, used, said="", kind="news"):
              and footage.match_score(c.get("text"), want) > 0]          # zero match ab kabhi nahi
     cands.sort(key=lambda c: (-footage.match_score(c.get("text"), want), c.get("vertical") != vertical,
                               random.random()))
+    max_rej = int(os.environ.get("MAX_REJECTS", "6"))      # itni clips rad hon to ye lafz chhoro, naye alfaaz
+    rej = 0
     for c in cands[:6]:
-        if late():
+        if late() or rej >= max_rej:
             return False
         raw = out + ".src"
         try:
@@ -287,6 +289,7 @@ def get_clip(term, secs, out, used, said="", kind="news"):
             if v not in (True, "tags"):          # AI ne haan kaha ho, ya aankh band ho to poora lafz-match
                 REPORT["clips_rejected"] = REPORT.get("clips_rejected", 0) + 1
                 log(f"  agent ne clip rad ki '{term}': {c['src']} {c['id']} ({'aankh band' if v is None else 'bemel'})")
+                rej += 1
                 continue
             _render_clip(raw, secs, out, max_start=max(0.0, win - secs))
             log(f"  clip '{term}': {c['src']} {c['id']} (agent: {v})")
