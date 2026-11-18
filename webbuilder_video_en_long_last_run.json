@@ -1,15 +1,11 @@
 {
- "time_utc": "2026-11-17 19:00",
- "spotlight": "restaurant",
- "post_id": "1401411978796858",
- "error": null,
+ "time_utc": "2026-11-18 19:02",
+ "spotlight": "beauty salon",
+ "post_id": null,
+ "error": "awaaz nahi bani",
  "lang": "en",
  "kind": "long",
- "clips": 1,
+ "clips": 0,
  "fallback": 0,
- "errors": [],
- "real_work": 7,
- "real_pos": 3,
- "mock": 4,
- "seconds": 94.4
+ "errors": []
 }
