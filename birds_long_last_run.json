@@ -1,8 +1,8 @@
 {
- "time_utc": "2026-11-17 23:08",
+ "time_utc": "2026-11-18 00:15",
  "mode": "long",
  "dry_run": false,
  "errors": [
-  "fatal: Groq fail: 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 199652, Reque"
+  "fatal: Groq fail: 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 197220, Reque"
  ]
 }
