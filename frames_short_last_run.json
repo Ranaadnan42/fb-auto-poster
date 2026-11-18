@@ -1,38 +1,31 @@
 {
  "mode": "short",
- "clips": 29,
- "clips_rejected": 245,
- "vision_checks": 264,
+ "clips": 34,
+ "clips_rejected": 185,
+ "vision_checks": 214,
  "errors": [],
  "search_phrases": [
-  "harat angaze malomat",
-  "haqaiq",
-  "ke avishkar",
-  "معلوماتی ویڈیو",
-  "معلومات کی دنیا",
-  "معلومات عامہ",
-  "معلومات پاکستان",
-  "معلوماتی رپورٹ",
-  "معلوماتی ویڈیوز",
-  "معلومات اسلامی",
-  "معلوماتی رپورٹ لکھنے کا طریقہ",
-  "معلوماتی"
+  "dubai vs saudi arabia jobs",
+  "dubai vs saudi arabia vs qatar",
+  "dubai vs saudi arabia football",
+  "dubai vs saudi arabia comparison",
+  "dubai vs saudi arabia tamil",
+  "dubai vs saudi arabia malayalam",
+  "dubai vs saudi arabia war",
+  "dubai and saudi arabia",
+  "dubai and saudi arabia difference in hindi"
  ],
- "search": "haqaiq",
- "alt_searches": 11,
- "photos": 4,
- "vision_groq": 1,
- "no_match": [
-  "laptop with visa form",
-  "LinkedIn profile on screen"
- ],
- "rewritten_scenes": 2,
- "seconds": 103.0,
+ "alt_searches": 8,
+ "photos": 8,
+ "seconds": 99.3,
  "links": [
+  "https://pakistan.diplo.de",
+  "https://www.make-it-in-germany.com",
+  "https://vistoperitalia.esteri.it",
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Mexico / Mexico City",
- "series": "pk_facts",
- "title": "میکسیکو کے 6 حیران کن حقائق | Life in Mexico"
+ "subject": "Germany vs Italy",
+ "series": "pk_versus_short",
+ "title": "Germany vs Italy: پاکستانی کے لیے کون بہتر؟ | Europe Jobs"
 }
