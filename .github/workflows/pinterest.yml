@@ -32,7 +32,7 @@ jobs:
         run: pip install requests pillow cryptography google-genai
       - name: Run pinterest.py
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.AGENTS_GEMINI_API_KEY || secrets.GEMINI_API_KEY }}
           GEMINI_BACKUP_KEY: ${{ secrets.GEMINI_BACKUP_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           PINTEREST_APP_ID: ${{ secrets.PINTEREST_APP_ID }}

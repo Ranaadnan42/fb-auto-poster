@@ -81,7 +81,7 @@ jobs:
           WAR_PAGE_ID: ${{ secrets.WAR_PAGE_ID }}
           WAR_PAGE_TOKEN: ${{ secrets.WAR_PAGE_TOKEN }}
           WAR_GEMINI_API_KEY: ${{ secrets.WAR_GEMINI_API_KEY }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.BRAIN_GEMINI_API_KEY || secrets.GEMINI_API_KEY }}
           GEMINI_BACKUP_KEY: ${{ secrets.GEMINI_BACKUP_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}

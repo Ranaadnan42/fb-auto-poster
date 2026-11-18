@@ -138,7 +138,7 @@ jobs:
           SPORTS_PAGE_TOKEN: ${{ secrets.SPORTS_PAGE_TOKEN }}
           SPORTS_PAGE_ID: ${{ secrets.SPORTS_PAGE_ID }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.BRAIN_GEMINI_API_KEY || secrets.GEMINI_API_KEY }}
           GEMINI_BACKUP_KEY: ${{ secrets.GEMINI_BACKUP_KEY }}
           YT_FRAMES_CLIENT_ID: ${{ secrets.YT_FRAMES_CLIENT_ID }}
           YT_FRAMES_CLIENT_SECRET: ${{ secrets.YT_FRAMES_CLIENT_SECRET }}

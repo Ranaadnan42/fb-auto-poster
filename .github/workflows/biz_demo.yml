@@ -34,7 +34,7 @@ jobs:
           pip install requests pillow google-genai "edge-tts>=7.3.0"
       - name: Make demos
         env:
-          GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GEMINI_API_KEY: ${{ secrets.AGENTS_GEMINI_API_KEY || secrets.GEMINI_API_KEY }}
           GEMINI_BACKUP_KEY: ${{ secrets.GEMINI_BACKUP_KEY }}
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
