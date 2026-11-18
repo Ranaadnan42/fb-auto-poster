@@ -1,23 +1,23 @@
 {
- "time_utc": "2026-11-17 19:48",
+ "time_utc": "2026-11-18 12:59",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
  "bird_calls": 0,
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 111,
- "alt_searches": 9,
- "agent_checks": 116,
- "agent_rejects": 111,
+ "clips_rejected": 129,
+ "alt_searches": 8,
+ "agent_checks": 139,
+ "agent_rejects": 127,
  "agent_skips": 0,
  "posted": {
-  "bird": "Secretarybird",
+  "bird": "Emperor penguin",
   "theme": null,
-  "wiki": "Secretarybird",
-  "date": "2026-11-17 19:48",
-  "title": "The Raptor on Stilts: Meet Africa’s Stunning Secretarybird",
-  "dur": 67,
-  "post_id": "3653955791439232"
+  "wiki": "Emperor penguin",
+  "date": "2026-11-18 12:59",
+  "title": "Meet the Giant of the Frozen South: The Emperor Penguin!",
+  "dur": 104,
+  "post_id": "2698802810522789"
  }
 }
