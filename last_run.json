@@ -1,33 +1,21 @@
 {
- "lang": "ur",
- "stock_clips": 41,
+ "lang": "en",
+ "stock_clips": 18,
  "fallback_clips": 0,
  "errors": [],
- "search_phrases": [
-  "انبیاء کرام کے واقعات",
-  "hazrat ka waqia video",
-  "hazrat umar ka waqia",
-  "hazrat ibrahim ka waqia",
-  "hazrat suleman ka waqia",
-  "hazrat bilal ka waqia",
-  "hazrat abbas ka waqia",
-  "hazrat nooh ka waqia",
-  "hazrat yousuf ka waqia",
-  "hazrat muhammad ka waqia"
- ],
- "story": "Prophet Ayyub patient during severe trial",
- "search": "انبیاء کرام کے واقعات",
- "vision_checks": 198,
- "clips_rejected": 120,
+ "search_phrases": [],
+ "story": "Khubayb ibn Adi martyred at Tan'im",
+ "vision_checks": 148,
+ "clips_rejected": 123,
  "sources": {
-  "pixabay": 24,
-  "commons": 15,
-  "mixkit": 2
+  "pixabay": 12,
+  "commons": 5,
+  "mixkit": 1
  },
  "photo_clips": 1,
- "long_minutes": 5.55,
- "time_utc": "2026-11-18 14:35",
- "title": "انبیاء کرام کے واقعات: حضرت ایوبؑ کی آزمائش",
+ "reel_minutes": 0.9,
+ "time_utc": "2026-11-18 16:40",
+ "title": "When a Sahabi Smiled on the Gallows: The Ultimate Sacrifice",
  "dry_run": false,
  "posted_ok": 1
 }
