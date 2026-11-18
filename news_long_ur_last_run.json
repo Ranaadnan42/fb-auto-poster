@@ -1,24 +1,24 @@
 {
- "time_utc": "2026-11-17 22:42",
+ "time_utc": "2026-11-18 15:00",
  "kind": "long",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "sports": {
-   "date": "2026-11-17 22:42",
+   "date": "2026-11-18 15:00",
    "kind": "long",
    "lang": "ur",
-   "title": "ریسلنگ کی دنیا میں ہلچل اور فٹ بال ٹرانسفر اپ ڈیٹس",
-   "dur": 591,
-   "post_id": "1605302691346090"
+   "title": "ایوان ٹونی کی قانونی مشکل اور اسپورٹس کی اہم خبریں",
+   "dur": 542,
+   "post_id": "1674897264250238"
   }
  },
  "errors": [],
- "agent_checks": 296,
- "agent_rejects": 274,
- "agent_skips": 353,
- "clips_rejected": 609,
- "alt_searches": 6,
- "tag_pass": 12,
+ "agent_checks": 111,
+ "agent_rejects": 91,
+ "agent_skips": 452,
+ "clips_rejected": 534,
+ "alt_searches": 8,
+ "tag_pass": 10,
  "time_budget_hit": true
 }
