@@ -1,22 +1,23 @@
 {
- "time_utc": "2026-11-18 13:08",
+ "time_utc": "2026-11-18 19:22",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-18 13:08",
+   "date": "2026-11-18 19:22",
    "kind": "reel",
    "lang": "en",
-   "title": "Spain's Major Political Shift: November Election Update",
-   "dur": 52,
-   "post_id": "1939830196984468"
+   "title": "Gloucester Cathedral Faces Major Financial Restructure",
+   "dur": 43,
+   "post_id": "955666230756759"
   }
  },
- "errors": [],
- "clips_rejected": 50,
- "agent_checks": 53,
- "agent_rejects": 47,
+ "errors": [
+  "sports: awaaz nahi bani"
+ ],
+ "agent_checks": 29,
+ "agent_rejects": 25,
  "agent_skips": 0,
- "alt_searches": 1
+ "clips_rejected": 25
 }
