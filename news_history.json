@@ -1662,6 +1662,24 @@
     "russian"
    ],
    "post_id": "1448208791702551_122111456889532804"
+  },
+  {
+   "date": "2026-11-18 20:08",
+   "lang": "en",
+   "topic": "pakistan",
+   "link": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOQ0xlcHBSeEtDUF8yZHAwQnZxMGRiYnRIMWJxVFJVSVhicVFJcDBmcXdMWVdNQjR0bmY0ME1yaDk3M2VaTEZXQy1RSHpJRzk1ZXB0WlJWMXBRSkFLa3R5ck9QUnllcGhyd3lJNFdUWGVBOGxmUUNZM3dzUF9IX242NWR2SWJQX3NvaG5sNWlIRFhNSWxVSGNmMHp3?oc=5",
+   "title": "Pakistan successfully launches FATAH-III supersonic cruise missile",
+   "words": [
+    "cruise",
+    "fatah",
+    "launches",
+    "missile",
+    "pakistan",
+    "successfully",
+    "supersonic"
+   ],
+   "breaking": true,
+   "post_id": "1448208791702551_122111543373532804"
   }
  ],
  "sports": [
@@ -3315,6 +3333,23 @@
     "universe"
    ],
    "post_id": "1465090056678690_122104743933548502"
+  },
+  {
+   "date": "2026-11-18 20:08",
+   "lang": "en",
+   "topic": "big_events",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQaWlXdEdUNDA3bWp0eGdTUmxaN0VFZFVVanpzNm1aYnJLdE40SkxhV19tU3ZCaVdzU3JLQUlqa0xrdkZhc3V2dU1Ob21OYmcyWlpScThvZWRwUXNNOGZTY25aQmNYeV9TZ3J4ZVUzbUJCZjR3TWo4NHFaaVo5U0JEeEhUc3Q0QnAwVEEyUFNTUUJZOTVsVXdQQjZLRlpsQ19uVkRYd1lHbw?oc=5",
+   "title": "USA Basketball announces roster for World Cup qualifying games in Nov.",
+   "words": [
+    "announces",
+    "basketball",
+    "games",
+    "qualifying",
+    "roster",
+    "world"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122104976529548502"
   }
  ],
  "used_images": [
@@ -3428,6 +3463,8 @@
   "pxi3097621",
   "pxi100733",
   7726190,
-  5476774
+  5476774,
+  10404306,
+  "pxi1263000"
  ]
 }
