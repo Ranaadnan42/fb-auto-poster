@@ -1,22 +1,36 @@
 {
- "time_utc": "2026-11-18 13:08",
+ "time_utc": "2026-11-18 15:53",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-18 13:08",
+   "date": "2026-11-18 15:53",
    "kind": "reel",
    "lang": "en",
-   "title": "Spain's Major Political Shift: November Election Update",
-   "dur": 52,
-   "post_id": "1939830196984468"
+   "title": "Jeff Bezos Reveals Role in Casting New James Bond",
+   "dur": 54,
+   "post_id": "1446884104232424"
+  },
+  "sports": {
+   "date": "2026-11-18 15:53",
+   "kind": "reel",
+   "lang": "en",
+   "title": "Robert Williams Delivers Solid Rebounding in Limited Minutes",
+   "dur": 50,
+   "post_id": "3827861157377837"
   }
  },
  "errors": [],
- "clips_rejected": 50,
- "agent_checks": 53,
- "agent_rejects": 47,
- "agent_skips": 0,
- "alt_searches": 1
+ "agent_checks": 136,
+ "agent_rejects": 135,
+ "agent_skips": 3,
+ "clips_rejected": 136,
+ "alt_searches": 2,
+ "tag_pass": 2,
+ "time_budget_hit": true,
+ "no_match": [
+  "@Robert Williams (basketball)"
+ ],
+ "headline_cards": 1
 }
