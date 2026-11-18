@@ -1,27 +1,27 @@
 {
- "time_utc": "2026-11-17 18:38",
+ "time_utc": "2026-11-18 12:10",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
  "country": "South Africa",
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 222,
- "alt_searches": 7,
+ "clips_rejected": 81,
+ "alt_searches": 9,
  "no_match": [
-  "Cape mountain zebra"
+  "Great white shark swimming"
  ],
  "headline_cards": 1,
- "agent_checks": 97,
- "agent_rejects": 91,
- "agent_skips": 130,
+ "agent_checks": 78,
+ "agent_rejects": 74,
+ "agent_skips": 0,
  "posted": {
   "country": "South Africa",
-  "animal": "Cape mountain zebra",
-  "wiki": "Cape mountain zebra",
-  "date": "2026-11-17 18:38",
-  "title": "Meet the Rare Zebra That Lives High in the Mountains!",
-  "dur": 61,
-  "post_id": "4482792438643075"
+  "animal": "Great white shark",
+  "wiki": "Great white shark",
+  "date": "2026-11-18 12:10",
+  "title": "This South African giant has a liver weighing a quarter of its body!",
+  "dur": 85,
+  "post_id": "1318628877056298"
  }
 }
