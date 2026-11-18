@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-18 04:07",
+ "time_utc": "2026-11-18 06:37",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "sports": {
-   "key": "t401910003",
-   "sport": "basketball",
-   "date": "2026-11-18 04:07",
+   "key": "t401892728",
+   "sport": "ice hockey",
+   "date": "2026-11-18 06:37",
    "lang": "en",
-   "match": "Portland Trail Blazers at Minnesota Timberwolves",
-   "result": "Minnesota Timberwolves beat Portland Trail Blazers 106-105",
-   "dur": 68,
-   "post_id": "1896996894454067"
+   "match": "Los Angeles Kings at Boston Bruins",
+   "result": "Los Angeles Kings beat Boston Bruins 3-0",
+   "dur": 62,
+   "post_id": "1123281150516038"
   }
  },
  "errors": []
