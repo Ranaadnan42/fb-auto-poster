@@ -1,34 +1,148 @@
 {
- "updated": "2026-11-17T21:21Z",
- "new": 4,
+ "updated": "2026-11-18T03:36Z",
+ "new": 19,
  "stats": {
-  "site:facebook.com \"POS software\" chahiye": "0 (auto)",
-  "site:facebook.com \"billing software\" chahiye dukan": "0 (auto)",
+  "site:facebook.com \"POS software\" chahiye": "0 (none)",
+  "site:facebook.com \"billing software\" chahiye dukan": "0 (bing)",
   "site:facebook.com \"software chahiye\" shop": "0 (auto)",
-  "site:facebook.com/groups \"POS\" recommend shop Pakistan": "0 (auto)",
-  "site:facebook.com \"POS system\" recommend restaurant": "0 (bing)",
-  "site:facebook.com \"looking for POS\" shop": "0 (auto)",
+  "site:facebook.com/groups \"POS\" recommend shop Pakistan": "1 (auto)",
+  "site:facebook.com \"POS system\" recommend restaurant": "1 (bing)",
+  "site:facebook.com \"looking for POS\" shop": "2 (bing)",
   "site:facebook.com \"inventory software\" recommend small business": "0 (auto)",
-  "site:facebook.com \"need a website\" for my business": "0 (none)",
+  "site:facebook.com \"need a website\" for my business": "5 (auto)",
   "site:facebook.com \"website banwani\" hai": "0 (auto)",
   "site:facebook.com \"app banwani\" hai": "0 (auto)",
   "site:facebook.com \"looking for web developer\" small business": "0 (bing)",
   "site:facebook.com \"need a social media manager\"": "0 (bing)",
-  "site:facebook.com \"faceless youtube\" automation help": "0 (auto)",
-  "site:facebook.com \"برنامج كاشير\" افضل": "4 (auto)",
-  "site:facebook.com \"برنامج محاسبي\" محل": "0 (auto)",
+  "site:facebook.com \"faceless youtube\" automation help": "0 (bing)",
+  "site:facebook.com \"برنامج كاشير\" افضل": "0 (bing)",
+  "site:facebook.com \"برنامج محاسبي\" محل": "0 (yahoo)",
   "site:facebook.com \"نظام نقاط البيع\" مطعم": "0 (yahoo)",
-  "site:facebook.com \"ابي موقع\" لمحلي": "0 (auto)",
-  "site:facebook.com/groups \"website chahiye\"": "0 (google)",
-  "site:facebook.com/groups \"koi acha software\" dukan": "0 (bing)",
+  "site:facebook.com \"ابي موقع\" لمحلي": "0 (bing)",
+  "site:facebook.com/groups \"website chahiye\"": "0 (auto)",
+  "site:facebook.com/groups \"koi acha software\" dukan": "0 (none)",
   "site:facebook.com/groups \"POS\" Riyadh recommend": "0 (auto)",
-  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "0 (auto)",
+  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "4 (auto)",
   "site:facebook.com/groups \"برنامج كاشير\" الرياض": "0 (bing)",
   "site:facebook.com/groups \"برنامج كاشير\" دبي": "0 (auto)",
-  "site:facebook.com/groups \"who can make a website\"": "0 (auto)",
-  "site:facebook.com/groups \"need an app\" for my business": "0 (auto)"
+  "site:facebook.com/groups \"who can make a website\"": "0 (none)",
+  "site:facebook.com/groups \"need an app\" for my business": "6 (bing)"
  },
  "hits": [
+  {
+   "url": "https://www.facebook.com/groups/foreignersinchina1/posts/3414181515421423",
+   "title": "Hi everyone! | Facebook",
+   "snippet": "1 day ago · Hi everyone! I’m travelling from Pakistan to China on 18th November. Does NayaPay’s Alipay feature work smoothly in China for everyday payments, or would you recommend setting up a separate Alipay...",
+   "found": "2026-11-18T03:35Z"
+  },
+  {
+   "url": "https://business.facebook.com/groups/JobsInMelbourne.Australia",
+   "title": "JOBS IN MELBOURNE & AUSTRALIA - Facebook",
+   "snippet": "2 days ago · Melbourne CBD restaurant is looking for an experienced Kitchen Hand (dishwasher)Availability: Wednesday to Sunday (Dinners) Time: 5:00PM till closing. Must speak English. Can start immediately Must have experience in a busy restaurant. If you are interested and would like more information, please send resume to employment@boxseafood. com.au ...",
+   "found": "2026-11-18T03:35Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/posbuysellphilippines",
+   "title": "POS FOR SALE / BUY & SELL / POS SUPPORT / POS HARDWARE ...",
+   "snippet": "Nov 11, 2026 · We are looking for an actual POS provider with a physical office or shop that we can visit. If you cannot meet the requirements stated above, please do not waste your time and ours.",
+   "found": "2026-11-18T03:35Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/2896727527324389",
+   "title": "Philippine POS & Systems Forum | Facebook",
+   "snippet": "Oct 25, 2026 · This group is a PH-based discussion space for POS systems and related technologies. POS companies, staff, and industry professionals are welcome to share updates, comparisons, and industry-related news. Promotional or sales-related posts may be allowed with admin approval to ensure relevance and fairness for all members.",
+   "found": "2026-11-18T03:35Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/748333769171864",
+   "title": "i need a website - Facebook",
+   "snippet": "Nov 10, 2026 · Could a stranger tell what your business does within 5 seconds of landing on your homepage? ⏱️ \"Welcome to our website!\" doesn't tell them anything. Your top section should answer three things right away: what you do, who or where you serve, and what to click next.",
+   "found": "2026-11-18T03:35Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/2327375611076477",
+   "title": "I Need a Website for My Business - Facebook",
+   "snippet": "Nov 8, 2026 · Professional Web Developer | Websites Starting at Just $50 Need a website for your business, brand, or idea? I build any type of website, fast, clean, and fully responsive.",
+   "found": "2026-11-18T03:35Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/342043664298173",
+   "title": "I Need A Website - Facebook",
+   "snippet": "Oct 23, 2026 · Professional Web Developer | Websites Starting at Just $50 Need a website for your business, brand, or idea? I build any type of website, fast, clean, and fully responsive.",
+   "found": "2026-11-18T03:35Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1518732269130112",
+   "title": "I need Website Designer/Developer | Facebook",
+   "snippet": "5 days ago · Whether you're a client looking for a trusted web professional or a designer/developer looking for new opportunities, this community is built to connect talented people from around the world. 💻 Need a website?",
+   "found": "2026-11-18T03:35Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1202179451643666/permalink/1423072796220996",
+   "title": "Need a Website That Actually Helps Your Business Grow ...",
+   "snippet": "1 day ago · Need a Website That Actually Helps Your Business Grow? Your website is often the first impression of your business. Let’s make it count. I build modern, fast & responsive websites with: ...",
+   "found": "2026-11-18T03:35Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1379024045506726/posts/29437886965860391",
+   "title": "𝐖𝐞'𝐫𝐞 𝐇𝐢𝐫𝐢𝐧𝐠! | Facebook",
+   "snippet": "Oct 28, 2026 · Issue Resolution Address product quality issues, mismatches, or delivery delays Liaise with vendors to ensure prompt resolutions 8. Cross-Border & International Sourcing Assist in sourcing from international markets (China, India, Dubai, USA, etc.) Follow up on shipment tracking and import coordination 9.",
+   "found": "2026-11-18T03:36Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/211993595498130",
+   "title": "Srdcom-HUTNIČAN ♥♥♥ - Facebook",
+   "snippet": "19 hours ago · Dnešná slávnosť 30. výročie KONSEKRACIE- adóracia, modlitba posvätného ruženca a sv. omša s vdp. kaplánom Františkom sa niesla v duchu vďaky za dar Božieho chrámu, staviteľov a dobrodincov ..... ️🙌👏💞 pekný večer prajem.",
+   "found": "2026-11-18T03:36Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1455597967988530",
+   "title": "Sei di Leno se... | Facebook",
+   "snippet": "1 day ago · Gruppo aperto a tutti coloro che abitano o hanno abitato a Leno.",
+   "found": "2026-11-18T03:36Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/658178410894399",
+   "title": "Sei di Mandello se ... | Facebook",
+   "snippet": "1 day ago · Ricordi e momenti che solo chi è di Mandello può sapere.... :-) Scrivete cosa vi ricordate e cosa solo chi è di Mandello può sapere!",
+   "found": "2026-11-18T03:36Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1598287058256749",
+   "title": "Nepalese Community – Ashburn, Herndon & Chantilly | Facebook",
+   "snippet": "Nov 8, 2026 · The purpose of this group is to connect all Nepalese families, friends, students, professionals, business owners, and newcomers in our community.",
+   "found": "2026-11-18T03:36Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1329044525857177",
+   "title": "What's Happening in Centreville, VA - Community & Marketplace",
+   "snippet": "1 day ago · Hi neighbors! 😊 I just wanted to introduce my small business, Kandoul Customz, located right here in Centreville! We specialize in top-tier custom apparel printing and graphic design. We pride ourselves on using premium, high-quality materials so your custom gear looks, feels, and wears beautifully.",
+   "found": "2026-11-18T03:36Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/BurkeFairfaxCoVirginia",
+   "title": "Burke, Fairfax Co, Virginia - Facebook",
+   "snippet": "1 day ago · Leaf Removal / Landscaping Hi neighbors! I am a 19 year old college student running my own business. I am currently looking for customers who are interested in recurring leaf removal / yard maintenance. I also provide excellent service in: Mulching Weeding Mowing Landscaping Trimming Planting Power washing And more!",
+   "found": "2026-11-18T03:36Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/186002792297612",
+   "title": "Homes for sale in Virginia | Facebook",
+   "snippet": "5 days ago · The transition to UAD 3.6 is more than a reporting update—it's an opportunity to improve efficiency, streamline appraisal workflows and accelerate business growth.",
+   "found": "2026-11-18T03:36Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/novajobs",
+   "title": "Jobs & Careers (Northern Virginia) | Facebook",
+   "snippet": "1 day ago · My husband Joshua and I run Well Stated, a resume writing service built on our backgrounds in executive search and professional writing. We help you explain your experience clearly, with careful attention to what’s relevant to the work you want.",
+   "found": "2026-11-18T03:36Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/3873133236339166",
+   "title": "Illinois & Chicagoland Contractors ( Remodeling ...",
+   "snippet": "Oct 22, 2026 · I'm looking forward to connecting with fellow business owners, community partners, and organizations working to create pathways for small-business success. When small businesses grow, our communities grow with them.",
+   "found": "2026-11-18T03:36Z"
+  },
   {
    "url": "https://www.facebook.com/systemcashier2/posts/أفضل-برنامج-كاشير-للمطاعم-و-الكافيهات-ودي-نبذه-عن-بعض-امكانيات-البرنامج-️طباعة-ا/167377489025553",
    "title": "أفضل برنامج كاشير للمطاعم و الكافيهات... - POS Retail Systems | ...",
@@ -1714,120 +1828,6 @@
    "title": "احسن سيستم كاشير | Facebook",
    "snippet": "Oct 21, 2026 · 🔥 VORTEX POS — سيب الحساب علينا 💻 برنامج كاشير وإدارة متكامل ⚡ سريع — سهل — عملي 📊 مبيعات وتقارير ومتابعة كاملة لشغلك 🔐 مفعل مدى الحياة بدون اشتراكات شهرية 💰 السعر: 4500 جنيه فقط خلي شغلك أذكى…",
    "found": "2026-11-08T10:46Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/281744809331884",
-   "title": "Riyadh Eateries - مطاعم الرياض | Facebook",
-   "snippet": "1 day ago · RE20% Riyadh Eateries - مطاعم الرياض Riyadh discount at House of Rice and Grill بيت الرز والمشاوي till Nov 2026. Reviewed by Mohsin Jalali with team Riyadh Eateries - مطاعم الرياض House of Rice & Grill is a newly opened restaurant in Al Nahdah that brings something different to the table, offering a ...",
-   "found": "2026-11-08T10:47Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1458750414345800",
-   "title": "Sei di GEMONA se.... | Facebook",
-   "snippet": "1 day ago · Ciao a tutti, volevo gentilmente chiedere se ci sarebbe una persona disponibile per servizio taxi a livello privato, di Gemona. Intant, grassie. Contattatemi in privato, mandi!!!",
-   "found": "2026-11-08T10:47Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/228217405293069/posts/1899396488175144",
-   "title": "Punks Arguing Over Nothing | The dude in the upper panel is ...",
-   "snippet": "Oct 19, 2026 · The guy came to know the girl and he loved her. He had a hardware shop and started sponsoring her education. She did nursing at a local university. He was paying approximately K10,000 for her school fees and boarding house. He even paid rent for the girl's mother and helped with small bills. His business was even strained all in the name of love.",
-   "found": "2026-11-08T10:47Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/607814118147108",
-   "title": "Find a Bookkeeper Australia - Connecting Bookkeepers and ...",
-   "snippet": "1 day ago · 📣 LOOKING FOR PART-TIME ACCOUNTING & ADMINISTRATIVE SUPPORT? Running a small business or online shop and need an extra hand with your accounting records and paperwork? I’m offering flexible, part-time accounting and administrative assistance to help business owners keep their financial records organized and up to date.",
-   "found": "2026-11-08T10:47Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1238640884495616",
-   "title": "بيع و شراء اجهزة وبرامج كاشير و باركود | Facebook",
-   "snippet": "Oct 20, 2026 · دعم فني وضمان: نوفر لك الدعم الفني وضمان الحفاظ على كفاءة عمل منظومتك بدون انقطاع. برنامج كاشير جهاز كاشير جهاز كاشير المحادثة على WhatsApp 01066612460 01069675280 برنامج كاشير 6d · Public",
-   "found": "2026-11-08T10:47Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1018168221621821",
-   "title": "انظمة سيستم كاشير ERP ومعدات اللازمه للمؤسسات التجاريه",
-   "snippet": "Oct 23, 2026 · سيستم معمول عشان تدير شغلك صح، وتبقى عارف رأسك من رجلك! ️ #شركة_الأول #سيستم_مبيعات #إدارة_المحلات #برنامج_كاشير #ERP 0 reactions Merna Hamed TD 1d · Public",
-   "found": "2026-11-08T10:47Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/651454887906614",
-   "title": "سوق أجهزة كاشير POS - بيع وشراء وتجار وموردين | Facebook",
-   "snippet": "5 days ago · برنامج كاشير لإدارة السوبر ماركت ومحلات البقالة، يعمل بدون إنترنت (Offline). - إدارة المنتجات والمخزون - تسجيل المبيعات والفواتير - مراجعة تفاصيل الفواتير - نسخ احتياطي للبيانات 📩 للاستفسار عن ...",
-   "found": "2026-11-08T10:47Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1509918119201956",
-   "title": "Ukrainian Businesses in Chicago, USA /Українські Бізнеси в ...",
-   "snippet": "4 days ago · A group for the exchange of information for businesses in Illinois or North America, in which the founder is Ukrainian, Ukrainians work, or supports the Ukrainian community. Група для обміну інформацією про бізнеси в Іллінойсі або Північній Америці, в яких засновник українець, працюють ...",
-   "found": "2026-11-08T10:47Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1393880761009350",
-   "title": "Hotel and restaurant Jobs in indore - Facebook",
-   "snippet": "1 day ago · Cashier – Must have good knowledge of Petpooja Billing Software. 🎁 COMPANY BENEFITS Food & Accommodation Provided Salary Slip Experience / Employment Certificate Company Uniform Monthly 4 Days Off 📍 JOB LOCATION Vijay, Law Garden Cross Road, Near Arjun Avenue, Opposite Samartheshwar Mahadev Road, Ellisbridge, Ahmedabad, Gujarat ...",
-   "found": "2026-11-07T17:50Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1722662108886675",
-   "title": "Sat Softwares & Hardware Solution | Facebook",
-   "snippet": "Oct 23, 2026 · iska software chahiye Kashif Ali Khan Haraj and 14 others 15 reactions · 5 comments",
-   "found": "2026-11-07T17:50Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/voiceofcustomerpk/posts/2357450374840305",
-   "title": "Voice Of Customer | Recently, I made two ... - Facebook",
-   "snippet": "2 days ago · For a leading bank in Pakistan, this level of customer service is deeply disappointing. I understand that technical issues can happen, but lack of responsiveness and proper support is unacceptable. I’m still waiting for a resolution, and I sincerely hope the concerned team sees this and takes immediate action.",
-   "found": "2026-11-07T17:50Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/itphil/posts/2114952199168924",
-   "title": "Looking for BIR Registered POS and device | Facebook",
-   "snippet": "Oct 17, 2026 · Accredited POS machine and system for restaurants Mary Jane Landicho POS & Business Technology Community 4y · Public Hi 😊 Looking for POS Machine and System for restaurant accredited by the BIR. Thank you. Mervs Vallejo and 7 others 8 reactions · 29 comments",
-   "found": "2026-11-07T17:51Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/438002117644459",
-   "title": "بيع معدات مطاعم وكافيهات مستعمله وجديده | Facebook",
-   "snippet": "Oct 22, 2026 · للبيع معدات مطعم بحالة الزيرو تماماً، تم استخدامها لمدة 8 أيام فقط بدون أي عيوب أو خدوش. بيع المعدات لظروف طارئة 👍 للتواصل 01020816559",
-   "found": "2026-11-07T17:51Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/forummottasantanastasia",
-   "title": "FORUM - Motta Sant'Anastasia | Facebook",
-   "snippet": "1 day ago · FORUM Gruppo facebook gestito da \"Motta Sant'Anastasia BLOG\" INFORMAZIONI GENERALI Il gruppo nasce con l'intento di favorire lo scambio di informazioni ed idee tra i cittadini di Motta Sant'Anastasia e tutti coloro si interessano al nostro territorio. Opera nel gruppo con buon senso e nel rispetto di tutti. Gli utenti si assumono la responsabilità integrale di quanto scritto nei propri post e ...",
-   "found": "2026-11-07T17:52Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/138818119614036",
-   "title": "Double Me Up Poker League - Facebook",
-   "snippet": "3 days ago · 🗓️ Double Me Up Poker League tonight at Red Rocks Cafe & Tequila Bar! Play in the 7:30 pm game and the 9:30 pm game for a chance to win a $100 Cash Prize! ⏰ Remember, the cutoff for the first game is at 8pm. Be sure to arrive and sign in by 8 to qualify for the prize! 🏀 Washington Wizards on tonight. Rock your gear for extra chips! 🌮 Drink specials until 9 pm. Come end your day ...",
-   "found": "2026-11-07T17:52Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1527248794156573",
-   "title": "Ciekawostki z Gminy Walim | Facebook",
-   "snippet": "1 day ago · Aktualne wiadomości z Gminy Walim. położonej w przepięknych Górach Sowich Tu znajdziecie informacje o atrakcyjnych miejscach, regionu, ważnych...",
-   "found": "2026-11-07T17:52Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/371840277057258",
-   "title": "Guttstas Kennel - korthårig vorsteh | Facebook",
-   "snippet": "23 hours ago · Idag var dagen det hände! 🤩🏆 Maya levererade på topp under dagens särskilda prov och tog sin sista elitetta. Det betyder att hon nu officiellt kan lägga till titeln SEJCH till sitt namn! 🐾 Vi bjöds på strålande sol och perfekt jaktprovsväder på Jällsjös otroligt fina marker. Stort tack till domare Lennart Karlsson för en väl genomförd dag! ☀️🌲 Heja Maya, som du ...",
-   "found": "2026-11-07T17:52Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/2086553668217251",
-   "title": "برامج كاشير سيستم و كاسيو | Facebook",
-   "snippet": "5 days ago · ( ( كاشير للبيع بأقل سعر )) _ تسليم وتركيب في نفس اليوم _ شاشة تاتش + جهاز كمبيوتر _ برانتر فواتير + اسكانر + درج معدن _ برنامج كاشير مفتوح مدى الحياة بدون اشتراكات _متابعة المبيعات من الموبايل ...",
-   "found": "2026-11-07T17:52Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1308165139387704",
-   "title": "Moses Lake Small Business and Friends - Facebook",
-   "snippet": "Oct 15, 2026 · Looking for an affordable way to get your business in front of new customers while supporting arts and entertainment in our community? We've got opportunities for you!",
-   "found": "2026-11-07T17:52Z"
   }
  ]
 }
