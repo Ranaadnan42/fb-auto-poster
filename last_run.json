@@ -1,21 +1,31 @@
 {
  "lang": "en",
- "stock_clips": 18,
+ "stock_clips": 40,
  "fallback_clips": 0,
  "errors": [],
- "search_phrases": [],
- "story": "Khubayb ibn Adi martyred at Tan'im",
- "vision_checks": 148,
- "clips_rejected": 123,
+ "search_phrases": [
+  "good manners islam",
+  "good behavior islam",
+  "good character in islam malayalam",
+  "good muslim character",
+  "dua for good character islam",
+  "how to have good character islam",
+  "good character and conduct in islam",
+  "good character mufti menk"
+ ],
+ "story": "Thawban asks Prophet about Jannah and good character",
+ "search": "how to have good character islam",
+ "vision_checks": 146,
+ "clips_rejected": 98,
  "sources": {
-  "pixabay": 12,
-  "commons": 5,
-  "mixkit": 1
+  "pixabay": 28,
+  "commons": 8,
+  "mixkit": 3,
+  "nasa": 1
  },
- "photo_clips": 1,
- "reel_minutes": 0.9,
- "time_utc": "2026-11-18 16:40",
- "title": "When a Sahabi Smiled on the Gallows: The Ultimate Sacrifice",
+ "long_minutes": 4.89,
+ "time_utc": "2026-11-18 19:26",
+ "title": "How to have good character islam: The lesson of Thawban",
  "dry_run": false,
  "posted_ok": 1
 }
