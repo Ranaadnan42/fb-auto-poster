@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-17 17:37",
+ "time_utc": "2026-11-18 17:36",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "sports": {
-   "key": "c1561273",
+   "key": "c1546710",
    "sport": "cricket",
-   "date": "2026-11-17 17:37",
+   "date": "2026-11-18 17:36",
    "lang": "ur",
-   "match": "Arabian Aces v Yas Lions",
-   "result": "Yas Lions won by 5 wickets",
-   "dur": 70,
-   "post_id": "1461305936085282"
+   "match": "Hyderabad (India) v Vidarbha",
+   "result": "Vidarbha won by 3 wickets",
+   "dur": 59,
+   "post_id": "1802965584290378"
   }
  },
  "errors": []
