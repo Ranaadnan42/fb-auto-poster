@@ -48,7 +48,7 @@ WORK = f"work_{PFX}"
 HISTORY_FILE = f"{PFX}_{MODE}_history.json"
 REPORT_FILE = f"{PFX}_{MODE}_last_run.json"
 OUT_FILE = f"final_{PFX}.mp4"
-MODELS = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemma-4-31b-it", "gemma-4-26b-a4b-it"]
+MODELS = ["gemini-1.5-flash", "gemini-1.5-flash-8b", "gemini-2.0-flash-exp"]
 UA = {"User-Agent": "AtlasUntoldBot/1.0 (youtube documentary; contact ranaadnan320@gmail.com)"}
 GEO_URL = ("https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/"
            "ne_50m_admin_0_countries.geojson")
@@ -558,7 +558,10 @@ Return JSON: {{"subject": "short subject e.g. Japan / Kyoto, Japan / Dubai vs Do
  "countries": [{{"name": "English country name", "iso3": "ISO 3166 alpha-3", "currency": "ISO 4217 code"}}],
  "cities": ["main city names involved (0-3)"]}}""")
     plan["series"] = series
-    phrase = (plan.get("search_phrase") or "").strip() if searches else ""
+    phrase = plan.get("search_phrase") or ""
+    if isinstance(phrase, list):
+        phrase = phrase[0] if phrase else ""
+    phrase = str(phrase).strip() if searches else ""
     plan["search_phrase"] = phrase
     if phrase:
         REPORT["search"] = phrase
