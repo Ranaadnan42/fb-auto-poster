@@ -1,35 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 8,
- "fallback_clips": 1,
+ "stock_clips": 0,
+ "fallback_clips": 0,
  "errors": [],
- "format": "people",
- "search_phrases": [
-  "mosquito jokes",
-  "mosquito funny comedy",
-  "mosquito funny",
-  "mosquito kahani"
- ],
- "funny_score": "3 -> 9",
- "search": "mosquito funny comedy",
- "reel_format": "expectation",
- "vision_checks": 125,
- "clips_rejected": 129,
- "no_match": [
-  "man holding badminton racket bedroom",
-  "man holding badminton racket bedroom",
-  "woman talking pointing finger bedroom",
-  "woman talking pointing finger bedroom",
-  "man looking confused in bed",
-  "man looking confused in bed",
-  "people running with pillows in dark room",
-  "people running with pillows in dark room",
-  "man looking at broken phone screen sadly",
-  "man looking at broken phone screen sadly"
- ],
- "laughs": 5,
- "reel_minutes": 0.76,
- "time_utc": "2026-11-17 16:07",
- "title": "رات کا مچھر اور خاندانی جنگ",
+ "format": "chat",
+ "reel_minutes": 1.63,
+ "laughs": 4,
+ "time_utc": "2026-11-18 07:05",
+ "title": "پلمبر کے پانچ منٹ اور کچن کا واٹر پارک",
  "dry_run": false
 }
