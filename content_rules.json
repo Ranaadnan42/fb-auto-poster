@@ -1,108 +1,118 @@
 {
  "islamic": {
-  "avoid": [],
-  "try": [
-   "The story of Bilal ibn Rabah and his patience during slavery",
-   "The miracle of the splitting of the moon (Qamar) and its lessons",
-   "The story of the woman who threw a stone at the Prophet and his forgiveness",
-   "The story of the blind man who regained sight through the Prophet's dua",
-   "The story of the man who asked for a camel and the Prophet's response",
-   "The story of the woman who was stoned and the Prophet's mercy"
+  "avoid": [
+   "repeated emphasis on the value of time using Umar bin Abdul Aziz",
+   "the incident of Abu Bakr's specific sacrifice"
   ],
-  "note": "Page is slightly repetitive with specific Sahaba stories and repentance themes, but overall diverse."
+  "try": [
+   "The perseverance and wisdom of Bilal ibn Rabah under hardship",
+   "The beautiful character of Asma bint Abi Bakr during the Hijrah",
+   "A hadith lesson on guarding the tongue and speaking good or remaining silent",
+   "The story of Abu Ayyub al-Ansari and his dedication to spreading knowledge",
+   "The Islamic etiquette of hospitality and honoring neighbors based on authentic t",
+   "Reflecting on the life and patience of Ayub (Job) as mentioned in the Quran"
+  ],
+  "note": "Page thori bohat repetitive ho rahi hai, kuch topics aur shakhsiat repeat hue hain, is liye naye topics try karne chahiyen."
  },
  "funny": {
   "avoid": [
-   "یاروں کی گروپ چیٹ اور شمالی علاقہ جات",
-   "Cricket-commentary style narration",
-   "Nature-documentary style narration",
-   "Northern areas or motorway road trips",
-   "WhatsApp group forwards and virus stories",
-   "Sarcastic roasting narrator style",
-   "Pet cat ruling the house"
+   "شمالی علاقہ جات",
+   "یاروں کی گروپ چیٹ",
+   "منظور انکل",
+   "ماجد بریک",
+   "استاد ناصر",
+   "ماما رشید",
+   "چائے کا پرچہ",
+   "موٹروے روڈ ٹرپ"
   ],
   "try": [
-   "Gas load shedding and cylinder struggles in winter",
-   "Tailor's excuses and suit fitting drama before a function",
-   "Electricity bill shock and the 'bijli bachao' mission at home",
-   "Guest-only crockery and snacks protocol for kids",
-   "Desi parents struggling with modern school homework and new math"
+   "بجلی کا بل اور دیسی گھرانوں میں ایمرجنسی لائٹ کا صفایا",
+   "عید کی قربانی کے بعد فریج میں گوشت کی تقسیم اور محلے کے حساب کتاب",
+   "شادی کے سیزن میں درزی کا جھوٹا وعدہ اور سوٹ کی تاخیر",
+   "سحری میں اٹھنے کی ناکام کوشش اور پورا خاندان ڈرامائی انداز میں",
+   "گھر میں نیا وائی فائی لگنے کے بعد بچوں اور ابّا جی کی جنگ",
+   "امتحان کی رات گیس غائب ہونے پر پڑھائی کا ڈرامائی نقصان"
   ],
-  "note": "Page ka content narration styles aur chat topics mein kaafi repetitive ho raha hai, naye desi masail par focus zaroori hai."
+  "note": "Page bilkul theek chal raha hai, bas series aur kuch repeat kirdaar avoid karne hain taake nayaapan rahe."
  },
  "world": {
   "avoid": [
-   "What Nobody Tells You",
    "Japan",
-   "Australia",
-   "Retiring in"
+   "Thailand",
+   "Spain",
+   "Mexico",
+   "What Nobody Tells You About"
   ],
   "try": [
-   "Switzerland: The World's Most Expensive Paradise?",
-   "Living in Bali: The Truth About the Digital Nomad Dream",
-   "Argentina: Life in the Land of Silver and Football",
-   "Greece: History, Islands and Modern Daily Life",
-   "The Reality of Living in the Netherlands",
-   "Iceland: Surviving the Cold and the High Costs"
+   "Moving to Iceland: Cost of Living, Nature & Isolation",
+   "Switzerland vs Austria: Which Alpine Country is Better?",
+   "Retiring in Panama: The Honest Truth for Expats",
+   "What Living in Argentina Is Really Like in 2025",
+   "Moving to Scotland: Cost of Living, Culture & Highlands",
+   "Colombia vs Peru: Cost of Living & Lifestyle Comparison"
   ],
-  "note": "Content titles kafi repetitive ho gaye hain, naye regions aur unique angles ki zaroorat hai."
+  "note": "Page thori repetitive ho gai hai, qism-bar-qism countries aur 'What Nobody Tells You' wali phrasing baar baar repeat ho rahi hai."
  },
  "world_short": {
   "avoid": [
-   "5 Secret Places in",
-   "Would You Live in",
+   "Portugal",
    "Japan",
    "Spain",
-   "Portugal",
-   "Australia"
+   "Canada",
+   "Australia",
+   "South Korea",
+   "Would You Live in",
+   "5 Secret Places in"
   ],
   "try": [
-   "Traditional Food of Vietnam: 5 Must-Try Dishes",
-   "Hidden Gems of Morocco: 5 Places Tourists Miss",
-   "6 Surprising Facts About Brazil You Didn't Know",
-   "Germany vs Netherlands: Wages and Cost of Living Compared",
-   "What Nobody Tells You About Visiting Egypt",
-   "Cost of Living in Bali, Indonesia: Digital Nomad Reality"
+   "Iceland",
+   "Vietnam",
+   "Argentina",
+   "Scotland",
+   "Morocco",
+   "Sweden"
   ],
-  "note": "Content formats kaafi zyada repeat ho rahe hain, naye subjects aur title variations ki zaroorat hai."
+  "note": "Page thori repetitive hogayi hai kyunki kuch countries aur titles bar bar repeat ho rahe hain."
  },
  "frames": {
   "avoid": [
+   "Dubai",
    "Japan",
+   "United Kingdom",
    "Canada",
    "Germany",
-   "Dubai",
-   "Australia"
+   "Pakistanis ke liye kaun sa mulk behtar hai"
   ],
   "try": [
-   "Portugal mein residency aur kaam ka asaan tareeqa",
-   "Switzerland: Dunya ka sab se khoobsurat aur mehnga mulk",
-   "Finland mein muft taleem aur PR kaise hasil karein",
-   "Thailand Tour Guide: Pakistaniyon ke liye sasta aur behtareen safar",
-   "Ireland mein jobs aur student life ki haqeeqat",
-   "Kuwait vs Oman: Salary aur rehne ke kharch ka mawazna"
+   "South Korea mein parhai aur wahan ka work visa",
+   "Switzerland mein Pakistaniyon ki zindagi aur tourism",
+   "Thailand mein business aur job ke mauqay",
+   "Saudi Arabia mein naye visa rules aur jobs",
+   "China mein scholarship aur Pakistani students ka lifestyle",
+   "Vienna, Austria ka travel documentary aur cost of living"
   ],
-  "note": "Page ka content informative hai magar popular destinations repeat ho chukay hain, ab naye mumalik cover karne ki zaroorat hai."
+  "note": "Page thora repetitive ho gaya hai kyunke bar bar aik hi tarah ke visa aur country comparison guides post ho rahe hain."
  },
  "frames_short": {
   "avoid": [
-   "New Zealand",
+   "United Kingdom / London",
    "South Korea",
-   "United Kingdom",
-   "5 Important Tips",
-   "6 حیران کن حقائق",
-   "Ireland",
-   "Central Asia (Kazakhstan/Kyrgyzstan)"
+   "Malta",
+   "Iceland / Reykjavik",
+   "Finland / Helsinki",
+   "Bosnia and Herzegovina",
+   "Brazil / Rio de Janeiro",
+   "Philippines / Manila"
   ],
   "try": [
-   "Germany: Berlin mein jobs aur rehaysh ka kharcha",
-   "Turkey: Istanbul ke saste aur behtareen khane",
-   "USA vs Canada: Pakistani students ke liye behtar kaun?",
-   "Switzerland: Dunya ki sab se khubsurat aur chhupi hui jagah",
-   "Qatar: Doha mein kitni tankhwa aur bachat ho sakti hai?",
-   "Malaysia: Kuala Lumpur mein student life aur part-time jobs"
+   "Italy / Rome",
+   "Germany / Berlin",
+   "Spain / Madrid",
+   "Turkey / Istanbul",
+   "France / Paris",
+   "Switzerland / Zurich"
   ],
-  "note": "Page ka content diverse hai lekin title formats aur numbering (5 tips, 6 facts) kafi repetitive ho rahi hai."
+  "note": "Page thori repetitive ho rahi hai kyunke lagataar countries aur unke kharche/visa cover ho rahe hain, thori variety laane ki zaroorat hai."
  },
  "_platforms": {
   "islamic": {

@@ -1,20 +1,11 @@
 {
  "open_fixes": [],
- "time_utc": "2026-11-17 23:00",
- "summary": "",
- "notes": [
-  "fix push na ho saka"
- ],
+ "time_utc": "2026-11-18 01:26",
+ "summary": "Tamam bots ke fail hone ki asal wajah AI model quotas aur rate limits (429 / RESOURCE_EXHAUSTED) hain. Yeh aarzi (temporary) masail hain, is liye koi code change nahi kiya gaya.",
+ "notes": [],
  "actions": [],
- "edits": [
-  {
-   "path": "world.py",
-   "why": "AI sometimes returns search_phrase as a list, causing .strip() to fail on a list object."
-  },
-  {
-   "path": "groq_backup.py",
-   "why": "Some Groq models have a max_tokens limit of 4096, causing 400 errors when 8000 is requested."
-  }
- ],
- "needs_owner": []
+ "edits": [],
+ "needs_owner": [
+  "AI model quotas (Gemini & Groq) exhausted, need to wait for rate limits to reset or upgrade API plans"
+ ]
 }

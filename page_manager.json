@@ -1,13 +1,13 @@
 {
  "islamic": {
-  "at": "2026-11-17T23:39+00:00",
+  "at": "2026-11-18T01:36+00:00",
   "done": [],
   "problems": [],
   "name": "Islamic Motivational Videos",
-  "followers": 1322,
+  "followers": 1321,
   "insights_28d": {},
   "posts_28d": 177,
-  "eng_28d": 802,
+  "eng_28d": 805,
   "eng_avg": 4.5,
   "best_hours_pk": [
    3,
@@ -34,7 +34,7 @@
     "at": "13 Nov 03:28"
    }
   ],
-  "low_posts": 12,
+  "low_posts": 11,
   "history": [
    {
     "day": "2026-11-02",
@@ -100,20 +100,25 @@
     "day": "2026-11-17",
     "followers": 1322,
     "eng_28d": 802
+   },
+   {
+    "day": "2026-11-18",
+    "followers": 1321,
+    "eng_28d": 805
    }
   ],
-  "posts_24h": 10,
+  "posts_24h": 6,
   "last_post": "2026-11-17T16:19+00:00"
  },
  "funny": {
-  "at": "2026-11-17T23:39+00:00",
+  "at": "2026-11-18T01:36+00:00",
   "done": [],
   "problems": [],
   "name": "Hansi Ka Adda ہنسی کا اڈا",
   "followers": 1520,
   "insights_28d": {},
   "posts_28d": 223,
-  "eng_28d": 329,
+  "eng_28d": 331,
   "eng_avg": 1.5,
   "best_hours_pk": [
    0,
@@ -140,7 +145,7 @@
     "at": "13 Nov 20:35"
    }
   ],
-  "low_posts": 34,
+  "low_posts": 32,
   "history": [
    {
     "day": "2026-11-02",
@@ -206,13 +211,18 @@
     "day": "2026-11-17",
     "followers": 1520,
     "eng_28d": 329
+   },
+   {
+    "day": "2026-11-18",
+    "followers": 1520,
+    "eng_28d": 331
    }
   ],
   "posts_24h": 7,
   "last_post": "2026-11-17T17:33+00:00"
  },
  "frames": {
-  "at": "2026-11-17T23:39+00:00",
+  "at": "2026-11-18T01:36+00:00",
   "done": [],
   "problems": [],
   "name": "Frames Of Life",
@@ -312,25 +322,30 @@
     "day": "2026-11-17",
     "followers": 81,
     "eng_28d": 452
+   },
+   {
+    "day": "2026-11-18",
+    "followers": 81,
+    "eng_28d": 452
    }
   ],
   "posts_24h": 5,
   "last_post": "2026-11-17T13:55+00:00"
  },
  "webbuilder": {
-  "at": "2026-11-17T23:39+00:00",
+  "at": "2026-11-18T01:36+00:00",
   "done": [],
   "problems": [],
   "name": "web builder",
   "followers": 33,
   "insights_28d": {},
   "posts_28d": 209,
-  "eng_28d": 225,
+  "eng_28d": 226,
   "eng_avg": 1.1,
   "best_hours_pk": [
    3,
    1,
-   2
+   4
   ],
   "top_posts": [
    {
@@ -352,7 +367,7 @@
     "at": "14 Nov 23:54"
    }
   ],
-  "low_posts": 31,
+  "low_posts": 30,
   "history": [
    {
     "day": "2026-11-02",
@@ -418,21 +433,26 @@
     "day": "2026-11-17",
     "followers": 33,
     "eng_28d": 225
+   },
+   {
+    "day": "2026-11-18",
+    "followers": 33,
+    "eng_28d": 226
    }
   ],
-  "posts_24h": 10,
+  "posts_24h": 6,
   "last_post": "2026-11-17T19:06+00:00"
  },
  "news": {
-  "at": "2026-11-17T23:39+00:00",
+  "at": "2026-11-18T01:36+00:00",
   "done": [],
   "problems": [],
   "name": "News Act",
   "followers": 51,
   "insights_28d": {},
-  "posts_28d": 157,
+  "posts_28d": 159,
   "eng_28d": 322,
-  "eng_avg": 2.1,
+  "eng_avg": 2.0,
   "best_hours_pk": [
    1,
    5,
@@ -458,7 +478,7 @@
     "at": "16 Nov 05:02"
    }
   ],
-  "low_posts": 72,
+  "low_posts": 74,
   "history": [
    {
     "day": "2026-11-16",
@@ -468,13 +488,18 @@
     "day": "2026-11-17",
     "followers": 51,
     "eng_28d": 322
+   },
+   {
+    "day": "2026-11-18",
+    "followers": 51,
+    "eng_28d": 322
    }
   ],
-  "posts_24h": 23,
-  "last_post": "2026-11-17T22:08+00:00"
+  "posts_24h": 20,
+  "last_post": "2026-11-18T00:08+00:00"
  },
  "newsur": {
-  "at": "2026-11-17T23:39+00:00",
+  "at": "2026-11-18T01:36+00:00",
   "done": [],
   "problems": [],
   "name": "News Act Urdu",
@@ -517,21 +542,26 @@
     "day": "2026-11-17",
     "followers": 1,
     "eng_28d": 8
+   },
+   {
+    "day": "2026-11-18",
+    "followers": 1,
+    "eng_28d": 8
    }
   ],
-  "posts_24h": 8,
+  "posts_24h": 7,
   "last_post": "2026-11-17T14:15+00:00"
  },
  "sports": {
-  "at": "2026-11-17T23:39+00:00",
+  "at": "2026-11-18T01:36+00:00",
   "done": [],
   "problems": [],
   "name": "Sports Hubs",
   "followers": 16,
   "insights_28d": {},
-  "posts_28d": 198,
+  "posts_28d": 201,
   "eng_28d": 109,
-  "eng_avg": 0.6,
+  "eng_avg": 0.5,
   "best_hours_pk": [
    18,
    16,
@@ -557,7 +587,7 @@
     "at": "15 Nov 03:20"
    }
   ],
-  "low_posts": 112,
+  "low_posts": 115,
   "history": [
    {
     "day": "2026-11-16",
@@ -567,10 +597,15 @@
     "day": "2026-11-17",
     "followers": 16,
     "eng_28d": 109
+   },
+   {
+    "day": "2026-11-18",
+    "followers": 16,
+    "eng_28d": 109
    }
   ],
   "posts_24h": 30,
-  "last_post": "2026-11-17T22:24+00:00"
+  "last_post": "2026-11-18T00:13+00:00"
  },
  "scenic": {
   "problems": [
@@ -578,13 +613,13 @@
   ]
  },
  "war": {
-  "at": "2026-11-17T23:39+00:00",
+  "at": "2026-11-18T01:36+00:00",
   "done": [],
   "problems": [],
   "name": "Battles Untold",
   "followers": 1,
   "insights_28d": {},
-  "posts_28d": 17,
+  "posts_28d": 18,
   "eng_28d": 14,
   "eng_avg": 0.8,
   "best_hours_pk": [
@@ -612,7 +647,7 @@
     "at": "18 Nov 02:47"
    }
   ],
-  "low_posts": 5,
+  "low_posts": 6,
   "history": [
    {
     "day": "2026-11-16",
@@ -622,13 +657,18 @@
     "day": "2026-11-17",
     "followers": 1,
     "eng_28d": 14
+   },
+   {
+    "day": "2026-11-18",
+    "followers": 1,
+    "eng_28d": 14
    }
   ],
-  "posts_24h": 6,
-  "last_post": "2026-11-17T22:45+00:00"
+  "posts_24h": 5,
+  "last_post": "2026-11-18T01:13+00:00"
  },
  "birds": {
-  "at": "2026-11-17T23:39+00:00",
+  "at": "2026-11-18T01:36+00:00",
   "done": [],
   "problems": [],
   "name": "Birds of the World",
@@ -672,13 +712,18 @@
     "day": "2026-11-17",
     "followers": 7,
     "eng_28d": 4
+   },
+   {
+    "day": "2026-11-18",
+    "followers": 7,
+    "eng_28d": 4
    }
   ],
-  "posts_24h": 6,
+  "posts_24h": 5,
   "last_post": "2026-11-17T21:17+00:00"
  },
  "pets": {
-  "at": "2026-11-17T23:39+00:00",
+  "at": "2026-11-18T01:36+00:00",
   "done": [],
   "problems": [],
   "name": "Dogs & Cats World",
@@ -721,20 +766,25 @@
     "day": "2026-11-17",
     "followers": 1,
     "eng_28d": 2
+   },
+   {
+    "day": "2026-11-18",
+    "followers": 1,
+    "eng_28d": 2
    }
   ],
-  "posts_24h": 6,
+  "posts_24h": 5,
   "last_post": "2026-11-17T22:27+00:00"
  },
  "wild": {
-  "at": "2026-11-17T23:39+00:00",
+  "at": "2026-11-18T01:36+00:00",
   "done": [],
   "problems": [],
   "name": "Wild Nations",
   "followers": 1,
   "insights_28d": {},
-  "posts_28d": 10,
-  "eng_28d": 6,
+  "posts_28d": 11,
+  "eng_28d": 7,
   "eng_avg": 0.6,
   "best_hours_pk": [
    22,
@@ -743,7 +793,7 @@
   ],
   "top_posts": [
    {
-    "eng": 5,
+    "eng": 6,
     "text": "Imagine carrying a baby for nearly two full years! Meet Kenya's 7-ton titan. 🐘🇰🇪",
     "url": "https://www.facebook.com/reel/1854327905717302/",
     "at": "17 Nov 22:43"
@@ -756,12 +806,12 @@
    },
    {
     "eng": 0,
-    "text": "Have you ever seen a zebra living high in the mountains? 🦓  🐾 Animal: Cape mount",
-    "url": "https://www.facebook.com/reel/4482792438643075/",
-    "at": "18 Nov 01:07"
+    "text": "Canada's Untamed Wilderness: Journey Through the Great North  🌍 Country: Canada ",
+    "url": "https://www.facebook.com/reel/1623576648959365/",
+    "at": "18 Nov 06:09"
    }
   ],
-  "low_posts": 8,
+  "low_posts": 9,
   "history": [
    {
     "day": "2026-11-16",
@@ -771,43 +821,48 @@
     "day": "2026-11-17",
     "followers": 1,
     "eng_28d": 6
+   },
+   {
+    "day": "2026-11-18",
+    "followers": 1,
+    "eng_28d": 7
    }
   ],
   "posts_24h": 6,
-  "last_post": "2026-11-17T20:07+00:00"
+  "last_post": "2026-11-18T01:09+00:00"
  },
  "faizi": {
-  "at": "2026-11-17T23:39+00:00",
+  "at": "2026-11-18T01:36+00:00",
   "done": [],
   "problems": [],
   "name": "Style by Faizi",
   "followers": 0,
   "insights_28d": {},
-  "posts_28d": 9,
-  "eng_28d": 0,
-  "eng_avg": 0.0,
+  "posts_28d": 10,
+  "eng_28d": 1,
+  "eng_avg": 0.1,
   "best_hours_pk": [
    4,
    2
   ],
   "top_posts": [
    {
-    "eng": 0,
+    "eng": 1,
     "text": "",
     "url": "https://www.facebook.com/reel/1145673538225499/",
     "at": "18 Nov 04:03"
    },
    {
     "eng": 0,
-    "text": "✨ Emerald Enchant: Shine at every celebration! ✨  1. Emerald Silk Maxi 2. Emeral",
-    "url": "https://www.facebook.com/reel/2223316965262985/",
-    "at": "18 Nov 02:48"
+    "text": "Which velvet glam look is your holiday favorite? ✨👗  1. Cherry Red Satin Slip 2.",
+    "url": "https://www.facebook.com/reel/1665757948418370/",
+    "at": "18 Nov 06:10"
    },
    {
     "eng": 0,
-    "text": "A or B? 👀 Comment your pick 👇  ✨ Golden Dusk Gala: Shine at every celebration! ✨",
-    "url": "https://www.facebook.com/122097376215555703/posts/122097879081555703",
-    "at": "17 Nov 23:57"
+    "text": "✨ Emerald Enchant: Shine at every celebration! ✨  1. Emerald Silk Maxi 2. Emeral",
+    "url": "https://www.facebook.com/reel/2223316965262985/",
+    "at": "18 Nov 02:48"
    }
   ],
   "low_posts": 9,
@@ -820,9 +875,14 @@
     "day": "2026-11-17",
     "followers": 0,
     "eng_28d": 0
+   },
+   {
+    "day": "2026-11-18",
+    "followers": 0,
+    "eng_28d": 1
    }
   ],
-  "posts_24h": 6,
-  "last_post": "2026-11-17T23:03+00:00"
+  "posts_24h": 7,
+  "last_post": "2026-11-18T01:10+00:00"
  }
 }
