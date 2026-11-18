@@ -1,8 +1,30 @@
 {
- "time_utc": "2026-11-17 23:58",
+ "time_utc": "2026-11-18 00:00",
  "mode": "long",
  "dry_run": false,
- "errors": [
-  "fatal: Groq fail: 429: {\"error\":{\"message\":\"Rate limit reached for model `qwen/qwen3.8-27b` in organization `org_01m5n5tjq0enj92tzwdj7588hj` service tier `on_demand` on tokens per day (TPD): Limit 200000, Used 198447, Reque"
- ]
+ "errors": [],
+ "kind": "long",
+ "lang": "en",
+ "agent_checks": 28,
+ "agent_rejects": 26,
+ "agent_skips": 464,
+ "clips_rejected": 457,
+ "alt_searches": 25,
+ "tag_pass": 40,
+ "no_match": [
+  "Common loon calling",
+  "Wildlife ranger Canada",
+  "Protected nature reserve",
+  "Wild Nations logo"
+ ],
+ "headline_cards": 4,
+ "posted": {
+  "country": "Canada",
+  "animal": null,
+  "wiki": "Wildlife of Canada",
+  "date": "2026-11-18 00:00",
+  "title": "Canada's Untamed Wilderness: Journey Through the Great North",
+  "dur": 288,
+  "post_id": "1623576648959365"
+ }
 }
