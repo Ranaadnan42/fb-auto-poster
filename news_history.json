@@ -1646,6 +1646,22 @@
    ],
    "breaking": true,
    "post_id": "1357984777408020_122096709147558252"
+  },
+  {
+   "date": "2026-11-18 14:30",
+   "lang": "en",
+   "topic": "europe",
+   "link": "https://www.bbc.co.uk/news/articles/cw8085rykkmgo?at_medium=RSS&at_campaign=rss",
+   "title": "Russian military plane crashes, killing all 19 on board",
+   "words": [
+    "board",
+    "crashes",
+    "killing",
+    "military",
+    "plane",
+    "russian"
+   ],
+   "post_id": "1448208791702551_122111456889532804"
   }
  ],
  "sports": [
@@ -3279,6 +3295,26 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122104727301548502"
+  },
+  {
+   "date": "2026-11-18 14:30",
+   "lang": "en",
+   "topic": "olympic_sports",
+   "link": "https://news.google.com/rss/articles/CBMidEFVX3lxTFBpYTdNelJGRmQ4S2VtMXdkSzdaNHJsNDhuNkdnb0doSFlBV01GNFNJT2FFNzlrekFXSTVsRExvMTdiSXpQZ2pyNzFTODJWSUlEdkxhajhKSm1Scldza2xQTmlFY1ItenItUFFHRS13M0ZFMW8y?oc=5",
+   "title": "Tyumen’s Alexandra Stashkevich represents Russia at Miss Universe 2026 in Hato Rey, San Juan",
+   "words": [
+    "2026",
+    "alexandra",
+    "hato",
+    "juan",
+    "miss",
+    "represents",
+    "russia",
+    "stashkevich",
+    "tyumen",
+    "universe"
+   ],
+   "post_id": "1465090056678690_122104743933548502"
   }
  ],
  "used_images": [
@@ -3390,6 +3426,8 @@
   5365722,
   5489526,
   "pxi3097621",
-  "pxi100733"
+  "pxi100733",
+  7726190,
+  5476774
  ]
 }
