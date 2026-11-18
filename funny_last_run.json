@@ -1,12 +1,40 @@
 {
  "mode": "auto",
- "stock_clips": 0,
+ "stock_clips": 10,
  "fallback_clips": 0,
  "errors": [],
- "format": "chat",
- "long_minutes": 7.25,
- "laughs": 13,
- "time_utc": "2026-11-18 13:37",
- "title": "بہانوں کا بادشاہ اور نالائق افسر",
+ "format": "people",
+ "search_phrases": [
+  "homework funny short",
+  "homework funny videos",
+  "how to do homework funny",
+  "homework funny video",
+  "homework comedy video",
+  "homework comedy"
+ ],
+ "funny_score": "2 -> 9",
+ "search": "homework funny short",
+ "reel_format": "types",
+ "vision_checks": 163,
+ "clips_rejected": 158,
+ "no_match": [
+  "student running away desk",
+  "student running away desk",
+  "student sleeping on books",
+  "student sleeping on books",
+  "student sleeping on books",
+  "student talking to teacher",
+  "shocked student school gate",
+  "shocked student school gate",
+  "shocked student school gate"
+ ],
+ "sources": {
+  "pixabay": 3,
+  "mixkit": 2
+ },
+ "laughs": 5,
+ "reel_minutes": 0.89,
+ "time_utc": "2026-11-18 16:05",
+ "title": "اسکول کا ہوم ورک اور پاکستانی بچے",
  "dry_run": false
 }
