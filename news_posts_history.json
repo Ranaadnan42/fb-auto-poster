@@ -4471,5 +4471,29 @@
   ],
   "sport": "football",
   "title": "Tahiti vs Cook Islands"
+ },
+ {
+  "date": "2026-11-18 00:08",
+  "page": "news",
+  "id": "1448208791702551_122111205567532804",
+  "fmt": "pic",
+  "lang": "en",
+  "topics": [
+   "africa"
+  ],
+  "sport": null,
+  "title": "Mozambique opposition leader goes on trial for terrorism over deadly election protests"
+ },
+ {
+  "date": "2026-11-18 00:08",
+  "page": "sports",
+  "id": "1465090056678690_122104235487548502",
+  "fmt": "pic",
+  "lang": "en",
+  "topics": [
+   "formula1"
+  ],
+  "sport": null,
+  "title": "F1 Championship Battles: From Second Place to the Final Point"
  }
 ]
