@@ -1604,6 +1604,30 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122111324763532804"
+  },
+  {
+   "date": "2026-11-18 10:04",
+   "lang": "ur",
+   "topic": "pakistan",
+   "link": "https://www.dawn.com/news/2045399/indian-air-forces-rafale-fleet-down-to-32-aviation-publication-says-backing-pakistans-claim-of-downing-four-jets",
+   "title": "Indian Air Force’s Rafale fleet down to 32, aviation publication says, backing Pakistan’s claim of downing four jets",
+   "words": [
+    "aviation",
+    "backing",
+    "claim",
+    "down",
+    "downing",
+    "fleet",
+    "force",
+    "four",
+    "indian",
+    "jets",
+    "pakistan",
+    "publication",
+    "rafale",
+    "says"
+   ],
+   "post_id": "1357984777408020_122096564883558252"
   }
  ],
  "sports": [
@@ -3199,6 +3223,27 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122104473807548502"
+  },
+  {
+   "date": "2026-11-18 10:00",
+   "lang": "ur",
+   "topic": "table_tennis",
+   "link": "https://news.google.com/rss/articles/CBMixgFBVV95cUxPNXJySjVIOWZ5WkdMZHh5UVBQeU5OWmJmeFJGM0dLTW1FYjlyQlQxUmRLd2FlakJMeDl0b19RQVNFbzFNdGRJWVNzZGsxakw5ZWtoZ2xDcURVaGg0UVBkSjJjSWFhd1BjQXFFUnVqZHBQLVgwMHVSQXVTZHBoQXg0WjJXYzNaQmtqVmZtR0V5Q2RuRVd3aHByQmJfQ28tbXoxS0FXN2p5a0g1eERPM0hCdWtySGxTVGtGZ3NBc2RJd3JTajhRQ0E?oc=5",
+   "title": "Deaf S’wakian teen table tennis player needs RM84,000 for new cochlear sound processors",
+   "words": [
+    "cochlear",
+    "deaf",
+    "needs",
+    "player",
+    "processors",
+    "rm84",
+    "sound",
+    "table",
+    "teen",
+    "tennis",
+    "wakian"
+   ],
+   "post_id": "1465090056678690_122104536063548502"
   }
  ],
  "used_images": [
@@ -3308,6 +3353,7 @@
   "pxi8048205",
   "pxi698538",
   5365722,
-  5489526
+  5489526,
+  "pxi3097621"
  ]
 }
