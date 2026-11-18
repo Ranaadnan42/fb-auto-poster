@@ -1,14 +1,14 @@
 {
- "time_utc": "2026-11-18 04:07",
+ "time_utc": "2026-11-18 09:27",
  "mode": "long",
  "dry_run": false,
  "errors": [
-  "fatal: sirf 17 sahi clips, 33 text cards - is topic ki video post nahi ki"
+  "fatal: sirf 36 sahi clips, 60 text cards - is topic ki video post nahi ki"
  ],
  "calls": [
   {
-   "file": "File:Hector Berlioz - Les Nuits d'été, op.7 - VI L'île inconnue (Victoria de Los Angeles).flac",
-   "license": "public domain"
+   "file": "File:Golden Whistler and Grey Shrike-thrush.ogg",
+   "license": "cc by-sa 3.0"
   },
   {
    "file": "File:Sonus naturalis - Soundscape XC568248.mp3",
@@ -19,7 +19,7 @@
    "license": "cc by 3.0"
   },
   {
-   "file": "File:Sonus naturalis - Soundscape XC446856.mp3",
+   "file": "File:Bird song, grassy woodlands, central Victoria.ogg",
    "license": "cc by-sa 4.0"
   },
   {
@@ -27,61 +27,88 @@
    "license": "cc by-sa 4.0"
   },
   {
-   "file": "File:Bird song, grassy woodlands, central Victoria.ogg",
+   "file": "File:Sonus naturalis - Soundscape XC446856.mp3",
    "license": "cc by-sa 4.0"
   },
   {
-   "file": "File:Mystery mystery - Identity unknown XC443116.mp3",
+   "file": "File:Oriolus sagittatus - Olive-backed Oriole XC443105.mp3",
    "license": "cc by-sa 4.0"
   },
   {
-   "file": "File:Hector Berlioz - Les Nuits d'été, op.7 - I Villanelle (Victoria de Los Angeles).flac",
-   "license": "public domain"
+   "file": "File:Menura novaehollandiae - Superb Lyrebird XC442769.mp3",
+   "license": "cc by-sa 4.0"
   }
  ],
  "bird_calls": 8,
  "kind": "long",
  "lang": "en",
- "clips_rejected": 688,
- "alt_searches": 23,
- "agent_checks": 13,
- "agent_rejects": 11,
- "agent_skips": 674,
- "tag_pass": 15,
+ "clips_rejected": 1142,
+ "agent_checks": 245,
+ "agent_rejects": 230,
+ "agent_skips": 914,
+ "alt_searches": 27,
  "no_match": [
-  "Rainbow lorikeet close up",
-  "Rainbow lorikeet feathers",
-  "Rainbow lorikeet calling",
-  "Rainbow lorikeet feeding",
-  "Laughing kookaburra laughing",
-  "Laughing kookaburra wings",
+  "Sydney suburban garden",
+  "Rainbow lorikeet garden",
+  "Rainbow lorikeet interaction",
+  "Rainbow lorikeet pair",
+  "Eucalypt forest",
+  "Laughing kookaburra head",
+  "Laughing kookaburra wing",
+  "Laughing kookaburra tail",
+  "Laughing kookaburra profile",
+  "Laughing kookaburra calling",
+  "Laughing kookaburra open beak",
+  "Group of kookaburras",
+  "Laughing kookaburra nest",
   "Laughing kookaburra family",
-  "Laughing kookaburra feeding chicks",
-  "Sulphur-crested cockatoo perched",
+  "Arboreal termite nest",
+  "Garden shrubs",
+  "Superb fairywren blue",
+  "Superb fairywren female",
+  "Superb fairywren hopping",
+  "Superb fairywren foraging",
+  "Melbourne city park",
+  "Superb fairywren yellow petal",
+  "Superb fairywren courtship",
+  "Superb fairywren pair",
+  "Galah flock calling",
+  "Galah flying acrobatics",
+  "Galahs at water",
+  "Galah in city",
+  "Galah on fence",
+  "Galah feeding ground",
   "Sulphur-crested cockatoo crest",
-  "Sulphur-crested cockatoo flock",
-  "Sulphur-crested cockatoo in trees",
-  "Sulphur-crested cockatoo close up",
   "Sulphur-crested cockatoo flying",
-  "Galah foraging",
-  "Crimson rosella perched",
-  "Crimson rosella red feathers",
-  "Crimson rosella in forest",
-  "Crimson rosella eating",
-  "Crimson rosella flying",
-  "Crimson rosella close up",
-  "Australian king parrot male",
-  "Australian king parrot in rainforest",
-  "Australian king parrot female",
-  "Australian king parrot eating fruit",
-  "Australian king parrot flying",
-  "Australian king parrot perched",
-  "Southern cassowary walking",
-  "Southern cassowary legs",
-  "Southern cassowary close up",
-  "Southern cassowary head",
-  "Southern cassowary in jungle",
-  "Southern cassowary walking away"
+  "Sulphur-crested cockatoo beak",
+  "Sulphur-crested cockatoo screeching",
+  "Sulphur-crested cockatoo lookout",
+  "Sulphur-crested cockatoo feeding",
+  "Sulphur-crested cockatoo clever",
+  "Sulphur-crested cockatoo city",
+  "Sulphur-crested cockatoo pair",
+  "Crimson rosella blue cheek",
+  "Crimson rosella wing",
+  "Crimson rosella back feathers",
+  "Crimson rosella calling",
+  "Crimson rosella feeding",
+  "Crimson rosella bird feeder",
+  "Crimson rosella mist",
+  "Great Dividing Range forest",
+  "Crimson rosella snow",
+  "Superb lyrebird walking",
+  "Australian temperate rainforest",
+  "Superb lyrebird tail",
+  "Superb lyrebird display",
+  "Superb lyrebird tail feathers",
+  "Superb lyrebird dancing",
+  "Superb lyrebird singing",
+  "Superb lyrebird beak close up",
+  "Superb lyrebird forest floor",
+  "Superb lyrebird mound",
+  "Superb lyrebird forest",
+  "Superb lyrebird male"
  ],
- "headline_cards": 33
+ "headline_cards": 60,
+ "tag_pass": 21
 }
