@@ -1,24 +1,21 @@
 {
- "time_utc": "2026-11-17 19:24",
+ "time_utc": "2026-11-18 08:40",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-17 19:24",
+   "date": "2026-11-18 08:40",
    "kind": "reel",
    "lang": "en",
-   "title": "Mozambique Opposition Leader Mondlane Faces Terrorism Trial",
-   "dur": 52,
-   "post_id": "1271190201892032"
+   "title": "Waymo Pulls Driverless Taxis From All US Freeways",
+   "dur": 43,
+   "post_id": "1164147642789690"
   }
  },
- "errors": [
-  "sports: 'list' object has no attribute 'get'"
- ],
- "clips_rejected": 30,
- "alt_searches": 1,
+ "errors": [],
+ "clips_rejected": 34,
  "agent_checks": 36,
- "agent_rejects": 30,
+ "agent_rejects": 31,
  "agent_skips": 0
 }
