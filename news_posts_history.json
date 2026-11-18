@@ -5031,5 +5031,29 @@
   ],
   "sport": "football",
   "title": "Argentina vs Costa Rica"
+ },
+ {
+  "date": "2026-11-18 23:37",
+  "page": "news",
+  "id": "1864685551445063",
+  "fmt": "reel",
+  "lang": "en",
+  "topics": [
+   "usa"
+  ],
+  "sport": null,
+  "title": "Democrats Secure Historic Alaska Senate Victory"
+ },
+ {
+  "date": "2026-11-18 23:41",
+  "page": "sports",
+  "id": "3651036395061168",
+  "fmt": "reel",
+  "lang": "en",
+  "topics": [
+   "athletics"
+  ],
+  "sport": null,
+  "title": "LA Tech versus Tulane Athletics Preview"
  }
 ]

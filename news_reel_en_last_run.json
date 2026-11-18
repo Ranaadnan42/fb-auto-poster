@@ -1,24 +1,30 @@
 {
- "time_utc": "2026-11-18 19:39",
+ "time_utc": "2026-11-18 23:24",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-18 19:39",
+   "date": "2026-11-18 23:24",
    "kind": "reel",
    "lang": "en",
-   "title": "Anthropic AI founders set for multi-billion dollar stock debut",
-   "dur": 54,
-   "post_id": "1620122702622919"
+   "title": "Democrats Secure Historic Alaska Senate Victory",
+   "dur": 52,
+   "post_id": "1864685551445063"
+  },
+  "sports": {
+   "date": "2026-11-18 23:24",
+   "kind": "reel",
+   "lang": "en",
+   "title": "LA Tech versus Tulane Athletics Preview",
+   "dur": 31,
+   "post_id": "3651036395061168"
   }
  },
- "errors": [
-  "sports: awaaz nahi bani"
- ],
- "clips_rejected": 89,
- "agent_checks": 96,
- "agent_rejects": 89,
+ "errors": [],
+ "agent_checks": 67,
+ "agent_rejects": 57,
  "agent_skips": 0,
+ "clips_rejected": 59,
  "alt_searches": 1
 }
