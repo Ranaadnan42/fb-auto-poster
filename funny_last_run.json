@@ -1,12 +1,37 @@
 {
  "mode": "auto",
- "stock_clips": 0,
- "fallback_clips": 0,
+ "stock_clips": 8,
+ "fallback_clips": 1,
  "errors": [],
- "format": "chat",
- "reel_minutes": 1.63,
- "laughs": 4,
- "time_utc": "2026-11-18 07:05",
- "title": "پلمبر کے پانچ منٹ اور کچن کا واٹر پارک",
+ "format": "people",
+ "search_phrases": [
+  "fake meal",
+  "funny fast food challenge",
+  "funny video on diet",
+  "food sharing prank"
+ ],
+ "funny_score": "3 -> 9",
+ "search": "funny video on diet",
+ "reel_format": "har_ghar",
+ "vision_checks": 202,
+ "clips_rejected": 211,
+ "no_match": [
+  "man eating salad looking confident",
+  "man eating salad looking confident",
+  "man scolding family table",
+  "man sneaking into kitchen",
+  "frying paratha in pan",
+  "friends talking cafe",
+  "person opening refrigerator night",
+  "person opening refrigerator night"
+ ],
+ "sources": {
+  "commons": 1,
+  "pixabay": 3
+ },
+ "laughs": 5,
+ "reel_minutes": 0.8,
+ "time_utc": "2026-11-18 11:22",
+ "title": "پیر والی ڈائٹ اور آدھی رات کے پائے",
  "dry_run": false
 }
