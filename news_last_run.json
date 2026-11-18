@@ -1,12 +1,17 @@
 {
- "time_utc": "2026-11-18 02:10",
- "lang": "ur",
+ "time_utc": "2026-11-18 04:11",
+ "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1357984777408020_122096357637558252",
-   "topic": "pakistan",
-   "title": "Former KP ministers Jhagra, Bangash among 3 PTI leaders held under MPO despite bail from PHC"
+   "post": "1448208791702551_122111246757532804",
+   "topic": "science_tech",
+   "title": "Europe plans to catch the next computer chip wave"
+  },
+  "sports": {
+   "post": "1465090056678690_122104348761548502",
+   "topic": "big_events",
+   "title": "FIFA U-17 World Cup - In numbers"
   }
  },
  "errors": []
