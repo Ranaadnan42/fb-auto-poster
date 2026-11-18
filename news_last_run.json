@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-18 00:08",
+ "time_utc": "2026-11-17 18:09",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1448208791702551_122111205567532804",
-   "topic": "africa",
-   "title": "Mozambique opposition leader goes on trial for terrorism over deadly election protests"
+   "post": "1448208791702551_122111118735532804",
+   "topic": "usa",
+   "title": "Will President Trump meet Kim Jong Un?"
   },
   "sports": {
-   "post": "1465090056678690_122104235487548502",
-   "topic": "formula1",
-   "title": "F1 Championship Battles: From Second Place to the Final Point"
+   "post": "1465090056678690_122103947379548502",
+   "topic": "rugby",
+   "title": "Struggling Exeter must improve discipline - Baxter"
   }
  },
  "errors": []

@@ -1,24 +1,35 @@
 {
- "time_utc": "2026-11-17 19:24",
+ "time_utc": "2026-11-17 23:22",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-17 19:24",
+   "date": "2026-11-17 23:22",
    "kind": "reel",
    "lang": "en",
-   "title": "Mozambique Opposition Leader Mondlane Faces Terrorism Trial",
-   "dur": 52,
-   "post_id": "1271190201892032"
+   "title": "Earthshot Prize Winners Celebrated in Mumbai",
+   "dur": 43,
+   "post_id": "1635916484645310"
+  },
+  "sports": {
+   "date": "2026-11-17 23:22",
+   "kind": "reel",
+   "lang": "en",
+   "title": "Bully Ray picks perfect WWE stars for Team USA",
+   "dur": 72,
+   "post_id": "1149619280849166"
   }
  },
- "errors": [
-  "sports: 'list' object has no attribute 'get'"
+ "errors": [],
+ "agent_checks": 183,
+ "agent_rejects": 179,
+ "agent_skips": 36,
+ "clips_rejected": 215,
+ "alt_searches": 6,
+ "no_match": [
+  "@Bully Ray"
  ],
- "clips_rejected": 30,
- "alt_searches": 1,
- "agent_checks": 36,
- "agent_rejects": 30,
- "agent_skips": 0
+ "headline_cards": 1,
+ "time_budget_hit": true
 }
