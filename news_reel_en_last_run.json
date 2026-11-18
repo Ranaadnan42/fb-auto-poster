@@ -1,21 +1,22 @@
 {
- "time_utc": "2026-11-18 08:40",
+ "time_utc": "2026-11-18 13:08",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-18 08:40",
+   "date": "2026-11-18 13:08",
    "kind": "reel",
    "lang": "en",
-   "title": "Waymo Pulls Driverless Taxis From All US Freeways",
-   "dur": 43,
-   "post_id": "1164147642789690"
+   "title": "Spain's Major Political Shift: November Election Update",
+   "dur": 52,
+   "post_id": "1939830196984468"
   }
  },
  "errors": [],
- "clips_rejected": 34,
- "agent_checks": 36,
- "agent_rejects": 31,
- "agent_skips": 0
+ "clips_rejected": 50,
+ "agent_checks": 53,
+ "agent_rejects": 47,
+ "agent_skips": 0,
+ "alt_searches": 1
 }
