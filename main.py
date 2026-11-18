@@ -12,6 +12,13 @@ Har run (LANGUAGE=ur ya en):
 Secrets: GEMINI_API_KEY, PIXABAY_API_KEY, FB_PAGE_ACCESS_TOKEN, FB_PAGE_ID
 DRY_RUN=1 -> video banegi, post nahi hogi.
 """
+try:  # Gemma 4 fallback (free 14,400/din) ke liye Gemini requests theek karta hai - gemfix.py
+    import sys as _gf_sys, os as _gf_os
+    _gf_dir = _gf_os.path.dirname(_gf_os.path.abspath(__file__))
+    _gf_sys.path[:0] = [p for p in (_gf_dir, _gf_os.path.dirname(_gf_dir)) if p not in _gf_sys.path]
+    import gemfix  # noqa: F401,E402
+except Exception:
+    pass
 import os
 import sys
 import json
@@ -51,7 +58,7 @@ GRAPH_VER = "v23.0"
 HISTORY_FILE = "history.json"
 WORK = "work"
 FONTS_DIR = os.path.abspath("fonts")
-MODEL_CANDIDATES = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-2.5-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]
+MODEL_CANDIDATES = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemma-4-31b-it", "gemma-4-26b-a4b-it"]
 
 LANGS = {
     "ur": {

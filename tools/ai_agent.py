@@ -9,6 +9,13 @@ ai_employee.py sirf dekhta hai (fail runs, bot reports). Yeh agent us ki report 
 Koi email/report nahi. Record: agent_record.json
 Dimagh: Groq (gpt-oss-120b / qwen) -> backup Gemini.
 """
+try:  # Gemma 4 fallback (free 14,400/din) ke liye Gemini requests theek karta hai - gemfix.py
+    import sys as _gf_sys, os as _gf_os
+    _gf_dir = _gf_os.path.dirname(_gf_os.path.abspath(__file__))
+    _gf_sys.path[:0] = [p for p in (_gf_dir, _gf_os.path.dirname(_gf_dir)) if p not in _gf_sys.path]
+    import gemfix  # noqa: F401,E402
+except Exception:
+    pass
 import os
 import re
 import sys
@@ -57,7 +64,7 @@ def sh(cmd):
 
 # ---------------- dimagh (LLM) ----------------
 GROQ_MODELS = ["openai/gpt-oss-120b", "qwen/qwen3.8-27b", "openai/gpt-oss-20b"]
-GEM_MODELS = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-2.5-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]
+GEM_MODELS = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemma-4-31b-it", "gemma-4-26b-a4b-it"]
 _dead = set()
 
 

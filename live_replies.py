@@ -13,6 +13,13 @@ GitHub Actions mein ~5 ghante 50 minute lagatar chalta hai, phir agla run shuru 
 Env: page ids/tokens (growth.py wale), GROQ_API_KEY (pehle - tez), GEMINI_API_KEY (backup)
      LIVE_MINUTES (default 345), POLL_SECONDS (default 60), DRY_RUN=1
 """
+try:  # Gemma 4 fallback (free 14,400/din) ke liye Gemini requests theek karta hai - gemfix.py
+    import sys as _gf_sys, os as _gf_os
+    _gf_dir = _gf_os.path.dirname(_gf_os.path.abspath(__file__))
+    _gf_sys.path[:0] = [p for p in (_gf_dir, _gf_os.path.dirname(_gf_dir)) if p not in _gf_sys.path]
+    import gemfix  # noqa: F401,E402
+except Exception:
+    pass
 import os
 import json
 import time
@@ -170,7 +177,7 @@ def ask_own(prompt, p):
                 os.environ["GROQ_API_KEY"] = old
     if not gk:
         raise RuntimeError(f"{p}: apni API key nahi")
-    for model in ("gemini-2.5-flash", "gemini-2.5-flash-lite", "gemini-3.1-flash-lite"):
+    for model in ("gemini-3.8-flash", "gemini-3-flash-preview", "gemini-3.1-flash-lite", "gemini-3.5-flash-lite", "gemma-4-31b-it", "gemma-4-26b-a4b-it"):
         try:
             j = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
                               params={"key": gk}, timeout=90,

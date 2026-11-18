@@ -18,6 +18,13 @@ Secrets:
   CHANNEL_NAME                                     (optional - video par watermark)
 DRY_RUN=1 -> video banegi, upload nahi hogi.
 """
+try:  # Gemma 4 fallback (free 14,400/din) ke liye Gemini requests theek karta hai - gemfix.py
+    import sys as _gf_sys, os as _gf_os
+    _gf_dir = _gf_os.path.dirname(_gf_os.path.abspath(__file__))
+    _gf_sys.path[:0] = [p for p in (_gf_dir, _gf_os.path.dirname(_gf_dir)) if p not in _gf_sys.path]
+    import gemfix  # noqa: F401,E402
+except Exception:
+    pass
 import os
 import re
 import sys
@@ -88,7 +95,7 @@ if MOVIE and not LONG:
     SCENES = 10                 # Short 3 minute se kam rahe (YouTube Shorts ki had)
 # Shorts ab poori motion (30 clips ~2.6h) -> 7 Shorts ~18h + 3 lambi videos ~9h = hafte ke 30h ke andar
 KAGGLE_LONG_DAYS = (0, 2, 4)          # Mon Wed Fri
-MODELS = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-2.5-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]
+MODELS = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemma-4-31b-it", "gemma-4-26b-a4b-it"]
 GRAPH_VER = "v23.0"
 
 WORLDS = [

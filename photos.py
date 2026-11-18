@@ -8,6 +8,13 @@ Free: Gemini (free key) + Pixabay (free key) + ffmpeg. Koi naya secret nahi chah
 Env: GEMINI_API_KEY, PIXABAY_API_KEY, FB_PAGE_TOKEN, FB_PAGE_ID, FUNNY_PAGE_TOKEN, FUNNY_PAGE_ID
      SLOT (1 ya 2), PAGES ("islamic,funny"), DRY_RUN
 """
+try:  # Gemma 4 fallback (free 14,400/din) ke liye Gemini requests theek karta hai - gemfix.py
+    import sys as _gf_sys, os as _gf_os
+    _gf_dir = _gf_os.path.dirname(_gf_os.path.abspath(__file__))
+    _gf_sys.path[:0] = [p for p in (_gf_dir, _gf_os.path.dirname(_gf_dir)) if p not in _gf_sys.path]
+    import gemfix  # noqa: F401,E402
+except Exception:
+    pass
 import os
 import sys
 import json
@@ -35,7 +42,7 @@ FONTS_DIR = os.path.abspath("fonts")
 UR_FONT = "Noto Naskh Arabic"
 EN_FONT = "Noto Sans"
 W, H = 1080, 1350            # 4:5 - Facebook feed mein sab se bari jagah leta hai
-MODEL_CANDIDATES = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-2.5-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]
+MODEL_CANDIDATES = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemma-4-31b-it", "gemma-4-26b-a4b-it"]
 
 PAGES = {
     "islamic": {"name": "Islamic Motivational Videos",

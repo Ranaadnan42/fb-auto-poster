@@ -11,6 +11,13 @@ Input:  demo_queue.json  -> [{"id","name","biz_type","city","country","website"}
 Output: demo_out/<slug>/reel.mp4, post1.jpg, post2.jpg, info.json
 Env:    GEMINI_API_KEY (GROQ_API_KEY backup), PIXABAY_API_KEY (agar website par tasveerein kam hon)
 """
+try:  # Gemma 4 fallback (free 14,400/din) ke liye Gemini requests theek karta hai - gemfix.py
+    import sys as _gf_sys, os as _gf_os
+    _gf_dir = _gf_os.path.dirname(_gf_os.path.abspath(__file__))
+    _gf_sys.path[:0] = [p for p in (_gf_dir, _gf_os.path.dirname(_gf_dir)) if p not in _gf_sys.path]
+    import gemfix  # noqa: F401,E402
+except Exception:
+    pass
 import os
 import io
 import re
@@ -30,7 +37,7 @@ OUT = os.path.abspath("demo_out")
 FONTS = os.path.abspath("fonts")
 GEMINI_KEY = os.environ.get("GEMINI_API_KEY")
 PIXABAY_KEY = os.environ.get("PIXABAY_API_KEY")
-MODELS = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-2.5-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]
+MODELS = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemma-4-31b-it", "gemma-4-26b-a4b-it"]
 W, H = 1080, 1920
 UA = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) "
                     "Chrome/130.0 Safari/537.36", "Accept-Language": "en-US,en;q=0.9"}

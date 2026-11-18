@@ -9,6 +9,13 @@ Secrets: GEMINI_API_KEY, PIXABAY_API_KEY, (PEXELS_API_KEY), YT_WORLD_CLIENT_ID/S
 WORLD_LANG=ur -> "Frames of Life": wahi bot Urdu mein, Pakistanion ke liye bahar ki zindagi,
 kharcha us mulk ki currency + Pakistani rupay dono mein. Secrets: YT_FRAMES_*
 """
+try:  # Gemma 4 fallback (free 14,400/din) ke liye Gemini requests theek karta hai - gemfix.py
+    import sys as _gf_sys, os as _gf_os
+    _gf_dir = _gf_os.path.dirname(_gf_os.path.abspath(__file__))
+    _gf_sys.path[:0] = [p for p in (_gf_dir, _gf_os.path.dirname(_gf_dir)) if p not in _gf_sys.path]
+    import gemfix  # noqa: F401,E402
+except Exception:
+    pass
 import os
 import re
 import sys
@@ -41,7 +48,7 @@ WORK = f"work_{PFX}"
 HISTORY_FILE = f"{PFX}_{MODE}_history.json"
 REPORT_FILE = f"{PFX}_{MODE}_last_run.json"
 OUT_FILE = f"final_{PFX}.mp4"
-MODELS = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-2.5-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]
+MODELS = ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemma-4-31b-it", "gemma-4-26b-a4b-it"]
 UA = {"User-Agent": "AtlasUntoldBot/1.0 (youtube documentary; contact ranaadnan320@gmail.com)"}
 GEO_URL = ("https://raw.githubusercontent.com/nvkelso/natural-earth-vector/master/geojson/"
            "ne_50m_admin_0_countries.geojson")

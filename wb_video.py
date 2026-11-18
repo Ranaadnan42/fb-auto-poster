@@ -12,6 +12,13 @@ Env:
   WB_PAGE_TOKEN, WB_PAGE_ID, PIXABAY_API_KEY, GEMINI_API_KEY (GROQ_API_KEY backup)
   LANGUAGE = en | ur        KIND = reel | long        DRY_RUN=1 -> sirf video banaye
 """
+try:  # Gemma 4 fallback (free 14,400/din) ke liye Gemini requests theek karta hai - gemfix.py
+    import sys as _gf_sys, os as _gf_os
+    _gf_dir = _gf_os.path.dirname(_gf_os.path.abspath(__file__))
+    _gf_sys.path[:0] = [p for p in (_gf_dir, _gf_os.path.dirname(_gf_dir)) if p not in _gf_sys.path]
+    import gemfix  # noqa: F401,E402
+except Exception:
+    pass
 import os
 import sys
 import json
@@ -51,7 +58,7 @@ WORK = os.path.abspath(f"work_wbv_{LANG}_{'long' if LONG else 'reel'}")
 FONTS_DIR = os.path.abspath("fonts")
 FONT = "Noto Sans"
 W, H = (1920, 1080) if LONG else (1080, 1920)
-MODELS = ["gemini-1.5-flash", "gemini-1.5-flash-8b", "gemini-2.0-flash-exp", "gemini-1.5-pro"]
+MODELS = ["gemini-3.8-flash", "gemini-3-flash-preview", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemma-4-31b-it", "gemma-4-26b-a4b-it"]
 VOICE = {"en": ("en-US-GuyNeural", "+0%"), "ur": ("ur-PK-AsadNeural", "-2%"),
          "ar": ("ar-SA-HamedNeural", "+0%")}[LANG]
 SUB_FONT = "Noto Naskh Arabic" if LANG == "ar" else FONT

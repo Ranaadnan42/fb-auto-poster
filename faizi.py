@@ -13,6 +13,13 @@ Agent kaam:
   - Branding mein Pakistan/India ka naam nahi; USD/EUR + Gulf audience (seo.py "faizi")
 Env: FAIZI_PAGE_ID, FAIZI_PAGE_TOKEN, FAIZI_GEMINI_API_KEY (+GEMINI_BACKUP_KEY), MODE, POST_AT, DRY_RUN
 """
+try:  # Gemma 4 fallback (free 14,400/din) ke liye Gemini requests theek karta hai - gemfix.py
+    import sys as _gf_sys, os as _gf_os
+    _gf_dir = _gf_os.path.dirname(_gf_os.path.abspath(__file__))
+    _gf_sys.path[:0] = [p for p in (_gf_dir, _gf_os.path.dirname(_gf_dir)) if p not in _gf_sys.path]
+    import gemfix  # noqa: F401,E402
+except Exception:
+    pass
 import base64
 import datetime
 import io
@@ -201,7 +208,7 @@ def gem_models(key, image=False):
         except Exception as e:
             log(f"Gemini models list fail: {str(e)[:100]}")
         _GM[ck] = names[:4] or (["gemini-2.5-flash-image"] if image else
-                                 ["gemini-3-flash-preview", "gemini-2.5-flash", "gemini-2.5-flash-lite"])
+                                 ["gemini-3-flash-preview", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemma-4-31b-it", "gemma-4-26b-a4b-it"])
         log(f"Gemini {'image' if image else 'vision'} models: {_GM[ck]}")
     return _GM[ck]
 

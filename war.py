@@ -18,6 +18,13 @@ Agent kaam:
 Env: WAR_PAGE_ID, WAR_PAGE_TOKEN, WAR_GEMINI_API_KEY (na ho to GEMINI_API_KEY), GROQ_API_KEY, PIXABAY_API_KEY,
      MODE, POST_AT, DRY_RUN
 """
+try:  # Gemma 4 fallback (free 14,400/din) ke liye Gemini requests theek karta hai - gemfix.py
+    import sys as _gf_sys, os as _gf_os
+    _gf_dir = _gf_os.path.dirname(_gf_os.path.abspath(__file__))
+    _gf_sys.path[:0] = [p for p in (_gf_dir, _gf_os.path.dirname(_gf_dir)) if p not in _gf_sys.path]
+    import gemfix  # noqa: F401,E402
+except Exception:
+    pass
 import datetime
 import json
 import os

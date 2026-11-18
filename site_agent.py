@@ -17,6 +17,13 @@ Sirf jaiz signals: sitemap, IndexNow, internal links, RSS feed.
 
 ENV: GROQ_API_KEY, GEMINI_API_KEY (backup), PEXELS_API_KEY, SITE_URL (canonical domain), MODE=post|rebuild, DRY_RUN
 """
+try:  # Gemma 4 fallback (free 14,400/din) ke liye Gemini requests theek karta hai - gemfix.py
+    import sys as _gf_sys, os as _gf_os
+    _gf_dir = _gf_os.path.dirname(_gf_os.path.abspath(__file__))
+    _gf_sys.path[:0] = [p for p in (_gf_dir, _gf_os.path.dirname(_gf_dir)) if p not in _gf_sys.path]
+    import gemfix  # noqa: F401,E402
+except Exception:
+    pass
 import datetime
 import hashlib
 import html
@@ -128,7 +135,7 @@ def ask_gemini(prompt, temp=0.7):
     if not key:
         raise RuntimeError("GEMINI_API_KEY nahi")
     last = None
-    for model in ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-2.5-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]:
+    for model in ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemma-4-31b-it", "gemma-4-26b-a4b-it"]:
         try:
             r = requests.post(
                 f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent?key={key}",

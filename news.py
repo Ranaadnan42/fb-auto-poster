@@ -15,6 +15,13 @@ Env:
   GROQ_API_KEY, GEMINI_API_KEY, PIXABAY_API_KEY
   DRY_RUN=1 -> sirf card banaye, post na kare
 """
+try:  # Gemma 4 fallback (free 14,400/din) ke liye Gemini requests theek karta hai - gemfix.py
+    import sys as _gf_sys, os as _gf_os
+    _gf_dir = _gf_os.path.dirname(_gf_os.path.abspath(__file__))
+    _gf_sys.path[:0] = [p for p in (_gf_dir, _gf_os.path.dirname(_gf_dir)) if p not in _gf_sys.path]
+    import gemfix  # noqa: F401,E402
+except Exception:
+    pass
 import datetime
 import email.utils
 import html
@@ -218,7 +225,7 @@ def gemini_json(prompt):
     if not keys:
         raise RuntimeError("GEMINI_API_KEY nahi")
     last = None
-    for key, model in [(k, m) for k in keys for m in ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-2.5-flash", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-2.5-flash-lite"]]:
+    for key, model in [(k, m) for k in keys for m in ["gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemma-4-31b-it", "gemma-4-26b-a4b-it"]]:
         try:
             r = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
                               params={"key": key}, timeout=120,

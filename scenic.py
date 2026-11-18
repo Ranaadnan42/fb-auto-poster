@@ -18,6 +18,13 @@ Har run mein agent khud:
 Env: SCENIC_PAGE_ID, SCENIC_PAGE_TOKEN, GEMINI_API_KEY (SCENIC_GEMINI_API_KEY ho to pehle), GROQ_API_KEY,
      PIXABAY_API_KEY, PEXELS_API_KEY (optional), DRY_RUN=1 (sirf banaye), POST_AT (UTC HH:MM)
 """
+try:  # Gemma 4 fallback (free 14,400/din) ke liye Gemini requests theek karta hai - gemfix.py
+    import sys as _gf_sys, os as _gf_os
+    _gf_dir = _gf_os.path.dirname(_gf_os.path.abspath(__file__))
+    _gf_sys.path[:0] = [p for p in (_gf_dir, _gf_os.path.dirname(_gf_dir)) if p not in _gf_sys.path]
+    import gemfix  # noqa: F401,E402
+except Exception:
+    pass
 import base64
 import datetime
 import json
@@ -48,8 +55,7 @@ REPORT_FILE = f"scenic_{MODE}_last_run.json"
 FONT = os.path.abspath("fonts/NotoSans-Bold.ttf")
 # purane 1.5/2.0 model band ho chuke the (404) - is liye Wander Earth ki AI aankh kabhi chalti hi nahi thi.
 # Ab har key ke LIVE model Google se poochte hain; na mile to yeh list.
-FALLBACK_MODELS = ["gemini-flash-lite-latest", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-flash-latest",
-                   "gemini-3-flash-preview", "gemma-4-31b-it"]
+FALLBACK_MODELS = ["gemini-flash-lite-latest", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemini-flash-latest", "gemini-3-flash-preview", "gemma-4-31b-it", "gemma-4-26b-a4b-it"]
 _LIVE = {}
 UA = {"User-Agent": "WanderEarthBot/1.0 (https://github.com/Ranaadnan42/fb-auto-poster)"}
 REPORT = {"started": datetime.datetime.utcnow().isoformat(timespec="minutes"), "steps": [], "errors": []}
@@ -294,7 +300,7 @@ def _web_trends():
          "village, flowers, desert, aurora...), seasons and hook styles are trending right now, and which places are "
          "in the news/search trends for travel this month? Give specific names. Answer in short plain text.")
     for key in KEYS:
-        for m in ("gemini-2.5-flash", "gemini-3-flash-preview", "gemini-2.5-flash-lite"):
+        for m in ("gemini-3-flash-preview", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemma-4-31b-it", "gemma-4-26b-a4b-it"):
             try:
                 r = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={key}",
                                   timeout=120, json={"contents": [{"parts": [{"text": q}]}],

@@ -6,6 +6,13 @@ phir us hisaab se apna topic chunta hai.
 Din mein ek dafa banta hai (trends/<page>.json mein cache), har prompt mein content_rules.text() ke zariye jata hai.
 Kuch na mile to khali string - koi agent nahi rukta.
 """
+try:  # Gemma 4 fallback (free 14,400/din) ke liye Gemini requests theek karta hai - gemfix.py
+    import sys as _gf_sys, os as _gf_os
+    _gf_dir = _gf_os.path.dirname(_gf_os.path.abspath(__file__))
+    _gf_sys.path[:0] = [p for p in (_gf_dir, _gf_os.path.dirname(_gf_dir)) if p not in _gf_sys.path]
+    import gemfix  # noqa: F401,E402
+except Exception:
+    pass
 import datetime
 import json
 import os
@@ -122,8 +129,7 @@ def web_trends(desc, keys):
          "stories, formats, video lengths and hook styles are getting the most views right now, and what events, "
          "seasons or festivals coming up in the next 2 weeks will people search for? Give specific names. Short plain text.")
     for key in keys:
-        for m in ("gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-2.5-flash",
-                  "gemini-3.5-flash-lite", "gemini-2.5-flash-lite"):
+        for m in ("gemini-3.8-flash", "gemini-3.6-flash", "gemini-3-flash-preview", "gemini-3.5-flash-lite", "gemini-3.1-flash-lite", "gemma-4-31b-it", "gemma-4-26b-a4b-it"):
             try:
                 r = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{m}:generateContent?key={key}",
                                   timeout=120, json={"contents": [{"parts": [{"text": q}]}],

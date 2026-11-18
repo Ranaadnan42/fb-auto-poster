@@ -9,6 +9,13 @@ Pehle: koi check nahi tha - Pixabay ki clip bina kisi lafz ke match ke bhi lag j
      aur kin alfaaz se milegi (doosre naam, jagah, mulk, khel ka manzar).
 Waqt ki had: run atke nahi - had ke baad sirf Groq, warna None (phir sirf pakka lafz-match chalta hai).
 """
+try:  # Gemma 4 fallback (free 14,400/din) ke liye Gemini requests theek karta hai - gemfix.py
+    import sys as _gf_sys, os as _gf_os
+    _gf_dir = _gf_os.path.dirname(_gf_os.path.abspath(__file__))
+    _gf_sys.path[:0] = [p for p in (_gf_dir, _gf_os.path.dirname(_gf_dir)) if p not in _gf_sys.path]
+    import gemfix  # noqa: F401,E402
+except Exception:
+    pass
 import base64
 import json
 import os
