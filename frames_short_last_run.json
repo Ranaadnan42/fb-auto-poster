@@ -1,25 +1,35 @@
 {
  "mode": "short",
- "clips": 0,
- "clips_rejected": 0,
- "vision_checks": 0,
- "errors": [
-  "Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/gemini-3.5-flash-lite for the latest features and improvements. We recommend you to use the Interactions API (https://ais",
-  "Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/gemini-3.5-flash-lite for the latest features and improvements. We recommend you to use the Interactions API (https://ais",
-  "Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/gemini-3.5-flash-lite for the latest features and improvements. We recommend you to use the Interactions API (https://ais",
-  "fatal: video nahi bani",
-  "fatal: Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'This model models/gemini-2.5-flash-lite is no longer available to new users. Please update your code to use models/gemini-3.5-flash-lite for the latest features and improvements. We recommend you to use the Interactions API (https://ais"
- ],
+ "clips": 28,
+ "clips_rejected": 232,
+ "vision_checks": 248,
+ "errors": [],
  "search_phrases": [
-  "visa for pakistani 2026",
-  "visa for pakistani passport",
-  "visa for pakistani in uae",
-  "spain visa for pakistani",
-  "albania visa for pakistani",
-  "kyrgyzstan visa for pakistani",
-  "azerbaijan visa for pakistani nationals",
-  "germany visa for pakistani",
-  "kazakhstan visa for pakistani"
+  "haqaiq",
+  "khalai makhlooq ki haqiqat",
+  "معلوماتی ویڈیو",
+  "معلومات کی دنیا",
+  "معلومات عامہ",
+  "معلومات پاکستان",
+  "معلوماتی ویڈیوز",
+  "معلوماتی رپورٹ",
+  "معلومات قرآن",
+  "معلومات اسلامی",
+  "معلوماتی اشارے"
  ],
- "search": "spain visa for pakistani"
+ "search": "haqaiq",
+ "alt_searches": 8,
+ "photos": 7,
+ "no_match": [
+  "smartphone showing description section"
+ ],
+ "rewritten_scenes": 1,
+ "seconds": 91.4,
+ "links": [
+  "https://beoe.gov.pk",
+  "https://oec.gov.pk"
+ ],
+ "subject": "Iceland / Reykjavik",
+ "series": "pk_facts",
+ "title": "آئس لینڈ کے 6 حیران کن حقائق | Life in Iceland"
 }
