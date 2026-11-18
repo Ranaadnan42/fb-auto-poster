@@ -1,24 +1,36 @@
 {
- "started": "2026-11-18T11:33",
+ "started": "2026-11-18T19:57",
  "steps": [
   "token: user token expires_at=0 data_access_expires_at=1801949831",
   "token: user token tha - page token bana kar istemal kiya",
-  "aaj ka manzar: crystal clear beach",
+  "aaj ka manzar: river through green valley",
   "Gemini models: gemini-2.5-flash-lite, gemini-3.1-flash-lite, gemini-3.5-flash-lite, gemini-flash-lite-latest, gemini-3.1-flash-lite-preview, gemini-2.5-flash, gemini-3.5-flash, gemini-3.6-flash",
   "brain gemini-2.5-flash-lite: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no lo",
-  "agent ka faisla: Similan Islands, Thailand - bright sunny afternoon / crystal clear turquoise water and white sand beach (High-contrast tropical visuals consistently trigger strong engagement during winter months.)",
-  "photo wmi49529489 1920x1280: ok=True beauty=9 - Stunning turquoise water, vibrant colors, perfect composition.",
-  "Post waqt 11:03 UTC guzar chuka - foran post",
-  "photo story lagi",
-  "pic posted: 1345688241970452_122105098065547841"
+  "brain gemini-3.1-flash-lite: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "brain gemini-3.5-flash-lite: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "brain gemini-flash-lite-latest: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "brain gemini-3.1-flash-lite-preview: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "brain gemini-2.5-flash: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash is no longer ",
+  "agent ka faisla: Soča Valley, Slovenia, Slovenia - bright sunny afternoon / emerald river through lush alpine valley (Vivid emerald river against green alpine valleys drives massive viewer retention.)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "aaj ka manzar: river through green valley",
+  "brain gemini-3.5-flash: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "brain gemini-3.6-flash: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "Gemini models: gemini-2.5-flash-lite, gemini-3.1-flash-lite, gemini-3.5-flash-lite, gemini-flash-lite-latest, gemini-3.1-flash-lite-preview, gemini-2.5-flash, gemini-3.5-flash, gemini-3.6-flash",
+  "brain gemini-2.5-flash-lite: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no lo",
+  "brain gemini-3.1-flash-lite: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "agent ka faisla: Glenorchy, Otago, New Zealand, New Zealand - bright sunny afternoon / crystal clear river winding through vivid green valley (River through green valley fits the owner's exact prompt and New Zealand performs exceptionally.)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "aaj ka manzar: lush jungle waterfall",
+  "agent ka faisla: Manuel Antonio, Costa Rica, Costa Rica - bright sunny afternoon / lush emerald jungle waterfall and tropical river (Jungle waterfalls capture the warm escape trend perfectly.)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "aaj ka manzar: lush jungle waterfall",
+  "agent ka faisla: Trafalgar Falls, Dominica, Dominica - bright sunny daytime / lush emerald jungle waterfall under clear blue sky (Lush jungle waterfalls drive extreme stop-scrolling behavior during winter.)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai"
  ],
- "errors": [],
+ "errors": [
+  "fatal: 4 jagahon par bhi achi footage nahi mili"
+ ],
  "mode": "pic",
- "place": "Similan Islands",
- "country": "Thailand",
- "caption": "Where the ocean meets the sky in a perfect shade of blue. A tropical escape to lose track of time.\n\n📍 Similan Islands, Thailand 🇹🇭\n\nParadise is not a place, it’s a feeling. 🏝️✨\n\nLose yourself in the Similan Islands' crystal clear water and pristine turquoise beaches. Experience the ultimate Thailand tropical white sand beach under the warm Andaman sea sunny paradise sun.\n\nWho would you bring to this dream escape? Tag your travel partner below.\n\nFollow for the most beautiful places on Earth in Ultra HD 🌍\n\n#WanderEarth #similanislands #thailandtravel #tropicalparadise #beachvibes #Dubai #Qatar #UK #islandlife #wanderlust #nature",
- "clip": "wmi49529489",
- "beauty": 9,
- "posted": "1345688241970452_122105098065547841",
- "finished": "2026-11-18T11:33"
+ "finished": "2026-11-18T19:58"
 }
