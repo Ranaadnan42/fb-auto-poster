@@ -1514,6 +1514,23 @@
     "trial"
    ],
    "post_id": "1448208791702551_122111205567532804"
+  },
+  {
+   "date": "2026-11-18 02:14",
+   "lang": "ur",
+   "topic": "canada_australia",
+   "link": "https://www.abc.net.au/news/2026-11-18/eisenkot-bloc-replaces-netanyahu-ally-as-knesset-speaker/107397646",
+   "title": "Netanyahu ally ousted as speaker of Israeli parliament",
+   "words": [
+    "ally",
+    "israeli",
+    "netanyahu",
+    "ousted",
+    "parliament",
+    "speaker"
+   ],
+   "breaking": true,
+   "post_id": "1357984777408020_122096357487558252"
   }
  ],
  "sports": [
@@ -3026,6 +3043,22 @@
     "second"
    ],
    "post_id": "1465090056678690_122104235487548502"
+  },
+  {
+   "date": "2026-11-18 02:10",
+   "lang": "ur",
+   "topic": "wrestling",
+   "link": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBxY1NIWUE3MVZIeUxLanotWVdtLVZYQWlsbFZpY1RrQWplV3lpSWlVdHBJNjg0TlBrMVRtWG1HeHgwcHVmVGgwcEhMcnJTd0p1a1U1VjZzLWxBbmx6RFJiRUwzT0U?oc=5",
+   "title": "‘Cowboy’ Bill Watts Has Passed Away At 87",
+   "words": [
+    "away",
+    "bill",
+    "cowboy",
+    "passed",
+    "watts"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122104293471548502"
   }
  ],
  "used_images": [
@@ -3128,6 +3161,7 @@
   "pxi78193",
   "pxi6846318",
   1851269,
-  9720087
+  9720087,
+  1455038
  ]
 }
