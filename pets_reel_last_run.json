@@ -1,23 +1,23 @@
 {
- "time_utc": "2026-11-17 21:06",
+ "time_utc": "2026-11-18 14:38",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 263,
- "alt_searches": 8,
- "agent_checks": 267,
- "agent_rejects": 259,
- "agent_skips": 0,
+ "clips_rejected": 315,
+ "alt_searches": 9,
+ "agent_checks": 182,
+ "agent_rejects": 176,
+ "agent_skips": 133,
  "posted": {
   "pet": "dog",
-  "breed": "Labrador Retriever",
+  "breed": "French Bulldog",
   "theme": null,
-  "wiki": "Labrador Retriever",
-  "date": "2026-11-17 21:06",
-  "title": "The Secret Otter Tail? Meet the Amazing Labrador Retriever!",
-  "dur": 68,
-  "post_id": "1709973087395593"
+  "wiki": "French Bulldog",
+  "date": "2026-11-18 14:38",
+  "title": "The French Bulldog just did the impossible! 🐶",
+  "dur": 74,
+  "post_id": "1102346146129283"
  }
 }
