@@ -166,12 +166,19 @@ def wiki_text(title, limit):
     return pages[0].get("title", title), text[:limit]
 
 
+def latin_of(text):
+    """Wikipedia ke pehle jumle se scientific naam, e.g. '(Carcharodon carcharias)' - Commons/Archive par
+    janwaron ki videos aksar isi naam se hoti hain."""
+    m = re.search(r"\(([A-Z][a-z]+ [a-z]{3,}(?: [a-z]{3,})?)(?:[),;]| or )", (text or "")[:600])
+    return m.group(1) if m else ""
+
+
 def reel_facts(country, animal):
     title, text = wiki_text(animal, 7000)
     if len(text) < 400:
         raise RuntimeError(f"'{animal}' ke facts kam hain")
     _t, ctext = wiki_text(f"Wildlife of {country}", 2500)
-    return {"title": title, "country": country, "text": text, "country_text": ctext}
+    return {"title": title, "country": country, "text": text, "country_text": ctext, "latin": latin_of(text)}
 
 
 def long_facts(h, country):
@@ -179,15 +186,16 @@ def long_facts(h, country):
     if len(ctext) < 400:
         title, ctext = wiki_text(f"Fauna of {country}", 6000)
     animals = animals_of(h, country)[:7]
-    parts = []
+    parts, latin = [], {}
     for a in animals:
         t, tx = wiki_text(a, 1600)
         if len(tx) > 300:
             parts.append(f"### {t}\n{tx}")
+            latin[a] = latin_of(tx)
     if len(parts) < 4:
         raise RuntimeError(f"{country}: janwaron ke facts kam hain")
     return {"title": f"Wildlife of {country}", "country": country, "text": ctext,
-            "animals_text": "\n\n".join(parts)[:14000], "animals": animals}
+            "animals_text": "\n\n".join(parts)[:14000], "animals": animals, "latin": latin}
 
 
 # ---------------------------------------------------------------- script
@@ -272,8 +280,10 @@ def build_video(script, facts, used):
     c = facts["country"]
     badge = (script.get("badge") or c).strip().upper()[:30]
     main_animal = facts["title"] if MODE == "reel" else ""
-    fallback = ([f"{main_animal} wild", f"{main_animal}", f"{main_animal} {c}"] if main_animal else []) + \
-               [f"{c} wildlife", f"{c} animals wild"]
+    sci = facts.get("latin") if main_animal else ""
+    # jo janwar bola ja raha hai SIRF usi ki clip (aam naam + scientific naam) - mulk ki scenery/samandar nahi
+    fallback = ([f"{main_animal} wild", f"{main_animal}", f"{main_animal} {c}"] + ([sci] if sci else [])
+                if main_animal else [f"{c} wildlife", f"{c} national park"])
     chapter_animals = {a.upper(): a for a in (facts.get("animals") or [])}
     nv.STORY_CLIPS.clear()
     scenes = []
@@ -286,7 +296,8 @@ def build_video(script, facts, used):
             fb = fallback
             if not main_animal and label and label.upper() in chapter_animals:   # long: us chapter ke janwar ki clip
                 a = chapter_animals[label.upper()]
-                fb = [f"{a} wild", f"{a}"] + fallback
+                sa = (facts.get("latin") or {}).get(a) or ""
+                fb = [f"{a} wild", f"{a}"] + ([sa] if sa else [])
             scenes.append(nv.build_scene(i, PAGE, sc["text"], terms, label, badge, used, fb))
         except Exception as e:
             log(f"scene {i} fail: {str(e)[:200]}")
