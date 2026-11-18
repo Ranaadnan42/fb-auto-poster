@@ -84,13 +84,14 @@ def load_hist():
     h.setdefault("country_i", 0)
     h.setdefault("long_i", 0)
     h.setdefault("animals", {})
-    for k in ("reel", "long", "used_clips"):
+    for k in ("reel", "long", "used_clips", "lessons"):
         h.setdefault(k, [])
     return h
 
 
 def save_hist(h):
     h["used_clips"] = h["used_clips"][-3000:]
+    h["lessons"] = h["lessons"][-30:]
     with open(HIST_FILE, "w", encoding="utf-8") as f:
         json.dump(h, f, ensure_ascii=False, indent=1)
 
@@ -250,7 +251,7 @@ Rules:
   cages, never cartoons, never generic mood shots (sunset, sky, forest alone) unless the sentence is about that place.
 {content_rules.MATCH}{content_rules.winners("wild")}- If a sentence talks about something no real video can show (DNA, numbers, history), rewrite it around
   a filmable moment of that animal - picture and voice must always match.
-{trends}
+{trends}{lessons_block(facts)}
 Return JSON:
 {{"title": "Facebook video title, max 12 words (for reels: no 'Meet the ...' / 'heavyweight' / 'giant' / 'titan' pattern), curiosity hook that NAMES the animals (e.g. 'Moose, Wolves & Polar Bears of Canada') - never a landscape title like 'Untamed Wilderness' or 'Journey Through'",
   "badge": "short on-screen badge, e.g. '{c.upper()}'",
@@ -273,6 +274,24 @@ Return JSON:
         raise RuntimeError("AI ne script nahi di")
     j["scenes"] = sc
     return j
+
+
+def lessons_block(facts):
+    """Agent ki apni yaad: pichli videos mein jin cheezon ki asli video NAHI mili - un par scene mat likho."""
+    ls = facts.get("lessons") or []
+    if not ls:
+        return ""
+    return ("\nYOUR OWN LESSONS FROM PAST VIDEOS (no real video existed for these, so picture and voice did not match -"
+            " never write a scene that needs footage like this; write about a filmable moment of the animal instead):\n"
+            + "\n".join(f"- {x}" for x in ls[-15:]) + "\n")
+
+
+def learn(h, who):
+    """Is video mein jo cheez filmi nahi mili, yaad rakho - agli script mein wo ghalti dobara nahi."""
+    for t in (nv.REPORT.get("no_match") or []):
+        line = f'{who}: no real video for "{t}"'
+        if line not in h["lessons"]:
+            h["lessons"].append(line)
 
 
 # ---------------------------------------------------------------- video
@@ -380,7 +399,7 @@ def main():
         try:
             if MODE == "reel":
                 country, animal = pick_reel(h)
-                if not nv.has_footage(animal, "wild"):
+                if not nv.has_footage(animal, "wild", need=4):     # reel ko ~8 clips chahiye - 2 kaafi nahi
                     raise RuntimeError("is ki asli clips nahi milti")
                 facts = reel_facts(country, animal)
             else:
@@ -398,10 +417,12 @@ def main():
             save_hist(h)
     else:
         raise RuntimeError("facts nahi mile")
+    facts["lessons"] = h["lessons"]
     script = write_script(facts)
     log(f"Title: {script.get('title')} | {len(script['scenes'])} scenes")
     path = build_video(script, facts, h["used_clips"])
     REPORT.update({k: v for k, v in nv.REPORT.items() if k not in ("errors", "posted")})
+    learn(h, animal or country)
     cards, good = nv.REPORT.get("headline_cards", 0), len(nv.ALL_CLIPS)
     if cards and cards > 0.2 * (cards + good):         # jo bola ja raha us ki clip nahi - aisi video post nahi
         h["reel" if MODE == "reel" else "long"].append({**{"country": country, "animal": animal}, "date": REPORT["time_utc"],
