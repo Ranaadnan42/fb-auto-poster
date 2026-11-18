@@ -1,35 +1,38 @@
 {
  "mode": "short",
- "clips": 28,
- "clips_rejected": 232,
- "vision_checks": 248,
+ "clips": 29,
+ "clips_rejected": 245,
+ "vision_checks": 264,
  "errors": [],
  "search_phrases": [
+  "harat angaze malomat",
   "haqaiq",
-  "khalai makhlooq ki haqiqat",
+  "ke avishkar",
   "معلوماتی ویڈیو",
   "معلومات کی دنیا",
   "معلومات عامہ",
   "معلومات پاکستان",
-  "معلوماتی ویڈیوز",
   "معلوماتی رپورٹ",
-  "معلومات قرآن",
+  "معلوماتی ویڈیوز",
   "معلومات اسلامی",
-  "معلوماتی اشارے"
+  "معلوماتی رپورٹ لکھنے کا طریقہ",
+  "معلوماتی"
  ],
  "search": "haqaiq",
- "alt_searches": 8,
- "photos": 7,
+ "alt_searches": 11,
+ "photos": 4,
+ "vision_groq": 1,
  "no_match": [
-  "smartphone showing description section"
+  "laptop with visa form",
+  "LinkedIn profile on screen"
  ],
- "rewritten_scenes": 1,
- "seconds": 91.4,
+ "rewritten_scenes": 2,
+ "seconds": 103.0,
  "links": [
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Iceland / Reykjavik",
+ "subject": "Mexico / Mexico City",
  "series": "pk_facts",
- "title": "آئس لینڈ کے 6 حیران کن حقائق | Life in Iceland"
+ "title": "میکسیکو کے 6 حیران کن حقائق | Life in Mexico"
 }
