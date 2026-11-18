@@ -1,23 +1,23 @@
 {
- "time_utc": "2026-11-18 20:23",
+ "time_utc": "2026-11-18 18:37",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
- "country": "Tanzania",
+ "country": "South Africa",
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 119,
- "alt_searches": 8,
- "agent_checks": 130,
- "agent_rejects": 115,
+ "clips_rejected": 95,
+ "agent_checks": 102,
+ "agent_rejects": 94,
  "agent_skips": 0,
+ "alt_searches": 7,
  "posted": {
-  "country": "Tanzania",
-  "animal": "Plains zebra",
-  "wiki": "Plains zebra",
-  "date": "2026-11-18 20:23",
-  "title": "The Plains Zebra and the Predators of Tanzania",
-  "dur": 72,
-  "post_id": "1135704485490850"
+  "country": "South Africa",
+  "animal": "Southern right whale",
+  "wiki": "Southern right whale",
+  "date": "2026-11-18 18:37",
+  "title": "The Ocean Giant That Sails Like a Boat in South Africa",
+  "dur": 88,
+  "post_id": "1633659267613654"
  }
 }

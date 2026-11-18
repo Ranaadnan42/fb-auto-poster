@@ -1,30 +1,22 @@
 {
- "time_utc": "2026-11-18 00:00",
+ "time_utc": "2026-11-18 22:00",
  "mode": "long",
  "dry_run": false,
  "errors": [],
  "kind": "long",
  "lang": "en",
- "agent_checks": 28,
- "agent_rejects": 26,
- "agent_skips": 464,
- "clips_rejected": 457,
- "alt_searches": 25,
- "tag_pass": 40,
- "no_match": [
-  "Common loon calling",
-  "Wildlife ranger Canada",
-  "Protected nature reserve",
-  "Wild Nations logo"
- ],
- "headline_cards": 4,
+ "clips_rejected": 113,
+ "agent_checks": 143,
+ "agent_rejects": 110,
+ "agent_skips": 0,
+ "alt_searches": 9,
  "posted": {
-  "country": "Canada",
+  "country": "Botswana",
   "animal": null,
-  "wiki": "Wildlife of Canada",
-  "date": "2026-11-18 00:00",
-  "title": "Canada's Untamed Wilderness: Journey Through the Great North",
-  "dur": 288,
-  "post_id": "1623576648959365"
+  "wiki": "Wildlife of Botswana",
+  "date": "2026-11-18 22:00",
+  "title": "Elephants, Lions & Wild Dogs of Botswana",
+  "dur": 219,
+  "post_id": "1454386216815321"
  }
 }
