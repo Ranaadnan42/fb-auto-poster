@@ -22,21 +22,21 @@ SCALES = {"major": [0, 2, 4, 5, 7, 9, 11], "minor": [0, 2, 3, 5, 7, 8, 10],
 # GM programs: 0 piano, 8 celesta, 12 marimba, 24 nylon guitar, 32 acoustic bass, 42 cello, 46 harp,
 # 47 timpani, 48/49 strings, 52 choir, 60 french horn, 71 clarinet, 73 flute, 75 pan flute, 89 warm pad
 MOODS = {
-    "calm piano": dict(bpm=(64, 76), scale=["major"], lead=[0], arp=[0], pad=[49, 89], bass=[42],
-                       progs=[[1, 5, 6, 4], [1, 6, 4, 5], [6, 4, 1, 5], [1, 3, 4, 5]]),
+    "calm piano": dict(bpm=(64, 76), scale=["major"], lead=[0, 8, 46], arp=[0, 46], pad=[49, 89, 48], bass=[42, 32],
+                       progs=[[1, 5, 6, 4], [1, 6, 4, 5], [6, 4, 1, 5], [1, 3, 4, 5], [1, 4, 2, 5], [4, 1, 5, 6]]),
     "dreamy": dict(bpm=(60, 72), scale=["lydian", "major"], lead=[8, 46, 0], arp=[46, 0], pad=[89, 49], bass=[42],
                    progs=[[1, 2, 1, 5], [1, 4, 6, 5], [4, 1, 2, 6]]),
-    "uplifting strings": dict(bpm=(78, 92), scale=["major"], lead=[48, 60], arp=[0, 46], pad=[49], bass=[42],
+    "uplifting strings": dict(bpm=(78, 92), scale=["major"], lead=[48, 60, 73], arp=[0, 46, 24], pad=[49, 52], bass=[42, 32],
                               perc="timpani", progs=[[1, 5, 6, 4], [4, 5, 3, 6], [6, 4, 1, 5], [1, 4, 5, 5]]),
     "romantic": dict(bpm=(62, 74), scale=["major"], lead=[0, 42], arp=[0], pad=[49], bass=[42],
                      progs=[[1, 3, 4, 4], [6, 4, 1, 5], [1, 6, 2, 5]]),
     "melancholic": dict(bpm=(60, 70), scale=["minor"], lead=[0, 42], arp=[0, 46], pad=[49, 89], bass=[42],
                         progs=[[1, 6, 3, 7], [1, 4, 6, 5], [6, 7, 1, 1]]),
-    "epic cinematic": dict(bpm=(84, 98), scale=["minor", "major"], lead=[60, 48], arp=[48], pad=[52, 49], bass=[42],
+    "epic cinematic": dict(bpm=(84, 98), scale=["minor", "major"], lead=[60, 48, 61], arp=[48, 45], pad=[52, 49], bass=[42, 43],
                            perc="timpani", ostinato=True, progs=[[1, 6, 3, 7], [6, 4, 1, 5], [1, 7, 6, 7]]),
-    "tropical chill": dict(bpm=(88, 100), scale=["major", "mixolydian"], lead=[12, 75], arp=[24], pad=[89], bass=[32],
+    "tropical chill": dict(bpm=(88, 100), scale=["major", "mixolydian"], lead=[12, 75, 11, 13], arp=[24, 25, 46], pad=[89, 88], bass=[32, 33],
                            perc="shaker", progs=[[1, 4, 6, 5], [1, 5, 4, 4], [2, 5, 1, 1]]),
-    "peaceful flute": dict(bpm=(66, 78), scale=["major", "lydian"], lead=[73, 75, 71], arp=[46, 24], pad=[49, 89],
+    "peaceful flute": dict(bpm=(66, 78), scale=["major", "lydian"], lead=[73, 75, 71, 68], arp=[46, 24, 0], pad=[49, 89, 52],
                            bass=[42], progs=[[1, 4, 1, 5], [1, 6, 4, 5], [4, 5, 1, 1]]),
 }
 MOOD_NAMES = list(MOODS)
@@ -105,21 +105,27 @@ class Song:
         self.ev.append((max(a + 1, b), bytes([0x80 | ch, n, 0])))
 
 
-def compose(mid_path, secs, mood, rnd):
+def compose(mid_path, secs, mood, rnd, avoid=()):
     cfg = MOODS[mood]
     bpm = rnd.uniform(*cfg["bpm"])
     beats_total = secs * bpm / 60.0
     bars = max(6, int(beats_total // 4) + 1)
     scale = SCALES[rnd.choice(cfg["scale"])]
     key = rnd.randint(57, 64)
-    prog = rnd.choice(cfg["progs"])
+    avoid = set(avoid)
+    for _ in range(60):                                # pichle gaanon wala combination dobara nahi
+        prog = rnd.choice(cfg["progs"])
+        lead, arp_i, pad_i = rnd.choice(cfg["lead"]), rnd.choice(cfg["arp"]), rnd.choice(cfg["pad"])
+        sig = f"{mood}|{lead}-{arp_i}-{pad_i}|{''.join(map(str, prog))}|{key % 12}"
+        if sig not in avoid:
+            break
+        key = rnd.randint(57, 64)
     prog_b = rnd.choice(cfg["progs"])                 # B-section ke liye doosri progression
     s = Song()
     CH_LEAD, CH_ARP, CH_PAD, CH_BASS, CH_EXTRA = 0, 1, 2, 3, 4
-    lead, arp_i = rnd.choice(cfg["lead"]), rnd.choice(cfg["arp"])
     s.prog(CH_LEAD, lead)
     s.prog(CH_ARP, arp_i)
-    s.prog(CH_PAD, rnd.choice(cfg["pad"]))
+    s.prog(CH_PAD, pad_i)
     s.prog(CH_BASS, rnd.choice(cfg["bass"]))
     s.prog(CH_EXTRA, 47 if cfg.get("perc") == "timpani" else 49)
     for ch in range(5):
@@ -209,7 +215,7 @@ def compose(mid_path, secs, mood, rnd):
         s.note(CH_PAD, tend, 4.0, n, 55)
     s.note(CH_ARP, tend, 4.0, deg(1, 1), 50)
     _write_midi(mid_path, s.ev, bpm)
-    return bpm, key
+    return bpm, key, sig
 
 
 def _sf2():
@@ -219,7 +225,12 @@ def _sf2():
     return None
 
 
-def make_track(path, secs, mood=None, text="", seed=None):
+def used_sigs(titles):
+    """History ke titles se purane gaanon ke signature nikalta hai."""
+    return {t.split("[", 1)[1].rstrip("]") for t in titles or [] if isinstance(t, str) and "[" in t}
+
+
+def make_track(path, secs, mood=None, text="", seed=None, used=()):
     """path par original music bana kar title return karta hai. secs = video ki lambai."""
     rnd = random.Random(seed)
     mood = pick_mood(mood, text)
@@ -228,7 +239,7 @@ def make_track(path, secs, mood=None, text="", seed=None):
         raise RuntimeError("fluidsynth / soundfont nahi mila")
     mid = path + ".mid"
     raw = path + ".raw.wav"
-    bpm, key = compose(mid, secs + 4, mood, rnd)
+    bpm, key, sig = compose(mid, secs + 4, mood, rnd, used_sigs(used))
     subprocess.run(["fluidsynth", "-ni", "-g", "0.7", "-R", "1", "-C", "1", "-r", "44100", "-F", raw, sf2, mid],
                    check=True, stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-i", raw, "-af",
@@ -239,7 +250,7 @@ def make_track(path, secs, mood=None, text="", seed=None):
             os.remove(f)
         except OSError:
             pass
-    return f"original {mood} {int(bpm)}bpm k{key} #{rnd.randint(1000, 9999)}"
+    return f"original {mood} {int(bpm)}bpm [{sig}]"
 
 
 if __name__ == "__main__":

@@ -544,7 +544,7 @@ def find_music(mood, h, job, secs=200, text=""):
         import music_gen
         path = os.path.join(job, "music.m4a")
         secs = max(40.0, float(secs or 200))
-        title = music_gen.make_track(path, secs, mood, text)
+        title = music_gen.make_track(path, secs, mood, text, used=h.get("music", []))
         log(f"music: {title} (original, khud bana)")
         return path, title, secs
     except Exception as e:
@@ -1028,6 +1028,7 @@ def main():
         h["posts"].append({"ts": time.time(), "vid": vid, "kind": "long", "place": plan["country"],
                            "country": plan["country"], "mood": "long film", "hook": plan.get("title")})
         h["clips"] = (h.get("clips", []) + [c["id"] for c in clips])[-3000:]
+        h["music"] = (h.get("music", []) + [mtitle])[-200:]       # long video ka music bhi yaad rahe (repeat na ho)
         save_hist(h)
         return
 
