@@ -1,32 +1,43 @@
 {
- "time_utc": "2026-11-18 20:20",
+ "time_utc": "2026-11-17 20:18",
  "kind": "long",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-18 20:20",
+   "date": "2026-11-17 20:18",
    "kind": "long",
    "lang": "en",
-   "title": "Global News Bulletin Tech Outages UK Energy Voyager 1 Record",
-   "dur": 295,
-   "post_id": "1149868137417107"
+   "title": "New Tech Restrictions Threaten Global Trade and Markets",
+   "dur": 312,
+   "post_id": "1502870375096367"
   },
   "sports": {
-   "date": "2026-11-18 20:20",
+   "date": "2026-11-17 20:18",
    "kind": "long",
    "lang": "en",
-   "title": "Valtteri Bottas Secures 2027 F1 Seat with Cadillac",
-   "dur": 572,
-   "post_id": "1107462262188781"
+   "title": "Global Sports Hub: F1 Drama and Football Legends",
+   "dur": 279,
+   "post_id": "2262270577711714"
   }
  },
  "errors": [],
- "clips_rejected": 575,
+ "clips_rejected": 974,
  "agent_checks": 243,
- "agent_rejects": 219,
- "agent_skips": 364,
- "alt_searches": 8,
- "tag_pass": 10,
- "time_budget_hit": true
+ "agent_rejects": 218,
+ "agent_skips": 746,
+ "alt_searches": 7,
+ "time_budget_hit": true,
+ "no_match": [
+  "@Gianni Infantino",
+  "FIFA headquarters Zurich",
+  "football stadium pitch",
+  "@FIFA",
+  "stadium VIP seats",
+  "@UEFA",
+  "soccer ball on turf",
+  "Swiss Alps landscape",
+  "@Formula 1"
+ ],
+ "headline_cards": 9
 }

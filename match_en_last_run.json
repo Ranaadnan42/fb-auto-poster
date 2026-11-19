@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-19 06:34",
+ "time_utc": "2026-11-18 06:37",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "sports": {
-   "key": "n187509",
-   "sport": "tennis",
-   "date": "2026-11-19 06:34",
+   "key": "t401892728",
+   "sport": "ice hockey",
+   "date": "2026-11-18 06:37",
    "lang": "en",
-   "match": "Daniil Medvedev vs Carlos Alcaraz",
-   "result": "Carlos Alcaraz beat Daniil Medvedev 6-2, 6-4",
-   "dur": 64,
-   "post_id": "1478226520903329"
+   "match": "Los Angeles Kings at Boston Bruins",
+   "result": "Los Angeles Kings beat Boston Bruins 3-0",
+   "dur": 62,
+   "post_id": "1123281150516038"
   }
  },
  "errors": []

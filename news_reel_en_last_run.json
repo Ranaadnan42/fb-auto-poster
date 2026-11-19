@@ -1,21 +1,30 @@
 {
- "time_utc": "2026-11-19 08:36",
+ "time_utc": "2026-11-19 12:37",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-19 08:36",
+   "date": "2026-11-19 12:37",
    "kind": "reel",
    "lang": "en",
-   "title": "Anthropic Valued at $1.5 Trillion Ahead of Stock Debut",
-   "dur": 51,
-   "post_id": "1084632511277034"
+   "title": "Anthropic Raises $81bn in Record Stock Market Debut",
+   "dur": 57,
+   "post_id": "1156541610176764"
+  },
+  "sports": {
+   "date": "2026-11-19 12:37",
+   "kind": "reel",
+   "lang": "en",
+   "title": "Jonathan Kuminga Injury Update for Knicks Game",
+   "dur": 58,
+   "post_id": "1503066025022891"
   }
  },
  "errors": [],
- "agent_checks": 47,
- "agent_rejects": 42,
+ "clips_rejected": 97,
+ "agent_checks": 111,
+ "agent_rejects": 94,
  "agent_skips": 0,
- "clips_rejected": 49
+ "alt_searches": 3
 }
