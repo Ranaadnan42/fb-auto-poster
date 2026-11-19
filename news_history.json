@@ -1750,6 +1750,24 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122111681163532804"
+  },
+  {
+   "date": "2026-11-19 10:13",
+   "lang": "ur",
+   "topic": "americas",
+   "link": "https://www.bbc.co.uk/news/articles/c5dj1dkwzvzwo?at_medium=RSS&at_campaign=rss",
+   "title": "Van Gogh painting sells for record $190.4m after row over its Nazi history",
+   "words": [
+    "after",
+    "gogh",
+    "history",
+    "nazi",
+    "over",
+    "painting",
+    "record",
+    "sells"
+   ],
+   "post_id": "1357984777408020_122097286767558252"
   }
  ],
  "sports": [
@@ -3494,6 +3512,24 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122105416155548502"
+  },
+  {
+   "date": "2026-11-19 10:09",
+   "lang": "ur",
+   "topic": "esports",
+   "link": "https://news.google.com/rss/articles/CBMirwFBVV95cUxPdEEwUHdDUUhlMS00bHhJMTRTUkVPdkNPSktNU0gxNFRUUE9IWVNaRDlveGpYWmZDZmdWaC02VXpYaXZZUXJTUHhsRWo5aGZGS3dRdXFPcmV1TWlkLXh0YlBXRllmREFBdU4yMGpjM0pUQTFDWTVVd1ZJUkFOWlI0Y1Jxc2dvX3g1MmM3V2NkcTladjVibEZYb18xZ2N1d1RPcmpuQkQyeGlxbGtLb3ZJ?oc=5",
+   "title": "Fujitsu Expands Strategic Partnership with Google Cloud for AI Transformation",
+   "words": [
+    "cloud",
+    "expands",
+    "fujitsu",
+    "google",
+    "partnership",
+    "strategic",
+    "transformation",
+    "with"
+   ],
+   "post_id": "1465090056678690_122105491239548502"
   }
  ],
  "used_images": [
@@ -3613,6 +3649,7 @@
   1541886,
   "wmi178546857",
   "pxi7121617",
-  6030862
+  6030862,
+  7014547
  ]
 }
