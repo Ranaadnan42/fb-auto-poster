@@ -3,22 +3,21 @@
  "agent": "pets",
  "dry_run": false,
  "log": [
-  "Subject: Pomeranian",
-  "photo commons wmi171739582 1920x2560: agent=False",
-  "photo commons wmi4817502 1920x1440: agent=True",
-  "--- caption ---\nThe Pomeranian is more than just a fluffy dog breed! 🐾🐕\n\nDiscover the history of the Pomerania region and its unique animals like the Pomeranian goose and sheep. This name represents ancient cultures and languages from the Baltic Sea shores.\n\nDid you know the name Pomeranian also ref",
-  "Video tayyar - 36 minute intezar, post 12:37 UTC par hogi",
+  "Subject: Samoyed",
+  "photo commons wmi45770882 1920x1083: agent=True",
+  "--- caption ---\nMeet the stunning Samoyed, a breed with a rich Siberian history! ❄️🐕\n\nThis Eurasian dog breed is descended from the hunting and herding dogs used by the Samoyedic peoples of Siberia. 🏔️✨\n\nWould you love to have one of these fluffy Siberian dogs? ☁️\n\nFollow Dogs & Cats World for daily",
+  "Video tayyar - 27 minute intezar, post 18:37 UTC par hogi",
   "Waqt ho gaya - post kar rahe hain",
   "photo story lagi",
-  "posted 1389149844290401_122101298955553453"
+  "posted 1389149844290401_122101542957553453"
  ],
  "errors": [],
  "posted": {
-  "subject": "Pomeranian",
-  "photo": "wmi4817502",
+  "subject": "Samoyed",
+  "photo": "wmi45770882",
   "src": "commons",
-  "size": "1920x1440",
-  "date": "2026-11-19 12:00",
-  "post_id": "1389149844290401_122101298955553453"
+  "size": "1920x1083",
+  "date": "2026-11-19 18:09",
+  "post_id": "1389149844290401_122101542957553453"
  }
 }
