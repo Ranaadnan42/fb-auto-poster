@@ -1,42 +1,18 @@
 {
  "mode": "long",
- "clips": 42,
- "clips_rejected": 322,
- "vision_checks": 336,
- "errors": [],
+ "clips": 0,
+ "clips_rejected": 0,
+ "vision_checks": 0,
+ "errors": [
+  "Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}} | Groq fail: 4",
+  "Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}} | Groq fail: 4",
+  "Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}} | Groq fail: 4",
+  "fatal: video nahi bani",
+  "fatal: Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}} | Groq fail: 4"
+ ],
  "search_phrases": [
-  "ki sair kar duniya ki gafil",
-  "ki sair kara de",
-  "ki sirf",
-  "ka siren",
-  "li siri",
-  "ki seerat",
-  "ki siren ki awaaz",
-  "kya siren head",
-  "ki sir",
-  "madina tour in urdu",
-  "israel tour in urdu",
-  "tour meaning in urdu",
-  "london tour in urdu",
-  "turkey tour in urdu",
-  "istanbul tour in urdu",
-  "world tour in urdu",
-  "spain tour in urdu",
-  "makkah tour in urdu",
-  "germany tour in urdu"
- ],
- "search": "london tour in urdu",
- "script_words": 416,
- "alt_searches": 8,
- "photos": 2,
- "seconds": 176.6,
- "links": [
-  "https://www.gov.uk/browse/visas-immigration",
-  "https://www.gov.uk/check-uk-visa",
-  "https://beoe.gov.pk",
-  "https://oec.gov.pk"
- ],
- "subject": "London, United Kingdom",
- "series": "pk_tour",
- "title": "لندن کی سیر | London Tour in Urdu"
+  "sham country documentary in urdu",
+  "malta country documentary in urdu",
+  "brunei country documentary in urdu"
+ ]
 }
