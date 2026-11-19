@@ -729,7 +729,7 @@ def find_photo(plan, h, job):
 def post_photo(path, caption):
     with open(path, "rb") as f:
         j = fb(requests.post(f"{GRAPH}/{PAGE_ID}/photos", timeout=300, files={"source": f},
-                             data={"caption": caption, "access_token": TOKEN}))
+                             data={"caption": __import__("seo").with_usa(caption), "access_token": TOKEN}))
     try:                                        # wohi tasveer page story par bhi
         try:
             with open(path, "rb") as f:
@@ -858,7 +858,7 @@ def post_long(title, desc):
                 raise RuntimeError("long upload chunk 5 baar fail")
             start, end = int(j["start_offset"]), int(j["end_offset"])
     fb(requests.post(url, timeout=300, data={"upload_phase": "finish", "upload_session_id": sess,
-                                             "title": title[:250], "description": desc, "access_token": TOKEN}))
+                                             "title": title[:250], "description": __import__("seo").with_usa(desc), "access_token": TOKEN}))
     return vid
 
 
@@ -881,7 +881,7 @@ def post_reel(desc):
                          headers={"Authorization": f"OAuth {TOKEN}", "offset": "0",
                                   "file_size": str(os.path.getsize(OUT))}))
     fb(requests.post(base, timeout=60, data={"upload_phase": "finish", "video_id": vid, "video_state": "PUBLISHED",
-                                             "description": desc, "access_token": TOKEN}))
+                                             "description": __import__("seo").with_usa(desc), "access_token": TOKEN}))
     try:
         import stories
         stories.try_story(PAGE_ID, TOKEN, OUT, "v23.0", log, REPORT["errors"])

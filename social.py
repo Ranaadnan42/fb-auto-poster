@@ -63,7 +63,7 @@ def instagram_reel(page_id, token, path, caption, log=print):
         return None
     c = _ig_json(requests.post(f"{GRAPH}/{ig}/media", timeout=60, data={
         "media_type": "REELS", "upload_type": "resumable", "share_to_feed": "true",
-        "caption": _clean_caption(caption), "access_token": token}))
+        "caption": _clean_caption(__import__("seo").with_usa(caption)), "access_token": token}))
     cid = c["id"]
     with open(path, "rb") as f:
         r = requests.post(f"https://rupload.facebook.com/ig-api-upload/v21.0/{cid}", data=f,

@@ -516,7 +516,7 @@ def post_photo(path, caption):
         raise RuntimeError("WB_PAGE_TOKEN ya WB_PAGE_ID secret missing hai")
     with open(path, "rb") as f:
         r = requests.post(f"https://graph.facebook.com/{GRAPH_VER}/{WB_ID}/photos", timeout=180,
-                          data={"access_token": WB_TOKEN, "message": caption, "published": "true"},
+                          data={"access_token": WB_TOKEN, "message": __import__("seo").with_usa(caption), "published": "true"},
                           files={"source": ("post.jpg", f, "image/jpeg")})
     j = r.json()
     if "error" in j:

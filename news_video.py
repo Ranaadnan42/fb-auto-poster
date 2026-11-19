@@ -257,6 +257,10 @@ def get_clip(term, secs, out, used, said="", kind="news"):
         return False
     import footage_agent as fa
     want = footage.words(term)
+    # janwar/parinda/breed pages: har clip mein WOHI janwar dikhna lazmi - darya/darakht/scenery kabhi nahi
+    subj = SUBJECT[0].strip() if kind in ("wild", "birds", "pets") else ""
+    subj_w = footage.words(subj)
+    chk_term = term if not subj or all(w in want for w in subj_w) else f"{subj} ({term})"
     vertical = H > W
     cands = [c for c in footage.videos(term, vertical) if c["id"] not in used
              and footage.match_score(c.get("text"), want) > 0]          # zero match ab kabhi nahi
@@ -279,8 +283,9 @@ def get_clip(term, secs, out, used, said="", kind="news"):
                 jpg = f"{out}.chk{k}.jpg"
                 if footage.frame(raw, jpg, min(at, max(d - 0.3, 0))):
                     jpgs.append(jpg)
-            full = footage.match_score(c.get("text"), want) >= len(want)
-            v = fa.check(jpgs, term, said, kind) if jpgs else None
+            full = footage.match_score(c.get("text"), want) >= len(want) and \
+                footage.match_score(c.get("text"), subj_w) >= len(subj_w)
+            v = fa.check(jpgs, chk_term, said, kind) if jpgs else None
             used.append(c["id"])
             if v is None and full and c.get("src") in TRUSTED_TAGS:
                 # AI ki aankh (quota) band: sirf woh clip jis ke tags mein boli gayi cheez ka HAR lafz ho
@@ -311,8 +316,9 @@ def get_clip(term, secs, out, used, said="", kind="news"):
         try:
             if footage.download(p["url"], img, 40000):
                 used.append(p["id"])
-                v = fa.check([img], term, said, kind)
-                full = footage.match_score(p.get("text"), want) >= len(want)
+                v = fa.check([img], chk_term, said, kind)
+                full = footage.match_score(p.get("text"), want) >= len(want) and \
+                    footage.match_score(p.get("text"), subj_w) >= len(subj_w)
                 if v is None and full and p.get("src") in TRUSTED_TAGS:
                     v = True               # aankh band - tags mein har lafz
                 if v is not True:          # sirf AI ne dekh kar haan kaha ho - andaze se clip nahi
@@ -568,20 +574,77 @@ def build_scene(i, kind, text, terms, headline, badge, used, fallback_terms):
     secs = duration(voice) + 0.35
     os.environ["AGENT_PAGE"] = kind
     CUR_HEADLINE[0] = headline or ""
+    cards0, clips0 = REPORT.get("headline_cards", 0), len(ALL_CLIPS)
     vid = scene_video(i, terms, secs, used, fallback_terms, text, kind)
     import footage_agent as fa
     REPORT.update(fa.STATS)
     ass = os.path.join(WORK, f"s{i}.ass")
     make_ass(ass, kind, text, headline, secs, badge)
+    out = os.path.join(WORK, f"scene{i:02d}.mp4")
+    _compose(vid, voice, ass, secs, out)
+    for c in ALL_CLIPS[clips0:]:
+        CLIP_SCENE[c] = (i, headline or "")
+    if REPORT.get("headline_cards", 0) > cards0:      # likha hua card bana - baad mein asli clip se badlega
+        CARD_SCENES.append({"i": i, "out": out, "voice": voice, "ass": ass, "secs": secs, "label": headline or ""})
+    return out
+
+
+def _compose(vid, voice, ass, secs, out):
+    # neeche kaali patti nahi - subtitle ka apna outline/saya kaafi hai, poori video saaf rangon mein
     fonts = news.FONTS_DIR.replace("\\", "/").replace(":", "\\:")
     ap = os.path.abspath(ass).replace("\\", "/").replace(":", "\\:")
-    out = os.path.join(WORK, f"scene{i:02d}.mp4")
     run(["ffmpeg", "-y", "-loglevel", "error", "-i", vid, "-i", voice, "-filter_complex",
-         f"[0:v]drawbox=x=0:y=ih*0.62:w=iw:h=ih*0.38:color=black@0.35:t=fill,"
-         f"ass='{ap}':fontsdir='{fonts}',fps={FPS},format=yuv420p[v];[1:a]apad=pad_dur=0.35,aresample=44100[a]",
+         f"[0:v]ass='{ap}':fontsdir='{fonts}',fps={FPS},format=yuv420p[v];[1:a]apad=pad_dur=0.35,aresample=44100[a]",
          "-map", "[v]", "-map", "[a]", "-t", f"{secs:.2f}", "-c:v", "libx264", "-preset", "veryfast", "-crf", os.environ.get("VIDEO_CRF", "21"),
          "-c:a", "aac", "-b:a", "160k", "-ar", "44100", "-ac", "2", out])
-    return out
+
+
+SUBJECT = [""]        # is scene ka janwar/parinda/breed (pages set karte hain) - har clip mein yahi dikhna lazmi
+CARD_SCENES = []      # jin scenes mein clip na mili aur likha hua card laga
+CLIP_SCENE = {}       # agent-pass clip -> (scene number, label)
+
+
+def fix_cards():
+    """Likhe hue card (khaali rang + bara text) wale scenes ko isi video ki asli clip se dobara banao.
+    Pehle wahi label (wahi janwar/chapter), na ho to agla qareebi scene, phir koi bhi clip."""
+    fixed = 0
+    for c in CARD_SCENES:
+        if not os.path.exists(c["out"]):
+            continue
+        clips = [p for p, (_, lb) in CLIP_SCENE.items() if lb == c["label"] and os.path.exists(p)]
+        if not clips:
+            later = sorted((n, p) for p, (n, _) in CLIP_SCENE.items() if n > c["i"] and os.path.exists(p))
+            if later:
+                clips = [p for n, p in later if n == later[0][0]]
+        if not clips:
+            clips = [p for p in ALL_CLIPS if os.path.exists(p)]
+        if not clips:
+            continue
+        try:
+            n = max(1, min(len(clips), int(c["secs"] // 4.5)))
+            pick = random.sample(clips, n)
+            seg = c["secs"] / n
+            parts = []
+            for k, p in enumerate(pick):
+                o = os.path.join(WORK, f"fix{c['i']}_{k}.mp4")
+                _render_clip(p, seg + 0.1, o, flip=True)
+                parts.append(o)
+            vid = parts[0]
+            if len(parts) > 1:
+                lst = os.path.join(WORK, f"fix{c['i']}.txt")
+                with open(lst, "w") as f:
+                    f.write("".join(f"file '{os.path.abspath(x)}'\n" for x in parts))
+                vid = os.path.join(WORK, f"fix{c['i']}_v.mp4")
+                run(["ffmpeg", "-y", "-loglevel", "error", "-f", "concat", "-safe", "0", "-i", lst, "-c", "copy", vid])
+            _compose(vid, c["voice"], c["ass"], c["secs"], c["out"])
+            fixed += 1
+        except Exception as e:
+            log(f"card fix fail scene {c['i']}: {str(e)[:120]}")
+    if fixed:
+        log(f"{fixed} likhe hue card asli clip se badle")
+    CARD_SCENES.clear()
+    CLIP_SCENE.clear()
+    return fixed
 
 
 def build_video(kind, script, stories, used):
@@ -618,6 +681,7 @@ def build_video(kind, script, stories, used):
         scenes.append(build_scene(i, kind, outro["text"], o_terms or fb[:1], None, badge, used, o_terms + fb))
     if len(scenes) < 2:
         raise RuntimeError("scenes nahi banay")
+    fix_cards()
     lst = os.path.join(WORK, "all.txt")
     with open(lst, "w") as f:
         f.write("".join(f"file '{os.path.abspath(p)}'\n" for p in scenes))
@@ -654,7 +718,7 @@ def post_reel(P, path, desc):
                               headers={"Authorization": f"OAuth {P['token']}", "offset": "0",
                                        "file_size": str(os.path.getsize(path))}, data=f, timeout=1800))
     fb_json(requests.post(base, timeout=60, data={"upload_phase": "finish", "video_id": vid,
-                                                  "video_state": "PUBLISHED", "description": desc,
+                                                  "video_state": "PUBLISHED", "description": __import__("seo").with_usa(desc),
                                                   "access_token": P["token"]}))
     try:
         import stories
@@ -702,7 +766,7 @@ def post_long(P, path, title, desc):
                     time.sleep(5)
             s_off, e_off = int(j["start_offset"]), int(j["end_offset"])
     phase("finish", {"access_token": P["token"], "upload_phase": "finish", "upload_session_id": session,
-                     "title": title[:250], "description": desc}, 300)
+                     "title": title[:250], "description": __import__("seo").with_usa(desc)}, 300)
     return vid
 
 

@@ -484,7 +484,7 @@ def post_album(P, imgs, cap):
         with open(d["path"], "rb") as f:
             ids.append(fb(requests.post(f"{GRAPH}/{P['id']}/photos", timeout=300, files={"source": f},
                                         data={"published": "false", "access_token": P["token"]}))["id"])
-    data = {"message": cap, "access_token": P["token"]}
+    data = {"message": __import__("seo").with_usa(cap), "access_token": P["token"]}
     for k, i in enumerate(ids):
         data[f"attached_media[{k}]"] = json.dumps({"media_fbid": i})
     pid = fb(requests.post(f"{GRAPH}/{P['id']}/feed", timeout=120, data=data))["id"]

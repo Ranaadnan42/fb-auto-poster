@@ -183,8 +183,30 @@ def reel_facts(bird):
     return {"title": title, "sci": sci_name(text), "text": text}
 
 
+def proven_birds(h):
+    """Jin parindon ki reel asli clips ke sath post ho chuki - un ki footage free sites par waqai milti hai."""
+    ok = [x.get("bird") for x in h["reel"] if x.get("bird") and not x.get("skipped")]
+    return list(dict.fromkeys(ok + STAR_BIRDS))
+
+
+def long_birds(h, theme, n=7):
+    """Lambi film ke parinde SIRF un mein se jin ki asli video milti hai (nayab parinde = text cards = post fail)."""
+    key = "proven:" + theme
+    if h["theme_birds"].get(key):
+        return h["theme_birds"][key]
+    pool = proven_birds(h)
+    j = news.ask_json(f"""For the bird documentary film "{theme}", choose {n} species ONLY from this list (copy the names
+exactly): {', '.join(pool)}. Pick the ones that fit the theme best; if few fit exactly, pick the closest/most famous ones
+and keep the film beautiful. Return JSON {{"birds": ["..."]}}""")
+    lst = [a.strip() for a in (j.get("birds") or []) if isinstance(a, str) and a.strip() in pool]
+    if len(lst) < 5:
+        lst += [b for b in random.sample(pool, len(pool)) if b not in lst][:n - len(lst)]
+    h["theme_birds"][key] = lst[:n]
+    return lst[:n]
+
+
 def long_facts(h, theme):
-    birds = birds_of(h, theme)[:7]
+    birds = long_birds(h, theme)[:7]
     parts, names = [], []
     for b in birds:
         t, tx = wiki_text(b, 1700)
@@ -309,6 +331,11 @@ Return JSON:
 
 
 # ---------------------------------------------------------------- video
+# Ultra HD (4K): reel 2160x3840, long 3840x2160 - aakhri ek hi encode mein lanczos se, FB par 4K quality
+UHD_V = ["-vf", f"scale={nv.W * 2}:{nv.H * 2}:flags=lanczos,format=yuv420p", "-c:v", "libx264", "-preset", "veryfast",
+         "-crf", "18", "-maxrate", "25M", "-bufsize", "50M", "-r", str(nv.FPS)]
+
+
 def build_video(script, facts, h):
     used = h["used_clips"]
     badge = (script.get("badge") or "BIRDS").strip().upper()[:30]
@@ -323,6 +350,7 @@ def build_video(script, facts, h):
         fallback = [f"{bird} bird", bird, f"{bird} flying"] if bird else ["colorful bird"]
         label = str(sc.get("label") or "").strip().upper()[:40] or None
         try:
+            nv.SUBJECT[0] = bird
             p = nv.build_scene(i, PAGE, sc["text"], terms, label, badge, used, fallback)
             scenes.append(p)
             # har naye parinde ke pehle scene par us ki asli awaz (reel: shuru mein)
@@ -338,6 +366,7 @@ def build_video(script, facts, h):
             REPORT["errors"].append(f"scene {i}: {str(e)[:150]}")
     if len(scenes) < max(3, len(script["scenes"]) // 2):
         raise RuntimeError("bohat se scenes nahi banay")
+    nv.fix_cards()                     # likhe hue card ki jagah isi video ki asli clip
     lst = os.path.join(nv.WORK, "all.txt")
     with open(lst, "w") as f:
         f.write("".join(f"file '{os.path.abspath(p)}'\n" for p in scenes))
@@ -356,7 +385,7 @@ def build_video(script, facts, h):
         mix += f"[c{k}]"
     fc.append(f"{mix}amix=inputs={2 + len(calls)}:duration=first:normalize=0[a]")
     nv.run(["ffmpeg", "-y", "-loglevel", "error", *ins, "-filter_complex", ";".join(fc),
-            "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart",
+            "-map", "0:v", "-map", "[a]", *UHD_V, "-c:a", "aac", "-b:a", "160k", "-movflags", "+faststart",
             OUT_FILE])
     REPORT["bird_calls"] = len(calls)
     log(f"video ban gayi: {total:.0f}s, {len(scenes)} scenes, {len(calls)} asli awazein")

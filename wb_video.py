@@ -613,7 +613,7 @@ def post_reel(path, desc):
                                        "file_size": str(os.path.getsize(path))}, data=f, timeout=1800))
     fb_json(requests.post(base, timeout=60, data={
         "upload_phase": "finish", "video_id": vid, "video_state": "PUBLISHED",
-        "description": desc, "access_token": WB_TOKEN}))
+        "description": __import__("seo").with_usa(desc), "access_token": WB_TOKEN}))
     import stories
     stories.try_story(WB_ID, WB_TOKEN, path, GRAPH_VER, log, REPORT["errors"])
     return vid
@@ -623,7 +623,7 @@ def post_long(path, title, desc):
     with open(path, "rb") as f:
         j = fb_json(requests.post(f"https://graph-video.facebook.com/{GRAPH_VER}/{WB_ID}/videos",
                                   timeout=1800, data={"access_token": WB_TOKEN, "title": title,
-                                                      "description": desc, "published": "true"},
+                                                      "description": __import__("seo").with_usa(desc), "published": "true"},
                                   files={"source": ("video.mp4", f, "video/mp4")}))
     return j.get("id")
 

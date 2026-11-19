@@ -1035,7 +1035,7 @@ def post_long(path, title, desc):
             log(f"Uploaded {s_off * 100 // size}%")
     fb_json(requests.post(url, timeout=300, data={
         "access_token": FB_TOKEN, "upload_phase": "finish", "upload_session_id": session,
-        "title": title, "description": desc}))
+        "title": title, "description": __import__("seo").with_usa(desc)}))
     log(f"Long video posted: {vid}")
     return vid
 
@@ -1051,7 +1051,7 @@ def post_reel(path, desc):
                               data=f, timeout=1800))
     fb_json(requests.post(base, timeout=60, data={
         "upload_phase": "finish", "video_id": vid, "video_state": "PUBLISHED",
-        "description": desc, "access_token": FB_TOKEN}))
+        "description": __import__("seo").with_usa(desc), "access_token": FB_TOKEN}))
     log(f"Reel posted: {vid}")
     import stories
     stories.try_story(FB_PAGE, FB_TOKEN, path, GRAPH_VER, log, REPORT["errors"])

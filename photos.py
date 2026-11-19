@@ -419,7 +419,7 @@ def post_photo(page, path, caption):
         raise RuntimeError(f"{page}: page token/id secret missing")
     with open(path, "rb") as f:
         r = requests.post(f"https://graph.facebook.com/{GRAPH_VER}/{P['id']}/photos", timeout=180,
-                          data={"access_token": P["token"], "message": caption, "published": "true"},
+                          data={"access_token": P["token"], "message": __import__("seo").with_usa(caption), "published": "true"},
                           files={"source": ("post.jpg", f, "image/jpeg")})
     j = r.json()
     if "error" in j:

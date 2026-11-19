@@ -481,6 +481,7 @@ def build(f, script, used):
             subj = subj[:1] + [f"@{f['venue']}"]
         scenes.append(nv.build_scene(i, "sports", sc["text"], subj + (sc.get("visuals") or []),
                                      (sc.get("screen") or "").strip() or None, badge, used, fb))
+    nv.fix_cards()                     # likhe hue card ki jagah isi video ki asli clip
     lst = os.path.join(nv.WORK, "all.txt")
     with open(lst, "w") as fh:
         fh.write("".join(f"file '{os.path.abspath(p)}'\n" for p in scenes))

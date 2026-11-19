@@ -150,6 +150,12 @@ GEO_TAGS = {
 }
 
 
+def with_usa(cap):
+    """Har page ki har post par #USA lazmi (USA audience)."""
+    cap = (cap or "").rstrip()
+    return cap if re.search(r"#usa\b", cap, re.I) else cap + " #USA"
+
+
 def _clean_tag(t):
     t = re.sub(r"[^\w#]", "", (t or "").strip().replace(" ", ""))
     if not t:
@@ -190,9 +196,9 @@ Rules: {P.get("rules") or "no fake claims, no clickbait lies, no politics, no re
         print(f"[seo] fallback: {e}", flush=True)
         hook, body, kw, q, gen_tags = title, "", "", "", []
     import random
-    geo = random.sample(GEO_TAGS.get(lang, GEO_TAGS["ur"]), 3)
+    geo = ["#USA"] + random.sample([g for g in GEO_TAGS.get(lang, GEO_TAGS["ur"]) if g != "#USA"], 2)
     tags, seen = [], set()
-    for t in P["brand_tags"] + gen_tags[:4] + geo + gen_tags[4:] + P["base_tags"]:
+    for t in P["brand_tags"][:1] + ["#USA"] + P["brand_tags"][1:] + gen_tags[:4] + geo + gen_tags[4:] + P["base_tags"]:
         t = _clean_tag(t)
         if t and t.lower() not in seen:
             seen.add(t.lower())

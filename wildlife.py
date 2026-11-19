@@ -318,12 +318,14 @@ def build_video(script, facts, used):
                 a = chapter_animals[label.upper()]
                 sa = (facts.get("latin") or {}).get(a) or ""
                 fb = [f"{a} wild", f"{a}"] + ([sa] if sa else [])
+            nv.SUBJECT[0] = main_animal or (chapter_animals.get(label.upper()) if label else "") or ""
             scenes.append(nv.build_scene(i, PAGE, sc["text"], terms, label, badge, used, fb))
         except Exception as e:
             log(f"scene {i} fail: {str(e)[:200]}")
             REPORT["errors"].append(f"scene {i}: {str(e)[:150]}")
     if len(scenes) < max(3, len(script["scenes"]) // 2):
         raise RuntimeError("bohat se scenes nahi banay")
+    nv.fix_cards()                     # likhe hue card ki jagah isi video ki asli clip
     lst = os.path.join(nv.WORK, "all.txt")
     with open(lst, "w") as f:
         f.write("".join(f"file '{os.path.abspath(p)}'\n" for p in scenes))

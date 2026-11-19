@@ -109,7 +109,7 @@ def post_photo(P, path, cap):
         return j
     with open(path, "rb") as f:
         j = fb(requests.post(f"{GRAPH}/{P['id']}/photos", timeout=300, files={"source": f},
-                             data={"caption": cap, "access_token": P["token"]}))
+                             data={"caption": __import__("seo").with_usa(cap), "access_token": P["token"]}))
     try:                                        # wohi tasveer page story par bhi
         try:
             with open(path, "rb") as f:

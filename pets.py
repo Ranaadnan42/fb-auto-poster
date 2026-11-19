@@ -261,12 +261,14 @@ def build_video(script, facts, h):
         fallback = [br, f"{br} playing", f"{br} {young}"] if br else ["cute puppy", "cute kitten"]
         label = str(sc.get("label") or "").strip().upper()[:40] or None
         try:
+            nv.SUBJECT[0] = br
             scenes.append(nv.build_scene(i, PAGE, sc["text"], terms, label, badge, used, fallback))
         except Exception as e:
             log(f"scene {i} fail: {str(e)[:200]}")
             REPORT["errors"].append(f"scene {i}: {str(e)[:150]}")
     if len(scenes) < max(3, len(script["scenes"]) // 2):
         raise RuntimeError("bohat se scenes nahi banay")
+    nv.fix_cards()                     # likhe hue card ki jagah isi video ki asli clip
     lst = os.path.join(nv.WORK, "all.txt")
     with open(lst, "w") as f:
         f.write("".join(f"file '{os.path.abspath(p)}'\n" for p in scenes))
