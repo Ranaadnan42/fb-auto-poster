@@ -3,21 +3,22 @@
  "agent": "wild",
  "dry_run": false,
  "log": [
-  "Subject: Lion",
-  "photo commons wmi196080378 1920x1281: agent=True",
-  "--- caption ---\nThe lion is an apex predator currently ranging in sub-Saharan Africa and India! 🦁👑\n\nAdult males feature a prominent mane, while females form social groups called prides to hunt hooved mammals together. These large cats inhabit grasslands, savannahs, and shrublands.\n\nWould you love to",
-  "Video tayyar - 25 minute intezar, post 17:07 UTC par hogi",
+  "Subject: Cheetah",
+  "photo commons wmi178410815 1920x1280: agent=False",
+  "photo commons wmi151463623 1920x1280: agent=True",
+  "--- caption ---\nMeet the fastest land animal on planet Earth! 🐆💨\n\nThe cheetah (Acinonyx jubatus) is a pursuit predator capable of running at 93–104 km/h (58–65 mph). It is perfectly evolved for speed with powerful hindlimb muscles and a long lumbar spine.\n\nWould you love to see this incredible anima",
+  "Video tayyar - 22 minute intezar, post 11:07 UTC par hogi",
   "Waqt ho gaya - post kar rahe hain",
   "photo story lagi",
-  "posted 1501204066400712_122105269149546974"
+  "posted 1501204066400712_122105983935546974"
  ],
  "errors": [],
  "posted": {
-  "subject": "Lion",
-  "photo": "wmi196080378",
+  "subject": "Cheetah",
+  "photo": "wmi151463623",
   "src": "commons",
-  "size": "1920x1281",
-  "date": "2026-11-18 16:41",
-  "post_id": "1501204066400712_122105269149546974"
+  "size": "1920x1280",
+  "date": "2026-11-19 10:44",
+  "post_id": "1501204066400712_122105983935546974"
  }
 }
