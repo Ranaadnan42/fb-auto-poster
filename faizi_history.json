@@ -403,6 +403,18 @@
   {
    "name": "Rose Gold Party Gown",
    "date": "2026-11-19 14:39"
+  },
+  {
+   "name": "Burnished Copper Tissue Gharara",
+   "date": "2026-11-19 18:21"
+  },
+  {
+   "name": "Frost Blue Crystal Peshwas",
+   "date": "2026-11-19 18:21"
+  },
+  {
+   "name": "Antique Gold Brocade Kaftan Kurti",
+   "date": "2026-11-19 18:21"
   }
  ],
  "posts": [
@@ -639,6 +651,17 @@
    ],
    "date": "2026-11-19 14:39",
    "post_id": "1657718852659416"
+  },
+  {
+   "mode": "pic",
+   "theme": "Mulberry & Metallic Winter Soirée",
+   "designs": [
+    "Burnished Copper Tissue Gharara",
+    "Frost Blue Crystal Peshwas",
+    "Antique Gold Brocade Kaftan Kurti"
+   ],
+   "date": "2026-11-19 18:21",
+   "post_id": "1433458693190419_122099297853555703"
   }
  ]
 }
