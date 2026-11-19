@@ -1734,6 +1734,22 @@
     "spending"
    ],
    "post_id": "1448208791702551_122111643459532804"
+  },
+  {
+   "date": "2026-11-19 08:11",
+   "lang": "en",
+   "topic": "world",
+   "link": "https://www.aljazeera.com/opinions/2026/11/19/the-xi-putin-trump-summit-will-not-be-a-new-yalta?traffic_source=rss",
+   "title": "The Xi-Putin-Trump summit will not be a ‘new Yalta’",
+   "words": [
+    "putin",
+    "summit",
+    "trump",
+    "will",
+    "yalta"
+   ],
+   "breaking": true,
+   "post_id": "1448208791702551_122111681163532804"
   }
  ],
  "sports": [
@@ -3460,6 +3476,24 @@
     "winless"
    ],
    "post_id": "1465090056678690_122105290497548502"
+  },
+  {
+   "date": "2026-11-19 08:11",
+   "lang": "en",
+   "topic": "badminton",
+   "link": "https://news.google.com/rss/articles/CBMinwFBVV95cUxPRFd3c2V0d3J3bzV2VlFwUkRKbWJybmxBWW55NUs4M1V4THJZWXgxd3RnQnJFWkNzZk1nRGVtQU51M0ZkRmNVREhGRzNkeDZ1NHhaMkRzSks0T3AwOERPYUhoU2gzczdUbjNkaHdGZXdmWnVKM2JYdTRDQjA2STdiZXBjeXBlVmh1eXJpRlNvQV9Xc0pWcXg4M0JyVDFELTDSAaIBQVVfeXFMTkpQalp1amx0a2R1LXVnSzc0TmlYb0IxUTZfdVJ4WjRCZF9zYWVhTzVqMU8wek5xM1pyVVhqaThNYWk2TmlmTERWcnVJUWd0T2IxQjluc0JmXzdEa0ljeVI3aWY5cHdtWXVRX3dQYjJ3Z09PVEtRWTR4REk4U2xtY29SNEhiV2tablMxYS1pTl8wTzZWUVFOOHNjNUMzR0Q2bE1B?oc=5",
+   "title": "Satwik-Chirag Advance To Hong Kong Open Quarterfinals",
+   "words": [
+    "advance",
+    "chirag",
+    "hong",
+    "kong",
+    "open",
+    "quarterfinals",
+    "satwik"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122105416155548502"
   }
  ],
  "used_images": [
@@ -3578,6 +3612,7 @@
   "pxi1263000",
   1541886,
   "wmi178546857",
-  "pxi7121617"
+  "pxi7121617",
+  6030862
  ]
 }
