@@ -1,23 +1,27 @@
 {
- "time_utc": "2026-11-18 19:51",
+ "time_utc": "2026-11-19 13:21",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
  "bird_calls": 0,
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 219,
- "agent_checks": 187,
- "agent_rejects": 184,
- "agent_skips": 35,
+ "clips_rejected": 268,
  "alt_searches": 8,
+ "no_match": [
+  "Malachite kingfisher flying over water"
+ ],
+ "headline_cards": 1,
+ "agent_checks": 157,
+ "agent_rejects": 154,
+ "agent_skips": 112,
  "posted": {
-  "bird": "Grey crowned crane",
+  "bird": "Malachite kingfisher",
   "theme": null,
-  "wiki": "Grey crowned crane",
-  "date": "2026-11-18 19:51",
-  "title": "Why does this bird wear a crown of pure gold? 👑 Grey Crowned Crane",
-  "dur": 70,
-  "post_id": "1465304509037689"
+  "wiki": "Malachite kingfisher",
+  "date": "2026-11-19 13:21",
+  "title": "Watch this tiny jewel flash over African waters!",
+  "dur": 63,
+  "post_id": "2227020971568247"
  }
 }
