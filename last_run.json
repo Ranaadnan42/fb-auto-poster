@@ -1,32 +1,43 @@
 {
  "lang": "ur",
- "stock_clips": 16,
+ "stock_clips": 52,
  "fallback_clips": 0,
- "errors": [],
- "search_phrases": [
-  "nabi ka mojza salman azhari",
-  "nabi ka mojza bayan",
-  "nabi ka mojza engineer muhammad ali mirza",
-  "nabi ka mojza tariq jameel",
-  "nabi pak ka mojza",
-  "nabi saw ka mojza",
-  "nabi pak ka mojza imran aasi",
-  "chand par nabi ka mojza",
-  "allah ke nabi ka mojza"
+ "errors": [
+  "tiktok_long: TikTok: spam_risk_too_many_pending_share - spam_risk_too_many_pending_share"
  ],
- "story": "Prophet feeds dozens of companions with single milk bowl",
- "search": "nabi pak ka mojza",
- "vision_checks": 203,
- "clips_rejected": 168,
+ "search_phrases": [
+  "قبر کا عذاب",
+  "قبر کی پہلی رات",
+  "قبر کا خوف نہ رکھنا اے دل",
+  "قبرستان میں داخل ہونے کی دعا",
+  "قبرستان",
+  "قبر کا عذاب ویڈیو",
+  "قبرستان کی دعا",
+  "قبر کا عذاب فلم",
+  "قبر پر مٹی ڈالنے کی دعا",
+  "qabar ka azab movie",
+  "qabar ka azab video",
+  "qabar ka azab film",
+  "qabar ka azab bayan",
+  "qabar ka azab full movie",
+  "qabar ka azab tariq jameel",
+  "qabar ka azab hassan",
+  "qabar ka azab real video",
+  "qabar ka azab in urdu"
+ ],
+ "story": "Sahabi hears grave occupant reciting Surah Mulk",
+ "search": "قبر کی پہلی رات",
+ "vision_checks": 190,
+ "clips_rejected": 117,
  "sources": {
-  "pixabay": 12,
-  "commons": 3,
-  "openverse": 1
+  "pixabay": 28,
+  "commons": 18,
+  "mixkit": 4,
+  "nasa": 2
  },
- "photo_clips": 3,
- "reel_minutes": 1.25,
- "time_utc": "2026-11-19 12:41",
- "title": "نبی پاک کا معجزہ: ایک پیالہ دودھ اور تمام صحابہ کا پیٹ بھرنا",
+ "long_minutes": 4.91,
+ "time_utc": "2026-11-19 14:27",
+ "title": "قبر کی پہلی رات: سورہ ملک کا وہ معجزہ جو نجات دلاتا ہے",
  "dry_run": false,
  "posted_ok": 1
 }
