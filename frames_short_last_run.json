@@ -1,29 +1,27 @@
 {
  "mode": "short",
- "clips": 29,
- "clips_rejected": 315,
- "vision_checks": 329,
- "errors": [],
+ "clips": 0,
+ "clips_rejected": 0,
+ "vision_checks": 0,
+ "errors": [
+  "Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}} | Groq fail: 4",
+  "Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}} | Groq fail: 4",
+  "Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}} | Groq fail: 4",
+  "fatal: video nahi bani",
+  "fatal: Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}} | Groq fail: 4"
+ ],
  "search_phrases": [
-  "ki sair kar duniya ki gafil",
-  "ki sair kara de",
-  "ki sirf",
-  "ka siren",
-  "li siri",
-  "ki seerat",
-  "ki siren ki awaaz",
-  "kya siren head",
-  "ki sir"
- ],
- "alt_searches": 10,
- "photos": 11,
- "vision_waits": 2,
- "seconds": 107.8,
- "links": [
-  "https://beoe.gov.pk",
-  "https://oec.gov.pk"
- ],
- "subject": "Argentina / Buenos Aires",
- "series": "pk_tour_short",
- "title": "بوینس آئرس کی سیر | Buenos Aires Travel Guide"
+  "harat angaze malomat",
+  "haqaiq",
+  "ke avishkar",
+  "معلوماتی ویڈیو",
+  "معلومات کی دنیا",
+  "معلومات عامہ",
+  "معلومات پاکستان",
+  "معلوماتی رپورٹ",
+  "معلوماتی ویڈیوز",
+  "معلومات اسلامی",
+  "معلوماتی رپورٹ لکھنے کا طریقہ",
+  "معلوماتی"
+ ]
 }
