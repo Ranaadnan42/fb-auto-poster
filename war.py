@@ -128,28 +128,63 @@ def save_hist(h):
         json.dump(h, f, ensure_ascii=False, indent=1)
 
 
+def _norm(t):
+    return re.sub(r"[\u2010-\u2015-]", "-", str(t or "")).strip().lower()
+
+
 def done_titles(h, mode):
-    return {x["war"] for x in h[mode]}
+    return {x["war"] for x in h[mode]} | {x.get("wiki") for x in h[mode] if x.get("wiki")}
+
+
+def film_count(war):
+    """Is jang ki ASLI battle film kitni maujood hai (Internet Archive newsreels + Commons videos).
+    Jis jang ki film hi nahi us par 'battles' video nahi ban sakti - wo jang chhor do."""
+    name = re.sub(r"\s*\(.*?\)", "", war).replace("\u2013", "-").strip()
+    n = 0
+    try:
+        r = requests.get("https://archive.org/advancedsearch.php", timeout=40, headers=UA, params={
+            "q": f'"{name}" AND mediatype:movies', "fl[]": "identifier", "rows": 0, "output": "json"})
+        n += int(r.json().get("response", {}).get("numFound") or 0)
+    except Exception as e:
+        log(f"film check archive error: {str(e)[:80]}")
+    try:
+        n += len(footage.commons(f"{name} footage", True))
+    except Exception:
+        pass
+    return n
+
+
+MIN_FILM = 8      # kam az kam itni asli film/newsreel - warna jang skip
 
 
 def country_war(h, done):
-    """Mulk-ba-mulk: mojooda mulk ki agli ahem jang (us mulk ki tareekh mein tarteeb se), 6 ke baad agla mulk."""
+    """Mulk-ba-mulk: mojooda mulk ki agli BARI jang jis ki ASLI battle film maujood ho (1897 ke baad),
+    us mulk ki tareekh mein tarteeb se. Choti/gumnaam jangein jin ki footage nahi - skip."""
+    skip = set(h.setdefault("no_film", []))
     for _ in range(len(COUNTRIES)):
         c = COUNTRIES[h["country_i"] % len(COUNTRIES)]
         if h["country_n"] < PER_COUNTRY:
-            j = news.ask_json(f"""For a war-history series that covers every country: list the most important wars and
-battles in the history of {c} (fought in or by {c}) FROM 1850 ONWARD ONLY (the era of real war photographs and film),
-OLDEST FIRST, not still ongoing.
-Never these (already covered): {json.dumps(sorted(done)[-300:])}
-Include EVERY war and major battle of {c} in that period (not only famous ones), starting with its FIRST one.
+            j = news.ask_json(f"""For the Facebook page "Battles Untold" (real battle footage of every country's wars):
+list the BIG, well-known wars and major battles fought by {c} from {FILM_YEAR} onward that were FILMED - real
+newsreel / archive combat film of them exists (e.g. World War I, World War II battles, Korean War, Vietnam War,
+Gulf War). OLDEST FIRST, not still ongoing. NO small frontier skirmishes, uprisings or local conflicts without film.
+Never these (already covered): {json.dumps(sorted(done | skip)[-300:])}
 Return JSON {{"wars": ["up to 12 exact English Wikipedia article titles, in chronological order"]}}""")
             for w in j.get("wars") or []:
-                if isinstance(w, str) and w.strip() and w.strip() not in done:
-                    h["country_n"] += 1
-                    H_COUNTRY_N[0] = h["country_n"]
-                    REPORT["country"] = c
-                    log(f"Mulk: {c} ({h['country_n']}/{PER_COUNTRY})")
-                    return w.strip()
+                w = w.strip() if isinstance(w, str) else ""
+                if not w or _norm(w) in {_norm(x) for x in done | skip}:
+                    continue
+                n = film_count(w)
+                if n < MIN_FILM:
+                    log(f"  '{w}': asli battle film sirf {n} - skip")
+                    h["no_film"].append(w)
+                    skip.add(w)
+                    continue
+                h["country_n"] += 1
+                H_COUNTRY_N[0] = h["country_n"]
+                REPORT["country"] = c
+                log(f"Mulk: {c} ({h['country_n']}/{PER_COUNTRY}) - '{w}' ki {n} asli film")
+                return w
         h["country_i"] += 1                      # is mulk ki jangein mukammal - agla mulk
         h["country_n"] = 0
     return None
@@ -159,7 +194,7 @@ def pick_war(h):
     """Tarteeb: 1) dunya ki pehli jang se purane daur ki jangein, 2) Persian / Roman / Arab saltanatein,
     3) phir mulk-ba-mulk. Reel aur long dono agli jang lete hain - har jang ek dafa, koi chhoot-ti nahi."""
     done = done_titles(h, "reel") | done_titles(h, "long")
-    n = len(done) + 1
+    n = len({x["war"] for x in h["reel"] + h["long"] if not x.get("skipped")}) + 1
     for w in WARS:
         if w not in done:
             return w, n
@@ -396,6 +431,10 @@ roughly the same length. Never invent facts. Return JSON {{"clip": index, "text"
     return None
 
 
+class NoFilm(RuntimeError):
+    pass
+
+
 def build_video(script, facts, used):
     badge = (script.get("years") or "").strip() or "WAR HISTORY"
     subj = [x.strip() for x in (script.get("subjects") or []) if isinstance(x, str) and x.strip()][:5]
@@ -415,6 +454,7 @@ def build_video(script, facts, used):
     os.environ["NO_REUSE"] = "1"
     shown = []          # [(scene ki visuals, scene ka text, clip paths)] jo agent ne pass ki
     scenes = []
+    real = 0            # kitne scenes ko apni asli footage mili
     for i, sc in enumerate(script["scenes"]):
         terms = list(sc.get("_imgs") or []) + [t for t in (sc.get("visuals") or []) if isinstance(t, str) and t.strip()]
         if not terms and place:
@@ -438,12 +478,16 @@ def build_video(script, facts, used):
                         nv.STORY_CLIPS.clear()
             if new_clips:
                 shown.append((terms or [place], sc["text"], new_clips))
+                real += 1
             scenes.append(out)
         except Exception as e:
             log(f"scene {i} fail: {str(e)[:200]}")
             REPORT["errors"].append(f"scene {i}: {str(e)[:150]}")
     if len(scenes) < max(3, len(script["scenes"]) // 2):
         raise RuntimeError("bohat se scenes nahi banay")
+    log(f"asli footage wale scenes: {real}/{len(script['scenes'])}")
+    if real < 0.6 * len(script["scenes"]):      # aadhi video wohi 2-3 tasveerein = battles video nahi - post mat karo
+        raise NoFilm(f"asli battle footage kam ({real}/{len(script['scenes'])} scenes)")
     nv.fix_cards()                     # likhe hue card ki jagah isi video ki asli clip
     lst = os.path.join(nv.WORK, "all.txt")
     with open(lst, "w") as f:
@@ -821,11 +865,27 @@ def main():
         save_hist(h)
         war, episode = pick_war(h)
         facts = gather_facts(war)
-    script = write_script(facts, episode)
-    log(f"Title: {script.get('title')} | {len(script['scenes'])} scenes")
-    if episode:
-        script["title"] = f"{script.get('title') or facts['title']} | History of Every War #{episode}"
-    path = build_video(script, facts, h["used_clips"])
+    for attempt in range(3):
+        script = write_script(facts, episode)
+        log(f"Title: {script.get('title')} | {len(script['scenes'])} scenes")
+        if episode:
+            script["title"] = f"{script.get('title') or facts['title']} | History of Every War #{episode}"
+        try:
+            path = build_video(script, facts, h["used_clips"])
+            break
+        except NoFilm as e:
+            log(f"{war}: {e} - ye jang skip, agli filmi jang")
+            h.setdefault("no_film", []).append(war)
+            h[MODE].append({"war": war, "date": REPORT["time_utc"], "skipped": str(e)[:100]})
+            h["country_n"] = max(0, h["country_n"] - 1)
+            save_hist(h)
+            if attempt == 2 or os.environ.get("WAR_OVERRIDE", "").strip():
+                raise
+            nv.ALL_CLIPS.clear()
+            nv.REPORT["no_match"] = []
+            war, episode = pick_war(h)
+            log(f"Jang: {war} (episode {episode})")
+            facts = gather_facts(war)
     REPORT.update({k: v for k, v in nv.REPORT.items() if k not in ("errors", "posted")})
     desc = description(script, facts)
     log(f"--- description ---\n{desc}\n")
