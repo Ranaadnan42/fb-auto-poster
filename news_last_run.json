@@ -1,17 +1,12 @@
 {
- "time_utc": "2026-11-18 20:08",
- "lang": "en",
+ "time_utc": "2026-11-19 02:03",
+ "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1448208791702551_122111543373532804",
-   "topic": "pakistan",
-   "title": "Pakistan successfully launches FATAH-III supersonic cruise missile"
-  },
-  "sports": {
-   "post": "1465090056678690_122104976529548502",
-   "topic": "big_events",
-   "title": "USA Basketball announces roster for World Cup qualifying games in Nov."
+   "post": "1357984777408020_122097072369558252",
+   "topic": "middle_east",
+   "title": "Israeli military launches rare ground operation in Gaza beyond Yellow Line"
   }
  },
  "errors": []
