@@ -1,24 +1,37 @@
 {
- "time_utc": "2026-11-18 15:00",
+ "time_utc": "2026-11-19 14:47",
  "kind": "long",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "sports": {
-   "date": "2026-11-18 15:00",
+   "date": "2026-11-19 14:47",
    "kind": "long",
    "lang": "ur",
-   "title": "ایوان ٹونی کی قانونی مشکل اور اسپورٹس کی اہم خبریں",
-   "dur": 542,
-   "post_id": "1674897264250238"
+   "title": "ورلڈ اسپورٹس اپڈیٹ: میکس ورسٹاپن اور ایش بارٹی کی بڑی خبریں",
+   "dur": 643,
+   "post_id": "1179972997713238"
   }
  },
  "errors": [],
- "agent_checks": 111,
- "agent_rejects": 91,
- "agent_skips": 452,
- "clips_rejected": 534,
- "alt_searches": 8,
- "tag_pass": 10,
- "time_budget_hit": true
+ "clips_rejected": 257,
+ "agent_checks": 88,
+ "agent_rejects": 80,
+ "agent_skips": 187,
+ "alt_searches": 2,
+ "tag_pass": 5,
+ "time_budget_hit": true,
+ "no_match": [
+  "@Max Verstappen",
+  "Formula 1 race",
+  "racing track",
+  "@Formula One",
+  "F1 pit lane",
+  "Middle East desert",
+  "modern stadium architecture",
+  "city skyline night",
+  "checkered flag",
+  "Formula 1 car"
+ ],
+ "headline_cards": 10
 }
