@@ -1,35 +1,29 @@
 {
  "mode": "short",
- "clips": 32,
- "clips_rejected": 248,
- "vision_checks": 261,
+ "clips": 29,
+ "clips_rejected": 315,
+ "vision_checks": 329,
  "errors": [],
  "search_phrases": [
-  "dubai vs saudi arabia jobs",
-  "dubai vs saudi arabia vs qatar",
-  "dubai vs saudi arabia football",
-  "dubai vs saudi arabia comparison",
-  "dubai vs saudi arabia tamil",
-  "dubai vs saudi arabia malayalam",
-  "dubai vs saudi arabia war",
-  "dubai and saudi arabia",
-  "dubai and saudi arabia difference in hindi"
+  "ki sair kar duniya ki gafil",
+  "ki sair kara de",
+  "ki sirf",
+  "ka siren",
+  "li siri",
+  "ki seerat",
+  "ki siren ki awaaz",
+  "kya siren head",
+  "ki sir"
  ],
- "search": "dubai vs saudi arabia jobs",
- "vision_waits": 5,
  "alt_searches": 10,
- "photos": 3,
- "seconds": 112.8,
+ "photos": 11,
+ "vision_waits": 2,
+ "seconds": 107.8,
  "links": [
-  "https://smartservices.icp.gov.ae",
-  "https://gdrfad.gov.ae",
-  "https://u.ae/en/information-and-services/visa-and-emirates-id",
-  "https://ksavisa.sa",
-  "https://visa.mofa.gov.sa",
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Dubai vs Saudi Arabia: Pakistani ke liye kaun behtar?",
- "series": "pk_versus_short",
- "title": "دبئی vs سعودی عرب: نوکری، رہائش اور زندگی کا جائزہ | Life in Dubai"
+ "subject": "Argentina / Buenos Aires",
+ "series": "pk_tour_short",
+ "title": "بوینس آئرس کی سیر | Buenos Aires Travel Guide"
 }
