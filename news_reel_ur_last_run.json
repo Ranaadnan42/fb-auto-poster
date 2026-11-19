@@ -1,22 +1,22 @@
 {
- "time_utc": "2026-11-18 12:50",
+ "time_utc": "2026-11-19 12:58",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-18 12:50",
+   "date": "2026-11-19 12:58",
    "kind": "reel",
    "lang": "ur",
-   "title": "سعودی اسٹاک مارکیٹ میں مندی، تداول انڈیکس نیچے آگیا",
-   "dur": 60,
-   "post_id": "1690416225953097"
+   "title": "اینتھروپک کے حصص کی اسٹاک مارکیٹ میں آمد",
+   "dur": 54,
+   "post_id": "1660641422269896"
   }
  },
  "errors": [],
- "agent_checks": 42,
- "agent_rejects": 33,
+ "clips_rejected": 92,
+ "agent_checks": 97,
+ "agent_rejects": 92,
  "agent_skips": 0,
- "clips_rejected": 33,
- "alt_searches": 3
+ "alt_searches": 2
 }

@@ -1,17 +1,12 @@
 {
- "time_utc": "2026-11-18 14:30",
- "lang": "en",
+ "time_utc": "2026-11-19 10:13",
+ "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1448208791702551_122111456889532804",
-   "topic": "europe",
-   "title": "Russian military plane crashes, killing all 19 on board"
-  },
-  "sports": {
-   "post": "1465090056678690_122104743933548502",
-   "topic": "olympic_sports",
-   "title": "Tyumen’s Alexandra Stashkevich represents Russia at Miss Universe 2026 in Hato Rey, San Juan"
+   "post": "1357984777408020_122097286767558252",
+   "topic": "americas",
+   "title": "Van Gogh painting sells for record $190.4m after row over its Nazi history"
   }
  },
  "errors": []
