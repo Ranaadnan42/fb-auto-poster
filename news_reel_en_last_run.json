@@ -1,35 +1,30 @@
 {
- "time_utc": "2026-11-19 15:54",
+ "time_utc": "2026-11-19 19:32",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-19 15:54",
+   "date": "2026-11-19 19:32",
    "kind": "reel",
    "lang": "en",
-   "title": "AI Safety Concerns Rise as Tech Experts Resign",
-   "dur": 46,
-   "post_id": "1174735271573134"
+   "title": "Rare One Horned Rhino Takes First Steps at Zoo",
+   "dur": 53,
+   "post_id": "1153402430674052"
   },
   "sports": {
-   "date": "2026-11-19 15:54",
+   "date": "2026-11-19 19:32",
    "kind": "reel",
    "lang": "en",
-   "title": "Three Lions Earn SLC Volleyball Honors",
-   "dur": 53,
-   "post_id": "2999175677101607"
+   "title": "Mateska Nguyen Azavedo Earn Big Ten Volleyball Honors",
+   "dur": 55,
+   "post_id": "1129184003151565"
   }
  },
  "errors": [],
- "clips_rejected": 61,
- "agent_checks": 63,
- "agent_rejects": 61,
+ "agent_checks": 96,
+ "agent_rejects": 81,
  "agent_skips": 0,
- "alt_searches": 1,
- "time_budget_hit": true,
- "no_match": [
-  "@Southeastern Louisiana University"
- ],
- "headline_cards": 1
+ "clips_rejected": 84,
+ "alt_searches": 2
 }
