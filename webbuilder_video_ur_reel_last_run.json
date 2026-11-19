@@ -1,15 +1,15 @@
 {
- "time_utc": "2026-11-18 14:55",
- "spotlight": "furniture store",
- "post_id": "1788693529059888",
+ "time_utc": "2026-11-19 14:56",
+ "spotlight": "beauty salon",
+ "post_id": "1429101882700386",
  "error": null,
  "lang": "ur",
  "kind": "reel",
- "clips": 0,
+ "clips": 1,
  "fallback": 0,
  "errors": [],
  "real_work": 4,
+ "mock": 4,
  "real_pos": 1,
- "mock": 2,
- "seconds": 54.1
+ "seconds": 57.1
 }
