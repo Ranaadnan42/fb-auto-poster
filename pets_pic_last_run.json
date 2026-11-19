@@ -3,21 +3,22 @@
  "agent": "pets",
  "dry_run": false,
  "log": [
-  "Subject: French Bulldog",
-  "photo commons wmi65257814 1920x1472: agent=True",
-  "--- caption ---\nDid you know French Bulldogs appeared in Paris in the mid-nineteenth century? 🇫🇷🐾\n\nDiscover the history of this popular companion dog, created by crossing toy bulldogs and local Parisian ratters.\n\nAre you a proud French Bulldog owner?\n\nFollow Dogs & Cats World for daily cute pets 🐶🐱\n",
-  "Video tayyar - 22 minute intezar, post 18:37 UTC par hogi",
+  "Subject: Pomeranian",
+  "photo commons wmi171739582 1920x2560: agent=False",
+  "photo commons wmi4817502 1920x1440: agent=True",
+  "--- caption ---\nThe Pomeranian is more than just a fluffy dog breed! 🐾🐕\n\nDiscover the history of the Pomerania region and its unique animals like the Pomeranian goose and sheep. This name represents ancient cultures and languages from the Baltic Sea shores.\n\nDid you know the name Pomeranian also ref",
+  "Video tayyar - 36 minute intezar, post 12:37 UTC par hogi",
   "Waqt ho gaya - post kar rahe hain",
   "photo story lagi",
-  "posted 1389149844290401_122100702651553453"
+  "posted 1389149844290401_122101298955553453"
  ],
  "errors": [],
  "posted": {
-  "subject": "French Bulldog",
-  "photo": "wmi65257814",
+  "subject": "Pomeranian",
+  "photo": "wmi4817502",
   "src": "commons",
-  "size": "1920x1472",
-  "date": "2026-11-18 18:14",
-  "post_id": "1389149844290401_122100702651553453"
+  "size": "1920x1440",
+  "date": "2026-11-19 12:00",
+  "post_id": "1389149844290401_122101298955553453"
  }
 }
