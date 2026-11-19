@@ -538,6 +538,20 @@ _OK_LIC = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa
 
 
 def find_music(mood, h, job):
+    """Copyright fix: Wikimedia recordings par Warner waghera ke claims aa rahe the (reel mute).
+    Ab har video ka music bot khud original banata hai - kisi ki recording use nahi hoti."""
+    try:
+        import music_gen
+        path = os.path.join(job, "music.m4a")
+        title = music_gen.make_track(path, 200, mood)
+        log(f"music: {title} (original, khud bana)")
+        return path, title, 200.0
+    except Exception as e:
+        log(f"music_gen error: {str(e)[:120]}")
+        return None, None, 0
+
+
+def _old_wikimedia_music(mood, h, job):
     pieces = MUSIC.get((mood or "").lower().strip()) or random.choice(list(MUSIC.values()))
     used = set(h.get("music", [])[-60:])
     for q in random.sample(pieces, len(pieces)):

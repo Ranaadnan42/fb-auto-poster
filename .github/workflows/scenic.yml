@@ -75,7 +75,7 @@ jobs:
             sudo apt-get update && sudo apt-get install -y --fix-missing ffmpeg && break
             echo "apt koshish $i fail - 30s baad dobara"; sleep 30
           done
-          pip install requests pillow google-genai
+          pip install requests pillow google-genai numpy
       - name: Run scenic agent
         env:
           SCENIC_PAGE_ID: ${{ secrets.SCENIC_PAGE_ID }}
