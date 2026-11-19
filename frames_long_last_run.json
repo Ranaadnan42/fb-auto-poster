@@ -1,18 +1,39 @@
 {
  "mode": "long",
- "clips": 0,
- "clips_rejected": 0,
- "vision_checks": 0,
- "errors": [
-  "Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}} | Groq fail: 4",
-  "Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}} | Groq fail: 4",
-  "Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}} | Groq fail: 4",
-  "fatal: video nahi bani",
-  "fatal: Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}} | Groq fail: 4"
- ],
+ "clips": 4,
+ "clips_rejected": 4,
+ "vision_checks": 7,
+ "errors": [],
  "search_phrases": [
-  "sham country documentary in urdu",
-  "malta country documentary in urdu",
-  "brunei country documentary in urdu"
- ]
+  "main job",
+  "mein job kaise kare",
+  "mein job dein job",
+  "main job per hun",
+  "main job karta hun",
+  "main job teri sarkari hai",
+  "main job karna chahta hun",
+  "main joban rote hue",
+  "main job cartoon",
+  "jobs for pakistani in dubai",
+  "jobs for pakistani in china",
+  "jobs for pakistani in qatar",
+  "jobs for pakistani in germany",
+  "jobs for pakistani in japan",
+  "jobs for pakistani in kuwait",
+  "jobs for pakistani in europe",
+  "work visa for pakistani in uae",
+  "work visa for pakistani in italy",
+  "jobs for students in pakistan"
+ ],
+ "search": "jobs for pakistani in china",
+ "script_words": 37,
+ "seconds": 16.4,
+ "links": [
+  "https://www.visaforchina.cn",
+  "https://beoe.gov.pk",
+  "https://oec.gov.pk"
+ ],
+ "subject": "China",
+ "series": "pk_jobs",
+ "title": "چین میں پاکستانیوں کے لیے نوکریاں | Life in China"
 }
