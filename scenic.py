@@ -441,7 +441,7 @@ Pick the NEXT reel. JSON:
  "time_label": "local-feeling time like '17:10' or '06:40' that fits the mood",
  "caption": "1-2 short poetic lines (max 25 words) about the feeling of this place, then a blank line, then '📍 Place, Country FLAG'",
  "hashtags": ["#3-5 tags, mix of place + #travel style"],
- "music_mood": "one of: calm piano / dreamy / melancholic / uplifting strings / romantic",
+ "music_mood": "one of (match the scene): tropical chill (beach/island/sea) / epic cinematic (big mountains, glaciers, cliffs) / peaceful flute (forest, meadow, valley, village, waterfall) / dreamy (flowers, lavender, lakes, sunsets) / calm piano / uplifting strings / romantic",
  "why": "why this will do well, max 12 words"}}""")
 
 
@@ -537,15 +537,16 @@ MUSIC = {
 _OK_LIC = ("public domain", "pd", "cc0", "cc by", "cc-by", "cc by-sa", "cc-by-sa")
 
 
-def find_music(mood, h, job):
+def find_music(mood, h, job, secs=200, text=""):
     """Copyright fix: Wikimedia recordings par Warner waghera ke claims aa rahe the (reel mute).
     Ab har video ka music bot khud original banata hai - kisi ki recording use nahi hoti."""
     try:
         import music_gen
         path = os.path.join(job, "music.m4a")
-        title = music_gen.make_track(path, 200, mood)
+        secs = max(40.0, float(secs or 200))
+        title = music_gen.make_track(path, secs, mood, text)
         log(f"music: {title} (original, khud bana)")
-        return path, title, 200.0
+        return path, title, secs
     except Exception as e:
         log(f"music_gen error: {str(e)[:120]}")
         return None, None, 0
@@ -772,7 +773,7 @@ JSON: {{"country": "...", "flag": "emoji",
  "title": "SEO title max 70 chars, e.g. 'Norway 4K - Fjords, Northern Lights & Mountains | Relaxing Nature Film'",
  "shots": [{{"place": "place name", "queries": ["3 short search terms, specific first"]}}  x 26],
  "caption": "2 short poetic lines about this country's nature",
- "music_mood": "calm piano / dreamy / uplifting strings / romantic / melancholic",
+ "music_mood": "one of (match the country scenery): tropical chill / epic cinematic / peaceful flute / dreamy / calm piano / uplifting strings",
  "queries": ["5 phrases people search for this kind of video"]}}""")
 
 
@@ -825,7 +826,8 @@ def long_film(plan, h, job):
     total = probe(joined)["dur"]
     title = os.path.join(job, "title.txt")
     open(title, "w").write(_plain(plan["country"]).upper() + "  -  4K")
-    music, mtitle, _ = find_music(plan.get("music_mood"), h, job)
+    music, mtitle, _ = find_music(plan.get("music_mood"), h, job, total + 3,
+                                  " ".join([plan.get("country", ""), plan.get("title", "")]))
     if not music:
         music, mtitle = os.path.join(job, "pad.m4a"), "synth pad"
         synth_music(music, total + 2)
@@ -1064,7 +1066,8 @@ def main():
                   beauty=shot["beauty"])
     mtitle = None
     if MODE == "reel":
-        music, mtitle, mdur = find_music(plan.get("music_mood"), h, WORK)
+        music, mtitle, mdur = find_music(plan.get("music_mood"), h, WORK, 75,
+                                         " ".join(str(plan.get(k, "")) for k in ("place", "country", "hook")))
         if not music:
             music, mtitle, mdur = os.path.join(WORK, "pad.m4a"), "synth pad", 0
             synth_music(music, 50)

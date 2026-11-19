@@ -72,7 +72,7 @@ jobs:
       - name: Install
         run: |
           for i in 1 2 3 4 5; do
-            sudo apt-get update && sudo apt-get install -y --fix-missing ffmpeg && break
+            sudo apt-get update && sudo apt-get install -y --fix-missing ffmpeg fluidsynth fluid-soundfont-gm && break
             echo "apt koshish $i fail - 30s baad dobara"; sleep 30
           done
           pip install requests pillow google-genai numpy
