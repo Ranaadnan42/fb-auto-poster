@@ -1,23 +1,23 @@
 {
- "time_utc": "2026-11-18 18:37",
+ "time_utc": "2026-11-19 13:04",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
- "country": "South Africa",
+ "country": "Tanzania",
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 95,
- "agent_checks": 102,
- "agent_rejects": 94,
+ "clips_rejected": 22,
+ "alt_searches": 1,
+ "agent_checks": 35,
+ "agent_rejects": 22,
  "agent_skips": 0,
- "alt_searches": 7,
  "posted": {
-  "country": "South Africa",
-  "animal": "Southern right whale",
-  "wiki": "Southern right whale",
-  "date": "2026-11-18 18:37",
-  "title": "The Ocean Giant That Sails Like a Boat in South Africa",
-  "dur": 88,
-  "post_id": "1633659267613654"
+  "country": "Tanzania",
+  "animal": "Greater flamingo",
+  "wiki": "Greater flamingo",
+  "date": "2026-11-19 13:04",
+  "title": "Greater Flamingo: The Pink Birds of Tanzania",
+  "dur": 61,
+  "post_id": "1142628191847738"
  }
 }
