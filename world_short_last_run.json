@@ -1,27 +1,30 @@
 {
  "mode": "short",
- "clips": 27,
- "clips_rejected": 246,
- "vision_checks": 265,
+ "clips": 26,
+ "clips_rejected": 305,
+ "vision_checks": 320,
  "errors": [],
  "search_phrases": [
-  "living in a car",
-  "living in america james brown",
-  "living in alaska",
-  "living in japan",
-  "living in the sunlight",
-  "living in thailand",
-  "living in america",
-  "living in vietnam",
-  "living in philippines",
-  "living in a van"
+  "wages vs cost of living",
+  "inflation and cost of living",
+  "prices and cost of living class 9",
+  "cost of living protest",
+  "cost of living edmonton",
+  "cost of living worldwide"
  ],
- "search": "living in america",
- "alt_searches": 9,
- "photos": 7,
- "seconds": 95.0,
+ "search": "wages vs cost of living",
+ "alt_searches": 13,
+ "photos": 13,
+ "no_match": [
+  "crime statistics chart",
+  "Mercado del Puerto,Río de la Plata",
+  "question overlay"
+ ],
+ "rewritten_scenes": 3,
+ "vision_waits": 23,
+ "seconds": 112.3,
  "links": [],
- "subject": "Would you live in Austin, Texas?",
- "series": "living_short",
- "title": "Would You Live in Austin? True Costs, Culture & Climate"
+ "subject": "Argentina vs Uruguay",
+ "series": "versus_short",
+ "title": "Argentina vs Uruguay: Wages, Cost & Culture Unveiled"
 }
