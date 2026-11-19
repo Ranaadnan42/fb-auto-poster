@@ -1803,6 +1803,25 @@
     "stock"
    ],
    "post_id": "1448208791702551_122111808771532804"
+  },
+  {
+   "date": "2026-11-19 20:09",
+   "lang": "en",
+   "topic": "middle_east",
+   "link": "https://news.google.com/rss/articles/CBMitgFBVV95cUxPN2dSRXcyNzdIa2VEZW4zd1NlS2pyb2gwaTkzVUw1aDQ5VDVsdjJDeFJfekYtekhlNFgzRHE0VnNxVXN6dC1ZNUoxaXA1SDZ5VW9QLUl2REU0d3VDdEpFSXNCWDJIaWZtMUJKanU4amNhWExFY29pZzE0RXpnQmVhbFQySl90STgxdkFzTzllTkNUYnBlWWhGSXdOaWRmS0hQUVFVZkw5S0dNbXpZSXpBd184Yll6QdIBuwFBVV95cUxQYmoxb3ZGV0R2YVcycm1LM3phc2FRaWJoTXhMc19TVjhISWJ1ZERTNE9Ra2Exbjg3QjNuZEJMcGltNWZ6Y2N2cHJ4bUcxcWw0aU04Y1RPV3l4dEh6cXVLRDlxSGJubGloeGVSbGZrUTRJcjk2YlRiWGVTT1Znb19xdmgyYlZHYVZua2NvcXlfNW1TdHJ3YmhEOHRzOVpKMkpObTh4Qkw3RUp5OHBlMDRIZ1ZYTVo0X1dxa2s0?oc=5",
+   "title": "Saudi Arabia says Houthi attack damaged Riyadh tower",
+   "words": [
+    "arabia",
+    "attack",
+    "damaged",
+    "houthi",
+    "riyadh",
+    "saudi",
+    "says",
+    "tower"
+   ],
+   "breaking": true,
+   "post_id": "1448208791702551_122111897259532804"
   }
  ],
  "sports": [
@@ -3600,6 +3619,24 @@
     "week"
    ],
    "post_id": "1465090056678690_122105705625548502"
+  },
+  {
+   "date": "2026-11-19 20:09",
+   "lang": "en",
+   "topic": "rugby",
+   "link": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPQV9WZFBESTVqc3FZWDFyakRjU2dKMXpiUGhGOGZNQUhneUtiVjc3QnlMWk5GQ3FTTFFzLTZ5WDhIRVJhTFZ3ai1YaDlsQWE2UHJQbzJjX0lLZG1PLU9nZFRDcjB5clM0VEQxRXdwd0h1TUhqVXh5VU5lNkttTGtvT0x4eWM0c2h5RFRXV1FLTzhtblFweGpuOHMzQ3pFWm1GSWxV?oc=5",
+   "title": "Men's 2031 Rugby World Cup in US to take place during the NFL season",
+   "words": [
+    "2031",
+    "during",
+    "place",
+    "rugby",
+    "season",
+    "take",
+    "world"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122105979501548502"
   }
  ],
  "used_images": [
@@ -3720,6 +3757,7 @@
   "wmi178546857",
   "pxi7121617",
   6030862,
-  7014547
+  7014547,
+  "pxi4790437"
  ]
 }
