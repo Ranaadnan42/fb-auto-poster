@@ -1,22 +1,30 @@
 {
- "time_utc": "2026-11-18 22:00",
+ "time_utc": "2026-11-19 21:50",
  "mode": "long",
  "dry_run": false,
  "errors": [],
  "kind": "long",
  "lang": "en",
- "clips_rejected": 113,
- "agent_checks": 143,
- "agent_rejects": 110,
+ "agent_checks": 260,
+ "agent_rejects": 232,
  "agent_skips": 0,
- "alt_searches": 9,
+ "clips_rejected": 236,
+ "alt_searches": 17,
+ "no_match": [
+  "Polar bear mother and cub",
+  "Polar bear swimming",
+  "Eurasian lynx paws walking",
+  "Eurasian lynx prowling",
+  "Wolverine crossing snowfield"
+ ],
+ "headline_cards": 5,
  "posted": {
-  "country": "Botswana",
+  "country": "Russia",
   "animal": null,
-  "wiki": "Wildlife of Botswana",
-  "date": "2026-11-18 22:00",
-  "title": "Elephants, Lions & Wild Dogs of Botswana",
-  "dur": 219,
-  "post_id": "1454386216815321"
+  "wiki": "Wildlife of Russia",
+  "date": "2026-11-19 21:50",
+  "title": "Siberian Tigers, Polar Bears & Amur Leopards of Russia",
+  "dur": 209,
+  "post_id": "2578111736006696"
  }
 }
