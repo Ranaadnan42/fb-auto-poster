@@ -1,27 +1,36 @@
 {
- "started": "2026-11-19T19:53",
+ "started": "2026-11-19T20:03",
  "steps": [
   "token: user token expires_at=0 data_access_expires_at=1801949831",
   "token: user token tha - page token bana kar istemal kiya",
-  "aaj ka manzar: lush green landscapes",
+  "aaj ka manzar: green canyon & gorge",
   "Gemini models: gemini-2.5-flash-lite, gemini-3.1-flash-lite, gemini-3.5-flash-lite, gemini-flash-lite-latest, gemini-3.1-flash-lite-preview, gemini-2.5-flash, gemini-3.5-flash, gemini-3.6-flash",
   "brain gemini-2.5-flash-lite: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no lo",
-  "agent ka faisla: Ilha Grande, Angra dos Reis, Brazil - bright sunny summer afternoon / lush green jungle meeting turquoise tropical water (Lush tropical green landscapes are currently trending and driving high engagement.)",
-  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: lush green landscapes",
-  "agent ka faisla: Svaneti Region, Georgia - bright sunny afternoon / emerald green mountain meadows with ancient stone towers (Stunning combination of ancient architecture and lush, untouched alpine landscapes.)",
-  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: dramatic mountain peaks",
   "brain gemini-3.1-flash-lite: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
-  "agent ka faisla: Cape Town, South Africa, South Africa - bright sunny afternoon / dramatic mountain peaks and coastal greenery (Stunning coastal peaks and bright sunny weather always drive massive engagement.)",
+  "brain gemini-3.5-flash-lite: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "brain gemini-flash-lite-latest: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "brain gemini-3.1-flash-lite-preview: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "brain gemini-2.5-flash: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash is no longer ",
+  "brain gemini-3.5-flash: 503 {\n  \"error\": {\n    \"code\": 503,\n    \"message\": \"This model is currently experiencing high demand",
+  "brain gemini-3.6-flash: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "Gemini models: gemini-2.5-flash-lite, gemini-3.1-flash-lite, gemini-3.5-flash-lite, gemini-flash-lite-latest, gemini-3.1-flash-lite-preview, gemini-2.5-flash, gemini-3.5-flash, gemini-3.6-flash",
+  "brain gemini-2.5-flash-lite: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no lo",
+  "agent ka faisla: Ala-Archa National Park, Kyrgyzstan - bright sunny afternoon / crystal clear river flowing through deep green mountain gorge (Stunning visuals of untouched canyons consistently trigger high viewer engagement.)",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: dramatic mountain peaks",
-  "agent ka faisla: Torres del Paine National Park, Chile, Chile - bright sunny morning / crystal clear blue sky over massive granite peaks and emerald valleys (Massive dramatic peaks combined with trending hook format guarantee high views.)",
+  "aaj ka manzar: green canyon & gorge",
+  "agent ka faisla: Tara River Canyon, Montenegro, Montenegro - bright sunny daytime / turquoise river through emerald green canyon (Unused viral European canyon with emerald waters that drive massive engagement.)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "aaj ka manzar: vibrant street festival",
+  "brain gemini-3.5-flash: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "agent ka faisla: Cusco, Peru, Peru - bright sunny daytime / vibrant street festival with colorful traditional clothing and floral decorations (Vibrant, high-energy visuals of unique culture drive massive social media engagement.)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "aaj ka manzar: vibrant street festival",
+  "agent ka faisla: Guatapé, Antioquia, Colombia - bright sunny afternoon / vibrant street festival with colorful architecture and festive energy (Vibrant colors and cultural energy drive high engagement and shares.)",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai"
  ],
  "errors": [
   "fatal: 4 jagahon par bhi achi footage nahi mili"
  ],
  "mode": "pic",
- "finished": "2026-11-19T19:55"
+ "finished": "2026-11-19T20:05"
 }
