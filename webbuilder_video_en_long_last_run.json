@@ -1,15 +1,15 @@
 {
- "time_utc": "2026-11-19 12:15",
- "spotlight": "clothing shop",
- "post_id": "2183486252238468",
+ "time_utc": "2026-11-19 19:00",
+ "spotlight": "cafe",
+ "post_id": "1160135869787142",
  "error": null,
  "lang": "en",
  "kind": "long",
- "clips": 1,
+ "clips": 3,
  "fallback": 0,
  "errors": [],
  "real_work": 7,
- "mock": 6,
- "real_pos": 5,
- "seconds": 123.2
+ "mock": 8,
+ "real_pos": 6,
+ "seconds": 151.5
 }
