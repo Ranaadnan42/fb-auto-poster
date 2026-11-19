@@ -1,43 +1,36 @@
 {
- "time_utc": "2026-11-17 20:18",
+ "time_utc": "2026-11-19 20:17",
  "kind": "long",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-17 20:18",
+   "date": "2026-11-19 20:17",
    "kind": "long",
    "lang": "en",
-   "title": "New Tech Restrictions Threaten Global Trade and Markets",
-   "dur": 312,
-   "post_id": "1502870375096367"
+   "title": "GTA 6 Worldwide Launch and Major Global News Updates",
+   "dur": 694,
+   "post_id": "2242232340008910"
   },
   "sports": {
-   "date": "2026-11-17 20:18",
+   "date": "2026-11-19 20:17",
    "kind": "long",
    "lang": "en",
-   "title": "Global Sports Hub: F1 Drama and Football Legends",
-   "dur": 279,
-   "post_id": "2262270577711714"
+   "title": "Hamilton Backs Ferrari Unity and World Sports Round-Up",
+   "dur": 268,
+   "post_id": "1612220997593195"
   }
  },
  "errors": [],
- "clips_rejected": 974,
- "agent_checks": 243,
- "agent_rejects": 218,
- "agent_skips": 746,
- "alt_searches": 7,
+ "agent_checks": 295,
+ "agent_rejects": 284,
+ "agent_skips": 237,
+ "clips_rejected": 485,
+ "alt_searches": 5,
+ "tag_pass": 29,
  "time_budget_hit": true,
  "no_match": [
-  "@Gianni Infantino",
-  "FIFA headquarters Zurich",
-  "football stadium pitch",
-  "@FIFA",
-  "stadium VIP seats",
-  "@UEFA",
-  "soccer ball on turf",
-  "Swiss Alps landscape",
-  "@Formula 1"
+  "Formula 1 race car"
  ],
- "headline_cards": 9
+ "headline_cards": 1
 }

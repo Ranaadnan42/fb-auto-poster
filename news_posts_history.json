@@ -5497,5 +5497,39 @@
   ],
   "sport": null,
   "title": "Men's 2031 Rugby World Cup in US to take place during the NFL season"
+ },
+ {
+  "date": "2026-11-19 21:26",
+  "page": "news",
+  "id": "2242232340008910",
+  "fmt": "long",
+  "lang": "en",
+  "topics": [
+   "europe",
+   "uk",
+   "science_tech",
+   "africa",
+   "business",
+   "canada_australia"
+  ],
+  "sport": null,
+  "title": "GTA 6 Worldwide Launch and Major Global News Updates"
+ },
+ {
+  "date": "2026-11-19 21:40",
+  "page": "sports",
+  "id": "1612220997593195",
+  "fmt": "long",
+  "lang": "en",
+  "topics": [
+   "volleyball",
+   "mma",
+   "tennis",
+   "formula1",
+   "general",
+   "baseball"
+  ],
+  "sport": null,
+  "title": "Hamilton Backs Ferrari Unity and World Sports Round-Up"
  }
 ]
