@@ -1,10 +1,12 @@
 {
- "started": "2026-11-18T07:58:19.758441+00:00",
- "loops": 1626,
+ "started": "2026-11-18T20:55:05.380082+00:00",
+ "loops": 1598,
  "replies": 0,
  "likes": 0,
  "hidden": 0,
- "errors": [],
+ "errors": [
+  "news: Please reduce the amount of data you're asking for, then retry your request"
+ ],
  "log": [],
- "last_check": "2026-11-18T13:43:21.731677+00:00"
+ "last_check": "2026-11-19T02:40:11.664128+00:00"
 }
