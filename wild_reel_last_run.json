@@ -1,23 +1,27 @@
 {
- "time_utc": "2026-11-19 19:16",
+ "time_utc": "2026-11-19 19:53",
  "mode": "reel",
  "dry_run": false,
- "errors": [
-  "fatal: sirf 6 sahi clips, 4 text cards - is topic ki video post nahi ki"
- ],
+ "errors": [],
  "country": "United States",
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 147,
- "alt_searches": 9,
+ "clips_rejected": 83,
+ "alt_searches": 6,
  "no_match": [
-  "American bison sprinting",
-  "American bison Great Plains",
-  "American bison shaggy coat",
-  "American bison grazing"
+  "Bald eagle diving"
  ],
- "headline_cards": 4,
- "agent_checks": 150,
- "agent_rejects": 145,
- "agent_skips": 0
+ "headline_cards": 1,
+ "agent_checks": 91,
+ "agent_rejects": 83,
+ "agent_skips": 0,
+ "posted": {
+  "country": "United States",
+  "animal": "Bald eagle",
+  "wiki": "Bald eagle",
+  "date": "2026-11-19 19:53",
+  "title": "Bald Eagles of the United States: Sky Hunters and Nest Builders",
+  "dur": 68,
+  "post_id": "1156632420235177"
+ }
 }
