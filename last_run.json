@@ -1,40 +1,26 @@
 {
  "lang": "ur",
- "stock_clips": 14,
+ "stock_clips": 16,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "توبہ ڈرامہ",
-  "توبہ کا بیان",
-  "توبہ میری توبہ",
-  "توبہ قبول ہو میری توبہ قبول ہو",
-  "توبہ کی فضیلت",
-  "توبہ توبہ سونگ",
-  "توبہ توبہ",
-  "توبہ کے واقعات",
-  "توبہ ڈرامہ 1",
-  "tauba tauba",
-  "tauba drama",
-  "tauba drama episode 1",
-  "tauba tumhare ye ishare",
-  "tauba meri tauba",
-  "tauba qabool ho meri tauba qabool ho",
-  "tauba re tauba meri kamsin jawani",
-  "tauba ishq",
-  "tauba drama last episode"
+  "islami tareekh ka waqia",
+  "islami tareekh"
  ],
- "story": "Amr ibn al-Aas requests forgiveness before pledging",
- "search": "توبہ کی فضیلت",
- "vision_checks": 108,
+ "story": "Jafar recites Surah Maryam before Negus",
+ "search": "islami tareekh ka waqia",
+ "vision_checks": 127,
+ "clips_rejected": 91,
  "sources": {
+  "commons": 1,
   "pixabay": 13,
-  "commons": 1
+  "mixkit": 1,
+  "openverse": 1
  },
- "clips_rejected": 90,
  "photo_clips": 1,
- "reel_minutes": 1.1,
- "time_utc": "2026-11-19 11:20",
- "title": "توبہ کی فضیلت: جب ایک صحابی کے ماضی کے تمام گناہ معاف ہوئے",
+ "reel_minutes": 1.04,
+ "time_utc": "2026-11-19 12:34",
+ "title": "اسلامی تاریخ کا واقعہ: جب سورہ مریم سن کر بادشاہ رو پڑا",
  "dry_run": false,
  "posted_ok": 1
 }
