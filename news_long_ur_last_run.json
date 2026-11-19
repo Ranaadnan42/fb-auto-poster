@@ -1,24 +1,22 @@
 {
- "time_utc": "2026-11-18 15:00",
+ "time_utc": "2026-11-18 22:23",
  "kind": "long",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "sports": {
-   "date": "2026-11-18 15:00",
+   "date": "2026-11-18 22:23",
    "kind": "long",
    "lang": "ur",
-   "title": "ایوان ٹونی کی قانونی مشکل اور اسپورٹس کی اہم خبریں",
-   "dur": 542,
-   "post_id": "1674897264250238"
+   "title": "اسپورٹس ہبز نیوز بلیٹن: کھیل کی دنیا کی بڑی خبریں",
+   "dur": 308,
+   "post_id": "1663871955241356"
   }
  },
  "errors": [],
- "agent_checks": 111,
- "agent_rejects": 91,
- "agent_skips": 452,
- "clips_rejected": 534,
+ "clips_rejected": 440,
  "alt_searches": 8,
- "tag_pass": 10,
- "time_budget_hit": true
+ "agent_checks": 284,
+ "agent_rejects": 247,
+ "agent_skips": 189
 }
