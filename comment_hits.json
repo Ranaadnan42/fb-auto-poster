@@ -1,34 +1,88 @@
 {
- "updated": "2026-11-19T03:33Z",
- "new": 15,
+ "updated": "2026-11-19T12:10Z",
+ "new": 9,
  "stats": {
   "site:facebook.com \"POS software\" chahiye": "0 (auto)",
-  "site:facebook.com \"billing software\" chahiye dukan": "0 (auto)",
+  "site:facebook.com \"billing software\" chahiye dukan": "1 (auto)",
   "site:facebook.com \"software chahiye\" shop": "0 (auto)",
-  "site:facebook.com/groups \"POS\" recommend shop Pakistan": "0 (auto)",
-  "site:facebook.com \"POS system\" recommend restaurant": "1 (auto)",
-  "site:facebook.com \"looking for POS\" shop": "0 (auto)",
-  "site:facebook.com \"inventory software\" recommend small business": "0 (auto)",
-  "site:facebook.com \"need a website\" for my business": "0 (bing)",
-  "site:facebook.com \"website banwani\" hai": "0 (bing)",
+  "site:facebook.com/groups \"POS\" recommend shop Pakistan": "1 (google)",
+  "site:facebook.com \"POS system\" recommend restaurant": "0 (auto)",
+  "site:facebook.com \"looking for POS\" shop": "0 (bing)",
+  "site:facebook.com \"inventory software\" recommend small business": "0 (yahoo)",
+  "site:facebook.com \"need a website\" for my business": "0 (auto)",
+  "site:facebook.com \"website banwani\" hai": "1 (auto)",
   "site:facebook.com \"app banwani\" hai": "0 (auto)",
   "site:facebook.com \"looking for web developer\" small business": "0 (auto)",
-  "site:facebook.com \"need a social media manager\"": "0 (auto)",
+  "site:facebook.com \"need a social media manager\"": "1 (auto)",
   "site:facebook.com \"faceless youtube\" automation help": "0 (auto)",
-  "site:facebook.com \"برنامج كاشير\" افضل": "0 (bing)",
+  "site:facebook.com \"برنامج كاشير\" افضل": "0 (yahoo)",
   "site:facebook.com \"برنامج محاسبي\" محل": "0 (auto)",
-  "site:facebook.com \"نظام نقاط البيع\" مطعم": "1 (auto)",
-  "site:facebook.com \"ابي موقع\" لمحلي": "0 (auto)",
-  "site:facebook.com/groups \"website chahiye\"": "1 (google)",
+  "site:facebook.com \"نظام نقاط البيع\" مطعم": "0 (auto)",
+  "site:facebook.com \"ابي موقع\" لمحلي": "0 (bing)",
+  "site:facebook.com/groups \"website chahiye\"": "0 (auto)",
   "site:facebook.com/groups \"koi acha software\" dukan": "0 (none)",
-  "site:facebook.com/groups \"POS\" Riyadh recommend": "3 (bing)",
-  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "5 (auto)",
-  "site:facebook.com/groups \"برنامج كاشير\" الرياض": "0 (yahoo)",
-  "site:facebook.com/groups \"برنامج كاشير\" دبي": "0 (bing)",
+  "site:facebook.com/groups \"POS\" Riyadh recommend": "2 (bing)",
+  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "1 (auto)",
+  "site:facebook.com/groups \"برنامج كاشير\" الرياض": "2 (yahoo)",
+  "site:facebook.com/groups \"برنامج كاشير\" دبي": "0 (auto)",
   "site:facebook.com/groups \"who can make a website\"": "0 (none)",
-  "site:facebook.com/groups \"need an app\" for my business": "4 (bing)"
+  "site:facebook.com/groups \"need an app\" for my business": "0 (none)"
  },
  "hits": [
+  {
+   "url": "https://www.facebook.com/tonzoindia/videos/yeh-koi-normal-tv-nahi-hai-yeh-hai-tonzo-ka-magical-tv-ek-hi-device-jo-aapke-tv-/1893787431790151",
+   "title": "Yeh koi normal TV nahi hai — yeh hai Tonzo ka Magical TV! ...",
+   "snippet": "1 day ago · Yeh koi normal TV nahi hai — yeh hai Tonzo ka Magical TV! 🔥📺📱 Ek hi device jo aapke TV, Tablet aur Smartphone teeno ka kaam karega — aur woh bhi bina kisi power cable ke! 🚀 Kyun hai yeh All-in-One Magical TV sabse khaas? 🔋 13,000 mAh Inbuilt Battery: 3 se 4 ghante ka wireless backup — ghar, office, ya shop mein kahin bhi ...",
+   "found": "2026-11-19T12:08Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/321129885839228/posts/1805998794018989",
+   "title": "TUT STUDENTS 2026 | my engineering friends who ... - Facebook",
+   "snippet": "Oct 24, 2026 · You can work as an in-mall promoter or sales agent using a tablet for POS payments, product demos, and social media content. Common roles include electronics and handphone sales, health food sampling, and general retail promotion with daily pay plus commission.",
+   "found": "2026-11-19T12:09Z"
+  },
+  {
+   "url": "https://www.facebook.com/Ajaymauryalcti/posts/मुझे-कम्प्यूटर-institute-के-लिये-website-बनवानी-है-कहां-से-बनवाये-आप-लोग-बताएं/4536121169979873",
+   "title": "Ajay Maurya - मुझे कम्प्यूटर Institute के लिये Website ...",
+   "snippet": "Nov 7, 2026 · What is you budget 1d Er Suresh Kumar Mai bana dunga bhai, kaisi website banwani hai 1d Gopal Bherulal Patidar Me",
+   "found": "2026-11-19T12:09Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/1571926390146521/permalink/2068404170498738",
+   "title": "Female Social Media Managers ( Jobs & Advice) | Who needs a ...",
+   "snippet": "2 hours ago · Who needs a website builder or virtual assistant? I offer website design, social media management, graphic design, email marketing, and other admin support—all at budget-friendly rates! Small...",
+   "found": "2026-11-19T12:09Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/olikerransavonlinna",
+   "title": "Oli kerran Savonlinna - Facebook",
+   "snippet": "19 hours ago · Oli kerran Savonlinna - on julkinen ryhmä jossa käsitellään Savonlinnan historiaa; kuvia, paikkoja, tapahtumia, henkilöitä, jne. Aikakaudella ei oli väliä, jos haluat saat muistosi jakaa. Eikä sillä oletko ollut kuinka pitkään Savonlinnassa tai oletko vielä täällä. Mikään kuva, tarina tms. ei ole liian pieni tai vaatimaton tänne! Tervetuloa mukaan !",
+   "found": "2026-11-19T12:10Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/blanenstaci",
+   "title": "Blanenšťáci - Facebook",
+   "snippet": "23 hours ago · Obecné informace: Skupina, kde můžete sdělovat, co se děje na Blanensku. Sdílejte a zveřejňujte vaše nápady, návrhy, myšlenky, akce, pište atd. Je to...",
+   "found": "2026-11-19T12:10Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/pilisszanto",
+   "title": "Pilisszántó | Facebook",
+   "snippet": "1 day ago · Üdvözlünk! Ez a csoport a Pilisszántóiak, Pilisszántót és a pilisi tájat szeretők oldala. Elsősorban a környék szépségeit, kulturális- és...",
+   "found": "2026-11-19T12:10Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/186427620232900",
+   "title": "تجار اجهزة كاشير POS Retail System | Facebook",
+   "snippet": "Oct 23, 2026 · جروب لتجار برامج محاسبية واجهزة كاشير هارد وير برامج محاسبية للمطاعم واجهزة سيستم الكاشير وكل ما يتعلق بنقاط البيع POS Point of sale All in one Retail...",
+   "found": "2026-11-19T12:10Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/872132850502871",
+   "title": "اكبر جروب بيع و شراء اجهزة كاشير و باركود | Facebook",
+   "snippet": "Oct 24, 2026 · سيستم كاشير متكامل لإدارة ومتابعة شغلك، مش مجرد برنامج بيطلع فاتورة للعميل. - متابعة المبيعات والورديات ومراجعة تفاصيل الشغل بشكل مستمر. - تقدر تتابع شغلك باليوم والأسبوع والشهر وتسيب المكان وأنت مطمن. - بعد انتهاء ...",
+   "found": "2026-11-19T12:10Z"
+  },
   {
    "url": "https://www.facebook.com/groups/2099153687225765/posts/2590714714736324",
    "title": "Local Businesses of the Grand Strand | Your go to retail ...",
@@ -1774,60 +1828,6 @@
    "title": "CANOSA CHE SI AMA informazione, cronache e immagini da un ...",
    "snippet": "2 days ago · CANOSA CHE SI AMA informazione, cronache e immagini da un mondo migliore",
    "found": "2026-11-09T22:41Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/438628699502922",
-   "title": "Dinwiddie County Classifieds - Facebook",
-   "snippet": "3 days ago · Struxtures General Services LLC offers a wide range of home improvement, repair, and remodeling solutions tailored to meet your needs. Our family-owned business prides itself on quality workmanship and exceptional customer service. Rest assured, we are licensed, insured, and accredited with the Better Business Bureau, maintaining an A+ rating along with a 5-star Google rating. Whether it's a ...",
-   "found": "2026-11-09T22:42Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/469820494480580",
-   "title": "NC Contractors - Facebook",
-   "snippet": "This group is for contractors & people looking to have work done. only rule is be respectful of everyone, no hate speech, harassment, or bulling will be...",
-   "found": "2026-11-09T22:42Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/848594562632376",
-   "title": "Triad, NC Area For Builders, Subcontractors & Homeowners To ...",
-   "snippet": "3 days ago · A place for new & veteran builders to meet. Discuss todays success and challenges in the industry. Feel free to share sub-info or warn other builders of unsatisfactory sub. We also welcome individuals who want to become builders & homeowners looking for subs or builders. Please share photographs of your projects.",
-   "found": "2026-11-09T22:42Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1025483972025010",
-   "title": "Lake Gaston NC/VA contractors for hire and reviews | Facebook",
-   "snippet": "1 day ago · This group is designed for contractors from the Lake Gaston NC/VA area to advertise their services, residential or commercial properties owners to search for qualified contractors and for contractor reviews.",
-   "found": "2026-11-09T22:42Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1923737701844238",
-   "title": "CookieRun Classic Thailand Community - Facebook",
-   "snippet": "2 days ago · ยินดีต้อนรับเหล่านักวิ่งเข้าสู่ CookieRun Classic Thailand Community คอมมูนิตี้และกลุ่มคนไทยอันดับ 1 ศูนย์รวมผู้เล่นเกม CookieRun Classic...",
-   "found": "2026-11-09T22:42Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1593703357579076",
-   "title": "POS for SALE in Philippines - Facebook",
-   "snippet": "Oct 20, 2026 · Point-of-sale (POS) company/staff member are welcome to discuss about latest product update, comparison product features/design, pricing war, customer...",
-   "found": "2026-11-09T13:39Z"
-  },
-  {
-   "url": "https://www.facebook.com/studiotriple7/videos/still-need-a-website-well-build-it/1452451430312268",
-   "title": "Still need a website for your local service business? We’ll ...",
-   "snippet": "Oct 15, 2026 · Still need a website for your local service business? We’ll build it. $0 build fee, $250/month with a 6-month minimum, and unlimited edits and updates included. See our work and book a free...",
-   "found": "2026-11-09T13:39Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/326103477874077",
-   "title": "Забелязано в Ловеч ® | Facebook",
-   "snippet": "4 days ago · Правила за качване: 1. В \"Забелязано в Ловеч\" се качват снимки и видеа на интересни, забавни и странни случки, места, хора, заснети в любимия ни град. 2....",
-   "found": "2026-11-09T13:40Z"
-  },
-  {
-   "url": "https://business.facebook.com/groups/PhoenixArizonaHousing",
-   "title": "Phoenix, Arizona- Housing, Apartments, Rooms, Sublets ...",
-   "snippet": "1 day ago · Phoenix, Arizona- Housing, Apartments, Rooms, Sublets, Roommates About this group This group is for finding rooms & roommates. To make it easy to find relevant posts, please add [WANTED] or [OFFER] in front of your listing. Spam and irrelevant posts will be deleted and the user banned from the group.",
-   "found": "2026-11-09T13:41Z"
   }
  ]
 }
