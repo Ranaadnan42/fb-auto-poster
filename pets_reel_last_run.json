@@ -1,24 +1,23 @@
 {
- "time_utc": "2026-11-19 14:39",
+ "time_utc": "2026-11-19 20:59",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 275,
- "alt_searches": 7,
- "agent_checks": 104,
- "agent_rejects": 96,
- "agent_skips": 177,
- "time_budget_hit": true,
+ "clips_rejected": 277,
+ "alt_searches": 9,
+ "agent_checks": 232,
+ "agent_rejects": 224,
+ "agent_skips": 49,
  "posted": {
   "pet": "dog",
-  "breed": "Shiba Inu",
+  "breed": "Beagle",
   "theme": null,
-  "wiki": "Shiba Inu",
-  "date": "2026-11-19 14:39",
-  "title": "Is the Shiba Inu actually part wolf? Meet Japan's foxy favorite!",
-  "dur": 90,
-  "post_id": "2153934498540103"
+  "wiki": "Beagle",
+  "date": "2026-11-19 20:59",
+  "title": "Did Pocket Beagles Really Fit in a Saddlebag? Meet the Beagle!",
+  "dur": 68,
+  "post_id": "1606449641282952"
  }
 }
