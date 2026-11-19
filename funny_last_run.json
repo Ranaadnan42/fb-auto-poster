@@ -1,13 +1,29 @@
 {
  "mode": "auto",
- "stock_clips": 48,
+ "stock_clips": 8,
  "fallback_clips": 0,
  "errors": [],
- "format": "story",
- "long_minutes": 6.23,
- "series": "ماجد بریک اور رکشے کا عذاب part 2 (ai)",
- "laughs": 8,
- "time_utc": "2026-11-19 13:37",
- "title": "ماجد بریک اور رکشے کا عذاب | قسط 2",
+ "format": "people",
+ "search_phrases": [],
+ "funny_score": "3 -> 9",
+ "reel_format": "news",
+ "vision_checks": 131,
+ "clips_rejected": 129,
+ "sources": {
+  "commons": 3,
+  "mixkit": 2,
+  "pixabay": 1
+ },
+ "no_match": [
+  "hungry man eating paratha",
+  "man holding water pitcher",
+  "man drinking water jug",
+  "shocked man wall clock",
+  "shocked man wall clock"
+ ],
+ "laughs": 4,
+ "reel_minutes": 0.77,
+ "time_utc": "2026-11-19 16:06",
+ "title": "سحری کا الارم اور امی کا تاریخی دھوکہ",
  "dry_run": false
 }
