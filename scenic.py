@@ -604,10 +604,6 @@ def render(shot, plan, music, mus_dur, job):
     vf = (f"setpts={slow}*PTS,scale={W}:{H}:force_original_aspect_ratio=increase:flags=lanczos,crop={W}:{H},fps={FPS},"
           "eq=contrast=1.07:saturation=1.14:brightness=0.005:gamma=0.98,"
           "colorbalance=rs=0.02:bs=-0.02:rh=0.03:bh=-0.03,unsharp=5:5:0.4,vignette=PI/6,"
-          f"drawtext=fontfile={FONT}:textfile={hook}:fontcolor=white:fontsize=68:x=(w-text_w)/2:y=h*0.16:"
-          "shadowcolor=black@0.7:shadowx=3:shadowy=3:enable='lt(t,3.4)':alpha='if(lt(t,0.3),t/0.3,if(gt(t,3.0),(3.4-t)/0.4,1))',"
-          f"drawtext=fontfile={FONT}:textfile={place}:fontcolor=white@0.92:fontsize=38:x=(w-text_w)/2:y=h*0.83:"
-          "shadowcolor=black@0.7:shadowx=2:shadowy=2:alpha='if(lt(t,0.8),t/0.8,1)',"
           f"fade=t=in:st=0:d=0.3,fade=t=out:st={fade_out:.2f}:d=0.6,format=yuv420p")
     m_off = random.uniform(0, max(0.0, min(25.0, mus_dur - length - 5))) if mus_dur else 0
     af = f"atrim=0:{length:.2f},afade=t=in:st=0:d=0.8,afade=t=out:st={max(length - 1.6, 0):.2f}:d=1.6,loudnorm=I=-15"
@@ -654,10 +650,7 @@ def render_multi(shots, plan, music, mus_dur, job):
     open(hook, "w").write(_plain(plan.get("hook")) or _plain(plan["place"]))
     lab = plan["country"] if plan.get("_mixed") else f"{plan['place']}, {plan['country']}"
     open(place, "w").write(_plain(lab).upper())
-    fc.append(f"[{prev}]drawtext=fontfile={FONT}:textfile={hook}:fontcolor=white:fontsize=70:x=(w-text_w)/2:y=h*0.16:"
-              "shadowcolor=black@0.7:shadowx=3:shadowy=3:enable='lt(t,3.6)':alpha='if(lt(t,0.3),t/0.3,if(gt(t,3.2),(3.6-t)/0.4,1))',"
-              f"drawtext=fontfile={FONT}:textfile={place}:fontcolor=white@0.92:fontsize=40:x=(w-text_w)/2:y=h*0.83:"
-              "shadowcolor=black@0.7:shadowx=2:shadowy=2:alpha='if(lt(t,0.8),t/0.8,1)',"
+    fc.append(f"[{prev}]"
               f"fade=t=out:st={max(length - 0.9, 0):.2f}:d=0.9,format=yuv420p[v]")
     n = len(segs)
     m_off = random.uniform(0, max(0.0, min(25.0, mus_dur - length - 5))) if mus_dur else 0
@@ -807,8 +800,6 @@ def long_film(plan, h, job):
         run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{st:.2f}", "-t", f"{src:.2f}", "-i", c["path"], "-an", "-vf",
              f"setpts={slow}*PTS,scale=1920:1080:force_original_aspect_ratio=increase:flags=lanczos,crop=1920:1080,"
              f"fps={FPS},eq=contrast=1.05:saturation=1.28:brightness=0.03:gamma=1.03,vibrance=intensity=0.2,unsharp=5:5:0.4,"
-             f"drawtext=fontfile={FONT}:textfile={lab}:fontcolor=white@0.9:fontsize=40:x=80:y=h-130:"
-             f"shadowcolor=black@0.7:shadowx=2:shadowy=2:enable='between(t,1,6)':alpha='if(lt(t,1.6),(t-1)/0.6,if(gt(t,5.4),(6-t)/0.6,1))',"
              + (f"fade=t=in:st=0:d=0.8," if i else "") + f"fade=t=out:st={dur - 0.8:.2f}:d=0.8,format=yuv420p",
              "-c:v", "libx264", "-preset", "medium", "-crf", "18", out])
         segs.append(out)
@@ -825,8 +816,7 @@ def long_film(plan, h, job):
         music, mtitle = os.path.join(job, "pad.m4a"), "synth pad"
         synth_music(music, total + 2)
     run(["ffmpeg", "-y", "-loglevel", "error", "-i", joined, "-stream_loop", "-1", "-i", music, "-filter_complex",
-         f"[0:v]drawtext=fontfile={FONT}:textfile={title}:fontcolor=white:fontsize=96:x=(w-text_w)/2:y=(h-text_h)/2:"
-         f"shadowcolor=black@0.6:shadowx=4:shadowy=4:enable='lt(t,4.5)':alpha='if(lt(t,0.8),t/0.8,if(gt(t,3.7),(4.5-t)/0.8,1))'[v];"
+         f"[0:v]null[v];"
          f"[1:a]atrim=0:{total:.2f},afade=t=in:st=0:d=2,afade=t=out:st={total - 3:.2f}:d=3,loudnorm=I=-16[a]",
          "-map", "[v]", "-map", "[a]", "-c:v", "copy" if False else "libx264", "-preset", "medium", "-crf", "19", "-maxrate", "12M", "-bufsize", "18M",
          "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", "-t", f"{total:.2f}", OUT])

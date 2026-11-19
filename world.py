@@ -1317,16 +1317,17 @@ Style: Mark,{FONT},28,&H60FFFFFF,&H60FFFFFF,&H90000000,&H00000000,1,0,0,0,100,10
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """
     ev = [f"Dialogue: 0,{ass_time(0)},{ass_time(dur + 1)},Mark,,0,0,0,,{CHANNEL}"]
-    if title:
+    # malik: video par shuru ka likha title/chapter/label/card nahi - sirf footage + subtitles
+    if False and title:
         ev.append(f"Dialogue: 3,{ass_time(0.4)},{ass_time(min(dur, 5.5))},Title,,0,0,0,,"
                   f"{{\\fad(700,700)}}{ass_text(title)}")
-    if chapter:
+    if False and chapter:
         ev.append(f"Dialogue: 3,{ass_time(0.2)},{ass_time(min(dur, 3.2))},Chap,,0,0,0,,"
                   f"{{\\fad(400,500)}}{ass_text(chapter.upper())}")
-    if label:
+    if False and label:
         ev.append(f"Dialogue: 2,{ass_time(0.8)},{ass_time(min(dur, 5.5))},Label,,0,0,0,,"
                   f"{{\\fad(300,300)}}{ass_text(label)}")
-    if card:
+    if False and card:
         body = "\\N".join(ass_text(c) for c in card[:5])
         ev.append(f"Dialogue: 2,{ass_time(0.5)},{ass_time(min(dur, 9))},Card,,0,0,0,,{{\\fad(400,400)}}{body}")
     words = text.split()

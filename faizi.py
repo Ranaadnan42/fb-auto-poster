@@ -362,9 +362,7 @@ Style: Sub,Noto Sans,{70 if reel else 54},&H00FFFFFF,&H00FFFFFF,&H00000000,&H900
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 3,{ass_t(0)},{ass_t(secs)},Brand,,0,0,0,,STYLE BY FAIZI
-""" + (f"Dialogue: 2,{ass_t(0)},{ass_t(secs)},Name,,0,0,0,,{esc(f'#{num}  {title}' if num else title)}\n" if title else "")
-                + "\n".join(ev) + "\n")
+""" + "\n".join(ev) + "\n")
 
 
 def scene(i, img, title, text, num):

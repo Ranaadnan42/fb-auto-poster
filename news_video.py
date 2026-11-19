@@ -469,45 +469,17 @@ CUR_HEADLINE = [""]   # is waqt wali khabar ki headline (match na mile to headli
 
 
 def headline_card(out, secs, text):
-    """Koi matching clip / asli photo / jhanda na mile: khabar ki headline bari likhi hui, halki harkat ke sath.
-    Be-taalluq clip se behtar - viewer wohi dekhta hai jo suna ja raha hai."""
-    color_clip(out + ".bg.mp4", secs)
-    words = clean_voice(text).split()
-    words = words[:14]
-    lines, cur = [], []
-    for w_ in words:
-        cur.append(w_)
-        if len(cur) >= (3 if H > W else 5):
-            lines.append(" ".join(cur))
-            cur = []
-    if cur:
-        lines.append(" ".join(cur))
-    size = 92 if H > W else 84
-    body = "\\N".join(esc(x) for x in lines)
-    ass = out + ".card.ass"
-    with open(ass, "w", encoding="utf-8") as f:
-        f.write(f"""[Script Info]
-ScriptType: v4.00+
-PlayResX: {W}
-PlayResY: {H}
-WrapStyle: 0
-ScaledBorderAndShadow: yes
-
-[V4+ Styles]
-Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Card,{FONT},{size},&H00FFFFFF,&H00FFFFFF,&H00000000,&H80000000,1,0,0,0,100,100,0,0,1,5,3,5,80,80,0,1
-
-[Events]
-Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 1,{ass_t(0)},{ass_t(secs)},Card,,0,0,0,,{{\\fad(250,250)\\t(0,{int(secs * 1000)},\\fscx106\\fscy106)}}{body}
-""")
-    fonts = news.FONTS_DIR.replace("\\", "/").replace(":", "\\:")
-    ap = os.path.abspath(ass).replace("\\", "/").replace(":", "\\:")
-    run(["ffmpeg", "-y", "-loglevel", "error", "-i", out + ".bg.mp4", "-vf", f"ass='{ap}':fontsdir='{fonts}',format=yuv420p",
-         "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", os.environ.get("VIDEO_CRF", "21"), out])
-    for f_ in (out + ".bg.mp4", ass):
-        if os.path.exists(f_):
-            os.remove(f_)
+    """Matching clip na mile: likha hua card / rangeen parda NAHI (malik ka hukm). Isi video ki koi asli clip,
+    warna saada kaala (fix_cards baad mein asli clip laga deta hai)."""
+    clips = [p for p in ALL_CLIPS if os.path.exists(p)]
+    if clips:
+        try:
+            _render_clip(random.choice(clips), secs, out, flip=True)
+            return
+        except Exception:
+            pass
+    run(["ffmpeg", "-y", "-loglevel", "error", "-f", "lavfi", "-i", f"color=c=black:s={W}x{H}:d={secs:.2f}:r={FPS}",
+         "-t", f"{secs:.2f}", "-pix_fmt", "yuv420p", "-c:v", "libx264", "-preset", "veryfast", out])
 
 
 STORY_CLIPS = []      # mojooda khabar ki agent-pass clips (nayi khabar par khali)
@@ -542,9 +514,7 @@ def make_ass(path, kind, text, headline, secs, badge):
         d = secs * len(c.split()) / total_w
         ev.append(f"Dialogue: 1,{ass_t(t)},{ass_t(t + d)},Sub,,0,0,0,,{esc(c)}")
         t += d
-    hl = ""
-    if headline:
-        hl = f"Dialogue: 2,{ass_t(0)},{ass_t(secs)},Head,,0,0,0,,{esc(headline)}"
+    hl = ""           # malik: video par koi patti/label/naam nahi - sirf asli footage + subtitles
     with open(path, "w", encoding="utf-8") as f:
         f.write(f"""[Script Info]
 ScriptType: v4.00+
@@ -562,8 +532,6 @@ Style: Sub,{FONT},{sub},&H00FFFFFF,&H00FFFFFF,&H00000000,&H90000000,1,0,0,0,100,
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
-Dialogue: 3,{ass_t(0)},{ass_t(secs)},Brand,,0,0,0,,{esc(P['name']).upper()}
-Dialogue: 3,{ass_t(0)},{ass_t(secs)},Badge,,0,0,0,,{esc(badge)}
 {hl}
 """ + "\n".join(ev) + "\n")
 

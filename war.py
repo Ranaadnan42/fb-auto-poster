@@ -140,13 +140,7 @@ def film_count(war):
     """Is jang ki ASLI battle film kitni maujood hai (Internet Archive newsreels + Commons videos).
     Jis jang ki film hi nahi us par 'battles' video nahi ban sakti - wo jang chhor do."""
     name = re.sub(r"\s*\(.*?\)", "", war).replace("\u2013", "-").strip()
-    n = 0
-    try:
-        r = requests.get("https://archive.org/advancedsearch.php", timeout=40, headers=UA, params={
-            "q": f'"{name}" AND mediatype:movies', "fl[]": "identifier", "rows": 0, "output": "json"})
-        n += int(r.json().get("response", {}).get("numFound") or 0)
-    except Exception as e:
-        log(f"film check archive error: {str(e)[:80]}")
+    n = footage.war_film_count(name)
     try:
         n += len(footage.commons(f"{name} footage", True))
     except Exception:
@@ -154,7 +148,7 @@ def film_count(war):
     return n
 
 
-MIN_FILM = 8      # kam az kam itni asli film/newsreel - warna jang skip
+MIN_FILM = 5      # kam az kam itni asli film/newsreel - warna jang skip
 
 
 def country_war(h, done):

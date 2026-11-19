@@ -219,8 +219,75 @@ def mixkit(q):
     return out[:20]
 
 
+# Public-domain jang ki asli film: Universal Newsreels (US, 1929-67), Prelinger, US National Archives, FedFlix
+WAR_COLLECTIONS = ("universal_newsreels", "prelinger", "usnationalarchives", "FedFlix", "nationalarchives",
+                   "army_film", "militaryfilms", "newsandpublicaffairs")
+_GENERIC = {"archive", "archival", "footage", "newsreel", "newsreels", "film", "films", "video", "clip", "real",
+            "historical", "history", "rare"}
+
+
+def war_query(q):
+    w = [x for x in re.split(r"\s+", re.sub(r"[^\w\s-]", " ", q)) if x and x.lower() not in _GENERIC]
+    return " ".join(w)
+
+
+def war_archive(q, rows=12):
+    """Jang ki ASLI newsreel/combat film - sirf public-domain collections (copyright strike nahi)."""
+    try:
+        qq = war_query(q)
+        if not qq:
+            return []
+        coll = " OR ".join(WAR_COLLECTIONS)
+        r = requests.get("https://archive.org/advancedsearch.php", timeout=40, headers=UA, params={
+            "q": f"({qq}) AND mediatype:movies AND collection:({coll})",
+            "fl[]": ["identifier", "title", "subject", "description"], "rows": rows, "output": "json"})
+        docs = r.json().get("response", {}).get("docs", [])
+        out = []
+        for d in docs[:8]:
+            ident = d.get("identifier")
+            if not ident:
+                continue
+            try:
+                m = requests.get(f"https://archive.org/metadata/{ident}", timeout=30, headers=UA).json()
+            except Exception:
+                continue
+            files = [f for f in m.get("files", []) if str(f.get("name", "")).lower().endswith(".mp4")
+                     and 1e6 < float(f.get("size") or 0) < 250e6]
+            if not files:
+                continue
+            f = sorted(files, key=lambda f: float(f.get("size") or 0))[0]      # chhota h.264 derivative - jaldi
+            subj = d.get("subject") or ""
+            subj = " ".join(subj) if isinstance(subj, list) else str(subj)
+            desc = d.get("description") or ""
+            desc = " ".join(desc) if isinstance(desc, list) else str(desc)
+            ln = str(f.get("length") or "")
+            dur = float(ln) if ln.replace(".", "").isdigit() else 60
+            out.append({"id": f"ia{ident}", "url": f"https://archive.org/download/{ident}/{f['name']}",
+                        "text": _clean(f"{d.get('title', '')} {subj} {desc[:400]}"), "dur": min(dur, 60),
+                        "src": "archive", "vertical": False,
+                        "credit": f"{d.get('title', ident)[:60]} / Internet Archive"})
+        return out
+    except Exception as e:
+        _log(f"War archive error: {str(e)[:120]}")
+        return []
+
+
+def war_film_count(q):
+    try:
+        coll = " OR ".join(WAR_COLLECTIONS)
+        r = requests.get("https://archive.org/advancedsearch.php", timeout=40, headers=UA, params={
+            "q": f'("{war_query(q)}") AND mediatype:movies AND collection:({coll})', "fl[]": "identifier",
+            "rows": 0, "output": "json"})
+        return int(r.json().get("response", {}).get("numFound") or 0)
+    except Exception as e:
+        _log(f"war_film_count error: {str(e)[:80]}")
+        return 0
+
+
 def videos(q, vertical=False):
     """Har platform se is cheez ki videos."""
+    if os.environ.get("FOOTAGE_WAR") == "1":      # jang: pehle asli newsreel, phir baqi
+        return war_archive(q) + commons(q, True) + archive(q) + pixabay_videos(q, vertical) + mixkit(q)
     return pixabay_videos(q, vertical) + pexels_videos(q, vertical) + commons(q, True) + nasa(q, True) + archive(q) + mixkit(q)
 
 
