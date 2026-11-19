@@ -4,23 +4,29 @@
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "islami tareekh ka waqia",
-  "islami tareekh"
+  "nabi ka mojza salman azhari",
+  "nabi ka mojza bayan",
+  "nabi ka mojza engineer muhammad ali mirza",
+  "nabi ka mojza tariq jameel",
+  "nabi pak ka mojza",
+  "nabi saw ka mojza",
+  "nabi pak ka mojza imran aasi",
+  "chand par nabi ka mojza",
+  "allah ke nabi ka mojza"
  ],
- "story": "Jafar recites Surah Maryam before Negus",
- "search": "islami tareekh ka waqia",
- "vision_checks": 127,
- "clips_rejected": 91,
+ "story": "Prophet feeds dozens of companions with single milk bowl",
+ "search": "nabi pak ka mojza",
+ "vision_checks": 203,
+ "clips_rejected": 168,
  "sources": {
-  "commons": 1,
-  "pixabay": 13,
-  "mixkit": 1,
+  "pixabay": 12,
+  "commons": 3,
   "openverse": 1
  },
- "photo_clips": 1,
- "reel_minutes": 1.04,
- "time_utc": "2026-11-19 12:34",
- "title": "اسلامی تاریخ کا واقعہ: جب سورہ مریم سن کر بادشاہ رو پڑا",
+ "photo_clips": 3,
+ "reel_minutes": 1.25,
+ "time_utc": "2026-11-19 12:41",
+ "title": "نبی پاک کا معجزہ: ایک پیالہ دودھ اور تمام صحابہ کا پیٹ بھرنا",
  "dry_run": false,
  "posted_ok": 1
 }
