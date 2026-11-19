@@ -1,24 +1,21 @@
 {
- "time_utc": "2026-11-18 19:39",
+ "time_utc": "2026-11-19 08:36",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-18 19:39",
+   "date": "2026-11-19 08:36",
    "kind": "reel",
    "lang": "en",
-   "title": "Anthropic AI founders set for multi-billion dollar stock debut",
-   "dur": 54,
-   "post_id": "1620122702622919"
+   "title": "Anthropic Valued at $1.5 Trillion Ahead of Stock Debut",
+   "dur": 51,
+   "post_id": "1084632511277034"
   }
  },
- "errors": [
-  "sports: awaaz nahi bani"
- ],
- "clips_rejected": 89,
- "agent_checks": 96,
- "agent_rejects": 89,
+ "errors": [],
+ "agent_checks": 47,
+ "agent_rejects": 42,
  "agent_skips": 0,
- "alt_searches": 1
+ "clips_rejected": 49
 }

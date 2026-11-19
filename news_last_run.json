@@ -1,17 +1,17 @@
 {
- "time_utc": "2026-11-19 08:11",
+ "time_utc": "2026-11-19 05:29",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1448208791702551_122111681163532804",
-   "topic": "world",
-   "title": "The Xi-Putin-Trump summit will not be a ‘new Yalta’"
+   "post": "1448208791702551_122111643459532804",
+   "topic": "business",
+   "title": "Elon Musk says record spending on US midterms was 'pretty foolish'"
   },
   "sports": {
-   "post": "1465090056678690_122105416155548502",
-   "topic": "badminton",
-   "title": "Satwik-Chirag Advance To Hong Kong Open Quarterfinals"
+   "post": "1465090056678690_122105290497548502",
+   "topic": "basketball",
+   "title": "Cooper Flagg scores 33 as Mavericks keep Warriors winless since Stephen Curry's injury"
   }
  },
  "errors": []

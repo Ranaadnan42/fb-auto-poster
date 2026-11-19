@@ -1,22 +1,22 @@
 {
- "time_utc": "2026-11-18 12:50",
+ "time_utc": "2026-11-19 08:25",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-18 12:50",
+   "date": "2026-11-19 08:25",
    "kind": "reel",
    "lang": "ur",
-   "title": "سعودی اسٹاک مارکیٹ میں مندی، تداول انڈیکس نیچے آگیا",
-   "dur": 60,
-   "post_id": "1690416225953097"
+   "title": "Russian Arrested for Spying on US Firm Palantir",
+   "dur": 63,
+   "post_id": "1675955787352548"
   }
  },
  "errors": [],
- "agent_checks": 42,
- "agent_rejects": 33,
+ "clips_rejected": 31,
+ "agent_checks": 38,
+ "agent_rejects": 31,
  "agent_skips": 0,
- "clips_rejected": 33,
- "alt_searches": 3
+ "alt_searches": 1
 }
