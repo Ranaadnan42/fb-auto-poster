@@ -1,23 +1,29 @@
 {
- "time_utc": "2026-11-18 19:51",
+ "time_utc": "2026-11-19 19:49",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
- "bird_calls": 0,
+ "calls": [
+  {
+   "file": "File:Upupa epops · XC135728.ogg",
+   "license": "cc by-sa 3.0"
+  }
+ ],
+ "bird_calls": 1,
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 219,
- "agent_checks": 187,
- "agent_rejects": 184,
- "agent_skips": 35,
- "alt_searches": 8,
+ "clips_rejected": 289,
+ "alt_searches": 6,
+ "agent_checks": 222,
+ "agent_rejects": 209,
+ "agent_skips": 78,
  "posted": {
-  "bird": "Grey crowned crane",
+  "bird": "Hoopoe",
   "theme": null,
-  "wiki": "Grey crowned crane",
-  "date": "2026-11-18 19:51",
-  "title": "Why does this bird wear a crown of pure gold? 👑 Grey Crowned Crane",
-  "dur": 70,
-  "post_id": "1465304509037689"
+  "wiki": "Hoopoe",
+  "date": "2026-11-19 19:49",
+  "title": "Why Does the Crowned Hoopoe Flatten Itself on the Dirt?",
+  "dur": 73,
+  "post_id": "1171682562206166"
  }
 }
