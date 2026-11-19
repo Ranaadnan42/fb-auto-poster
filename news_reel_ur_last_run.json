@@ -1,21 +1,22 @@
 {
- "time_utc": "2026-11-19 04:05",
+ "time_utc": "2026-11-18 12:50",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-19 04:05",
+   "date": "2026-11-18 12:50",
    "kind": "reel",
    "lang": "ur",
-   "title": "ایلون مسک کا امریکی انتخابی اخراجات پر اہم بیان",
-   "dur": 72,
-   "post_id": "1488416486553057"
+   "title": "سعودی اسٹاک مارکیٹ میں مندی، تداول انڈیکس نیچے آگیا",
+   "dur": 60,
+   "post_id": "1690416225953097"
   }
  },
  "errors": [],
- "clips_rejected": 35,
- "agent_checks": 43,
- "agent_rejects": 35,
- "agent_skips": 0
+ "agent_checks": 42,
+ "agent_rejects": 33,
+ "agent_skips": 0,
+ "clips_rejected": 33,
+ "alt_searches": 3
 }
