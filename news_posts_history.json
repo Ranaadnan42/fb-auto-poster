@@ -5168,5 +5168,29 @@
   ],
   "sport": "basketball",
   "title": "Memphis Grizzlies at Cleveland Cavaliers"
+ },
+ {
+  "date": "2026-11-19 05:30",
+  "page": "news",
+  "id": "1448208791702551_122111643459532804",
+  "fmt": "pic",
+  "lang": "en",
+  "topics": [
+   "business"
+  ],
+  "sport": null,
+  "title": "Elon Musk says record spending on US midterms was 'pretty foolish'"
+ },
+ {
+  "date": "2026-11-19 05:33",
+  "page": "sports",
+  "id": "1465090056678690_122105290497548502",
+  "fmt": "pic",
+  "lang": "en",
+  "topics": [
+   "basketball"
+  ],
+  "sport": null,
+  "title": "Cooper Flagg scores 33 as Mavericks keep Warriors winless since Stephen Curry's injury"
  }
 ]

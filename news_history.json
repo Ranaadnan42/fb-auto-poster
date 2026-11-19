@@ -1716,6 +1716,24 @@
    ],
    "breaking": true,
    "post_id": "1357984777408020_122097075963558252"
+  },
+  {
+   "date": "2026-11-19 05:29",
+   "lang": "en",
+   "topic": "business",
+   "link": "https://www.bbc.co.uk/news/articles/cm9q8j2z3gg8o?at_medium=RSS&at_campaign=rss",
+   "title": "Elon Musk says record spending on US midterms was 'pretty foolish'",
+   "words": [
+    "elon",
+    "foolish",
+    "midterms",
+    "musk",
+    "pretty",
+    "record",
+    "says",
+    "spending"
+   ],
+   "post_id": "1448208791702551_122111643459532804"
   }
  ],
  "sports": [
@@ -3421,6 +3439,27 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122105168799548502"
+  },
+  {
+   "date": "2026-11-19 05:29",
+   "lang": "en",
+   "topic": "basketball",
+   "link": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxQN3h5REo0S0FkT0lLem5YMHpOY3VvaUdYY3gzOWU5cWxCRk1wbzFKdEExUGFRcXZYaXNkTkVma2FBdWNueDE3NXNZVy1XS3NJdy0wU1pSRXFLcUFKd0FlSlVtQ0JOaUNOcndNRkoxaXFNRGRfMDhLdVotUmVvV21ONzZONjNjU3Yzd2ZzVndJSFh3M2F3MmRJSG9xSlhmb2c2anRjNkQwSjh2UUYtendXRWFzaHgyaGxKd2JhRHQxVWQ0N1k?oc=5",
+   "title": "Cooper Flagg scores 33 as Mavericks keep Warriors winless since Stephen Curry's injury",
+   "words": [
+    "cooper",
+    "curry",
+    "flagg",
+    "injury",
+    "keep",
+    "mavericks",
+    "scores",
+    "since",
+    "stephen",
+    "warriors",
+    "winless"
+   ],
+   "post_id": "1465090056678690_122105290497548502"
   }
  ],
  "used_images": [
@@ -3538,6 +3577,7 @@
   10404306,
   "pxi1263000",
   1541886,
-  "wmi178546857"
+  "wmi178546857",
+  "pxi7121617"
  ]
 }
