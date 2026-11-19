@@ -10,18 +10,5 @@
   "fatal: video nahi bani",
   "fatal: Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}} | Groq fail: 4"
  ],
- "search_phrases": [
-  "harat angaze malomat",
-  "haqaiq",
-  "ke avishkar",
-  "معلوماتی ویڈیو",
-  "معلومات کی دنیا",
-  "معلومات عامہ",
-  "معلومات پاکستان",
-  "معلوماتی رپورٹ",
-  "معلوماتی ویڈیوز",
-  "معلومات اسلامی",
-  "معلوماتی رپورٹ لکھنے کا طریقہ",
-  "معلوماتی"
- ]
+ "search_phrases": []
 }
