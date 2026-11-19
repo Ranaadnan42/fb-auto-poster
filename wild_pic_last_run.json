@@ -3,22 +3,21 @@
  "agent": "wild",
  "dry_run": false,
  "log": [
-  "Subject: Cheetah",
-  "photo commons wmi178410815 1920x1280: agent=False",
-  "photo commons wmi151463623 1920x1280: agent=True",
-  "--- caption ---\nMeet the fastest land animal on planet Earth! 🐆💨\n\nThe cheetah (Acinonyx jubatus) is a pursuit predator capable of running at 93–104 km/h (58–65 mph). It is perfectly evolved for speed with powerful hindlimb muscles and a long lumbar spine.\n\nWould you love to see this incredible anima",
-  "Video tayyar - 22 minute intezar, post 11:07 UTC par hogi",
+  "Subject: Lesser flamingo",
+  "photo commons wmi151065370 1920x1280: agent=True",
+  "--- caption ---\nMeet the world's smallest species of flamingo! 🦩✨\n\nThe lesser flamingo weighs between 1.2 to 2.7 kg and stands 80 to 90 cm tall. These birds are known for their pinkish white plumage and extensive black on the bill.\n\nHave you ever seen a flamingo this small in the wild?\n\nFollow Wild ",
+  "Video tayyar - 32 minute intezar, post 17:07 UTC par hogi",
   "Waqt ho gaya - post kar rahe hain",
   "photo story lagi",
-  "posted 1501204066400712_122105983935546974"
+  "posted 1501204066400712_122106276051546974"
  ],
  "errors": [],
  "posted": {
-  "subject": "Cheetah",
-  "photo": "wmi151463623",
+  "subject": "Lesser flamingo",
+  "photo": "wmi151065370",
   "src": "commons",
   "size": "1920x1280",
-  "date": "2026-11-19 10:44",
-  "post_id": "1501204066400712_122105983935546974"
+  "date": "2026-11-19 16:34",
+  "post_id": "1501204066400712_122106276051546974"
  }
 }
