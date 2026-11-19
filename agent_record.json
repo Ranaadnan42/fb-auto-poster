@@ -1,25 +1,19 @@
 {
  "open_fixes": [],
- "time_utc": "2026-11-19 11:54",
- "summary": "Gemini quota aur 503 errors ki wajah se bots fail ho rahe thay, unhein rerun kar diya. `pets.py` mein list response ka bug fix kiya aur `news.py` se purana gemini model hata diya.",
+ "time_utc": "2026-11-19 22:42",
+ "summary": "Frames of Life (Urdu World Documentaries) ke liye world.py mein deprecated Gemini models ko update kar diya hai taake 404 error khatam ho jaye.",
  "notes": [
   "fix push na ho saka"
  ],
- "actions": [
-  "run 44447282425 (Birds of the World (Bird Agent) [47 21 * * *]) dobara chalaya",
-  "run 44382401843 (News Act + Sports Hubs [21 19 * * *]) dobara chalaya",
-  "run 44384665205 (Wander Earth (Scenic Agent) [48 19 * * *]) dobara chalaya",
-  "run 44379787007 (Web Builder Promo [13 19 * * *]) dobara chalaya"
- ],
+ "actions": [],
  "edits": [
   {
-   "path": "pets.py",
-   "why": "Fix AttributeError if AI returns a list instead of a dict"
-  },
-  {
-   "path": "news.py",
-   "why": "Remove retired gemini-3-flash-preview model causing 404 errors"
+   "path": "world.py",
+   "why": "Update deprecated Gemini models in world.py"
   }
  ],
- "needs_owner": []
+ "needs_owner": [
+  "Birds of the World (Bird Agent) ke liye Gemini quota khatam ho gaya hai, isay 24 ghante baad check karna hoga.",
+  "Web Builder (Urdu) ka workflow concurrency ki wajah se nahi chal raha, isay manual trigger ki zaroorat ho sakti hai."
+ ]
 }
