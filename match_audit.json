@@ -1,128 +1,194 @@
 {
  "islamic": {
-  "video": "1940883863956312",
-  "at": "2026-11-18T18:50:16+0000",
-  "title": "#SubhanaAllah",
-  "score": 0,
-  "checked": 1,
+  "video": "3003552640002720",
+  "at": "2026-11-18T23:13:34+0000",
+  "title": "",
+  "score": 20,
+  "checked": 5,
   "misses": [
    {
-    "t": 3.1,
+    "t": 5.0,
     "match": false,
-    "said": "making someone a widow",
-    "shown": "a park at night"
+    "said": "Jannat al-Baqi cemetery",
+    "shown": "historical map of Medina"
+   },
+   {
+    "t": 35.3,
+    "match": false,
+    "said": "Wealth given in the path of Allah",
+    "shown": "Animated cartoon character and mosque images"
+   },
+   {
+    "t": 49.1,
+    "match": false,
+    "said": "request to follow for more videos",
+    "shown": "silhouette of a person and horse at sunset"
+   },
+   {
+    "t": 54.6,
+    "match": false,
+    "said": "like this video",
+    "shown": "silhouette of a mosque at sunset"
    }
   ],
   "history": [
    {
     "day": "2026-11-18",
     "score": 0
+   },
+   {
+    "day": "2026-11-19",
+    "score": 20
    }
   ],
-  "avg": 0,
+  "avg": 10,
   "lessons": [
-   "said \"making someone a widow\" but showed \"a park at night\""
+   "said \"making someone a widow\" but showed \"a park at night\"",
+   "said \"Jannat al-Baqi cemetery\" but showed \"historical map of Medina\"",
+   "said \"Wealth given in the path of Allah\" but showed \"Animated cartoon character and mosque images\"",
+   "said \"request to follow for more videos\" but showed \"silhouette of a person and horse at sunset\"",
+   "said \"like this video\" but showed \"silhouette of a mosque at sunset\""
   ]
  },
  "funny": {
-  "video": "3051300295205830",
-  "at": "2026-11-18T17:54:18+0000",
+  "video": "3721250794704603",
+  "at": "2026-11-19T08:33:17+0000",
   "title": "",
-  "score": 60,
+  "score": 20,
   "checked": 5,
   "misses": [
    {
-    "t": 4.1,
+    "t": 4.0,
     "match": false,
-    "said": "student remembering homework due at a graveyard",
-    "shown": "a notebook on a desk"
+    "said": "Eating spicy golgappe with friends",
+    "shown": "A small bird perched outdoors"
    },
    {
-    "t": 45.5,
+    "t": 12.7,
     "match": false,
-    "said": "Forgetting homework copy at home",
-    "shown": "Bridge towering above clouds"
+    "said": "adding very spicy red chutney",
+    "shown": "pouring yellow cheese sauce on nachos"
+   },
+   {
+    "t": 29.7,
+    "match": false,
+    "said": "emptying a water cooler due to spicy food",
+    "shown": "person sitting by water looking at mountains"
+   },
+   {
+    "t": 34.6,
+    "match": false,
+    "said": "childhood whooping cough effect",
+    "shown": "person swimming in the sea"
    }
   ],
   "history": [
    {
     "day": "2026-11-18",
     "score": 60
+   },
+   {
+    "day": "2026-11-19",
+    "score": 20
    }
   ],
-  "avg": 60,
+  "avg": 40,
   "lessons": [
    "said \"student remembering homework due at a graveyard\" but showed \"a notebook on a desk\"",
-   "said \"Forgetting homework copy at home\" but showed \"Bridge towering above clouds\""
+   "said \"Forgetting homework copy at home\" but showed \"Bridge towering above clouds\"",
+   "said \"Eating spicy golgappe with friends\" but showed \"A small bird perched outdoors\"",
+   "said \"adding very spicy red chutney\" but showed \"pouring yellow cheese sauce on nachos\"",
+   "said \"emptying a water cooler due to spicy food\" but showed \"person sitting by water looking at mountains\"",
+   "said \"childhood whooping cough effect\" but showed \"person swimming in the sea\""
   ]
  },
  "frames": {
-  "video": "1527183412555400",
-  "at": "2026-11-18T19:11:36+0000",
-  "title": "لندن کی سیر کریں 🌍\n\nلندن ٹور ان اردو میں دیکھیں اور ویزا، جاب اور لاگت کے بارے م",
-  "score": 100,
+  "video": "1465547872423069",
+  "at": "2026-11-19T08:17:52+0000",
+  "title": "",
+  "score": 80,
   "checked": 5,
-  "misses": [],
+  "misses": [
+   {
+    "t": 39.5,
+    "match": false,
+    "said": "Over one hundred restaurants and cafes",
+    "shown": "Cityscape under a cloudy sunset sky"
+   }
+  ],
   "history": [
    {
     "day": "2026-11-18",
     "score": 100
+   },
+   {
+    "day": "2026-11-19",
+    "score": 80
    }
   ],
-  "avg": 100,
-  "lessons": []
+  "avg": 90,
+  "lessons": [
+   "said \"Over one hundred restaurants and cafes\" but showed \"Cityscape under a cloudy sunset sky\""
+  ]
  },
  "war": {
-  "video": "1114764154680517",
-  "at": "2026-11-18T22:43:05+0000",
-  "title": "",
+  "video": "1145193067898087",
+  "at": "2026-11-19T01:13:00+0000",
+  "title": "The $20 million deal that sparked a three-year conflict in 1899. 📜⚓\n\n📅 When: Feb",
   "score": 0,
   "checked": 5,
   "misses": [
    {
-    "t": 2.4,
+    "t": 3.3,
     "match": false,
-    "said": "civilian deaths in a brutal war",
-    "shown": "text overlay about a shocking toll"
+    "said": "conflict that claimed a quarter million civilian lives",
+    "shown": "title card with text THE HIDDEN TOLL"
    },
    {
-    "t": 8.4,
+    "t": 22.0,
     "match": false,
-    "said": "Philippine-American War",
-    "shown": "Text on a dark background"
+    "said": "1899 Manila coastline and US annexation",
+    "shown": "Chocolate Hills in Bohol, Philippines"
    },
    {
-    "t": 15.2,
+    "t": 41.1,
     "match": false,
-    "said": "US annexation of the Philippines",
-    "shown": "text on a dark background"
+    "said": "Philippine-American War guerrilla insurgency",
+    "shown": "Chocolate Hills in the Philippines"
    },
    {
-    "t": 22.5,
+    "t": 69.6,
     "match": false,
-    "said": "clashes in Manila involving Emilio Aguinaldo",
-    "shown": "text on screen about outbreak of war"
+    "said": "Philippine Republic dissolved and islands became US territory",
+    "shown": "Chocolate Hills landscape in the Philippines"
    },
    {
-    "t": 29.4,
+    "t": 96.1,
     "match": false,
-    "said": "Filipino guerrilla tactics and Aguinaldo's capture",
-    "shown": "Text on screen about turning point"
+    "said": "1899 Manila war archives",
+    "shown": "Chocolate Hills in Bohol, Philippines"
    }
   ],
   "history": [
    {
     "day": "2026-11-18",
     "score": 0
+   },
+   {
+    "day": "2026-11-19",
+    "score": 0
    }
   ],
   "avg": 0,
   "lessons": [
-   "said \"civilian deaths in a brutal war\" but showed \"text overlay about a shocking toll\"",
-   "said \"Philippine-American War\" but showed \"Text on a dark background\"",
    "said \"US annexation of the Philippines\" but showed \"text on a dark background\"",
    "said \"clashes in Manila involving Emilio Aguinaldo\" but showed \"text on screen about outbreak of war\"",
-   "said \"Filipino guerrilla tactics and Aguinaldo's capture\" but showed \"Text on screen about turning point\""
+   "said \"Filipino guerrilla tactics and Aguinaldo's capture\" but showed \"Text on screen about turning point\"",
+   "said \"conflict that claimed a quarter million civilian lives\" but showed \"title card with text THE HIDDEN TOLL\"",
+   "said \"1899 Manila coastline and US annexation\" but showed \"Chocolate Hills in Bohol, Philippines\"",
+   "said \"Philippine-American War guerrilla insurgency\" but showed \"Chocolate Hills in the Philippines\"",
+   "said \"Philippine Republic dissolved and islands became US territory\" but showed \"Chocolate Hills landscape in the Philippines\"",
+   "said \"1899 Manila war archives\" but showed \"Chocolate Hills in Bohol, Philippines\""
   ]
  },
  "birds": {
@@ -151,9 +217,52 @@
   ]
  },
  "pets": {
-  "video": "1147392404342618",
-  "at": "2026-11-18T22:27:08+0000",
-  "title": "",
+  "video": "1691786105833323",
+  "at": "2026-11-19T05:33:21+0000",
+  "title": "Is your dog actually reading your mind? 🐕🧠\n\n📚 Facts: Wikipedia - Smartest Dog Br",
+  "score": 40,
+  "checked": 5,
+  "misses": [
+   {
+    "t": 57.2,
+    "match": false,
+    "said": "an elegant poodle",
+    "shown": "a border collie puppy"
+   },
+   {
+    "t": 126.3,
+    "match": false,
+    "said": "dogs in police and rescue work",
+    "shown": "veterinarian examining a dog's ear"
+   },
+   {
+    "t": 192.0,
+    "match": false,
+    "said": "Louis Doberman breeding a protective dog",
+    "shown": "text on screen displaying Dobermann"
+   }
+  ],
+  "history": [
+   {
+    "day": "2026-11-18",
+    "score": 100
+   },
+   {
+    "day": "2026-11-19",
+    "score": 40
+   }
+  ],
+  "avg": 70,
+  "lessons": [
+   "said \"an elegant poodle\" but showed \"a border collie puppy\"",
+   "said \"dogs in police and rescue work\" but showed \"veterinarian examining a dog's ear\"",
+   "said \"Louis Doberman breeding a protective dog\" but showed \"text on screen displaying Dobermann\""
+  ]
+ },
+ "wild": {
+  "video": "1454386216815321",
+  "at": "2026-11-18T23:47:00+0000",
+  "title": "Step into the wild savanna of Botswana! 🐘\n\n🌍 Country: Botswana\n\n📚 Source: Wikipe",
   "score": 100,
   "checked": 5,
   "misses": [],
@@ -161,21 +270,9 @@
    {
     "day": "2026-11-18",
     "score": 100
-   }
-  ],
-  "avg": 100,
-  "lessons": []
- },
- "wild": {
-  "video": "1448168206817801",
-  "at": "2026-11-18T20:58:25+0000",
-  "title": "",
-  "score": 100,
-  "checked": 5,
-  "misses": [],
-  "history": [
+   },
    {
-    "day": "2026-11-18",
+    "day": "2026-11-19",
     "score": 100
    }
   ],
@@ -183,42 +280,35 @@
   "lessons": []
  },
  "news": {
-  "video": "1149868137417107",
-  "at": "2026-11-18T21:24:23+0000",
-  "title": "Global news bulletin covering tech outages, energy costs & Voyager 1 🌍\n\nHere is ",
-  "score": 40,
-  "checked": 5,
+  "video": "1172836671932783",
+  "at": "2026-11-19T08:45:18+0000",
+  "title": "",
+  "score": 0,
+  "checked": 1,
   "misses": [
    {
-    "t": 3.1,
+    "t": 12.2,
     "match": false,
-    "said": "international tech disruptions and space milestones",
-    "shown": "vintage television studio cameras"
-   },
-   {
-    "t": 171.9,
-    "match": false,
-    "said": "Apple and air traffic authorities",
-    "shown": "United States flag"
-   },
-   {
-    "t": 230.6,
-    "match": false,
-    "said": "establishing strict operational standards",
-    "shown": "The Royal Courts of Justice building"
+    "said": "Anthropic valued at 1.5 trillion dollars",
+    "shown": "Modern skyscrapers in a city skyline"
    }
   ],
   "history": [
    {
     "day": "2026-11-18",
     "score": 40
+   },
+   {
+    "day": "2026-11-19",
+    "score": 0
    }
   ],
-  "avg": 40,
+  "avg": 20,
   "lessons": [
    "said \"international tech disruptions and space milestones\" but showed \"vintage television studio cameras\"",
    "said \"Apple and air traffic authorities\" but showed \"United States flag\"",
-   "said \"establishing strict operational standards\" but showed \"The Royal Courts of Justice building\""
+   "said \"establishing strict operational standards\" but showed \"The Royal Courts of Justice building\"",
+   "said \"Anthropic valued at 1.5 trillion dollars\" but showed \"Modern skyscrapers in a city skyline\""
   ]
  },
  "newsur": {

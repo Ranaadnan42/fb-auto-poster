@@ -1,13 +1,13 @@
 {
  "islamic": {
-  "at": "2026-11-18T22:47+00:00",
+  "at": "2026-11-19T12:16+00:00",
   "done": [],
   "problems": [],
   "name": "Islamic Motivational Videos",
-  "followers": 1323,
+  "followers": 1324,
   "insights_28d": {},
   "posts_28d": 179,
-  "eng_28d": 824,
+  "eng_28d": 815,
   "eng_avg": 4.6,
   "best_hours_pk": [
    3,
@@ -34,7 +34,7 @@
     "at": "13 Nov 03:28"
    }
   ],
-  "low_posts": 11,
+  "low_posts": 12,
   "history": [
    {
     "day": "2026-11-02",
@@ -105,25 +105,30 @@
     "day": "2026-11-18",
     "followers": 1323,
     "eng_28d": 824
+   },
+   {
+    "day": "2026-11-19",
+    "followers": 1324,
+    "eng_28d": 815
    }
   ],
   "posts_24h": 6,
-  "last_post": "2026-11-18T18:50+00:00"
+  "last_post": "2026-11-19T06:47+00:00"
  },
  "funny": {
-  "at": "2026-11-18T22:47+00:00",
+  "at": "2026-11-19T12:16+00:00",
   "done": [],
   "problems": [],
   "name": "Hansi Ka Adda ہنسی کا اڈا",
   "followers": 1519,
   "insights_28d": {},
   "posts_28d": 223,
-  "eng_28d": 332,
+  "eng_28d": 327,
   "eng_avg": 1.5,
   "best_hours_pk": [
    0,
-   13,
-   20
+   20,
+   22
   ],
   "top_posts": [
    {
@@ -145,7 +150,7 @@
     "at": "13 Nov 20:35"
    }
   ],
-  "low_posts": 29,
+  "low_posts": 31,
   "history": [
    {
     "day": "2026-11-02",
@@ -216,21 +221,26 @@
     "day": "2026-11-18",
     "followers": 1519,
     "eng_28d": 332
+   },
+   {
+    "day": "2026-11-19",
+    "followers": 1519,
+    "eng_28d": 327
    }
   ],
   "posts_24h": 6,
-  "last_post": "2026-11-18T17:54+00:00"
+  "last_post": "2026-11-19T08:33+00:00"
  },
  "frames": {
-  "at": "2026-11-18T22:47+00:00",
+  "at": "2026-11-19T12:16+00:00",
   "done": [],
   "problems": [],
   "name": "Frames Of Life",
-  "followers": 84,
+  "followers": 86,
   "insights_28d": {},
-  "posts_28d": 98,
-  "eng_28d": 466,
-  "eng_avg": 4.8,
+  "posts_28d": 100,
+  "eng_28d": 468,
+  "eng_avg": 4.7,
   "best_hours_pk": [
    21,
    19,
@@ -256,7 +266,7 @@
     "at": "07 Nov 13:41"
    }
   ],
-  "low_posts": 0,
+  "low_posts": 1,
   "history": [
    {
     "day": "2026-11-02",
@@ -327,19 +337,24 @@
     "day": "2026-11-18",
     "followers": 84,
     "eng_28d": 466
+   },
+   {
+    "day": "2026-11-19",
+    "followers": 86,
+    "eng_28d": 468
    }
   ],
-  "posts_24h": 6,
-  "last_post": "2026-11-18T19:12+00:00"
+  "posts_24h": 5,
+  "last_post": "2026-11-19T08:18+00:00"
  },
  "webbuilder": {
-  "at": "2026-11-18T22:47+00:00",
+  "at": "2026-11-19T12:16+00:00",
   "done": [],
   "problems": [],
   "name": "web builder",
   "followers": 34,
   "insights_28d": {},
-  "posts_28d": 215,
+  "posts_28d": 216,
   "eng_28d": 232,
   "eng_avg": 1.1,
   "best_hours_pk": [
@@ -367,7 +382,7 @@
     "at": "14 Nov 23:54"
    }
   ],
-  "low_posts": 30,
+  "low_posts": 31,
   "history": [
    {
     "day": "2026-11-02",
@@ -438,20 +453,25 @@
     "day": "2026-11-18",
     "followers": 34,
     "eng_28d": 232
+   },
+   {
+    "day": "2026-11-19",
+    "followers": 34,
+    "eng_28d": 232
    }
   ],
   "posts_24h": 6,
-  "last_post": "2026-11-18T19:32+00:00"
+  "last_post": "2026-11-19T10:36+00:00"
  },
  "news": {
-  "at": "2026-11-18T22:47+00:00",
+  "at": "2026-11-19T12:16+00:00",
   "done": [],
   "problems": [],
   "name": "News Act",
   "followers": 53,
   "insights_28d": {},
-  "posts_28d": 172,
-  "eng_28d": 333,
+  "posts_28d": 177,
+  "eng_28d": 338,
   "eng_avg": 1.9,
   "best_hours_pk": [
    1,
@@ -460,7 +480,7 @@
   ],
   "top_posts": [
    {
-    "eng": 108,
+    "eng": 110,
     "text": "Alaska has made history by electing its youngest governor ever. 🏛️🗳️  Alaska mak",
     "url": "https://www.facebook.com/reel/1739715834490007/",
     "at": "15 Nov 01:05"
@@ -478,7 +498,7 @@
     "at": "16 Nov 05:02"
    }
   ],
-  "low_posts": 80,
+  "low_posts": 83,
   "history": [
    {
     "day": "2026-11-16",
@@ -493,21 +513,26 @@
     "day": "2026-11-18",
     "followers": 53,
     "eng_28d": 333
+   },
+   {
+    "day": "2026-11-19",
+    "followers": 53,
+    "eng_28d": 338
    }
   ],
-  "posts_24h": 15,
-  "last_post": "2026-11-18T21:26+00:00"
+  "posts_24h": 13,
+  "last_post": "2026-11-19T08:45+00:00"
  },
  "newsur": {
-  "at": "2026-11-18T22:47+00:00",
+  "at": "2026-11-19T12:16+00:00",
   "done": [],
   "problems": [],
   "name": "News Act Urdu",
   "followers": 2,
   "insights_28d": {},
-  "posts_28d": 22,
+  "posts_28d": 27,
   "eng_28d": 11,
-  "eng_avg": 0.5,
+  "eng_avg": 0.4,
   "best_hours_pk": [
    13,
    9,
@@ -533,7 +558,7 @@
     "at": "17 Nov 13:16"
    }
   ],
-  "low_posts": 18,
+  "low_posts": 23,
   "history": [
    {
     "day": "2026-11-16",
@@ -548,20 +573,25 @@
     "day": "2026-11-18",
     "followers": 2,
     "eng_28d": 11
+   },
+   {
+    "day": "2026-11-19",
+    "followers": 2,
+    "eng_28d": 11
    }
   ],
   "posts_24h": 7,
-  "last_post": "2026-11-18T14:13+00:00"
+  "last_post": "2026-11-19T10:17+00:00"
  },
  "sports": {
-  "at": "2026-11-18T22:47+00:00",
+  "at": "2026-11-19T12:16+00:00",
   "done": [],
   "problems": [],
   "name": "Sports Hubs",
   "followers": 17,
   "insights_28d": {},
-  "posts_28d": 221,
-  "eng_28d": 116,
+  "posts_28d": 232,
+  "eng_28d": 120,
   "eng_avg": 0.5,
   "best_hours_pk": [
    18,
@@ -588,7 +618,7 @@
     "at": "15 Nov 03:20"
    }
   ],
-  "low_posts": 129,
+  "low_posts": 136,
   "history": [
    {
     "day": "2026-11-16",
@@ -603,10 +633,15 @@
     "day": "2026-11-18",
     "followers": 17,
     "eng_28d": 116
+   },
+   {
+    "day": "2026-11-19",
+    "followers": 17,
+    "eng_28d": 120
    }
   ],
-  "posts_24h": 23,
-  "last_post": "2026-11-18T22:18+00:00"
+  "posts_24h": 21,
+  "last_post": "2026-11-19T10:13+00:00"
  },
  "scenic": {
   "problems": [
@@ -614,19 +649,19 @@
   ]
  },
  "war": {
-  "at": "2026-11-18T22:47+00:00",
+  "at": "2026-11-19T12:16+00:00",
   "done": [],
   "problems": [],
   "name": "Battles Untold",
   "followers": 3,
   "insights_28d": {},
-  "posts_28d": 24,
-  "eng_28d": 17,
-  "eng_avg": 0.7,
+  "posts_28d": 25,
+  "eng_28d": 20,
+  "eng_avg": 0.8,
   "best_hours_pk": [
-   20,
    3,
-   4
+   20,
+   2
   ],
   "top_posts": [
    {
@@ -637,18 +672,18 @@
    },
    {
     "eng": 1,
-    "text": "The hidden 1851 conflict that changed Yosemite forever. 🏔️📜  📅 When: December 18",
-    "url": "https://www.facebook.com/reel/1824818718640421/",
-    "at": "18 Nov 20:14"
+    "text": "The 1899 conflict that transformed the United States into a global power. 🌎📜  📅 ",
+    "url": "https://www.facebook.com/reel/2134775370489876/",
+    "at": "19 Nov 03:43"
    },
    {
     "eng": 1,
-    "text": "A 146-year-old murder conviction was finally overturned in 2004. ⚖️📜  📅 When: 18",
-    "url": "https://www.facebook.com/reel/2187840121856900/",
-    "at": "18 Nov 18:38"
+    "text": "The U.S. military relied on standardized equipment during the Yakima War. 🛡️ Art",
+    "url": "https://www.facebook.com/122096977695556052/posts/122098225779556052",
+    "at": "19 Nov 02:26"
    }
   ],
-  "low_posts": 9,
+  "low_posts": 7,
   "history": [
    {
     "day": "2026-11-16",
@@ -663,19 +698,24 @@
     "day": "2026-11-18",
     "followers": 3,
     "eng_28d": 17
+   },
+   {
+    "day": "2026-11-19",
+    "followers": 3,
+    "eng_28d": 20
    }
   ],
-  "posts_24h": 7,
-  "last_post": "2026-11-18T22:43+00:00"
+  "posts_24h": 6,
+  "last_post": "2026-11-19T01:13+00:00"
  },
  "birds": {
-  "at": "2026-11-18T22:47+00:00",
+  "at": "2026-11-19T12:16+00:00",
   "done": [],
   "problems": [],
   "name": "Birds of the World",
-  "followers": 10,
+  "followers": 11,
   "insights_28d": {},
-  "posts_28d": 15,
+  "posts_28d": 16,
   "eng_28d": 6,
   "eng_avg": 0.4,
   "best_hours_pk": [
@@ -703,7 +743,7 @@
     "at": "17 Nov 02:13"
    }
   ],
-  "low_posts": 12,
+  "low_posts": 13,
   "history": [
    {
     "day": "2026-11-16",
@@ -718,19 +758,24 @@
     "day": "2026-11-18",
     "followers": 10,
     "eng_28d": 6
+   },
+   {
+    "day": "2026-11-19",
+    "followers": 11,
+    "eng_28d": 6
    }
   ],
   "posts_24h": 4,
-  "last_post": "2026-11-18T21:18+00:00"
+  "last_post": "2026-11-19T11:47+00:00"
  },
  "pets": {
-  "at": "2026-11-18T22:47+00:00",
+  "at": "2026-11-19T12:16+00:00",
   "done": [],
   "problems": [],
   "name": "Dogs & Cats World",
   "followers": 1,
   "insights_28d": {},
-  "posts_28d": 15,
+  "posts_28d": 16,
   "eng_28d": 2,
   "eng_avg": 0.1,
   "best_hours_pk": [
@@ -747,18 +792,18 @@
    },
    {
     "eng": 0,
-    "text": "Meet the tiny lion from the Baltic region! 🦁  🐶 Breed: Pomeranian 🌍 Origin: Pome",
-    "url": "https://www.facebook.com/reel/1700407131434410/",
-    "at": "19 Nov 03:27"
+    "text": "Is your dog actually reading your mind? 🐕🧠  📚 Facts: Wikipedia - Smartest Dog Br",
+    "url": "https://www.facebook.com/reel/1691786105833323/",
+    "at": "19 Nov 10:35"
    },
    {
     "eng": 0,
-    "text": "Did you know French Bulldogs appeared in Paris in the mid-nineteenth century? 🇫🇷",
-    "url": "https://www.facebook.com/122099314347553453/posts/122100702651553453",
-    "at": "18 Nov 23:37"
+    "text": "Meet the tiny lion from the Baltic region! 🦁  🐶 Breed: Pomeranian 🌍 Origin: Pome",
+    "url": "https://www.facebook.com/reel/1700407131434410/",
+    "at": "19 Nov 03:27"
    }
   ],
-  "low_posts": 14,
+  "low_posts": 15,
   "history": [
    {
     "day": "2026-11-16",
@@ -773,21 +818,26 @@
     "day": "2026-11-18",
     "followers": 1,
     "eng_28d": 2
+   },
+   {
+    "day": "2026-11-19",
+    "followers": 1,
+    "eng_28d": 2
    }
   ],
-  "posts_24h": 4,
-  "last_post": "2026-11-18T22:27+00:00"
+  "posts_24h": 5,
+  "last_post": "2026-11-19T05:35+00:00"
  },
  "wild": {
-  "at": "2026-11-18T22:47+00:00",
+  "at": "2026-11-19T12:16+00:00",
   "done": [],
   "problems": [],
   "name": "Wild Nations",
   "followers": 3,
   "insights_28d": {},
-  "posts_28d": 16,
+  "posts_28d": 18,
   "eng_28d": 8,
-  "eng_avg": 0.5,
+  "eng_avg": 0.4,
   "best_hours_pk": [
    22,
    18,
@@ -813,7 +863,7 @@
     "at": "17 Nov 18:37"
    }
   ],
-  "low_posts": 13,
+  "low_posts": 15,
   "history": [
    {
     "day": "2026-11-16",
@@ -828,19 +878,24 @@
     "day": "2026-11-18",
     "followers": 3,
     "eng_28d": 8
+   },
+   {
+    "day": "2026-11-19",
+    "followers": 3,
+    "eng_28d": 8
    }
   ],
   "posts_24h": 6,
-  "last_post": "2026-11-18T20:59+00:00"
+  "last_post": "2026-11-19T11:07+00:00"
  },
  "faizi": {
-  "at": "2026-11-18T22:47+00:00",
+  "at": "2026-11-19T12:16+00:00",
   "done": [],
   "problems": [],
   "name": "Style by Faizi",
   "followers": 0,
   "insights_28d": {},
-  "posts_28d": 14,
+  "posts_28d": 15,
   "eng_28d": 1,
   "eng_avg": 0.1,
   "best_hours_pk": [
@@ -857,18 +912,18 @@
    },
    {
     "eng": 0,
-    "text": "✨ Quiet Luxury Eid Elegance ✨  1. Bordeaux Velvet Eid Anarkali 2. Sapphire Silk ",
-    "url": "https://www.facebook.com/reel/2920882594949230/",
-    "at": "19 Nov 02:47"
+    "text": "✨ Unveil your midnight glamour! ✨  1. Midnight Sapphire Gown 2. Espresso Velvet ",
+    "url": "https://www.facebook.com/reel/1178463471419849/",
+    "at": "19 Nov 06:46"
    },
    {
     "eng": 0,
-    "text": "👑✨ Midnight Orchid Luxe – the gown that turns heads!  1. Midnight Orchid Bridal ",
-    "url": "https://www.facebook.com/122097376215555703/posts/122098581915555703",
-    "at": "18 Nov 23:57"
+    "text": "✨ Quiet Luxury Eid Elegance ✨  1. Bordeaux Velvet Eid Anarkali 2. Sapphire Silk ",
+    "url": "https://www.facebook.com/reel/2920882594949230/",
+    "at": "19 Nov 02:47"
    }
   ],
-  "low_posts": 13,
+  "low_posts": 14,
   "history": [
    {
     "day": "2026-11-16",
@@ -883,9 +938,14 @@
     "day": "2026-11-18",
     "followers": 0,
     "eng_28d": 1
+   },
+   {
+    "day": "2026-11-19",
+    "followers": 0,
+    "eng_28d": 1
    }
   ],
-  "posts_24h": 6,
-  "last_post": "2026-11-18T21:47+00:00"
+  "posts_24h": 5,
+  "last_post": "2026-11-19T01:46+00:00"
  }
 }
