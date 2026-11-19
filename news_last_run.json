@@ -1,12 +1,17 @@
 {
- "time_utc": "2026-11-19 14:14",
- "lang": "ur",
+ "time_utc": "2026-11-19 14:26",
+ "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1357984777408020_122097425889558252",
-   "topic": "asia",
-   "title": "Meeting with President of China and President of the United States"
+   "post": "1448208791702551_122111808771532804",
+   "topic": "usa",
+   "title": "Anthropic raises $81bn in record-breaking stock market debut"
+  },
+  "sports": {
+   "post": "1465090056678690_122105705625548502",
+   "topic": "american_football",
+   "title": "Predicting upsets in Week 11 of NFL season"
   }
  },
  "errors": []
