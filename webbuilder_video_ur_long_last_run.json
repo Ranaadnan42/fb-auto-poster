@@ -1,7 +1,7 @@
 {
- "time_utc": "2026-11-18 16:34",
- "spotlight": "pharmacy",
- "post_id": "3664265843714091",
+ "time_utc": "2026-11-19 16:35",
+ "spotlight": "bakery",
+ "post_id": "2517936122029243",
  "error": null,
  "lang": "ur",
  "kind": "long",
@@ -9,7 +9,7 @@
  "fallback": 0,
  "errors": [],
  "real_work": 7,
- "real_pos": 4,
- "mock": 4,
- "seconds": 106.2
+ "mock": 6,
+ "real_pos": 5,
+ "seconds": 109.6
 }
