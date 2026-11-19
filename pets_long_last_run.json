@@ -1,8 +1,37 @@
 {
- "time_utc": "2026-11-19 02:25",
+ "time_utc": "2026-11-19 03:54",
  "mode": "long",
  "dry_run": false,
- "errors": [
-  "fatal: 'list' object has no attribute 'get'"
- ]
+ "errors": [],
+ "kind": "long",
+ "lang": "en",
+ "clips_rejected": 591,
+ "agent_checks": 49,
+ "agent_rejects": 41,
+ "agent_skips": 578,
+ "tag_pass": 34,
+ "alt_searches": 19,
+ "no_match": [
+  "Thuringia Germany",
+  "Dobermann dog walking",
+  "Dobermann dog guarding",
+  "Dobermann dog looking alert",
+  "Dobermann dog gentle",
+  "Shetland Sheepdog dog",
+  "Shetland Islands Scotland",
+  "Shetland Sheepdog dog",
+  "Shetland Sheepdog dog playing",
+  "Shetland Sheepdog dog smart"
+ ],
+ "headline_cards": 10,
+ "posted": {
+  "pet": null,
+  "breed": null,
+  "theme": "Smartest Dog Breeds",
+  "wiki": "Smartest Dog Breeds",
+  "date": "2026-11-19 03:54",
+  "title": "Are They Geniuses? The 7 Smartest Dog Breeds Ever!",
+  "dur": 304,
+  "post_id": "1691786105833323"
+ }
 }
