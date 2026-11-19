@@ -4,21 +4,29 @@
  "dry_run": false,
  "log": [
   "Subject: Greater bird-of-paradise",
-  "Subject: Golden pheasant",
-  "photo commons wmi198130265 1920x1278: agent=True",
-  "--- caption ---\nThe Golden Pheasant is truly a masterpiece of nature! 🦜✨\n\nThis Chinese pheasant, also known as the rainbow pheasant, belongs to the Phasianidae family and features a stunning golden crest.\n\nHave you ever seen a bird as colorful as this rainbow pheasant?\n\nFollow Birds of the World for",
-  "Video tayyar - 30 minute intezar, post 11:47 UTC par hogi",
+  "photo openverse ov3d26ed6e-9d76-4b4f-adf6-5c749b28027a 2559x3770: agent=False",
+  "photo commons wmi56708665 1920x2608: agent=False",
+  "photo commons wmi54986860 1920x2554: agent=False",
+  "photo commons wmi54986859 1920x2451: agent=False",
+  "photo commons wmi56708660 1280x2033: agent=False",
+  "photo openverse ove0d9069f-e270-4d66-94a4-2b6334134c94 2848x4288: agent=False",
+  "photo commons wmi44130507 1897x3160: agent=False",
+  "photo commons wmi75788494 1920x3002: agent=False",
+  "Subject: Mandarin duck",
+  "photo commons wmi25966562 1920x1244: agent=True",
+  "--- caption ---\nMeet the stunning Mandarin duck, an elaborately colored species native to East and Northeast Asia. 🦆✨\n\nThis medium-sized perching duck is closely related to the North American wood duck and has established populations across the British Isles. 🌍🌿\n\nTag a friend who would love to see t",
+  "Video tayyar - 18 minute intezar, post 17:47 UTC par hogi",
   "Waqt ho gaya - post kar rahe hain",
   "photo story lagi",
-  "posted 1390293244177890_122103126231551461"
+  "posted 1390293244177890_122102439771551461"
  ],
  "errors": [],
  "posted": {
-  "subject": "Golden pheasant",
-  "photo": "wmi198130265",
+  "subject": "Mandarin duck",
+  "photo": "wmi25966562",
   "src": "commons",
-  "size": "1920x1278",
-  "date": "2026-11-19 11:16",
-  "post_id": "1390293244177890_122103126231551461"
+  "size": "1920x1244",
+  "date": "2026-11-18 17:28",
+  "post_id": "1390293244177890_122102439771551461"
  }
 }
