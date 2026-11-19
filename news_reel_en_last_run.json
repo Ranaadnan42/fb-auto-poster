@@ -1,24 +1,21 @@
 {
- "time_utc": "2026-11-18 19:39",
+ "time_utc": "2026-11-19 04:16",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-18 19:39",
+   "date": "2026-11-19 04:16",
    "kind": "reel",
    "lang": "en",
-   "title": "Anthropic AI founders set for multi-billion dollar stock debut",
-   "dur": 54,
-   "post_id": "1620122702622919"
+   "title": "Anthropic's Record IPO: A Historic Shift for AI",
+   "dur": 53,
+   "post_id": "2754878221575679"
   }
  },
- "errors": [
-  "sports: awaaz nahi bani"
- ],
- "clips_rejected": 89,
- "agent_checks": 96,
- "agent_rejects": 89,
+ "errors": [],
+ "agent_checks": 48,
+ "agent_rejects": 41,
  "agent_skips": 0,
- "alt_searches": 1
+ "clips_rejected": 42
 }
