@@ -1,15 +1,15 @@
 {
- "time_utc": "2026-11-18 19:27",
+ "time_utc": "2026-11-19 12:15",
  "spotlight": "clothing shop",
- "post_id": "4525528394375390",
+ "post_id": "2183486252238468",
  "error": null,
  "lang": "en",
  "kind": "long",
- "clips": 3,
+ "clips": 1,
  "fallback": 0,
  "errors": [],
  "real_work": 7,
  "mock": 6,
- "real_pos": 6,
- "seconds": 131.0
+ "real_pos": 5,
+ "seconds": 123.2
 }
