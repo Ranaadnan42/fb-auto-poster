@@ -1,20 +1,18 @@
 {
- "time_utc": "2026-11-20 06:35",
+ "time_utc": "2026-11-20 22:07",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "sports": {
-   "key": "t401873066",
-   "sport": "american football",
-   "date": "2026-11-20 06:35",
+   "key": "f401900905",
+   "sport": "football",
+   "date": "2026-11-20 22:07",
    "lang": "en",
-   "match": "Indianapolis Colts at Houston Texans",
-   "result": "Houston Texans beat Indianapolis Colts 26-3",
-   "dur": 71,
-   "post_id": "1088266334270829"
+   "match": "Al Ahli vs Al Nassr",
+   "result": "Al Ahli beat Al Nassr 3-1",
+   "dur": 58,
+   "post_id": "2103883653572497"
   }
  },
- "errors": [
-  "Pakistan v Sri Lanka: Pakistan v Sri Lanka: 4 innings - sirf limited-overs match ka recap"
- ]
+ "errors": []
 }

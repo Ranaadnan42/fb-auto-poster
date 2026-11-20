@@ -14,8 +14,8 @@
   "gridiron football touchdown": 1,
   "Chanticleers volleyball match": 1,
   "volleyball team huddle": 1,
-  "English Football League match": 2,
-  "British football stadium crowd": 2,
+  "English Football League match": 1,
+  "British football stadium crowd": 1,
   "football stadium exterior": 1,
   "football manager on touchline": 2,
   "Pakistan football stadium": 2,
@@ -69,7 +69,9 @@
   "France flag": 4,
   "athletics track": 1,
   "baseball field": 1,
-  "Coors Field": 1
+  "Coors Field": 1,
+  "King Abdullah Sports City": 1,
+  "Saudi Pro League match": 1
  },
  "bad": {
   "basketball dunk arena": 2,
@@ -262,7 +264,29 @@
   "baseball diamond": 1,
   "Coors Field Denver": 1,
   "empty baseball stadium": 1,
-  "major league ballpark": 1
+  "major league ballpark": 1,
+  "soccer stadium cheer": 2,
+  "football celebration": 2,
+  "Jeddah football stadium": 1,
+  "football goal kick": 1,
+  "soccer player celebration": 1,
+  "Al Ahli Saudi FC": 1,
+  "Al Awwal Park": 1,
+  "Saudi Clasico football": 1,
+  "football stadium crowd": 4,
+  "football goal net": 4,
+  "soccer players match": 4,
+  "football match action": 2,
+  "soccer ball goal": 2,
+  "Al Jawhara Stadium": 2,
+  "Shining Jewel Stadium": 2,
+  "Jeddah soccer stadium": 2,
+  "Radiant Jewel Stadium": 2,
+  "football fans cheering": 1,
+  "Saudi football crowd": 1,
+  "Riyadh stadium fans": 1,
+  "Saudi soccer supporters": 1,
+  "Jeddah football fans": 1
  },
  "mistakes": []
 }
