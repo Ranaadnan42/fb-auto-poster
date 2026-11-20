@@ -1,0 +1,16 @@
+{
+ "good": {
+  "woman traditional dress": 1,
+  "satin anarkali dress": 1,
+  "emerald green velvet anarkali": 1,
+  "chocolate brown anarkali": 1,
+  "silver anarkali": 1,
+  "deep burgundy anarkali": 1
+ },
+ "bad": {
+  "silk anarkali dress": 1,
+  "women silver embroidered gown": 1,
+  "midnight blue anarkali": 1
+ },
+ "mistakes": []
+}

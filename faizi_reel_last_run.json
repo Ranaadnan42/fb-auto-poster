@@ -1,24 +1,23 @@
 {
- "time_utc": "2026-11-19 21:47",
+ "time_utc": "2026-11-20 00:29",
  "mode": "reel",
- "dry_run": false,
+ "dry_run": true,
  "errors": [],
  "images": {
-  "rejected": 8,
-  "pollinations": 18
+  "rejected": 25,
+  "pixabay": 6
  },
  "posted": {
   "mode": "reel",
-  "theme": "Iridescent Autumn Luxe",
+  "theme": "Deep Burgundy Silk Anarkali",
   "designs": [
-   "Copper Sheen Bridal Anarkali",
-   "Midnight Plum Party Sharara",
-   "Sunset Amber Lawn Ensemble",
-   "Pearl White Eid Chiffon Gharara",
-   "Sage Green Kurti Fusion",
-   "Royal Sapphire Bridal Gown"
+   "Blush Ruffled Tulle Gown",
+   "Nude Crystal Embellished Pumps",
+   "Emerald Green Velvet Anarkali",
+   "Classic Western Cowboy Outfit",
+   "Silver Chrome Anarkali",
+   "Burgundy Silk Anarkali"
   ],
-  "date": "2026-11-19 21:47",
-  "post_id": "1874692290399257"
+  "date": "2026-11-20 00:29"
  }
 }
