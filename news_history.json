@@ -1937,6 +1937,22 @@
     "wins"
    ],
    "post_id": "1448208791702551_122112123609532804"
+  },
+  {
+   "date": "2026-11-20 14:36",
+   "lang": "ur",
+   "topic": "middle_east",
+   "link": "https://news.google.com/rss/articles/CBMiigFBVV95cUxOYnlhNWx1ekZiQlRvOXhNczJSQVFRLS0tSl9kVVFRVXdESVg3NlNoUEpDdGw5cjZzYTd3Y19XeUFwUDZQelVTSGZfVk8xQzFqUllYanZnMnhSemdEaUluTFozMmtoVkE4Qjg0cXhySDRxUnA5Ml9PRXVIWXVqZ0lqOWVsc21yTzN5a3c?oc=5",
+   "title": "Egypt condemns attacks on Saudi Arabia",
+   "words": [
+    "arabia",
+    "attacks",
+    "condemns",
+    "egypt",
+    "saudi"
+   ],
+   "breaking": true,
+   "post_id": "1357984777408020_122098275729558252"
   }
  ],
  "sports": [
@@ -3852,6 +3868,28 @@
     "signs"
    ],
    "post_id": "1465090056678690_122106745731548502"
+  },
+  {
+   "date": "2026-11-20 14:27",
+   "lang": "ur",
+   "topic": "big_events",
+   "link": "https://news.google.com/rss/articles/CBMilwJBVV95cUxPbHRvZFNzbVFQbTB2OXduYzA0ZnFhUnBtQUhYQVBLTV93eHdERm5mRHcxdFhqcVhIdmpaZnJ3ME9UTkxTa2dxelFPZXg2Z2VSWDZSSTk3aVNKWU1aaGZxYnBkemlCb05SMXFkeGpzeURmd0VwZEdtamppS21IOXFvQXhLMVp3UUlJNnR0NGpMdWx3QlRveUFUYjZCNGZIb0tENEZaSkdEb01vTkVMVTVGdTd4UlNXUVJXOW9OUU5oVkxtRzg1WXhnWXJYRFdRN1N2MkdqSVR5bkFMajlsclllTzdDMnlETkVpWmF0VHZETGxqdFh3ZmxiWTNmM3FDVWtEYkxLQ2Jpc3VFLW1YNmxXY2J3RnZ6YWM?oc=5",
+   "title": "Nations League draw offers up World Cup rematches between Spain-France and England-Norway",
+   "words": [
+    "between",
+    "draw",
+    "england",
+    "france",
+    "league",
+    "nations",
+    "norway",
+    "offers",
+    "rematches",
+    "spain",
+    "world"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122106745635548502"
   }
  ],
  "used_images": [
@@ -3980,6 +4018,7 @@
   5782694,
   1019104,
   451581,
-  8111390
+  8111390,
+  3037635
  ]
 }
