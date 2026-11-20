@@ -1,12 +1,17 @@
 {
- "time_utc": "2026-11-20 02:13",
- "lang": "ur",
+ "time_utc": "2026-11-20 05:27",
+ "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1357984777408020_122097802257558252",
-   "topic": "asia",
-   "title": "California AG issues subpoena to Nvidia over chip sales to China"
+   "post": "1448208791702551_122112009135532804",
+   "topic": "europe",
+   "title": "UK-EU reset talks will go ‘down to the wire’ as crunch summit approaches"
+  },
+  "sports": {
+   "post": "1465090056678690_122106362427548502",
+   "topic": "tennis",
+   "title": "Australia's Barty elected into Tennis Hall of Fame"
   }
  },
  "errors": []

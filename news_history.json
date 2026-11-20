@@ -1863,6 +1863,24 @@
    ],
    "breaking": true,
    "post_id": "1357984777408020_122097802257558252"
+  },
+  {
+   "date": "2026-11-20 05:27",
+   "lang": "en",
+   "topic": "europe",
+   "link": "https://www.theguardian.com/world/2026/nov/19/uk-eu-reset-talks-andy-burnham-food-farming-tuition-fees",
+   "title": "UK-EU reset talks will go ‘down to the wire’ as crunch summit approaches",
+   "words": [
+    "approaches",
+    "crunch",
+    "down",
+    "reset",
+    "summit",
+    "talks",
+    "will",
+    "wire"
+   ],
+   "post_id": "1448208791702551_122112009135532804"
   }
  ],
  "sports": [
@@ -3713,6 +3731,23 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122106206637548502"
+  },
+  {
+   "date": "2026-11-20 05:27",
+   "lang": "en",
+   "topic": "tennis",
+   "link": "https://www.bbc.co.uk/sport/tennis/articles/c5n4eme37p4ko?at_medium=RSS&at_campaign=rss",
+   "title": "Australia's Barty elected into Tennis Hall of Fame",
+   "words": [
+    "australia",
+    "barty",
+    "elected",
+    "fame",
+    "hall",
+    "into",
+    "tennis"
+   ],
+   "post_id": "1465090056678690_122106362427548502"
   }
  ],
  "used_images": [
@@ -3836,6 +3871,8 @@
   7014547,
   "pxi4790437",
   "pxi1592627",
-  "pxi2410657"
+  "pxi2410657",
+  79221,
+  5782694
  ]
 }
