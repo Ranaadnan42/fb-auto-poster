@@ -3,23 +3,24 @@
  "agent": "wild",
  "dry_run": false,
  "log": [
-  "Subject: Platypus",
-  "photo commons wmi56309806 1920x1250: agent=False",
-  "photo commons wmi105179144 1920x1439: agent=False",
-  "photo commons wmi143656029 1920x1280: agent=True",
-  "--- caption ---\nMeet the platypus, one of the world's few egg-laying and venomous mammals! 🦆🇦🇺\n\nEndemic to eastern Australia, this semiaquatic monotreme uses electrolocation to detect prey underwater while its eyes and ears are closed. Male platypuses even have a spur on each hind foot that delivers",
-  "Video tayyar - 17 minute intezar, post 11:07 UTC par hogi",
+  "Subject: Tasmanian devil",
+  "photo commons wmi128825531 1920x1280: agent=False",
+  "photo commons wmi154514524 1536x2048: agent=False",
+  "photo commons wmi154515915 1920x1279: agent=False",
+  "photo commons wmi12262604 1920x1252: agent=True",
+  "--- caption ---\nMeet the world's largest carnivorous marsupial! 🐾👹\n\nExtinct on mainland Australia for 3,500 years, the Tasmanian devil is now only found in Tasmania. This unique creature is known for its black fur and one of the strongest bites in the world.\n\nWould you want to see this powerful mars",
+  "Video tayyar - 31 minute intezar, post 17:07 UTC par hogi",
   "Waqt ho gaya - post kar rahe hain",
   "photo story lagi",
-  "posted 1501204066400712_122107000929546974"
+  "posted 1501204066400712_122107318731546974"
  ],
  "errors": [],
  "posted": {
-  "subject": "Platypus",
-  "photo": "wmi143656029",
+  "subject": "Tasmanian devil",
+  "photo": "wmi12262604",
   "src": "commons",
-  "size": "1920x1280",
-  "date": "2026-11-20 10:49",
-  "post_id": "1501204066400712_122107000929546974"
+  "size": "1920x1252",
+  "date": "2026-11-20 16:35",
+  "post_id": "1501204066400712_122107318731546974"
  }
 }
