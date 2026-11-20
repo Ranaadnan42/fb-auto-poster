@@ -1,20 +1,11 @@
 {
  "open_fixes": [],
- "time_utc": "2026-11-20 11:56",
- "summary": "",
- "notes": [
-  "fix push na ho saka"
- ],
+ "time_utc": "2026-11-20 22:16",
+ "summary": "Saare bots (Birds, Pets, Scenic, War, Frames) Gemini API quota khatam hone ki wajah se fail ho rahe hain. Yeh mere control mein nahi hai.",
+ "notes": [],
  "actions": [],
- "edits": [
-  {
-   "path": "world.py",
-   "why": "Update retired/non-existent Gemini models to valid ones."
-  },
-  {
-   "path": "pets.py",
-   "why": "Handle cases where AI returns a list instead of a dictionary to avoid AttributeError."
-  }
- ],
- "needs_owner": []
+ "edits": [],
+ "needs_owner": [
+  "Gemini API quota exceeded. Please check billing/plan on Google AI Studio."
+ ]
 }

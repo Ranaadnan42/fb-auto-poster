@@ -1,14 +1,14 @@
 {
  "islamic": {
-  "at": "2026-11-20T12:17+00:00",
+  "at": "2026-11-20T22:17+00:00",
   "done": [],
   "problems": [],
   "name": "Islamic Motivational Videos",
-  "followers": 1326,
+  "followers": 1328,
   "insights_28d": {},
   "posts_28d": 182,
-  "eng_28d": 835,
-  "eng_avg": 4.6,
+  "eng_28d": 848,
+  "eng_avg": 4.7,
   "best_hours_pk": [
    3,
    19,
@@ -34,7 +34,7 @@
     "at": "13 Nov 03:28"
    }
   ],
-  "low_posts": 12,
+  "low_posts": 11,
   "history": [
    {
     "day": "2026-11-02",
@@ -113,27 +113,27 @@
    },
    {
     "day": "2026-11-20",
-    "followers": 1326,
-    "eng_28d": 835
+    "followers": 1328,
+    "eng_28d": 848
    }
   ],
-  "posts_24h": 7,
-  "last_post": "2026-11-20T08:07+00:00"
+  "posts_24h": 6,
+  "last_post": "2026-11-20T16:18+00:00"
  },
  "funny": {
-  "at": "2026-11-20T12:17+00:00",
+  "at": "2026-11-20T22:17+00:00",
   "done": [],
   "problems": [],
   "name": "Hansi Ka Adda ہنسی کا اڈا",
   "followers": 1518,
   "insights_28d": {},
   "posts_28d": 226,
-  "eng_28d": 331,
+  "eng_28d": 337,
   "eng_avg": 1.5,
   "best_hours_pk": [
    0,
-   20,
-   13
+   13,
+   20
   ],
   "top_posts": [
    {
@@ -155,7 +155,7 @@
     "at": "13 Nov 20:35"
    }
   ],
-  "low_posts": 30,
+  "low_posts": 24,
   "history": [
    {
     "day": "2026-11-02",
@@ -235,22 +235,22 @@
    {
     "day": "2026-11-20",
     "followers": 1518,
-    "eng_28d": 331
+    "eng_28d": 337
    }
   ],
-  "posts_24h": 8,
-  "last_post": "2026-11-20T08:33+00:00"
+  "posts_24h": 7,
+  "last_post": "2026-11-20T18:51+00:00"
  },
  "frames": {
-  "at": "2026-11-20T12:17+00:00",
+  "at": "2026-11-20T22:17+00:00",
   "done": [],
   "problems": [],
   "name": "Frames Of Life",
-  "followers": 86,
+  "followers": 89,
   "insights_28d": {},
-  "posts_28d": 101,
-  "eng_28d": 474,
-  "eng_avg": 4.7,
+  "posts_28d": 105,
+  "eng_28d": 487,
+  "eng_avg": 4.6,
   "best_hours_pk": [
    21,
    19,
@@ -258,7 +258,7 @@
   ],
   "top_posts": [
    {
-    "eng": 117,
+    "eng": 116,
     "text": "کیا آپ چین کے ان 6 حیران کن حقائق کے بارے میں جانتے ہیں؟ 🇨🇳✨  چین کے بارے میں یہ",
     "url": "https://www.facebook.com/reel/2205299473735376/",
     "at": "01 Nov 19:02"
@@ -355,22 +355,22 @@
    },
    {
     "day": "2026-11-20",
-    "followers": 86,
-    "eng_28d": 474
+    "followers": 89,
+    "eng_28d": 487
    }
   ],
-  "posts_24h": 4,
-  "last_post": "2026-11-20T08:18+00:00"
+  "posts_24h": 5,
+  "last_post": "2026-11-20T18:53+00:00"
  },
  "webbuilder": {
-  "at": "2026-11-20T12:17+00:00",
+  "at": "2026-11-20T22:17+00:00",
   "done": [],
   "problems": [],
   "name": "web builder",
   "followers": 35,
   "insights_28d": {},
-  "posts_28d": 222,
-  "eng_28d": 241,
+  "posts_28d": 227,
+  "eng_28d": 244,
   "eng_avg": 1.1,
   "best_hours_pk": [
    20,
@@ -397,7 +397,7 @@
     "at": "14 Nov 23:54"
    }
   ],
-  "low_posts": 30,
+  "low_posts": 32,
   "history": [
    {
     "day": "2026-11-02",
@@ -477,21 +477,21 @@
    {
     "day": "2026-11-20",
     "followers": 35,
-    "eng_28d": 241
+    "eng_28d": 244
    }
   ],
-  "posts_24h": 7,
-  "last_post": "2026-11-20T10:27+00:00"
+  "posts_24h": 6,
+  "last_post": "2026-11-20T19:54+00:00"
  },
  "news": {
-  "at": "2026-11-20T12:17+00:00",
+  "at": "2026-11-20T22:17+00:00",
   "done": [],
   "problems": [],
   "name": "News Act",
   "followers": 55,
   "insights_28d": {},
-  "posts_28d": 189,
-  "eng_28d": 349,
+  "posts_28d": 195,
+  "eng_28d": 352,
   "eng_avg": 1.8,
   "best_hours_pk": [
    1,
@@ -518,7 +518,7 @@
     "at": "16 Nov 05:02"
    }
   ],
-  "low_posts": 86,
+  "low_posts": 88,
   "history": [
    {
     "day": "2026-11-16",
@@ -542,20 +542,20 @@
    {
     "day": "2026-11-20",
     "followers": 55,
-    "eng_28d": 349
+    "eng_28d": 352
    }
   ],
-  "posts_24h": 12,
-  "last_post": "2026-11-20T08:46+00:00"
+  "posts_24h": 11,
+  "last_post": "2026-11-20T21:23+00:00"
  },
  "newsur": {
-  "at": "2026-11-20T12:17+00:00",
+  "at": "2026-11-20T22:17+00:00",
   "done": [],
   "problems": [],
   "name": "News Act Urdu",
   "followers": 2,
   "insights_28d": {},
-  "posts_28d": 34,
+  "posts_28d": 36,
   "eng_28d": 13,
   "eng_avg": 0.4,
   "best_hours_pk": [
@@ -583,7 +583,7 @@
     "at": "17 Nov 13:16"
    }
   ],
-  "low_posts": 28,
+  "low_posts": 30,
   "history": [
    {
     "day": "2026-11-16",
@@ -611,22 +611,22 @@
    }
   ],
   "posts_24h": 7,
-  "last_post": "2026-11-20T10:05+00:00"
+  "last_post": "2026-11-20T14:41+00:00"
  },
  "sports": {
-  "at": "2026-11-20T12:17+00:00",
+  "at": "2026-11-20T22:17+00:00",
   "done": [],
   "problems": [],
   "name": "Sports Hubs",
-  "followers": 17,
+  "followers": 18,
   "insights_28d": {},
-  "posts_28d": 254,
-  "eng_28d": 129,
+  "posts_28d": 263,
+  "eng_28d": 134,
   "eng_avg": 0.5,
   "best_hours_pk": [
-   17,
    16,
-   1
+   1,
+   17
   ],
   "top_posts": [
    {
@@ -648,7 +648,7 @@
     "at": "15 Nov 03:20"
    }
   ],
-  "low_posts": 150,
+  "low_posts": 155,
   "history": [
    {
     "day": "2026-11-16",
@@ -671,12 +671,12 @@
    },
    {
     "day": "2026-11-20",
-    "followers": 17,
-    "eng_28d": 129
+    "followers": 18,
+    "eng_28d": 134
    }
   ],
-  "posts_24h": 22,
-  "last_post": "2026-11-20T10:02+00:00"
+  "posts_24h": 21,
+  "last_post": "2026-11-20T21:49+00:00"
  },
  "scenic": {
   "problems": [
@@ -684,14 +684,14 @@
   ]
  },
  "war": {
-  "at": "2026-11-20T12:17+00:00",
+  "at": "2026-11-20T22:17+00:00",
   "done": [],
   "problems": [],
   "name": "Battles Untold",
   "followers": 4,
   "insights_28d": {},
-  "posts_28d": 32,
-  "eng_28d": 29,
+  "posts_28d": 34,
+  "eng_28d": 32,
   "eng_avg": 0.9,
   "best_hours_pk": [
    18,
@@ -718,7 +718,7 @@
     "at": "19 Nov 18:23"
    }
   ],
-  "low_posts": 8,
+  "low_posts": 7,
   "history": [
    {
     "day": "2026-11-16",
@@ -742,22 +742,22 @@
    {
     "day": "2026-11-20",
     "followers": 4,
-    "eng_28d": 29
+    "eng_28d": 32
    }
   ],
-  "posts_24h": 7,
-  "last_post": "2026-11-20T01:13+00:00"
+  "posts_24h": 5,
+  "last_post": "2026-11-20T21:04+00:00"
  },
  "birds": {
-  "at": "2026-11-20T12:17+00:00",
+  "at": "2026-11-20T22:17+00:00",
   "done": [],
   "problems": [],
   "name": "Birds of the World",
   "followers": 12,
   "insights_28d": {},
-  "posts_28d": 20,
+  "posts_28d": 23,
   "eng_28d": 9,
-  "eng_avg": 0.5,
+  "eng_avg": 0.4,
   "best_hours_pk": [
    2,
    19,
@@ -783,7 +783,7 @@
     "at": "17 Nov 03:49"
    }
   ],
-  "low_posts": 16,
+  "low_posts": 19,
   "history": [
    {
     "day": "2026-11-16",
@@ -811,16 +811,16 @@
    }
   ],
   "posts_24h": 4,
-  "last_post": "2026-11-20T11:47+00:00"
+  "last_post": "2026-11-20T21:18+00:00"
  },
  "pets": {
-  "at": "2026-11-20T12:17+00:00",
+  "at": "2026-11-20T22:17+00:00",
   "done": [],
   "problems": [],
   "name": "Dogs & Cats World",
   "followers": 1,
   "insights_28d": {},
-  "posts_28d": 20,
+  "posts_28d": 23,
   "eng_28d": 2,
   "eng_avg": 0.1,
   "best_hours_pk": [
@@ -837,18 +837,18 @@
    },
    {
     "eng": 0,
-    "text": "Did you know Beagles were once tiny enough to fit inside a pocket? 🐶👑  🐶 Breed: ",
-    "url": "https://www.facebook.com/reel/1606449641282952/",
-    "at": "20 Nov 03:28"
+    "text": "Did you know the Beagle is a British breed of scent hound? 🐶🇬🇧  Developed in Gre",
+    "url": "https://www.facebook.com/122099314347553453/posts/122102410389553453",
+    "at": "20 Nov 23:37"
    },
    {
     "eng": 0,
-    "text": "Meet the stunning Samoyed, a breed with a rich Siberian history! ❄️🐕  This Euras",
-    "url": "https://www.facebook.com/122099314347553453/posts/122101542957553453",
-    "at": "19 Nov 23:37"
+    "text": "Did you know every Border Collie traces back to one dog named Old Hemp? 🐶✨  🐶 Br",
+    "url": "https://www.facebook.com/reel/4151723318460990/",
+    "at": "20 Nov 21:07"
    }
   ],
-  "low_posts": 19,
+  "low_posts": 22,
   "history": [
    {
     "day": "2026-11-16",
@@ -876,22 +876,22 @@
    }
   ],
   "posts_24h": 4,
-  "last_post": "2026-11-19T22:28+00:00"
+  "last_post": "2026-11-20T18:37+00:00"
  },
  "wild": {
-  "at": "2026-11-20T12:17+00:00",
+  "at": "2026-11-20T22:17+00:00",
   "done": [],
   "problems": [],
   "name": "Wild Nations",
-  "followers": 4,
+  "followers": 5,
   "insights_28d": {},
-  "posts_28d": 23,
+  "posts_28d": 26,
   "eng_28d": 12,
   "eng_avg": 0.5,
   "best_hours_pk": [
    22,
-   1,
-   18
+   4,
+   1
   ],
   "top_posts": [
    {
@@ -913,7 +913,7 @@
     "at": "18 Nov 06:09"
    }
   ],
-  "low_posts": 18,
+  "low_posts": 21,
   "history": [
    {
     "day": "2026-11-16",
@@ -936,21 +936,21 @@
    },
    {
     "day": "2026-11-20",
-    "followers": 4,
+    "followers": 5,
     "eng_28d": 12
    }
   ],
   "posts_24h": 5,
-  "last_post": "2026-11-20T11:07+00:00"
+  "last_post": "2026-11-20T20:07+00:00"
  },
  "faizi": {
-  "at": "2026-11-20T12:17+00:00",
+  "at": "2026-11-20T22:17+00:00",
   "done": [],
   "problems": [],
   "name": "Style by Faizi",
   "followers": 2,
   "insights_28d": {},
-  "posts_28d": 20,
+  "posts_28d": 24,
   "eng_28d": 4,
   "eng_avg": 0.2,
   "best_hours_pk": [
@@ -978,7 +978,7 @@
     "at": "18 Nov 04:03"
    }
   ],
-  "low_posts": 17,
+  "low_posts": 21,
   "history": [
    {
     "day": "2026-11-16",
@@ -1006,6 +1006,6 @@
    }
   ],
   "posts_24h": 5,
-  "last_post": "2026-11-20T01:08+00:00"
+  "last_post": "2026-11-20T21:48+00:00"
  }
 }

@@ -1,103 +1,110 @@
 {
  "islamic": {
-  "avoid": [
-   "value of time theme",
-   "Jannah and how to reach it topics"
-  ],
+  "avoid": [],
   "try": [
-   "Bilal ibn Rabah ki migration ke dauran chhupi hui khidmat ka kahani",
-   "Umar ibn al-Khattab ki adal o insaf ki kahani se sabak",
-   "Sha'ban ke mahine ki fazail aur recommended deeds",
-   "Aaj ke Muslim naujawan ki mushkilaat aur duaa se kamyabi ki kahani",
-   "Qamar ka split hone ka karishma aur uska sabak",
-   "Bimaar ya ghayab shuda logon ki dekhbhal ka adab aur ahadith"
+   "Prophet Yusuf's patience in prison (Quranic story)",
+   "The splitting of the moon miracle of Prophet Muhammad",
+   "Companion Bilal's perseverance during persecution",
+   "Umar's night charity during Ramadan (sadaqah)",
+   "The Prophet's kindness to his cat Muezza",
+   "Night dhikr story: Ayat al-Kursi saving a traveler"
   ],
-  "note": "Page bohat repetitive lag rahi hai."
+  "note": "Page thodi repetitive hai, kai topics bar bar dohraye ja rahe hain."
  },
  "funny": {
   "avoid": [
-   "remote control fight/lost TV remote",
-   "ماجد بریک اور رکشے کا عذاب series",
-   "پریشان بلی نے پورے خاندان کو نوکر بنایا",
-   "پریشان بلی کا انٹرویو"
+   "remote control fight",
+   "lost TV remote",
+   "Eid shopping",
+   "online shopping",
+   "salary day",
+   "pigeon / kabootar baazi",
+   "rickshaw / Careem bargaining",
+   "family WhatsApp group forwards"
   ],
   "try": [
-   "نیا موبائل ڈیٹا پلان اور بِلنگ کا ڈرامہ",
-   "کچن میں ایئر فرائیر پہلی بار استعمال اور دھواں کا ہنگامہ",
-   "آن لائن کلاس میں استاد کی ٹیکنیکل گڑبڑ اور طلباء کی چیٹ",
-   "پڑوس کے سائیکل سوار اور ٹریفک پولیس کا ٹکراؤ",
-   "گھر کے باہر نئی سائن بورڈ پر ہنسی مذاق کی تنقید",
-   "واٹس ایپ گروپ میں فیک نیوز کا پھیلاؤ اور ردعمل"
+   "electricity outage during a family dinner",
+   "smartphone app causing confusion in family",
+   "microwave cooking mishap during biryani preparation",
+   "neighbor's new baby causing chaos",
+   "online grocery delivery delay causing panic",
+   "family's treadmill mishap during home workout"
   ],
-  "note": "Page thodi repetitive lag rahi hai."
+  "note": "Page ka content thoda repetitive lag raha hai."
  },
  "world": {
   "avoid": [
-   "What Nobody Tells You",
    "Retiring in",
-   "Australia",
    "Japan"
   ],
   "try": [
-   "Living in Iceland: Cost, Safety & Daily Life",
-   "Moving to Estonia: Hidden Benefits for Digital Nomads",
-   "Retiring in Malaysia: Healthcare & Lifestyle in 2025",
-   "Uruguay vs Paraguay: Which South American Country Suits Expats Better?",
-   "Exploring Malta: History, Culture & Affordable Living",
-   "Living in Kenya: Safety, Jobs & Urban Life"
+   "Living in Iceland – Cost of Living, Jobs, Safety & Lifestyle",
+   "Retiring in Belize – What Nobody Tells You About Living Here",
+   "What Nobody Tells You About Living in New Zealand's South Island",
+   "Moving to Uruguay – Cost of Living, Safety & Culture",
+   "What Living in Kenya Is Really Like (Cost, Jobs & Quality)",
+   "Dubai vs UAE – Cost, Culture, Safety & Lifestyle Explained"
   ],
-  "note": "Page thodi repetitive lag rahi hai."
+  "note": "Page bohat repetitive hai."
  },
  "world_short": {
   "avoid": [
-   "Switzerland",
    "Kenya",
-   "South Korea"
+   "South Korea",
+   "Australia",
+   "Would You Live in..."
   ],
   "try": [
-   "Japan vs Vietnam: Daily Expenses & Street Food Battle",
-   "5 Underrated Beaches in Thailand You Can Actually Afford",
-   "The Real Cost of Renting a Studio in Lisbon vs Barcelona",
-   "3 Weird Local Laws in Brazil That Tourists Break",
-   "Hidden Cafes in Tokyo: Where Locals Actually Go",
-   "Living in Bali vs Chiang Mai: A 30-Day Reality Check"
+   "Japan (excluding Kyoto)",
+   "France",
+   "Brazil",
+   "Vietnam",
+   "Scotland",
+   "Iceland"
   ],
-  "note": "Page is highly repetitive with the same 5-6 title formats and country comparisons."
+  "note": "Page thori repetitive hogayi hai kyunki last posts mein repeated countries aur cost of living formats bar bar aa rahe hain."
  },
  "frames": {
   "avoid": [
    "Dubai",
-   "London",
-   "Canada Life",
-   "Australia Life"
+   "United Kingdom",
+   "Turkey",
+   "Canada",
+   "Germany",
+   "Japan"
   ],
   "try": [
-   "South Africa mein Pakistani ki zindagi aur jobs",
-   "UAE mein business kaise shuru karein (Free Zone Guide)",
-   "Poland mein Pakistani workers ki haqeeqat",
-   "Singapore mein high-skilled jobs aur tax benefits",
-   "Turkey mein medical tourism aur permanent residency"
+   "South Africa mein Pakistaniyon ki zindagi aur karobar",
+   "South Korea mein taleem aur scholarships ka mukammal tarika",
+   "Thailand ka safar aur Pakistani tourists ke liye sahulatein",
+   "Mauritius mein job aur visa ki haqeeqat",
+   "Oman mein mazdoor aur professionals ki monthly income",
+   "Brazil ki sair aur wahan rehne wale Pakistaniyon ki kahaniyan"
   ],
-  "note": "Page is repetitive with visa guides and major Western cities; needs more niche destinations and business-focused content."
+  "note": "Page kuch had tak countries aur visa guides ko bar bar repeat kar raha hai, naye mulk try karne ki zarurat hai."
  },
  "frames_short": {
-  "avoid": [],
-  "try": [
-   "Life in New Zealand: A Month in Auckland",
-   "Top 5 Street Foods in Bangkok, Thailand",
-   "Living in Toronto, Canada: Real Costs",
-   "Hidden Gems in Istanbul, Turkey",
-   "Job Market in Singapore for Pakistanis",
-   "60 Seconds in Paris, France"
+  "avoid": [
+   "Portugal",
+   "South Korea",
+   "United Kingdom"
   ],
-  "note": "Page is highly repetitive with specific formats like '60 seconds', '5 places', and 'cost of living'."
+  "try": [
+   "Norway / Oslo",
+   "New Zealand / Auckland",
+   "Vietnam / Hanoi",
+   "Turkey / Istanbul",
+   "Spain / Barcelona",
+   "Malaysia / Kuala Lumpur"
+  ],
+  "note": "Page thori repetitive ho rahi hai kyunkay pichlay posts mein baar baar Europe aur comparisons par focus kiya gaya hai."
  },
  "_platforms": {
   "islamic": {
    "posts": 10,
-   "facebook": 7,
+   "facebook": 6,
    "youtube": 10,
-   "tiktok": 6
+   "tiktok": 5
   },
   "funny": {
    "posts": 10,

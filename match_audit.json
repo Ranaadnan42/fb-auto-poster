@@ -1,34 +1,40 @@
 {
  "islamic": {
-  "video": "1715866100085590",
-  "at": "2026-11-20T08:07:09+0000",
-  "title": "",
-  "score": 20,
+  "video": "4729319433955858",
+  "at": "2026-11-20T16:17:00+0000",
+  "title": "کیا ایک عظیم حکمران خود آٹے کی بوری اٹھا سکتا ہے؟ 💔✨\n\nحضرت عمر رضی اللہ عنہ کی ز",
+  "score": 0,
   "checked": 5,
   "misses": [
    {
-    "t": 5.5,
+    "t": 4.5,
     "match": false,
-    "said": "definition of Tawakkul and a Hadith",
-    "shown": "a desert landscape with a vehicle"
+    "said": "a ruler feeling his people's pain",
+    "shown": "Islamic calligraphy of Allahu Akbar"
    },
    {
-    "t": 23.2,
+    "t": 69.9,
     "match": false,
-    "said": "Prophet Muhammad teaching a golden rule",
-    "shown": "Interior of a mosque with chandeliers"
+    "said": "inside a tent",
+    "shown": "a forest fire in the mountains"
    },
    {
-    "t": 28.1,
+    "t": 111.5,
     "match": false,
-    "said": "tie your camel and trust in Allah",
-    "shown": "text on a black background"
+    "said": "woman unaware of ruler of Medina",
+    "shown": "Al-Masjid an-Nabawi in Medina"
    },
    {
-    "t": 34.2,
+    "t": 176.8,
     "match": false,
-    "said": "lesson on effort and trusting God",
-    "shown": "a waterfall over mossy rocks"
+    "said": "a heavy sack",
+    "shown": "a tent and campfire in winter"
+   },
+   {
+    "t": 233.1,
+    "match": false,
+    "said": "a great historical event",
+    "shown": "interior of a mosque"
    }
   ],
   "history": [
@@ -47,50 +53,48 @@
    {
     "day": "2026-11-20",
     "score": 20
+   },
+   {
+    "day": "2026-11-20",
+    "score": 0
    }
   ],
-  "avg": 20,
+  "avg": 16,
   "lessons": [
-   "said \"like this video\" but showed \"silhouette of a mosque at sunset\"",
-   "said \"someone thinking about resting\" but showed \"a starry galaxy background\"",
-   "said \"a grave in a desolate place\" but showed \"a dark beach at night\"",
-   "said \"a small habit for afterlife ease\" but showed \"mosque domes and construction scaffolding\"",
-   "said \"definition of Tawakkul and a Hadith\" but showed \"a desert landscape with a vehicle\"",
    "said \"Prophet Muhammad teaching a golden rule\" but showed \"Interior of a mosque with chandeliers\"",
    "said \"tie your camel and trust in Allah\" but showed \"text on a black background\"",
-   "said \"lesson on effort and trusting God\" but showed \"a waterfall over mossy rocks\""
+   "said \"lesson on effort and trusting God\" but showed \"a waterfall over mossy rocks\"",
+   "said \"a ruler feeling his people's pain\" but showed \"Islamic calligraphy of Allahu Akbar\"",
+   "said \"inside a tent\" but showed \"a forest fire in the mountains\"",
+   "said \"woman unaware of ruler of Medina\" but showed \"Al-Masjid an-Nabawi in Medina\"",
+   "said \"a heavy sack\" but showed \"a tent and campfire in winter\"",
+   "said \"a great historical event\" but showed \"interior of a mosque\""
   ]
  },
  "funny": {
-  "video": "1713284453530720",
-  "at": "2026-11-20T08:33:07+0000",
-  "title": "",
-  "score": 20,
+  "video": "3232065713665036",
+  "at": "2026-11-20T15:33:00+0000",
+  "title": "فیملی واٹس ایپ گروپ میں غلط وائس نوٹ چلا جائے تو کیا ہوتا ہے؟ 🤦‍♂️😂\n\nاستاد ناصر ",
+  "score": 40,
   "checked": 5,
   "misses": [
    {
-    "t": 4.2,
+    "t": 3.3,
     "match": false,
-    "said": "younger brother waiting at sweet shop",
-    "shown": "busy city street with traffic"
+    "said": "Ustad Nasir sent wrong voice note",
+    "shown": "Two cartoon characters sitting at a table"
    },
    {
-    "t": 14.1,
+    "t": 195.4,
     "match": false,
-    "said": "Diet conscious cousin squeezing oil from puri",
-    "shown": "Plate of puris and potato curry"
+    "said": "Uncle Rahim sending a picture of stick",
+    "shown": "A cartoon character running"
    },
    {
-    "t": 25.6,
+    "t": 262.4,
     "match": false,
-    "said": "person licking a bowl clean",
-    "shown": "chickpea curry on a flatbread"
-   },
-   {
-    "t": 34.2,
-    "match": false,
-    "said": "person eating halwa secretly",
-    "shown": "a blurry outdoor nature scene"
+    "said": "adding Chacha Rahim to a group",
+    "shown": "a cartoon character looking confused"
    }
   ],
   "history": [
@@ -109,46 +113,31 @@
    {
     "day": "2026-11-20",
     "score": 20
+   },
+   {
+    "day": "2026-11-20",
+    "score": 40
    }
   ],
-  "avg": 30,
+  "avg": 32,
   "lessons": [
-   "said \"mother waking up for suhoor\" but showed \"man playing an accordion\"",
-   "said \"person jumping out of bed to kitchen\" but showed \"an alarm clock\"",
-   "said \"eating a hot paratha quickly\" but showed \"a woman speaking into a microphone\"",
    "said \"drinking two liters of cold water\" but showed \"a scenic river landscape with trees\"",
    "said \"younger brother waiting at sweet shop\" but showed \"busy city street with traffic\"",
    "said \"Diet conscious cousin squeezing oil from puri\" but showed \"Plate of puris and potato curry\"",
    "said \"person licking a bowl clean\" but showed \"chickpea curry on a flatbread\"",
-   "said \"person eating halwa secretly\" but showed \"a blurry outdoor nature scene\""
+   "said \"person eating halwa secretly\" but showed \"a blurry outdoor nature scene\"",
+   "said \"Ustad Nasir sent wrong voice note\" but showed \"Two cartoon characters sitting at a table\"",
+   "said \"Uncle Rahim sending a picture of stick\" but showed \"A cartoon character running\"",
+   "said \"adding Chacha Rahim to a group\" but showed \"a cartoon character looking confused\""
   ]
  },
  "frames": {
-  "video": "1605505454228783",
-  "at": "2026-11-20T08:17:50+0000",
-  "title": "",
-  "score": 40,
+  "video": "1145451571613682",
+  "at": "2026-11-20T17:07:40+0000",
+  "title": "🇹🇷 ترکی میں ڈاکٹر بنیں، اعلیٰ آمدنی کے ساتھ! 💰\n\nپاکستانی ڈاکٹرز کے لیے best coun",
+  "score": 100,
   "checked": 5,
-  "misses": [
-   {
-    "t": 4.0,
-    "match": false,
-    "said": "Lisbon fish market",
-    "shown": "cooked lobster dish"
-   },
-   {
-    "t": 30.9,
-    "match": false,
-    "said": "park area and local artists displaying paintings",
-    "shown": "a large tree in a forest"
-   },
-   {
-    "t": 43.1,
-    "match": false,
-    "said": "Cafe Serene and its bakery discount",
-    "shown": "whisking yellow batter in a bowl"
-   }
-  ],
+  "misses": [],
   "history": [
    {
     "day": "2026-11-18",
@@ -165,9 +154,13 @@
    {
     "day": "2026-11-20",
     "score": 40
+   },
+   {
+    "day": "2026-11-20",
+    "score": 100
    }
   ],
-  "avg": 72,
+  "avg": 77,
   "lessons": [
    "said \"Over one hundred restaurants and cafes\" but showed \"Cityscape under a cloudy sunset sky\"",
    "said \"request to comment and subscribe\" but showed \"map of China\"",
@@ -239,29 +232,17 @@
   ]
  },
  "birds": {
-  "video": "3623090104518813",
-  "at": "2026-11-19T21:17:13+0000",
+  "video": "1741026424046657",
+  "at": "2026-11-20T21:17:26+0000",
   "title": "",
-  "score": 40,
+  "score": 80,
   "checked": 5,
   "misses": [
    {
-    "t": 3.1,
+    "t": 2.8,
     "match": false,
-    "said": "bird sunbathing flat on ground",
-    "shown": "hoopoe bird perched on a branch"
-   },
-   {
-    "t": 46.2,
-    "match": false,
-    "said": "Bird beating insect against stones",
-    "shown": "Blurred outdoor background with text overlay"
-   },
-   {
-    "t": 54.2,
-    "match": false,
-    "said": "female bird incubating in a nest",
-    "shown": "hoopoe bird foraging on the ground"
+    "said": "ducklings leaping from tree nests",
+    "shown": "an adult duck swimming in water"
    }
   ],
   "history": [
@@ -272,23 +253,35 @@
    {
     "day": "2026-11-19",
     "score": 40
+   },
+   {
+    "day": "2026-11-20",
+    "score": 80
    }
   ],
-  "avg": 60,
+  "avg": 67,
   "lessons": [
    "said \"frogs and grass seeds for food\" but showed \"close-up of a crowned crane\"",
    "said \"bird sunbathing flat on ground\" but showed \"hoopoe bird perched on a branch\"",
    "said \"Bird beating insect against stones\" but showed \"Blurred outdoor background with text overlay\"",
-   "said \"female bird incubating in a nest\" but showed \"hoopoe bird foraging on the ground\""
+   "said \"female bird incubating in a nest\" but showed \"hoopoe bird foraging on the ground\"",
+   "said \"ducklings leaping from tree nests\" but showed \"an adult duck swimming in water\""
   ]
  },
  "pets": {
-  "video": "1158962869832923",
-  "at": "2026-11-19T22:27:12+0000",
+  "video": "1637440314788255",
+  "at": "2026-11-20T16:07:11+0000",
   "title": "",
-  "score": 100,
-  "checked": 4,
-  "misses": [],
+  "score": 80,
+  "checked": 5,
+  "misses": [
+   {
+    "t": 45.5,
+    "match": false,
+    "said": "brushing dog coat to manage shedding",
+    "shown": "person walking outdoors on a path"
+   }
+  ],
   "history": [
    {
     "day": "2026-11-18",
@@ -301,27 +294,32 @@
    {
     "day": "2026-11-19",
     "score": 100
+   },
+   {
+    "day": "2026-11-20",
+    "score": 80
    }
   ],
   "avg": 80,
   "lessons": [
    "said \"an elegant poodle\" but showed \"a border collie puppy\"",
    "said \"dogs in police and rescue work\" but showed \"veterinarian examining a dog's ear\"",
-   "said \"Louis Doberman breeding a protective dog\" but showed \"text on screen displaying Dobermann\""
+   "said \"Louis Doberman breeding a protective dog\" but showed \"text on screen displaying Dobermann\"",
+   "said \"brushing dog coat to manage shedding\" but showed \"person walking outdoors on a path\""
   ]
  },
  "wild": {
-  "video": "2578111736006696",
-  "at": "2026-11-19T23:47:00+0000",
-  "title": "Russia's rarest giants are making a comeback! 🇷🇺🐾\n\n🌍 Country: Russia\n\n📚 Source: ",
+  "video": "1533539868610516",
+  "at": "2026-11-20T20:07:12+0000",
+  "title": "",
   "score": 80,
   "checked": 5,
   "misses": [
    {
-    "t": 138.2,
+    "t": 12.1,
     "match": false,
-    "said": "silent movement of Eurasian lynx",
-    "shown": "title card with text Eurasian Lynx"
+    "said": "Dense pine forests and rocky desert canyons",
+    "shown": "Rear view of a cougar in brush"
    }
   ],
   "history": [
@@ -340,25 +338,36 @@
    {
     "day": "2026-11-20",
     "score": 80
+   },
+   {
+    "day": "2026-11-20",
+    "score": 80
    }
   ],
-  "avg": 95,
+  "avg": 92,
   "lessons": [
-   "said \"silent movement of Eurasian lynx\" but showed \"title card with text Eurasian Lynx\""
+   "said \"silent movement of Eurasian lynx\" but showed \"title card with text Eurasian Lynx\"",
+   "said \"Dense pine forests and rocky desert canyons\" but showed \"Rear view of a cougar in brush\""
   ]
  },
  "news": {
-  "video": "2233466450882916",
-  "at": "2026-11-20T08:46:00+0000",
-  "title": "",
-  "score": 80,
-  "checked": 5,
+  "video": "1468010092148680",
+  "at": "2026-11-20T21:20:04+0000",
+  "title": "US considers ban on overseas AI data centres 🚨💻\n\nFrom proposed bans on overseas ",
+  "score": 50,
+  "checked": 4,
   "misses": [
    {
-    "t": 12.7,
+    "t": 131.3,
     "match": false,
-    "said": "Conservative mayoral candidate selection",
-    "shown": "Westminster Palace and Westminster Bridge"
+    "said": "Alcaraz wearing something on court",
+    "shown": "The national flag of Italy"
+   },
+   {
+    "t": 192.7,
+    "match": false,
+    "said": "a woman not mad at the president",
+    "shown": "the interior dome of the US Capitol"
    }
   ],
   "history": [
@@ -377,16 +386,22 @@
    {
     "day": "2026-11-20",
     "score": 80
+   },
+   {
+    "day": "2026-11-20",
+    "score": 50
    }
   ],
-  "avg": 30,
+  "avg": 34,
   "lessons": [
    "said \"international tech disruptions and space milestones\" but showed \"vintage television studio cameras\"",
    "said \"Apple and air traffic authorities\" but showed \"United States flag\"",
    "said \"establishing strict operational standards\" but showed \"The Royal Courts of Justice building\"",
    "said \"Anthropic valued at 1.5 trillion dollars\" but showed \"Modern skyscrapers in a city skyline\"",
    "said \"Environment Secretary and Natural England\" but showed \"flock of birds flying over water\"",
-   "said \"Conservative mayoral candidate selection\" but showed \"Westminster Palace and Westminster Bridge\""
+   "said \"Conservative mayoral candidate selection\" but showed \"Westminster Palace and Westminster Bridge\"",
+   "said \"Alcaraz wearing something on court\" but showed \"The national flag of Italy\"",
+   "said \"a woman not mad at the president\" but showed \"the interior dome of the US Capitol\""
   ]
  },
  "newsur": {
