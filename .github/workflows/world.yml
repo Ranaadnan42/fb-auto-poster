@@ -112,7 +112,7 @@ jobs:
       - name: Save history
         if: always()
         run: |
-          FILES=$(ls world_*_history.json world_*_last_run.json 2>/dev/null || true)
+          FILES=$(ls learn_*.json world_*_history.json world_*_last_run.json 2>/dev/null || true)
           [ -z "$FILES" ] && exit 0
           mkdir -p /tmp/keep
           for f in $FILES; do cp "$f" /tmp/keep/; done

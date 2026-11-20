@@ -98,6 +98,15 @@ REPORT = {"lang": LANG, "kind": "long" if LONG else "reel", "clips": 0, "fallbac
 USED = set()
 
 
+def _learned():
+    """Agent ki apni seekh (agent_learn.py): pichli ghaltiyan dobara nahi."""
+    try:
+        import agent_learn
+        return agent_learn.text("webbuilder")
+    except Exception:
+        return ""
+
+
 def log(m):
     print(m, flush=True)
 
@@ -206,7 +215,7 @@ def write_script(spot, used_titles):
                      "Say the WhatsApp number digit by digit.")
         lang_fields = ('"caption_ur": "3 line caption in Urdu script", '
                        '"caption_hi": "the same caption in Hindi (Devanagari script)"')
-    data = ask_json(f"""You make a promo video for the Facebook page "{PAGE_NAME}" - a team that builds
+    data = ask_json(f"""{_learned()}You make a promo video for the Facebook page "{PAGE_NAME}" - a team that builds
 websites, mobile apps, POS software and the AI AutoPilot system for businesses. Length: {shape}.
 {lang_rule}
 Use ONLY these facts (never invent discounts, guarantees or clients):

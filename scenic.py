@@ -62,6 +62,15 @@ REPORT = {"started": datetime.datetime.utcnow().isoformat(timespec="minutes"), "
 _DEAD = set()
 
 
+def _learned():
+    """Agent ki apni seekh (agent_learn.py): pichli ghaltiyan dobara nahi."""
+    try:
+        import agent_learn
+        return agent_learn.text("scenic")
+    except Exception:
+        return ""
+
+
 def log(m):
     print(f"[scenic] {m}", flush=True)
     REPORT["steps"].append(str(m)[:300])
@@ -408,7 +417,7 @@ def plan_next(h, avoid, scene=None):
              "views": p.get("views")} for p in posts[-40:] if p.get("views") is not None]
     perf.sort(key=lambda x: -x["views"])
     countries_recent = [p["country"] for p in posts[-12:]]
-    return think(f"""You run the Facebook page "{PAGE_NAME}": 30-40 second (5-7 shots of one place), ultra-beautiful, calm cinematic reels from
+    return think(f"""{_learned()}You run the Facebook page "{PAGE_NAME}": 30-40 second (5-7 shots of one place), ultra-beautiful, calm cinematic reels from
 EVERY country of the world. Page theme: Landscape, Nature, Outdoor, Photography - ultra-HD shots so beautiful people
 stop scrolling and stare. The owner wants EXACTLY the look of Swissaround / Patchara Photography /
 syifa_in_switzerland (10M-50M views): BRIGHT SUNNY DAYTIME, vivid green alpine meadows and valleys, blue sky with white
@@ -758,7 +767,7 @@ def post_photo(path, caption):
 # ---------------------------------------------------------------- LONG (3.5-4 min 4K-feel nature film)
 def plan_long(h, avoid):
     done = [p["country"] for p in h["posts"] if p.get("kind") == "long"]
-    return think(f"""You run "{PAGE_NAME}" (Landscape, Nature, Outdoor, Photography; ultra-HD). Plan today's LONG video:
+    return think(f"""{_learned()}You run "{PAGE_NAME}" (Landscape, Nature, Outdoor, Photography; ultra-HD). Plan today's LONG video:
 a calm ~6 minute cinematic nature film of ONE country ("Norway in 4K - Relaxing Nature Film" style) - 26 different
 breathtaking natural places of that country (each place gets 2 different clips, every clip shows ~7 seconds), no narration, only music. LOOK: bright sunny summer, vivid green
 valleys and meadows, blue sky, turquoise water, waterfalls, green villages (like Swissaround) - no night/fog/gloom;

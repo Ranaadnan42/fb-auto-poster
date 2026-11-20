@@ -123,6 +123,15 @@ os.makedirs(WORK, exist_ok=True)
 REPORT = {"images_ai": 0, "images_backup": 0, "images_failed": 0, "errors": []}
 
 
+def _learned():
+    """Agent ki apni seekh (agent_learn.py): pichli ghaltiyan dobara nahi."""
+    try:
+        import agent_learn
+        return agent_learn.text("cinematic")
+    except Exception:
+        return ""
+
+
 def log(msg):
     print(f"[{datetime.datetime.utcnow():%H:%M:%S}] {msg}", flush=True)
 
@@ -319,7 +328,7 @@ person, YouTuber, channel or brand, or are about news, politics or real tragedie
                 "comments.').")
     search_field = (',\n "search_phrase": "the exact real search phrase from the list you used, or empty"'
                     if searches else "")
-    data = ask_json(f"""You write viral cinematic story shorts (like AI movie-style YouTube Shorts).
+    data = ask_json(f"""{_learned()}You write viral cinematic story shorts (like AI movie-style YouTube Shorts).
 World / setting: {st['world']}
 {series_txt}
 

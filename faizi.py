@@ -73,6 +73,15 @@ N = {"pic": 4, "reel": 6, "long": 12}[MODE]
 W, H = {"pic": (1080, 1350), "reel": (1080, 1920), "long": (1920, 1080)}[MODE]
 
 
+def _learned():
+    """Agent ki apni seekh (agent_learn.py): pichli ghaltiyan dobara nahi."""
+    try:
+        import agent_learn
+        return agent_learn.text("faizi")
+    except Exception:
+        return ""
+
+
 def load_hist():
     try:
         return json.load(open(HIST_FILE, encoding="utf-8"))
@@ -97,7 +106,7 @@ def plan(h):
         trends = trend_scout.text("faizi")
     except Exception as e:
         log(f"trend research fail: {str(e)[:120]}")
-    d = news.ask_json(f"""You are the creative director of the fashion page "Style by Faizi". The page bio says:
+    d = news.ask_json(f"""{_learned()}You are the creative director of the fashion page "Style by Faizi". The page bio says:
 "Trending dress designs daily - Bridal - Party Wear - Lawn - Eid - Kurti". So EVERY design must be a LADIES (adult
 women's) outfit from these bio categories ONLY: Bridal, Party Wear, Lawn, Eid, Kurti. No men's wear, no kids wear,
 no baby wear, nothing outside these categories. Viewers are in USA, UK, Canada, Europe, Australia and the Gulf

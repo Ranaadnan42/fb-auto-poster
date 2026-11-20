@@ -59,7 +59,8 @@ def main():
         src = os.path.join(keep, os.path.basename(f))
         if not os.path.isfile(src):
             continue
-        if "history" in os.path.basename(f) and f.endswith(".json") and os.path.isfile(f):
+        if ("history" in os.path.basename(f) or os.path.basename(f).startswith("learn_")) and f.endswith(".json") \
+                and os.path.isfile(f):
             try:
                 with open(src, encoding="utf-8") as a, open(f, encoding="utf-8") as b:
                     local, remote = json.load(a), json.load(b)

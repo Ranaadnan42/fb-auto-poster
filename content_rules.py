@@ -48,15 +48,11 @@ def winners(bot):
     if not page:
         return ""
     d = os.path.dirname(FILE)
-    try:
-        miss = (json.load(open(os.path.join(d, "match_audit.json"), encoding="utf-8")).get(page) or {}).get("lessons") or []
+    try:                                   # agent ki apni seekh + manager ka check (agent_learn.py)
+        import agent_learn
+        audit = agent_learn.text(page)
     except Exception:
-        miss = []
-    audit = ""
-    if miss:
-        audit = ("\nMANAGER'S CHECK OF OUR LAST VIDEOS - picture did NOT match the voice here (never repeat this; "
-                 "name an exact, filmable subject and use footage of exactly that):\n" +
-                 "\n".join(f"- {m}" for m in miss[-5:]) + "\n")
+        audit = ""
     try:
         p = json.load(open(os.path.join(d, "page_manager.json"), encoding="utf-8")).get(page) or {}
     except Exception:

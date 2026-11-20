@@ -198,6 +198,15 @@ def pick_war(h):
     raise RuntimeError("agli jang nahi mili")
 
 
+# ---------------------------------------------------------------- agent ki seekh (apni ghaltiyon se)
+def learn_from_run(h, war, real, total):
+    """Footage ke alfaaz news_video khud likhta hai (agent_learn); yahan sirf jang ki ghalti."""
+    import agent_learn
+    if total and real < 0.6 * total:
+        agent_learn.record(PAGE, mistake=f"'{war}': only {real}/{total} scenes had real footage - the narration "
+                                          f"talked about things that were never filmed")
+
+
 # ---------------------------------------------------------------- facts (Wikipedia)
 def _wiki(params):
     params.update({"format": "json", "formatversion": 2})
@@ -425,6 +434,9 @@ roughly the same length. Never invent facts. Return JSON {{"clip": index, "text"
     return None
 
 
+RUN_STATS = [0, 0]
+
+
 class NoFilm(RuntimeError):
     pass
 
@@ -480,6 +492,7 @@ def build_video(script, facts, used):
     if len(scenes) < max(3, len(script["scenes"]) // 2):
         raise RuntimeError("bohat se scenes nahi banay")
     log(f"asli footage wale scenes: {real}/{len(script['scenes'])}")
+    RUN_STATS[:] = [real, len(script["scenes"])]
     if real < 0.6 * len(script["scenes"]):      # aadhi video wohi 2-3 tasveerein = battles video nahi - post mat karo
         raise NoFilm(f"asli battle footage kam ({real}/{len(script['scenes'])} scenes)")
     nv.fix_cards()                     # likhe hue card ki jagah isi video ki asli clip
@@ -869,6 +882,7 @@ def main():
             break
         except NoFilm as e:
             log(f"{war}: {e} - ye jang skip, agli filmi jang")
+            learn_from_run(h, war, *RUN_STATS)
             h.setdefault("no_film", []).append(war)
             h[MODE].append({"war": war, "date": REPORT["time_utc"], "skipped": str(e)[:100]})
             h["country_n"] = max(0, h["country_n"] - 1)
@@ -893,6 +907,7 @@ def main():
         log(f"posted {meta['post_id']}")
         news.POSTS_LOG = "war_posts_history.json"
         news.log_post(PAGE, meta["post_id"], MODE, [war], meta["title"])
+    learn_from_run(h, war, *RUN_STATS)
     if DRY_RUN:
         log("dry run - history mein darj nahi (jang agli dafa asli post hogi)")
         REPORT["dry"] = meta

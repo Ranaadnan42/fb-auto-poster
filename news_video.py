@@ -250,7 +250,33 @@ def _render_clip(raw, secs, out, flip=False, max_start=None):
 TRUSTED_TAGS = ("pixabay", "pexels", "mixkit")      # in ke tags insaan ne lagaye - lafz-match par bharosa
 
 
+LEARN = {"ok": [], "fail": []}     # agent ki seekh: kaun se alfaaz se asli footage mili, kaun se se kabhi nahi
+
+
+def _save_learn():
+    try:
+        import agent_learn
+        page = os.environ.get("AGENT_PAGE") or ""
+        if page and (LEARN["ok"] or LEARN["fail"]):
+            agent_learn.record(page, LEARN["ok"], LEARN["fail"])
+    except Exception:
+        pass
+
+
+import atexit as _atexit  # noqa: E402
+_atexit.register(_save_learn)
+
+
 def get_clip(term, secs, out, used, said="", kind="news"):
+    ok = _get_clip(term, secs, out, used, said, kind)
+    try:
+        (LEARN["ok"] if ok else LEARN["fail"]).append(term)
+    except Exception:
+        pass
+    return ok
+
+
+def _get_clip(term, secs, out, used, said="", kind="news"):
     """AGENT: har clip ke frames AI dekhta hai - sirf wohi lagti hai jo waqai boli ja rahi cheez dikhaye.
     Pehle video (dunya bhar ki free sites), na mile to asli photo. Be-taalluq clip kabhi nahi."""
     if late():
