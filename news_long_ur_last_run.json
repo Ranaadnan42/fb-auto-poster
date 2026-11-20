@@ -1,24 +1,23 @@
 {
- "time_utc": "2026-11-19 22:38",
+ "time_utc": "2026-11-20 15:10",
  "kind": "long",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "sports": {
-   "date": "2026-11-19 22:38",
+   "date": "2026-11-20 15:10",
    "kind": "long",
    "lang": "ur",
-   "title": "یو ایف سی قطر میں دھماکے دار ایونٹ کے لیے تیار",
-   "dur": 708,
-   "post_id": "3029340517401639"
+   "title": "ورلڈ اسپورٹس بلیٹن: کرکٹ، ایف ون اور فٹ بال کی اہم اپ ڈیٹس",
+   "dur": 260,
+   "post_id": "1852560219087886"
   }
  },
  "errors": [],
- "agent_checks": 348,
- "agent_rejects": 320,
- "agent_skips": 530,
- "clips_rejected": 846,
- "alt_searches": 14,
- "tag_pass": 2,
+ "agent_checks": 126,
+ "agent_rejects": 113,
+ "agent_skips": 297,
+ "clips_rejected": 408,
+ "alt_searches": 13,
  "time_budget_hit": true
 }
