@@ -1,22 +1,30 @@
 {
- "time_utc": "2026-11-20 04:09",
+ "time_utc": "2026-11-19 19:32",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-20 04:09",
+   "date": "2026-11-19 19:32",
    "kind": "reel",
    "lang": "en",
-   "title": "UK and EU Plan Talks on Rejected Asylum Seekers",
-   "dur": 54,
-   "post_id": "1167581759058316"
+   "title": "Rare One Horned Rhino Takes First Steps at Zoo",
+   "dur": 53,
+   "post_id": "1153402430674052"
+  },
+  "sports": {
+   "date": "2026-11-19 19:32",
+   "kind": "reel",
+   "lang": "en",
+   "title": "Mateska Nguyen Azavedo Earn Big Ten Volleyball Honors",
+   "dur": 55,
+   "post_id": "1129184003151565"
   }
  },
  "errors": [],
- "clips_rejected": 138,
- "agent_checks": 140,
- "agent_rejects": 136,
+ "agent_checks": 96,
+ "agent_rejects": 81,
  "agent_skips": 0,
- "alt_searches": 1
+ "clips_rejected": 84,
+ "alt_searches": 2
 }

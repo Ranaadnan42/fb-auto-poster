@@ -1,21 +1,22 @@
 {
- "time_utc": "2026-11-20 04:02",
+ "time_utc": "2026-11-18 12:50",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-20 04:02",
+   "date": "2026-11-18 12:50",
    "kind": "reel",
    "lang": "ur",
-   "title": "بی بی سی میں کٹوتیوں کا نیا مرحلہ",
-   "dur": 63,
-   "post_id": "1693208429046760"
+   "title": "سعودی اسٹاک مارکیٹ میں مندی، تداول انڈیکس نیچے آگیا",
+   "dur": 60,
+   "post_id": "1690416225953097"
   }
  },
  "errors": [],
- "clips_rejected": 11,
- "agent_checks": 19,
- "agent_rejects": 11,
- "agent_skips": 0
+ "agent_checks": 42,
+ "agent_rejects": 33,
+ "agent_skips": 0,
+ "clips_rejected": 33,
+ "alt_searches": 3
 }

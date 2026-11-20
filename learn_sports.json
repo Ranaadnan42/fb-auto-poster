@@ -4,8 +4,28 @@
   "volleyball net indoor court": 1,
   "volleyball players huddle": 1,
   "volleyball indoor arena": 1,
-  "volleyball player celebration": 1
+  "volleyball player celebration": 1,
+  "basketball hoop": 1,
+  "Target Center Minneapolis": 1,
+  "basketball court action": 1
  },
- "bad": {},
+ "bad": {
+  "basketball dunk arena": 2,
+  "basketball crowd cheering": 2,
+  "NY Knicks basketball": 1,
+  "Knicks Timberwolves game": 1,
+  "NBA game Minneapolis": 1,
+  "basketball game arena": 3,
+  "basketball dunk": 3,
+  "basketball jump shot": 3,
+  "fadeaway jumper": 2,
+  "three point shot": 2,
+  "mid range jump shot": 2,
+  "pull up jumper": 2,
+  "basketball free throw": 1,
+  "basketball dribbling": 1,
+  "New York Knicks basketball": 1,
+  "Madison Square Garden basketball": 1
+ },
  "mistakes": []
 }
