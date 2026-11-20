@@ -1,24 +1,25 @@
 {
- "time_utc": "2026-11-19 21:47",
+ "time_utc": "2026-11-20 14:40",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
  "images": {
-  "rejected": 8,
-  "pollinations": 18
+  "rejected": 34,
+  "mixkit": 1,
+  "pixabay": 5
  },
  "posted": {
   "mode": "reel",
-  "theme": "Iridescent Autumn Luxe",
+  "theme": "Emerald Elegance Fusion",
   "designs": [
-   "Copper Sheen Bridal Anarkali",
-   "Midnight Plum Party Sharara",
-   "Sunset Amber Lawn Ensemble",
-   "Pearl White Eid Chiffon Gharara",
-   "Sage Green Kurti Fusion",
-   "Royal Sapphire Bridal Gown"
+   "Hidden Portrait Outfit",
+   "Champagne Satin Maxi Gown",
+   "No Outfit Visible",
+   "Sage Green Crepe Co‑ord Set",
+   "Chocolate Brown Velvet Gown",
+   "No Outfit Visible"
   ],
-  "date": "2026-11-19 21:47",
-  "post_id": "1874692290399257"
+  "date": "2026-11-20 14:40",
+  "post_id": "1506664544702787"
  }
 }

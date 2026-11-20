@@ -17,16 +17,24 @@
   "champagne gold lawn suit": 1,
   "emerald green satin gown": 1,
   "sage green georgette anarkali": 1,
-  "woman anarkali dress": 1
+  "woman anarkali dress": 1,
+  "bride lehenga": 1,
+  "woman satin maxi dress": 1,
+  "midnight burgundy anarkali": 1,
+  "sage green crepe blazer": 1,
+  "chocolate brown velvet gown": 1,
+  "saffron gold lawn suit": 1
  },
  "bad": {
   "silk anarkali dress": 1,
   "women silver embroidered gown": 1,
   "midnight blue anarkali": 1,
-  "emerald velvet sharara": 1,
+  "emerald velvet sharara": 2,
   "woman embroidered kurta": 1,
   "woman velvet evening gown": 1,
-  "emerald anarkali portrait": 1
+  "emerald anarkali portrait": 1,
+  "woman velvet anarkali": 1,
+  "emerald sharara set": 1
  },
  "mistakes": []
 }
