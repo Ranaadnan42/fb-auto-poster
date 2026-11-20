@@ -1,30 +1,30 @@
 {
- "time_utc": "2026-11-19 01:17",
+ "time_utc": "2026-11-20 00:28",
  "mode": "long",
  "dry_run": false,
  "errors": [],
  "images": {
-  "rejected": 13,
-  "pollinations": 25
+  "rejected": 18,
+  "groq_checks": 1,
+  "pixabay": 11
  },
  "posted": {
   "mode": "long",
-  "theme": "Midnight Luxe Party Wear",
+  "theme": "Jewel-Tone Winter Elegance",
   "designs": [
-   "Midnight Sapphire Gown",
-   "Espresso Velvet Sharara Set",
-   "Cherry Red Slip Dress",
-   "Forest Green Crepe Kurti",
-   "Champagne Gold Embellished Lawn Suit",
-   "Silver Moonlit Anarkali",
-   "Black Velvet Bridal Gown",
-   "Champagne Silk Kaftan",
-   "Midnight Blue Structured Co‑ord",
-   "Emerald Green Velvet Sharara",
-   "Rose Gold Satin Slip Kurti",
-   "Winter White Lace Abaya"
+   "Emerald Velvet Sharara Set",
+   "No Outfit Visible",
+   "Sage Green Organza Anarkali",
+   "Burgundy Velvet Evening Gown",
+   "No Outfit Present",
+   "Midnight Navy Silk Maxi Dress",
+   "Terracotta Embroidered Kaftan",
+   "Chocolate Brown Velvet Cocktail Dress",
+   "Champagne Gold Lawn Suit",
+   "Emerald Green Satin Gown",
+   "Sage Green Georgette Anarkali"
   ],
-  "date": "2026-11-19 01:17",
-  "post_id": "1178463471419849"
+  "date": "2026-11-20 00:28",
+  "post_id": "2982660415449484"
  }
 }
