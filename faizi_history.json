@@ -507,6 +507,10 @@
   {
    "name": "Sage Green Georgette Anarkali",
    "date": "2026-11-20 00:28"
+  },
+  {
+   "name": "Azure Floral Embroidered Dress",
+   "date": "2026-11-20 11:27"
   }
  ],
  "posts": [
@@ -800,6 +804,15 @@
    ],
    "date": "2026-11-20 00:28",
    "post_id": "2982660415449484"
+  },
+  {
+   "mode": "pic",
+   "theme": "Emerald Elegance Fusion",
+   "designs": [
+    "Azure Floral Embroidered Dress"
+   ],
+   "date": "2026-11-20 11:27",
+   "post_id": "1433458693190419_122099902317555703"
   }
  ],
  "used": [
@@ -819,6 +832,7 @@
   "px209017",
   "px35566",
   "px321952",
-  "px197946"
+  "px197946",
+  "pxi6954569"
  ]
 }

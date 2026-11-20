@@ -1,21 +1,20 @@
 {
- "time_utc": "2026-11-19 18:21",
+ "time_utc": "2026-11-20 11:27",
  "mode": "pic",
  "dry_run": false,
  "errors": [],
  "images": {
-  "rejected": 7,
-  "pollinations": 10
+  "rejected": 23,
+  "groq_checks": 1,
+  "pixabay": 1
  },
  "posted": {
   "mode": "pic",
-  "theme": "Mulberry & Metallic Winter Soirée",
+  "theme": "Emerald Elegance Fusion",
   "designs": [
-   "Burnished Copper Tissue Gharara",
-   "Frost Blue Crystal Peshwas",
-   "Antique Gold Brocade Kaftan Kurti"
+   "Azure Floral Embroidered Dress"
   ],
-  "date": "2026-11-19 18:21",
-  "post_id": "1433458693190419_122099297853555703"
+  "date": "2026-11-20 11:27",
+  "post_id": "1433458693190419_122099902317555703"
  }
 }
