@@ -37,7 +37,9 @@
   "ice hockey game action": 1,
   "ice hockey skates": 1,
   "Las Vegas Grand Prix": 2,
-  "formula 1 grand prix": 1
+  "formula 1 grand prix": 1,
+  "Sheikh Zayed Cricket Stadium": 1,
+  "Zayed Cricket Stadium Abu Dhabi": 3
  },
  "bad": {
   "basketball dunk arena": 2,
@@ -126,12 +128,12 @@
   "Yarra Park stadium": 1,
   "MCG aerial view": 1,
   "Melbourne sports precinct": 1,
-  "cricket batsman shot": 1,
+  "cricket batsman shot": 11,
   "Baggy Green caps": 1,
   "Yellow cricket uniform": 1,
   "Cricket huddle Australia": 1,
   "Melbourne Cricket Ground": 1,
-  "cricket stadium crowd": 1,
+  "cricket stadium crowd": 9,
   "Dubai cricket stadium fans": 1,
   "Sharjah cricket stadium crowd": 1,
   "Pakistan cricket fans cheering": 1,
@@ -141,7 +143,26 @@
   "Potting snooker balls": 1,
   "Chalking cue tip": 1,
   "London snooker club": 1,
-  "snooker table action": 1
+  "snooker table action": 1,
+  "cricket boundary shot": 1,
+  "cricket stadium lights": 1,
+  "cricket fast bowler bowling": 3,
+  "cricket six shot": 4,
+  "cricket celebration player": 4,
+  "UAE T10 cricket match": 4,
+  "cricket batsman hitting six": 4,
+  "UAE cricket stadium action": 4,
+  "T10 league batting highlights": 4,
+  "cricket ball bowler": 7,
+  "cricket match highlights": 2,
+  "UAE T20 cricket match": 2,
+  "batsman scoring half century": 2,
+  "cricket match UAE stadium": 2,
+  "wicket celebration cricket": 2,
+  "pakistan cricket fans stadium": 1,
+  "lahore cricket stadium packed": 1,
+  "psl crowd cheering stands": 1,
+  "national stadium karachi audience": 1
  },
  "mistakes": []
 }
