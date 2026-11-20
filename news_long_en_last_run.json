@@ -1,36 +1,39 @@
 {
- "time_utc": "2026-11-19 20:17",
+ "time_utc": "2026-11-20 20:20",
  "kind": "long",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-19 20:17",
+   "date": "2026-11-20 20:20",
    "kind": "long",
    "lang": "en",
-   "title": "GTA 6 Worldwide Launch and Major Global News Updates",
-   "dur": 694,
-   "post_id": "2242232340008910"
+   "title": "Trump proposes AI data centre ban as world news unfolds",
+   "dur": 339,
+   "post_id": "1468010092148680"
   },
   "sports": {
-   "date": "2026-11-19 20:17",
+   "date": "2026-11-20 20:20",
    "kind": "long",
    "lang": "en",
-   "title": "Hamilton Backs Ferrari Unity and World Sports Round-Up",
-   "dur": 268,
-   "post_id": "1612220997593195"
+   "title": "Chelsea Fined and Inside the F1 Helmet Safety Factory",
+   "dur": 495,
+   "post_id": "4308815362672528"
   }
  },
  "errors": [],
- "agent_checks": 295,
- "agent_rejects": 284,
- "agent_skips": 237,
- "clips_rejected": 485,
- "alt_searches": 5,
- "tag_pass": 29,
+ "clips_rejected": 525,
+ "alt_searches": 21,
+ "agent_checks": 294,
+ "agent_rejects": 276,
+ "agent_skips": 253,
+ "tag_pass": 5,
  "time_budget_hit": true,
  "no_match": [
-  "Formula 1 race car"
+  "Formula 1 car",
+  "carbon fiber manufacturing",
+  "Formula 1 car",
+  "Las Vegas Grand Prix"
  ],
- "headline_cards": 1
+ "headline_cards": 4
 }

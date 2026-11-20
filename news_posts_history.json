@@ -5985,5 +5985,39 @@
   ],
   "sport": null,
   "title": "Canada survives late Romania rally to win Nations Cup rugby finale in Bucharest"
+ },
+ {
+  "date": "2026-11-20 21:21",
+  "page": "news",
+  "id": "1468010092148680",
+  "fmt": "long",
+  "lang": "en",
+  "topics": [
+   "science_tech",
+   "africa",
+   "canada_australia",
+   "world",
+   "business",
+   "europe"
+  ],
+  "sport": null,
+  "title": "Trump proposes AI data centre ban as world news unfolds"
+ },
+ {
+  "date": "2026-11-20 21:45",
+  "page": "sports",
+  "id": "4308815362672528",
+  "fmt": "long",
+  "lang": "en",
+  "topics": [
+   "winter_sports",
+   "baseball",
+   "football",
+   "hockey",
+   "formula1",
+   "basketball"
+  ],
+  "sport": null,
+  "title": "Chelsea Fined and Inside the F1 Helmet Safety Factory"
  }
 ]
