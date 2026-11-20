@@ -1,32 +1,32 @@
 {
- "updated": "2026-11-19 21:25",
+ "updated": "2026-11-20 08:05",
  "mult": {
   "pk_best_list": 0.96,
-  "pk_jobs": 0.7,
+  "pk_jobs": 0.71,
   "pk_country": 1.43,
   "pk_visa": 0.91,
   "pk_tour": 0.93,
   "pk_living": 0.98,
   "pk_jobhow": 0.97,
-  "pk_city": 1.06,
-  "pk_versus": 1.08,
-  "pk_moving": 0.75,
-  "pk_salary_short": 0.59,
-  "pk_city_facts": 0.66,
-  "pk_versus_short": 0.77,
+  "pk_city": 1.07,
+  "pk_versus": 1.09,
+  "pk_moving": 0.76,
+  "pk_city_facts": 0.65,
+  "pk_versus_short": 0.76,
   "pk_visa_short": 0.75,
   "pk_tour_short": 0.76,
   "pk_facts": 0.9,
   "pk_cost_short": 0.6,
-  "pk_jobtip": 0.85,
-  "pk_food": 0.56,
-  "pk_hidden": 0.77
+  "pk_jobtip": 0.84,
+  "pk_food": 0.55,
+  "pk_hidden": 0.76,
+  "pk_salary_short": 0.65
  },
  "tips": [
-  "Prioritize long-form country documentaries (pk_country) and versus comparisons (pk_versus), which consistently outperform page averages (up to 4.15x).",
-  "Always use proper Urdu script in titles and hooks; avoid Roman Urdu titles, which caused an identical Canada vs Australia topic to collapse from 10.5x to 0.19x.",
-  "Completely drop niche food content (pk_food) and reduce isolated salary/cost shorts (pk_salary_short), both averaging under 0.43x.",
-  "For short formats, stick strictly to high-interest mega-destinations and visual travel facts (e.g., China facts at 11.8x, Singapore tour at 3.96x).",
-  "Focus student and immigration scripts on top aspirational hubs (Canada, Australia, Malta, Nordics) rather than low-interest regions like Morocco or Greece."
+  "Canada aur Australia ke comparison ya selection wale topics (pk_versus_short) par mazeed shorts banayein kyunke yeh audience ko bohat pasand aa rahe hain.",
+  "China aur Singapore jaise bade aur unique destinations ke facts aur tours (pk_facts aur pk_tour_short) ki videos ko priority dein.",
+  "Malta aur Europe ki education ya immigration se judi long videos (pk_country) ko continue karein kyunke inka performance average se behtar hai.",
+  "Morocco food guide ya Greece facts jaise kamzor topics aur random short series ko avoid karein kyunke inki engagement bohat low hai.",
+  "Titles mein aam Pakistani ki zaroorat (jaise behter mulk ka intekhab, jobs, aur salary) ko strong hook ke tor par istemal karein."
  ]
 }
