@@ -322,7 +322,7 @@ def check_real(jpg, theme):
                 "kinds (lehenga, saree, shalwar kameez, kurti/kurta, anarkali, sharara, gharara, bridal dress, "
                 "embroidered gown, abaya, Western evening gown, maxi dress, modest party/cocktail dress, co-ord set); the outfit is the main subject and mostly visible; modest and family "
                 "friendly; no child; at most one main person in focus; no big text, logo or watermark; sharp. "
-                "score 1-10 = how beautiful and premium the outfit looks and how well it fits the theme. "
+                "score 1-10 = how CURRENT and TRENDING (2025-2026 styles: cuts, colours, embroidery now going viral) and how beautiful the outfit looks, so women would copy this design from the page and get it stitched by their tailor; dated, plain or old-fashioned outfits score 5 or less. "
                 "Answer ONLY JSON {\"ok\": true/false, \"why\": \"max 10 words\", \"score\": n}", jpg)
     if j is None:
         return None, "check nahi ho saka", 0
@@ -383,7 +383,7 @@ def find_real(d, i, used, theme):
                 log(f"download fail {c['id']}: {str(e)[:80]}")
                 continue
             ok, why, sc = check_real(jpg, theme)
-            if ok is None or (ok and sc >= 6):
+            if ok is None or (ok and sc >= 7):     # sirf latest trending design
                 nv.LEARN["ok"].append(t)
                 return {"path": jpg, "video": None if c.get("photo") else src, "id": c["id"], "src": c["src"]}
             REPORT["images"]["rejected"] = REPORT["images"].get("rejected", 0) + 1
