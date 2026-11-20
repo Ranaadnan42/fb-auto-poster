@@ -343,7 +343,7 @@ def describe(jpg, theme):
     return str(j.get("name") or "").strip(), str(j.get("line") or "").strip()
 
 
-def find_real(d, i, used, theme):
+def find_real(d, i, used, theme, min_sc=7, allow_used=False):
     """Is design ke liye asli insan wali video (reel/long) ya photo (pic) dhoondo + check karo."""
     terms = [t for t in (d.get("search") or []) if isinstance(t, str) and t.strip()][:3]
     terms += random.sample(GENERIC, 3)
@@ -366,7 +366,7 @@ def find_real(d, i, used, theme):
         cands.sort(key=lambda c: c.get("photo", False))           # pehle video (asli harkat), phir photo
         tried = 0
         for c in cands:
-            if c["id"] in used or tried >= 6:
+            if (c["id"] in used and not allow_used) or tried >= 6:
                 continue
             tried += 1
             used.add(c["id"])
@@ -390,7 +390,7 @@ def find_real(d, i, used, theme):
                 log(f"download fail {c['id']}: {str(e)[:80]}")
                 continue
             ok, why, sc = check_real(jpg, theme)
-            if ok is None or (ok and sc >= 7):     # sirf latest trending design
+            if ok is None or (ok and sc >= min_sc):     # pehle sirf latest trending (7+)
                 nv.LEARN["ok"].append(t)
                 return {"path": jpg, "video": None if c.get("photo") else src, "id": c["id"], "src": c["src"]}
             REPORT["images"]["rejected"] = REPORT["images"].get("rejected", 0) + 1
@@ -406,6 +406,8 @@ def make_images(p, h=None):
     REPORT["images"]["rejected"] = 0
     for i, d in enumerate(p["designs"]):
         m = find_real(d, i, used, p["theme"])
+        if not m and MODE != "pic":           # reel/long hamesha jaye: thoda narm check, phir purani asli video bhi chalegi
+            m = find_real(d, i, used, p["theme"], min_sc=6) or find_real(d, i, used, p["theme"], min_sc=6, allow_used=True)
         if not m:
             log(f"design fail (asli tasveer na mili): {d['name']}")
             continue
