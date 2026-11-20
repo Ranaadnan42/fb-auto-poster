@@ -80,6 +80,7 @@ jobs:
           GROQ_API_KEY: ${{ secrets.FAIZI_GROQ_API_KEY || secrets.GROQ_API_KEY }}
           PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
           PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          COVERR_API_KEY: ${{ secrets.COVERR_API_KEY }}
           AGENT_PAGE: faizi
           VIDEO_CRF: '18'
           MODE: ${{ env.S && (env.S == '37 11 * * *' || env.S == '27 18 * * *') && 'pic' || env.S && (env.S == '27 0 * * *' && 'long' || 'reel') || inputs.mode || 'reel' }}

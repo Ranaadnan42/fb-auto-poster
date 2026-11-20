@@ -369,6 +369,33 @@ def describe(jpg, theme):
     return str(j.get("name") or "").strip(), str(j.get("line") or "").strip()
 
 
+_CV = {"calls": 0}
+
+
+def coverr(q, vertical=False):
+    """Coverr.co: asli insanon ki HD/4K videos (sirf non-AI). Free plan 50 calls/ghanta -> ek run mein 40 tak."""
+    key = os.environ.get("COVERR_API_KEY")
+    if not key or _CV["calls"] >= 40:
+        return []
+    _CV["calls"] += 1
+    try:
+        j = requests.get("https://api.coverr.co/videos", timeout=40, headers={"x-api-key": key},
+                         params={"query": q[:80], "page_size": 20, "urls": "true"}).json()
+        out = []
+        for v in j.get("hits", []):
+            u = (v.get("urls") or {}).get("mp4_download") or (v.get("urls") or {}).get("mp4")
+            if not u or v.get("is_ai_generated") or v.get("is_premium"):
+                continue
+            if vertical != bool(v.get("is_vertical")) and random.random() < 0.5:   # sahi rukh ko tarjeeh
+                continue
+            out.append({"id": f"cv{v.get('id') or v.get('video_id')}", "url": u, "text": v.get("title", ""),
+                        "dur": float(v.get("duration") or 8), "src": "coverr"})
+        return out
+    except Exception as e:
+        log(f"coverr fail: {str(e)[:80]}")
+        return []
+
+
 def find_real(d, i, used, theme, min_sc=7, allow_used=False):
     """Is design ke liye asli insan wali video (reel/long) ya photo (pic) dhoondo + check karo."""
     terms = [t for t in (d.get("search") or []) if isinstance(t, str) and t.strip()][:3]
@@ -377,7 +404,7 @@ def find_real(d, i, used, theme, min_sc=7, allow_used=False):
     for t in terms:
         cands = []
         if MODE != "pic":
-            cands += footage.pexels_videos(t, vert) + footage.pixabay_videos(t, vert) + footage.mixkit(t)
+            cands += footage.pexels_videos(t, vert) + footage.pixabay_videos(t, vert) + footage.mixkit(t) + coverr(t, vert)
             for fn in (lambda q: footage.commons(q, True), footage.archive):   # Wikimedia Commons + Internet Archive (free license)
                 try:
                     cands += fn(t)
@@ -721,6 +748,8 @@ def caption(p, imgs):
     names = "\n".join(f"{i}. {d['name']}" for i, d in enumerate(imgs, 1))
     parts = cap.split("\n\n")
     parts[1:1] = [names]
+    if any(d.get("src") == "coverr" for d in imgs):      # Coverr license: naam dena zaroori
+        parts.append("🎥 Video: Coverr")
     return "\n\n".join(x for x in parts if x)
 
 
