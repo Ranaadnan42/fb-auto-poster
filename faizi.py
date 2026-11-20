@@ -53,11 +53,17 @@ VOICE = ("en-US-AvaNeural", "+0%")
 log = news.log
 REPORT = {"time_utc": datetime.datetime.utcnow().strftime("%Y-%m-%d %H:%M"), "mode": MODE, "dry_run": DRY_RUN,
           "errors": [], "images": {}}
-LOOK = ("professional luxury fashion catalogue photo, photorealistic, a real elegant female fashion model wearing "
-        "the complete outfit, full-length shot from head to toe, natural realistic beautiful face, natural skin texture, "
-        "perfect symmetrical eyes, correct anatomy, correct hands with five fingers, hands relaxed or hidden, graceful modest pose, modest family-friendly styling, the outfit is the main focus, "
-        "real photograph shot on DSLR 85mm, boutique studio or elegant location, soft professional lighting, "
-        "ultra detailed fabric texture and embroidery, sharp focus, 8k, no mannequin, no dress form, no text, no watermark")
+LOOK = ("real candid fashion photoshoot photo of a real adult woman (not AI, not CGI, not 3D render) wearing "
+        "the complete outfit, full-length shot from head to toe, natural face with real skin texture, visible pores, "
+        "slight natural asymmetry, natural makeup, real hair with flyaway strands, relaxed natural pose, hands relaxed "
+        "or holding the dupatta, modest family-friendly styling, the outfit is the main focus, "
+        "shot on Canon EOS R5 50mm, natural daylight, real location (garden, courtyard, haveli, boutique), "
+        "realistic fabric folds, weight and embroidery detail, sharp focus, true-to-life colors, "
+        "not airbrushed, not porcelain skin, not doll-like, no mannequin, no dress form, no text, no watermark")
+# har design ki aur poses - same model, same dress: reel/long mein lage ke model chal kar aa rahi hai aur dress dikha rahi hai
+POSES = ["the same woman walking towards the camera in the same outfit, mid-step, dupatta flowing, full-length",
+         "the same woman turning to show the side and back of the same outfit, three-quarter back view, full-length"]
+N_POSES = {"pic": 0, "reel": 2, "long": 1}
 FLAT = ("professional fashion product photo, photorealistic, the complete outfit neatly laid flat and arranged on a "
         "clean soft beige linen or light wooden background, top-down view, matching dupatta/trousers folded beside it, "
         "natural soft daylight, ultra detailed fabric texture, stitching and embroidery, sharp focus, 8k, "
@@ -227,7 +233,9 @@ def check_image(path, flat=False):
          "face distorted, blurry, plastic or uncanny; eyes wrong; extra/missing/fused fingers or deformed hands; "
          "extra limbs or wrong body proportions; text or watermark; revealing or immodest clothing; outfit cut off; "
          "the image is a collage, split, grid or has more than one panel; more than one person; the model is a child "
-         "or looks like a doll/cartoon/CGI instead of a real adult woman photographed by a camera.")
+         "or looks like a doll/cartoon/CGI instead of a real adult woman photographed by a camera; skin is airbrushed, "
+         "porcelain-smooth or waxy; the whole image has the typical AI-generated glossy/fake look - it must pass as a "
+         "real photo taken by a photographer.")
     if flat:
         q = ("You are a strict fashion photo editor. Look at this image. Answer ONLY JSON {\"ok\": true/false, \"why\": \"...\"}. "
              "It should be a realistic product photo of a complete outfit laid flat on a background. ok=false if ANY of: "
@@ -312,6 +320,20 @@ def make_images(p):
             dw, dh = (W, H) if MODE == "reel" else (W // 2, H)
             if gen_image(d["prompt"], dw, dh, dp, random.randint(1, 10 ** 6), DETAIL):
                 d = {**d, "detail": dp}
+        if good and N_POSES.get(MODE):        # same dress ki aur poses (chalti hui / ghoom kar) - check pass ho tabhi
+            poses = []
+            for k, pz in enumerate(POSES[:N_POSES[MODE]]):
+                pp = os.path.join(JOB, f"d{i}_p{k}.jpg")
+                for _ in range(2):
+                    if not gen_image(f"{d['prompt']}, {WHO[who]}, {pz}", W, H, pp, random.randint(1, 10 ** 6), look):
+                        break
+                    pok, pwhy, _sc = check_image(pp, False)
+                    if pok or pok is None:
+                        poses.append(pp)
+                        break
+                    log(f"design {i + 1} pose {k + 1} reject: {pwhy}")
+            d = {**d, "poses": poses}
+            REPORT["images"]["poses"] = REPORT["images"].get("poses", 0) + len(poses)
         if good:
             d = {**d, "main": path}           # ek tasveer = ek model, poori (koi split/collage nahi)
             out.append({**d, "path": path})
@@ -374,12 +396,41 @@ Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
 """ + "\n".join(ev) + "\n")
 
 
-def scene(i, img, title, text, num):
+def multi_clip(imgs, raw, secs, i):
+    """Ek design ki kai poses ko narm crossfade se jodo - model aati, chalti aur ghoom kar dress dikhati lage."""
+    if len(imgs) < 2:
+        footage.photo_to_clip(imgs[0], raw, W, H, secs=secs)
+        return
+    fd = 0.6
+    part = (secs + fd * (len(imgs) - 1)) / len(imgs)
+    parts = []
+    for k, im in enumerate(imgs):
+        pc = os.path.join(JOB, f"r{i}_{k}.mp4")
+        footage.photo_to_clip(im, pc, W, H, secs=part)
+        parts.append(pc)
+    cmd = ["ffmpeg", "-y", "-loglevel", "error"]
+    for pc in parts:
+        cmd += ["-i", pc]
+    fl, prev = [], "[0:v]"
+    for k in range(1, len(parts)):
+        lab = f"[x{k}]"
+        fl.append(f"{prev}[{k}:v]xfade=transition=fade:duration={fd}:offset={part * k - fd * k:.2f}{lab}")
+        prev = lab
+    cmd += ["-filter_complex", ";".join(fl), "-map", prev, "-t", f"{secs:.2f}", "-c:v", "libx264",
+            "-preset", "veryfast", "-crf", "20", "-pix_fmt", "yuv420p", "-r", "30", raw]
+    try:
+        nv.run(cmd)
+    except Exception as e:
+        log(f"poses jodna fail, ek tasveer: {str(e)[:80]}")
+        footage.photo_to_clip(imgs[0], raw, W, H, secs=secs)
+
+
+def scene(i, img, title, text, num, poses=None):
     a = os.path.join(JOB, f"a{i}.mp3")
     tts(text, a)
     secs = max(nv.duration(a) + 0.6, 4.0)
     raw = os.path.join(JOB, f"r{i}.mp4")
-    footage.photo_to_clip(img, raw, W, H, secs=secs)
+    multi_clip([img] + [p for p in (poses or []) if os.path.exists(p)], raw, secs, i)
     s = os.path.join(JOB, f"s{i}.ass")
     subs(s, title, text, secs, num)
     out = os.path.join(JOB, f"c{i}.mp4")
@@ -420,7 +471,7 @@ def build_video(p, imgs):
                 clips.append(detail_clip(i, d["detail"]))
             except Exception as e:
                 log(f"detail clip skip: {str(e)[:80]}")
-        clips.append(scene(i, d["path"], d["name"], d.get("line") or d["name"], i))
+        clips.append(scene(i, d["path"], d["name"], d.get("line") or d["name"], i, d.get("poses")))
     clips.append(scene(len(imgs) + 1, imgs[-1]["path"], "Which one is your favourite?",
                        p.get("outro") or "Comment your favourite number and follow Style by Faizi.", 0))
     lst = os.path.join(JOB, "list.txt")
