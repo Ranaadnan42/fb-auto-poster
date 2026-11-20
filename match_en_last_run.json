@@ -1,18 +1,20 @@
 {
- "time_utc": "2026-11-20 04:06",
+ "time_utc": "2026-11-20 06:35",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "sports": {
-   "key": "t401910021",
-   "sport": "basketball",
-   "date": "2026-11-20 04:06",
+   "key": "t401873066",
+   "sport": "american football",
+   "date": "2026-11-20 06:35",
    "lang": "en",
-   "match": "New York Knicks at Minnesota Timberwolves",
-   "result": "New York Knicks beat Minnesota Timberwolves 102-99",
-   "dur": 64,
-   "post_id": "1142926441931749"
+   "match": "Indianapolis Colts at Houston Texans",
+   "result": "Houston Texans beat Indianapolis Colts 26-3",
+   "dur": 71,
+   "post_id": "1088266334270829"
   }
  },
- "errors": []
+ "errors": [
+  "Pakistan v Sri Lanka: Pakistan v Sri Lanka: 4 innings - sirf limited-overs match ka recap"
+ ]
 }

@@ -7,7 +7,11 @@
   "volleyball player celebration": 1,
   "basketball hoop": 1,
   "Target Center Minneapolis": 1,
-  "basketball court action": 1
+  "basketball court action": 1,
+  "NRG Stadium Houston": 1,
+  "NRG Stadium": 1,
+  "Houston Texans stadium": 1,
+  "gridiron football touchdown": 1
  },
  "bad": {
   "basketball dunk arena": 2,
@@ -25,7 +29,25 @@
   "basketball free throw": 1,
   "basketball dribbling": 1,
   "New York Knicks basketball": 1,
-  "Madison Square Garden basketball": 1
+  "Madison Square Garden basketball": 1,
+  "american football stadium lights": 1,
+  "american football touchdown celebration": 1,
+  "american football quarterback throw": 2,
+  "american football field goal": 2,
+  "american football pass play": 3,
+  "american football running back rush": 3,
+  "american football quarterback pass": 3,
+  "quarterback throwing football": 3,
+  "running back rushing football": 2,
+  "american football game": 4,
+  "american football stadium": 5,
+  "american football wide receiver catch": 2,
+  "american football tackle": 2,
+  "Houston football touchdown": 2,
+  "NRG Stadium football": 2,
+  "Houston wide receiver": 2,
+  "Wide receiver touchdown catch": 2,
+  "american football fans cheering": 1
  },
  "mistakes": []
 }
