@@ -1,24 +1,24 @@
 {
- "time_utc": "2026-11-18 15:00",
+ "time_utc": "2026-11-19 22:38",
  "kind": "long",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "sports": {
-   "date": "2026-11-18 15:00",
+   "date": "2026-11-19 22:38",
    "kind": "long",
    "lang": "ur",
-   "title": "ایوان ٹونی کی قانونی مشکل اور اسپورٹس کی اہم خبریں",
-   "dur": 542,
-   "post_id": "1674897264250238"
+   "title": "یو ایف سی قطر میں دھماکے دار ایونٹ کے لیے تیار",
+   "dur": 708,
+   "post_id": "3029340517401639"
   }
  },
  "errors": [],
- "agent_checks": 111,
- "agent_rejects": 91,
- "agent_skips": 452,
- "clips_rejected": 534,
- "alt_searches": 8,
- "tag_pass": 10,
+ "agent_checks": 348,
+ "agent_rejects": 320,
+ "agent_skips": 530,
+ "clips_rejected": 846,
+ "alt_searches": 14,
+ "tag_pass": 2,
  "time_budget_hit": true
 }
