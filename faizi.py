@@ -311,7 +311,15 @@ def split_img(left, right, out):
 
 
 def _vision(q, path):
-    """Gemini vision: tasveer + sawal -> JSON (ya None)."""
+    """Tasveer + sawal -> JSON (ya None). Pehle Groq (free, Gemini quota bachao), phir Gemini."""
+    try:
+        import groq_vision
+        j = groq_vision.ask_json([open(path, "rb").read()], q)
+        if j:
+            REPORT["images"]["groq_checks"] = REPORT["images"].get("groq_checks", 0) + 1
+            return j
+    except Exception as e:
+        log(f"groq vision fail: {str(e)[:80]}")
     data = base64.b64encode(open(path, "rb").read()).decode()
     for key in [os.environ.get("FAIZI_GEMINI_API_KEY"), os.environ.get("GEMINI_BACKUP_KEY")]:
         if not key:
