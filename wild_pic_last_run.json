@@ -3,21 +3,23 @@
  "agent": "wild",
  "dry_run": false,
  "log": [
-  "Subject: Lesser flamingo",
-  "photo commons wmi151065370 1920x1280: agent=True",
-  "--- caption ---\nMeet the world's smallest species of flamingo! 🦩✨\n\nThe lesser flamingo weighs between 1.2 to 2.7 kg and stands 80 to 90 cm tall. These birds are known for their pinkish white plumage and extensive black on the bill.\n\nHave you ever seen a flamingo this small in the wild?\n\nFollow Wild ",
-  "Video tayyar - 32 minute intezar, post 17:07 UTC par hogi",
+  "Subject: Platypus",
+  "photo commons wmi56309806 1920x1250: agent=False",
+  "photo commons wmi105179144 1920x1439: agent=False",
+  "photo commons wmi143656029 1920x1280: agent=True",
+  "--- caption ---\nMeet the platypus, one of the world's few egg-laying and venomous mammals! 🦆🇦🇺\n\nEndemic to eastern Australia, this semiaquatic monotreme uses electrolocation to detect prey underwater while its eyes and ears are closed. Male platypuses even have a spur on each hind foot that delivers",
+  "Video tayyar - 17 minute intezar, post 11:07 UTC par hogi",
   "Waqt ho gaya - post kar rahe hain",
   "photo story lagi",
-  "posted 1501204066400712_122106276051546974"
+  "posted 1501204066400712_122107000929546974"
  ],
  "errors": [],
  "posted": {
-  "subject": "Lesser flamingo",
-  "photo": "wmi151065370",
+  "subject": "Platypus",
+  "photo": "wmi143656029",
   "src": "commons",
   "size": "1920x1280",
-  "date": "2026-11-19 16:34",
-  "post_id": "1501204066400712_122106276051546974"
+  "date": "2026-11-20 10:49",
+  "post_id": "1501204066400712_122107000929546974"
  }
 }
