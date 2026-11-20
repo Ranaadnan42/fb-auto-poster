@@ -1,25 +1,26 @@
 {
- "time_utc": "2026-11-20 14:40",
+ "time_utc": "2026-11-20 21:19",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
  "images": {
-  "rejected": 34,
-  "mixkit": 1,
-  "pixabay": 5
+  "rejected": 6,
+  "groq_checks": 2,
+  "pixabay": 4,
+  "mixkit": 2
  },
  "posted": {
   "mode": "reel",
-  "theme": "Emerald Elegance Fusion",
+  "theme": "Fall Holiday Glam Fusion",
   "designs": [
-   "Hidden Portrait Outfit",
-   "Champagne Satin Maxi Gown",
-   "No Outfit Visible",
-   "Sage Green Crepe Co‑ord Set",
-   "Chocolate Brown Velvet Gown",
-   "No Outfit Visible"
+   "Midnight Navy Velvet Anarkali",
+   "Sage Green Georgette Gharara",
+   "Emerald Green Velvet Slip Dress",
+   "Burgundy Silk Evening Gown",
+   "Champagne Satin Co‑ord Set",
+   "Midnight Burgundy Faux Fur Maxi Dress"
   ],
-  "date": "2026-11-20 14:40",
-  "post_id": "1506664544702787"
+  "date": "2026-11-20 21:19",
+  "post_id": "1845291709950396"
  }
 }

@@ -535,6 +535,30 @@
   {
    "name": "Sage Green Velvet Anarkali",
    "date": "2026-11-20 18:17"
+  },
+  {
+   "name": "Midnight Navy Velvet Anarkali",
+   "date": "2026-11-20 21:19"
+  },
+  {
+   "name": "Sage Green Georgette Gharara",
+   "date": "2026-11-20 21:19"
+  },
+  {
+   "name": "Emerald Green Velvet Slip Dress",
+   "date": "2026-11-20 21:19"
+  },
+  {
+   "name": "Burgundy Silk Evening Gown",
+   "date": "2026-11-20 21:19"
+  },
+  {
+   "name": "Champagne Satin Co‑ord Set",
+   "date": "2026-11-20 21:19"
+  },
+  {
+   "name": "Midnight Burgundy Faux Fur Maxi Dress",
+   "date": "2026-11-20 21:19"
   }
  ],
  "posts": [
@@ -860,6 +884,20 @@
    ],
    "date": "2026-11-20 18:17",
    "post_id": "1433458693190419_122100133377555703"
+  },
+  {
+   "mode": "reel",
+   "theme": "Fall Holiday Glam Fusion",
+   "designs": [
+    "Midnight Navy Velvet Anarkali",
+    "Sage Green Georgette Gharara",
+    "Emerald Green Velvet Slip Dress",
+    "Burgundy Silk Evening Gown",
+    "Champagne Satin Co‑ord Set",
+    "Midnight Burgundy Faux Fur Maxi Dress"
+   ],
+   "date": "2026-11-20 21:19",
+   "post_id": "1845291709950396"
   }
  ],
  "used": [
@@ -887,6 +925,12 @@
   "px236893",
   "px192078",
   "px95101",
-  "wmi35027640"
+  "wmi35027640",
+  "px30240",
+  "px2114",
+  "px226564",
+  "px103434",
+  "mk51571",
+  "mk4840"
  ]
 }
