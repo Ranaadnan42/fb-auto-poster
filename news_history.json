@@ -1844,6 +1844,25 @@
     "کریں"
    ],
    "post_id": "1357984777408020_122097801039558252"
+  },
+  {
+   "date": "2026-11-20 02:13",
+   "lang": "ur",
+   "topic": "asia",
+   "link": "https://news.google.com/rss/articles/CBMilwFBVV95cUxQSkVCVnBLSjhHN2UyUi1oZ3ZrSzRkLWxPVXhsVExuNFpJckxrTzJSNlpjNkg3aUE2S0IyR21odnNKZHhGY0FZN3hnaGlPWEhWeDVRdGJQMHV6OXNFcnZWRzNPdWhwS2dxOURjY2VhUTJsNjQwdzRfVzJnOFA5TUZDLUVaLTdpdWR0eDFINEtJVUdqRHJvdGxF0gGcAUFVX3lxTE5Kc3gydGxKdWE3a1ZOX1pmVVg0ajU5dm14LWVjSU5Zd0VPUWZOZTZBdzc2NXdrNjVUQkh2RkhSamZGWG1rN184VGJvcHZ5SkRZUW9maGJQV2VzcDFtYUpsZ1NiN2JCYzdRU2NQWFFQWVZNa0p0TFZlQTRrUHJxaXg5Y1hRTzVjQTZYUzBRVFltbUg3VjIzVjdfbHNIRg?oc=5",
+   "title": "California AG issues subpoena to Nvidia over chip sales to China",
+   "words": [
+    "california",
+    "china",
+    "chip",
+    "issues",
+    "nvidia",
+    "over",
+    "sales",
+    "subpoena"
+   ],
+   "breaking": true,
+   "post_id": "1357984777408020_122097802257558252"
   }
  ],
  "sports": [
@@ -3676,6 +3695,24 @@
     "trump"
    ],
    "post_id": "1465090056678690_122106201663548502"
+  },
+  {
+   "date": "2026-11-20 02:09",
+   "lang": "ur",
+   "topic": "general",
+   "link": "https://www.bbc.co.uk/news/articles/cx1l0pm7l9jmo?at_medium=RSS&at_campaign=rss",
+   "title": "Trump posthumously pardons US baseball legend Pete Rose",
+   "words": [
+    "baseball",
+    "legend",
+    "pardons",
+    "pete",
+    "posthumously",
+    "rose",
+    "trump"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122106206637548502"
   }
  ],
  "used_images": [
@@ -3798,6 +3835,7 @@
   6030862,
   7014547,
   "pxi4790437",
-  "pxi1592627"
+  "pxi1592627",
+  "pxi2410657"
  ]
 }
