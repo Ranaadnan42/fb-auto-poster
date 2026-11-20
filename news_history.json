@@ -1920,6 +1920,23 @@
     "should"
    ],
    "post_id": "1357984777408020_122098057401558252"
+  },
+  {
+   "date": "2026-11-20 14:27",
+   "lang": "en",
+   "topic": "business",
+   "link": "https://www.bbc.co.uk/news/videos/cke89vdn75gyo?at_medium=RSS&at_campaign=rss",
+   "title": "Indian driver wins $1.3m in life-changing lottery prize",
+   "words": [
+    "changing",
+    "driver",
+    "indian",
+    "life",
+    "lottery",
+    "prize",
+    "wins"
+   ],
+   "post_id": "1448208791702551_122112123609532804"
   }
  ],
  "sports": [
@@ -3819,6 +3836,22 @@
     "volleyball"
    ],
    "post_id": "1465090056678690_122106542409548502"
+  },
+  {
+   "date": "2026-11-20 14:27",
+   "lang": "en",
+   "topic": "mma",
+   "link": "https://news.google.com/rss/articles/CBMigwFBVV95cUxNM1VDVXk2UjQtbEJaU0dMRWlHUmVGd2FaTlNOZkxaYmVGVUVaMnBVeGdFZ3AwWnlVSW5pV29TSkstTWdYR3piaEI2QXY1Vk8zZkFsTUkzRmFPMGVFYURpbDFsX0gtMXlMOHlHUTFMVU5VdUpOX0dDZ1J4Y1dUSnpjcWphdw?oc=5",
+   "title": "John Lineker Signs for Jorge Masvidal's Gamebred FC",
+   "words": [
+    "gamebred",
+    "john",
+    "jorge",
+    "lineker",
+    "masvidal",
+    "signs"
+   ],
+   "post_id": "1465090056678690_122106745731548502"
   }
  ],
  "used_images": [
@@ -3946,6 +3979,7 @@
   79221,
   5782694,
   1019104,
-  451581
+  451581,
+  8111390
  ]
 }
