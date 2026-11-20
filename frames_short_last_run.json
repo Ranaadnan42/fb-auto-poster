@@ -1,37 +1,34 @@
 {
  "mode": "short",
  "clips": 29,
- "clips_rejected": 251,
- "vision_checks": 277,
+ "clips_rejected": 286,
+ "vision_checks": 302,
  "errors": [],
  "search_phrases": [
-  "mein kharcha kab bhara jaega",
-  "kharch mein",
-  "kharche mein recipe",
-  "hindi mein kharcha",
-  "ivf mein kharcha kitna aata hai",
-  "urdu mein kharcha",
-  "ivf mein kharcha kitna lagta hai",
-  "mein kitna paisa",
-  "cost of living in dubai",
-  "cost of living in malaysia",
-  "cost of living in australia",
-  "cost of living in canada",
-  "cost of living in saudi arabia",
-  "cost of living in pakistan",
-  "cost of living in usa",
-  "cost of living in new zealand",
-  "cost of living in islamabad",
-  "cost of living in uk"
+  "dubai vs saudi arabia jobs",
+  "dubai vs saudi arabia vs qatar",
+  "dubai vs saudi arabia football",
+  "dubai vs saudi arabia comparison",
+  "dubai vs saudi arabia tamil",
+  "dubai vs saudi arabia malayalam",
+  "dubai vs saudi arabia war",
+  "dubai and saudi arabia",
+  "dubai and saudi arabia difference in hindi",
+  "canada vs australia which is better"
  ],
- "alt_searches": 7,
- "seconds": 114.8,
+ "alt_searches": 8,
+ "photos": 2,
+ "no_match": [
+  "student housing",
+  "score chart"
+ ],
+ "rewritten_scenes": 2,
+ "seconds": 91.2,
  "links": [
-  "https://vistos.mne.gov.pt",
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Portugal / Porto",
- "series": "pk_cost_short",
- "title": "پورٹو میں ایک ماہ کا خرچ | Life in Portugal"
+ "subject": "Mauritius vs Maldives: Pakistani ke liye kaun behtar?",
+ "series": "pk_versus_short",
+ "title": "موریطانیوس یا مالدیپ؟ پاکستانی کیلئے بہترین انتخاب | Frames of Life"
 }
