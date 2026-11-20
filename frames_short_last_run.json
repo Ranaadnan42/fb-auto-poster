@@ -1,14 +1,30 @@
 {
  "mode": "short",
- "clips": 0,
- "clips_rejected": 0,
- "vision_checks": 0,
- "errors": [
-  "Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}} | Groq fail: 4",
-  "Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}} | Groq fail: 4",
-  "Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}} | Groq fail: 4",
-  "fatal: video nahi bani",
-  "fatal: Gemini fail: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/gemini-2.0-flash-exp is not found for API version v1, or is not supported for generateContent. Call ModelService.ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}} | Groq fail: 4"
+ "clips": 42,
+ "clips_rejected": 288,
+ "vision_checks": 322,
+ "errors": [],
+ "search_phrases": [
+  "khubsurat jagah",
+  "khubsurat jagah ki video",
+  "khubsurat jagah dikhao",
+  "khubsurat jagah ka video",
+  "khubsurat jagah ki tasviren",
+  "khubsurat jagah ki drawing",
+  "khubsurat jagah ki picture",
+  "khubsurat jagah ki photo",
+  "khubsurat jagah ki tasvir",
+  "khubsurat jagah video"
  ],
- "search_phrases": []
+ "alt_searches": 9,
+ "photos": 12,
+ "seconds": 144.8,
+ "links": [
+  "https://vistos.mne.gov.pt",
+  "https://beoe.gov.pk",
+  "https://oec.gov.pk"
+ ],
+ "subject": "Portugal / Lisbon ki Khubsurat Chhupi Jagah",
+ "series": "pk_hidden",
+ "title": "پرتگال کی چھپے ہوئے جادوئی مقامات | Life in Lisbon"
 }
