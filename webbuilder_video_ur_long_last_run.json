@@ -1,15 +1,17 @@
 {
- "time_utc": "2026-11-19 16:35",
- "spotlight": "bakery",
- "post_id": "2517936122029243",
+ "time_utc": "2026-11-20 17:25",
+ "spotlight": "travel agency",
+ "post_id": "1814862043150162",
  "error": null,
  "lang": "ur",
  "kind": "long",
  "clips": 1,
  "fallback": 0,
- "errors": [],
+ "errors": [
+  "script: 'list' object has no attribute 'get'"
+ ],
  "real_work": 7,
- "mock": 6,
- "real_pos": 5,
- "seconds": 109.6
+ "real_pos": 3,
+ "mock": 3,
+ "seconds": 91.3
 }
