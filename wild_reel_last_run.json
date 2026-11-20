@@ -1,27 +1,23 @@
 {
- "time_utc": "2026-11-19 19:53",
+ "time_utc": "2026-11-20 12:08",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
  "country": "United States",
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 83,
- "alt_searches": 6,
- "no_match": [
-  "Bald eagle diving"
- ],
- "headline_cards": 1,
- "agent_checks": 91,
- "agent_rejects": 83,
+ "clips_rejected": 121,
+ "agent_checks": 129,
+ "agent_rejects": 117,
  "agent_skips": 0,
+ "alt_searches": 6,
  "posted": {
   "country": "United States",
-  "animal": "Bald eagle",
-  "wiki": "Bald eagle",
-  "date": "2026-11-19 19:53",
-  "title": "Bald Eagles of the United States: Sky Hunters and Nest Builders",
-  "dur": 68,
-  "post_id": "1156632420235177"
+  "animal": "American alligator",
+  "wiki": "American alligator",
+  "date": "2026-11-20 12:08",
+  "title": "American Alligator Vibrations and Wetland Secrets of United States",
+  "dur": 66,
+  "post_id": "1767517390978103"
  }
 }

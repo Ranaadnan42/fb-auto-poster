@@ -1,0 +1,41 @@
+{
+ "good": {
+  "Grizzly bear": 2,
+  "American alligator": 4,
+  "American alligator bellowing": 1,
+  "American alligator cypress swamp United States": 1,
+  "American alligator resting in water": 1,
+  "American alligator United States": 3
+ },
+ "bad": {
+  "American alligator infrasound water dance": 1,
+  "American alligator dark broad snout": 1,
+  "American alligator swimming silently": 1,
+  "American alligator eating fish": 1,
+  "Alligator mississippiensis": 9,
+  "Gator hunting": 1,
+  "Everglades alligator": 6,
+  "Alligator death roll": 1,
+  "American alligator wild": 6,
+  "American alligator hole wetland": 1,
+  "American alligator digging mud": 1,
+  "Alligator swimming": 2,
+  "Alligator hatchlings": 1,
+  "American alligator mother carrying hatchling mouth": 1,
+  "American alligator yellow striped hatchlings": 1,
+  "alligator carrying baby": 1,
+  "alligator mother hatchling": 1,
+  "American alligator hatchlings on mother back": 1,
+  "American alligator hatchlings swimming": 1,
+  "Baby alligator chirping": 1,
+  "Alligator bellowing": 1,
+  "American alligator basking on bank": 1,
+  "American alligator swimming in wetland": 1,
+  "Gator bellowing": 1,
+  "American alligator underwater view": 1,
+  "American alligator open mouth": 1,
+  "Gator swimming": 1,
+  "Alligator hunting": 1
+ },
+ "mistakes": []
+}
