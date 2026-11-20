@@ -60,6 +60,12 @@ LOOK = ("real candid fashion photoshoot photo of a real adult woman (not AI, not
         "shot on Canon EOS R5 50mm, natural daylight, real location (garden, courtyard, haveli, boutique), "
         "realistic fabric folds, weight and embroidery detail, sharp focus, true-to-life colors, "
         "not airbrushed, not porcelain skin, not doll-like, no mannequin, no dress form, no text, no watermark")
+# Gemini aakhri raasta: boutique ki dukaan mein dummy (mannequin) ne dress pehni hui - asli dukaan ki photo jaisi
+SHOP = ("real photo inside an elegant fashion boutique shop: a boutique display mannequin (dress form / shop dummy) "
+        "wearing the complete outfit, full-length from top to bottom, the outfit perfectly fitted and styled, "
+        "dupatta draped neatly, warm boutique lighting, softly blurred shop shelves and racks behind, shot on Canon "
+        "EOS R5 50mm, true-to-life colours, ultra detailed fabric, embroidery, neckline, sleeves and border so a tailor "
+        "can copy the design, sharp focus, no real person, no text, no watermark")
 # har design ki aur poses - same model, same dress: reel/long mein lage ke model chal kar aa rahi hai aur dress dikha rahi hai
 POSES = ["the same woman walking towards the camera in the same outfit, mid-step, dupatta flowing, full-length",
          "the same woman turning to show the side and back of the same outfit, three-quarter back view, full-length"]
@@ -235,6 +241,18 @@ def gem_models(key, image=False):
     return _GM[ck]
 
 
+def check_shop(path):
+    """Gemini wali dummy tasveer ka check: poori dress, asli dukaan ki photo jaisi, saaf design."""
+    j = _vision("You are a strict fashion photo editor. This should be a realistic photo of a boutique shop mannequin "
+                "wearing a complete ladies outfit. ok=false if ANY of: a real or fake human face/person; the outfit is "
+                "cut off, melted, garbled or unrealistic; more than one mannequin; collage/split; text or watermark; "
+                "it looks like a cartoon/3D render instead of a camera photo. Answer ONLY JSON {\"ok\": true/false, "
+                "\"why\": \"max 10 words\"}", path)
+    if j is None:
+        return None, "check nahi ho saka"
+    return bool(j.get("ok")), str(j.get("why", ""))[:150]
+
+
 def check_image(path, flat=False):
     """Sakht check: AI tasveer dekh kar batata hai ke model asli insan lagti hai ya nahi (chehra/haath/mannequin)."""
     q = ("You are a strict fashion photo editor. Look at this image. Answer ONLY JSON {\"ok\": true/false, \"why\": \"...\"}. "
@@ -400,14 +418,14 @@ def find_real(d, i, used, theme, min_sc=7, allow_used=False):
 
 
 def gemini_design(d, i):
-    """Aakhri raasta: asli tasveer/video kahin na mile to Gemini se asli photo jaisi model (2 koshishein, sakht check)."""
+    """Aakhri raasta: asli tasveer/video kahin na mile to Gemini se boutique ki dummy ne dress pehni hui (2 koshishein)."""
     path = os.path.join(JOB, f"d{i}_g.jpg")
     for _ in range(2):
-        if not gen_image(f"{d['prompt']}, {WHO['women']}", W, H, path, random.randint(1, 10 ** 6), LOOK, gemini_only=True):
+        if not gen_image(d["prompt"], W, H, path, random.randint(1, 10 ** 6), SHOP, gemini_only=True):
             return None
-        ok, why, sc = check_image(path, False)
+        ok, why = check_shop(path)
         if ok or ok is None:
-            log(f"design {i + 1}: Gemini se bani (asli na mili)")
+            log(f"design {i + 1}: Gemini dummy (asli na mili)")
             return {"path": path, "video": None, "id": f"gem{random.randint(1, 10 ** 9)}", "src": "gemini"}
         log(f"design {i + 1} Gemini reject: {why}")
     return None
