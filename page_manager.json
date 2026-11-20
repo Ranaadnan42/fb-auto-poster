@@ -1,13 +1,13 @@
 {
  "islamic": {
-  "at": "2026-11-19T22:51+00:00",
+  "at": "2026-11-20T12:17+00:00",
   "done": [],
   "problems": [],
   "name": "Islamic Motivational Videos",
-  "followers": 1325,
+  "followers": 1326,
   "insights_28d": {},
-  "posts_28d": 180,
-  "eng_28d": 828,
+  "posts_28d": 182,
+  "eng_28d": 835,
   "eng_avg": 4.6,
   "best_hours_pk": [
    3,
@@ -34,7 +34,7 @@
     "at": "13 Nov 03:28"
    }
   ],
-  "low_posts": 11,
+  "low_posts": 12,
   "history": [
    {
     "day": "2026-11-02",
@@ -110,20 +110,25 @@
     "day": "2026-11-19",
     "followers": 1325,
     "eng_28d": 828
+   },
+   {
+    "day": "2026-11-20",
+    "followers": 1326,
+    "eng_28d": 835
    }
   ],
-  "posts_24h": 6,
-  "last_post": "2026-11-19T16:18+00:00"
+  "posts_24h": 7,
+  "last_post": "2026-11-20T08:07+00:00"
  },
  "funny": {
-  "at": "2026-11-19T22:51+00:00",
+  "at": "2026-11-20T12:17+00:00",
   "done": [],
   "problems": [],
   "name": "Hansi Ka Adda ہنسی کا اڈا",
-  "followers": 1519,
+  "followers": 1518,
   "insights_28d": {},
-  "posts_28d": 224,
-  "eng_28d": 329,
+  "posts_28d": 226,
+  "eng_28d": 331,
   "eng_avg": 1.5,
   "best_hours_pk": [
    0,
@@ -150,7 +155,7 @@
     "at": "13 Nov 20:35"
    }
   ],
-  "low_posts": 29,
+  "low_posts": 30,
   "history": [
    {
     "day": "2026-11-02",
@@ -226,20 +231,25 @@
     "day": "2026-11-19",
     "followers": 1519,
     "eng_28d": 329
+   },
+   {
+    "day": "2026-11-20",
+    "followers": 1518,
+    "eng_28d": 331
    }
   ],
-  "posts_24h": 7,
-  "last_post": "2026-11-19T17:33+00:00"
+  "posts_24h": 8,
+  "last_post": "2026-11-20T08:33+00:00"
  },
  "frames": {
-  "at": "2026-11-19T22:51+00:00",
+  "at": "2026-11-20T12:17+00:00",
   "done": [],
   "problems": [],
   "name": "Frames Of Life",
   "followers": 86,
   "insights_28d": {},
-  "posts_28d": 100,
-  "eng_28d": 472,
+  "posts_28d": 101,
+  "eng_28d": 474,
   "eng_avg": 4.7,
   "best_hours_pk": [
    21,
@@ -342,20 +352,25 @@
     "day": "2026-11-19",
     "followers": 86,
     "eng_28d": 472
+   },
+   {
+    "day": "2026-11-20",
+    "followers": 86,
+    "eng_28d": 474
    }
   ],
-  "posts_24h": 5,
-  "last_post": "2026-11-19T19:55+00:00"
+  "posts_24h": 4,
+  "last_post": "2026-11-20T08:18+00:00"
  },
  "webbuilder": {
-  "at": "2026-11-19T22:51+00:00",
+  "at": "2026-11-20T12:17+00:00",
   "done": [],
   "problems": [],
   "name": "web builder",
-  "followers": 34,
+  "followers": 35,
   "insights_28d": {},
-  "posts_28d": 221,
-  "eng_28d": 240,
+  "posts_28d": 222,
+  "eng_28d": 241,
   "eng_avg": 1.1,
   "best_hours_pk": [
    20,
@@ -458,21 +473,26 @@
     "day": "2026-11-19",
     "followers": 34,
     "eng_28d": 240
+   },
+   {
+    "day": "2026-11-20",
+    "followers": 35,
+    "eng_28d": 241
    }
   ],
   "posts_24h": 7,
-  "last_post": "2026-11-19T19:11+00:00"
+  "last_post": "2026-11-20T10:27+00:00"
  },
  "news": {
-  "at": "2026-11-19T22:51+00:00",
+  "at": "2026-11-20T12:17+00:00",
   "done": [],
   "problems": [],
   "name": "News Act",
-  "followers": 54,
+  "followers": 55,
   "insights_28d": {},
-  "posts_28d": 184,
-  "eng_28d": 346,
-  "eng_avg": 1.9,
+  "posts_28d": 189,
+  "eng_28d": 349,
+  "eng_avg": 1.8,
   "best_hours_pk": [
    1,
    5,
@@ -498,7 +518,7 @@
     "at": "16 Nov 05:02"
    }
   ],
-  "low_posts": 84,
+  "low_posts": 86,
   "history": [
    {
     "day": "2026-11-16",
@@ -518,20 +538,25 @@
     "day": "2026-11-19",
     "followers": 54,
     "eng_28d": 346
+   },
+   {
+    "day": "2026-11-20",
+    "followers": 55,
+    "eng_28d": 349
    }
   ],
   "posts_24h": 12,
-  "last_post": "2026-11-19T21:28+00:00"
+  "last_post": "2026-11-20T08:46+00:00"
  },
  "newsur": {
-  "at": "2026-11-19T22:51+00:00",
+  "at": "2026-11-20T12:17+00:00",
   "done": [],
   "problems": [],
   "name": "News Act Urdu",
   "followers": 2,
   "insights_28d": {},
-  "posts_28d": 29,
-  "eng_28d": 11,
+  "posts_28d": 34,
+  "eng_28d": 13,
   "eng_avg": 0.4,
   "best_hours_pk": [
    13,
@@ -558,7 +583,7 @@
     "at": "17 Nov 13:16"
    }
   ],
-  "low_posts": 25,
+  "low_posts": 28,
   "history": [
    {
     "day": "2026-11-16",
@@ -578,20 +603,25 @@
     "day": "2026-11-19",
     "followers": 2,
     "eng_28d": 11
+   },
+   {
+    "day": "2026-11-20",
+    "followers": 2,
+    "eng_28d": 13
    }
   ],
   "posts_24h": 7,
-  "last_post": "2026-11-19T14:19+00:00"
+  "last_post": "2026-11-20T10:05+00:00"
  },
  "sports": {
-  "at": "2026-11-19T22:51+00:00",
+  "at": "2026-11-20T12:17+00:00",
   "done": [],
   "problems": [],
   "name": "Sports Hubs",
   "followers": 17,
   "insights_28d": {},
-  "posts_28d": 243,
-  "eng_28d": 126,
+  "posts_28d": 254,
+  "eng_28d": 129,
   "eng_avg": 0.5,
   "best_hours_pk": [
    17,
@@ -618,7 +648,7 @@
     "at": "15 Nov 03:20"
    }
   ],
-  "low_posts": 142,
+  "low_posts": 150,
   "history": [
    {
     "day": "2026-11-16",
@@ -638,10 +668,15 @@
     "day": "2026-11-19",
     "followers": 17,
     "eng_28d": 126
+   },
+   {
+    "day": "2026-11-20",
+    "followers": 17,
+    "eng_28d": 129
    }
   ],
   "posts_24h": 22,
-  "last_post": "2026-11-19T22:45+00:00"
+  "last_post": "2026-11-20T10:02+00:00"
  },
  "scenic": {
   "problems": [
@@ -649,21 +684,27 @@
   ]
  },
  "war": {
-  "at": "2026-11-19T22:51+00:00",
+  "at": "2026-11-20T12:17+00:00",
   "done": [],
   "problems": [],
   "name": "Battles Untold",
   "followers": 4,
   "insights_28d": {},
-  "posts_28d": 30,
-  "eng_28d": 24,
-  "eng_avg": 0.8,
+  "posts_28d": 32,
+  "eng_28d": 29,
+  "eng_avg": 0.9,
   "best_hours_pk": [
-   20,
    18,
-   3
+   3,
+   20
   ],
   "top_posts": [
+   {
+    "eng": 3,
+    "text": "In 1855, a 3-year conflict broke out across Washington Territory. 📜⚔️  📅 When: 1",
+    "url": "https://www.facebook.com/reel/2311370619717701/",
+    "at": "20 Nov 03:45"
+   },
    {
     "eng": 3,
     "text": "The first US war caught on camera claimed an estimated 700,000 lives. 📜📸  📅 When",
@@ -671,16 +712,10 @@
     "at": "17 Nov 03:44"
    },
    {
-    "eng": 1,
-    "text": "U.S. artillery units marched into Washington Territory as conflict erupted acros",
-    "url": "https://www.facebook.com/122096977695556052/posts/122098932909556052",
-    "at": "20 Nov 02:30"
-   },
-   {
-    "eng": 1,
-    "text": "Native warriors and territorial forces clashed heavily in the Pacific Northwest ",
-    "url": "https://www.facebook.com/122096977695556052/posts/122098932507556052",
-    "at": "20 Nov 02:29"
+    "eng": 2,
+    "text": "The largest mass execution in US history occurred in 1862. ⚖️📜  📅 When: August t",
+    "url": "https://www.facebook.com/reel/1651650233295955/",
+    "at": "19 Nov 18:23"
    }
   ],
   "low_posts": 8,
@@ -703,19 +738,24 @@
     "day": "2026-11-19",
     "followers": 4,
     "eng_28d": 24
+   },
+   {
+    "day": "2026-11-20",
+    "followers": 4,
+    "eng_28d": 29
    }
   ],
-  "posts_24h": 6,
-  "last_post": "2026-11-19T22:45+00:00"
+  "posts_24h": 7,
+  "last_post": "2026-11-20T01:13+00:00"
  },
  "birds": {
-  "at": "2026-11-19T22:51+00:00",
+  "at": "2026-11-20T12:17+00:00",
   "done": [],
   "problems": [],
   "name": "Birds of the World",
   "followers": 12,
   "insights_28d": {},
-  "posts_28d": 19,
+  "posts_28d": 20,
   "eng_28d": 9,
   "eng_avg": 0.5,
   "best_hours_pk": [
@@ -743,7 +783,7 @@
     "at": "17 Nov 03:49"
    }
   ],
-  "low_posts": 15,
+  "low_posts": 16,
   "history": [
    {
     "day": "2026-11-16",
@@ -763,13 +803,18 @@
     "day": "2026-11-19",
     "followers": 12,
     "eng_28d": 9
+   },
+   {
+    "day": "2026-11-20",
+    "followers": 12,
+    "eng_28d": 9
    }
   ],
   "posts_24h": 4,
-  "last_post": "2026-11-19T21:17+00:00"
+  "last_post": "2026-11-20T11:47+00:00"
  },
  "pets": {
-  "at": "2026-11-19T22:51+00:00",
+  "at": "2026-11-20T12:17+00:00",
   "done": [],
   "problems": [],
   "name": "Dogs & Cats World",
@@ -823,24 +868,29 @@
     "day": "2026-11-19",
     "followers": 1,
     "eng_28d": 2
+   },
+   {
+    "day": "2026-11-20",
+    "followers": 1,
+    "eng_28d": 2
    }
   ],
-  "posts_24h": 5,
+  "posts_24h": 4,
   "last_post": "2026-11-19T22:28+00:00"
  },
  "wild": {
-  "at": "2026-11-19T22:51+00:00",
+  "at": "2026-11-20T12:17+00:00",
   "done": [],
   "problems": [],
   "name": "Wild Nations",
   "followers": 4,
   "insights_28d": {},
-  "posts_28d": 21,
-  "eng_28d": 11,
+  "posts_28d": 23,
+  "eng_28d": 12,
   "eng_avg": 0.5,
   "best_hours_pk": [
    22,
-   4,
+   1,
    18
   ],
   "top_posts": [
@@ -852,18 +902,18 @@
    },
    {
     "eng": 2,
-    "text": "Canada's Untamed Wilderness: Journey Through the Great North  🌍 Country: Canada ",
-    "url": "https://www.facebook.com/reel/1623576648959365/",
-    "at": "18 Nov 06:09"
-   },
-   {
-    "eng": 1,
     "text": "Witness the ultimate sky hunter in action! 🦅  🐾 Animal: Bald eagle 🌍 Country: Un",
     "url": "https://www.facebook.com/reel/1156632420235177/",
     "at": "20 Nov 01:24"
+   },
+   {
+    "eng": 2,
+    "text": "Canada's Untamed Wilderness: Journey Through the Great North  🌍 Country: Canada ",
+    "url": "https://www.facebook.com/reel/1623576648959365/",
+    "at": "18 Nov 06:09"
    }
   ],
-  "low_posts": 16,
+  "low_posts": 18,
   "history": [
    {
     "day": "2026-11-16",
@@ -883,47 +933,52 @@
     "day": "2026-11-19",
     "followers": 4,
     "eng_28d": 11
+   },
+   {
+    "day": "2026-11-20",
+    "followers": 4,
+    "eng_28d": 12
    }
   ],
   "posts_24h": 5,
-  "last_post": "2026-11-19T20:24+00:00"
+  "last_post": "2026-11-20T11:07+00:00"
  },
  "faizi": {
-  "at": "2026-11-19T22:51+00:00",
+  "at": "2026-11-20T12:17+00:00",
   "done": [],
   "problems": [],
   "name": "Style by Faizi",
-  "followers": 1,
+  "followers": 2,
   "insights_28d": {},
-  "posts_28d": 19,
-  "eng_28d": 1,
-  "eng_avg": 0.1,
+  "posts_28d": 20,
+  "eng_28d": 4,
+  "eng_avg": 0.2,
   "best_hours_pk": [
+   6,
    4,
-   23,
-   20
+   23
   ],
   "top_posts": [
    {
-    "eng": 1,
-    "text": "",
-    "url": "https://www.facebook.com/reel/1145673538225499/",
-    "at": "18 Nov 04:03"
+    "eng": 2,
+    "text": "✨ Jewel‑Tone Winter Elegance awaits! ✨  1. Emerald Velvet Sharara Set 2. No Outf",
+    "url": "https://www.facebook.com/reel/2982660415449484/",
+    "at": "20 Nov 06:08"
    },
    {
-    "eng": 0,
+    "eng": 1,
     "text": "✨ Iridescent Autumn Luxe awaits! ✨  1. Copper Sheen Bridal Anarkali 2. Midnight ",
     "url": "https://www.facebook.com/reel/1874692290399257/",
     "at": "20 Nov 03:09"
    },
    {
-    "eng": 0,
-    "text": "✨ Step into a Mulberry & Metallic Winter Soirée! 🎀  1. Burnished Copper Tissue G",
-    "url": "https://www.facebook.com/122097376215555703/posts/122099297853555703",
-    "at": "19 Nov 23:57"
+    "eng": 1,
+    "text": "",
+    "url": "https://www.facebook.com/reel/1145673538225499/",
+    "at": "18 Nov 04:03"
    }
   ],
-  "low_posts": 18,
+  "low_posts": 17,
   "history": [
    {
     "day": "2026-11-16",
@@ -943,9 +998,14 @@
     "day": "2026-11-19",
     "followers": 1,
     "eng_28d": 1
+   },
+   {
+    "day": "2026-11-20",
+    "followers": 2,
+    "eng_28d": 4
    }
   ],
   "posts_24h": 5,
-  "last_post": "2026-11-19T22:09+00:00"
+  "last_post": "2026-11-20T01:08+00:00"
  }
 }

@@ -1,28 +1,34 @@
 {
  "islamic": {
-  "video": "29919470360979399",
-  "at": "2026-11-19T16:17:00+0000",
-  "title": "کیا آپ نے کبھی سوچا ہے کہ قبر کی پہلی رات کیسی ہوتی ہے؟ 🌌\n\nقبر کا عذاب اور قبر ک",
-  "score": 40,
+  "video": "1715866100085590",
+  "at": "2026-11-20T08:07:09+0000",
+  "title": "",
+  "score": 20,
   "checked": 5,
   "misses": [
    {
-    "t": 109.2,
+    "t": 5.5,
     "match": false,
-    "said": "someone thinking about resting",
-    "shown": "a starry galaxy background"
+    "said": "definition of Tawakkul and a Hadith",
+    "shown": "a desert landscape with a vehicle"
    },
    {
-    "t": 175.2,
+    "t": 23.2,
     "match": false,
-    "said": "a grave in a desolate place",
-    "shown": "a dark beach at night"
+    "said": "Prophet Muhammad teaching a golden rule",
+    "shown": "Interior of a mosque with chandeliers"
    },
    {
-    "t": 251.4,
+    "t": 28.1,
     "match": false,
-    "said": "a small habit for afterlife ease",
-    "shown": "mosque domes and construction scaffolding"
+    "said": "tie your camel and trust in Allah",
+    "shown": "text on a black background"
+   },
+   {
+    "t": 34.2,
+    "match": false,
+    "said": "lesson on effort and trusting God",
+    "shown": "a waterfall over mossy rocks"
    }
   ],
   "history": [
@@ -37,50 +43,54 @@
    {
     "day": "2026-11-19",
     "score": 40
+   },
+   {
+    "day": "2026-11-20",
+    "score": 20
    }
   ],
   "avg": 20,
   "lessons": [
-   "said \"making someone a widow\" but showed \"a park at night\"",
-   "said \"Jannat al-Baqi cemetery\" but showed \"historical map of Medina\"",
-   "said \"Wealth given in the path of Allah\" but showed \"Animated cartoon character and mosque images\"",
-   "said \"request to follow for more videos\" but showed \"silhouette of a person and horse at sunset\"",
    "said \"like this video\" but showed \"silhouette of a mosque at sunset\"",
    "said \"someone thinking about resting\" but showed \"a starry galaxy background\"",
    "said \"a grave in a desolate place\" but showed \"a dark beach at night\"",
-   "said \"a small habit for afterlife ease\" but showed \"mosque domes and construction scaffolding\""
+   "said \"a small habit for afterlife ease\" but showed \"mosque domes and construction scaffolding\"",
+   "said \"definition of Tawakkul and a Hadith\" but showed \"a desert landscape with a vehicle\"",
+   "said \"Prophet Muhammad teaching a golden rule\" but showed \"Interior of a mosque with chandeliers\"",
+   "said \"tie your camel and trust in Allah\" but showed \"text on a black background\"",
+   "said \"lesson on effort and trusting God\" but showed \"a waterfall over mossy rocks\""
   ]
  },
  "funny": {
-  "video": "3396441700537831",
-  "at": "2026-11-19T17:33:08+0000",
+  "video": "1713284453530720",
+  "at": "2026-11-20T08:33:07+0000",
   "title": "",
   "score": 20,
   "checked": 5,
   "misses": [
    {
-    "t": 3.4,
+    "t": 4.2,
     "match": false,
-    "said": "mother waking up for suhoor",
-    "shown": "man playing an accordion"
+    "said": "younger brother waiting at sweet shop",
+    "shown": "busy city street with traffic"
    },
    {
-    "t": 10.5,
+    "t": 14.1,
     "match": false,
-    "said": "person jumping out of bed to kitchen",
-    "shown": "an alarm clock"
+    "said": "Diet conscious cousin squeezing oil from puri",
+    "shown": "Plate of puris and potato curry"
    },
    {
-    "t": 18.7,
+    "t": 25.6,
     "match": false,
-    "said": "eating a hot paratha quickly",
-    "shown": "a woman speaking into a microphone"
+    "said": "person licking a bowl clean",
+    "shown": "chickpea curry on a flatbread"
    },
    {
-    "t": 26.9,
+    "t": 34.2,
     "match": false,
-    "said": "drinking two liters of cold water",
-    "shown": "a scenic river landscape with trees"
+    "said": "person eating halwa secretly",
+    "shown": "a blurry outdoor nature scene"
    }
   ],
   "history": [
@@ -95,32 +105,48 @@
    {
     "day": "2026-11-19",
     "score": 20
+   },
+   {
+    "day": "2026-11-20",
+    "score": 20
    }
   ],
-  "avg": 33,
+  "avg": 30,
   "lessons": [
-   "said \"Eating spicy golgappe with friends\" but showed \"A small bird perched outdoors\"",
-   "said \"adding very spicy red chutney\" but showed \"pouring yellow cheese sauce on nachos\"",
-   "said \"emptying a water cooler due to spicy food\" but showed \"person sitting by water looking at mountains\"",
-   "said \"childhood whooping cough effect\" but showed \"person swimming in the sea\"",
    "said \"mother waking up for suhoor\" but showed \"man playing an accordion\"",
    "said \"person jumping out of bed to kitchen\" but showed \"an alarm clock\"",
    "said \"eating a hot paratha quickly\" but showed \"a woman speaking into a microphone\"",
-   "said \"drinking two liters of cold water\" but showed \"a scenic river landscape with trees\""
+   "said \"drinking two liters of cold water\" but showed \"a scenic river landscape with trees\"",
+   "said \"younger brother waiting at sweet shop\" but showed \"busy city street with traffic\"",
+   "said \"Diet conscious cousin squeezing oil from puri\" but showed \"Plate of puris and potato curry\"",
+   "said \"person licking a bowl clean\" but showed \"chickpea curry on a flatbread\"",
+   "said \"person eating halwa secretly\" but showed \"a blurry outdoor nature scene\""
   ]
  },
  "frames": {
-  "video": "1125379733804927",
-  "at": "2026-11-19T19:55:26+0000",
-  "title": "چین میں پاکستانیوں کے لیے نوکریاں 🌏✨\n\njobs for pakistani in china اور salary ran",
-  "score": 67,
-  "checked": 3,
+  "video": "1605505454228783",
+  "at": "2026-11-20T08:17:50+0000",
+  "title": "",
+  "score": 40,
+  "checked": 5,
   "misses": [
    {
-    "t": 13.5,
+    "t": 4.0,
     "match": false,
-    "said": "request to comment and subscribe",
-    "shown": "map of China"
+    "said": "Lisbon fish market",
+    "shown": "cooked lobster dish"
+   },
+   {
+    "t": 30.9,
+    "match": false,
+    "said": "park area and local artists displaying paintings",
+    "shown": "a large tree in a forest"
+   },
+   {
+    "t": 43.1,
+    "match": false,
+    "said": "Cafe Serene and its bakery discount",
+    "shown": "whisking yellow batter in a bowl"
    }
   ],
   "history": [
@@ -135,32 +161,51 @@
    {
     "day": "2026-11-19",
     "score": 67
+   },
+   {
+    "day": "2026-11-20",
+    "score": 40
    }
   ],
-  "avg": 82,
+  "avg": 72,
   "lessons": [
    "said \"Over one hundred restaurants and cafes\" but showed \"Cityscape under a cloudy sunset sky\"",
-   "said \"request to comment and subscribe\" but showed \"map of China\""
+   "said \"request to comment and subscribe\" but showed \"map of China\"",
+   "said \"Lisbon fish market\" but showed \"cooked lobster dish\"",
+   "said \"park area and local artists displaying paintings\" but showed \"a large tree in a forest\"",
+   "said \"Cafe Serene and its bakery discount\" but showed \"whisking yellow batter in a bowl\""
   ]
  },
  "war": {
-  "video": "1671116007727102",
-  "at": "2026-11-19T22:43:23+0000",
-  "title": "",
-  "score": 60,
+  "video": "1152026213882812",
+  "at": "2026-11-20T01:13:00+0000",
+  "title": "California spent 113,000 dollars on this forgotten 1850s border expedition. 💰🇺🇸\n",
+  "score": 20,
   "checked": 5,
   "misses": [
    {
-    "t": 12.7,
+    "t": 3.4,
     "match": false,
-    "said": "Native tribal nations resisting territorial expansion",
-    "shown": "US Army soldiers on horseback"
+    "said": "expensive American border expedition",
+    "shown": "text on screen"
    },
    {
-    "t": 40.9,
+    "t": 23.4,
     "match": false,
-    "said": "founding of Washington Territory in 1853",
-    "shown": "a 19th century military officer"
+    "said": "economic competition over ferry businesses",
+    "shown": "text on screen explaining why it started"
+   },
+   {
+    "t": 38.0,
+    "match": false,
+    "said": "California militia Gila expedition defeat",
+    "shown": "Text on screen saying Turning Point Two"
+   },
+   {
+    "t": 51.4,
+    "match": false,
+    "said": "Kuchen surrender and peace treaty",
+    "shown": "text on screen saying turning point three"
    }
   ],
   "history": [
@@ -175,18 +220,22 @@
    {
     "day": "2026-11-19",
     "score": 60
+   },
+   {
+    "day": "2026-11-20",
+    "score": 20
    }
   ],
   "avg": 20,
   "lessons": [
-   "said \"Filipino guerrilla tactics and Aguinaldo's capture\" but showed \"Text on screen about turning point\"",
-   "said \"conflict that claimed a quarter million civilian lives\" but showed \"title card with text THE HIDDEN TOLL\"",
-   "said \"1899 Manila coastline and US annexation\" but showed \"Chocolate Hills in Bohol, Philippines\"",
-   "said \"Philippine-American War guerrilla insurgency\" but showed \"Chocolate Hills in the Philippines\"",
    "said \"Philippine Republic dissolved and islands became US territory\" but showed \"Chocolate Hills landscape in the Philippines\"",
    "said \"1899 Manila war archives\" but showed \"Chocolate Hills in Bohol, Philippines\"",
    "said \"Native tribal nations resisting territorial expansion\" but showed \"US Army soldiers on horseback\"",
-   "said \"founding of Washington Territory in 1853\" but showed \"a 19th century military officer\""
+   "said \"founding of Washington Territory in 1853\" but showed \"a 19th century military officer\"",
+   "said \"expensive American border expedition\" but showed \"text on screen\"",
+   "said \"economic competition over ferry businesses\" but showed \"text on screen explaining why it started\"",
+   "said \"California militia Gila expedition defeat\" but showed \"Text on screen saying Turning Point Two\"",
+   "said \"Kuchen surrender and peace treaty\" but showed \"text on screen saying turning point three\""
   ]
  },
  "birds": {
@@ -262,12 +311,19 @@
   ]
  },
  "wild": {
-  "video": "2261738087736578",
-  "at": "2026-11-19T20:23:45+0000",
-  "title": "",
-  "score": 100,
-  "checked": 1,
-  "misses": [],
+  "video": "2578111736006696",
+  "at": "2026-11-19T23:47:00+0000",
+  "title": "Russia's rarest giants are making a comeback! 🇷🇺🐾\n\n🌍 Country: Russia\n\n📚 Source: ",
+  "score": 80,
+  "checked": 5,
+  "misses": [
+   {
+    "t": 138.2,
+    "match": false,
+    "said": "silent movement of Eurasian lynx",
+    "shown": "title card with text Eurasian Lynx"
+   }
+  ],
   "history": [
    {
     "day": "2026-11-18",
@@ -280,23 +336,29 @@
    {
     "day": "2026-11-19",
     "score": 100
+   },
+   {
+    "day": "2026-11-20",
+    "score": 80
    }
   ],
-  "avg": 100,
-  "lessons": []
+  "avg": 95,
+  "lessons": [
+   "said \"silent movement of Eurasian lynx\" but showed \"title card with text Eurasian Lynx\""
+  ]
  },
  "news": {
-  "video": "2242232340008910",
-  "at": "2026-11-19T21:23:22+0000",
-  "title": "GTA 6 launches worldwide after 13 years of development. 🎮🌎\n\nGrand Theft Auto 6 f",
-  "score": 0,
-  "checked": 1,
+  "video": "2233466450882916",
+  "at": "2026-11-20T08:46:00+0000",
+  "title": "",
+  "score": 80,
+  "checked": 5,
   "misses": [
    {
-    "t": 298.6,
+    "t": 12.7,
     "match": false,
-    "said": "Environment Secretary and Natural England",
-    "shown": "flock of birds flying over water"
+    "said": "Conservative mayoral candidate selection",
+    "shown": "Westminster Palace and Westminster Bridge"
    }
   ],
   "history": [
@@ -311,48 +373,96 @@
    {
     "day": "2026-11-19",
     "score": 0
+   },
+   {
+    "day": "2026-11-20",
+    "score": 80
    }
   ],
-  "avg": 13,
+  "avg": 30,
   "lessons": [
    "said \"international tech disruptions and space milestones\" but showed \"vintage television studio cameras\"",
    "said \"Apple and air traffic authorities\" but showed \"United States flag\"",
    "said \"establishing strict operational standards\" but showed \"The Royal Courts of Justice building\"",
    "said \"Anthropic valued at 1.5 trillion dollars\" but showed \"Modern skyscrapers in a city skyline\"",
-   "said \"Environment Secretary and Natural England\" but showed \"flock of birds flying over water\""
+   "said \"Environment Secretary and Natural England\" but showed \"flock of birds flying over water\"",
+   "said \"Conservative mayoral candidate selection\" but showed \"Westminster Palace and Westminster Bridge\""
   ]
  },
  "newsur": {
-  "video": "1172032355506739",
-  "at": "2026-11-18T08:40:18+0000",
-  "note": "vision AI busy - agli dafa",
-  "history": [],
-  "avg": null,
-  "lessons": []
- },
- "sports": {
-  "video": "1826657878652362",
-  "at": "2026-11-19T22:45:13+0000",
+  "video": "985425770851827",
+  "at": "2026-11-20T08:34:59+0000",
   "title": "",
-  "score": 0,
-  "checked": 1,
+  "score": 20,
+  "checked": 5,
   "misses": [
    {
-    "t": 25.9,
+    "t": 4.5,
     "match": false,
-    "said": "Ranos scoring a goal in a match",
-    "shown": "Stadium exterior building architecture with a crest"
+    "said": "UK government fiscal deficit news",
+    "shown": "Vintage Bank of England banknote"
+   },
+   {
+    "t": 23.3,
+    "match": false,
+    "said": "UK national statistics economic data and figures",
+    "shown": "Close-up of handwritten vintage document text"
+   },
+   {
+    "t": 35.5,
+    "match": false,
+    "said": "Chancellor John Healey and economic relief",
+    "shown": "Boris Johnson outside 10 Downing Street"
+   },
+   {
+    "t": 46.6,
+    "match": false,
+    "said": "UK economic deficit and market impact",
+    "shown": "Traffic light tree sculpture"
+   }
+  ],
+  "history": [
+   {
+    "day": "2026-11-20",
+    "score": 20
+   }
+  ],
+  "avg": 20,
+  "lessons": [
+   "said \"UK government fiscal deficit news\" but showed \"Vintage Bank of England banknote\"",
+   "said \"UK national statistics economic data and figures\" but showed \"Close-up of handwritten vintage document text\"",
+   "said \"Chancellor John Healey and economic relief\" but showed \"Boris Johnson outside 10 Downing Street\"",
+   "said \"UK economic deficit and market impact\" but showed \"Traffic light tree sculpture\""
+  ]
+ },
+ "sports": {
+  "video": "2187893161936506",
+  "at": "2026-11-20T08:23:09+0000",
+  "title": "",
+  "score": 80,
+  "checked": 5,
+  "misses": [
+   {
+    "t": 43.7,
+    "match": false,
+    "said": "Follow Sports Hubz for latest sports updates",
+    "shown": "An American flag background with Urdu text"
    }
   ],
   "history": [
    {
     "day": "2026-11-19",
     "score": 0
+   },
+   {
+    "day": "2026-11-20",
+    "score": 80
    }
   ],
-  "avg": 0,
+  "avg": 40,
   "lessons": [
-   "said \"Ranos scoring a goal in a match\" but showed \"Stadium exterior building architecture with a crest\""
+   "said \"Ranos scoring a goal in a match\" but showed \"Stadium exterior building architecture with a crest\"",
+   "said \"Follow Sports Hubz for latest sports updates\" but showed \"An American flag background with Urdu text\""
   ]
  }
 }

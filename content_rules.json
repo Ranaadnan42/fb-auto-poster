@@ -1,112 +1,103 @@
 {
  "islamic": {
   "avoid": [
-   "Value of Time themes (used 2 times)",
-   "Death/Grave/Hereafter themes (used 2 times)"
+   "value of time theme",
+   "Jannah and how to reach it topics"
   ],
   "try": [
-   "The story of the Bedouin man who asked the Prophet ﷺ about the Hour (Qiyamah) an",
-   "A lesson on 'Sabr' (Patience) from the story of Prophet Yusuf (AS) in the prison",
-   "The etiquette of eating and drinking: The story of the Prophet ﷺ blowing on his ",
-   "The importance of 'Ihsan' (Excellence) in daily work: A story about a Sahabi who",
-   "The story of the woman who threw her child into the well and how Allah preserved",
-   "A practical tip on 'Dua' for parents: The specific dua the Prophet ﷺ taught for "
+   "Bilal ibn Rabah ki migration ke dauran chhupi hui khidmat ka kahani",
+   "Umar ibn al-Khattab ki adal o insaf ki kahani se sabak",
+   "Sha'ban ke mahine ki fazail aur recommended deeds",
+   "Aaj ke Muslim naujawan ki mushkilaat aur duaa se kamyabi ki kahani",
+   "Qamar ka split hone ka karishma aur uska sabak",
+   "Bimaar ya ghayab shuda logon ki dekhbhal ka adab aur ahadith"
   ],
-  "note": "Page is repetitive with Tawbah, Tahajjud, and Miracles; needs more diversity in daily life and character traits."
+  "note": "Page bohat repetitive lag rahi hai."
  },
  "funny": {
   "avoid": [
-   "Remote control fights",
-   "Pigeon or Kabootar baazi",
-   "Rickshaw or Careem bargaining",
-   "Nature-documentary narrator style",
-   "Sarcastic narrator roasting style",
-   "School homework and exams",
-   "Phone battery 1 percent",
-   "Online shopping vs reality"
+   "remote control fight/lost TV remote",
+   "ماجد بریک اور رکشے کا عذاب series",
+   "پریشان بلی نے پورے خاندان کو نوکر بنایا",
+   "پریشان بلی کا انٹرویو"
   ],
   "try": [
-   "Tailor (Darzi) excuses and logic before a big function",
-   "The 'Nahi Nahi' drama when guests offer money or Eidi",
-   "Load shedding struggles and the UPS beep panic",
-   "Barber (Hajjam) giving unsolicited life advice during a haircut",
-   "Desi wedding photographer's weird posing instructions",
-   "Trying a viral internet recipe vs the actual kitchen disaster"
+   "نیا موبائل ڈیٹا پلان اور بِلنگ کا ڈرامہ",
+   "کچن میں ایئر فرائیر پہلی بار استعمال اور دھواں کا ہنگامہ",
+   "آن لائن کلاس میں استاد کی ٹیکنیکل گڑبڑ اور طلباء کی چیٹ",
+   "پڑوس کے سائیکل سوار اور ٹریفک پولیس کا ٹکراؤ",
+   "گھر کے باہر نئی سائن بورڈ پر ہنسی مذاق کی تنقید",
+   "واٹس ایپ گروپ میں فیک نیوز کا پھیلاؤ اور ردعمل"
   ],
-  "note": "Page ka content kaafi relatable hai lekin school aur ammi ki daant walay topics thoday zyada repeat ho rahay hain."
+  "note": "Page thodi repetitive lag rahi hai."
  },
  "world": {
   "avoid": [
-   "Japan",
-   "Australia",
    "What Nobody Tells You",
    "Retiring in",
-   "Western Europe"
+   "Australia",
+   "Japan"
   ],
   "try": [
-   "Switzerland: The Reality of High-End Living",
-   "Iceland: Life on the Edge of the Arctic",
-   "Argentina: Culture, Crisis and Natural Beauty",
-   "Egypt: Living Among Ancient Wonders",
-   "Greece: The Honest Truth About Island Life",
-   "Germany vs France: Which European Powerhouse is Better?"
+   "Living in Iceland: Cost, Safety & Daily Life",
+   "Moving to Estonia: Hidden Benefits for Digital Nomads",
+   "Retiring in Malaysia: Healthcare & Lifestyle in 2025",
+   "Uruguay vs Paraguay: Which South American Country Suits Expats Better?",
+   "Exploring Malta: History, Culture & Affordable Living",
+   "Living in Kenya: Safety, Jobs & Urban Life"
   ],
-  "note": "Titles aur regions kafi repeat ho rahay hain, thora variation zaroori hai."
+  "note": "Page thodi repetitive lag rahi hai."
  },
  "world_short": {
   "avoid": [
-   "Would You Live in ...",
-   "5 Secret Places in ...",
-   "What Nobody Tells You About ..."
+   "Switzerland",
+   "Kenya",
+   "South Korea"
   ],
   "try": [
-   "7 Hidden Cultural Traditions in Morocco",
-   "The Best Street Food Spots in Nairobi",
-   "How to Survive the Winter in Norway: Tips & Tricks",
-   "The Rise of Remote Work in Iceland: What You Need to Know",
-   "Top 10 Affordable Cities in Vietnam for Expats",
-   "The Untold History of the Silk Road in Uzbekistan"
+   "Japan vs Vietnam: Daily Expenses & Street Food Battle",
+   "5 Underrated Beaches in Thailand You Can Actually Afford",
+   "The Real Cost of Renting a Studio in Lisbon vs Barcelona",
+   "3 Weird Local Laws in Brazil That Tourists Break",
+   "Hidden Cafes in Tokyo: Where Locals Actually Go",
+   "Living in Bali vs Chiang Mai: A 30-Day Reality Check"
   ],
-  "note": "Page bohat repetitive hai."
+  "note": "Page is highly repetitive with the same 5-6 title formats and country comparisons."
  },
  "frames": {
   "avoid": [
-   "Best European Countries for Pakistani Students"
+   "Dubai",
+   "London",
+   "Canada Life",
+   "Australia Life"
   ],
   "try": [
-   "Egypt Visa Guide for Pakistanis",
-   "Life in South Africa",
-   "Brazil Travel Guide for Pakistanis",
-   "Thailand Tourist Visa for Pakistanis",
-   "Vietnam Work Visa and Living"
+   "South Africa mein Pakistani ki zindagi aur jobs",
+   "UAE mein business kaise shuru karein (Free Zone Guide)",
+   "Poland mein Pakistani workers ki haqeeqat",
+   "Singapore mein high-skilled jobs aur tax benefits",
+   "Turkey mein medical tourism aur permanent residency"
   ],
-  "note": "Page thoda repetitive lagta hai, especially visa guides aur living comparisons."
+  "note": "Page is repetitive with visa guides and major Western cities; needs more niche destinations and business-focused content."
  },
  "frames_short": {
-  "avoid": [
-   "United Kingdom",
-   "South Korea",
-   "Pakistan",
-   "5 Khubsurat Chhupi Jagahein",
-   "6 Hairan Kun Haqaiq",
-   "Pakistani ke liye kaun behtar"
-  ],
+  "avoid": [],
   "try": [
-   "Vietnam: Hidden gems and travel tips for Pakistanis",
-   "Portugal: Why digital nomads are moving to Lisbon",
-   "Kazakhstan: A budget-friendly destination for families",
-   "Mauritius: Visa requirements and work opportunities",
-   "Singapore: How to manage expenses as a student",
-   "Chile: Exploring the landscapes of South America"
+   "Life in New Zealand: A Month in Auckland",
+   "Top 5 Street Foods in Bangkok, Thailand",
+   "Living in Toronto, Canada: Real Costs",
+   "Hidden Gems in Istanbul, Turkey",
+   "Job Market in Singapore for Pakistanis",
+   "60 Seconds in Paris, France"
   ],
-  "note": "Page kafi had tak same format aur topics repeat kar rahi hai, thori variety ki zaroorat hai."
+  "note": "Page is highly repetitive with specific formats like '60 seconds', '5 places', and 'cost of living'."
  },
  "_platforms": {
   "islamic": {
    "posts": 10,
-   "facebook": 6,
+   "facebook": 7,
    "youtube": 10,
-   "tiktok": 5
+   "tiktok": 6
   },
   "funny": {
    "posts": 10,
