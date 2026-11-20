@@ -1,9 +1,9 @@
 {
  "good": {
-  "volleyball match indoor court": 2,
+  "volleyball match indoor court": 3,
   "volleyball net indoor court": 1,
-  "volleyball players huddle": 1,
-  "volleyball indoor arena": 1,
+  "volleyball players huddle": 2,
+  "volleyball indoor arena": 4,
   "volleyball player celebration": 1,
   "basketball hoop": 1,
   "Target Center Minneapolis": 1,
@@ -11,7 +11,9 @@
   "NRG Stadium Houston": 1,
   "NRG Stadium": 1,
   "Houston Texans stadium": 1,
-  "gridiron football touchdown": 1
+  "gridiron football touchdown": 1,
+  "Chanticleers volleyball match": 1,
+  "volleyball team huddle": 1
  },
  "bad": {
   "basketball dunk arena": 2,
@@ -47,7 +49,10 @@
   "NRG Stadium football": 2,
   "Houston wide receiver": 2,
   "Wide receiver touchdown catch": 2,
-  "american football fans cheering": 1
+  "american football fans cheering": 1,
+  "CCU Chanticleers volleyball": 1,
+  "HTC Center Conway": 1,
+  "Coastal Carolina campus aerial": 1
  },
  "mistakes": []
 }
