@@ -1,26 +1,28 @@
 {
- "started": "2026-11-20T11:34",
+ "started": "2026-11-20T11:40",
  "steps": [
   "token: user token expires_at=0 data_access_expires_at=1801949831",
   "token: user token tha - page token bana kar istemal kiya",
-  "aaj ka manzar: dramatic mountain peaks",
+  "aaj ka manzar: autumn forest",
   "Gemini models: gemini-2.5-flash-lite, gemini-3.1-flash-lite, gemini-3.5-flash-lite, gemini-flash-lite-latest, gemini-3.1-flash-lite-preview, gemini-2.5-flash, gemini-3.5-flash, gemini-3.6-flash",
   "brain gemini-2.5-flash-lite: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no lo",
-  "agent ka faisla: Table Mountain, Cape Town, South Africa - bright sunny morning / dramatic rugged granite peaks overlooking the turquoise Atlantic ocean (Iconic landmark featuring dramatic peaks that perfectly fit the trending requirement.)",
+  "agent ka faisla: Nikko National Park, Japan - bright sunny autumn afternoon / golden light filtering through vibrant orange and red maple forest (Autumn foliage is trending and Nikko offers world-class visual aesthetics.)",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: dramatic mountain peaks",
-  "agent ka faisla: El Chalten, Patagonia, Argentina - bright sunny morning over sharp granite peaks and lush green valleys (Dramatic, iconic peaks are high-performing content for this genre.)",
-  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: lush tropical jungle",
-  "agent ka faisla: La Fortuna Waterfall, Arenal, Costa Rica - bright sunny morning / lush emerald jungle canopy and misting tropical waterfall (Tropical jungle escapes are trending for travelers avoiding the winter cold.)",
-  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: lush tropical jungle",
-  "agent ka faisla: Manuel Antonio National Park, Costa Rica - bright sunny morning / lush tropical jungle canopy and vibrant emerald foliage (High engagement for tropical escapes; fits the winter-sun-avoidance trend perfectly.)",
-  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai"
+  "aaj ka manzar: autumn forest",
+  "agent ka faisla: Nikko, Tochigi Prefecture, Japan - bright sunny autumn afternoon / golden light filtering through vibrant red and orange maple forest canopy (Capitalizes on trending autumn foliage searches with high-demand Japanese scenery.)",
+  "photo wmi195927558 1920x1440: ok=True beauty=6 - Beautiful autumn colors, but lacks bright sunlight.",
+  "photo wmi195927565 1920x2560: ok=True beauty=8 - Stunning autumn colors, iconic Kegon waterfall.",
+  "Post waqt 11:03 UTC guzar chuka - foran post",
+  "photo story lagi",
+  "pic posted: 1345688241970452_122107195437547841"
  ],
- "errors": [
-  "fatal: 4 jagahon par bhi achi footage nahi mili"
- ],
+ "errors": [],
  "mode": "pic",
- "finished": "2026-11-20T11:36"
+ "place": "Nikko, Tochigi Prefecture",
+ "country": "Japan",
+ "caption": "Where the trees turn to gold and time decides to stand still under a canopy of fire.\n\n📍 Nikko, Japan 🇯🇵\n\nStep into a golden dream where time stands still. 🍂✨\n\nExperience the vibrant fall colors of Japan as sunlight dances through the Nikko autumn forest foliage. There is nothing quite like this sunlit autumn canopy in the heart of Tochigi.\n\nWho would you want to take a peaceful autumn walk with here?\n\nFollow for the most beautiful places on Earth in Ultra HD 🌍\n\n#WanderEarth #USA #nikko #japantravel #autumnvibes #fallfoliage #UK #SaudiArabia #naturelovers #wanderlust #nature",
+ "clip": "wmi195927565",
+ "beauty": 8,
+ "posted": "1345688241970452_122107195437547841",
+ "finished": "2026-11-20T11:41"
 }
