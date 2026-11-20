@@ -1822,6 +1822,28 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122111897259532804"
+  },
+  {
+   "date": "2026-11-20 02:05",
+   "lang": "ur",
+   "topic": "pakistan",
+   "link": "https://www.bbc.co.uk/urdu/live/c5gm3y1rvmrxt?at_medium=RSS&at_campaign=rss",
+   "title": "’سرزمین یا قومی اثاثوں پر حملے برداشت نہیں کریں گے‘: سعودی عرب نے ریاض کے فنانشل ڈسٹرکٹ میں حملے کی تصدیق کر دی",
+   "words": [
+    "اثاثوں",
+    "برداشت",
+    "تصدیق",
+    "حملے",
+    "ریاض",
+    "سرزمین",
+    "سعودی",
+    "فنانشل",
+    "قومی",
+    "نہیں",
+    "ڈسٹرکٹ",
+    "کریں"
+   ],
+   "post_id": "1357984777408020_122097801039558252"
   }
  ],
  "sports": [
@@ -3637,6 +3659,23 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122105979501548502"
+  },
+  {
+   "date": "2026-11-20 02:03",
+   "lang": "ur",
+   "topic": "general",
+   "link": "https://www.bbc.co.uk/news/articles/cx1l0pm7l9jmo?at_medium=RSS&at_campaign=rss",
+   "title": "Trump posthumously pardons US baseball legend Pete Rose",
+   "words": [
+    "baseball",
+    "legend",
+    "pardons",
+    "pete",
+    "posthumously",
+    "rose",
+    "trump"
+   ],
+   "post_id": "1465090056678690_122106201663548502"
   }
  ],
  "used_images": [
@@ -3758,6 +3797,7 @@
   "pxi7121617",
   6030862,
   7014547,
-  "pxi4790437"
+  "pxi4790437",
+  "pxi1592627"
  ]
 }
