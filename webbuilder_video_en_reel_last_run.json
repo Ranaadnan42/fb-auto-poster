@@ -1,7 +1,7 @@
 {
- "time_utc": "2026-11-19 13:25",
- "spotlight": "real estate agency",
- "post_id": "2514711509056268",
+ "time_utc": "2026-11-20 13:26",
+ "spotlight": "car workshop",
+ "post_id": "1413089187270531",
  "error": null,
  "lang": "en",
  "kind": "reel",
@@ -10,6 +10,6 @@
  "errors": [],
  "real_work": 4,
  "real_pos": 2,
- "mock": 3,
- "seconds": 63.4
+ "mock": 4,
+ "seconds": 59.3
 }
