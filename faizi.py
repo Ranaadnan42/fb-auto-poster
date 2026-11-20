@@ -116,11 +116,13 @@ def plan(h):
     except Exception as e:
         log(f"trend research fail: {str(e)[:120]}")
     d = news.ask_json(f"""{_learned()}You are the creative director of the fashion page "Style by Faizi". The page bio says:
-"Trending dress designs daily - Bridal - Party Wear - Lawn - Eid - Kurti". So EVERY design must be a LADIES (adult
-women's) outfit from these bio categories ONLY: Bridal, Party Wear, Lawn, Eid, Kurti. No men's wear, no kids wear,
-no baby wear, nothing outside these categories. Viewers are in USA, UK, Canada, Europe, Australia and the Gulf
-(UAE, Saudi Arabia, Qatar, Kuwait) and the diaspora. It is {month}. Pick ONE fresh theme from the bio categories
-(e.g. a bridal colour trend, party wear for the season, new lawn prints, Eid outfits, kurti styles) that people are
+"Trending dress designs daily - Bridal - Party Wear - Lawn - Eid - Kurti". EVERY design must be a LADIES (adult
+women's) outfit. MIX in every post: about HALF Pakistani/Indian (desi) styles - bridal lehenga, sharara, gharara,
+anarkali, saree, lawn suit, Eid shalwar kameez, kurti, party wear - and about HALF Western styles - evening gowns,
+maxi dresses, party/cocktail dresses (modest length), co-ord sets, modest abaya-style dresses. No men's wear, no kids
+wear, no baby wear. Viewers are in USA, UK, Canada, Europe, Australia and the Gulf
+(UAE, Saudi Arabia, Qatar, Kuwait) and the diaspora. It is {month}. Pick ONE fresh theme that fits both desi and Western looks
+(e.g. a wedding-season colour trend, party wear for the season, new prints, festive outfits, everyday chic) that people are
 searching for right now - not one of these recent themes:
 {json.dumps(themes)}.
 {trends}
@@ -140,7 +142,9 @@ Return JSON:
               "search": ["3 short (2-4 words) stock photo search phrases that find REAL photos of a real woman wearing this kind of outfit, e.g. 'bride red lehenga', 'woman embroidered kurta', 'woman saree portrait', 'woman salwar kameez'"],
               "line": "one spoken sentence (14-22 words) describing it naturally: color, fabric, work and the occasion it suits"}}],
  "outro": "one spoken closing sentence asking viewers to comment their favourite number and follow Style by Faizi"}}
-All designs are for adult women only, each from the bio categories (Bridal, Party Wear, Lawn, Eid, Kurti).
+All designs are for adult women only; about half desi (Pakistani/Indian) and half Western, alternating; each design
+"prompt" must clearly name the style (e.g. "Pakistani bridal lehenga", "Western satin evening gown"). Show every
+design so clearly (cut, neckline, sleeves, embroidery, border) that a viewer can show it to her tailor and get it made.
 Rules: English; never mention Pakistan, India or prices; family friendly; no brand names.""")
     ds = [x for x in d.get("designs", []) if x.get("prompt") and x.get("name")][:N]
     if len(ds) < max(1, min(3, N - 2)):
@@ -537,6 +541,26 @@ def detail_clip(i, img, secs=2.5):
     return out
 
 
+# Ultra HD (4K): reel 2160x3840, long 3840x2160 - aakhri ek hi encode mein lanczos + halki sharpness,
+# taa ke log kapre ka kaam/kadhai saaf dekh kar tailor se banwa sakein
+UHD_V = ["-vf", f"scale={W * 2}:{H * 2}:flags=lanczos,unsharp=5:5:0.6,format=yuv420p", "-c:v", "libx264",
+         "-preset", "veryfast", "-crf", "18", "-maxrate", "25M", "-bufsize", "50M", "-r", "30"]
+
+
+def uhd_pic(src):
+    """Pic post ultra HD: 2x lanczos (2160x2700) + halki sharpness - design ki har detail saaf."""
+    from PIL import Image, ImageFilter
+    out = src.replace(".jpg", "_uhd.jpg")
+    try:
+        im = Image.open(src).convert("RGB")
+        im = im.resize((im.width * 2, im.height * 2), Image.LANCZOS)
+        im.filter(ImageFilter.UnsharpMask(radius=2, percent=60, threshold=2)).save(out, quality=95, subsampling=0)
+        return out
+    except Exception as e:
+        log(f"uhd pic fail: {str(e)[:80]}")
+        return src
+
+
 def build_video(p, imgs):
     clips = [scene(0, imgs[0]["path"], p["theme"], p.get("hook") or p["theme"], 0, video=imgs[0].get("video"))]
     for i, d in enumerate(imgs, 1):
@@ -559,7 +583,7 @@ def build_video(p, imgs):
     music(m, total)
     nv.run(["ffmpeg", "-y", "-loglevel", "error", "-i", joined, "-i", m, "-filter_complex",
             "[1:a]volume=0.35[m];[0:a][m]amix=inputs=2:duration=first:dropout_transition=0[a]",
-            "-map", "0:v", "-map", "[a]", "-c:v", "copy", "-c:a", "aac", "-b:a", "192k", OUT])
+            "-map", "0:v", "-map", "[a]", *UHD_V, "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", OUT])
     log(f"video ban gayi: {total:.0f}s, {len(clips)} scenes")
     return OUT
 
@@ -614,7 +638,7 @@ def a_or_b(imgs):
 def post_album(P, imgs, cap):
     ids = []
     for d in imgs:
-        with open(d["path"], "rb") as f:
+        with open(uhd_pic(d["path"]), "rb") as f:
             ids.append(fb(requests.post(f"{GRAPH}/{P['id']}/photos", timeout=300, files={"source": f},
                                         data={"published": "false", "access_token": P["token"]}))["id"])
     data = {"message": __import__("seo").with_usa(cap), "access_token": P["token"]}
@@ -678,7 +702,7 @@ def main():
         log(f"posted {meta['post_id']}")
     elif MODE == "pic":
         from PIL import Image
-        Image.open(imgs[0]["path"]).save("final_faizi_pic.jpg", quality=95)
+        Image.open(uhd_pic(imgs[0]["path"])).save("final_faizi_pic.jpg", quality=95)
     h["designs"] += [{"name": d["name"], "date": REPORT["time_utc"]} for d in imgs]
     h["posts"].append(meta)
     h["posts"] = h["posts"][-200:]
