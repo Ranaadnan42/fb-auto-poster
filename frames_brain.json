@@ -1,32 +1,32 @@
 {
- "updated": "2026-11-20 08:05",
+ "updated": "2026-11-20 21:03",
  "mult": {
-  "pk_best_list": 0.96,
   "pk_jobs": 0.71,
-  "pk_country": 1.43,
+  "pk_country": 1.42,
   "pk_visa": 0.91,
-  "pk_tour": 0.93,
-  "pk_living": 0.98,
+  "pk_tour": 0.92,
+  "pk_living": 0.97,
   "pk_jobhow": 0.97,
-  "pk_city": 1.07,
-  "pk_versus": 1.09,
-  "pk_moving": 0.76,
-  "pk_city_facts": 0.65,
-  "pk_versus_short": 0.76,
+  "pk_city": 1.06,
+  "pk_versus": 1.08,
+  "pk_moving": 0.75,
+  "pk_best_list": 1.02,
+  "pk_versus_short": 0.72,
   "pk_visa_short": 0.75,
   "pk_tour_short": 0.76,
   "pk_facts": 0.9,
-  "pk_cost_short": 0.6,
-  "pk_jobtip": 0.84,
+  "pk_cost_short": 0.57,
+  "pk_jobtip": 0.85,
   "pk_food": 0.55,
-  "pk_hidden": 0.76,
-  "pk_salary_short": 0.65
+  "pk_hidden": 0.79,
+  "pk_salary_short": 0.66,
+  "pk_city_facts": 0.7
  },
  "tips": [
-  "Canada aur Australia ke comparison ya selection wale topics (pk_versus_short) par mazeed shorts banayein kyunke yeh audience ko bohat pasand aa rahe hain.",
-  "China aur Singapore jaise bade aur unique destinations ke facts aur tours (pk_facts aur pk_tour_short) ki videos ko priority dein.",
-  "Malta aur Europe ki education ya immigration se judi long videos (pk_country) ko continue karein kyunke inka performance average se behtar hai.",
-  "Morocco food guide ya Greece facts jaise kamzor topics aur random short series ko avoid karein kyunke inki engagement bohat low hai.",
-  "Titles mein aam Pakistani ki zaroorat (jaise behter mulk ka intekhab, jobs, aur salary) ko strong hook ke tor par istemal karein."
+  "Always write titles and primary hooks in proper Urdu script; Roman Urdu titles completely flopped (x0.19 vs x10.52 for the exact same Canada vs Australia topic).",
+  "Prioritize in-depth long-form documentaries and country overviews (pk_country avg 4.12, pk_best_list 1.05) over micro-shorts, as long-form reliably outperforms short-form on average (0.87 vs 0.59).",
+  "Completely stop food-related guides (pk_food avg 0.30) and standalone salary/cost shorts (pk_salary_short 0.48, pk_cost_short 0.45), as audiences are ignoring them.",
+  "For short-form, focus strictly on fascinating national facts (China facts x11.77) and fast-paced visual tours (Singapore tour x3.95) with curiosity-driven hooks like 'ناقابل یقین اور حیران کن'.",
+  "Focus versus/comparison videos strictly on high-demand Tier-1 migration destinations (Canada vs Australia, Norway vs Denmark) and eliminate low-interest pairings like Germany vs Italy."
  ]
 }

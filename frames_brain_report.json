@@ -1,75 +1,71 @@
 {
- "time_utc": "2026-11-20 08:05",
- "videos": 65,
- "views": 29478,
+ "time_utc": "2026-11-20 21:03",
+ "videos": 66,
+ "views": 30135,
  "engagement": 475,
  "by_series": {
-  "pk_best_list": [
-   0.93,
-   3
-  ],
   "pk_jobs": [
    0.51,
    3
   ],
   "pk_country": [
-   4.21,
+   4.12,
    1
   ],
   "pk_visa": [
-   0.8,
+   0.79,
    2
   ],
   "pk_tour": [
-   0.84,
+   0.82,
    2
   ],
   "pk_living": [
-   0.92,
-   1
-  ],
-  "pk_jobhow": [
    0.9,
    1
   ],
+  "pk_jobhow": [
+   0.89,
+   1
+  ],
   "pk_city": [
-   1.29,
+   1.27,
    1
   ],
   "pk_versus": [
-   1.24,
+   1.21,
    2
   ],
   "pk_moving": [
-   0.5,
+   0.49,
    2
   ],
-  "pk_city_facts": [
-   0.5,
-   5
+  "pk_best_list": [
+   1.05,
+   2
   ],
   "pk_versus_short": [
-   0.66,
-   6
+   0.63,
+   7
   ],
   "pk_visa_short": [
    0.6,
    4
   ],
   "pk_tour_short": [
-   0.67,
+   0.68,
    7
   ],
   "pk_facts": [
-   0.84,
+   0.85,
    5
   ],
   "pk_cost_short": [
-   0.47,
-   6
+   0.45,
+   7
   ],
   "pk_jobtip": [
-   0.71,
+   0.72,
    3
   ],
   "pk_food": [
@@ -77,11 +73,15 @@
    3
   ],
   "pk_hidden": [
-   0.62,
-   4
+   0.69,
+   5
   ],
   "pk_salary_short": [
-   0.47,
+   0.48,
+   4
+  ],
+  "pk_city_facts": [
+   0.54,
    4
   ]
  },
@@ -89,49 +89,49 @@
  "by_kind": {
   "long": [
    0.87,
-   18
+   17
   ],
   "short": [
-   0.58,
-   47
+   0.59,
+   49
   ]
  },
  "best": [
-  "[short/ur] چین کے 6 ناقابل یقین اور حیران کن حقائق | China Facts in Urdu (series pk_facts, views 5475, eng 115, x11.63)",
-  "[short/ur] Canada vs Australia: پاکستانی کے لیے کون سا ملک بہتر ہے؟ | Life Abroad (series pk_versus_short, views 6039, eng 56, x10.36)",
-  "[long/ur] Malta Country Documentary in Urdu | مالٹا کا سفر اور زندگی (series pk_country, views 1358, eng 16, x4.16)"
+  "[short/ur] چین کے 6 ناقابل یقین اور حیران کن حقائق | China Facts in Urdu (series pk_facts, views 5475, eng 114, x11.77)",
+  "[short/ur] Canada vs Australia: پاکستانی کے لیے کون سا ملک بہتر ہے؟ | Life Abroad (series pk_versus_short, views 6044, eng 56, x10.52)",
+  "[long/ur] Malta Country Documentary in Urdu | مالٹا کا سفر اور زندگی (series pk_country, views 1358, eng 16, x4.07)"
  ],
- "summary": "Pichle teen hafton mein Canada vs Australia aur China ke facts wali shorts ne zabardast views diye hain aur audience ka dhyan khecha hai. Dusri taraf, Morocco ke khane, Greece ke facts aur Sweden ki cost of living wali shorts bilkul nahi chalin aur unki engagement na hone ke barabar rahi. Isliye behtar yeh hai ke hum sirf wahi topics aur country comparisons chalayein jin par log ziada interest le rahe hain aur baki flop series ko foran band kar dein.",
+ "summary": "Urdu script mein bani country documentaries, student lists aur Canada vs Australia jaise baray muqablay zabardast views le rahe hain. Doosri taraf food guides, Roman Urdu titles aur mukhtasir salary/visa shorts bilkul flop ho chukay hain. Hum ne nakam topics aur Roman titles band karke long documentaries aur Tier-1 country comparisons par poora focus kar diya hai.",
  "plan": {
-  "updated": "2026-11-20 08:05",
+  "updated": "2026-11-20 21:03",
   "mult": {
-   "pk_best_list": 0.96,
    "pk_jobs": 0.71,
-   "pk_country": 1.43,
+   "pk_country": 1.42,
    "pk_visa": 0.91,
-   "pk_tour": 0.93,
-   "pk_living": 0.98,
+   "pk_tour": 0.92,
+   "pk_living": 0.97,
    "pk_jobhow": 0.97,
-   "pk_city": 1.07,
-   "pk_versus": 1.09,
-   "pk_moving": 0.76,
-   "pk_city_facts": 0.65,
-   "pk_versus_short": 0.76,
+   "pk_city": 1.06,
+   "pk_versus": 1.08,
+   "pk_moving": 0.75,
+   "pk_best_list": 1.02,
+   "pk_versus_short": 0.72,
    "pk_visa_short": 0.75,
    "pk_tour_short": 0.76,
    "pk_facts": 0.9,
-   "pk_cost_short": 0.6,
-   "pk_jobtip": 0.84,
+   "pk_cost_short": 0.57,
+   "pk_jobtip": 0.85,
    "pk_food": 0.55,
-   "pk_hidden": 0.76,
-   "pk_salary_short": 0.65
+   "pk_hidden": 0.79,
+   "pk_salary_short": 0.66,
+   "pk_city_facts": 0.7
   },
   "tips": [
-   "Canada aur Australia ke comparison ya selection wale topics (pk_versus_short) par mazeed shorts banayein kyunke yeh audience ko bohat pasand aa rahe hain.",
-   "China aur Singapore jaise bade aur unique destinations ke facts aur tours (pk_facts aur pk_tour_short) ki videos ko priority dein.",
-   "Malta aur Europe ki education ya immigration se judi long videos (pk_country) ko continue karein kyunke inka performance average se behtar hai.",
-   "Morocco food guide ya Greece facts jaise kamzor topics aur random short series ko avoid karein kyunke inki engagement bohat low hai.",
-   "Titles mein aam Pakistani ki zaroorat (jaise behter mulk ka intekhab, jobs, aur salary) ko strong hook ke tor par istemal karein."
+   "Always write titles and primary hooks in proper Urdu script; Roman Urdu titles completely flopped (x0.19 vs x10.52 for the exact same Canada vs Australia topic).",
+   "Prioritize in-depth long-form documentaries and country overviews (pk_country avg 4.12, pk_best_list 1.05) over micro-shorts, as long-form reliably outperforms short-form on average (0.87 vs 0.59).",
+   "Completely stop food-related guides (pk_food avg 0.30) and standalone salary/cost shorts (pk_salary_short 0.48, pk_cost_short 0.45), as audiences are ignoring them.",
+   "For short-form, focus strictly on fascinating national facts (China facts x11.77) and fast-paced visual tours (Singapore tour x3.95) with curiosity-driven hooks like 'ناقابل یقین اور حیران کن'.",
+   "Focus versus/comparison videos strictly on high-demand Tier-1 migration destinations (Canada vs Australia, Norway vs Denmark) and eliminate low-interest pairings like Germany vs Italy."
   ]
  }
 }
