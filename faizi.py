@@ -351,7 +351,7 @@ def find_real(d, i, used, theme):
     for t in terms:
         cands = []
         if MODE != "pic":
-            cands += footage.pexels_videos(t, vert) + footage.pixabay_videos(t, vert)
+            cands += footage.pexels_videos(t, vert) + footage.pixabay_videos(t, vert) + footage.mixkit(t)
         cands += footage.pexels_photos(t) + footage.pixabay_photos(t)
         if MODE == "pic":
             cands += footage.openverse(t)
