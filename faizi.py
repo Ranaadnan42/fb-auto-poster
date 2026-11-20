@@ -8,8 +8,8 @@ MODE=long -> 16:9, ~2.5-3 min: aaj ka theme (e.g. "Wedding Guest Looks"), 12 des
 
 Agent kaam:
   - Har roz AI khud trend sochta hai (season, shaadi/Eid/party, rang) - pichle 80 designs dobara nahi (history)
-  - Tasveer: asli model ne dress pehni hui (realistic insan, mannequin nahi), ultra detailed kapra/kaam - Pollinations flux (free),
-    na mile to is page ki apni Gemini key se image
+  - Tasveer/video: sirf ASLI insan (malik ka hukam: AI model nahi) - Pexels/Pixabay/Openverse stock, Gemini se check
+    (asli adult aurat, poori dress, modest); naam aur awaz usi tasveer ko dekh kar - jo bola jaye wohi dikhe
   - Branding mein Pakistan/India ka naam nahi; USD/EUR + Gulf audience (seo.py "faizi")
 Env: FAIZI_PAGE_ID, FAIZI_PAGE_TOKEN, FAIZI_GEMINI_API_KEY (+GEMINI_BACKUP_KEY), MODE, POST_AT, DRY_RUN
 """
@@ -75,7 +75,10 @@ TOP_SCORE = 8         # is se kam score wali tasveer dobara banti hai
 N_DETAIL = 4          # Tayyaba style: har run mein pehle 4 designs ka "banta hua kaam" close-up
 WHO = {"women": "for an adult woman", "men": "for an adult man", "girls": "for a little girl (kids wear)",
        "boys": "for a little boy (kids wear)", "baby": "for a baby / toddler (baby wear)"}
-N = {"pic": 4, "reel": 6, "long": 12}[MODE]
+N = {"pic": 1, "reel": 6, "long": 12}[MODE]   # malik: pic post mein sirf 1 tasveer (3-4 ikatthi / A-B nahi)
+# malik: AI model nahi - asli insan. Tasveer/video sirf asli stock (Pexels/Pixabay/Openverse, commercial free)
+GENERIC = ["bride lehenga", "woman saree", "woman salwar kameez", "woman kurta", "bridal dress woman",
+           "woman anarkali dress", "woman traditional dress", "woman embroidered dress", "woman eid dress"]
 W, H = {"pic": (1080, 1350), "reel": (1080, 1920), "long": (1920, 1080)}[MODE]
 
 
@@ -133,13 +136,14 @@ Return JSON:
  "hook": "one spoken opening sentence (max 14 words) that makes women keep watching",
  "designs": [{{"name": "short outfit name, e.g. Emerald Velvet Sharara",
               "who": "women",
-              "prompt": "very detailed English image prompt of ONLY the outfit: type, cut, length, exact colors, fabric, embroidery/work, dupatta, sleeves",
+              "prompt": "very detailed English description of ONLY the outfit: type, cut, length, exact colors, fabric, embroidery/work, dupatta, sleeves",
+              "search": ["3 short (2-4 words) stock photo search phrases that find REAL photos of a real woman wearing this kind of outfit, e.g. 'bride red lehenga', 'woman embroidered kurta', 'woman saree portrait', 'woman salwar kameez'"],
               "line": "one spoken sentence (14-22 words) describing it naturally: color, fabric, work and the occasion it suits"}}],
  "outro": "one spoken closing sentence asking viewers to comment their favourite number and follow Style by Faizi"}}
 All designs are for adult women only, each from the bio categories (Bridal, Party Wear, Lawn, Eid, Kurti).
 Rules: English; never mention Pakistan, India or prices; family friendly; no brand names.""")
     ds = [x for x in d.get("designs", []) if x.get("prompt") and x.get("name")][:N]
-    if len(ds) < max(3, N - 2):
+    if len(ds) < max(1, min(3, N - 2)):
         raise RuntimeError("AI ne designs nahi diye")
     d["designs"] = ds
     return d
@@ -283,65 +287,125 @@ def split_img(left, right, out):
     return out
 
 
-def make_images(p):
+def _vision(q, path):
+    """Gemini vision: tasveer + sawal -> JSON (ya None)."""
+    data = base64.b64encode(open(path, "rb").read()).decode()
+    for key in [os.environ.get("FAIZI_GEMINI_API_KEY"), os.environ.get("GEMINI_BACKUP_KEY")]:
+        if not key:
+            continue
+        for model in gem_models(key):
+            try:
+                r = requests.post(f"https://generativelanguage.googleapis.com/v1beta/models/{model}:generateContent",
+                                  params={"key": key}, timeout=90, json={
+                                      "contents": [{"parts": [{"text": q},
+                                                              {"inlineData": {"mimeType": "image/jpeg", "data": data}}]}],
+                                      "generationConfig": {"responseMimeType": "application/json"}})
+                if r.status_code != 200:
+                    log(f"vision {model} {r.status_code}: {r.text[:120]}")
+                    continue
+                return json.loads(r.json()["candidates"][0]["content"]["parts"][0]["text"])
+            except Exception as e:
+                log(f"vision {model} fail: {str(e)[:100]}")
+    return None
+
+
+def check_real(jpg, theme):
+    """Asli kamre ki tasveer/video frame: ek asli adult aurat ne poori (eastern/modest) dress pehni ho."""
+    j = _vision("You are the strict photo editor of the ladies fashion page 'Style by Faizi' (Bridal, Party Wear, "
+                f"Lawn, Eid, Kurti). Today's theme: '{theme}'. Look at this image. ok=true ONLY if: it is a REAL camera "
+                "photo (not AI art, CGI, drawing or mannequin) of a real adult woman wearing a ladies outfit of these "
+                "kinds (lehenga, saree, shalwar kameez, kurti/kurta, anarkali, sharara, gharara, bridal dress, "
+                "embroidered gown, abaya); the outfit is the main subject and mostly visible; modest and family "
+                "friendly; no child; at most one main person in focus; no big text, logo or watermark; sharp. "
+                "score 1-10 = how beautiful and premium the outfit looks and how well it fits the theme. "
+                "Answer ONLY JSON {\"ok\": true/false, \"why\": \"max 10 words\", \"score\": n}", jpg)
+    if j is None:
+        return None, "check nahi ho saka", 0
+    try:
+        sc = float(j.get("score") or 0)
+    except Exception:
+        sc = 0
+    return bool(j.get("ok")), str(j.get("why", ""))[:150], sc
+
+
+def describe(jpg, theme):
+    """Jo dress tasveer mein asal mein hai usi ka naam aur awaz - jo bola jaye wohi dikhe."""
+    j = _vision("Describe ONLY the outfit this woman is actually wearing in this photo, for the fashion page "
+                f"'Style by Faizi' (theme: '{theme}'). Return JSON {{\"name\": \"short catchy outfit name (2-4 words) "
+                "true to the real colour and type, e.g. 'Ruby Bridal Lehenga'\", \"line\": \"one spoken English "
+                "sentence (14-22 words) describing exactly what is visible: colour, fabric, work and the occasion it "
+                "suits\"}. Never mention Pakistan, India, prices or brands. Do not describe anything not visible.", jpg) or {}
+    return str(j.get("name") or "").strip(), str(j.get("line") or "").strip()
+
+
+def find_real(d, i, used, theme):
+    """Is design ke liye asli insan wali video (reel/long) ya photo (pic) dhoondo + check karo."""
+    terms = [t for t in (d.get("search") or []) if isinstance(t, str) and t.strip()][:3]
+    terms += random.sample(GENERIC, 3)
+    vert = H > W
+    for t in terms:
+        cands = []
+        if MODE != "pic":
+            cands += footage.pexels_videos(t, vert) + footage.pixabay_videos(t, vert)
+        cands += footage.pexels_photos(t) + footage.pixabay_photos(t)
+        if MODE == "pic":
+            cands += footage.openverse(t)
+        random.shuffle(cands)
+        cands.sort(key=lambda c: c.get("photo", False))           # pehle video (asli harkat), phir photo
+        tried = 0
+        for c in cands:
+            if c["id"] in used or tried >= 4:
+                continue
+            tried += 1
+            used.add(c["id"])
+            jpg = os.path.join(JOB, f"d{i}.jpg")
+            try:
+                if c.get("photo"):
+                    if not footage.download(c["url"], jpg):
+                        continue
+                    src = jpg
+                else:
+                    src = os.path.join(JOB, f"v{i}.mp4")
+                    if not footage.download(c["url"], src, 200000):
+                        continue
+                    big = os.path.join(JOB, f"d{i}_f.jpg")
+                    subprocess.run(["ffmpeg", "-y", "-loglevel", "error", "-ss", f"{min(c.get('dur', 6) / 2, 6):.1f}",
+                                    "-i", src, "-frames:v", "1", "-q:v", "2", big], capture_output=True)
+                    if not os.path.exists(big):
+                        continue
+                    os.replace(big, jpg)
+            except Exception as e:
+                log(f"download fail {c['id']}: {str(e)[:80]}")
+                continue
+            ok, why, sc = check_real(jpg, theme)
+            if ok is None or (ok and sc >= 6):
+                nv.LEARN["ok"].append(t)
+                return {"path": jpg, "video": None if c.get("photo") else src, "id": c["id"], "src": c["src"]}
+            REPORT["images"]["rejected"] = REPORT["images"].get("rejected", 0) + 1
+            log(f"design {i + 1} reject {c['id']} ({t}): {why} [{sc}]")
+        nv.LEARN["fail"].append(t)
+    return None
+
+
+def make_images(p, h=None):
     os.makedirs(JOB, exist_ok=True)
     out = []
+    used = set((h or {}).get("used", []))
     REPORT["images"]["rejected"] = 0
     for i, d in enumerate(p["designs"]):
-        path = os.path.join(JOB, f"d{i}.jpg")
-        who = "women"                         # bio: sirf ladies (Bridal/Party/Lawn/Eid/Kurti)
-        flat = False                          # har tasveer mein asli insan model - flat-lay nahi
-        look = LOOK
-        prompt = f"{d['prompt']}, {WHO[who]}"
-        good = False
-        best = (0, None)
-        for attempt in range(4):              # kharab chehra/haath/mannequin ya aam si tasveer -> nayi tasveer
-            if not gen_image(prompt, W, H, path, random.randint(1, 10 ** 6), look):
-                break
-            ok, why, sc = check_image(path, flat)
-            if ok is None and attempt >= 1:   # checker hi band ho to aage chalo
-                good = True
-                break
-            if ok and sc >= TOP_SCORE:        # top fashion pages se behtar - tabhi lagao
-                good = True
-                break
-            if ok and sc > best[0]:           # saaf hai magar utni shandar nahi - backup rakho
-                bp = path.replace(".jpg", "_best.jpg")
-                os.replace(path, bp)
-                best = (sc, bp)
-            REPORT["images"]["rejected"] += 1
-            log(f"design {i + 1} reject (try {attempt + 1}, score {sc}): {why}")
-        if not good and best[0] >= 6:
-            os.replace(best[1], path)
-            good = True
-            log(f"design {i + 1}: best backup (score {best[0]})")
-        if good and i < N_DETAIL and MODE == "reel":   # close-up sirf reel mein alag clip; pic/long mein jodi tasveer nahi
-            dp = os.path.join(JOB, f"d{i}_det.jpg")
-            dw, dh = (W, H) if MODE == "reel" else (W // 2, H)
-            if gen_image(d["prompt"], dw, dh, dp, random.randint(1, 10 ** 6), DETAIL):
-                d = {**d, "detail": dp}
-        if good and N_POSES.get(MODE):        # same dress ki aur poses (chalti hui / ghoom kar) - check pass ho tabhi
-            poses = []
-            for k, pz in enumerate(POSES[:N_POSES[MODE]]):
-                pp = os.path.join(JOB, f"d{i}_p{k}.jpg")
-                for _ in range(2):
-                    if not gen_image(f"{d['prompt']}, {WHO[who]}, {pz}", W, H, pp, random.randint(1, 10 ** 6), look):
-                        break
-                    pok, pwhy, _sc = check_image(pp, False)
-                    if pok or pok is None:
-                        poses.append(pp)
-                        break
-                    log(f"design {i + 1} pose {k + 1} reject: {pwhy}")
-            d = {**d, "poses": poses}
-            REPORT["images"]["poses"] = REPORT["images"].get("poses", 0) + len(poses)
-        if good:
-            d = {**d, "main": path}           # ek tasveer = ek model, poori (koi split/collage nahi)
-            out.append({**d, "path": path})
-            log(f"design {i + 1}: {d['name']}")
-        else:
-            log(f"design fail: {d['name']}")
-    if len(out) < max(3, N - 2):
-        raise RuntimeError(f"sirf {len(out)} tasveerein bani")
+        m = find_real(d, i, used, p["theme"])
+        if not m:
+            log(f"design fail (asli tasveer na mili): {d['name']}")
+            continue
+        name, line = describe(m["path"], p["theme"])
+        d = {**d, **m, "main": m["path"], "name": name or d["name"], "line": line or d.get("line", "")}
+        out.append(d)
+        REPORT["images"][m["src"]] = REPORT["images"].get(m["src"], 0) + 1
+        log(f"design {i + 1}: {d['name']} ({m['id']}, {'video' if m['video'] else 'photo'})")
+    if len(out) < max(1, min(3, N - 2)):
+        raise RuntimeError(f"sirf {len(out)} asli tasveerein mili")
+    if h is not None:
+        h["used"] = (h.get("used", []) + [d["id"] for d in out])[-3000:]
     return out
 
 
@@ -425,12 +489,22 @@ def multi_clip(imgs, raw, secs, i):
         footage.photo_to_clip(imgs[0], raw, W, H, secs=secs)
 
 
-def scene(i, img, title, text, num, poses=None):
+def scene(i, img, title, text, num, poses=None, video=None):
     a = os.path.join(JOB, f"a{i}.mp3")
     tts(text, a)
     secs = max(nv.duration(a) + 0.6, 4.0)
     raw = os.path.join(JOB, f"r{i}.mp4")
-    multi_clip([img] + [p for p in (poses or []) if os.path.exists(p)], raw, secs, i)
+    done = False
+    if video and os.path.exists(video):      # asli insan ki asli video
+        try:
+            nv.run(["ffmpeg", "-y", "-loglevel", "error", "-stream_loop", "-1", "-i", video, "-t", f"{secs:.2f}",
+                    "-vf", f"scale={W}:{H}:force_original_aspect_ratio=increase,crop={W}:{H},fps=30,format=yuv420p",
+                    "-an", "-c:v", "libx264", "-preset", "veryfast", "-crf", "20", raw])
+            done = True
+        except Exception as e:
+            log(f"video clip fail, photo: {str(e)[:80]}")
+    if not done:
+        multi_clip([img] + [p for p in (poses or []) if os.path.exists(p)], raw, secs, i)
     s = os.path.join(JOB, f"s{i}.ass")
     subs(s, title, text, secs, num)
     out = os.path.join(JOB, f"c{i}.mp4")
@@ -464,16 +538,17 @@ def detail_clip(i, img, secs=2.5):
 
 
 def build_video(p, imgs):
-    clips = [scene(0, imgs[0]["path"], p["theme"], p.get("hook") or p["theme"], 0)]
+    clips = [scene(0, imgs[0]["path"], p["theme"], p.get("hook") or p["theme"], 0, video=imgs[0].get("video"))]
     for i, d in enumerate(imgs, 1):
         if MODE == "reel" and d.get("detail"):
             try:
                 clips.append(detail_clip(i, d["detail"]))
             except Exception as e:
                 log(f"detail clip skip: {str(e)[:80]}")
-        clips.append(scene(i, d["path"], d["name"], d.get("line") or d["name"], i, d.get("poses")))
+        clips.append(scene(i, d["path"], d["name"], d.get("line") or d["name"], i, d.get("poses"), d.get("video")))
     clips.append(scene(len(imgs) + 1, imgs[-1]["path"], "Which one is your favourite?",
-                       p.get("outro") or "Comment your favourite number and follow Style by Faizi.", 0))
+                       p.get("outro") or "Comment your favourite number and follow Style by Faizi.", 0,
+                       video=imgs[-1].get("video")))
     lst = os.path.join(JOB, "list.txt")
     with open(lst, "w") as f:
         f.writelines(f"file '{os.path.abspath(c)}'\n" for c in clips)
@@ -584,7 +659,7 @@ def main():
     h = load_hist()
     p = plan(h)
     log(f"Theme: {p['theme']} | {len(p['designs'])} designs")
-    imgs = make_images(p)
+    imgs = make_images(p, h)
     cap = caption(p, imgs)
     log(f"--- caption ---\n{cap}")
     path = None

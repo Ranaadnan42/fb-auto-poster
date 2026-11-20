@@ -78,6 +78,9 @@ jobs:
           GEMINI_API_KEY: ${{ secrets.FAIZI_GEMINI_API_KEY }}
           GEMINI_BACKUP_KEY: ${{ secrets.GEMINI_BACKUP_KEY }}
           GROQ_API_KEY: ${{ secrets.FAIZI_GROQ_API_KEY || secrets.GROQ_API_KEY }}
+          PIXABAY_API_KEY: ${{ secrets.PIXABAY_API_KEY }}
+          PEXELS_API_KEY: ${{ secrets.PEXELS_API_KEY }}
+          AGENT_PAGE: faizi
           VIDEO_CRF: '18'
           MODE: ${{ env.S && (env.S == '37 11 * * *' || env.S == '27 18 * * *') && 'pic' || env.S && (env.S == '27 0 * * *' && 'long' || 'reel') || inputs.mode || 'reel' }}
           POST_AT: ${{ env.S == '37 11 * * *' && '12:07' || env.S == '47 14 * * *' && '15:17' || env.S == '27 18 * * *' && '18:57' || env.S == '17 21 * * *' && '21:47' || env.S == '27 0 * * *' && '01:07' || '' }}
