@@ -19,7 +19,7 @@
   "football stadium exterior": 1,
   "football manager on touchline": 2,
   "Pakistan football stadium": 2,
-  "football training ground": 2,
+  "football training ground": 3,
   "Industrial oil container": 3,
   "55 gallon steel drums": 1,
   "Oil tanker ship": 1,
@@ -39,7 +39,15 @@
   "Las Vegas Grand Prix": 2,
   "formula 1 grand prix": 1,
   "Sheikh Zayed Cricket Stadium": 1,
-  "Zayed Cricket Stadium Abu Dhabi": 3
+  "Zayed Cricket Stadium Abu Dhabi": 3,
+  "San Francisco financial district": 1,
+  "BBC Broadcasting House London": 1,
+  "Shibuya Crossing screens": 1,
+  "Times Square billboard": 1,
+  "Downing Street exterior London": 1,
+  "10 Downing Street London": 1,
+  "Crystal Palace FC": 2,
+  "Football pitch England": 1
  },
  "bad": {
   "basketball dunk arena": 2,
@@ -162,7 +170,26 @@
   "pakistan cricket fans stadium": 1,
   "lahore cricket stadium packed": 1,
   "psl crowd cheering stands": 1,
-  "national stadium karachi audience": 1
+  "national stadium karachi audience": 1,
+  "LSE stock ticker": 8,
+  "Claude AI interface": 1,
+  "San Francisco tech office": 2,
+  "AI safety research lab": 1,
+  "Claude AI": 1,
+  "Claude chatbot interface": 1,
+  "Constitutional AI": 1,
+  "London Stock Exchange screen": 1,
+  "London stock ticker display": 1,
+  "Paternoster Square London": 1,
+  "UK stock market ticker": 1,
+  "digital signage monitor display": 2,
+  "Number 10 black door": 1,
+  "Anfield stadium": 2,
+  "The Kop stand": 2,
+  "The Reds football match": 2,
+  "Merseyside football pitch": 2,
+  "Championship football match": 1,
+  "English soccer stadium": 1
  },
  "mistakes": []
 }

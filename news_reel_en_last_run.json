@@ -1,27 +1,30 @@
 {
- "time_utc": "2026-11-20 13:07",
+ "time_utc": "2026-11-20 19:23",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-20 13:07",
+   "date": "2026-11-20 19:23",
    "kind": "reel",
    "lang": "en",
-   "title": "UK Fridges Secured from Hackers in Nationwide Secret Operation",
-   "dur": 57,
-   "post_id": "1904513424259953"
+   "title": "Anthropic Makes History in First Pure AI Stock Debut",
+   "dur": 54,
+   "post_id": "2290763111499917"
+  },
+  "sports": {
+   "date": "2026-11-20 19:23",
+   "kind": "reel",
+   "lang": "en",
+   "title": "Ismaila Sarr Focuses On Crystal Palace Return",
+   "dur": 48,
+   "post_id": "29241484908837937"
   }
  },
  "errors": [],
- "clips_rejected": 167,
- "alt_searches": 3,
- "no_match": [
-  "@United Kingdom"
- ],
- "headline_cards": 1,
- "agent_checks": 164,
- "agent_rejects": 159,
- "agent_skips": 0,
- "time_budget_hit": true
+ "clips_rejected": 207,
+ "alt_searches": 8,
+ "agent_checks": 216,
+ "agent_rejects": 206,
+ "agent_skips": 0
 }
