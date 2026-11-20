@@ -1,28 +1,8 @@
 {
- "time_utc": "2026-11-20 21:49",
+ "time_utc": "2026-11-20 22:36",
  "mode": "long",
  "dry_run": false,
  "errors": [
-  "fatal: sirf 15 sahi clips, 10 text cards - is topic ki video post nahi ki"
- ],
- "kind": "long",
- "lang": "en",
- "agent_checks": 288,
- "agent_rejects": 273,
- "agent_skips": 0,
- "clips_rejected": 282,
- "alt_searches": 19,
- "no_match": [
-  "Marine iguana swimming",
-  "Marine iguana basking",
-  "Marine iguana emerging from sea",
-  "Galápagos penguin in cave",
-  "Blue-footed booby dancing",
-  "Blue-footed booby diving",
-  "Blue-footed booby male display",
-  "Andean condor on cliff",
-  "Andean condor head detail",
-  "Spectacled bear in trees"
- ],
- "headline_cards": 10
+  "fatal: 'list' object has no attribute 'get'"
+ ]
 }
