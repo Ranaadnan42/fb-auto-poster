@@ -189,20 +189,44 @@ def proven_birds(h):
     return list(dict.fromkeys(ok + STAR_BIRDS))
 
 
+def footage_ok(h, bird):
+    """Parinde ki asli video waqai milti hai? Jawab yaad rakha jata hai (har dafa dobara check nahi)."""
+    okl, nol = h.setdefault("footage_ok", []), h.setdefault("footage_no", [])
+    if bird in okl:
+        return True
+    if bird in nol:
+        return False
+    ok = nv.has_footage(bird, "birds", need=4)
+    (okl if ok else nol).append(bird)
+    save_hist(h)
+    return ok
+
+
 def long_birds(h, theme, n=7):
-    """Lambi film ke parinde SIRF un mein se jin ki asli video milti hai (nayab parinde = text cards = post fail)."""
-    key = "proven:" + theme
+    """Lambi film ke parinde SIRF un mein se jin ki asli video milti hai (nayab parinde = text cards = post fail).
+    Har parinde ki footage pehle check hoti hai (4 asli clips) - jis ki na mile woh film mein nahi aata."""
+    key = "verified:" + theme
     if h["theme_birds"].get(key):
         return h["theme_birds"][key]
-    pool = proven_birds(h)
+    posted = {x.get("bird") for x in h["reel"] if x.get("post_id")}
+    pool = [b for b in proven_birds(h) if b not in h.get("footage_no", [])]
     j = news.ask_json(f"""For the bird documentary film "{theme}", choose {n} species ONLY from this list (copy the names
 exactly): {', '.join(pool)}. Pick the ones that fit the theme best; if few fit exactly, pick the closest/most famous ones
 and keep the film beautiful. Return JSON {{"birds": ["..."]}}""")
-    lst = [a.strip() for a in (j.get("birds") or []) if isinstance(a, str) and a.strip() in pool]
+    want = [a.strip() for a in (j.get("birds") or []) if isinstance(a, str) and a.strip() in pool]
+    # pehle theme wale, phir jin ki reel ban chuki (pakki footage), phir baqi
+    order = want + [b for b in pool if b in posted and b not in want] + \
+        [b for b in random.sample(pool, len(pool)) if b not in want and b not in posted]
+    lst = []
+    for b in order:
+        if len(lst) >= n:
+            break
+        if b in posted or footage_ok(h, b):
+            lst.append(b)
     if len(lst) < 5:
-        lst += [b for b in random.sample(pool, len(pool)) if b not in lst][:n - len(lst)]
-    h["theme_birds"][key] = lst[:n]
-    return lst[:n]
+        raise RuntimeError(f"{theme}: sirf {len(lst)} parindon ki asli footage mili")
+    h["theme_birds"][key] = lst
+    return lst
 
 
 def long_facts(h, theme):
@@ -290,7 +314,9 @@ def write_script(facts):
   (label = the bird's name in capitals, 3-4 scenes each: where in the world it lives, its colors, its voice, its most
   amazing behaviour), then "OUTRO". End: follow Birds of the World, like and share, comment your favourite bird."""
         body = f"THEME: {facts['title']}\nBIRDS (cover these, in this order):\n{facts['birds_text']}"
-        vis = "each scene shows THE bird of its chapter alive doing what the sentence says"
+        vis = ("each scene shows THE bird of its chapter alive doing what the sentence says; keep search terms SIMPLE "
+               "and common (first term = just the species name, e.g. 'Scarlet macaw', then '<species> flying' or "
+               "'<species> bird') - rare actions like 'eating a lizard' have no free footage")
     prompt = f"""You are the narrator and writer of the Facebook page "Birds of the World" (the most beautiful birds of every
 corner of the world, for viewers in the USA, UK, Europe, Canada and Australia). Write {shape}
 {body}
