@@ -1,27 +1,30 @@
 {
- "time_utc": "2026-11-20 13:07",
+ "time_utc": "2026-11-20 15:55",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-20 13:07",
+   "date": "2026-11-20 15:55",
    "kind": "reel",
    "lang": "en",
-   "title": "UK Fridges Secured from Hackers in Nationwide Secret Operation",
-   "dur": 57,
-   "post_id": "1904513424259953"
+   "title": "Oil Firm Fined Over Massive Environmental Violations",
+   "dur": 55,
+   "post_id": "2239079296962673"
+  },
+  "sports": {
+   "date": "2026-11-20 15:55",
+   "kind": "reel",
+   "lang": "en",
+   "title": "Should drone spying in football be made illegal?",
+   "dur": 52,
+   "post_id": "4623849834504647"
   }
  },
  "errors": [],
- "clips_rejected": 167,
- "alt_searches": 3,
- "no_match": [
-  "@United Kingdom"
- ],
- "headline_cards": 1,
- "agent_checks": 164,
- "agent_rejects": 159,
+ "clips_rejected": 97,
+ "agent_checks": 106,
+ "agent_rejects": 95,
  "agent_skips": 0,
- "time_budget_hit": true
+ "alt_searches": 3
 }
