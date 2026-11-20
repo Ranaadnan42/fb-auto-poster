@@ -1,28 +1,30 @@
 {
- "started": "2026-11-20T11:40",
+ "started": "2026-11-20T19:56",
  "steps": [
   "token: user token expires_at=0 data_access_expires_at=1801949831",
   "token: user token tha - page token bana kar istemal kiya",
-  "aaj ka manzar: autumn forest",
+  "aaj ka manzar: desert & dunes",
   "Gemini models: gemini-2.5-flash-lite, gemini-3.1-flash-lite, gemini-3.5-flash-lite, gemini-flash-lite-latest, gemini-3.1-flash-lite-preview, gemini-2.5-flash, gemini-3.5-flash, gemini-3.6-flash",
   "brain gemini-2.5-flash-lite: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no lo",
-  "agent ka faisla: Nikko National Park, Japan - bright sunny autumn afternoon / golden light filtering through vibrant orange and red maple forest (Autumn foliage is trending and Nikko offers world-class visual aesthetics.)",
+  "brain gemini-3.1-flash-lite: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
+  "agent ka faisla: Wadi Rum, Jordan - bright sunny afternoon / towering golden sandstone dunes and dramatic rock bridges under a crystal clear blue sky (Stunning contrasting red dunes and blue skies trigger massive wanderlust.)",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: autumn forest",
-  "agent ka faisla: Nikko, Tochigi Prefecture, Japan - bright sunny autumn afternoon / golden light filtering through vibrant red and orange maple forest canopy (Capitalizes on trending autumn foliage searches with high-demand Japanese scenery.)",
-  "photo wmi195927558 1920x1440: ok=True beauty=6 - Beautiful autumn colors, but lacks bright sunlight.",
-  "photo wmi195927565 1920x2560: ok=True beauty=8 - Stunning autumn colors, iconic Kegon waterfall.",
-  "Post waqt 11:03 UTC guzar chuka - foran post",
-  "photo story lagi",
-  "pic posted: 1345688241970452_122107195437547841"
+  "aaj ka manzar: desert & dunes",
+  "agent ka faisla: Uluru, Northern Territory, Australia - bright sunny afternoon / towering red sandstone monolith and golden desert dunes under vivid blue sky (Iconic red center landscapes perform exceptionally well with vibrant warm tones.)",
+  "photo wmi145434558 1920x1370: ok=True beauty=2 - Satellite view, dull brownish desert, unappealing angle",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "aaj ka manzar: mountain trekking",
+  "agent ka faisla: Wanderers, Torres del Paine National Park, Chile, Chile - bright sunny morning / vibrant green valleys and majestic granite peaks (Trending trekking scene in majestic Patagonia with viral hook style.)",
+  "photo wmi92752895 1920x1081: ok=False beauty=7 - Watermark bottom right, beautiful bright landscape.",
+  "photo wmi176201366 1920x1280: ok=True beauty=7 - Stunning snowy mountain peaks with hikers.",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
+  "aaj ka manzar: mountain trekking",
+  "agent ka faisla: Salkantay Trek, Andes, Peru, Peru - bright sunny morning / vibrant green Andean valleys under blue sky (Trending trekking scene in Peru with epic bright mountain aesthetics.)",
+  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai"
  ],
- "errors": [],
+ "errors": [
+  "fatal: 4 jagahon par bhi achi footage nahi mili"
+ ],
  "mode": "pic",
- "place": "Nikko, Tochigi Prefecture",
- "country": "Japan",
- "caption": "Where the trees turn to gold and time decides to stand still under a canopy of fire.\n\n📍 Nikko, Japan 🇯🇵\n\nStep into a golden dream where time stands still. 🍂✨\n\nExperience the vibrant fall colors of Japan as sunlight dances through the Nikko autumn forest foliage. There is nothing quite like this sunlit autumn canopy in the heart of Tochigi.\n\nWho would you want to take a peaceful autumn walk with here?\n\nFollow for the most beautiful places on Earth in Ultra HD 🌍\n\n#WanderEarth #USA #nikko #japantravel #autumnvibes #fallfoliage #UK #SaudiArabia #naturelovers #wanderlust #nature",
- "clip": "wmi195927565",
- "beauty": 8,
- "posted": "1345688241970452_122107195437547841",
- "finished": "2026-11-20T11:41"
+ "finished": "2026-11-20T19:57"
 }
