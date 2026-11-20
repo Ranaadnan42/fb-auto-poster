@@ -1000,6 +1000,11 @@ def main():
         for _ in range(3):
             plan = plan_long(h, avoid)
             log(f"long film: {plan.get('country')} - {plan.get('title')}")
+            if any((p.get("country") or "").lower() == (plan.get("country") or "").lower() and p.get("kind") == "long"
+                   for p in h["posts"]):
+                log(f"{plan.get('country')} ki long film pehle ban chuki - repeat nahi")
+                avoid.append(plan.get("country"))
+                continue
             try:
                 clips, mtitle, secs = long_film(plan, h, WORK)
                 break
@@ -1027,8 +1032,8 @@ def main():
         log(f"Long video posted: {vid}")
         h["posts"].append({"ts": time.time(), "vid": vid, "kind": "long", "place": plan["country"],
                            "country": plan["country"], "mood": "long film", "hook": plan.get("title")})
-        h["clips"] = (h.get("clips", []) + [c["id"] for c in clips])[-3000:]
-        h["music"] = (h.get("music", []) + [mtitle])[-200:]       # long video ka music bhi yaad rahe (repeat na ho)
+        h["clips"] = (h.get("clips", []) + [c["id"] for c in clips])[-100000:]
+        h["music"] = (h.get("music", []) + [mtitle])[-5000:]       # long video ka music bhi yaad rahe (repeat na ho)
         save_hist(h)
         return
 
@@ -1050,6 +1055,12 @@ def main():
         log(f"aaj ka manzar: {scene[0]}")
         plan = plan_next(h, avoid, scene)
         log(f"agent ka faisla: {plan.get('place')}, {plan.get('country')} - {plan.get('mood')} ({plan.get('why')})")
+        _pk = (plan.get("place") or "").split(",")[0].strip().lower()
+        if _pk and any((p.get("place") or "").split(",")[0].strip().lower() == _pk and p.get("kind") == MODE
+                       for p in h["posts"]):
+            log(f"{plan.get('place')} pehle post ho chuki - repeat nahi, doosri jagah")
+            avoid.append(f"{plan.get('place')}, {plan.get('country')}")
+            continue
         if MODE == "pic":
             shot = find_photo(plan, h, WORK)
             shots = [shot] if shot else []
@@ -1088,9 +1099,9 @@ def main():
                        "place": plan.get("place"), "country": plan.get("country"), "mood": plan.get("mood"),
                        "hook": plan.get("hook"), "clip": shot["id"], "beauty": shot["beauty"],
                        "scene": scene[0]})
-    h["clips"] = (h.get("clips", []) + [x["id"] for x in shots])[-3000:]
+    h["clips"] = (h.get("clips", []) + [x["id"] for x in shots])[-100000:]
     if mtitle and mtitle != "synth pad":
-        h["music"] = (h.get("music", []) + [mtitle])[-200:]
+        h["music"] = (h.get("music", []) + [mtitle])[-5000:]
     save_hist(h)
 
 
