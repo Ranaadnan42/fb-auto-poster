@@ -155,12 +155,12 @@ Rules: English; in each "name" and spoken "line" say whether it is a Pakistani, 
 
 
 # ---------------------------------------------------------------- tasveer
-def gen_image(prompt, w, h, path, seed, look=LOOK):
+def gen_image(prompt, w, h, path, seed, look=LOOK, gemini_only=False):
     full = f"{prompt}. {look}"
     url = ("https://image.pollinations.ai/prompt/" + urllib.parse.quote(full) +
            f"?width={w}&height={h}&seed={seed}&model=flux&nologo=true&enhance=true")
     from PIL import Image
-    for attempt in range(6):
+    for attempt in range(0 if gemini_only else 6):
         try:
             r = requests.get(url, timeout=240)
             if r.status_code == 200 and r.headers.get("content-type", "").startswith("image") and len(r.content) > 40000:
@@ -399,6 +399,20 @@ def find_real(d, i, used, theme, min_sc=7, allow_used=False):
     return None
 
 
+def gemini_design(d, i):
+    """Aakhri raasta: asli tasveer/video kahin na mile to Gemini se asli photo jaisi model (2 koshishein, sakht check)."""
+    path = os.path.join(JOB, f"d{i}_g.jpg")
+    for _ in range(2):
+        if not gen_image(f"{d['prompt']}, {WHO['women']}", W, H, path, random.randint(1, 10 ** 6), LOOK, gemini_only=True):
+            return None
+        ok, why, sc = check_image(path, False)
+        if ok or ok is None:
+            log(f"design {i + 1}: Gemini se bani (asli na mili)")
+            return {"path": path, "video": None, "id": f"gem{random.randint(1, 10 ** 9)}", "src": "gemini"}
+        log(f"design {i + 1} Gemini reject: {why}")
+    return None
+
+
 def make_images(p, h=None):
     os.makedirs(JOB, exist_ok=True)
     out = []
@@ -406,8 +420,12 @@ def make_images(p, h=None):
     REPORT["images"]["rejected"] = 0
     for i, d in enumerate(p["designs"]):
         m = find_real(d, i, used, p["theme"])
-        if not m and MODE != "pic":           # reel/long hamesha jaye: thoda narm check, phir purani asli video bhi chalegi
-            m = find_real(d, i, used, p["theme"], min_sc=6) or find_real(d, i, used, p["theme"], min_sc=6, allow_used=True)
+        if not m and MODE != "pic":           # reel/long hamesha jaye: thoda narm check
+            m = find_real(d, i, used, p["theme"], min_sc=6)
+        if not m:                             # kahin se asli na mili -> tab hi Gemini (asli photo jaisi, sakht check)
+            m = gemini_design(d, i)
+        if not m and MODE != "pic":           # Gemini bhi na bana sake -> pehle wali asli video
+            m = find_real(d, i, used, p["theme"], min_sc=6, allow_used=True)
         if not m:
             log(f"design fail (asli tasveer na mili): {d['name']}")
             continue
