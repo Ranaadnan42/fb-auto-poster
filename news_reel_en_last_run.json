@@ -1,30 +1,31 @@
 {
- "time_utc": "2026-11-19 19:32",
+ "time_utc": "2026-11-19 23:25",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-19 19:32",
+   "date": "2026-11-19 23:25",
    "kind": "reel",
    "lang": "en",
-   "title": "Rare One Horned Rhino Takes First Steps at Zoo",
-   "dur": 53,
-   "post_id": "1153402430674052"
+   "title": "UK and EU Negotiations Over Travel and Farming Reach Deadline",
+   "dur": 60,
+   "post_id": "2118962045652867"
   },
   "sports": {
-   "date": "2026-11-19 19:32",
+   "date": "2026-11-19 23:25",
    "kind": "reel",
    "lang": "en",
-   "title": "Mateska Nguyen Azavedo Earn Big Ten Volleyball Honors",
-   "dur": 55,
-   "post_id": "1129184003151565"
+   "title": "Trump Pardons Baseball Legend Pete Rose",
+   "dur": 41,
+   "post_id": "1052814627833476"
   }
  },
  "errors": [],
- "agent_checks": 96,
- "agent_rejects": 81,
- "agent_skips": 0,
- "clips_rejected": 84,
- "alt_searches": 2
+ "agent_checks": 74,
+ "agent_rejects": 65,
+ "agent_skips": 36,
+ "clips_rejected": 101,
+ "alt_searches": 4,
+ "time_budget_hit": true
 }
