@@ -1,25 +1,32 @@
 {
  "lang": "en",
- "stock_clips": 16,
+ "stock_clips": 41,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "dua answered stories",
-  "dua accepted stories"
+  "sunnah of prophet muhammad",
+  "sunnah of prophet muhammad in daily life",
+  "sunnah of prophet muhammad before sleeping",
+  "sunnah of prophet before sleeping",
+  "sunnah of prophet muhammad in daily life in urdu",
+  "sunnah of prophet muhammad malayalam",
+  "sunnah of prophet muhammad in tamil",
+  "sunnah of prophet muhammad in urdu",
+  "sunnah of prophet muhammad on eid ul adha"
  ],
- "story": "Prophet teaches Abu Umamah dua for debt",
- "search": "dua answered stories",
- "vision_checks": 118,
- "clips_rejected": 82,
+ "story": "Prophet walks to visit sick Jabir",
+ "search": "sunnah of prophet muhammad in daily life",
+ "vision_checks": 53,
+ "clips_rejected": 179,
  "sources": {
-  "pixabay": 13,
-  "commons": 2,
-  "openverse": 1
+  "pixabay": 31,
+  "commons": 9,
+  "mixkit": 1
  },
  "photo_clips": 1,
- "reel_minutes": 1.15,
- "time_utc": "2026-11-20 16:43",
- "title": "Dua Answered Stories: The Prayer That Cleared His Debt",
+ "long_minutes": 5.28,
+ "time_utc": "2026-11-20 19:39",
+ "title": "Sunnah of Prophet Muhammad in Daily Life: The Healing Visit",
  "dry_run": false,
  "posted_ok": 1
 }
