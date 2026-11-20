@@ -1,40 +1,28 @@
 {
  "mode": "auto",
- "stock_clips": 14,
- "fallback_clips": 0,
+ "stock_clips": 11,
+ "fallback_clips": 1,
  "errors": [],
  "format": "people",
- "search_phrases": [
-  "subah ka nashta halwa puri",
-  "halwa puri breakfast",
-  "halwa puri breakfast recipe",
-  "halwa puri wale channel",
-  "halwa puri wale chane"
- ],
- "funny_score": "3 -> 9",
- "search": "subah ka nashta halwa puri",
- "reel_format": "types",
- "vision_checks": 118,
- "clips_rejected": 191,
+ "search_phrases": [],
+ "funny_score": "2 -> 9",
+ "reel_format": "dialogue",
+ "vision_checks": 178,
+ "clips_rejected": 167,
  "no_match": [
-  "halwa puri breakfast",
-  "halwa puri breakfast",
-  "people standing in queue",
-  "man wiping food tissue",
-  "man eating food greedily",
-  "person licking fingers food",
-  "sweet semolina halwa bowl",
-  "person secretly eating spoon",
-  "person eating last bite",
-  "person eating last bite"
+  "woman drinking tea cup",
+  "woman shaking head",
+  "women chatting sofa",
+  "women chatting sofa",
+  "women laughing"
  ],
  "sources": {
-  "commons": 3,
-  "mixkit": 1
+  "pixabay": 7,
+  "mixkit": 2
  },
- "laughs": 5,
- "reel_minutes": 0.9,
- "time_utc": "2026-11-20 07:04",
- "title": "اتوار کا حلوہ پوری ناشتہ اور ہمارے گھر کے شاہکار",
+ "laughs": 4,
+ "reel_minutes": 0.89,
+ "time_utc": "2026-11-20 11:07",
+ "title": "محلے کی آنٹی اور وائی فائی والی غیبت",
  "dry_run": false
 }
