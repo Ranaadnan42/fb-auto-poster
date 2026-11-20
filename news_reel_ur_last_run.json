@@ -1,22 +1,22 @@
 {
- "time_utc": "2026-11-20 08:23",
+ "time_utc": "2026-11-20 12:40",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-20 08:23",
+   "date": "2026-11-20 12:40",
    "kind": "reel",
    "lang": "ur",
-   "title": "UK Government Borrowing Rises Less Than Forecast in October",
-   "dur": 61,
-   "post_id": "1503092848399582"
+   "title": "جاپان اور سعودی عرب کے درمیان تیل ذخیرہ کرنے کا نیا معاہدہ",
+   "dur": 54,
+   "post_id": "1125327803720824"
   }
  },
  "errors": [],
- "agent_checks": 27,
- "agent_rejects": 18,
+ "clips_rejected": 67,
+ "agent_checks": 73,
+ "agent_rejects": 67,
  "agent_skips": 0,
- "clips_rejected": 18,
- "alt_searches": 1
+ "alt_searches": 2
 }

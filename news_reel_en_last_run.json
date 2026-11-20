@@ -1,21 +1,27 @@
 {
- "time_utc": "2026-11-20 08:35",
+ "time_utc": "2026-11-20 13:07",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-20 08:35",
+   "date": "2026-11-20 13:07",
    "kind": "reel",
    "lang": "en",
-   "title": "Conservatives Select James Cleverly for London Mayor Candidate",
-   "dur": 50,
-   "post_id": "2214501862439719"
+   "title": "UK Fridges Secured from Hackers in Nationwide Secret Operation",
+   "dur": 57,
+   "post_id": "1904513424259953"
   }
  },
  "errors": [],
- "agent_checks": 43,
- "agent_rejects": 38,
+ "clips_rejected": 167,
+ "alt_searches": 3,
+ "no_match": [
+  "@United Kingdom"
+ ],
+ "headline_cards": 1,
+ "agent_checks": 164,
+ "agent_rejects": 159,
  "agent_skips": 0,
- "clips_rejected": 39
+ "time_budget_hit": true
 }

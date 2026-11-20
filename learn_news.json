@@ -1,6 +1,6 @@
 {
  "good": {
-  "BBC Broadcasting House London": 5,
+  "BBC Broadcasting House London": 7,
   "British pound banknotes": 7,
   "television screen broadcast": 1,
   "television broadcast mast tower": 2,
@@ -9,7 +9,15 @@
   "10 Downing Street London": 2,
   "LSE stock ticker": 1,
   "London street traffic": 1,
-  "Palace of Westminster London": 4
+  "Palace of Westminster London": 4,
+  "Oil tanker ship": 1,
+  "NHK building Tokyo": 2,
+  "Saudi Arabia flag": 1,
+  "Petroleum storage barrels": 1,
+  "Industrial oil container": 1,
+  "supermarket aisle": 1,
+  "restaurant kitchen": 1,
+  "digital signage monitor display": 1
  },
  "bad": {
   "world news broadcast control room": 1,
@@ -17,7 +25,26 @@
   "Crystal Palace transmitter": 2,
   "Fernsehturm Berlin": 2,
   "telecommunications broadcast tower": 2,
-  "London stock exchange screen": 1
+  "London stock exchange screen": 1,
+  "Crude oil barrel": 2,
+  "Tokyo street traffic": 2,
+  "Stacked oil drums": 2,
+  "Japan flag": 1,
+  "Hinomaru flag": 1,
+  "Nisshoki": 1,
+  "Japanese national flag waving": 1,
+  "Tokyo government building flag": 1,
+  "London Big Ben": 1,
+  "Union Jack flag": 1,
+  "Tower Bridge London": 1,
+  "London double decker bus": 1,
+  "world map globe": 1,
+  "news studio screen": 1,
+  "city skyline": 1,
+  "Union Jack EU flag": 1,
+  "UK EU flags waving": 1,
+  "Brexit flags": 1,
+  "British EU flags": 1
  },
  "mistakes": []
 }
