@@ -1,30 +1,31 @@
 {
- "started": "2026-11-20T19:56",
+ "started": "2026-11-20T20:04",
  "steps": [
   "token: user token expires_at=0 data_access_expires_at=1801949831",
   "token: user token tha - page token bana kar istemal kiya",
-  "aaj ka manzar: desert & dunes",
+  "aaj ka manzar: colonial street food",
   "Gemini models: gemini-2.5-flash-lite, gemini-3.1-flash-lite, gemini-3.5-flash-lite, gemini-flash-lite-latest, gemini-3.1-flash-lite-preview, gemini-2.5-flash, gemini-3.5-flash, gemini-3.6-flash",
   "brain gemini-2.5-flash-lite: 404 {\n  \"error\": {\n    \"code\": 404,\n    \"message\": \"This model models/gemini-2.5-flash-lite is no lo",
   "brain gemini-3.1-flash-lite: 429 {\n  \"error\": {\n    \"code\": 429,\n    \"message\": \"You exceeded your current quota, please check yo",
-  "agent ka faisla: Wadi Rum, Jordan - bright sunny afternoon / towering golden sandstone dunes and dramatic rock bridges under a crystal clear blue sky (Stunning contrasting red dunes and blue skies trigger massive wanderlust.)",
+  "agent ka faisla: Oaxaca de Juárez, Mexico, Mexico - bright sunny afternoon / vibrant colonial streets filled with sizzling street food and colorful architecture under clear blue sky (Colonial street food taps into the viral food and travel trend effortlessly.)",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: desert & dunes",
-  "agent ka faisla: Uluru, Northern Territory, Australia - bright sunny afternoon / towering red sandstone monolith and golden desert dunes under vivid blue sky (Iconic red center landscapes perform exceptionally well with vibrant warm tones.)",
-  "photo wmi145434558 1920x1370: ok=True beauty=2 - Satellite view, dull brownish desert, unappealing angle",
+  "aaj ka manzar: colonial street food",
+  "agent ka faisla: Oaxaca City, Mexico, Mexico - bright sunny afternoon / vibrant colonial streets and bustling local food markets (Combines viral urban travel trends with rich local culinary culture.)",
   "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: mountain trekking",
-  "agent ka faisla: Wanderers, Torres del Paine National Park, Chile, Chile - bright sunny morning / vibrant green valleys and majestic granite peaks (Trending trekking scene in majestic Patagonia with viral hook style.)",
-  "photo wmi92752895 1920x1081: ok=False beauty=7 - Watermark bottom right, beautiful bright landscape.",
-  "photo wmi176201366 1920x1280: ok=True beauty=7 - Stunning snowy mountain peaks with hikers.",
-  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai",
-  "aaj ka manzar: mountain trekking",
-  "agent ka faisla: Salkantay Trek, Andes, Peru, Peru - bright sunny morning / vibrant green Andean valleys under blue sky (Trending trekking scene in Peru with epic bright mountain aesthetics.)",
-  "is jagah ki kaafi 8+/10 khoobsurat saaf footage nahi mili - agent doosri jagah sochta hai"
+  "aaj ka manzar: beach & coastline",
+  "agent ka faisla: Navagio Beach, Zakynthos, Greece - bright sunny daytime over dramatic limestone sea cliffs and turquoise cove (Iconic turquoise beach aesthetics drive massive social media engagement.)",
+  "photo wmi79058701 1920x1242: ok=True beauty=9 - Breathtaking turquoise water, iconic shipwreck beach, vibrant colours.",
+  "Post waqt 20:03 UTC guzar chuka - foran post",
+  "photo story lagi",
+  "pic posted: 1345688241970452_122107595121547841"
  ],
- "errors": [
-  "fatal: 4 jagahon par bhi achi footage nahi mili"
- ],
+ "errors": [],
  "mode": "pic",
- "finished": "2026-11-20T19:57"
+ "place": "Navagio Beach, Zakynthos",
+ "country": "Greece",
+ "caption": "Where towering white cliffs embrace crystal turquoise waters under endless blue skies.\n\n📍 Navagio Beach, Zakynthos, Greece 🇬🇷\n\nIf paradise had a color, it would look like this. 🌊\n\nExperience the ultimate greece summer coastline bright sun over the famous zakynthos shipwreck beach aerial. Watch how the ionian sea beach drone shot reveals the breathtaking greek island turquoise sea cliffs.\n\nWho is the first person you are packing your bags to visit Greece with?\n\nFollow for the most beautiful places on Earth in Ultra HD 🌍\n\n#WanderEarth #USA #NavagioBeach #Zakynthos #GreekIslands #IonianSea #Canada #Qatar #GreeceTravel #ShipwreckBeach #nature",
+ "clip": "wmi79058701",
+ "beauty": 9,
+ "posted": "1345688241970452_122107595121547841",
+ "finished": "2026-11-20T20:05"
 }
