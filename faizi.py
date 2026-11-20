@@ -477,8 +477,6 @@ def make_images(p, h=None):
             m = find_real(d, i, used, p["theme"], min_sc=6)
         if not m:                             # kahin se asli na mili -> tab hi Gemini (asli photo jaisi, sakht check)
             m = gemini_design(d, i)
-        if not m and MODE != "pic":           # Gemini bhi na bana sake -> pehle wali asli video
-            m = find_real(d, i, used, p["theme"], min_sc=6, allow_used=True)
         if not m:
             log(f"design fail (asli tasveer na mili): {d['name']}")
             continue
@@ -487,7 +485,7 @@ def make_images(p, h=None):
         out.append(d)
         REPORT["images"][m["src"]] = REPORT["images"].get(m["src"], 0) + 1
         log(f"design {i + 1}: {d['name']} ({m['id']}, {'video' if m['video'] else 'photo'})")
-    if len(out) < max(1, min(3, N - 2)):
+    if len(out) < 1:                          # roz naya: pehle wali video dobara nahi, jitne naye designs mile utne
         raise RuntimeError(f"sirf {len(out)} asli tasveerein mili")
     if h is not None:
         h["used"] = (h.get("used", []) + [d["id"] for d in out])[-3000:]
