@@ -1,29 +1,29 @@
 {
- "time_utc": "2026-11-19 19:49",
+ "time_utc": "2026-11-20 13:19",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
  "calls": [
   {
-   "file": "File:Upupa epops · XC135728.ogg",
-   "license": "cc by-sa 3.0"
+   "file": "File:Peregrine falcon call recorded in February 2010 at Yana, Karnataka.wav",
+   "license": "cc by-sa 4.0"
   }
  ],
  "bird_calls": 1,
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 289,
- "alt_searches": 6,
- "agent_checks": 222,
- "agent_rejects": 209,
- "agent_skips": 78,
+ "clips_rejected": 336,
+ "alt_searches": 9,
+ "agent_checks": 243,
+ "agent_rejects": 237,
+ "agent_skips": 91,
  "posted": {
-  "bird": "Hoopoe",
+  "bird": "Peregrine falcon",
   "theme": null,
-  "wiki": "Hoopoe",
-  "date": "2026-11-19 19:49",
-  "title": "Why Does the Crowned Hoopoe Flatten Itself on the Dirt?",
-  "dur": 73,
-  "post_id": "1171682562206166"
+  "wiki": "Peregrine falcon",
+  "date": "2026-11-20 13:19",
+  "title": "The Global Wanderer: Meet the Incredible Peregrine Falcon",
+  "dur": 74,
+  "post_id": "1128764803104232"
  }
 }
