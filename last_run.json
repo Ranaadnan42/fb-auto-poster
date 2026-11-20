@@ -1,25 +1,25 @@
 {
- "lang": "ur",
- "stock_clips": 42,
+ "lang": "en",
+ "stock_clips": 16,
  "fallback_clips": 0,
  "errors": [],
  "search_phrases": [
-  "islami tareekh ka waqia",
-  "islami tareekh"
+  "dua answered stories",
+  "dua accepted stories"
  ],
- "story": "Umar carries flour to feed starving children",
- "search": "islami tareekh ka waqia",
- "vision_checks": 177,
- "clips_rejected": 140,
+ "story": "Prophet teaches Abu Umamah dua for debt",
+ "search": "dua answered stories",
+ "vision_checks": 118,
+ "clips_rejected": 82,
  "sources": {
-  "pixabay": 35,
-  "commons": 4,
-  "mixkit": 2,
-  "nasa": 1
+  "pixabay": 13,
+  "commons": 2,
+  "openverse": 1
  },
- "long_minutes": 5.43,
- "time_utc": "2026-11-20 14:26",
- "title": "اسلامی تاریخ کا واقعہ: جب حضرت عمرؓ نے آٹے کی بوری اٹھائی",
+ "photo_clips": 1,
+ "reel_minutes": 1.15,
+ "time_utc": "2026-11-20 16:43",
+ "title": "Dua Answered Stories: The Prayer That Cleared His Debt",
  "dry_run": false,
  "posted_ok": 1
 }
