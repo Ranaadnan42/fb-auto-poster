@@ -531,6 +531,10 @@
   {
    "name": "Chocolate Brown Velvet Gown",
    "date": "2026-11-20 14:40"
+  },
+  {
+   "name": "Sage Green Velvet Anarkali",
+   "date": "2026-11-20 18:17"
   }
  ],
  "posts": [
@@ -847,6 +851,15 @@
    ],
    "date": "2026-11-20 14:40",
    "post_id": "1506664544702787"
+  },
+  {
+   "mode": "pic",
+   "theme": "Festive Fusion: Holiday Glam",
+   "designs": [
+    "Sage Green Velvet Anarkali"
+   ],
+   "date": "2026-11-20 18:17",
+   "post_id": "1433458693190419_122100133377555703"
   }
  ],
  "used": [
@@ -873,6 +886,7 @@
   "px146352",
   "px236893",
   "px192078",
-  "px95101"
+  "px95101",
+  "wmi35027640"
  ]
 }

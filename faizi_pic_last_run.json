@@ -1,20 +1,19 @@
 {
- "time_utc": "2026-11-20 11:27",
+ "time_utc": "2026-11-20 18:17",
  "mode": "pic",
  "dry_run": false,
  "errors": [],
  "images": {
-  "rejected": 23,
-  "groq_checks": 1,
-  "pixabay": 1
+  "rejected": 11,
+  "commons": 1
  },
  "posted": {
   "mode": "pic",
-  "theme": "Emerald Elegance Fusion",
+  "theme": "Festive Fusion: Holiday Glam",
   "designs": [
-   "Azure Floral Embroidered Dress"
+   "Sage Green Velvet Anarkali"
   ],
-  "date": "2026-11-20 11:27",
-  "post_id": "1433458693190419_122099902317555703"
+  "date": "2026-11-20 18:17",
+  "post_id": "1433458693190419_122100133377555703"
  }
 }

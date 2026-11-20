@@ -23,7 +23,8 @@
   "midnight burgundy anarkali": 1,
   "sage green crepe blazer": 1,
   "chocolate brown velvet gown": 1,
-  "saffron gold lawn suit": 1
+  "saffron gold lawn suit": 1,
+  "woman saree": 1
  },
  "bad": {
   "silk anarkali dress": 1,
@@ -33,8 +34,10 @@
   "woman embroidered kurta": 1,
   "woman velvet evening gown": 1,
   "emerald anarkali portrait": 1,
-  "woman velvet anarkali": 1,
-  "emerald sharara set": 1
+  "woman velvet anarkali": 2,
+  "emerald sharara set": 1,
+  "woman sage green anarkali": 1,
+  "woman bridal lehenga": 1
  },
  "mistakes": []
 }
