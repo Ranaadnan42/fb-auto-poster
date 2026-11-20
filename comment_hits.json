@@ -1,34 +1,76 @@
 {
- "updated": "2026-11-20T12:13Z",
- "new": 9,
+ "updated": "2026-11-20T12:34Z",
+ "new": 7,
  "stats": {
-  "site:facebook.com \"POS software\" chahiye": "1 (yahoo)",
+  "site:facebook.com \"POS software\" chahiye": "0 (auto)",
   "site:facebook.com \"billing software\" chahiye dukan": "0 (auto)",
   "site:facebook.com \"software chahiye\" shop": "0 (auto)",
-  "site:facebook.com/groups \"POS\" recommend shop Pakistan": "0 (auto)",
-  "site:facebook.com \"POS system\" recommend restaurant": "0 (none)",
-  "site:facebook.com \"looking for POS\" shop": "0 (google)",
-  "site:facebook.com \"inventory software\" recommend small business": "1 (auto)",
-  "site:facebook.com \"need a website\" for my business": "1 (auto)",
-  "site:facebook.com \"website banwani\" hai": "0 (bing)",
-  "site:facebook.com \"app banwani\" hai": "0 (bing)",
-  "site:facebook.com \"looking for web developer\" small business": "1 (yahoo)",
-  "site:facebook.com \"need a social media manager\"": "0 (auto)",
-  "site:facebook.com \"faceless youtube\" automation help": "0 (none)",
-  "site:facebook.com \"برنامج كاشير\" افضل": "1 (bing)",
-  "site:facebook.com \"برنامج محاسبي\" محل": "0 (none)",
+  "site:facebook.com/groups \"POS\" recommend shop Pakistan": "1 (auto)",
+  "site:facebook.com \"POS system\" recommend restaurant": "1 (auto)",
+  "site:facebook.com \"looking for POS\" shop": "0 (auto)",
+  "site:facebook.com \"inventory software\" recommend small business": "0 (auto)",
+  "site:facebook.com \"need a website\" for my business": "0 (auto)",
+  "site:facebook.com \"website banwani\" hai": "0 (yahoo)",
+  "site:facebook.com \"app banwani\" hai": "0 (auto)",
+  "site:facebook.com \"looking for web developer\" small business": "0 (auto)",
+  "site:facebook.com \"need a social media manager\"": "1 (auto)",
+  "site:facebook.com \"faceless youtube\" automation help": "0 (bing)",
+  "site:facebook.com \"برنامج كاشير\" افضل": "1 (auto)",
+  "site:facebook.com \"برنامج محاسبي\" محل": "0 (auto)",
   "site:facebook.com \"نظام نقاط البيع\" مطعم": "0 (auto)",
   "site:facebook.com \"ابي موقع\" لمحلي": "0 (bing)",
   "site:facebook.com/groups \"website chahiye\"": "0 (bing)",
   "site:facebook.com/groups \"koi acha software\" dukan": "0 (none)",
-  "site:facebook.com/groups \"POS\" Riyadh recommend": "1 (yahoo)",
-  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "1 (auto)",
-  "site:facebook.com/groups \"برنامج كاشير\" الرياض": "1 (auto)",
-  "site:facebook.com/groups \"برنامج كاشير\" دبي": "0 (bing)",
+  "site:facebook.com/groups \"POS\" Riyadh recommend": "0 (auto)",
+  "site:facebook.com/groups \"POS\" Dubai recommend small shop": "1 (bing)",
+  "site:facebook.com/groups \"برنامج كاشير\" الرياض": "0 (bing)",
+  "site:facebook.com/groups \"برنامج كاشير\" دبي": "0 (auto)",
   "site:facebook.com/groups \"who can make a website\"": "0 (none)",
-  "site:facebook.com/groups \"need an app\" for my business": "1 (bing)"
+  "site:facebook.com/groups \"need an app\" for my business": "2 (auto)"
  },
  "hits": [
+  {
+   "url": "https://www.facebook.com/groups/124610834286518",
+   "title": "Tervolaiset ja tervomieliset | Facebook",
+   "snippet": "1 day ago · Eli täällä voidaan pitää yhteyksiä yllä ja kertoa tulevista/menneistä tapahtumista ja samalla nähdään keitä kaikkia Tervon upealla maaperällä on asunut...",
+   "found": "2026-11-20T12:32Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/581853060030923/posts/1701648414718043",
+   "title": "Restaurant Owners | Looking to up grade my POS any ... - Facebook",
+   "snippet": "Nov 10, 2026 · A POS system can track sales data over time, which can help restaurant owners to identify trends in customer demand. This information can be used to make informed decisions about inventory levels, menu planning, and marketing.Manage Scalability: As restaurants grow or expand, they need a POS system that can scale with their business.",
+   "found": "2026-11-20T12:32Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/smmphcommunity",
+   "title": "Social Media Managers Philippines | Facebook",
+   "snippet": "4 days ago · 📢 WE'RE HIRING: SOCIAL MEDIA MANAGER (SMM) We are looking for a creative and proactive SMM to help grow and diversify our brand's presence across social media. We're looking for someone who can do more than just post car— we want someone who can create engaging content, develop marketing strategies, generate leads, and bring fresh ideas to the business. Location: Brgy. Real, Calamba City ...",
+   "found": "2026-11-20T12:33Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/740530139088133",
+   "title": "سيستم كاشير متاجر/مطاعم/صيدلية | Facebook",
+   "snippet": "6 days ago · سهل جدا - سريع ومش بيهنج - آمن ونسخ احتياطي تلقائي مناسب لـ: سوبر ماركت - مطعم وكافيه - صيدلية - ملابس - موبايلات - قطع غيار - وكل المحلات *🌐 الصفحة / الموقع:* https://svk-software.pages.dev/ *📲 جروب واتساب للاستفسار والطلب:* https://chat.whatsapp. com/GCRmOdtC9YCGL3sM3vzq0t اكتب \"كاشير\" في الكومنت وهنبعتلك التفاصيل والنسخة التجريبية 👇 #SVK_Software #برنامج_كاشير #نقاط_بيع #POS #كاشير #محلات #مطاعم #صيدليات #سوبر_ماركت",
+   "found": "2026-11-20T12:33Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/395261230611066",
+   "title": "Sei di Marmirolo se.... | Facebook",
+   "snippet": "2 days ago · Ricerco persona a chiamata per andare a prendere bambini Buongiorno a tutti, sto cercando una persona disponibile a chiamata per andare a prendere due bimbi, uno di un anno (nido) e l'altro di 3 anni e mezzo (infanzia/materna). Si tratterebbe al bisogno di andarli a prendere saltuariamente alla sera dalle 17:15 e stare con loro il tempo che arriviamo a casa io o mio marito (massimo per le 18: ...",
+   "found": "2026-11-20T12:33Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/jobsinbayarea",
+   "title": "Jobs/Gigs In Bay Area | Facebook",
+   "snippet": "Nov 9, 2026 · If you’re running a business or know someone who could use a reliable person to be out and about, handle day-to-day issues, coordinate with people, and keep things moving, I’d love to connect!",
+   "found": "2026-11-20T12:34Z"
+  },
+  {
+   "url": "https://www.facebook.com/groups/SanJoseHistory/permalink/4309345845863283",
+   "title": "San Jose History | HART'S DEPT WAREHOUSE | Facebook",
+   "snippet": "3 days ago · HART'S DEPT WAREHOUSE. The sign is visible from Hwy. 87 as you wind your way into San Jose from the North. It's not far from the San Jose Arena. Leopold Hart opened his first store in 1866,...",
+   "found": "2026-11-20T12:34Z"
+  },
   {
    "url": "https://www.facebook.com/groups/307848861095557/permalink/1604555951424835",
    "title": "POS agent group. | We urgently need USDT that can be used for ...",
@@ -1786,48 +1828,6 @@
    "title": "Looking for a new opportunity, South... - Albay Job Hiring ...",
    "snippet": "1 day ago · Looking for a new opportunity, South Luzon? Skyro is looking for POS Agents! Start your professional journey with a team that supports your growth. Message here ...",
    "found": "2026-11-10T11:47Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/remotejobmalaysia",
-   "title": "Remote Job Malaysia - Facebook",
-   "snippet": "Oct 20, 2026 · You will work closely with the UI/UX Designer, Business Analyst, Back-End Developers, and QA Engineers within an agile delivery squad, translating customer journey designs into production-ready code that seamlessly integrates with Bank's systems.",
-   "found": "2026-11-10T11:47Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/russianchicago1/posts/28973951758883876",
-   "title": "RUSSIAN-SPEAKING CHICAGO - РУССКOГОВОРЯЩИЕ В ЧИКАГО | ** WE ...",
-   "snippet": "Oct 18, 2026 · Mostly we work with newer sedans and small SUV vehicles: Chevy, Honda, Volkswagen, Jeep, etc. We sell used auto parts locally and via internet (like ebay). RESPONSIBILITIES: • Remove parts from the vehicles (body and mechanical parts) in the yard (no engine or transmission). • Package parts in boxes for mailing or pallet for shipping.",
-   "found": "2026-11-10T11:47Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/2327375611076477/posts/2541886692958700",
-   "title": "I Need a Website for My Business | Need Website development ...",
-   "snippet": "19 hours ago · I’m looking for experienced Frontend and Backend Developers to build a professional website for my business. 💰 Budget: High and negotiable 📩 Apply through the link in the attached image.",
-   "found": "2026-11-10T11:47Z"
-  },
-  {
-   "url": "https://www.facebook.com/emetriocompany/posts/pov-youre-a-social-media-manager-opening-weekend-dms-everyone-else-its-the-weeke/1762416225883552",
-   "title": "Emetrio - POV: You're a Social Media Manager opening ...",
-   "snippet": "Nov 1, 2026 · POV: You're a Social Media Manager opening weekend DMs… 📱😭 Everyone else: “It's the weekend. Time to relax!” Social Media Manager: “Just one quick check...",
-   "found": "2026-11-10T11:47Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/2605632532990184/posts/4485445728342179",
-   "title": "Hello, everyone. This is likely to be a long post, but I ...",
-   "snippet": "Nov 2, 2026 · Before buying a handset, consumers should carry out the recommended buying checks and seek assistance from an Econet Shop if they have concerns about a device. Consumers are encouraged to follow official Econet announcements regarding future verification services, as official phone-check tools are not yet publicly available.",
-   "found": "2026-11-10T11:48Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1113684359906973/posts/1795004001775002",
-   "title": "Restaurant Sale & Purchase Uae. | COMMERCIAL KITCHEN FOR ...",
-   "snippet": "Oct 29, 2026 · Mohammad Rami I recommend you also to list it also on loryfy app, its free and specialized in the UAE market 1w OCR: الل MERIZON COMMERCIAL BROKERS FZE LLC PRIME LOCATION AL QUOZ DUBAI COMMERCIAL KITCHEN FOR SALE IN AL QUOZ Turnkey Business Opportunity! Location Al Quoz, Dubai Area 1980 Sqft License Included 限受 Fully equipped kitchen currently in operation Kitchen with Dining Area AA ...",
-   "found": "2026-11-10T11:48Z"
-  },
-  {
-   "url": "https://www.facebook.com/groups/1370429978120120/posts/1665026305327151",
-   "title": "Scammers in Malaysia | ⚠️ PUBLIC AWARENESS – PLEASE BE ...",
-   "snippet": "Oct 31, 2026 · ⚠️ PUBLIC AWARENESS – PLEASE BE CAREFUL! ⚠️ #ScammerAlert I want to share my personal experience with an online seller called PHONE MURAH. On 21 October 2026, I transferred RM300 for an iPhone....",
-   "found": "2026-11-10T11:48Z"
   }
  ]
 }
