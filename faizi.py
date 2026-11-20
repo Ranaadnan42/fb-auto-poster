@@ -352,14 +352,21 @@ def find_real(d, i, used, theme):
         cands = []
         if MODE != "pic":
             cands += footage.pexels_videos(t, vert) + footage.pixabay_videos(t, vert) + footage.mixkit(t)
-        cands += footage.pexels_photos(t) + footage.pixabay_photos(t)
-        if MODE == "pic":
-            cands += footage.openverse(t)
+            for fn in (lambda q: footage.commons(q, True), footage.archive):   # Wikimedia Commons + Internet Archive (free license)
+                try:
+                    cands += fn(t)
+                except Exception as e:
+                    log(f"source fail: {str(e)[:60]}")
+        cands += footage.pexels_photos(t) + footage.pixabay_photos(t) + footage.openverse(t)
+        try:
+            cands += footage.commons(t, False)
+        except Exception as e:
+            log(f"commons photo fail: {str(e)[:60]}")
         random.shuffle(cands)
         cands.sort(key=lambda c: c.get("photo", False))           # pehle video (asli harkat), phir photo
         tried = 0
         for c in cands:
-            if c["id"] in used or tried >= 4:
+            if c["id"] in used or tried >= 6:
                 continue
             tried += 1
             used.add(c["id"])
