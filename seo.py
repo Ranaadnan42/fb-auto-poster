@@ -109,7 +109,8 @@ PAGES = {
         "cta": "Follow Style by Faizi for new trending dress designs every day 👗✨",
         "cta_en": "Follow Style by Faizi for new trending dress designs every day 👗✨",
         "rules": ("English only; describe only the designs in 'What the video says' (colors, fabric, work, occasion); "
-                  "never name Pakistan or India; no prices; max 2 emojis per line."),
+                  "name the style origin of each design (Pakistani, Indian or Western) as shown; add #pakistanidress "
+                  "#indianwear #westernwear hashtags to match; no prices; max 2 emojis per line."),
     },
     "war": {
         "name": "Battles Untold",

@@ -10,7 +10,7 @@ Agent kaam:
   - Har roz AI khud trend sochta hai (season, shaadi/Eid/party, rang) - pichle 80 designs dobara nahi (history)
   - Tasveer/video: sirf ASLI insan (malik ka hukam: AI model nahi) - Pexels/Pixabay/Openverse stock, Gemini se check
     (asli adult aurat, poori dress, modest); naam aur awaz usi tasveer ko dekh kar - jo bola jaye wohi dikhe
-  - Branding mein Pakistan/India ka naam nahi; USD/EUR + Gulf audience (seo.py "faizi")
+  - Captions/awaaz mein dress ka style batao: Pakistani/Indian ya Western; USD/EUR + Gulf audience (seo.py "faizi")
 Env: FAIZI_PAGE_ID, FAIZI_PAGE_TOKEN, FAIZI_GEMINI_API_KEY (+GEMINI_BACKUP_KEY), MODE, POST_AT, DRY_RUN
 """
 try:  # Gemma 4 fallback (free 14,400/din) ke liye Gemini requests theek karta hai - gemfix.py
@@ -145,7 +145,7 @@ Return JSON:
 All designs are for adult women only; about half desi (Pakistani/Indian) and half Western, alternating; each design
 "prompt" must clearly name the style (e.g. "Pakistani bridal lehenga", "Western satin evening gown"). Show every
 design so clearly (cut, neckline, sleeves, embroidery, border) that a viewer can show it to her tailor and get it made.
-Rules: English; never mention Pakistan, India or prices; family friendly; no brand names.""")
+Rules: English; in each "name" and spoken "line" say whether it is a Pakistani, Indian or Western style (e.g. "this Pakistani bridal lehenga", "a Western satin gown"); no prices; family friendly; no brand names.""")
     ds = [x for x in d.get("designs", []) if x.get("prompt") and x.get("name")][:N]
     if len(ds) < max(1, min(3, N - 2)):
         raise RuntimeError("AI ne designs nahi diye")
@@ -338,7 +338,7 @@ def describe(jpg, theme):
                 f"'Style by Faizi' (theme: '{theme}'). Return JSON {{\"name\": \"short catchy outfit name (2-4 words) "
                 "true to the real colour and type, e.g. 'Ruby Bridal Lehenga'\", \"line\": \"one spoken English "
                 "sentence (14-22 words) describing exactly what is visible: colour, fabric, work and the occasion it "
-                "suits\"}. Never mention Pakistan, India, prices or brands. Do not describe anything not visible.", jpg) or {}
+                "suits, and say if it is a Pakistani, Indian or Western style\"}. Never mention prices or brands. Do not describe anything not visible.", jpg) or {}
     return str(j.get("name") or "").strip(), str(j.get("line") or "").strip()
 
 
