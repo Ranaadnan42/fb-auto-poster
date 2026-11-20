@@ -1,37 +1,9 @@
 {
- "time_utc": "2026-11-19 13:45",
+ "time_utc": "2026-11-20 13:44",
  "mode": "reel",
  "dry_run": false,
- "errors": [],
- "country": "United States",
- "kind": "reel",
- "lang": "en",
- "clips_rejected": 174,
- "alt_searches": 9,
- "no_match": [
-  "silver taels archive footage",
-  "North China archive footage",
-  "Yellow River archive footage",
-  "Chinese martial arts archive footage",
-  "Legation Quarter Beijing archive footage",
-  "Dagu Fort Tianjin archive footage",
-  "Beijing street archive footage 1900",
-  "Beijing street ruins archive footage",
-  "Forbidden City Beijing today",
-  "Boxer Protocol document archive footage"
+ "errors": [
+  "fatal: asli battle footage kam (0/9 scenes)"
  ],
- "headline_cards": 10,
- "agent_checks": 135,
- "agent_rejects": 135,
- "agent_skips": 36,
- "time_budget_hit": true,
- "posted": {
-  "war": "Boxer Rebellion",
-  "wiki": "Boxer Rebellion",
-  "date": "2026-11-19 13:45",
-  "title": "When Eight Nations Invaded China Together in the Boxer Rebellion | History of Every War #11",
-  "episode": 11,
-  "dur": 72,
-  "post_id": "1447070266976310"
- }
+ "country": "United States"
 }
