@@ -1,35 +1,13 @@
 {
- "mode": "reel",
- "stock_clips": 11,
+ "mode": "auto",
+ "stock_clips": 48,
  "fallback_clips": 0,
  "errors": [],
- "format": "people",
- "search_phrases": [
-  "bank queue system",
-  "bank funny video",
-  "banker jokes"
- ],
- "funny_score": "3 -> 9",
- "search": "bank funny video",
- "reel_format": "dialogue",
- "vision_checks": 133,
- "clips_rejected": 181,
- "no_match": [
-  "man standing bank queue",
-  "man talking to security guard",
-  "security guard talking",
-  "security guard talking",
-  "crowd waiting bank queue",
-  "bank teller smiling counter",
-  "bank teller smiling counter",
-  "old man sitting waiting chair"
- ],
- "sources": {
-  "pixabay": 5
- },
- "laughs": 4,
- "reel_minutes": 0.83,
- "time_utc": "2026-11-20 12:26",
- "title": "پاکستانی بینک کی قطار اور چچا کا صبر",
+ "format": "cartoon",
+ "long_minutes": 5.49,
+ "series": "استاد ناصر اور واٹس ایپ کا وائرس | قسط 1 part 2 (cartoon)",
+ "laughs": 7,
+ "time_utc": "2026-11-20 13:34",
+ "title": "استاد ناصر اور واٹس ایپ کا وائرس | قسط 1 | قسط 2",
  "dry_run": false
 }
