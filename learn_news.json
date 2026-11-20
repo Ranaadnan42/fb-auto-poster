@@ -1,0 +1,19 @@
+{
+ "good": {
+  "BBC Broadcasting House London": 4,
+  "British pound banknotes": 1,
+  "television screen broadcast": 1,
+  "television broadcast mast tower": 2,
+  "flags of United Kingdom and European Union": 1,
+  "European Commission building Brussels": 2,
+  "10 Downing Street London": 1
+ },
+ "bad": {
+  "world news broadcast control room": 1,
+  "Sutro Tower": 2,
+  "Crystal Palace transmitter": 2,
+  "Fernsehturm Berlin": 2,
+  "telecommunications broadcast tower": 2
+ },
+ "mistakes": []
+}
