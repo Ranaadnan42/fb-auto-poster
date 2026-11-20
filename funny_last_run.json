@@ -1,28 +1,35 @@
 {
- "mode": "auto",
+ "mode": "reel",
  "stock_clips": 11,
- "fallback_clips": 1,
+ "fallback_clips": 0,
  "errors": [],
  "format": "people",
- "search_phrases": [],
- "funny_score": "2 -> 9",
+ "search_phrases": [
+  "bank queue system",
+  "bank funny video",
+  "banker jokes"
+ ],
+ "funny_score": "3 -> 9",
+ "search": "bank funny video",
  "reel_format": "dialogue",
- "vision_checks": 178,
- "clips_rejected": 167,
+ "vision_checks": 133,
+ "clips_rejected": 181,
  "no_match": [
-  "woman drinking tea cup",
-  "woman shaking head",
-  "women chatting sofa",
-  "women chatting sofa",
-  "women laughing"
+  "man standing bank queue",
+  "man talking to security guard",
+  "security guard talking",
+  "security guard talking",
+  "crowd waiting bank queue",
+  "bank teller smiling counter",
+  "bank teller smiling counter",
+  "old man sitting waiting chair"
  ],
  "sources": {
-  "pixabay": 7,
-  "mixkit": 2
+  "pixabay": 5
  },
  "laughs": 4,
- "reel_minutes": 0.89,
- "time_utc": "2026-11-20 11:07",
- "title": "محلے کی آنٹی اور وائی فائی والی غیبت",
+ "reel_minutes": 0.83,
+ "time_utc": "2026-11-20 12:26",
+ "title": "پاکستانی بینک کی قطار اور چچا کا صبر",
  "dry_run": false
 }
