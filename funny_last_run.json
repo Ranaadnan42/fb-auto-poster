@@ -1,13 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 48,
+ "stock_clips": 0,
  "fallback_clips": 0,
  "errors": [],
- "format": "cartoon",
- "long_minutes": 5.49,
- "series": "استاد ناصر اور واٹس ایپ کا وائرس | قسط 1 part 2 (cartoon)",
- "laughs": 7,
- "time_utc": "2026-11-20 13:34",
- "title": "استاد ناصر اور واٹس ایپ کا وائرس | قسط 1 | قسط 2",
+ "format": "chat",
+ "long_minutes": 7.2,
+ "laughs": 17,
+ "time_utc": "2026-11-20 22:06",
+ "title": "پاکستانی گھرانوں کی پانچ شاہکار واٹس ایپ جنگیں",
  "dry_run": false
 }
