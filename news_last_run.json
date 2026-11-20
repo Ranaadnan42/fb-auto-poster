@@ -1,12 +1,17 @@
 {
- "time_utc": "2026-11-20 14:36",
- "lang": "ur",
+ "time_utc": "2026-11-20 20:08",
+ "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "post": "1357984777408020_122098275729558252",
-   "topic": "middle_east",
-   "title": "Egypt condemns attacks on Saudi Arabia"
+   "post": "1448208791702551_122112206181532804",
+   "topic": "usa",
+   "title": "Trump says US to penalize firms building data centers abroad"
+  },
+  "sports": {
+   "post": "1465090056678690_122107102173548502",
+   "topic": "rugby",
+   "title": "Canada survives late Romania rally to win Nations Cup rugby finale in Bucharest"
   }
  },
  "errors": []

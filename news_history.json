@@ -1953,6 +1953,25 @@
    ],
    "breaking": true,
    "post_id": "1357984777408020_122098275729558252"
+  },
+  {
+   "date": "2026-11-20 20:08",
+   "lang": "en",
+   "topic": "usa",
+   "link": "https://news.google.com/rss/articles/CBMipwFBVV95cUxOT3hEcEp0SWhZNmU0eXhJUEU3ekVWWkQ3SVp1ZWlQeUZPRVBKUkx6R08yMkVGSWo5S3JWelR4STNQN2pCanZjaTE2ZWl0anlHQjJjWExCVFBVaVF4Uy1HNEZrRWZoNnVhVmx0WFBQNUg5cTA2UEpxZHpHcTRZSXctTU9jMHhPclFTdUQ3NktmbkJNS203N0dVeHA4R1pTRFRieHY3NnZWNA?oc=5",
+   "title": "Trump says US to penalize firms building data centers abroad",
+   "words": [
+    "abroad",
+    "building",
+    "centers",
+    "data",
+    "firms",
+    "penalize",
+    "says",
+    "trump"
+   ],
+   "breaking": true,
+   "post_id": "1448208791702551_122112206181532804"
   }
  ],
  "sports": [
@@ -3890,6 +3909,26 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122106745635548502"
+  },
+  {
+   "date": "2026-11-20 20:08",
+   "lang": "en",
+   "topic": "rugby",
+   "link": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxOWU5OTnQtZ1BBZ2pFeGxaYkFKOTR5bER6YW52NEdxYlRaLXpuUXBIcXBwTjg5RU55UkZMN1VTYlo0QVBEdE1rRWduM2pUQ2pmUEx2TEllVnpnSEZobW9lenhnOUF0b0FsVXBlbGhzZUFqcmVxX0pmUmROdzlLeFFxWHV4Z3lLR01YVzRVOERGQk1MLXdmbUlkLTkxZ0NERURGQ3pPajRwSms5RXBQcDFpTTJiYndhTGdISGY1ZkRtNzFWRzdweGpaanZFdmlxUkVGTU1UU25ELWpuOVh0OE9HdTFUWXdhQjVqQ203M0dMZ2duZw?oc=5",
+   "title": "Canada survives late Romania rally to win Nations Cup rugby finale in Bucharest",
+   "words": [
+    "bucharest",
+    "canada",
+    "finale",
+    "late",
+    "nations",
+    "rally",
+    "romania",
+    "rugby",
+    "survives"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122107102173548502"
   }
  ],
  "used_images": [
@@ -4019,6 +4058,7 @@
   1019104,
   451581,
   8111390,
-  3037635
+  3037635,
+  1335770
  ]
 }
