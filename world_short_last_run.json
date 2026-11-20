@@ -1,30 +1,30 @@
 {
  "mode": "short",
- "clips": 26,
- "clips_rejected": 305,
- "vision_checks": 320,
+ "clips": 30,
+ "clips_rejected": 270,
+ "vision_checks": 292,
  "errors": [],
  "search_phrases": [
-  "wages vs cost of living",
-  "inflation and cost of living",
-  "prices and cost of living class 9",
-  "cost of living protest",
-  "cost of living edmonton",
-  "cost of living worldwide"
+  "things to know about gta 6",
+  "things to know about gta 6 before playing",
+  "things to know about cars",
+  "things to know about cats",
+  "things to know about middle school",
+  "things to know about iphone 17 pro max",
+  "things to know about arc raiders",
+  "things to know about palworld",
+  "things to know about real estate",
+  "things to know about periods"
  ],
- "search": "wages vs cost of living",
- "alt_searches": 13,
- "photos": 13,
+ "alt_searches": 9,
+ "photos": 12,
  "no_match": [
-  "crime statistics chart",
-  "Mercado del Puerto,Río de la Plata",
-  "question overlay"
+  "Atlas Score graphic"
  ],
- "rewritten_scenes": 3,
- "vision_waits": 23,
- "seconds": 112.3,
+ "rewritten_scenes": 1,
+ "seconds": 94.5,
  "links": [],
- "subject": "Argentina vs Uruguay",
- "series": "versus_short",
- "title": "Argentina vs Uruguay: Wages, Cost & Culture Unveiled"
+ "subject": "Nairobi, Kenya",
+ "series": "city_facts",
+ "title": "Nairobi Secrets: What Nobody Shows You"
 }
