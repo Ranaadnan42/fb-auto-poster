@@ -1,29 +1,29 @@
 {
- "time_utc": "2026-11-20 13:19",
+ "time_utc": "2026-11-20 19:47",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
  "calls": [
   {
-   "file": "File:Peregrine falcon call recorded in February 2010 at Yana, Karnataka.wav",
-   "license": "cc by-sa 4.0"
+   "file": "File:Aix sponsa - Wood Duck XC101287.mp3",
+   "license": "cc by-sa 3.0"
   }
  ],
  "bird_calls": 1,
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 336,
- "alt_searches": 9,
- "agent_checks": 243,
- "agent_rejects": 237,
- "agent_skips": 91,
+ "clips_rejected": 31,
+ "agent_checks": 40,
+ "agent_rejects": 31,
+ "agent_skips": 0,
+ "alt_searches": 6,
  "posted": {
-  "bird": "Peregrine falcon",
+  "bird": "Wood duck",
   "theme": null,
-  "wiki": "Peregrine falcon",
-  "date": "2026-11-20 13:19",
-  "title": "The Global Wanderer: Meet the Incredible Peregrine Falcon",
-  "dur": 74,
-  "post_id": "1128764803104232"
+  "wiki": "Wood duck",
+  "date": "2026-11-20 19:47",
+  "title": "Why This Stunning Wood Duck Leaps From 50-Foot Trees!",
+  "dur": 72,
+  "post_id": "1108590241997689"
  }
 }

@@ -41,7 +41,12 @@
   "Overview": 2,
   "Peregrine falcon bird": 2,
   "Falco peregrinus nest": 1,
-  "Peregrine falcon calling": 1
+  "Peregrine falcon calling": 1,
+  "Wood duck": 4,
+  "Wood duck swamp": 1,
+  "Wood duck pond": 1,
+  "Aix sponsa": 2,
+  "Wood duck bird": 1
  },
  "bad": {
   "American flamingo": 1,
@@ -583,7 +588,21 @@
   "Falco peregrinus": 4,
   "Peregrine falcon nest": 3,
   "Peregrine falcon chicks": 2,
-  "Peregrine falcon adult": 2
+  "Peregrine falcon adult": 2,
+  "Wood duck male": 2,
+  "Wood duck colorful plumage": 2,
+  "Aix sponsa flying": 5,
+  "Wood duck feeding": 2,
+  "Wood duck dabbling": 2,
+  "Carolina duck nesting": 2,
+  "Wood duck sleeping": 2,
+  "Aix sponsa nest": 3,
+  "Wood duck flying": 8,
+  "Carolina duck flying": 2,
+  "Wood duck ducklings": 2,
+  "Wood duck family": 2,
+  "Carolina duck": 2,
+  "Wood duck nest": 2
  },
  "mistakes": []
 }
