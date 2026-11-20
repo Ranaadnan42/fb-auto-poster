@@ -78,7 +78,8 @@ WHO = {"women": "for an adult woman", "men": "for an adult man", "girls": "for a
 N = {"pic": 1, "reel": 6, "long": 12}[MODE]   # malik: pic post mein sirf 1 tasveer (3-4 ikatthi / A-B nahi)
 # malik: AI model nahi - asli insan. Tasveer/video sirf asli stock (Pexels/Pixabay/Openverse, commercial free)
 GENERIC = ["bride lehenga", "woman saree", "woman salwar kameez", "woman kurta", "bridal dress woman",
-           "woman anarkali dress", "woman traditional dress", "woman embroidered dress", "woman eid dress"]
+           "woman anarkali dress", "woman traditional dress", "woman embroidered dress", "woman eid dress",
+           "woman evening gown", "woman maxi dress", "woman party dress", "woman formal gown", "woman elegant dress"]
 W, H = {"pic": (1080, 1350), "reel": (1080, 1920), "long": (1920, 1080)}[MODE]
 
 
@@ -139,7 +140,7 @@ Return JSON:
  "designs": [{{"name": "short outfit name, e.g. Emerald Velvet Sharara",
               "who": "women",
               "prompt": "very detailed English description of ONLY the outfit: type, cut, length, exact colors, fabric, embroidery/work, dupatta, sleeves",
-              "search": ["3 short (2-4 words) stock photo search phrases that find REAL photos of a real woman wearing this kind of outfit, e.g. 'bride red lehenga', 'woman embroidered kurta', 'woman saree portrait', 'woman salwar kameez'"],
+              "search": ["3 short (2-4 words) stock photo search phrases that find REAL photos of a real woman wearing this kind of outfit, e.g. 'bride red lehenga', 'woman embroidered kurta', 'woman saree portrait', 'woman salwar kameez', 'woman evening gown', 'woman maxi dress'"],
               "line": "one spoken sentence (14-22 words) describing it naturally: color, fabric, work and the occasion it suits"}}],
  "outro": "one spoken closing sentence asking viewers to comment their favourite number and follow Style by Faizi"}}
 All designs are for adult women only; about half desi (Pakistani/Indian) and half Western, alternating; each design
@@ -319,7 +320,7 @@ def check_real(jpg, theme):
                 f"Lawn, Eid, Kurti). Today's theme: '{theme}'. Look at this image. ok=true ONLY if: it is a REAL camera "
                 "photo (not AI art, CGI, drawing or mannequin) of a real adult woman wearing a ladies outfit of these "
                 "kinds (lehenga, saree, shalwar kameez, kurti/kurta, anarkali, sharara, gharara, bridal dress, "
-                "embroidered gown, abaya); the outfit is the main subject and mostly visible; modest and family "
+                "embroidered gown, abaya, Western evening gown, maxi dress, modest party/cocktail dress, co-ord set); the outfit is the main subject and mostly visible; modest and family "
                 "friendly; no child; at most one main person in focus; no big text, logo or watermark; sharp. "
                 "score 1-10 = how beautiful and premium the outfit looks and how well it fits the theme. "
                 "Answer ONLY JSON {\"ok\": true/false, \"why\": \"max 10 words\", \"score\": n}", jpg)
