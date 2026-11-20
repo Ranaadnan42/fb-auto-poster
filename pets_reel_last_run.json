@@ -1,23 +1,22 @@
 {
- "time_utc": "2026-11-20 15:04",
+ "time_utc": "2026-11-20 21:06",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 202,
- "agent_checks": 200,
- "agent_rejects": 192,
- "agent_skips": 8,
- "alt_searches": 4,
+ "clips_rejected": 16,
+ "agent_checks": 28,
+ "agent_rejects": 16,
+ "agent_skips": 0,
  "posted": {
   "pet": "dog",
-  "breed": "Border Collie",
+  "breed": "Poodle",
   "theme": null,
-  "wiki": "Border Collie",
-  "date": "2026-11-20 15:04",
-  "title": "The World's Smartest Dog: Border Collie Secrets Revealed! 🐶",
-  "dur": 61,
-  "post_id": "4151723318460990"
+  "wiki": "Poodle",
+  "date": "2026-11-20 21:06",
+  "title": "Did You Know Poodles Were Circus Stars? Meet The Poodle!",
+  "dur": 62,
+  "post_id": "3074971499518128"
  }
 }
