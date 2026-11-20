@@ -1,23 +1,28 @@
 {
- "time_utc": "2026-11-20 12:08",
+ "time_utc": "2026-11-20 18:38",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
  "country": "United States",
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 121,
- "agent_checks": 129,
- "agent_rejects": 117,
+ "clips_rejected": 62,
+ "alt_searches": 8,
+ "no_match": [
+  "Cougar stalking",
+  "Cougar Rocky Mountains United States"
+ ],
+ "headline_cards": 2,
+ "agent_checks": 68,
+ "agent_rejects": 62,
  "agent_skips": 0,
- "alt_searches": 6,
  "posted": {
   "country": "United States",
-  "animal": "American alligator",
-  "wiki": "American alligator",
-  "date": "2026-11-20 12:08",
-  "title": "American Alligator Vibrations and Wetland Secrets of United States",
-  "dur": 66,
-  "post_id": "1767517390978103"
+  "animal": "Mountain lion",
+  "wiki": "Cougar",
+  "date": "2026-11-20 18:38",
+  "title": "Cougar, Mountain Lion & Panther of the United States",
+  "dur": 75,
+  "post_id": "2067512387969546"
  }
 }
