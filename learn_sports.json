@@ -95,7 +95,9 @@
   "United Arab Emirates flag": 1,
   "Brooklyn Nets game": 1,
   "Brooklyn Nets arena": 3,
-  "basketball rim net": 2
+  "basketball rim net": 2,
+  "tennis match point": 1,
+  "tennis equipment": 1
  },
  "bad": {
   "basketball dunk arena": 2,
@@ -357,7 +359,34 @@
   "basketball paint rebound": 1,
   "contesting basketball rebound": 1,
   "basketball backboard jump": 1,
-  "basketball stadium lights": 2
+  "basketball stadium lights": 2,
+  "tennis serve court": 1,
+  "tennis forehand shot": 1,
+  "tennis rally": 1,
+  "Spanish female tennis player": 1,
+  "Left handed tennis player": 1,
+  "Women's clay court tennis": 1,
+  "WTA professional tennis match": 1,
+  "tennis match court": 6,
+  "tennis player serve": 6,
+  "tennis ball racket": 6,
+  "tennis player celebrating": 2,
+  "tennis court camera": 2,
+  "Spanish women's tennis clay": 2,
+  "WTA tennis Spain match": 2,
+  "Red clay tennis tournament": 2,
+  "Women's professional tennis Spain": 2,
+  "tennis backhand shot": 2,
+  "tennis net action": 2,
+  "LP Open tennis Chile": 2,
+  "Colina clay court tennis": 2,
+  "WTA Colina tennis match": 2,
+  "Chile outdoor clay tennis": 2,
+  "tennis court overhead": 2,
+  "tennis racket closeup": 1,
+  "tennis gear on court": 1,
+  "tennis ball and racket": 1,
+  "professional tennis equipment": 1
  },
  "mistakes": []
 }
