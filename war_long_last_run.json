@@ -1,40 +1,9 @@
 {
- "time_utc": "2026-11-19 22:17",
+ "time_utc": "2026-11-21 05:56",
  "mode": "long",
  "dry_run": false,
- "errors": [],
- "country": "United States",
- "kind": "long",
- "lang": "en",
- "clips_rejected": 199,
- "alt_searches": 9,
- "no_match": [
-  "California gold rush trail archive",
-  "Sonora landscape Mexico",
-  "Colorado River Valley",
-  "Historic ferry crossing site",
-  "Gila River Arizona",
-  "Lower Colorado River Valley",
-  "Fort Yuma historical site",
-  "San Diego California historic street",
-  "Warner Ranch California",
-  "Colorado River banks",
-  "Arizona desert memorial site",
-  "Colorado River water flow",
-  "Historic US army fort",
-  "Battles Untold title screen"
+ "errors": [
+  "fatal: asli battle footage kam (0/9 scenes)"
  ],
- "headline_cards": 14,
- "agent_checks": 192,
- "agent_rejects": 192,
- "agent_skips": 0,
- "posted": {
-  "war": "Yuma War",
-  "wiki": "Yuma War",
-  "date": "2026-11-19 22:17",
-  "title": "The Forgotten US Border War That Cost California 113,000 Dollars | History of Every War #12",
-  "episode": 12,
-  "dur": 93,
-  "post_id": "1152026213882812"
- }
+ "country": "Egypt"
 }
