@@ -1,51 +1,66 @@
 {
- "time_utc": "2026-11-20 23:03",
+ "time_utc": "2026-11-21 02:34",
  "mode": "long",
  "dry_run": false,
  "errors": [
-  "fatal: sirf 12 sahi clips, 21 text cards - is topic ki video post nahi ki"
+  "fatal: sirf 16 sahi clips, 36 text cards - is topic ki video post nahi ki"
  ],
  "calls": [
   {
-   "file": "File:Amelie Fried im Interview bei Thorsten Otto auf der Blauen Couch.webm",
-   "license": "cc by 3.0"
+   "file": "File:PDP-CH - Herbert Janssen, Baritone - Coenraad van Bos, Pianoforte - An die Geliebte - Hugo Wolf - Hmv-db2705-2ra103.flac",
+   "license": "public domain"
   },
   {
-   "file": "File:Andreas Englisch auf der Blauen Couch bei Gabi Fischer.webm",
-   "license": "cc by 3.0"
+   "file": "File:Opanas Slastion - Plach Nevolnykiv 2.flac",
+   "license": "public domain"
   }
  ],
  "bird_calls": 2,
  "kind": "long",
  "lang": "en",
- "agent_checks": 166,
- "agent_rejects": 156,
- "agent_skips": 123,
- "clips_rejected": 279,
- "alt_searches": 24,
+ "clips_rejected": 894,
+ "agent_checks": 60,
+ "agent_rejects": 56,
+ "agent_skips": 836,
+ "alt_searches": 23,
+ "tag_pass": 12,
  "no_match": [
-  "Red-crowned crane",
-  "Red-crowned crane",
-  "Red-crowned crane",
-  "Red-crowned crane",
-  "Common kingfisher",
-  "Common kingfisher bird",
-  "Alcedo atthis",
-  "Common kingfisher",
   "Peacock",
-  "World Birds bird",
-  "World Birds bird",
-  "World Birds bird",
-  "World Birds bird",
+  "Peacock walking",
+  "Peacock feathers",
+  "Peahen",
+  "Peahen walking",
+  "Peacock eating",
+  "Peacock in tree",
+  "Great hornbill",
+  "Great hornbill forest",
+  "Great hornbill eating",
+  "Great hornbill perched",
+  "Great hornbill",
+  "Tropical forest",
   "Atlantic puffin",
-  "Atlantic puffin",
-  "Atlantic puffin",
-  "Atlantic puffin",
-  "Sagittarius serpentarius",
-  "Sagittarius serpentarius",
-  "Sagittarius serpentarius",
-  "Sagittarius serpentarius"
+  "Ocean waves",
+  "Atlantic puffin swimming",
+  "Atlantic puffin standing",
+  "Atlantic puffin beak",
+  "Puffin cliff colony",
+  "Secretarybird",
+  "Savanna grass",
+  "Secretarybird walking",
+  "Secretarybird hunting",
+  "Secretarybird nest",
+  "African savanna",
+  "Grey crowned crane head",
+  "Grey crowned crane eating",
+  "Grey crowned crane walking",
+  "African river",
+  "Malachite kingfisher",
+  "River water",
+  "Malachite kingfisher perched",
+  "Kingfisher wings",
+  "Malachite kingfisher hunting",
+  "Nature close up",
+  "Nature scene"
  ],
- "headline_cards": 21,
- "tag_pass": 2
+ "headline_cards": 36
 }
