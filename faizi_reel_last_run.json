@@ -1,26 +1,26 @@
 {
- "time_utc": "2026-11-20 21:19",
+ "time_utc": "2026-11-21 14:38",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
  "images": {
-  "rejected": 6,
-  "groq_checks": 2,
-  "pixabay": 4,
-  "mixkit": 2
+  "rejected": 38,
+  "groq_checks": 1,
+  "pixabay": 5,
+  "commons": 1
  },
  "posted": {
   "mode": "reel",
-  "theme": "Fall Holiday Glam Fusion",
+  "theme": "Winter Glow Fusion",
   "designs": [
-   "Midnight Navy Velvet Anarkali",
-   "Sage Green Georgette Gharara",
-   "Emerald Green Velvet Slip Dress",
-   "Burgundy Silk Evening Gown",
-   "Champagne Satin Co‑ord Set",
-   "Midnight Burgundy Faux Fur Maxi Dress"
+   "Minimalist White Spa Wrap",
+   "Sapphire Satin Evening Gown",
+   "Abstract Blue Graphic",
+   "Burgundy Crepe Co‑ord Suit",
+   "Emerald Silk Gharara",
+   "Turquoise Printed Mini Dress"
   ],
-  "date": "2026-11-20 21:19",
-  "post_id": "1845291709950396"
+  "date": "2026-11-21 14:38",
+  "post_id": "1124509340491429"
  }
 }

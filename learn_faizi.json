@@ -43,7 +43,13 @@
   "woman sage green co‑ord": 1,
   "woman champagne gold lehenga": 1,
   "woman midnight navy cocktail dress": 1,
-  "woman burgundy anarkali": 1
+  "woman burgundy anarkali": 1,
+  "woman embroidered dress": 1,
+  "woman elegant dress": 1,
+  "woman evening gown": 1,
+  "woman burgundy crepe blazer": 1,
+  "woman emerald gharara": 1,
+  "woman chocolate brown slip dress": 1
  },
  "bad": {
   "silk anarkali dress": 1,
@@ -61,7 +67,14 @@
   "woman silk anarkali": 1,
   "woman evening gown": 2,
   "woman party dress": 1,
-  "woman champagne satin gown": 1
+  "woman champagne satin gown": 1,
+  "woman midnight blue anarkali": 1,
+  "woman silk crepe dress": 1,
+  "woman embroidered cuffs": 1,
+  "woman champagne velvet gown": 1,
+  "woman off shoulder dress": 1,
+  "woman organza kurti": 1,
+  "woman gold zari dupatta": 1
  },
  "mistakes": []
 }

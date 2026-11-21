@@ -603,6 +603,30 @@
   {
    "name": "Midnight Burgundy Velvet Anarkali",
    "date": "2026-11-21 11:30"
+  },
+  {
+   "name": "Minimalist White Spa Wrap",
+   "date": "2026-11-21 14:38"
+  },
+  {
+   "name": "Sapphire Satin Evening Gown",
+   "date": "2026-11-21 14:38"
+  },
+  {
+   "name": "Abstract Blue Graphic",
+   "date": "2026-11-21 14:38"
+  },
+  {
+   "name": "Burgundy Crepe Co‑ord Suit",
+   "date": "2026-11-21 14:38"
+  },
+  {
+   "name": "Emerald Silk Gharara",
+   "date": "2026-11-21 14:38"
+  },
+  {
+   "name": "Turquoise Printed Mini Dress",
+   "date": "2026-11-21 14:38"
   }
  ],
  "posts": [
@@ -971,6 +995,20 @@
    ],
    "date": "2026-11-21 11:30",
    "post_id": "1433458693190419_122100698943555703"
+  },
+  {
+   "mode": "reel",
+   "theme": "Winter Glow Fusion",
+   "designs": [
+    "Minimalist White Spa Wrap",
+    "Sapphire Satin Evening Gown",
+    "Abstract Blue Graphic",
+    "Burgundy Crepe Co‑ord Suit",
+    "Emerald Silk Gharara",
+    "Turquoise Printed Mini Dress"
+   ],
+   "date": "2026-11-21 14:38",
+   "post_id": "1124509340491429"
   }
  ],
  "used": [
@@ -1017,6 +1055,12 @@
   "px271161",
   "px204923",
   "px146130",
-  "pxi8612696"
+  "pxi8612696",
+  "px701",
+  "px301436",
+  "wm57998903",
+  "px173239",
+  "px134537",
+  "px10120"
  ]
 }
