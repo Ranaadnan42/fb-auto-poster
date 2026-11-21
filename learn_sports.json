@@ -68,7 +68,7 @@
   "Avenue de France Paris": 1,
   "France flag": 4,
   "athletics track": 1,
-  "baseball field": 1,
+  "baseball field": 3,
   "Coors Field": 1,
   "King Abdullah Sports City": 1,
   "Saudi Pro League match": 1,
@@ -88,7 +88,11 @@
   "Wembley Stadium crowd": 1,
   "Wrestling ring promo": 1,
   "Professional wrestling championship belt": 1,
-  "indoor basketball game": 1
+  "indoor basketball game": 1,
+  "baseball match": 3,
+  "baseball gloves": 1,
+  "baseball bat": 1,
+  "United Arab Emirates flag": 1
  },
  "bad": {
   "basketball dunk arena": 2,
@@ -332,7 +336,8 @@
   "Target Center arena": 1,
   "Minnesota Timberwolves arena": 1,
   "Minneapolis downtown arena": 1,
-  "Target Center exterior": 1
+  "Target Center exterior": 1,
+  "Pakistan flag": 1
  },
  "mistakes": []
 }
