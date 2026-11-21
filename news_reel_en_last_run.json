@@ -1,23 +1,30 @@
 {
- "time_utc": "2026-11-21 04:13",
+ "time_utc": "2026-11-20 19:23",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-21 04:13",
+   "date": "2026-11-20 19:23",
    "kind": "reel",
    "lang": "en",
-   "title": "Birds Killed in Major US Foie Gras Farm Fire",
-   "dur": 49,
-   "post_id": "2778125879274758"
+   "title": "Anthropic Makes History in First Pure AI Stock Debut",
+   "dur": 54,
+   "post_id": "2290763111499917"
+  },
+  "sports": {
+   "date": "2026-11-20 19:23",
+   "kind": "reel",
+   "lang": "en",
+   "title": "Ismaila Sarr Focuses On Crystal Palace Return",
+   "dur": 48,
+   "post_id": "29241484908837937"
   }
  },
  "errors": [],
- "agent_checks": 134,
- "agent_rejects": 134,
- "agent_skips": 40,
- "clips_rejected": 172,
- "alt_searches": 3,
- "tag_pass": 1
+ "clips_rejected": 207,
+ "alt_searches": 8,
+ "agent_checks": 216,
+ "agent_rejects": 206,
+ "agent_skips": 0
 }
