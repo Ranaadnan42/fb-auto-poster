@@ -1,9 +1,8 @@
 {
- "time_utc": "2026-11-20 22:38",
+ "time_utc": "2026-11-21 01:05",
  "mode": "reel",
  "dry_run": false,
  "errors": [
-  "fatal: asli battle footage kam (0/9 scenes)"
- ],
- "country": "Canada"
+  "fatal: 'list' object has no attribute 'get'"
+ ]
 }
