@@ -1,22 +1,26 @@
 {
- "time_utc": "2026-11-20 22:41",
+ "time_utc": "2026-11-21 14:50",
  "kind": "long",
  "lang": "ur",
  "dry_run": false,
  "posted": {
-  "news": {
-   "date": "2026-11-20 22:41",
+  "sports": {
+   "date": "2026-11-21 14:50",
    "kind": "long",
    "lang": "ur",
-   "title": "عالمی اور قومی خبروں کا خصوصی نیوز بلیٹن",
-   "dur": 246,
-   "post_id": "2287753115132843"
+   "title": "اسپورٹس ہبز کی عالمی کھیل خبریں: اہم ترین اپ ڈیٹس",
+   "dur": 220,
+   "post_id": "2643262399519267"
   }
  },
  "errors": [],
- "clips_rejected": 492,
- "agent_checks": 270,
- "agent_rejects": 260,
- "agent_skips": 230,
- "alt_searches": 22
+ "clips_rejected": 234,
+ "alt_searches": 7,
+ "no_match": [
+  "@Sivasangari Subramaniam"
+ ],
+ "headline_cards": 1,
+ "agent_checks": 212,
+ "agent_rejects": 192,
+ "agent_skips": 40
 }
