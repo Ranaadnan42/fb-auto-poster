@@ -3,21 +3,22 @@
  "agent": "wild",
  "dry_run": false,
  "log": [
-  "Subject: Short-beaked echidna",
-  "photo commons wmi176115637 1920x1280: agent=True",
-  "--- caption ---\nMeet the incredible egg-laying mammal with a lightning-fast tongue! 🥚💨\n\nThe short-beaked echidna is a unique monotreme covered in spines that uses powerful claws to burrow deep underground. This amazing wildlife species catches prey at high speeds and can survive with very low oxygen",
-  "Video tayyar - 35 minute intezar, post 11:07 UTC par hogi",
+  "Subject: Red kangaroo",
+  "photo commons wmi15171115 1920x2560: agent=False",
+  "photo commons wmi200878926 1920x2048: agent=True",
+  "--- caption ---\nMeet the red kangaroo, the largest extant marsupial on Earth! 🦘🇦🇺\n\nNative to Australia, this incredible species is the largest terrestrial mammal on the continent, roaming mainland regions outside the fertile coastal areas.\n\nHave you ever seen a red kangaroo in real life? Tag a frien",
+  "Video tayyar - 36 minute intezar, post 17:07 UTC par hogi",
   "Waqt ho gaya - post kar rahe hain",
   "photo story lagi",
-  "posted 1501204066400712_122107985325546974"
+  "posted 1501204066400712_122108313669546974"
  ],
  "errors": [],
  "posted": {
-  "subject": "Short-beaked echidna",
-  "photo": "wmi176115637",
+  "subject": "Red kangaroo",
+  "photo": "wmi200878926",
   "src": "commons",
-  "size": "1920x1280",
-  "date": "2026-11-21 10:31",
-  "post_id": "1501204066400712_122107985325546974"
+  "size": "1920x2048",
+  "date": "2026-11-21 16:30",
+  "post_id": "1501204066400712_122108313669546974"
  }
 }
