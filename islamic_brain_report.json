@@ -1,15 +1,11 @@
 {
- "time_utc": "2026-11-20 21:01",
- "videos": 83,
- "views": 18082,
- "engagement": 713,
+ "time_utc": "2026-11-21 08:01",
+ "videos": 82,
+ "views": 17922,
+ "engagement": 705,
  "by_theme": {
-  "trusting Allah (tawakkul)": [
-   1.08,
-   4
-  ],
   "reflection on a Quran verse": [
-   1.71,
+   1.7,
    2
   ],
   "finding peace in remembering Allah (dhikr)": [
@@ -17,7 +13,7 @@
    3
   ],
   "honesty and trust (amanah)": [
-   1.18,
+   1.14,
    4
   ],
   "a story of a prophet's trial and patience": [
@@ -37,7 +33,7 @@
    2
   ],
   "a true miracle in the life of Prophet Muhammad": [
-   0.81,
+   0.8,
    4
   ],
   "a sunnah of the Prophet for daily life": [
@@ -65,7 +61,7 @@
    3
   ],
   "a lesson-filled event from early Islamic history": [
-   1.05,
+   1.08,
    4
   ],
   "the blessings of Friday (Jumma): Surah Kahf, durood and dua": [
@@ -81,7 +77,7 @@
    2
   ],
   "rizq (provision) comes from Allah": [
-   1.06,
+   1.05,
    2
   ],
   "an authentic hadith of Prophet Muhammad and its meaning": [
@@ -97,7 +93,7 @@
    1
   ],
   "humility and avoiding arrogance": [
-   1.26,
+   1.25,
    1
   ],
   "a powerful story of a Sahabi's sacrifice": [
@@ -105,11 +101,11 @@
    1
   ],
   "patience (sabr) in hardship": [
-   1.22,
+   1.21,
    2
   ],
   "stories of the prophets mentioned in the Quran": [
-   0.9,
+   0.89,
    3
   ],
   "controlling anger": [
@@ -124,52 +120,55 @@
    0.89,
    2
   ],
+  "trusting Allah (tawakkul)": [
+   1.15,
+   3
+  ],
   "hope after sadness": [
-   0.89,
+   0.88,
    2
   ]
  },
  "by_lang": {
   "ur": [
    1.0,
-   83
+   82
   ]
  },
  "by_kind": {
-  "reel": [
-   1.0,
-   59
-  ],
   "long": [
    1.0,
    24
+  ],
+  "reel": [
+   1.0,
+   58
   ]
  },
  "best": [
-  "[reel/ur] آیۃ الکرسی کی فضیلت: حضرت ابو ہریرہؓ اور شیطان کا ایمان افروز واقعہ (theme reflection on a Quran verse, views 267, eng 25, x2.03)",
+  "[reel/ur] آیۃ الکرسی کی فضیلت: حضرت ابو ہریرہؓ اور شیطان کا ایمان افروز واقعہ (theme reflection on a Quran verse, views 267, eng 25, x2.02)",
   "[reel/ur] غزوہِ بدر کا معجزہ: جب 313 نے اللہ تعالیٰ پر بھروسہ کیا (theme trusting Allah (tawakkul), views 251, eng 24, x1.93)",
-  "[long/ur] ایمانداری کا انعام: جب چرواہے نے حضرت عمرؓ کو حیران کر دیا (theme honesty and trust (amanah), views 287, eng 14, x1.54)"
+  "[long/ur] ایمانداری کا انعام: جب چرواہے نے حضرت عمرؓ کو حیران کر دیا (theme honesty and trust (amanah), views 287, eng 14, x1.53)"
  ],
- "summary": "Page par Ayat ul Kursi ki tafseer, Tahajjud, Tawakkul aur rozmarrah ki Sunnaton wale content ko sab se zyaada views aur engagement mil rahe hain. Jabke generic Seerah lessons, aam tareekhi waqiaat aur 'Namaz ki ahmiyat' jaise generalized topics kafi underperform kar rahe hain. Is liye humne future content planning mein generic topics ko kam karke high-performing Quranic reflections aur emotional stories par focus shift kar diya hai.",
+ "summary": "Ayat-ul-Kursi ki fazilat, Tahajjud, aur Hazrat Umar wa Ghazwa-e-Badr ke tawakkul wale waqiat par sab se zyada views aur engagement aa rahi hai. Doosri taraf, aam moajzat (jaise oont ya doodh ka qissa) aur generic namaz ke topics bilkul nahi chal rahe. Is liye ab writer ko generic tareekhi jangon ke bajaye practical sunnah, Tahajjud, aur Quranic asbaaq par focus karne ki hidayat di gayi hai.",
  "plan": {
-  "updated": "2026-11-20 21:01",
+  "updated": "2026-11-21 08:01",
   "mult": {
-   "trusting Allah (tawakkul)": 1.04,
    "reflection on a Quran verse": 1.24,
    "finding peace in remembering Allah (dhikr)": 1.07,
-   "honesty and trust (amanah)": 1.1,
+   "honesty and trust (amanah)": 1.08,
    "a story of a prophet's trial and patience": 1.12,
    "the power of dua": 1.07,
    "repentance (tawbah) and second chances": 0.94,
    "charity (sadaqah)": 0.96,
-   "a true miracle in the life of Prophet Muhammad": 0.89,
+   "a true miracle in the life of Prophet Muhammad": 0.88,
    "a sunnah of the Prophet for daily life": 0.99,
    "lessons from the life of Prophet Muhammad": 0.84,
    "good character and manners": 1.01,
    "stories of the Sahaba": 0.92,
    "the value of time": 1.1,
    "Jannah and how to reach it": 0.97,
-   "a lesson-filled event from early Islamic history": 1.03,
+   "a lesson-filled event from early Islamic history": 1.04,
    "the blessings of Friday (Jumma): Surah Kahf, durood and dua": 1.15,
    "death, the grave and the hereafter": 1.0,
    "Islamic history and the golden age": 0.92,
@@ -180,18 +179,19 @@
    "humility and avoiding arrogance": 1.06,
    "a powerful story of a Sahabi's sacrifice": 0.98,
    "patience (sabr) in hardship": 1.08,
-   "stories of the prophets mentioned in the Quran": 0.95,
+   "stories of the prophets mentioned in the Quran": 0.94,
    "controlling anger": 0.98,
    "the night prayer (tahajjud)": 1.11,
    "a dua that Allah answered (true incident)": 0.95,
+   "trusting Allah (tawakkul)": 1.07,
    "hope after sadness": 0.95
   },
   "tips": [
-   "Prioritize themes like Quranic verse reflections, Tahajjud, Tawakkul, and Sabr, which perform 20% to 70% above page average.",
-   "Use specific narrative hooks in titles (e.g., 'Abu Hurairah and Shaytan' or 'When 313 trusted Allah') rather than generic titles like 'Value of Salah' or 'Lessons from Seerah'.",
-   "Focus on daily actionable Sunnah routines (like pre-sleep acts) and Friday blessings, as these drive solid engagement.",
-   "Be selective with miracle stories: focus on emotional, human-interest miracles (e.g., the crying tree trunk x1.43) and avoid abstract ones like the split moon or milk miracle.",
-   "Keep leveraging short-form Reels for high-reach story hooks, paired with well-structured long videos around moral virtues like Honesty (Amanah)."
+   "Focus scripts on high-performing themes: 'reflection on a Quran verse' (1.70x), 'the blessings of Friday' (1.32x), 'the night prayer (tahajjud)' (1.29x), and 'patience (sabr)' (1.21x).",
+   "Pair popular Sahaba with intriguing, high-stakes narratives in titles (e.g., Hazrat Abu Hurairah and Shaytan, Hazrat Umar and the honest shepherd), which drove 1.5x-2.0x above-average results.",
+   "Frame Islamic history around personal faith and reliance on Allah (tawakkul, e.g., 313 at Badr at 1.93x) rather than generic military battle chronicles like Qadisiyyah (0.58x).",
+   "Completely avoid generic miracle stories (e.g., split moon 0.61x, milk miracle 0.54x, camel complaint 0.11x) and generic reminder titles like 'Namaz ki ahmiyat' (0.20x), which suffer near-zero reach.",
+   "Incorporate practical, actionable daily life hooks such as 'Sone se pehle ka tohfa' (1.48x) and Tahajjud dream secrets rather than broad moral sermons."
   ]
  }
 }

@@ -1,49 +1,37 @@
 {
- "time_utc": "2026-11-20 20:57",
- "posts": 181,
- "views": 5438,
- "engagement": 362,
+ "time_utc": "2026-11-21 07:57",
+ "posts": 180,
+ "views": 5244,
+ "engagement": 366,
  "by_focus": {
-  "social": [
-   0.63,
-   6
-  ],
   "pos": [
-   0.94,
+   0.93,
    21
   ],
   "website": [
-   1.14,
+   1.13,
    13
   ],
   "store": [
-   1.12,
+   1.1,
    11
   ],
   "app": [
-   0.8,
-   10
+   1.07,
+   11
   ],
   "autopilot": [
-   0.71,
+   0.7,
    8
+  ],
+  "social": [
+   0.56,
+   5
   ]
  },
  "by_business": {
-  "wholesale distributor": [
-   0.74,
-   7
-  ],
-  "jewellery shop": [
-   1.43,
-   5
-  ],
-  "travel agency": [
-   0.43,
-   7
-  ],
   "restaurant": [
-   0.46,
+   0.47,
    6
   ],
   "grocery store": [
@@ -51,11 +39,11 @@
    6
   ],
   "pharmacy": [
-   1.04,
-   6
+   0.95,
+   7
   ],
   "beauty salon": [
-   0.83,
+   0.84,
    5
   ],
   "school": [
@@ -63,11 +51,11 @@
    4
   ],
   "clinic": [
-   0.83,
+   0.84,
    6
   ],
   "mobile phone shop": [
-   1.46,
+   1.47,
    4
   ],
   "bakery": [
@@ -75,11 +63,11 @@
    6
   ],
   "hardware store": [
-   0.99,
+   1.0,
    5
   ],
   "cafe": [
-   1.38,
+   1.39,
    8
   ],
   "supermarket": [
@@ -91,7 +79,7 @@
    3
   ],
   "real estate agency": [
-   0.64,
+   0.65,
    7
   ],
   "gym": [
@@ -99,12 +87,24 @@
    4
   ],
   "car workshop": [
-   0.79,
+   1.15,
    6
   ],
   "furniture store": [
    0.82,
    5
+  ],
+  "wholesale distributor": [
+   0.85,
+   6
+  ],
+  "jewellery shop": [
+   1.21,
+   4
+  ],
+  "travel agency": [
+   0.47,
+   7
   ],
   "clothing shop": [
    1.16,
@@ -113,7 +113,7 @@
  },
  "by_color": {
   "9": [
-   0.93,
+   0.92,
    4
   ],
   "3": [
@@ -121,85 +121,81 @@
    5
   ],
   "8": [
-   0.91,
+   0.9,
    4
   ],
   "6": [
-   0.5,
+   1.06,
    4
   ],
   "0": [
-   0.8,
+   0.93,
    6
   ],
   "1": [
-   1.04,
+   1.03,
    1
   ],
   "4": [
-   1.04,
+   1.03,
    2
   ],
   "11": [
-   0.34,
-   2
+   0.49,
+   3
   ],
   "10": [
-   1.51,
+   1.52,
    4
   ],
   "5": [
-   1.25,
-   5
+   1.21,
+   6
   ],
   "7": [
-   0.57,
+   1.01,
    4
   ],
   "2": [
-   1.08,
-   4
+   0.95,
+   5
   ]
  },
  "by_lang": {
-  "en": [
-   0.64,
-   61
-  ],
   "ur": [
-   0.86,
+   0.92,
    62
   ],
   "ar": [
-   1.04,
-   58
+   1.02,
+   57
+  ],
+  "en": [
+   0.67,
+   61
   ]
  },
  "by_kind": {
   "pic": [
-   0.92,
+   0.95,
    69
+  ],
+  "reel": [
+   0.72,
+   56
   ],
   "long": [
    0.88,
    55
-  ],
-  "reel": [
-   0.7,
-   57
   ]
  },
  "by_hour": {
-  "21": [
-   0.82,
-   18
-  ],
   "11": [
    1.05,
    11
   ],
   "16": [
-   0.89,
+   0.88,
    10
   ],
   "20": [
@@ -207,8 +203,12 @@
    24
   ],
   "17": [
-   1.05,
-   13
+   1.03,
+   15
+  ],
+  "21": [
+   0.8,
+   16
   ],
   "0": [
    0.62,
@@ -219,15 +219,15 @@
    14
   ],
   "22": [
-   1.15,
-   20
+   1.13,
+   18
   ],
   "19": [
-   0.82,
-   17
+   0.81,
+   18
   ],
   "10": [
-   0.63,
+   1.03,
    6
   ],
   "23": [
@@ -235,11 +235,11 @@
    12
   ],
   "12": [
-   1.58,
+   1.57,
    2
   ],
   "1": [
-   0.79,
+   0.8,
    5
   ],
   "2": [
@@ -247,76 +247,76 @@
    3
   ],
   "15": [
-   0.89,
+   0.9,
    3
   ],
   "13": [
-   0.43,
+   0.69,
    5
   ],
   "14": [
-   0.91,
+   1.15,
    4
   ]
  },
  "best": [
-  "[reel/ur] ویب بلڈر کے ساتھ بزنس کو آگے بڑھائیں - Web Builder (business mobile phone shop, views 274, eng 3, x3.72)",
-  "[reel/ur] ویب بلڈر: اسٹور کو جدید اور منافع بخش بنائیں (business beauty salon, views 258, eng 3, x3.55)",
-  "[reel/ar] ارتقِ بمتجرك مع ويب بيلدر (business cafe, views 191, eng 4, x3.10)"
+  "[reel/ur] ویب بلڈر کے ساتھ بزنس کو آگے بڑھائیں - Web Builder (business mobile phone shop, views 274, eng 3, x3.76)",
+  "[reel/ur] ویب بلڈر: اسٹور کو جدید اور منافع بخش بنائیں (business beauty salon, views 259, eng 3, x3.60)",
+  "[reel/ar] ارتقِ بمتجرك مع ويب بيلدر (business cafe, views 191, eng 4, x3.13)"
  ],
- "summary": "Arabic aur Urdu reels jo mobile shop, jewellery aur cafe jaise specific retail businesses par bani hain wo sab se behtareen results de rahi hain. Generic English videos aur electronics ya travel agency jaise low-performing niches bilkul view nahi le rahe. Is liye ab saara focus Urdu aur Arabic scripts, top retail categories, aur direct WhatsApp CTA par shift kar diya gaya hai.",
+ "summary": "Pichle teen hafton mein Urdu aur Arabic reels (jaise mobile shop, cafe aur jewellery) bohat zabardast chal rahi hain aur log in par acha response de rahe hain. English ki long videos aur static pictures bilkul nahi chal rahi, khaas kar restaurants aur travel agencies ke liye zero views aaye hain. Isliye agent ne English content kam karke Urdu aur Arabic reels par focus barha diya hai aur har post mein WhatsApp par rabta karne ka kaha hai taake mazeed sales leads mil sakein.",
  "plan": {
-  "updated": "2026-11-20 20:57",
+  "updated": "2026-11-21 07:57",
   "focus_mult": {
-   "social": 0.73,
-   "pos": 0.95,
-   "website": 1.11,
-   "store": 1.09,
-   "app": 0.84,
-   "autopilot": 0.78
+   "pos": 0.94,
+   "website": 1.1,
+   "store": 1.08,
+   "app": 1.05,
+   "autopilot": 0.77,
+   "social": 0.7
   },
   "spot_mult": {
-   "wholesale distributor": 0.81,
-   "jewellery shop": 1.25,
-   "travel agency": 0.55,
    "restaurant": 0.6,
    "grocery store": 0.71,
-   "pharmacy": 1.03,
-   "beauty salon": 0.89,
+   "pharmacy": 0.96,
+   "beauty salon": 0.9,
    "school": 0.67,
-   "clinic": 0.88,
-   "mobile phone shop": 1.24,
+   "clinic": 0.89,
+   "mobile phone shop": 1.25,
    "bakery": 0.9,
-   "hardware store": 0.99,
-   "cafe": 1.26,
+   "hardware store": 1.0,
+   "cafe": 1.27,
    "supermarket": 0.91,
    "electronics shop": 0.4,
-   "real estate agency": 0.73,
+   "real estate agency": 0.74,
    "gym": 0.94,
-   "car workshop": 0.85,
+   "car workshop": 1.1,
    "furniture store": 0.88,
+   "wholesale distributor": 0.9,
+   "jewellery shop": 1.12,
+   "travel agency": 0.59,
    "clothing shop": 1.1
   },
   "color_mult": {
-   "9": 0.96,
+   "9": 0.95,
    "3": 0.97,
-   "8": 0.95,
-   "6": 0.67,
-   "0": 0.86,
+   "8": 0.94,
+   "6": 1.03,
+   "0": 0.95,
    "1": 1.01,
-   "4": 1.02,
-   "11": 0.65,
+   "4": 1.01,
+   "11": 0.7,
    "10": 1.27,
-   "5": 1.15,
-   "7": 0.73,
-   "2": 1.04
+   "5": 1.14,
+   "7": 1.01,
+   "2": 0.97
   },
   "tips": [
-   "Target high-performing retail niches in scripts: focus specifically on mobile phone shops, jewellery shops, cafes, and clothing shops, while avoiding electronics shops, restaurants, and travel agencies.",
-   "Prioritize Arabic and Urdu scripts over English, using localized growth hooks like 'ارتقِ بمتجرك' and 'بزنس کو آگے بڑھائیں' instead of generic titles like 'Supercharge Your Business'.",
-   "Center the core message on store modernization, increased profitability, and online store setup rather than abstract social media or autopilot tooling.",
-   "Frame video titles and openings around specific business problems and complete digital solutions rather than isolated software features.",
-   "End every video with a clear call to action directing business owners to send a WhatsApp message to upgrade and automate their specific shop type."
+   "Focus script writing on high-performing business types like mobile phone shops, cafes, and jewellery shops, while completely avoiding low-performing ones like restaurants, travel agencies, and electronics shops.",
+   "Produce more Urdu and Arabic video content as they heavily outperform English, which had multiple zero-view failures.",
+   "Prioritize Reels over long promo videos and static pictures, focusing on high-engagement localized titles that highlight digital transformation and business growth.",
+   "Always use strong visual hooks featuring actual shop environments (like beauty salons and pharmacies) rather than abstract or generic graphics.",
+   "End every script with a direct call to action to message on WhatsApp for business solutions, strictly omitting any mention of prices."
   ]
  }
 }

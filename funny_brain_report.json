@@ -1,19 +1,19 @@
 {
- "time_utc": "2026-11-20 20:55",
- "videos": 90,
- "views": 16205,
- "engagement": 226,
+ "time_utc": "2026-11-21 07:53",
+ "videos": 91,
+ "views": 16414,
+ "engagement": 229,
  "by_format": {
   "chat": [
-   0.47,
-   16
+   0.5,
+   17
   ],
   "animal": [
-   1.17,
+   1.16,
    5
   ],
   "story": [
-   1.38,
+   1.37,
    9
   ],
   "people": [
@@ -21,13 +21,13 @@
    51
   ],
   "cartoon": [
-   1.12,
+   1.11,
    9
   ]
  },
  "by_reel_format": {
   "expectation": [
-   1.18,
+   1.16,
    6
   ],
   "kya_hota_agar": [
@@ -43,7 +43,7 @@
    9
   ],
   "types": [
-   1.21,
+   1.25,
    7
   ],
   "dialogue": [
@@ -69,7 +69,7 @@
    1
   ],
   "load of homework": [
-   1.0,
+   0.99,
    4
   ],
   "salary day": [
@@ -81,7 +81,7 @@
    3
   ],
   "exams and results": [
-   1.2,
+   1.19,
    2
   ],
   "winter mornings": [
@@ -89,7 +89,7 @@
    2
   ],
   "bijli ka bill": [
-   1.2,
+   1.19,
    1
   ],
   "barish (rain)": [
@@ -97,11 +97,11 @@
    2
   ],
   "selfie / TikTok craze, bank queue, Eidi collection, freelancing client, pet cat ruling the house": [
-   0.51,
+   0.5,
    1
   ],
   "Ludo fights at home": [
-   1.13,
+   1.08,
    2
   ],
   "barber shop": [
@@ -145,7 +145,7 @@
    2
   ],
   "fake diet plans": [
-   1.32,
+   1.31,
    4
   ],
   "bargaining in bazaar": [
@@ -169,7 +169,7 @@
    1
   ],
   "family WhatsApp group forwards": [
-   1.26,
+   1.25,
    3
   ],
   "first day at gym": [
@@ -189,11 +189,11 @@
    1
   ],
   "dentist visit": [
-   2.69,
+   2.68,
    1
   ],
   "remote control fight": [
-   0.26,
+   0.25,
    1
   ],
   "rickshaw / Careem bargaining, buying a new phone, selfie / TikTok craze, bank queue, Eidi collection": [
@@ -205,7 +205,7 @@
    1
   ],
   "friends' group chat": [
-   1.34,
+   1.33,
    4
   ],
   "cricket match": [
@@ -217,11 +217,11 @@
    1
   ],
   "Sunday breakfast halwa puri": [
-   0.9,
+   1.01,
    2
   ],
   "freelancing client": [
-   1.14,
+   1.13,
    1
   ],
   "chai addiction": [
@@ -257,11 +257,11 @@
    1
   ],
   "grandma's home remedies": [
-   1.27,
+   1.26,
    1
   ],
   "train journey": [
-   1.2,
+   1.19,
    1
   ],
   "remote control fight, lost TV remote, Eid shopping, online shopping, salary day": [
@@ -277,11 +277,11 @@
    1
   ],
   "road trip": [
-   1.18,
+   1.17,
    1
   ],
   "rickshaw / Careem bargaining": [
-   1.41,
+   1.4,
    2
   ],
   "sleeping late and waking late": [
@@ -293,11 +293,11 @@
    1
   ],
   "plumber who never comes on time": [
-   0.43,
+   0.42,
    1
   ],
   "pigeon / kabootar baazi, school / tuition, diet and gym, road trip, summer heat": [
-   0.31,
+   0.3,
    1
   ],
   "pigeon / kabootar baazi": [
@@ -305,7 +305,7 @@
    1
   ],
   "ammi ki daant (mother's scolding)": [
-   1.03,
+   1.02,
    1
   ],
   "Ramzan sehri wake up": [
@@ -317,7 +317,11 @@
    1
   ],
   "bank queue": [
-   1.07,
+   1.09,
+   1
+  ],
+  "parking fight, plumber who never comes on time, remote control fight, lost TV remote, Eid shopping": [
+   1.21,
    1
   ]
  },
@@ -327,7 +331,7 @@
    4
   ],
   "11": [
-   0.99,
+   0.98,
    12
   ],
   "14": [
@@ -339,7 +343,7 @@
    11
   ],
   "9": [
-   0.69,
+   0.68,
    9
   ],
   "13": [
@@ -347,7 +351,7 @@
    10
   ],
   "15": [
-   1.32,
+   1.31,
    6
   ],
   "12": [
@@ -359,59 +363,59 @@
    9
   ],
   "20": [
-   0.82,
+   0.81,
    3
   ],
   "17": [
-   1.26,
+   1.25,
    5
   ],
   "7": [
-   0.99,
+   1.02,
    7
   ],
   "21": [
-   0.82,
+   0.81,
    2
   ],
   "22": [
-   0.91,
-   3
+   0.98,
+   4
   ]
  },
  "best": [
-  "[reel/people/types] ڈینٹسٹ کے مریض | dentist and patient funny video (topic dentist visit, views 593, eng 3, x2.64)",
-  "[long/story/-] ماجد بریک اور رکشے کا عذاب | قسط 1 (topic rickshaw / Careem bargaining, views 232, eng 4, x1.57)",
-  "[long/story/-] ماموں مستانہ کا ڈائٹ ڈرامہ | قسط 1 (topic fake diet plans, views 226, eng 4, x1.55)"
+  "[reel/people/types] ڈینٹسٹ کے مریض | dentist and patient funny video (topic dentist visit, views 593, eng 3, x2.63)",
+  "[long/story/-] ماجد بریک اور رکشے کا عذاب | قسط 1 (topic rickshaw / Careem bargaining, views 232, eng 4, x1.56)",
+  "[long/story/-] ماموں مستانہ کا ڈائٹ ڈرامہ | قسط 1 (topic fake diet plans, views 226, eng 4, x1.53)"
  ],
- "summary": "Page par story format aur cartoon videos log bohot pasand kar rahe hain, jabke chat style videos bilkul nahi chal rahiin. Topics mein dentist visit, Careem bargaining, fake diet plans aur sarkari daftar waale jokes hit hain, jabke summer heat aur remote fight jaise repetitive topics pit gaye hain. Ab humein chat videos aur news structure ko rok kar sirf story narration aur 'types' waali reels par focus karna hoga.",
+ "summary": "Page par 'Story' aur 'Types' wala format sab se zyada hit hai, khaas tor par jab hum specific maslo jaisay bargaining ya dentist par video banatay hain. Chat reels aur puranay ghisay pitay topics jaisay 'garmi' ya 'remote ki jung' bilkul flop ho rahay hain. Hamein generic gharailu jhagro ko chor kar doston aur sarkari daftaro jaisay relatable scenarios par focus karna chahiye.",
  "plan": {
-  "updated": "2026-11-20 20:55",
+  "updated": "2026-11-21 07:53",
   "format_mult": {
-   "chat": 0.53,
+   "chat": 0.55,
    "animal": 1.1,
    "story": 1.27,
    "people": 1.06,
-   "cartoon": 1.09
+   "cartoon": 1.08
   },
   "reel_format_mult": {
-   "expectation": 1.12,
+   "expectation": 1.1,
    "kya_hota_agar": 1.05,
    "latifay": 1.12,
    "har_ghar": 1.08,
-   "types": 1.14,
+   "types": 1.17,
    "dialogue": 1.01,
    "news": 0.77,
    "pov": 1.02
   },
   "style_mult": {
-   "cartoon": 1.18,
-   "ai": 1.17,
-   "cricket-commentary style narration of an everyday moment": 1.14,
+   "cartoon": 1.17,
+   "ai": 1.16,
+   "cricket-commentary style narration of an everyday moment": 1.12,
    "a desi aunty's commentary": 1.03,
    "over-the-top breaking-news style": 1.09,
    "sarcastic narrator roasting the situation (gently)": 0.96,
-   "a strict ammi's rules explained": 1.04,
+   "a strict ammi's rules explained": 1.06,
    "a lazy student's confessions": 1.08,
    "a motivational speaker giving terrible advice": 1.06,
    "dramatic TV-serial narration of a tiny problem": 1.06,
@@ -422,15 +426,15 @@
   "topic_mult": {
    "school / tuition": 0.82,
    "rishta aunty": 1.02,
-   "load of homework": 1.0,
+   "load of homework": 0.99,
    "salary day": 1.05,
    "teacher vs students": 0.87,
-   "exams and results": 1.08,
+   "exams and results": 1.07,
    "winter mornings": 1.11,
-   "bijli ka bill": 1.05,
+   "bijli ka bill": 1.04,
    "barish (rain)": 1.11,
-   "selfie / TikTok craze, bank queue, Eidi collection, freelancing client, pet cat ruling the house": 0.85,
-   "Ludo fights at home": 1.05,
+   "selfie / TikTok craze, bank queue, Eidi collection, freelancing client, pet cat ruling the house": 0.84,
+   "Ludo fights at home": 1.03,
    "barber shop": 0.9,
    "mehndi function": 0.8,
    "Eidi collection": 1.04,
@@ -459,7 +463,7 @@
    "friends' group chat": 1.18,
    "cricket match": 1.02,
    "parking fight": 0.82,
-   "Sunday breakfast halwa puri": 0.96,
+   "Sunday breakfast halwa puri": 1.0,
    "freelancing client": 1.03,
    "chai addiction": 1.04,
    "monday morning": 1.01,
@@ -470,28 +474,30 @@
    "fridge raid at midnight": 1.01,
    "Eid ul Adha bakra mandi": 1.04,
    "grandma's home remedies": 1.06,
-   "train journey": 1.05,
+   "train journey": 1.04,
    "remote control fight, lost TV remote, Eid shopping, online shopping, salary day": 0.86,
    "phone battery 1%": 1.01,
    "pet cat ruling the house": 0.96,
    "road trip": 1.04,
-   "rickshaw / Careem bargaining": 1.15,
+   "rickshaw / Careem bargaining": 1.14,
    "sleeping late and waking late": 1.03,
    "mosquito season": 1.04,
    "plumber who never comes on time": 0.81,
-   "pigeon / kabootar baazi, school / tuition, diet and gym, road trip, summer heat": 0.75,
+   "pigeon / kabootar baazi, school / tuition, diet and gym, road trip, summer heat": 0.74,
    "pigeon / kabootar baazi": 1.06,
-   "ammi ki daant (mother's scolding)": 1.01,
+   "ammi ki daant (mother's scolding)": 1.0,
    "Ramzan sehri wake up": 0.71,
    "neighbour aunty's gossip": 1.05,
-   "bank queue": 1.02
+   "bank queue": 1.02,
+   "parking fight, plumber who never comes on time, remote control fight, lost TV remote, Eid shopping": 1.05
   },
   "tips": [
-   "Focus on high-performing formats like long story videos (1.38x) and cartoons (1.12x), while completely ditching fake chat formats (0.47x).",
-   "Structure reels using 'types' (1.21x) and 'latifay' (1.19x) angles instead of 'news' format (0.66x) which heavily underperforms.",
-   "Write scripts around top-performing specific desi situations like dentist visits, Careem/rickshaw bargaining, fake diet plans, government office bureaucracy, and group chats.",
-   "Avoid overused and poor-performing themes such as laundry day, summer heat, remote control fights, and Ramzan sehri wakeups.",
-   "Create recurring funny characters and episodic titles (e.g., Majid Break, Mamoo Mastana) to build long-form story engagement."
+   "Focus on 'Types of People' structures (e.g., Dentist patients, Backbenchers) as they have the highest engagement (x1.25 to x2.63).",
+   "Switch from 'Chat' format (x0.50) to 'Story' (x1.37) or 'Cartoon' (x1.11) formats; screen-chat videos are currently failing to grab attention.",
+   "Prioritize specific service-based struggles like Rickshaw bargaining (x1.40), Government office delays (x1.31), and Dentist visits (x2.68).",
+   "Avoid generic household clichés like 'Remote control fights' or 'Laundry day' which are scoring below x0.30; the audience finds them overused.",
+   "Use descriptive titles that promise a 'Dhamaka' or 'Azab' (e.g., 'Rickshaw ka Azab') to increase the hook rate for long-form stories.",
+   "Leverage group dynamics like 'Friends Group Chat' and 'Backbenchers' to encourage tagging, as these topics consistently overperform (x1.45+)."
   ]
  }
 }
