@@ -1,44 +1,34 @@
 {
  "mode": "auto",
- "stock_clips": 7,
+ "stock_clips": 9,
  "fallback_clips": 1,
  "errors": [],
  "format": "people",
  "search_phrases": [
-  "first day at gym funny video",
-  "first day at gym funny shorts",
-  "first day at gym funny moments",
-  "first day at gym funny voice",
-  "first day at gym funny sound",
-  "1st day at gym funny",
-  "my first day at gym funny",
-  "my friend first day at gym funny",
-  "first day after gym funny",
-  "first day at gym comedy video",
-  "first day at gym stand up comedy",
-  "first day gym workout comedy"
+  "gas load shedding timing",
+  "gas load shedding",
+  "gas ki load shedding"
  ],
  "funny_score": "3 -> 9",
- "search": "first day at gym funny video",
- "reel_format": "har_ghar",
- "vision_checks": 175,
- "clips_rejected": 168,
+ "search": "gas ki load shedding",
+ "reel_format": "pov",
+ "vision_checks": 194,
+ "clips_rejected": 185,
  "no_match": [
-  "man looking at gym weights",
-  "man looking at gym weights",
-  "man walking in gym clothes",
-  "tired man sitting on sofa",
-  "tired man sitting on sofa",
-  "father laughing at son",
-  "father laughing at son",
-  "father laughing at son"
+  "person waking up cold",
+  "smoke rising from electrical device",
+  "gas cylinder bottle shop",
+  "shopkeeper pointing price tag",
+  "man walking fast office suit"
  ],
  "sources": {
-  "pixabay": 4
+  "openverse": 1,
+  "pixabay": 5,
+  "commons": 2
  },
- "laughs": 3,
- "reel_minutes": 0.8,
- "time_utc": "2026-11-21 11:06",
- "title": "پہلا دن جم اور ابّا کا زبردست سرپرائز",
+ "laughs": 5,
+ "reel_minutes": 0.84,
+ "time_utc": "2026-11-21 13:36",
+ "title": "سردیوں میں بغیر نہائے ڈیوڈرنٹ کا غسل",
  "dry_run": false
 }
