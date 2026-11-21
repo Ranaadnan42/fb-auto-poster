@@ -1,33 +1,44 @@
 {
  "mode": "auto",
- "stock_clips": 13,
- "fallback_clips": 0,
+ "stock_clips": 7,
+ "fallback_clips": 1,
  "errors": [],
  "format": "people",
  "search_phrases": [
-  "online class viral video",
-  "owais mangal wala funny"
+  "first day at gym funny video",
+  "first day at gym funny shorts",
+  "first day at gym funny moments",
+  "first day at gym funny voice",
+  "first day at gym funny sound",
+  "1st day at gym funny",
+  "my first day at gym funny",
+  "my friend first day at gym funny",
+  "first day after gym funny",
+  "first day at gym comedy video",
+  "first day at gym stand up comedy",
+  "first day gym workout comedy"
  ],
  "funny_score": "3 -> 9",
- "search": "online class viral video",
- "reel_format": "news",
- "vision_checks": 113,
- "clips_rejected": 129,
- "sources": {
-  "commons": 2,
-  "pixabay": 5,
-  "openverse": 1
- },
+ "search": "first day at gym funny video",
+ "reel_format": "har_ghar",
+ "vision_checks": 175,
+ "clips_rejected": 168,
  "no_match": [
-  "angry mother shouting kitchen",
-  "angry mother shouting kitchen",
-  "teacher confused looking laptop",
-  "students laughing classroom laptop",
-  "teacher clapping hands smiling"
+  "man looking at gym weights",
+  "man looking at gym weights",
+  "man walking in gym clothes",
+  "tired man sitting on sofa",
+  "tired man sitting on sofa",
+  "father laughing at son",
+  "father laughing at son",
+  "father laughing at son"
  ],
- "laughs": 4,
- "reel_minutes": 0.86,
- "time_utc": "2026-11-21 07:07",
- "title": "آن لائن کلاس کا ان میوٹ مائیک اور امی کا دھنیا",
+ "sources": {
+  "pixabay": 4
+ },
+ "laughs": 3,
+ "reel_minutes": 0.8,
+ "time_utc": "2026-11-21 11:06",
+ "title": "پہلا دن جم اور ابّا کا زبردست سرپرائز",
  "dry_run": false
 }
