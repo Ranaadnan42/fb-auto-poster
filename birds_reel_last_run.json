@@ -1,29 +1,29 @@
 {
- "time_utc": "2026-11-20 19:47",
+ "time_utc": "2026-11-21 13:18",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
  "calls": [
   {
-   "file": "File:Aix sponsa - Wood Duck XC101287.mp3",
+   "file": "File:Cyanocitta cristata - Blue Jay XC108404.mp3",
    "license": "cc by-sa 3.0"
   }
  ],
  "bird_calls": 1,
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 31,
- "agent_checks": 40,
- "agent_rejects": 31,
+ "clips_rejected": 231,
+ "agent_checks": 234,
+ "agent_rejects": 226,
  "agent_skips": 0,
  "alt_searches": 6,
  "posted": {
-  "bird": "Wood duck",
+  "bird": "Blue jay",
   "theme": null,
-  "wiki": "Wood duck",
-  "date": "2026-11-20 19:47",
-  "title": "Why This Stunning Wood Duck Leaps From 50-Foot Trees!",
-  "dur": 72,
-  "post_id": "1108590241997689"
+  "wiki": "Blue jay",
+  "date": "2026-11-21 13:18",
+  "title": "The Secret Behind the Blue Jay's Stunning Sapphire Feathers",
+  "dur": 82,
+  "post_id": "1142268858775252"
  }
 }
