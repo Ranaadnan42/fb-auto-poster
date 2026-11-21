@@ -3,21 +3,28 @@
  "agent": "pets",
  "dry_run": false,
  "log": [
-  "Subject: Border Collie",
-  "photo commons wmi185442505 1920x1440: agent=True",
-  "--- caption ---\nIs the Border Collie really the most intelligent dog breed? 🐶🧠\n\nOriginating from the Anglo-Scottish border, this medium-sized herding dog is known as a skilled sheepdog and loyal companion.\n\nDo you think Border Collies are the smartest pets? Tag a dog lover!\n\nFollow Dogs & Cats World",
-  "Video tayyar - 37 minute intezar, post 12:37 UTC par hogi",
+  "Subject: Dachshund",
+  "photo commons wmi160312787 1536x2040: agent=False",
+  "photo commons wmi171742891 1920x1441: agent=False",
+  "photo commons wmi148576345 1920x1280: agent=False",
+  "photo commons wmi150087222 1920x2560: agent=False",
+  "photo commons wmi148495670 1920x1440: agent=False",
+  "photo commons wmi148495671 1920x1440: agent=False",
+  "photo commons wmi126383143 1920x306: agent=False",
+  "photo commons wmi131402230 1920x1080: agent=True",
+  "--- caption ---\nMeet the iconic Dachshund, the famous German 'badger dog'! 🐾🇩🇪\n\nThese short-legged, long-bodied hounds were bred to hunt badgers and rabbits. Known as the Dackel, they come in smooth, wire, or long-haired coats.\n\nDo you prefer the smooth, wire, or long-haired Dachshund? Tag a friend ",
+  "Video tayyar - 35 minute intezar, post 18:37 UTC par hogi",
   "Waqt ho gaya - post kar rahe hain",
   "photo story lagi",
-  "posted 1389149844290401_122102965341553453"
+  "posted 1389149844290401_122103197799553453"
  ],
  "errors": [],
  "posted": {
-  "subject": "Border Collie",
-  "photo": "wmi185442505",
+  "subject": "Dachshund",
+  "photo": "wmi131402230",
   "src": "commons",
-  "size": "1920x1440",
-  "date": "2026-11-21 11:59",
-  "post_id": "1389149844290401_122102965341553453"
+  "size": "1920x1080",
+  "date": "2026-11-21 18:01",
+  "post_id": "1389149844290401_122103197799553453"
  }
 }
