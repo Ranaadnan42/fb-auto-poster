@@ -3,24 +3,21 @@
  "agent": "wild",
  "dry_run": false,
  "log": [
-  "Subject: Tasmanian devil",
-  "photo commons wmi128825531 1920x1280: agent=False",
-  "photo commons wmi154514524 1536x2048: agent=False",
-  "photo commons wmi154515915 1920x1279: agent=False",
-  "photo commons wmi12262604 1920x1252: agent=True",
-  "--- caption ---\nMeet the world's largest carnivorous marsupial! 🐾👹\n\nExtinct on mainland Australia for 3,500 years, the Tasmanian devil is now only found in Tasmania. This unique creature is known for its black fur and one of the strongest bites in the world.\n\nWould you want to see this powerful mars",
-  "Video tayyar - 31 minute intezar, post 17:07 UTC par hogi",
+  "Subject: Short-beaked echidna",
+  "photo commons wmi176115637 1920x1280: agent=True",
+  "--- caption ---\nMeet the incredible egg-laying mammal with a lightning-fast tongue! 🥚💨\n\nThe short-beaked echidna is a unique monotreme covered in spines that uses powerful claws to burrow deep underground. This amazing wildlife species catches prey at high speeds and can survive with very low oxygen",
+  "Video tayyar - 35 minute intezar, post 11:07 UTC par hogi",
   "Waqt ho gaya - post kar rahe hain",
   "photo story lagi",
-  "posted 1501204066400712_122107318731546974"
+  "posted 1501204066400712_122107985325546974"
  ],
  "errors": [],
  "posted": {
-  "subject": "Tasmanian devil",
-  "photo": "wmi12262604",
+  "subject": "Short-beaked echidna",
+  "photo": "wmi176115637",
   "src": "commons",
-  "size": "1920x1252",
-  "date": "2026-11-20 16:35",
-  "post_id": "1501204066400712_122107318731546974"
+  "size": "1920x1280",
+  "date": "2026-11-21 10:31",
+  "post_id": "1501204066400712_122107985325546974"
  }
 }
