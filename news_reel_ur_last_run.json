@@ -1,22 +1,21 @@
 {
- "time_utc": "2026-11-20 12:40",
+ "time_utc": "2026-11-21 08:11",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-20 12:40",
+   "date": "2026-11-21 08:11",
    "kind": "reel",
    "lang": "ur",
-   "title": "جاپان اور سعودی عرب کے درمیان تیل ذخیرہ کرنے کا نیا معاہدہ",
-   "dur": 54,
-   "post_id": "1125327803720824"
+   "title": "امریکہ میں تارکین وطن سے کروڑوں کا فراڈ",
+   "dur": 65,
+   "post_id": "1961210491508472"
   }
  },
  "errors": [],
- "clips_rejected": 67,
- "agent_checks": 73,
- "agent_rejects": 67,
- "agent_skips": 0,
- "alt_searches": 2
+ "clips_rejected": 42,
+ "agent_checks": 51,
+ "agent_rejects": 42,
+ "agent_skips": 0
 }

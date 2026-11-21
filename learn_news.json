@@ -5,12 +5,12 @@
   "television screen broadcast": 1,
   "television broadcast mast tower": 2,
   "flags of United Kingdom and European Union": 1,
-  "European Commission building Brussels": 6,
+  "European Commission building Brussels": 3,
   "10 Downing Street London": 2,
   "LSE stock ticker": 1,
   "London street traffic": 1,
   "Palace of Westminster London": 4,
-  "Oil tanker ship": 1,
+  "Oil tanker ship": 3,
   "NHK building Tokyo": 2,
   "Saudi Arabia flag": 1,
   "Petroleum storage barrels": 1,
@@ -23,12 +23,21 @@
   "Broadcasting House London": 2,
   "grocery store shelves": 1,
   "Kohat city streets": 1,
-  "courtroom gavel judge": 2,
+  "courtroom gavel judge": 3,
   "Bayer headquarters Leverkusen": 2,
   "hospital patient healthcare": 2,
   "USD dollar banknotes": 1,
   "agricultural field spraying": 1,
-  "chef plating gourmet food": 1
+  "chef plating gourmet food": 1,
+  "US Capitol building": 1,
+  "US dollar banknotes": 1,
+  "prison bars": 1,
+  "American dollar bills": 1,
+  "prison cell interior": 1,
+  "handcuffs": 1,
+  "airport terminal": 2,
+  "Guinea flag": 1,
+  "Kaloum peninsula": 1
  },
  "bad": {
   "world news broadcast control room": 1,
@@ -135,7 +144,9 @@
   "avian rescue wildfire USA": 1,
   "delicatessen counter": 1,
   "commercial kitchen prep": 1,
-  "fine dining kitchen line": 1
+  "fine dining kitchen line": 1,
+  "Pakistan flag": 1,
+  "Grand Mosque Conakry": 1
  },
  "mistakes": []
 }
