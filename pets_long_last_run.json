@@ -1,8 +1,44 @@
 {
- "time_utc": "2026-11-20 10:22",
+ "time_utc": "2026-11-20 23:18",
  "mode": "long",
  "dry_run": false,
  "errors": [
-  "fatal: 'list' object has no attribute 'get'"
- ]
+  "fatal: sirf 23 sahi clips, 25 text cards - is topic ki video post nahi ki"
+ ],
+ "kind": "long",
+ "lang": "en",
+ "clips_rejected": 527,
+ "agent_checks": 218,
+ "agent_rejects": 209,
+ "agent_skips": 321,
+ "alt_searches": 22,
+ "no_match": [
+  "Maine Coon playing",
+  "Persian cat",
+  "Fluffy cat on couch",
+  "Persian cat",
+  "Persian cat",
+  "Kitten sleeping",
+  "Persian cat",
+  "Cat sitting on sofa with owner",
+  "Siamese kitten",
+  "Siamese cat",
+  "Siamese cat",
+  "Ragdoll cat",
+  "Ragdoll cat",
+  "Cat looking at camera",
+  "Ragdoll cat",
+  "Ragdoll cat",
+  "Scottish Fold cat",
+  "Fluffy cat on couch",
+  "Scottish Fold cat",
+  "Kitten sleeping",
+  "Scottish Fold cat",
+  "Norwegian Forest cat",
+  "Norwegian Forest cat",
+  "Norwegian Forest cat",
+  "Norwegian Forest cat"
+ ],
+ "headline_cards": 25,
+ "tag_pass": 14
 }
