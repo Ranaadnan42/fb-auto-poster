@@ -1,9 +1,8 @@
 {
- "time_utc": "2026-11-21 14:48",
+ "time_utc": "2026-11-21 15:51",
  "mode": "reel",
  "dry_run": false,
  "errors": [
   "fatal: 'list' object has no attribute 'get'"
- ],
- "country": "Iraq"
+ ]
 }
