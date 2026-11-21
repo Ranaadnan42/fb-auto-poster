@@ -1,30 +1,32 @@
 {
- "time_utc": "2026-11-20 00:28",
+ "time_utc": "2026-11-21 00:29",
  "mode": "long",
  "dry_run": false,
  "errors": [],
  "images": {
-  "rejected": 18,
-  "groq_checks": 1,
-  "pixabay": 11
+  "rejected": 51,
+  "groq_checks": 2,
+  "pixabay": 11,
+  "mixkit": 1
  },
  "posted": {
   "mode": "long",
-  "theme": "Jewel-Tone Winter Elegance",
+  "theme": "Midnight Garden Luxe",
   "designs": [
-   "Emerald Velvet Sharara Set",
    "No Outfit Visible",
-   "Sage Green Organza Anarkali",
-   "Burgundy Velvet Evening Gown",
+   "Black Silhouette Top",
+   "Sage Green Velvet Sharara",
+   "Emerald Georgette Evening Dress",
+   "Burgundy Floral Off-Shoulder Dress",
+   "Light Blue Workout Set",
    "No Outfit Present",
-   "Midnight Navy Silk Maxi Dress",
-   "Terracotta Embroidered Kaftan",
-   "Chocolate Brown Velvet Cocktail Dress",
-   "Champagne Gold Lawn Suit",
-   "Emerald Green Satin Gown",
-   "Sage Green Georgette Anarkali"
+   "Midnight Burgundy Velvet Gown",
+   "No Outfit Present",
+   "Sage Green Crepe Co‑ord Set",
+   "No Outfit Visible",
+   "Midnight Blue Maxi Dress"
   ],
-  "date": "2026-11-20 00:28",
-  "post_id": "2982660415449484"
+  "date": "2026-11-21 00:29",
+  "post_id": "1870145707332878"
  }
 }

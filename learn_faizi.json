@@ -30,7 +30,19 @@
   "woman emerald slip dress": 1,
   "woman burgundy silk gown": 1,
   "woman champagne satin co‑ord set": 1,
-  "woman midnight burgundy maxi dress": 1
+  "woman midnight burgundy maxi dress": 1,
+  "woman midnight navy anarkali": 1,
+  "woman maxi dress": 1,
+  "woman sage green sharara": 1,
+  "woman emerald georgette dress": 1,
+  "woman chocolate brown anarkali": 1,
+  "woman saffron silk dress": 1,
+  "woman lavender gharara": 1,
+  "woman burgundy velvet gown": 1,
+  "woman terracotta lawn suit": 1,
+  "woman sage green co‑ord": 1,
+  "woman champagne gold lehenga": 1,
+  "woman midnight navy cocktail dress": 1
  },
  "bad": {
   "silk anarkali dress": 1,
@@ -44,7 +56,11 @@
   "emerald sharara set": 1,
   "woman sage green anarkali": 1,
   "woman bridal lehenga": 1,
-  "woman navy velvet anarkali": 1
+  "woman navy velvet anarkali": 1,
+  "woman silk anarkali": 1,
+  "woman evening gown": 2,
+  "woman party dress": 1,
+  "woman champagne satin gown": 1
  },
  "mistakes": []
 }
