@@ -271,7 +271,8 @@
    "Snowy owl",
    "Bald eagle",
    "Northern cardinal",
-   "Indian peafowl"
+   "Indian peafowl",
+   "Great hornbill"
   ],
   "verified:Birds of the Galapagos Islands": [
    "Indian peafowl",
@@ -281,6 +282,15 @@
    "Emperor penguin",
    "Grey crowned crane",
    "Malachite kingfisher"
+  ],
+  "verified:Hornbills and Toucans": [
+   "Great hornbill",
+   "Hoopoe",
+   "Malachite kingfisher",
+   "Indian peafowl",
+   "Atlantic puffin",
+   "Secretarybird",
+   "Emperor penguin"
   ]
  },
  "more_birds": [],
@@ -868,6 +878,24 @@
    "theme": "Birds of the Galapagos Islands",
    "date": "2026-11-21 02:34",
    "skipped": "bemel clips 36/52"
+  },
+  {
+   "bird": null,
+   "theme": "Birds of North America",
+   "date": "2026-11-21 06:32",
+   "skipped": "bemel clips 16/38"
+  },
+  {
+   "bird": null,
+   "theme": "Birds of the Galapagos Islands",
+   "date": "2026-11-21 07:51",
+   "skipped": "bemel clips 45/63"
+  },
+  {
+   "bird": null,
+   "theme": "Hornbills and Toucans",
+   "date": "2026-11-21 09:43",
+   "skipped": "bemel clips 59/64"
   }
  ],
  "used_clips": [
@@ -11714,7 +11742,72 @@
   "px175000",
   "px44226",
   "px92718",
-  "px111647"
+  "px111647",
+  "wm124050928",
+  "px9805",
+  "mk2114",
+  "px126012",
+  "wm61619609",
+  "wm142161263",
+  "wm25758976",
+  "px99742",
+  "px245340",
+  "px39551",
+  "px47334",
+  "wm142134703",
+  "wm110334868",
+  "wm110334879",
+  "wm110334891",
+  "px112843",
+  "wm178366927",
+  "px291006",
+  "wm47131792",
+  "px304216",
+  "px227210",
+  "px275408",
+  "px36057",
+  "wm147501914",
+  "wm187907932",
+  "wm147002974",
+  "wm19793242",
+  "wm146974948",
+  "wm194415593",
+  "wm194197013",
+  "wm33309507",
+  "px79867",
+  "px221782",
+  "px224958",
+  "px4047",
+  "px224737",
+  "px80404",
+  "px117794",
+  "px117791",
+  "px65917",
+  "px76473",
+  "px63559",
+  "px1692",
+  "px147238",
+  "px160399",
+  "px149950",
+  "px146756",
+  "px145737",
+  "px161329",
+  "px147233",
+  "px147237",
+  "px147640",
+  "px137081",
+  "px32743",
+  "px297674",
+  "px92",
+  "wm40637375",
+  "wm188321200",
+  "wm183223541",
+  "wm33207335",
+  "wm33473296",
+  "wm129276339",
+  "wm201739361",
+  "wm97293062",
+  "wm33206966"
  ],
  "used_calls": [
   "File:MalePeacockCall.ogg",
@@ -11859,7 +11952,14 @@
   "File:Cardinalis cardinalis - Northern Cardinal XC77572.mp3",
   "File:Sheffield Indymedia - 2009-03-28 Free Software and Beyond - The World of Peer Production - 1 Tatiana Bazzichelli - The Art of Networking.vorb.oga",
   "File:PDP-CH - Herbert Janssen, Baritone - Coenraad van Bos, Pianoforte - An die Geliebte - Hugo Wolf - Hmv-db2705-2ra103.flac",
-  "File:Opanas Slastion - Plach Nevolnykiv 2.flac"
+  "File:Opanas Slastion - Plach Nevolnykiv 2.flac",
+  "File:Maryana Iskander self-narrated biography.ogg",
+  "File:Talk Nation Radio - 2011-03-15 Core Melt Suspected at Four Japan Nuclear Plants, Michael Mariotte of NIRS.vorb.oga",
+  "File:Audio Documentary of Maize from Farm to Plate.ogg",
+  "File:Negroeloquence 49 dunbarnelson.mp3",
+  "File:LibriVox - Sweet Ermengarde (Lovecraft).mp3",
+  "File:LS110175UpupaEpops.ogg",
+  "File:WWS Labellingmachine.ogg"
  ],
  "pic": [
   {
@@ -12018,6 +12118,8 @@
   "Andean cock-of-the-rock",
   "Victoria crowned pigeon",
   "Golden-headed quetzal",
-  "Turquoise-browed motmot"
+  "Turquoise-browed motmot",
+  "Northern cardinal",
+  "Harpy eagle"
  ]
 }
