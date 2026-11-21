@@ -2063,6 +2063,23 @@
     "trump"
    ],
    "post_id": "1357984777408020_122098853031558252"
+  },
+  {
+   "date": "2026-11-21 14:16",
+   "lang": "ur",
+   "topic": "canada_australia",
+   "link": "https://www.abc.net.au/news/2026-11-21/australia-win-t20-international-against-england-at-mcg/107413150",
+   "title": "Australia win thriller to snap England's T20I streak",
+   "words": [
+    "australia",
+    "england",
+    "snap",
+    "streak",
+    "t20i",
+    "thriller"
+   ],
+   "breaking": true,
+   "post_id": "1357984777408020_122099016327558252"
   }
  ],
  "sports": [
@@ -4113,6 +4130,25 @@
     "world"
    ],
    "post_id": "1465090056678690_122107570647548502"
+  },
+  {
+   "date": "2026-11-21 14:09",
+   "lang": "ur",
+   "topic": "football",
+   "link": "https://news.google.com/rss/articles/CBMioAFBVV95cUxPYmd0X1ExZjFVNUNveXZkOEVmbzBTRHFveEw2YWxZTGQxQ25yczF0eU5rMm9BWTJCSWJYTWJzQkw5ZHI3UVNyOUFocjhsajVCOWI1X1BiYXlPbktJNHdMaDQzYVA0NlpZU3hwTFV3T0tlUEF0azFCYXRrbmJFdnowVW1pU1pOZzU0Tmh3RWVhdVdVeVFtSk8tLU52S0RYa0RU?oc=5",
+   "title": "^^^([TOTAL SPORTEK]! Fulham v Man CityLive Free Soccer Football 2026",
+   "words": [
+    "2026",
+    "citylive",
+    "football",
+    "free",
+    "fulham",
+    "soccer",
+    "sportek",
+    "total"
+   ],
+   "breaking": true,
+   "post_id": "1465090056678690_122107731843548502"
   }
  ],
  "used_images": [
@@ -4247,6 +4283,7 @@
   "pxi836176",
   "wmi155221377",
   "pxi5200293",
-  1430490
+  1430490,
+  "pxi488718"
  ]
 }
