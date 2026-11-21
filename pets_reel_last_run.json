@@ -1,22 +1,23 @@
 {
- "time_utc": "2026-11-20 21:06",
+ "time_utc": "2026-11-21 14:42",
  "mode": "reel",
  "dry_run": false,
  "errors": [],
  "kind": "reel",
  "lang": "en",
- "clips_rejected": 16,
- "agent_checks": 28,
- "agent_rejects": 16,
+ "clips_rejected": 230,
+ "agent_checks": 243,
+ "agent_rejects": 228,
  "agent_skips": 0,
+ "alt_searches": 6,
  "posted": {
   "pet": "dog",
-  "breed": "Poodle",
+  "breed": "Pug",
   "theme": null,
-  "wiki": "Poodle",
-  "date": "2026-11-20 21:06",
-  "title": "Did You Know Poodles Were Circus Stars? Meet The Poodle!",
-  "dur": 62,
-  "post_id": "3074971499518128"
+  "wiki": "Pug",
+  "date": "2026-11-21 14:42",
+  "title": "The Royal Heroics and Heartwarming Charm of the Pug!",
+  "dur": 68,
+  "post_id": "1454609676799304"
  }
 }

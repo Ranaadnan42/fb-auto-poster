@@ -62,7 +62,16 @@
   "Border Collie dog running": 1,
   "Border Collie playing": 1,
   "Australian Shepherd": 1,
-  "German Shepherd puppy": 1
+  "German Shepherd puppy": 1,
+  "Munchkin cat": 1,
+  "Pug": 7,
+  "Pug dog looking at camera": 1,
+  "Pug dog standing": 1,
+  "Pug dog resting": 1,
+  "Pug dog close up": 1,
+  "Pug dog with owner": 1,
+  "Mops dog following owner": 1,
+  "Canis lupus familiaris Pug": 1
  },
  "bad": {
   "Golden retriever puppy": 3,
@@ -71,7 +80,7 @@
   "Golden Retriever": 13,
   "Golden Retriever playing": 19,
   "Golden Retriever puppy": 21,
-  "Canis lupus familiaris": 22,
+  "Canis lupus familiaris": 24,
   "Golden Retriever sleeping": 6,
   "Labrador puppy playing": 3,
   "Labrador Retriever": 9,
@@ -517,7 +526,7 @@
   "Wichianmat cat": 3,
   "Siamese cat body": 3,
   "Traditional Thai cat": 3,
-  "Himalayan cat": 3,
+  "Himalayan cat": 4,
   "Thai cat": 5,
   "Applehead Siamese": 3,
   "Person petting Siamese cat": 3,
@@ -709,7 +718,8 @@
   "Corgi puppy playing": 3,
   "Pembroke Corgi sleeping": 3,
   "Sheltie playing": 3,
-  "Red Heeler playing": 4
+  "Red Heeler playing": 4,
+  "Pug puppy playing": 5
  },
  "mistakes": []
 }
