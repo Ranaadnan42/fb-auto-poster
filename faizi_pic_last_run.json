@@ -1,19 +1,20 @@
 {
- "time_utc": "2026-11-20 18:17",
+ "time_utc": "2026-11-21 11:30",
  "mode": "pic",
  "dry_run": false,
  "errors": [],
  "images": {
-  "rejected": 11,
-  "commons": 1
+  "rejected": 2,
+  "groq_checks": 1,
+  "pixabay": 1
  },
  "posted": {
   "mode": "pic",
-  "theme": "Festive Fusion: Holiday Glam",
+  "theme": "Velvet & Gold Holiday Glam",
   "designs": [
-   "Sage Green Velvet Anarkali"
+   "Midnight Burgundy Velvet Anarkali"
   ],
-  "date": "2026-11-20 18:17",
-  "post_id": "1433458693190419_122100133377555703"
+  "date": "2026-11-21 11:30",
+  "post_id": "1433458693190419_122100698943555703"
  }
 }

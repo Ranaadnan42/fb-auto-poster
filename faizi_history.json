@@ -599,6 +599,10 @@
   {
    "name": "Midnight Blue Maxi Dress",
    "date": "2026-11-21 00:29"
+  },
+  {
+   "name": "Midnight Burgundy Velvet Anarkali",
+   "date": "2026-11-21 11:30"
   }
  ],
  "posts": [
@@ -958,6 +962,15 @@
    ],
    "date": "2026-11-21 00:29",
    "post_id": "1870145707332878"
+  },
+  {
+   "mode": "pic",
+   "theme": "Velvet & Gold Holiday Glam",
+   "designs": [
+    "Midnight Burgundy Velvet Anarkali"
+   ],
+   "date": "2026-11-21 11:30",
+   "post_id": "1433458693190419_122100698943555703"
   }
  ],
  "used": [
@@ -1003,6 +1016,7 @@
   "px26090",
   "px271161",
   "px204923",
-  "px146130"
+  "px146130",
+  "pxi8612696"
  ]
 }
