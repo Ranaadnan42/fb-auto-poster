@@ -1,11 +1,15 @@
 {
  "open_fixes": [],
- "time_utc": "2026-11-20 22:16",
- "summary": "Saare bots (Birds, Pets, Scenic, War, Frames) Gemini API quota khatam hone ki wajah se fail ho rahe hain. Yeh mere control mein nahi hai.",
+ "time_utc": "2026-11-21 11:27",
+ "summary": "Gemini quota khatam, bots ko naya plan ya token chahiye.",
  "notes": [],
  "actions": [],
  "edits": [],
  "needs_owner": [
-  "Gemini API quota exceeded. Please check billing/plan on Google AI Studio."
+  "Birds of the World (Bird Agent)",
+  "Dogs & Cats World (Pets Agent)",
+  "Wander Earth (Scenic Agent)",
+  "Battles Untold (War History Agent)",
+  "Wild Nations (Wildlife Agent)"
  ]
 }

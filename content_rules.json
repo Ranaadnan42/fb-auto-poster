@@ -1,110 +1,122 @@
 {
  "islamic": {
-  "avoid": [],
-  "try": [
-   "Prophet Yusuf's patience in prison (Quranic story)",
-   "The splitting of the moon miracle of Prophet Muhammad",
-   "Companion Bilal's perseverance during persecution",
-   "Umar's night charity during Ramadan (sadaqah)",
-   "The Prophet's kindness to his cat Muezza",
-   "Night dhikr story: Ayat al-Kursi saving a traveler"
+  "avoid": [
+   "Death, the grave and the hereafter",
+   "Rizq (provision) comes from Allah"
   ],
-  "note": "Page thodi repetitive hai, kai topics bar bar dohraye ja rahe hain."
+  "try": [
+   "The Prophet's kindness to animals: The story of the thirsty dog",
+   "Patience in hardship: The story of Prophet Ayyub's family support",
+   "Good character: How the Prophet treated his neighbors",
+   "Tawakkul in business: A modern application of the camel tying advice",
+   "Dhikr for anxiety: The power of 'La hawla wa la quwwata illa billah'",
+   "The virtue of silence: When the Prophet advised a Sahabi to keep quiet"
+  ],
+  "note": "Page is repetitive with themes like honesty, repentance, and tahajjud appearing multiple times in the last 30 posts."
  },
  "funny": {
   "avoid": [
-   "remote control fight",
-   "lost TV remote",
-   "Eid shopping",
-   "online shopping",
-   "salary day",
-   "pigeon / kabootar baazi",
-   "rickshaw / Careem bargaining",
-   "family WhatsApp group forwards"
+   "Remote control fights",
+   "Majid Break rickshaw series",
+   "Ustad Nasir WhatsApp series",
+   "Plumber delays",
+   "Pigeon/Kabootar baazi",
+   "Ammi ki chappal/scolding",
+   "Online shopping/Eid shopping"
   ],
   "try": [
-   "electricity outage during a family dinner",
-   "smartphone app causing confusion in family",
-   "microwave cooking mishap during biryani preparation",
-   "neighbor's new baby causing chaos",
-   "online grocery delivery delay causing panic",
-   "family's treadmill mishap during home workout"
+   "Load shedding aur UPS ki cheekhain",
+   "Darzi ke jhootay waaday",
+   "Mehmanon ke liye chupaaye huay biscuits",
+   "Shadi ka khana aur plate bharne ki race",
+   "Gas cylinder khatam hone ka dukh",
+   "Public bus mein seat pakarne ke tareeqay"
   ],
-  "note": "Page ka content thoda repetitive lag raha hai."
+  "note": "Page thora repetitive ho raha hai, khaas tor par chat dramas aur purani series mein, naye topics ki zaroorat hai."
  },
  "world": {
   "avoid": [
-   "Retiring in",
-   "Japan"
+   "What Nobody Tells You",
+   "Japan",
+   "Australia",
+   "Spain",
+   "Miami",
+   "Mexico",
+   "Dubai"
   ],
   "try": [
-   "Living in Iceland – Cost of Living, Jobs, Safety & Lifestyle",
-   "Retiring in Belize – What Nobody Tells You About Living Here",
-   "What Nobody Tells You About Living in New Zealand's South Island",
-   "Moving to Uruguay – Cost of Living, Safety & Culture",
-   "What Living in Kenya Is Really Like (Cost, Jobs & Quality)",
-   "Dubai vs UAE – Cost, Culture, Safety & Lifestyle Explained"
+   "Living in Switzerland: High Salaries vs Reality",
+   "The Truth About Moving to Bali, Indonesia",
+   "Why Expats are Flocking to Medellin, Colombia",
+   "Berlin: Life in Germany's Most Dynamic City",
+   "The Reality of Living in Athens, Greece",
+   "What Life is Actually Like in Reykjavik, Iceland"
   ],
-  "note": "Page bohat repetitive hai."
+  "note": "Content thora repetitive ho raha hai titles mein, naye mulk aur fresh wording ki zaroorat hai."
  },
  "world_short": {
   "avoid": [
-   "Kenya",
-   "South Korea",
+   "Kenya or Nairobi",
+   "South Korea or Seoul",
    "Australia",
-   "Would You Live in..."
+   "United Kingdom (London, England, Scotland)",
+   "USA (Chicago, Austin, Los Angeles)",
+   "5 Secret Places title wording"
   ],
   "try": [
-   "Japan (excluding Kyoto)",
-   "France",
-   "Brazil",
-   "Vietnam",
-   "Scotland",
-   "Iceland"
+   "Traditional Food of Vietnam: 5 Must-Try Dishes",
+   "6 Surprising Facts About Norway You Didn't Know",
+   "Secret Places in Brazil Tourists Never See",
+   "Germany vs France: Wages vs Cost of Living Revealed",
+   "Would You Live in Bali, Indonesia? Real Cost & Pros",
+   "What Nobody Tells You About Visiting Cairo, Egypt"
   ],
-  "note": "Page thori repetitive hogayi hai kyunki last posts mein repeated countries aur cost of living formats bar bar aa rahe hain."
+  "note": "Page ke formats kaafi repetitive hain, naye countries aur fresh title styles ki zaroorat hai."
  },
  "frames": {
   "avoid": [
-   "Dubai",
+   "Japan",
    "United Kingdom",
-   "Turkey",
+   "Dubai",
    "Canada",
    "Germany",
-   "Japan"
+   "Turkey",
+   "Australia"
   ],
   "try": [
-   "South Africa mein Pakistaniyon ki zindagi aur karobar",
-   "South Korea mein taleem aur scholarships ka mukammal tarika",
-   "Thailand ka safar aur Pakistani tourists ke liye sahulatein",
-   "Mauritius mein job aur visa ki haqeeqat",
-   "Oman mein mazdoor aur professionals ki monthly income",
-   "Brazil ki sair aur wahan rehne wale Pakistaniyon ki kahaniyan"
+   "Switzerland mein Pakistaniyon ki zindagi aur naukri",
+   "Finland ka education system aur student visa guide",
+   "Thailand tour guide: Pakistaniyon ke liye sasta aur behtareen safar",
+   "Oman mein kaam karne ke mawaqe aur salary ki haqeeqat",
+   "Poland vs Hungary: Pakistaniyon ke liye behtar European mulk kaunsa hai?",
+   "Estonia: Digital Nomad Visa aur IT professionals ke liye mawaqe"
   ],
-  "note": "Page kuch had tak countries aur visa guides ko bar bar repeat kar raha hai, naye mulk try karne ki zarurat hai."
+  "note": "Page ka content kaafi diverse hai lekin bar bar wahi mashhoor mulk repeat ho rahe hain, naye destinations ki zaroorat hai."
  },
  "frames_short": {
   "avoid": [
-   "Portugal",
+   "Portugal (Lisbon/Porto)",
    "South Korea",
-   "United Kingdom"
+   "United Kingdom (London/Scotland)",
+   "6 Hairan Kun Haqaiq title wording",
+   "Japan"
   ],
   "try": [
-   "Norway / Oslo",
-   "New Zealand / Auckland",
-   "Vietnam / Hanoi",
-   "Turkey / Istanbul",
-   "Spain / Barcelona",
-   "Malaysia / Kuala Lumpur"
+   "Norway (Oslo) ki life aur salary",
+   "Vietnam mein sasti zindagi aur tourism",
+   "Ireland mein jobs aur visa ka tarika",
+   "New Zealand ke 5 khubsurat maqamat",
+   "Morocco (Marrakech) ke mashhoor khane",
+   "Singapore ke sakht qawaneen aur kamai"
   ],
-  "note": "Page thori repetitive ho rahi hai kyunkay pichlay posts mein baar baar Europe aur comparisons par focus kiya gaya hai."
+  "note": "Content variety achi hai lekin 'vs' comparisons aur 'kharcha' wali videos kaafi repeat ho rahi hain."
  },
  "_platforms": {
   "islamic": {
    "posts": 10,
    "facebook": 6,
    "youtube": 10,
-   "tiktok": 5
+   "tiktok": 6
   },
   "funny": {
    "posts": 10,
