@@ -1,34 +1,12 @@
 {
  "mode": "auto",
- "stock_clips": 9,
- "fallback_clips": 1,
+ "stock_clips": 0,
+ "fallback_clips": 0,
  "errors": [],
- "format": "people",
- "search_phrases": [
-  "gas load shedding timing",
-  "gas load shedding",
-  "gas ki load shedding"
- ],
- "funny_score": "3 -> 9",
- "search": "gas ki load shedding",
- "reel_format": "pov",
- "vision_checks": 194,
- "clips_rejected": 185,
- "no_match": [
-  "person waking up cold",
-  "smoke rising from electrical device",
-  "gas cylinder bottle shop",
-  "shopkeeper pointing price tag",
-  "man walking fast office suit"
- ],
- "sources": {
-  "openverse": 1,
-  "pixabay": 5,
-  "commons": 2
- },
- "laughs": 5,
- "reel_minutes": 0.84,
- "time_utc": "2026-11-21 13:36",
- "title": "سردیوں میں بغیر نہائے ڈیوڈرنٹ کا غسل",
+ "format": "chat",
+ "reel_minutes": 1.61,
+ "laughs": 3,
+ "time_utc": "2026-11-21 16:04",
+ "title": "لانڈری ڈے کا عذاب اور ابّو کا غصہ",
  "dry_run": false
 }
