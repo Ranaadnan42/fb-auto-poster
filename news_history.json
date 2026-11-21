@@ -1972,6 +1972,25 @@
    ],
    "breaking": true,
    "post_id": "1448208791702551_122112206181532804"
+  },
+  {
+   "date": "2026-11-21 02:02",
+   "lang": "ur",
+   "topic": "africa",
+   "link": "https://www.bbc.co.uk/news/articles/c6074k5jjrzko?at_medium=RSS&at_campaign=rss",
+   "title": "More climate money for Africa? Europe says use what's already pledged",
+   "words": [
+    "africa",
+    "already",
+    "climate",
+    "europe",
+    "money",
+    "more",
+    "pledged",
+    "says",
+    "what"
+   ],
+   "post_id": "1357984777408020_122098598235558252"
   }
  ],
  "sports": [
@@ -3929,6 +3948,27 @@
    ],
    "breaking": true,
    "post_id": "1465090056678690_122107102173548502"
+  },
+  {
+   "date": "2026-11-21 01:59",
+   "lang": "ur",
+   "topic": "winter_sports",
+   "link": "https://news.google.com/rss/articles/CBMiqwFBVV95cUxOSGN1MlhyelNYemFNLTVRYkhBNXhfUzBqcnZkNVR3LU1KR1dLU0FRakFrNGVrUW5NWmVPbzJvaEN3SVdrMVlYbFpxTXlkNkFzV1RJLVF5STNlYjE1VlhkUDZWTWxQRUoyVjlCVnhQNWR5U2czUm85MWFHYTMwTU56N2tCNHpIZFdTOGJzZDVEQXBCeXg5U19sU2J3YmZsX25QRFVEYng5ZWFKSGM?oc=5",
+   "title": "Grand Prix Finland: Mao Shimada tops short program, looks to extend Japan’s streak",
+   "words": [
+    "extend",
+    "finland",
+    "grand",
+    "japan",
+    "looks",
+    "prix",
+    "program",
+    "shimada",
+    "short",
+    "streak",
+    "tops"
+   ],
+   "post_id": "1465090056678690_122107295643548502"
   }
  ],
  "used_images": [
@@ -4059,6 +4099,8 @@
   451581,
   8111390,
   3037635,
-  1335770
+  1335770,
+  "pxi836176",
+  "wmi155221377"
  ]
 }
