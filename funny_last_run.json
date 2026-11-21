@@ -1,12 +1,33 @@
 {
  "mode": "auto",
- "stock_clips": 0,
+ "stock_clips": 13,
  "fallback_clips": 0,
  "errors": [],
- "format": "chat",
- "long_minutes": 7.2,
- "laughs": 17,
- "time_utc": "2026-11-20 22:06",
- "title": "پاکستانی گھرانوں کی پانچ شاہکار واٹس ایپ جنگیں",
+ "format": "people",
+ "search_phrases": [
+  "online class viral video",
+  "owais mangal wala funny"
+ ],
+ "funny_score": "3 -> 9",
+ "search": "online class viral video",
+ "reel_format": "news",
+ "vision_checks": 113,
+ "clips_rejected": 129,
+ "sources": {
+  "commons": 2,
+  "pixabay": 5,
+  "openverse": 1
+ },
+ "no_match": [
+  "angry mother shouting kitchen",
+  "angry mother shouting kitchen",
+  "teacher confused looking laptop",
+  "students laughing classroom laptop",
+  "teacher clapping hands smiling"
+ ],
+ "laughs": 4,
+ "reel_minutes": 0.86,
+ "time_utc": "2026-11-21 07:07",
+ "title": "آن لائن کلاس کا ان میوٹ مائیک اور امی کا دھنیا",
  "dry_run": false
 }
