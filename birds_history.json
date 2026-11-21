@@ -1,5 +1,5 @@
 {
- "long_i": 21,
+ "long_i": 23,
  "theme_birds": {
   "The Most Colorful Birds on Earth": [
    "Scarlet macaw",
@@ -244,6 +244,24 @@
    "European bee-eater",
    "Indian peafowl",
    "Great hornbill",
+   "Secretarybird"
+  ],
+  "verified:Birds of Madagascar": [
+   "Secretarybird",
+   "Grey crowned crane",
+   "Malachite kingfisher",
+   "Hoopoe",
+   "Indian peafowl",
+   "Great hornbill",
+   "Atlantic puffin"
+  ],
+  "verified:Birds of Japan": [
+   "Red-crowned crane",
+   "Mandarin duck",
+   "Common kingfisher",
+   "Indian peafowl",
+   "Great hornbill",
+   "Atlantic puffin",
    "Secretarybird"
   ]
  },
@@ -808,6 +826,18 @@
    "theme": "Birds of the Himalayas",
    "date": "2026-11-20 09:51",
    "skipped": "bemel clips 23/34"
+  },
+  {
+   "bird": null,
+   "theme": "Birds of Madagascar",
+   "date": "2026-11-20 21:51",
+   "skipped": "bemel clips 10/33"
+  },
+  {
+   "bird": null,
+   "theme": "Birds of Japan",
+   "date": "2026-11-20 23:03",
+   "skipped": "bemel clips 21/33"
   }
  ],
  "used_clips": [
@@ -11382,7 +11412,83 @@
   "wm29094958",
   "wm69818902",
   "wm142161542",
-  "wm129750532"
+  "wm129750532",
+  "px290846",
+  "wm71212155",
+  "wm71742706",
+  "px286336",
+  "px313584",
+  "px37363",
+  "px111518",
+  "px275396",
+  "px205046",
+  "px372240",
+  "px283142",
+  "wm71767943",
+  "wm71757961",
+  "px369739",
+  "wm33207671",
+  "px3028",
+  "wm33207997",
+  "wm33472811",
+  "wm33544812",
+  "px247504",
+  "px56985",
+  "px216761",
+  "px25102",
+  "px151961",
+  "wm141772581",
+  "px181168",
+  "wm71757935",
+  "wm71211537",
+  "wm71758055",
+  "px9819",
+  "px280011",
+  "px287494",
+  "wm71758019",
+  "wm71758420",
+  "wm71743265",
+  "px287146",
+  "px1102",
+  "px26934",
+  "px748",
+  "px268408",
+  "px37220",
+  "px153367",
+  "px174310",
+  "px189042",
+  "px56282",
+  "px46012",
+  "px171688",
+  "px203901",
+  "px115918",
+  "px10347",
+  "wm187798496",
+  "wm147470551",
+  "px39550",
+  "px115922",
+  "wm71757880",
+  "wm71743272",
+  "wm71768887",
+  "wm71758193",
+  "wm71768178",
+  "wm71760321",
+  "wm71760349",
+  "px284659",
+  "px284655",
+  "px35569",
+  "px13184",
+  "px3316",
+  "px13182",
+  "px24070",
+  "px17320",
+  "px47697",
+  "wm37363577",
+  "wm200828029",
+  "wm194196937",
+  "px39554",
+  "wm33210807",
+  "px158256"
  ],
  "used_calls": [
   "File:MalePeacockCall.ogg",
@@ -11514,7 +11620,12 @@
   "File:Vivaldi - Credo - 2. Et Incarnatus Est.ogg",
   "File:Bijeneter - SoundCloud - Beeld en Geluid.ogg",
   "File:Peregrine falcon call recorded in February 2010 at Yana, Karnataka.wav",
-  "File:Aix sponsa - Wood Duck XC101287.mp3"
+  "File:Aix sponsa - Wood Duck XC101287.mp3",
+  "File:Nerea Sanfe - voice - ca.mp3",
+  "File:Upupa africana - African Hoopoe XC601892.mp3",
+  "File:Epithet Erased - Great at Crime (OFFICIAL INSTRUMENTAL) - The Musical Ghost (128k).ogg",
+  "File:Amelie Fried im Interview bei Thorsten Otto auf der Blauen Couch.webm",
+  "File:Andreas Englisch auf der Blauen Couch bei Gabi Fischer.webm"
  ],
  "pic": [
   {
@@ -11653,6 +11764,9 @@
   "Golden pheasant",
   "Himalayan monal",
   "Rose-ringed parakeet",
-  "Lady Amherst's pheasant"
+  "Lady Amherst's pheasant",
+  "Lilac-breasted roller",
+  "Violet-backed starling",
+  "Great blue turaco"
  ]
 }

@@ -1,57 +1,51 @@
 {
- "time_utc": "2026-11-20 09:51",
+ "time_utc": "2026-11-20 23:03",
  "mode": "long",
  "dry_run": false,
  "errors": [
-  "fatal: sirf 11 sahi clips, 23 text cards - is topic ki video post nahi ki"
+  "fatal: sirf 12 sahi clips, 21 text cards - is topic ki video post nahi ki"
  ],
  "calls": [
   {
-   "file": "File:Oregon Matters of State- Data Analytics & Auditing.opus",
+   "file": "File:Amelie Fried im Interview bei Thorsten Otto auf der Blauen Couch.webm",
    "license": "cc by 3.0"
   },
   {
-   "file": "File:Phoeniculus purpureus - Green Wood Hoopoe XC610940.mp3",
-   "license": "cc by-sa 4.0"
-  },
-  {
-   "file": "File:Vivaldi - Credo - 2. Et Incarnatus Est.ogg",
-   "license": "cc by-sa 2.0"
+   "file": "File:Andreas Englisch auf der Blauen Couch bei Gabi Fischer.webm",
+   "license": "cc by 3.0"
   }
  ],
- "bird_calls": 3,
+ "bird_calls": 2,
  "kind": "long",
  "lang": "en",
- "clips_rejected": 230,
- "alt_searches": 28,
- "agent_checks": 223,
- "agent_rejects": 212,
- "agent_skips": 19,
+ "agent_checks": 166,
+ "agent_rejects": 156,
+ "agent_skips": 123,
+ "clips_rejected": 279,
+ "alt_searches": 24,
  "no_match": [
-  "Himalayas forest",
-  "Peafowl",
-  "Peafowl on ground",
-  "Peafowl",
-  "Peafowl feathers",
-  "Peafowl courtship display",
-  "Peafowl foraging",
-  "Hornbill",
-  "Hornbill perched",
-  "Hornbill in tree",
-  "Hornbill eating fruit",
-  "Hoopoe",
-  "Hoopoe crested feathers",
-  "Hoopoe on branch",
-  "Hoopoe foraging ground",
+  "Red-crowned crane",
+  "Red-crowned crane",
+  "Red-crowned crane",
+  "Red-crowned crane",
+  "Common kingfisher",
+  "Common kingfisher bird",
+  "Alcedo atthis",
+  "Common kingfisher",
+  "Peacock",
+  "World Birds bird",
+  "World Birds bird",
+  "World Birds bird",
+  "World Birds bird",
   "Atlantic puffin",
-  "Atlantic puffin head close up",
-  "Atlantic puffin swimming",
-  "Atlantic puffin cliff",
-  "Secretary bird",
-  "Secretary bird head",
-  "Secretary bird hunting",
-  "Secretary bird savanna"
+  "Atlantic puffin",
+  "Atlantic puffin",
+  "Atlantic puffin",
+  "Sagittarius serpentarius",
+  "Sagittarius serpentarius",
+  "Sagittarius serpentarius",
+  "Sagittarius serpentarius"
  ],
- "headline_cards": 23,
+ "headline_cards": 21,
  "tag_pass": 2
 }
