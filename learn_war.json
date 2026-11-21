@@ -55,7 +55,11 @@
   "Battle of Baghdad 2015 archive": 1,
   "Mosul Iraq archive footage": 1,
   "Mosul Iraq 2014 archive": 1,
-  "Liberation of Iraq archive": 1
+  "Liberation of Iraq archive": 1,
+  "Battle of Iwo Jima 1945": 1,
+  "Iwo Jima, Volcano Islands, Japan": 1,
+  "Iwo Jima Volcano Islands Japan": 1,
+  "Iwo Jima memorial": 1
  },
  "bad": {
   "WWI map of global fronts": 2,
@@ -158,11 +162,11 @@
   "Omaha Beach June 1944": 2,
   "Allied landing craft WWII": 2,
   "Battle of Normandy 1944 newsreel": 1,
-  "World War II archive footage": 21,
+  "World War II archive footage": 23,
   "War cemetery memorial": 2,
   "Global battlefield": 18,
   "Global": 9,
-  "World War II memorial": 14,
+  "World War II memorial": 16,
   "Global fort": 14,
   "World War II global map": 2,
   "Archive footage of soldiers marching": 2,
@@ -1066,7 +1070,12 @@
   "Iraq War memorial today": 2,
   "Operation Iraqi Freedom monument": 2,
   "Baghdad war memorial archive": 2,
-  "Tomb of the Unknown Soldier Iraq": 2
+  "Tomb of the Unknown Soldier Iraq": 2,
+  "Battle of Iwo Jima archive footage": 7,
+  "Battle of Iwo Jima newsreel": 2,
+  "Iwo Jima, Volcano Islands, Japan battlefield": 5,
+  "Battle of Iwo Jima memorial": 4,
+  "Iwo Jima, Volcano Islands, Japan fort": 4
  },
  "mistakes": [
   "'World War I': only 2/9 scenes had real footage - the narration talked about things that were never filmed",
@@ -1115,6 +1124,7 @@
   "'Iran–Iraq War': only 1/9 scenes had real footage - the narration talked about things that were never filmed",
   "'Gothic Line': only 0/9 scenes had real footage - the narration talked about things that were never filmed",
   "'Invasion of Kuwait': only 0/9 scenes had real footage - the narration talked about things that were never filmed",
-  "'War in Iraq (2013–2017)': only 1/9 scenes had real footage - the narration talked about things that were never filmed"
+  "'War in Iraq (2013–2017)': only 1/9 scenes had real footage - the narration talked about things that were never filmed",
+  "'Battle of Iwo Jima': only 3/9 scenes had real footage - the narration talked about things that were never filmed"
  ]
 }
