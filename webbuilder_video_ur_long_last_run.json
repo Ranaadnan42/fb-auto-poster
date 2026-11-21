@@ -1,17 +1,15 @@
 {
- "time_utc": "2026-11-20 17:25",
- "spotlight": "travel agency",
- "post_id": "1814862043150162",
+ "time_utc": "2026-11-21 16:32",
+ "spotlight": "hardware store",
+ "post_id": "1476757794546621",
  "error": null,
  "lang": "ur",
  "kind": "long",
- "clips": 1,
+ "clips": 0,
  "fallback": 0,
- "errors": [
-  "script: 'list' object has no attribute 'get'"
- ],
- "real_work": 7,
- "real_pos": 3,
- "mock": 3,
- "seconds": 91.3
+ "errors": [],
+ "real_work": 8,
+ "real_pos": 2,
+ "mock": 5,
+ "seconds": 102.9
 }
