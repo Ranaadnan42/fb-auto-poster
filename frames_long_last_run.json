@@ -1,34 +1,25 @@
 {
  "mode": "long",
- "clips": 66,
- "clips_rejected": 445,
- "vision_checks": 477,
+ "clips": 39,
+ "clips_rejected": 446,
+ "vision_checks": 461,
  "errors": [],
  "search_phrases": [
-  "sabse sasta mulk",
-  "sasta visa",
-  "best countries for pakistani students",
-  "best countries for pakistani to work",
-  "best country for pakistani workers",
-  "best country for pakistani doctors",
-  "best country for pakistani immigrants",
-  "best european country for pakistani students",
-  "best europe country for pakistani",
-  "best countries to study for pakistani students",
-  "best countries for mbbs for pakistani students"
+  "کراچی شہر کی سیر",
+  "لاہور شہر کی سیر",
+  "دمشق شہر کی سیر",
+  "ملتان شہر کی سیر",
+  "pompeii city documentary in urdu"
  ],
- "search": "best country for pakistani doctors",
- "script_words": 1026,
- "alt_searches": 9,
- "photos": 9,
- "vision_waits": 4,
- "seconds": 418.9,
+ "script_words": 494,
+ "alt_searches": 16,
+ "photos": 11,
+ "seconds": 211.2,
  "links": [
-  "https://www.evisa.gov.tr",
   "https://beoe.gov.pk",
   "https://oec.gov.pk"
  ],
- "subject": "Turkey – Best country for Pakistani doctors",
- "series": "pk_best_list",
- "title": "ترکی میں پاکستانی ڈاکٹروں کی آمدنی اور زندگی | Turkey for Doctors"
+ "subject": "Estonia",
+ "series": "pk_city",
+ "title": "تالین میں زندگی کی جھلک | Life in Tallinn"
 }
