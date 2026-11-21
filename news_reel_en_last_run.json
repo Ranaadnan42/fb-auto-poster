@@ -1,22 +1,22 @@
 {
- "time_utc": "2026-11-21 08:30",
+ "time_utc": "2026-11-21 13:12",
  "kind": "reel",
  "lang": "en",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-21 08:30",
+   "date": "2026-11-21 13:12",
    "kind": "reel",
    "lang": "en",
-   "title": "Guinea Bans Broadcaster Amid Rising West African Tensions",
-   "dur": 36,
-   "post_id": "2145256992768980"
+   "title": "GTA 6 Hits $3.8bn in Record-Breaking Launch",
+   "dur": 48,
+   "post_id": "1178418244723485"
   }
  },
  "errors": [],
- "clips_rejected": 68,
- "agent_checks": 71,
- "agent_rejects": 66,
+ "clips_rejected": 276,
+ "agent_checks": 255,
+ "agent_rejects": 249,
  "agent_skips": 0,
- "alt_searches": 1
+ "alt_searches": 3
 }

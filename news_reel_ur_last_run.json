@@ -1,21 +1,22 @@
 {
- "time_utc": "2026-11-21 08:11",
+ "time_utc": "2026-11-21 12:48",
  "kind": "reel",
  "lang": "ur",
  "dry_run": false,
  "posted": {
   "news": {
-   "date": "2026-11-21 08:11",
+   "date": "2026-11-21 12:48",
    "kind": "reel",
    "lang": "ur",
-   "title": "امریکہ میں تارکین وطن سے کروڑوں کا فراڈ",
+   "title": "Khadooom Launches Arabic First Home Services in Saudi Arabia",
    "dur": 65,
-   "post_id": "1961210491508472"
+   "post_id": "1147766767625207"
   }
  },
  "errors": [],
- "clips_rejected": 42,
- "agent_checks": 51,
- "agent_rejects": 42,
- "agent_skips": 0
+ "clips_rejected": 93,
+ "agent_checks": 97,
+ "agent_rejects": 90,
+ "agent_skips": 0,
+ "alt_searches": 3
 }
